@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.Factory_Flow
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object FlowStatusDeterminer_supervisorProcess_flowStatusDeterminer {
+
+  def initialise(api: FlowStatusDeterminer_Initialization_Api): Unit = {
+    Contract(Modifies(api), Ensures(
+      // BEGIN INITIALIZES ENSURES
+        // guarantee SafeStatusInitialization
+        T
+        // END INITIALIZES ENSURES
+    ))
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_flowStatus(Factory_Flow.ProductionFlowStatus.Idle)
+  }
+
+  def timeTriggered(api: FlowStatusDeterminer_Operational_Api): Unit = { }
+
+  def finalise(api: FlowStatusDeterminer_Operational_Api): Unit = { }
+}

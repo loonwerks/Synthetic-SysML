@@ -1,0 +1,3334 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "1a4cb0d0296ebe42b7b525f88eb330dda0cfdc2ed36398b51cd031ec104eb8da",
+  "bounded_analysis_claim_boundary": "Exhaustive only over the finite abstract root-input and retained-state domains declared by SA-VEH-MED-01; not compositional or unbounded proof, code execution, physical validation, reliability evidence, or certification.",
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "from": "root.request_levels",
+      "to": "request_priority_owner.request_levels",
+      "payload": "RequestLevels"
+    },
+    {
+      "id": "INT-02",
+      "from": "root.brake_observation",
+      "to": "brake_qualification_owner.brake_observation",
+      "payload": "BrakeObservation"
+    },
+    {
+      "id": "INT-03",
+      "from": "root.health_observation",
+      "to": "health_qualification_owner.health_observation",
+      "payload": "HealthObservation"
+    },
+    {
+      "id": "INT-04",
+      "from": "root.power_observation",
+      "to": "power_qualification_owner.power_observation",
+      "payload": "PowerObservation"
+    },
+    {
+      "id": "INT-05",
+      "from": "root.self_test_observation",
+      "to": "self_test_cycle_owner.self_test_observation",
+      "payload": "SelfTestObservation"
+    },
+    {
+      "id": "INT-06",
+      "from": "request_priority_owner.request_to_authorization",
+      "to": "start_authorization_owner.request_facts",
+      "payload": "RequestFacts"
+    },
+    {
+      "id": "INT-07",
+      "from": "request_priority_owner.request_to_lifecycle",
+      "to": "lifecycle_recovery_owner.request_facts",
+      "payload": "RequestFacts"
+    },
+    {
+      "id": "INT-08",
+      "from": "brake_qualification_owner.brake_to_authorization",
+      "to": "start_authorization_owner.brake_facts",
+      "payload": "BrakeFacts"
+    },
+    {
+      "id": "INT-09",
+      "from": "brake_qualification_owner.brake_to_lifecycle",
+      "to": "lifecycle_recovery_owner.brake_facts",
+      "payload": "BrakeFacts"
+    },
+    {
+      "id": "INT-10",
+      "from": "health_qualification_owner.health_to_authorization",
+      "to": "start_authorization_owner.health_qualification",
+      "payload": "HealthQualification"
+    },
+    {
+      "id": "INT-11",
+      "from": "health_qualification_owner.health_to_lifecycle",
+      "to": "lifecycle_recovery_owner.health_qualification",
+      "payload": "HealthQualification"
+    },
+    {
+      "id": "INT-12",
+      "from": "power_qualification_owner.power_to_authorization",
+      "to": "start_authorization_owner.power_facts",
+      "payload": "PowerFacts"
+    },
+    {
+      "id": "INT-13",
+      "from": "power_qualification_owner.power_to_lifecycle",
+      "to": "lifecycle_recovery_owner.power_facts",
+      "payload": "PowerFacts"
+    },
+    {
+      "id": "INT-14",
+      "from": "self_test_cycle_owner.cycle_assessment",
+      "to": "lifecycle_recovery_owner.cycle_assessment",
+      "payload": "CycleAssessment"
+    },
+    {
+      "id": "INT-15",
+      "from": "start_authorization_owner.authorization_to_lifecycle",
+      "to": "lifecycle_recovery_owner.authorization",
+      "payload": "StartAuthorizationFacts"
+    },
+    {
+      "id": "INT-16",
+      "from": "start_authorization_owner.authorization_to_outcome",
+      "to": "coordinated_outcome_owner.authorization",
+      "payload": "StartAuthorizationFacts"
+    },
+    {
+      "id": "INT-17",
+      "from": "lifecycle_recovery_owner.test_cycle_directive",
+      "to": "self_test_cycle_owner.test_cycle_directive",
+      "payload": "TestCycleDirective"
+    },
+    {
+      "id": "INT-18",
+      "from": "lifecycle_recovery_owner.applied_lifecycle",
+      "to": "coordinated_outcome_owner.applied_lifecycle",
+      "payload": "AppliedLifecycleSnapshot"
+    },
+    {
+      "id": "INT-19",
+      "from": "coordinated_outcome_owner.control_frame",
+      "to": "root.control_frame",
+      "payload": "ControlFrame"
+    }
+  ],
+  "analyzer_trace_map": [
+    {
+      "relation": "requestOwner",
+      "trace_ids": [
+        "PART-01",
+        "STATE-01",
+        "POL-01"
+      ]
+    },
+    {
+      "relation": "brakeOwner",
+      "trace_ids": [
+        "PART-02",
+        "TYPE-02"
+      ]
+    },
+    {
+      "relation": "healthOwner",
+      "trace_ids": [
+        "PART-03",
+        "TYPE-03"
+      ]
+    },
+    {
+      "relation": "powerOwner",
+      "trace_ids": [
+        "PART-04",
+        "TYPE-04"
+      ]
+    },
+    {
+      "relation": "cycleAssessment/cycleStore",
+      "trace_ids": [
+        "PART-05",
+        "STATE-02",
+        "STATE-03"
+      ]
+    },
+    {
+      "relation": "authorizationOwner",
+      "trace_ids": [
+        "PART-06",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05"
+      ]
+    },
+    {
+      "relation": "lifecycleOwner",
+      "trace_ids": [
+        "PART-07",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ]
+    },
+    {
+      "relation": "outcomeOwner",
+      "trace_ids": [
+        "PART-08",
+        "POL-05",
+        "POL-06",
+        "POL-07"
+      ]
+    },
+    {
+      "relation": "scenarioSpecs",
+      "trace_ids": [
+        "SCN-01",
+        "SCN-02",
+        "SCN-03",
+        "SCN-04",
+        "SCN-05",
+        "SCN-06",
+        "SCN-07",
+        "SCN-08"
+      ]
+    }
+  ],
+  "partition_counts": {
+    "request_owner_pairs": 64,
+    "brake_owner_values": 3,
+    "health_owner_values": 9,
+    "power_owner_values": 3,
+    "cycle_owner_tuples": 112,
+    "raw_root_state_valuations": 580608,
+    "authorization_local_tuples": 216,
+    "lifecycle_local_tuples": 15120,
+    "abstract_states": 224,
+    "reachable_abstract_states": 32,
+    "unreachable_abstract_states": 192
+  },
+  "case_partitions": {
+    "authorization": {
+      "CASE-01": 54,
+      "CASE-02": 108,
+      "CASE-03": 38,
+      "CASE-04": 14,
+      "CASE-05": 2
+    },
+    "lifecycle": {
+      "CASE-06": 756,
+      "CASE-07": 3024,
+      "CASE-08": 1890,
+      "CASE-09": 1820,
+      "CASE-10": 20,
+      "CASE-11": 40,
+      "CASE-12": 10,
+      "CASE-13": 1890,
+      "CASE-14": 1860,
+      "CASE-15": 30,
+      "CASE-16": 1890,
+      "CASE-17": 1820,
+      "CASE-18": 35,
+      "CASE-19": 5,
+      "CASE-20": 30
+    }
+  },
+  "case_witnesses": {
+    "CASE-02": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Off",
+      "observed": {
+        "decision": "NoStart"
+      }
+    },
+    "CASE-07": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Off",
+      "observed": {
+        "nextMode": "Off",
+        "directive": "None",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-11": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Starting",
+      "observed": {
+        "nextMode": "Starting",
+        "directive": "None",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-14": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "On",
+      "observed": {
+        "nextMode": "Degraded",
+        "directive": "Clear",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-20": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Degraded",
+      "observed": {
+        "nextMode": "Degraded",
+        "directive": "None",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-12": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "StartPassed",
+      "mode": "Starting",
+      "observed": {
+        "nextMode": "On",
+        "directive": "None",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-15": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "StartPassed",
+      "mode": "On",
+      "observed": {
+        "nextMode": "On",
+        "directive": "None",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-19": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "RecoveryPassed",
+      "mode": "Degraded",
+      "observed": {
+        "nextMode": "Off",
+        "directive": "Clear",
+        "reason": "RecoveryCompleted"
+      }
+    },
+    "CASE-10": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Failed",
+      "mode": "Starting",
+      "observed": {
+        "nextMode": "Degraded",
+        "directive": "Clear",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-09": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Unavailable",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Starting",
+      "observed": {
+        "nextMode": "Degraded",
+        "directive": "Clear",
+        "reason": "QualificationNotReady"
+      }
+    },
+    "CASE-17": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Unavailable",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Degraded",
+      "observed": {
+        "nextMode": "Degraded",
+        "directive": "Clear",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-18": {
+      "current": {
+        "start": false,
+        "off": false,
+        "returnLevel": true
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Degraded",
+      "observed": {
+        "nextMode": "Degraded",
+        "directive": "BeginRecovery",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-01": {
+      "current": {
+        "start": false,
+        "off": true,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Off",
+      "observed": {
+        "decision": "OffPriority"
+      }
+    },
+    "CASE-08": {
+      "current": {
+        "start": false,
+        "off": true,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Starting",
+      "observed": {
+        "nextMode": "Off",
+        "directive": "Clear",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-13": {
+      "current": {
+        "start": false,
+        "off": true,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "On",
+      "observed": {
+        "nextMode": "Off",
+        "directive": "Clear",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-16": {
+      "current": {
+        "start": false,
+        "off": true,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Degraded",
+      "observed": {
+        "nextMode": "Off",
+        "directive": "Clear",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-05": {
+      "current": {
+        "start": true,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Off",
+      "observed": {
+        "decision": "BeginStartTest"
+      }
+    },
+    "CASE-06": {
+      "current": {
+        "start": true,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Available",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Off",
+      "observed": {
+        "nextMode": "Starting",
+        "directive": "BeginStart",
+        "reason": "Ordinary"
+      }
+    },
+    "CASE-04": {
+      "current": {
+        "start": true,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Unavailable",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Off",
+      "observed": {
+        "decision": "DenyNotReady"
+      }
+    },
+    "CASE-03": {
+      "current": {
+        "start": true,
+        "off": false,
+        "returnLevel": false
+      },
+      "previous": {
+        "start": false,
+        "off": false,
+        "returnLevel": false
+      },
+      "brakeObservation": "Pressed",
+      "healthObservation": {
+        "thermal": "Normal",
+        "maintenance": "NotDue"
+      },
+      "powerObservation": "Invalid",
+      "selfTestObservation": "NoEvent",
+      "preCycle": "Idle",
+      "mode": "Off",
+      "observed": {
+        "decision": "DenyInvalid"
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "scenario_id": "SCN-01",
+      "distinct_oracle_partition": "nominal fresh start and armed later pass",
+      "traces": [
+        {
+          "name": "nominal-start",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-05",
+                "CASE-06"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "BeginStartTest",
+                "lifecycle_case": "CASE-06",
+                "nextMode": "Starting",
+                "reason": "Ordinary",
+                "directive": "BeginStart",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "TestOnly",
+                  "selfTestCommand": "Initiate",
+                  "lifecycleMode": "Starting",
+                  "status": "Testing"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "AwaitingStart",
+                  "mode": "Starting"
+                }
+              }
+            },
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-11"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "AwaitingStart",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-11",
+                "nextMode": "Starting",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "TestOnly",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Starting",
+                  "status": "Testing"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "AwaitingStart",
+                  "mode": "Starting"
+                }
+              }
+            },
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "FreshPass"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-12"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "StartPassed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-12",
+                "nextMode": "On",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Permit",
+                  "parkingBrake": "Release",
+                  "powerDisposition": "Enable",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "On",
+                  "status": "Operating"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "StartPassed",
+                  "mode": "On"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "distinct_oracle_partition": "off-return-start priority conflicts",
+      "traces": [
+        {
+          "name": "start-plus-off",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": true,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-01",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": true,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": true,
+                  "disposition": "OffDominant"
+                },
+                "assessment": "Idle",
+                "decision": "OffPriority",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "RequestConflict"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": true,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "return-plus-off-degraded",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": true,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-01",
+                "CASE-16"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": true,
+                  "freshReturn": true,
+                  "freshStart": false,
+                  "conflict": true,
+                  "disposition": "OffDominant"
+                },
+                "assessment": "Idle",
+                "decision": "OffPriority",
+                "lifecycle_case": "CASE-16",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "RequestConflict"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": true,
+                    "returnLevel": true
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "return-plus-start-degraded",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-18"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": true,
+                  "freshStart": true,
+                  "conflict": true,
+                  "disposition": "ReturnCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-18",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "BeginRecovery",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "Initiate",
+                  "lifecycleMode": "Degraded",
+                  "status": "RecoveryTesting"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "AwaitingRecovery",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "distinct_oracle_partition": "invalid before valid-not-ready admission",
+      "traces": [
+        {
+          "name": "brake-invalid",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Invalid",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-03",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "DenyInvalid",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "StartBlockedInvalid"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "brake-not-ready",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Released",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-04",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "DenyNotReady",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "StartBlockedNotReady"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "health-invalid",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Invalid",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-03",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "DenyInvalid",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "StartBlockedInvalid"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "health-not-ready",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "OverMaximum",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-04",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "DenyNotReady",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "StartBlockedNotReady"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "power-invalid",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Invalid",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-03",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "DenyInvalid",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "StartBlockedInvalid"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "power-not-ready",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Unavailable",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-04",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "DenyNotReady",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "StartBlockedNotReady"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "distinct_oracle_partition": "starting prerequisite loss or fresh failure",
+      "traces": [
+        {
+          "name": "starting-brake-loss",
+          "initial_state": {
+            "mode": "Starting",
+            "cycle": "AwaitingStart",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Released",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-09"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "AwaitingStart",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-09",
+                "nextMode": "Degraded",
+                "reason": "QualificationNotReady",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "starting-health-invalid",
+          "initial_state": {
+            "mode": "Starting",
+            "cycle": "AwaitingStart",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Invalid",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-09"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "AwaitingStart",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-09",
+                "nextMode": "Degraded",
+                "reason": "QualificationInvalid",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "starting-power-loss",
+          "initial_state": {
+            "mode": "Starting",
+            "cycle": "AwaitingStart",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Unavailable",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-09"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "AwaitingStart",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-09",
+                "nextMode": "Degraded",
+                "reason": "QualificationNotReady",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "starting-test-fail",
+          "initial_state": {
+            "mode": "Starting",
+            "cycle": "AwaitingStart",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "FreshFail"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-10"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "Failed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-10",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "distinct_oracle_partition": "operating protection with brake inapplicable",
+      "traces": [
+        {
+          "name": "temperature-loss",
+          "initial_state": {
+            "mode": "On",
+            "cycle": "StartPassed",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "OverMaximum",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-14"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "StartPassed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-14",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "maintenance-due",
+          "initial_state": {
+            "mode": "On",
+            "cycle": "StartPassed",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "Due"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-14"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "StartPassed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-14",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "power-invalid",
+          "initial_state": {
+            "mode": "On",
+            "cycle": "StartPassed",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Invalid",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-14"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "StartPassed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-14",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "retained-test-invalid",
+          "initial_state": {
+            "mode": "On",
+            "cycle": "StartPassed",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "Invalid"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-14"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "Invalid",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-14",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "brake-inapplicable",
+          "initial_state": {
+            "mode": "On",
+            "cycle": "StartPassed",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Released",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-15"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "StartPassed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-15",
+                "nextMode": "On",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Permit",
+                  "parkingBrake": "Release",
+                  "powerDisposition": "Enable",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "On",
+                  "status": "Operating"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "StartPassed",
+                  "mode": "On"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "distinct_oracle_partition": "off shutdown in every active mode",
+      "traces": [
+        {
+          "name": "starting-off",
+          "initial_state": {
+            "mode": "Starting",
+            "cycle": "AwaitingStart",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": true,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-01",
+                "CASE-08"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": true,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "OffDominant"
+                },
+                "assessment": "AwaitingStart",
+                "decision": "OffPriority",
+                "lifecycle_case": "CASE-08",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "Idle"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": true,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "on-off",
+          "initial_state": {
+            "mode": "On",
+            "cycle": "StartPassed",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": true,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-01",
+                "CASE-13"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": true,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "OffDominant"
+                },
+                "assessment": "StartPassed",
+                "decision": "OffPriority",
+                "lifecycle_case": "CASE-13",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "Idle"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": true,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "degraded-off",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "Failed",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": true,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-01",
+                "CASE-16"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": true,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "OffDominant"
+                },
+                "assessment": "Failed",
+                "decision": "OffPriority",
+                "lifecycle_case": "CASE-16",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "Idle"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": true,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "distinct_oracle_partition": "armed recovery, completed to off, later fresh start",
+      "traces": [
+        {
+          "name": "successful-recovery",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-18"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": true,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "ReturnCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-18",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "BeginRecovery",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "Initiate",
+                  "lifecycleMode": "Degraded",
+                  "status": "RecoveryTesting"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "AwaitingRecovery",
+                  "mode": "Degraded"
+                }
+              }
+            },
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-20"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "AwaitingRecovery",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-20",
+                "nextMode": "Degraded",
+                "reason": "RecoveryAwaiting",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "RecoveryTesting"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "AwaitingRecovery",
+                  "mode": "Degraded"
+                }
+              }
+            },
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "FreshPass"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-19"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "RecoveryPassed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-19",
+                "nextMode": "Off",
+                "reason": "RecoveryCompleted",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "RecoveredAwaitFreshStart"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            },
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "Idle",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "Idle"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            },
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-05",
+                "CASE-06"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": true,
+                  "conflict": false,
+                  "disposition": "StartCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "BeginStartTest",
+                "lifecycle_case": "CASE-06",
+                "nextMode": "Starting",
+                "reason": "Ordinary",
+                "directive": "BeginStart",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "TestOnly",
+                  "selfTestCommand": "Initiate",
+                  "lifecycleMode": "Starting",
+                  "status": "Testing"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "AwaitingStart",
+                  "mode": "Starting"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-08",
+      "distinct_oracle_partition": "recovery rejection and freshness defenses",
+      "traces": [
+        {
+          "name": "prerequisite-revocation",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "AwaitingRecovery",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Released",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-17"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": true,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "ReturnCandidate"
+                },
+                "assessment": "AwaitingRecovery",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-17",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "Clear",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "held-return",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "AwaitingRecovery",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": true
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-20"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "AwaitingRecovery",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-20",
+                "nextMode": "Degraded",
+                "reason": "RecoveryAwaiting",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "RecoveryTesting"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "AwaitingRecovery",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "unarmed-pass",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "FreshPass"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-20"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "Idle",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-20",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Idle",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "completion-on-arm",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "FreshPass"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-18"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": true,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "ReturnCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-18",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "BeginRecovery",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "Initiate",
+                  "lifecycleMode": "Degraded",
+                  "status": "RecoveryTesting"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "AwaitingRecovery",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "fresh-recovery-fail",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "AwaitingRecovery",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": true
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": false,
+                  "off": false,
+                  "returnLevel": false
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "FreshFail"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-20"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "Failed",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-20",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Degraded",
+                  "status": "Degraded"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": false,
+                    "off": false,
+                    "returnLevel": false
+                  },
+                  "cycle": "Failed",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "simultaneous-return-start",
+          "initial_state": {
+            "mode": "Degraded",
+            "cycle": "Idle",
+            "previous": {
+              "start": false,
+              "off": false,
+              "returnLevel": false
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-18"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": true,
+                  "freshStart": true,
+                  "conflict": true,
+                  "disposition": "ReturnCandidate"
+                },
+                "assessment": "Idle",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-18",
+                "nextMode": "Degraded",
+                "reason": "Ordinary",
+                "directive": "BeginRecovery",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "Initiate",
+                  "lifecycleMode": "Degraded",
+                  "status": "RecoveryTesting"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "AwaitingRecovery",
+                  "mode": "Degraded"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "held-start-after-recovery",
+          "initial_state": {
+            "mode": "Off",
+            "cycle": "Idle",
+            "previous": {
+              "start": true,
+              "off": false,
+              "returnLevel": true
+            }
+          },
+          "steps": [
+            {
+              "input": {
+                "request": {
+                  "start": true,
+                  "off": false,
+                  "returnLevel": true
+                },
+                "brake": "Pressed",
+                "health": {
+                  "thermal": "Normal",
+                  "maintenance": "NotDue"
+                },
+                "power": "Available",
+                "selfTest": "NoEvent"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-07"
+              ],
+              "observed": {
+                "request": {
+                  "offActive": false,
+                  "freshReturn": false,
+                  "freshStart": false,
+                  "conflict": false,
+                  "disposition": "None"
+                },
+                "assessment": "Idle",
+                "decision": "NoStart",
+                "lifecycle_case": "CASE-07",
+                "nextMode": "Off",
+                "reason": "Ordinary",
+                "directive": "None",
+                "controlFrame": {
+                  "startEnable": "Inhibit",
+                  "parkingBrake": "Apply",
+                  "powerDisposition": "Isolate",
+                  "selfTestCommand": "None",
+                  "lifecycleMode": "Off",
+                  "status": "Idle"
+                },
+                "nextState": {
+                  "previous": {
+                    "start": true,
+                    "off": false,
+                    "returnLevel": true
+                  },
+                  "cycle": "Idle",
+                  "mode": "Off"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "request_priority_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "request_priority_owner.request_levels",
+        "state.previous_request_levels"
+      ],
+      "owner_local_facts": [
+        "offActive",
+        "freshReturn",
+        "freshStart",
+        "requestConflict",
+        "requestDisposition"
+      ],
+      "contract_cases": [
+        "REQUEST_PRIORITY_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "request-owner-64-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "brake_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "brake_qualification_owner.brake_observation"
+      ],
+      "owner_local_facts": [
+        "brakeEvidenceTrusted",
+        "brakeReadyForAdmission"
+      ],
+      "contract_cases": [
+        "BRAKE_FACT_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "brake-owner-three-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "health_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "health_qualification_owner.health_observation"
+      ],
+      "owner_local_facts": [
+        "combinedHealthQualification",
+        "invalidOverNotReadyPriority"
+      ],
+      "contract_cases": [
+        "HEALTH_QUALIFICATION_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "health-owner-nine-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "power_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "power_qualification_owner.power_observation"
+      ],
+      "owner_local_facts": [
+        "powerEvidenceTrusted",
+        "powerAvailableForSupervision"
+      ],
+      "contract_cases": [
+        "POWER_FACT_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "power-owner-three-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "self_test_cycle_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "self_test_cycle_owner.self_test_observation",
+        "self_test_cycle_owner.test_cycle_directive",
+        "state.committed_test_cycle"
+      ],
+      "owner_local_facts": [
+        "preUpdateCycleAssessment",
+        "postUpdateCommittedTestCycle"
+      ],
+      "contract_cases": [
+        "PRE_UPDATE_CYCLE_ASSESSMENT",
+        "INDEPENDENT_TEST_CYCLE_STORAGE"
+      ],
+      "analyzer_checks": [
+        "cycle-owner-112-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "start_authorization_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "start_authorization_owner.request_facts",
+        "start_authorization_owner.brake_facts",
+        "start_authorization_owner.health_qualification",
+        "start_authorization_owner.power_facts"
+      ],
+      "owner_local_facts": [
+        "fiveWayStartDecision"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05"
+      ],
+      "analyzer_checks": [
+        "authorization-total-exclusive-product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "lifecycle_recovery_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "lifecycle_recovery_owner.request_facts",
+        "lifecycle_recovery_owner.brake_facts",
+        "lifecycle_recovery_owner.health_qualification",
+        "lifecycle_recovery_owner.power_facts",
+        "lifecycle_recovery_owner.cycle_assessment",
+        "lifecycle_recovery_owner.authorization",
+        "state.lifecycle_mode"
+      ],
+      "owner_local_facts": [
+        "nextLifecycleMode",
+        "lifecycleReason",
+        "testCycleDirective"
+      ],
+      "contract_cases": [
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "lifecycle-total-exclusive-product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "coordinated_outcome_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "coordinated_outcome_owner.authorization",
+        "coordinated_outcome_owner.applied_lifecycle"
+      ],
+      "owner_local_facts": [
+        "atomicControlFrame",
+        "failClosedStatusPrecedence"
+      ],
+      "contract_cases": [
+        "STARTING_AND_ON_FRAME_MAPPING",
+        "DEGRADED_FRAME_MAPPING",
+        "OFF_FRAME_MAPPING"
+      ],
+      "analyzer_checks": [
+        "complete-frame-oracle-product"
+      ],
+      "passed": true
+    }
+  ],
+  "observations": {
+    "request_owner_mismatches": 0,
+    "qualification_owner_mismatches": 0,
+    "cycle_owner_mismatches": 0,
+    "authorization_gaps": 0,
+    "authorization_overlaps": 0,
+    "authorization_mismatches": 0,
+    "lifecycle_gaps": 0,
+    "lifecycle_overlaps": 0,
+    "lifecycle_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_mismatches": 0
+  },
+  "checks": {
+    "source_hash_bound": true,
+    "nineteen_semantic_connections_composed": true,
+    "complete_raw_product": true,
+    "owner_local_products_complete": true,
+    "authorization_total_and_exclusive": true,
+    "lifecycle_total_and_exclusive": true,
+    "all_twenty_cases_have_product_and_scenario_witnesses": true,
+    "eight_distinct_scenario_families_executed": true,
+    "required_outputs_match_independent_oracle": true,
+    "invariants_hold": true,
+    "ownership_checks_executed": true
+  }
+}

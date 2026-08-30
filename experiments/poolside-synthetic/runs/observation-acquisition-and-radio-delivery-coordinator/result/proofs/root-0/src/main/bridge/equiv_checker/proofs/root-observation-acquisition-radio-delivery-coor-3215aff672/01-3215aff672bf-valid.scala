@@ -1,0 +1,14 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_3215aff672bf_1_Valid {
+  @pure def check(
+      deliveryresult: equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.DeliveryResult.Type,
+      radiocondition: equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.RadioCondition.Type,
+      radioevidence: equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.RadioEvidence.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: (T)))
+  }
+}

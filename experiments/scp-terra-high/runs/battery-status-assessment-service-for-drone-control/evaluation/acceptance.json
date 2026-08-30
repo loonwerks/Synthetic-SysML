@@ -1,0 +1,70 @@
+{
+  "completed_at": "2026-08-20T22:53:06.839797Z",
+  "dataset_id": "battery-status-assessment-service-for-drone-control",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate:experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml\n  - [956, 4] Dispatch Protocol not specified for thread check_lifecycle, assuming Sporadic\n  - [957, 4] Dispatch Protocol not specified for thread report_acquisition, assuming Sporadic\n  - [958, 4] Dispatch Protocol not specified for thread report_qualification, assuming Sporadic\n  - [959, 4] Dispatch Protocol not specified for thread assessment_decision, assuming Sporadic\n  - [960, 4] Dispatch Protocol not specified for thread result_custody, assuming Sporadic\n  - [995, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"battery_status_assessment_service\", Attr(Some([/M-star.sysml, 995, 7])))), Attr(Some([/M-star.sysml, 995, 7])))), [TypingsSpecialization([Name([Id(\"BatteryStatusAssessmentServiceSystem\", Attr(Some([/M-star.sysml, 995, 43])))], Attr(Some([/M-star.sysml, 995, 43])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 995, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/.slang/BatteryStatusAssessmentServiceSystem_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/.tmp\nChecking initialise method of AssessmentDecision_battery_assessment_process_assessment_decision.scala\n  Verification succeeded!\n\nChecking timeTriggered method of AssessmentDecision_battery_assessment_process_assessment_decision.scala\n  Verification succeeded!\n\nChecking initialise method of CheckLifecycle_battery_assessment_process_check_lifecycle.scala\n  Verification succeeded!\n\nChecking timeTriggered method of CheckLifecycle_battery_assessment_process_check_lifecycle.scala\n  Verification succeeded!\n\nChecking initialise method of ReportAcquisition_battery_assessment_process_report_acquisition.scala\n  Verification succeeded!\n\nChecking timeTriggered method of ReportAcquisition_battery_assessment_process_report_acquisition.scala\n  Verification succeeded!\n\nChecking initialise method of ReportQualification_battery_assessment_process_report_qualification.scala\n  Verification succeeded!\n\nChecking timeTriggered method of ReportQualification_battery_assessment_process_report_qualification.scala\n  Verification succeeded!\n\nChecking initialise method of ResultCustody_battery_assessment_process_result_custody.scala\n  Verification succeeded!\n\nChecking timeTriggered method of ResultCustody_battery_assessment_process_result_custody.scala\n  Verification succeeded!\n\nVerified 10 method(s) across 5 component(s).\n"
+    },
+    "integration_logika": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "logika",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate:experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml\n  - [956, 4] Dispatch Protocol not specified for thread check_lifecycle, assuming Sporadic\n  - [957, 4] Dispatch Protocol not specified for thread report_acquisition, assuming Sporadic\n  - [958, 4] Dispatch Protocol not specified for thread report_qualification, assuming Sporadic\n  - [959, 4] Dispatch Protocol not specified for thread assessment_decision, assuming Sporadic\n  - [960, 4] Dispatch Protocol not specified for thread result_custody, assuming Sporadic\n  - [995, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"battery_status_assessment_service\", Attr(Some([/M-star.sysml, 995, 7])))), Attr(Some([/M-star.sysml, 995, 7])))), [TypingsSpecialization([Name([Id(\"BatteryStatusAssessmentServiceSystem\", Attr(Some([/M-star.sysml, 995, 43])))], Attr(Some([/M-star.sysml, 995, 43])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 995, 2]), None(), None())))\n* file://experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml\n  - [956, 4] Dispatch Protocol not specified for thread check_lifecycle, assuming Sporadic\n  - [957, 4] Dispatch Protocol not specified for thread report_acquisition, assuming Sporadic\n  - [958, 4] Dispatch Protocol not specified for thread report_qualification, assuming Sporadic\n  - [959, 4] Dispatch Protocol not specified for thread assessment_decision, assuming Sporadic\n  - [960, 4] Dispatch Protocol not specified for thread result_custody, assuming Sporadic\n  - [995, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"battery_status_assessment_service\", Attr(Some([/M-star.sysml, 995, 7])))), Attr(Some([/M-star.sysml, 995, 7])))), [TypingsSpecialization([Name([Id(\"BatteryStatusAssessmentServiceSystem\", Attr(Some([/M-star.sysml, 995, 43])))], Attr(Some([/M-star.sysml, 995, 43])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 995, 2]), None(), None())))\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate:experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml\n  - [956, 4] Dispatch Protocol not specified for thread check_lifecycle, assuming Sporadic\n  - [957, 4] Dispatch Protocol not specified for thread report_acquisition, assuming Sporadic\n  - [958, 4] Dispatch Protocol not specified for thread report_qualification, assuming Sporadic\n  - [959, 4] Dispatch Protocol not specified for thread assessment_decision, assuming Sporadic\n  - [960, 4] Dispatch Protocol not specified for thread result_custody, assuming Sporadic\n  - [995, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"battery_status_assessment_service\", Attr(Some([/M-star.sysml, 995, 7])))), Attr(Some([/M-star.sysml, 995, 7])))), [TypingsSpecialization([Name([Id(\"BatteryStatusAssessmentServiceSystem\", Attr(Some([/M-star.sysml, 995, 43])))], Attr(Some([/M-star.sysml, 995, 43])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 995, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-20T22:50:36.218547Z",
+  "status": "passed"
+}

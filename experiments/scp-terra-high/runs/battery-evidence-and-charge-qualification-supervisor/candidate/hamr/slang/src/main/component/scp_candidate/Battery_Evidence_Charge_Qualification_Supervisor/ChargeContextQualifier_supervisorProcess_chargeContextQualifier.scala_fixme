@@ -1,0 +1,33 @@
+// #Sireum
+
+package scp_candidate.Battery_Evidence_Charge_Qualification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ChargeContextQualifier_supervisorProcess_chargeContextQualifier {
+
+  def initialise(api: ChargeContextQualifier_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee initial_context
+        api.chargeContextQualification == ChargeContextQualification.BLOCKED_EVIDENCE,
+        // guarantee initial_readiness
+        api.batteryReadinessAdvice == BatteryReadinessAdvice.UNAVAILABLE
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_chargeContextQualification(Battery_Evidence_Charge_Qualification_Supervisor.ChargeContextQualification.BLOCKED_EVIDENCE)
+    api.put_batteryReadinessAdvice(Battery_Evidence_Charge_Qualification_Supervisor.BatteryReadinessAdvice.UNAVAILABLE)
+  }
+
+  def finalise(api: ChargeContextQualifier_Operational_Api): Unit = { }
+}

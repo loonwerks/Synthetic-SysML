@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "source_sha256": "a61a14aae9f46abc046d9caf39a54596be651abab11fc215fa10f5e21fa8bc24",
+  "root_definition": "Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System",
+  "root_usage": "drone_lifecycle_governor",
+  "explicit_root_usages": 1,
+  "architecture_nodes": {
+    "count": 6,
+    "generated_support": ["governor_process"],
+    "semantic": [
+      "governor_process.request_qualification",
+      "governor_process.battery_assessment",
+      "governor_process.lifecycle_decision_owner",
+      "governor_process.controlled_outcome_derivation",
+      "governor_process.attention_derivation"
+    ]
+  },
+  "semantic_domain_graph": {
+    "nodes": 5,
+    "directed_internal_connections": 5,
+    "unique_ordered_component_pairs": 5,
+    "average_total_degree_with_parallel_interactions": 2.0,
+    "density_by_unique_ordered_pairs": 0.25,
+    "weakly_connected_components": [[
+      "request_qualification",
+      "battery_assessment",
+      "lifecycle_decision_owner",
+      "controlled_outcome_derivation",
+      "attention_derivation"
+    ]]
+  },
+  "connections": {
+    "semantic_interactions": 10,
+    "boundary_semantic_interactions": 5,
+    "internal_semantic_connections": 5,
+    "process_thread_support_routes": 5,
+    "root_process_support_routes": 5,
+    "support_routes_total": 10,
+    "declarations_total": 15
+  },
+  "containment_depth": 2,
+  "ports": {
+    "root_boundary": 5,
+    "process_boundary": 5,
+    "semantic_thread_ports": 14,
+    "total": 24
+  },
+  "contracts": {
+    "owner_state_variables": 2,
+    "explicit_safe_initialization_guarantees": 5,
+    "request_qualification_cases": 10,
+    "battery_assessment_cases": 3,
+    "nontrivial_policy_cases": 12,
+    "controlled_outcome_cases": 5,
+    "attention_priority_cases": 4,
+    "post_state_invariants": 1,
+    "identity_delivery_guarantees": 0
+  },
+  "bounded_external_analysis": {
+    "input_state_snapshots": 720,
+    "partition_counts": {
+      "CASE-01": 540,
+      "CASE-02": 80,
+      "CASE-03": 10,
+      "CASE-04": 10,
+      "CASE-05": 2,
+      "CASE-06": 1,
+      "CASE-07": 1,
+      "CASE-08": 1,
+      "CASE-09": 1,
+      "CASE-10": 2,
+      "CASE-11": 2,
+      "CASE-12": 70
+    },
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "owner_output_mismatches": 0,
+    "invariant_violations": 0,
+    "connection_mismatches": 0,
+    "scenario_failures": 0,
+    "scenario_families_executed": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    }
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 10,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "lifecycle_decision_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": [
+          "lifecycle_decision_owner.qualified_request",
+          "lifecycle_decision_owner.battery_assessment",
+          "lifecycle_decision_owner.current_phase",
+          "lifecycle_decision_owner.recovery_required"
+        ],
+        "owner_local_facts": [
+          "selected_phase",
+          "decision_disposition.input_fault_detected",
+          "decision_disposition.recovery_pending",
+          "current_phase",
+          "recovery_required"
+        ],
+        "contract_cases": [
+          "CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06",
+          "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"
+        ],
+        "analyzer_checks": [
+          "owner_case_partition_complete",
+          "owner_case_partition_exclusive",
+          "owner_case_outputs_match",
+          "owner_post_state_invariant"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages are the five responsibility-bearing Threads and exclude the root and behavior-free Governor_Process. Semantic interactions count INT-01 through INT-10 once each and exclude the ten delegation routes. Nontrivial cases count only PART-03 CASE-01 through CASE-12; initialization, qualification, derived-output relations, invariants, and scenario witnesses are excluded. Scenario families count SCN-01 through SCN-05. Composition denotes bounded relation composition only, not compositional proof."
+}

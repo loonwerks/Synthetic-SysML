@@ -1,0 +1,974 @@
+{
+  "status": "passed",
+  "source_sha256": "5a030ca834e68299b0ae0ce79360160ed0f5656c1283f44869126fccc83bf621",
+  "finite_domain": {
+    "formula": "5*2*8*2*2*2*2*2",
+    "snapshots": 2560
+  },
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "from": "root.requestSample",
+      "to": "PART-01.requestSample",
+      "type": "LifecycleRequestSample"
+    },
+    {
+      "id": "INT-02",
+      "from": "PART-01.qualifiedRequest",
+      "to": "PART-03.qualifiedRequest",
+      "type": "QualifiedRequest"
+    },
+    {
+      "id": "INT-03",
+      "from": "root.batterySample",
+      "to": "PART-02.batterySample",
+      "type": "BatterySample"
+    },
+    {
+      "id": "INT-04",
+      "from": "PART-02.batteryEvidenceForGovernor",
+      "to": "PART-03.batteryEvidence",
+      "type": "BatteryEvidence"
+    },
+    {
+      "id": "INT-05",
+      "from": "PART-02.batteryEvidenceForNotice",
+      "to": "PART-05.batteryEvidence",
+      "type": "BatteryEvidence"
+    },
+    {
+      "id": "INT-06",
+      "from": "root.chargeSample",
+      "to": "PART-03.chargeSample",
+      "type": "ChargeConnectionSample"
+    },
+    {
+      "id": "INT-07",
+      "from": "PART-03.selectedPhase",
+      "to": "PART-04.selectedPhase",
+      "type": "LifecyclePhase"
+    },
+    {
+      "id": "INT-08",
+      "from": "PART-03.decisionDisposition",
+      "to": "PART-05.decisionDisposition",
+      "type": "DecisionDisposition"
+    },
+    {
+      "id": "INT-09",
+      "from": "PART-04.lifecycleEnablement",
+      "to": "root.lifecycleEnablement",
+      "type": "LifecycleEnablement"
+    },
+    {
+      "id": "INT-10",
+      "from": "PART-03.commandedPhaseReport",
+      "to": "root.commandedPhaseReport",
+      "type": "LifecyclePhase"
+    },
+    {
+      "id": "INT-11",
+      "from": "PART-05.pilotNotice",
+      "to": "root.pilotNotice",
+      "type": "PilotNotice"
+    }
+  ],
+  "partition_counts": {
+    "CASE-01": 2240,
+    "CASE-02": 140,
+    "CASE-03": 20,
+    "CASE-04": 20,
+    "CASE-05": 4,
+    "CASE-06": 1,
+    "CASE-07": 4,
+    "CASE-08": 2,
+    "CASE-09": 2,
+    "CASE-10": 4,
+    "CASE-11": 123
+  },
+  "expected_partition_counts": {
+    "CASE-01": 2240,
+    "CASE-02": 140,
+    "CASE-03": 20,
+    "CASE-04": 20,
+    "CASE-05": 4,
+    "CASE-06": 1,
+    "CASE-07": 4,
+    "CASE-08": 2,
+    "CASE-09": 2,
+    "CASE-10": 4,
+    "CASE-11": 123
+  },
+  "gaps": 0,
+  "effective_overlaps": 0,
+  "case_count_mismatches": [],
+  "next_state_mismatches": 0,
+  "disposition_mismatches": 0,
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "recovery_implies_off_violations": 0,
+    "initialization": {
+      "ownerState": true,
+      "commandedPhaseReport": true,
+      "enablement": true,
+      "notice": true
+    },
+    "switch_off_priority_violations": 0,
+    "fresh_request_recovery_scenario_failures": 0
+  },
+  "interaction_consumption_mismatches": 0,
+  "canonical_guard_crosscheck": {
+    "status": "passed",
+    "method": "Static one-to-one review of CASE-01 through CASE-11 source assumptions against ownerGuards before execution",
+    "guards": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11"
+    ]
+  },
+  "ownership_audit": [
+    {
+      "usage": "request_qualification",
+      "assigned_inputs": [
+        "request_qualification.request_sample"
+      ],
+      "owner_local_facts": [
+        "16 request/status combinations classified into nine validity-aware qualified requests"
+      ],
+      "contract_cases": [
+        "REQUEST_QUALIFICATION_TOTAL"
+      ],
+      "analyzer_checks": [
+        "PART-01 total 16-to-9 relation",
+        "INT-01 to INT-02 consumption"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "battery_evidence_assessment",
+      "assigned_inputs": [
+        "battery_evidence_assessment.battery_sample"
+      ],
+      "owner_local_facts": [
+        "four battery indication/status combinations classified into three evidence results"
+      ],
+      "contract_cases": [
+        "BATTERY_ASSESSMENT_TOTAL"
+      ],
+      "analyzer_checks": [
+        "PART-02 total 4-to-3 relation",
+        "purposeful INT-04 and INT-05 fan-out"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "lifecycle_governor",
+      "assigned_inputs": [
+        "lifecycle_governor.qualified_request",
+        "lifecycle_governor.battery_evidence",
+        "lifecycle_governor.charge_sample",
+        "lifecycle_governor.current_phase",
+        "lifecycle_governor.recovery_required"
+      ],
+      "owner_local_facts": [
+        "three-valued charge qualification",
+        "strict eleven-case lifecycle partition",
+        "next phase and recovery state",
+        "decision disposition"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11"
+      ],
+      "analyzer_checks": [
+        "eleven-case effective partition",
+        "next-state and disposition equivalence",
+        "recovery invariant"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "enablement_derivation",
+      "assigned_inputs": [
+        "enablement_derivation.selected_phase"
+      ],
+      "owner_local_facts": [
+        "five phases classified into three independently meaningful permission fields"
+      ],
+      "contract_cases": [
+        "ENABLEMENT_TOTAL"
+      ],
+      "analyzer_checks": [
+        "PART-04 three-field relation consuming INT-07"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "pilot_notice_derivation",
+      "assigned_inputs": [
+        "pilot_notice_derivation.decision_disposition",
+        "pilot_notice_derivation.battery_evidence"
+      ],
+      "owner_local_facts": [
+        "ordered six-result notice resolution across 48 disposition/battery combinations"
+      ],
+      "contract_cases": [
+        "NOTICE_PRIORITY_TOTAL"
+      ],
+      "analyzer_checks": [
+        "PART-05 ordered relation consuming INT-08 and INT-05"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_family_count": 5,
+  "scenario_failures": 0,
+  "scenario_traces": [
+    {
+      "scenarioId": "SCN-01",
+      "partition": "nominal flight lifecycle",
+      "traces": [
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOn",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-05",
+            "observedCase": "CASE-05",
+            "commandedPhaseReport": "Standby",
+            "lifecycleEnablement": {
+              "power": "StandbyEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Standby",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 2,
+            "input": {
+              "requestSample": {
+                "request": "Activate",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-08",
+            "observedCase": "CASE-08",
+            "commandedPhaseReport": "Ready",
+            "lifecycleEnablement": {
+              "power": "OperationalEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Ready",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 3,
+            "input": {
+              "requestSample": {
+                "request": "BeginFlight",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-09",
+            "observedCase": "CASE-09",
+            "commandedPhaseReport": "Flying",
+            "lifecycleEnablement": {
+              "power": "OperationalEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": true
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Flying",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 4,
+            "input": {
+              "requestSample": {
+                "request": "EndFlight",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-10",
+            "observedCase": "CASE-10",
+            "commandedPhaseReport": "Ready",
+            "lifecycleEnablement": {
+              "power": "OperationalEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Ready",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 5,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOff",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-04",
+            "observedCase": "CASE-04",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Off",
+              "recovery": false
+            },
+            "passed": true
+          }
+        ]
+      ]
+    },
+    {
+      "scenarioId": "SCN-02",
+      "partition": "charger availability boundary",
+      "traces": [
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOn",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-05",
+            "observedCase": "CASE-05",
+            "commandedPhaseReport": "Standby",
+            "lifecycleEnablement": {
+              "power": "StandbyEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Standby",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 2,
+            "input": {
+              "requestSample": {
+                "request": "BeginCharge",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Low",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Connected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-06",
+            "observedCase": "CASE-06",
+            "commandedPhaseReport": "Charging",
+            "lifecycleEnablement": {
+              "power": "OperationalEnabled",
+              "chargingPermitted": true,
+              "flightPermitted": false
+            },
+            "pilotNotice": "LowBattery",
+            "nextState": {
+              "phase": "Charging",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 3,
+            "input": {
+              "requestSample": {
+                "request": "EndCharge",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-07",
+            "observedCase": "CASE-07",
+            "commandedPhaseReport": "Standby",
+            "lifecycleEnablement": {
+              "power": "StandbyEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Standby",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 4,
+            "input": {
+              "requestSample": {
+                "request": "BeginCharge",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Low",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-11",
+            "observedCase": "CASE-11",
+            "commandedPhaseReport": "Standby",
+            "lifecycleEnablement": {
+              "power": "StandbyEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "ChargerUnavailable",
+            "nextState": {
+              "phase": "Standby",
+              "recovery": false
+            },
+            "passed": true
+          }
+        ]
+      ]
+    },
+    {
+      "scenarioId": "SCN-03",
+      "partition": "battery eligibility and shutdown priority",
+      "traces": [
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOn",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-05",
+            "observedCase": "CASE-05",
+            "commandedPhaseReport": "Standby",
+            "lifecycleEnablement": {
+              "power": "StandbyEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Standby",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 2,
+            "input": {
+              "requestSample": {
+                "request": "Activate",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Low",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-11",
+            "observedCase": "CASE-11",
+            "commandedPhaseReport": "Standby",
+            "lifecycleEnablement": {
+              "power": "StandbyEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "LowBattery",
+            "nextState": {
+              "phase": "Standby",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 3,
+            "input": {
+              "requestSample": {
+                "request": "Activate",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-08",
+            "observedCase": "CASE-08",
+            "commandedPhaseReport": "Ready",
+            "lifecycleEnablement": {
+              "power": "OperationalEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Ready",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 4,
+            "input": {
+              "requestSample": {
+                "request": "BeginFlight",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Low",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-11",
+            "observedCase": "CASE-11",
+            "commandedPhaseReport": "Ready",
+            "lifecycleEnablement": {
+              "power": "OperationalEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "LowBattery",
+            "nextState": {
+              "phase": "Ready",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 5,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOff",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Low",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-04",
+            "observedCase": "CASE-04",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "LowBattery",
+            "nextState": {
+              "phase": "Off",
+              "recovery": false
+            },
+            "passed": true
+          }
+        ]
+      ]
+    },
+    {
+      "scenarioId": "SCN-04",
+      "partition": "individual and combined invalid-input entry",
+      "traces": [
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "BeginFlight",
+                "status": "Invalid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-01",
+            "observedCase": "CASE-01",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "InputFault",
+            "nextState": {
+              "phase": "Off",
+              "recovery": true
+            },
+            "passed": true
+          }
+        ],
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "BeginFlight",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Invalid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-01",
+            "observedCase": "CASE-01",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "InputFault",
+            "nextState": {
+              "phase": "Off",
+              "recovery": true
+            },
+            "passed": true
+          }
+        ],
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "BeginFlight",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Invalid"
+              }
+            },
+            "expectedCase": "CASE-01",
+            "observedCase": "CASE-01",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "InputFault",
+            "nextState": {
+              "phase": "Off",
+              "recovery": true
+            },
+            "passed": true
+          }
+        ],
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "BeginFlight",
+                "status": "Invalid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Invalid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Invalid"
+              }
+            },
+            "expectedCase": "CASE-01",
+            "observedCase": "CASE-01",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "InputFault",
+            "nextState": {
+              "phase": "Off",
+              "recovery": true
+            },
+            "passed": true
+          }
+        ]
+      ]
+    },
+    {
+      "scenarioId": "SCN-05",
+      "partition": "neutral then fresh recovery",
+      "traces": [
+        [
+          {
+            "step": 1,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOn",
+                "status": "Invalid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-01",
+            "observedCase": "CASE-01",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "InputFault",
+            "nextState": {
+              "phase": "Off",
+              "recovery": true
+            },
+            "passed": true
+          },
+          {
+            "step": 2,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOn",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-02",
+            "observedCase": "CASE-02",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "RecoveryAwaitingNeutral",
+            "nextState": {
+              "phase": "Off",
+              "recovery": true
+            },
+            "passed": true
+          },
+          {
+            "step": 3,
+            "input": {
+              "requestSample": {
+                "request": "NoRequest",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-03",
+            "observedCase": "CASE-03",
+            "commandedPhaseReport": "Off",
+            "lifecycleEnablement": {
+              "power": "Disabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Off",
+              "recovery": false
+            },
+            "passed": true
+          },
+          {
+            "step": 4,
+            "input": {
+              "requestSample": {
+                "request": "SwitchOn",
+                "status": "Valid"
+              },
+              "batterySample": {
+                "indication": "Adequate",
+                "status": "Valid"
+              },
+              "chargeSample": {
+                "connection_state": "Disconnected",
+                "status": "Valid"
+              }
+            },
+            "expectedCase": "CASE-05",
+            "observedCase": "CASE-05",
+            "commandedPhaseReport": "Standby",
+            "lifecycleEnablement": {
+              "power": "StandbyEnabled",
+              "chargingPermitted": false,
+              "flightPermitted": false
+            },
+            "pilotNotice": "None",
+            "nextState": {
+              "phase": "Standby",
+              "recovery": false
+            },
+            "passed": true
+          }
+        ]
+      ]
+    }
+  ],
+  "claim_boundary": "Deterministic exhaustive conformance evidence for the declared 2,560-element finite abstraction and explicit owner-local composition only; not GUMBO execution, compositional proof, solver certification, generated-code correctness, application execution, physical performance, safety, or certification."
+}

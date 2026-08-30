@@ -1,0 +1,21 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_f088cb692c42_Oracle_Pointwise_Realizable {
+  @pure def check(
+      recovery_transition: equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryTransition,
+      in_recoverystate: equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.compute_CEP_Post(in_recoverystate, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING, recovery_transition, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING)))))
+  }
+}

@@ -1,0 +1,52 @@
+RUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.24
+   Compiling quote v1.0.47
+   Compiling compiler_builtins v0.1.160 (RUSTUP_HOME/toolchains/1.92.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (RUSTUP_HOME/toolchains/1.92.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling autocfg v1.5.1
+   Compiling verus_prettyplease v0.0.0-2026-01-25-0057
+   Compiling hashbrown v0.12.3
+   Compiling vstd v0.0.0-2026-01-25-0057
+   Compiling indexmap v1.9.3
+   Compiling verus_syn v0.0.0-2026-01-25-0057
+   Compiling syn v2.0.119
+   Compiling synstructure v0.13.2
+   Compiling verus_state_machines_macros v0.0.0-2026-01-25-0057
+   Compiling verus_builtin_macros v0.0.0-2026-01-25-0057
+   Compiling alloc v0.0.0 (RUSTUP_HOME/toolchains/1.92.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc)
+   Compiling verus_builtin v0.0.0-2026-01-25-0057
+   Compiling log v0.4.33
+   Compiling linux-raw-sys v0.12.0
+verification results:: 1190 verified, 0 errors
+   Compiling data v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/data)
+verification results:: 38 verified, 0 errors
+   Compiling FlightStack v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack)
+verification results:: 0 verified, 0 errors
+   Compiling referenceManager_behavior v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/referenceManager_behavior)
+error: struct literals are not allowed here; try surrounding the struct literal with parentheses
+  --> src/component/referenceManager_behavior_app.rs:34:34
+   |
+34 |         api.referenceAndFdState == FlightStack::ReferenceAndFdState {
+   |  __________________________________^
+35 | |         referenceRoll: 0,
+36 | |         referencePitch: 0,
+37 | |         referenceValid: false,
+38 | |         fdState: FlightStack::FdStateValue::Cleared,
+39 | |       },
+   | |_______^
+
+error: struct literals are not allowed here; try surrounding the struct literal with parentheses
+  --> src/component/referenceManager_behavior_app.rs:94:34
+   |
+94 |         api.referenceAndFdState == FlightStack::ReferenceAndFdState {
+   |  __________________________________^
+95 | |         referenceRoll: self.referenceRoll,
+96 | |         referencePitch: self.referencePitch,
+97 | |         referenceValid: self.referenceValid,
+98 | |         fdState: self.fdState,
+99 | |       },
+   | |_______^
+
+error: could not compile `referenceManager_behavior` (lib) due to 2 previous errors
+make: *** [Makefile:32: verus] Error 101

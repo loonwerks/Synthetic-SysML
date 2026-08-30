@@ -1,0 +1,2514 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "b377601587405036824883022a900cdd5dcf1834e441a70190b27ae0cdc4e308",
+  "claim_boundary": "Exhaustive finite conformance over 72,576 declared root-input/pre-state snapshots and seven bounded scenario families only; not compositional proof, solver certification, generated-code correctness, execution, physical performance, external-report truth, safety certification, or unbounded temporal verification.",
+  "domain": {
+    "root_input_prestate_snapshots": 72576,
+    "expected_snapshots": 72576,
+    "root_input_domain_sizes": {
+      "pilot_intent": 8,
+      "berth_observation": 6,
+      "ship_condition": 6,
+      "repair_signal": 6,
+      "resupply_signal": 6,
+      "lifecycle_prestate": 7
+    }
+  },
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "source": "Pilot.pilotIntent",
+      "destination": "IntentQualifier.pilotIntent",
+      "type": "PilotIntent"
+    },
+    {
+      "id": "INT-02",
+      "source": "StationBerthInterface.berthObservation",
+      "destination": "DockReadinessQualifier.berthObservation",
+      "type": "BerthObservation"
+    },
+    {
+      "id": "INT-03",
+      "source": "FrigateStatusInterface.shipCondition",
+      "destination": "DockReadinessQualifier.shipCondition",
+      "type": "ShipCondition"
+    },
+    {
+      "id": "INT-04",
+      "source": "RepairService.repairSignal",
+      "destination": "ServiceInterlockQualifier.repairSignal",
+      "type": "ServiceSignal"
+    },
+    {
+      "id": "INT-05",
+      "source": "ResupplyService.resupplySignal",
+      "destination": "ServiceInterlockQualifier.resupplySignal",
+      "type": "ServiceSignal"
+    },
+    {
+      "id": "INT-06",
+      "source": "IntentQualifier.qualifiedIntent",
+      "destination": "PriorityArbiter.qualifiedIntent",
+      "type": "QualifiedIntent"
+    },
+    {
+      "id": "INT-07",
+      "source": "DockReadinessQualifier.monitorReadiness",
+      "destination": "LifecycleConsistencyMonitor.dockReadiness",
+      "type": "DockReadiness"
+    },
+    {
+      "id": "INT-08",
+      "source": "ServiceInterlockQualifier.monitorInterlock",
+      "destination": "LifecycleConsistencyMonitor.serviceInterlock",
+      "type": "ServiceInterlock"
+    },
+    {
+      "id": "INT-09",
+      "source": "LifecycleController.monitorPrestate",
+      "destination": "LifecycleConsistencyMonitor.lifecyclePrestate",
+      "type": "LifecycleState"
+    },
+    {
+      "id": "INT-10",
+      "source": "LifecycleConsistencyMonitor.operationalAssessment",
+      "destination": "PriorityArbiter.operationalAssessment",
+      "type": "OperationalAssessment"
+    },
+    {
+      "id": "INT-11",
+      "source": "LifecycleController.arbiterPrestate",
+      "destination": "PriorityArbiter.lifecyclePrestate",
+      "type": "LifecycleState"
+    },
+    {
+      "id": "INT-12",
+      "source": "PriorityArbiter.admittedDirective",
+      "destination": "LifecycleController.admittedDirective",
+      "type": "AdmittedDirective"
+    },
+    {
+      "id": "INT-13",
+      "source": "LifecycleController.controlProposal",
+      "destination": "MovementAndAccessSafetyGate.controlProposal",
+      "type": "ControlProposal"
+    },
+    {
+      "id": "INT-14",
+      "source": "DockReadinessQualifier.gateReadiness",
+      "destination": "MovementAndAccessSafetyGate.dockReadiness",
+      "type": "DockReadiness"
+    },
+    {
+      "id": "INT-15",
+      "source": "ServiceInterlockQualifier.gateInterlock",
+      "destination": "MovementAndAccessSafetyGate.serviceInterlock",
+      "type": "ServiceInterlock"
+    },
+    {
+      "id": "INT-16",
+      "source": "LifecycleController.lifecycleSnapshot",
+      "destination": "LifecycleReporter.lifecycleSnapshot",
+      "type": "LifecycleSnapshot"
+    },
+    {
+      "id": "INT-17",
+      "source": "MovementAndAccessSafetyGate.gatedControl",
+      "destination": "LifecycleReporter.gatedControl",
+      "type": "GatedControl"
+    },
+    {
+      "id": "INT-18",
+      "source": "MovementAndAccessSafetyGate.movementDirective",
+      "destination": "DockingControlInterface.movementDirective",
+      "type": "MovementDirective"
+    },
+    {
+      "id": "INT-19",
+      "source": "MovementAndAccessSafetyGate.serviceAccess",
+      "destination": "DockingControlInterface.serviceAccess",
+      "type": "ServiceAccess"
+    },
+    {
+      "id": "INT-20",
+      "source": "LifecycleReporter.pilotReport",
+      "destination": "Pilot.pilotReport",
+      "type": "PilotLifecycleReport"
+    },
+    {
+      "id": "INT-21",
+      "source": "LifecycleReporter.stationReport",
+      "destination": "StationBerthInterface.stationReport",
+      "type": "StationAccessReport"
+    }
+  ],
+  "partition_counts": {
+    "CASE-01": 52976,
+    "CASE-02": 16359,
+    "CASE-03": 1,
+    "CASE-04": 447,
+    "CASE-05": 2,
+    "CASE-06": 12,
+    "CASE-07": 2,
+    "CASE-08": 260,
+    "CASE-09": 14,
+    "CASE-10": 8,
+    "CASE-11": 21,
+    "CASE-12": 7,
+    "CASE-13": 256,
+    "CASE-14": 7,
+    "CASE-15": 256,
+    "CASE-16": 1,
+    "CASE-17": 14,
+    "CASE-18": 1,
+    "CASE-19": 1160,
+    "CASE-20": 772
+  },
+  "direct_owner_partition_counts": {
+    "CASE-01": 147,
+    "CASE-02": 28,
+    "CASE-03": 1,
+    "CASE-04": 59,
+    "CASE-05": 1,
+    "CASE-06": 3,
+    "CASE-07": 1,
+    "CASE-08": 14,
+    "CASE-09": 4,
+    "CASE-10": 1,
+    "CASE-11": 4,
+    "CASE-12": 4,
+    "CASE-13": 14,
+    "CASE-14": 4,
+    "CASE-15": 14,
+    "CASE-16": 1,
+    "CASE-17": 4,
+    "CASE-18": 1,
+    "CASE-19": 249,
+    "CASE-20": 41
+  },
+  "canonical_guard_cross_check": {
+    "status": "passed",
+    "clauses": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20"
+    ],
+    "expected_direct_owner_counts": [
+      147,
+      28,
+      1,
+      59,
+      1,
+      3,
+      1,
+      14,
+      4,
+      1,
+      4,
+      4,
+      14,
+      4,
+      14,
+      1,
+      4,
+      1,
+      249,
+      41
+    ],
+    "observed_direct_owner_counts": [
+      147,
+      28,
+      1,
+      59,
+      1,
+      3,
+      1,
+      14,
+      4,
+      1,
+      4,
+      4,
+      14,
+      4,
+      14,
+      1,
+      4,
+      1,
+      249,
+      41
+    ],
+    "expected_composed_counts": [
+      52976,
+      16359,
+      1,
+      447,
+      2,
+      12,
+      2,
+      260,
+      14,
+      8,
+      21,
+      7,
+      256,
+      7,
+      256,
+      1,
+      14,
+      1,
+      1160,
+      772
+    ],
+    "observed_composed_counts": [
+      52976,
+      16359,
+      1,
+      447,
+      2,
+      12,
+      2,
+      260,
+      14,
+      8,
+      21,
+      7,
+      256,
+      7,
+      256,
+      1,
+      14,
+      1,
+      1160,
+      772
+    ]
+  },
+  "partition_gaps": 0,
+  "partition_overlaps": 0,
+  "required_output_mismatches": 0,
+  "mismatch_counts": {
+    "semantic_connection_mismatches": 0,
+    "controller_mismatches": 0,
+    "reporter_mismatches": 0,
+    "pipeline_case_count_mismatches": 0,
+    "direct_case_count_mismatches": 0,
+    "scenario_failures": 0
+  },
+  "invariant_checks": {
+    "movement_and_access_mutually_exclusive": true,
+    "recovery_is_hold_locked_and_visible": true,
+    "reset_is_separate_from_reentry": true,
+    "service_completion_or_activity_precedes_fresh_undock": true,
+    "all_twenty_cases_reachable": true,
+    "all_owner_local_products_executed": true,
+    "all_scenarios_passed": true
+  },
+  "owner_product_counts": {
+    "intent_inputs": 8,
+    "readiness_pairs": 36,
+    "interlock_pairs": 36,
+    "assessment_triples": 294,
+    "arbiter_valuations": 595,
+    "controller_transitions": 140,
+    "gate_combinations": 252,
+    "reporter_combinations": 504
+  },
+  "owner_fibers": {
+    "intentQualifier": {
+      "NO_ACTION": 4,
+      "DOCK_REQUEST": 1,
+      "UNDOCK_REQUEST": 1,
+      "RESET_REQUEST": 1,
+      "INTENT_FAULT": 1
+    },
+    "dockReadinessQualifier": {
+      "DOCK_READY": 1,
+      "READINESS_CONFLICT": 12,
+      "TEMPORARILY_BLOCKED": 9,
+      "READINESS_FAULT": 11,
+      "SERVICE_READY": 1,
+      "UNDOCK_READY": 1,
+      "RELEASE_CONFIRMED": 1
+    },
+    "serviceInterlockQualifier": {
+      "QUIESCENT": 1,
+      "SINGLE_DEMAND": 2,
+      "SINGLE_ACTIVE": 2,
+      "SINGLE_COMPLETION": 2,
+      "SERVICE_FAULT": 20,
+      "SERVICE_CONFLICT": 9
+    },
+    "lifecycleConsistencyMonitor": {
+      "DOCK_ELIGIBLE": 1,
+      "ASSESSMENT_CONFLICT": 166,
+      "ASSESSMENT_FAULT": 84,
+      "OUTSIDE_STABLE": 1,
+      "TEMPORARILY_BLOCKED": 28,
+      "DOCK_WAITING": 1,
+      "DOCK_CONFIRMED": 1,
+      "DOCKED_QUIESCENT": 1,
+      "SERVICE_DEMAND_READY": 1,
+      "UNDOCK_ELIGIBLE": 1,
+      "SERVICE_WITHDRAWN": 2,
+      "SERVICE_GRANT_PENDING": 1,
+      "SERVICE_OCCUPIED": 2,
+      "SERVICE_RELEASED": 1,
+      "UNDOCK_WAITING": 1,
+      "RELEASE_CONFIRMED": 1,
+      "RECOVERY_CLEARABLE": 1
+    },
+    "priorityArbiter": {
+      "CASE-01": 147,
+      "CASE-02": 28,
+      "CASE-03": 1,
+      "CASE-04": 59,
+      "CASE-05": 1,
+      "CASE-06": 3,
+      "CASE-07": 1,
+      "CASE-08": 14,
+      "CASE-09": 4,
+      "CASE-10": 1,
+      "CASE-11": 4,
+      "CASE-12": 4,
+      "CASE-13": 14,
+      "CASE-14": 4,
+      "CASE-15": 14,
+      "CASE-16": 1,
+      "CASE-17": 4,
+      "CASE-18": 1,
+      "CASE-19": 249,
+      "CASE-20": 41
+    }
+  },
+  "case_witnesses": {
+    "CASE-20": {
+      "pre_state": "IDLE_OUTSIDE",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "APPROACH_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "DOCK_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "DOCK_ELIGIBLE"
+      },
+      "admitted_directive": "HOLD_STABLE",
+      "next_state": "IDLE_OUTSIDE",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "OUTSIDE_IDLE",
+        "station_report": "NO_ACCESS"
+      }
+    },
+    "CASE-15": {
+      "pre_state": "DOCK_CLEARANCE_LATCHED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "APPROACH_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "DOCK_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "DOCK_WAITING"
+      },
+      "admitted_directive": "HOLD_DOCK_CLEARANCE",
+      "next_state": "DOCK_CLEARANCE_LATCHED",
+      "outputs": {
+        "movement_directive": "PERMIT_DOCK",
+        "service_access": "LOCKED",
+        "pilot_report": "DOCK_PERMITTED",
+        "station_report": "DOCK_EXPECTED"
+      }
+    },
+    "CASE-02": {
+      "pre_state": "DOCKED_ACCESS_LOCKED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "APPROACH_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "DOCK_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "ASSESSMENT_CONFLICT"
+      },
+      "admitted_directive": "ENTER_RECOVERY_CONFLICT",
+      "next_state": "RECOVERY_REQUIRED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "RECOVERY_REQUIRED",
+        "station_report": "RECOVERY_REQUIRED"
+      }
+    },
+    "CASE-01": {
+      "pre_state": "IDLE_OUTSIDE",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "APPROACH_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "FAULT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "DOCK_READY",
+        "service_interlock": "SERVICE_FAULT",
+        "operational_assessment": "ASSESSMENT_FAULT"
+      },
+      "admitted_directive": "ENTER_RECOVERY_FAULT",
+      "next_state": "RECOVERY_REQUIRED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "RECOVERY_REQUIRED",
+        "station_report": "RECOVERY_REQUIRED"
+      }
+    },
+    "CASE-08": {
+      "pre_state": "SERVICE_IN_PROGRESS",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "NOT_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "TEMPORARILY_BLOCKED",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "TEMPORARILY_BLOCKED"
+      },
+      "admitted_directive": "HOLD_ACTIVE_SERVICE",
+      "next_state": "SERVICE_IN_PROGRESS",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "INHIBITED",
+        "station_report": "ACCESS_INHIBITED"
+      }
+    },
+    "CASE-13": {
+      "pre_state": "UNDOCK_CLEARANCE_LATCHED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "NOT_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "TEMPORARILY_BLOCKED",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "TEMPORARILY_BLOCKED"
+      },
+      "admitted_directive": "HOLD_UNDOCK_CLEARANCE",
+      "next_state": "UNDOCK_CLEARANCE_LATCHED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "INHIBITED",
+        "station_report": "ACCESS_INHIBITED"
+      }
+    },
+    "CASE-04": {
+      "pre_state": "RECOVERY_REQUIRED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "NOT_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "TEMPORARILY_BLOCKED",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "TEMPORARILY_BLOCKED"
+      },
+      "admitted_directive": "HOLD_RECOVERY",
+      "next_state": "RECOVERY_REQUIRED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "RECOVERY_REQUIRED",
+        "station_report": "RECOVERY_REQUIRED"
+      }
+    },
+    "CASE-14": {
+      "pre_state": "DOCK_CLEARANCE_LATCHED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "DOCK_CONFIRMED"
+      },
+      "admitted_directive": "CONFIRM_DOCK",
+      "next_state": "DOCKED_ACCESS_LOCKED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "DOCKED_READY",
+        "station_report": "ACCESS_AVAILABLE"
+      }
+    },
+    "CASE-11": {
+      "pre_state": "SERVICE_ACCESS_GRANTED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "SERVICE_WITHDRAWN"
+      },
+      "admitted_directive": "WITHDRAW_SERVICE_GRANT",
+      "next_state": "DOCKED_ACCESS_LOCKED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "INHIBITED",
+        "station_report": "ACCESS_AVAILABLE"
+      }
+    },
+    "CASE-17": {
+      "pre_state": "DOCKED_ACCESS_LOCKED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "REQUEST"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "SINGLE_DEMAND",
+        "operational_assessment": "SERVICE_DEMAND_READY"
+      },
+      "admitted_directive": "GRANT_SERVICE_ACCESS",
+      "next_state": "SERVICE_ACCESS_GRANTED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "ENABLED",
+        "pilot_report": "SERVICE_GRANTED",
+        "station_report": "ACCESS_RESERVED"
+      }
+    },
+    "CASE-10": {
+      "pre_state": "SERVICE_ACCESS_GRANTED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "REQUEST"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "SINGLE_DEMAND",
+        "operational_assessment": "SERVICE_GRANT_PENDING"
+      },
+      "admitted_directive": "HOLD_SERVICE_GRANT",
+      "next_state": "SERVICE_ACCESS_GRANTED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "ENABLED",
+        "pilot_report": "SERVICE_GRANTED",
+        "station_report": "ACCESS_RESERVED"
+      }
+    },
+    "CASE-09": {
+      "pre_state": "SERVICE_ACCESS_GRANTED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "ACTIVE"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "SINGLE_ACTIVE",
+        "operational_assessment": "SERVICE_OCCUPIED"
+      },
+      "admitted_directive": "START_SERVICE",
+      "next_state": "SERVICE_IN_PROGRESS",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "ENABLED",
+        "pilot_report": "SERVICE_ACTIVE",
+        "station_report": "ACCESS_OCCUPIED"
+      }
+    },
+    "CASE-06": {
+      "pre_state": "SERVICE_IN_PROGRESS",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "COMPLETE"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "SINGLE_COMPLETION",
+        "operational_assessment": "SERVICE_RELEASED"
+      },
+      "admitted_directive": "FINISH_SERVICE",
+      "next_state": "DOCKED_ACCESS_LOCKED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "SERVICE_FINISHED",
+        "station_report": "ACCESS_AVAILABLE"
+      }
+    },
+    "CASE-12": {
+      "pre_state": "UNDOCK_CLEARANCE_LATCHED",
+      "input": {
+        "pilot_intent": "NONE",
+        "berth_observation": "RELEASED",
+        "ship_condition": "TRANSIT",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "NO_ACTION",
+        "dock_readiness": "RELEASE_CONFIRMED",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "RELEASE_CONFIRMED"
+      },
+      "admitted_directive": "CONFIRM_RELEASE",
+      "next_state": "IDLE_OUTSIDE",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "RELEASE_CONFIRMED",
+        "station_report": "NO_ACCESS"
+      }
+    },
+    "CASE-18": {
+      "pre_state": "IDLE_OUTSIDE",
+      "input": {
+        "pilot_intent": "FRESH_DOCK",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "APPROACH_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "DOCK_REQUEST",
+        "dock_readiness": "DOCK_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "DOCK_ELIGIBLE"
+      },
+      "admitted_directive": "AUTHORIZE_DOCK",
+      "next_state": "DOCK_CLEARANCE_LATCHED",
+      "outputs": {
+        "movement_directive": "PERMIT_DOCK",
+        "service_access": "LOCKED",
+        "pilot_report": "DOCK_PERMITTED",
+        "station_report": "DOCK_EXPECTED"
+      }
+    },
+    "CASE-19": {
+      "pre_state": "DOCK_CLEARANCE_LATCHED",
+      "input": {
+        "pilot_intent": "FRESH_DOCK",
+        "berth_observation": "APPROACH_CLEAR",
+        "ship_condition": "APPROACH_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "DOCK_REQUEST",
+        "dock_readiness": "DOCK_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "DOCK_WAITING"
+      },
+      "admitted_directive": "INHIBIT_ACTION",
+      "next_state": "DOCK_CLEARANCE_LATCHED",
+      "outputs": {
+        "movement_directive": "PERMIT_DOCK",
+        "service_access": "LOCKED",
+        "pilot_report": "INHIBITED",
+        "station_report": "DOCK_EXPECTED"
+      }
+    },
+    "CASE-07": {
+      "pre_state": "SERVICE_IN_PROGRESS",
+      "input": {
+        "pilot_intent": "FRESH_UNDOCK",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "ACTIVE"
+      },
+      "owner_values": {
+        "qualified_intent": "UNDOCK_REQUEST",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "SINGLE_ACTIVE",
+        "operational_assessment": "SERVICE_OCCUPIED"
+      },
+      "admitted_directive": "DEFER_UNDOCK",
+      "next_state": "SERVICE_IN_PROGRESS",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "ENABLED",
+        "pilot_report": "UNDOCK_DEFERRED",
+        "station_report": "ACCESS_OCCUPIED"
+      }
+    },
+    "CASE-05": {
+      "pre_state": "SERVICE_IN_PROGRESS",
+      "input": {
+        "pilot_intent": "FRESH_UNDOCK",
+        "berth_observation": "DOCKED_SECURE",
+        "ship_condition": "SERVICE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "COMPLETE"
+      },
+      "owner_values": {
+        "qualified_intent": "UNDOCK_REQUEST",
+        "dock_readiness": "SERVICE_READY",
+        "service_interlock": "SINGLE_COMPLETION",
+        "operational_assessment": "SERVICE_RELEASED"
+      },
+      "admitted_directive": "FINISH_SERVICE_DEFER_UNDOCK",
+      "next_state": "DOCKED_ACCESS_LOCKED",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "UNDOCK_DEFERRED",
+        "station_report": "ACCESS_AVAILABLE"
+      }
+    },
+    "CASE-16": {
+      "pre_state": "DOCKED_ACCESS_LOCKED",
+      "input": {
+        "pilot_intent": "FRESH_UNDOCK",
+        "berth_observation": "DEPARTURE_CLEAR",
+        "ship_condition": "DEPARTURE_READY",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "UNDOCK_REQUEST",
+        "dock_readiness": "UNDOCK_READY",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "UNDOCK_ELIGIBLE"
+      },
+      "admitted_directive": "AUTHORIZE_UNDOCK",
+      "next_state": "UNDOCK_CLEARANCE_LATCHED",
+      "outputs": {
+        "movement_directive": "PERMIT_UNDOCK",
+        "service_access": "LOCKED",
+        "pilot_report": "UNDOCK_PERMITTED",
+        "station_report": "DEPARTURE_EXPECTED"
+      }
+    },
+    "CASE-03": {
+      "pre_state": "RECOVERY_REQUIRED",
+      "input": {
+        "pilot_intent": "FRESH_RESET",
+        "berth_observation": "RELEASED",
+        "ship_condition": "TRANSIT",
+        "repair_signal": "QUIESCENT",
+        "resupply_signal": "QUIESCENT"
+      },
+      "owner_values": {
+        "qualified_intent": "RESET_REQUEST",
+        "dock_readiness": "RELEASE_CONFIRMED",
+        "service_interlock": "QUIESCENT",
+        "operational_assessment": "RECOVERY_CLEARABLE"
+      },
+      "admitted_directive": "RESET_RECOVERY",
+      "next_state": "IDLE_OUTSIDE",
+      "outputs": {
+        "movement_directive": "HOLD",
+        "service_access": "LOCKED",
+        "pilot_report": "RESET_COMPLETE",
+        "station_report": "NO_ACCESS"
+      }
+    }
+  },
+  "ownership_audit": [
+    {
+      "usage": "intentQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "intentQualifier.pilotIntent"
+      ],
+      "owner_local_facts": [
+        "qualifiedIntentFreshnessAndValidityClass"
+      ],
+      "contract_cases": [
+        "INTENT_INVALID",
+        "INTENT_FRESH_DOCK",
+        "INTENT_FRESH_UNDOCK",
+        "INTENT_FRESH_RESET",
+        "INTENT_NO_ACTION"
+      ],
+      "analyzer_checks": [
+        "intent-owner-8-inputs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "dockReadinessQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "dockReadinessQualifier.berthObservation",
+        "dockReadinessQualifier.shipCondition"
+      ],
+      "owner_local_facts": [
+        "jointDockReadinessCompatibilityClass"
+      ],
+      "contract_cases": [
+        "READINESS_INVALID",
+        "READINESS_DOCK",
+        "READINESS_SERVICE",
+        "READINESS_UNDOCK",
+        "READINESS_RELEASED",
+        "READINESS_BLOCKED",
+        "READINESS_CONTRADICTION"
+      ],
+      "analyzer_checks": [
+        "readiness-owner-36-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "serviceInterlockQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "serviceInterlockQualifier.repairSignal",
+        "serviceInterlockQualifier.resupplySignal"
+      ],
+      "owner_local_facts": [
+        "mutuallyExclusiveServiceOccupancyClass"
+      ],
+      "contract_cases": [
+        "INTERLOCK_FAULT",
+        "INTERLOCK_QUIESCENT",
+        "INTERLOCK_SINGLE_DEMAND",
+        "INTERLOCK_SINGLE_ACTIVE",
+        "INTERLOCK_SINGLE_COMPLETION",
+        "INTERLOCK_CONFLICT"
+      ],
+      "analyzer_checks": [
+        "interlock-owner-36-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "lifecycleConsistencyMonitor",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "lifecycleConsistencyMonitor.lifecyclePrestate",
+        "lifecycleConsistencyMonitor.dockReadiness",
+        "lifecycleConsistencyMonitor.serviceInterlock"
+      ],
+      "owner_local_facts": [
+        "lifecycleRelativeOperationalAssessment"
+      ],
+      "contract_cases": [
+        "ASSESSMENT_TOTAL_RELATION"
+      ],
+      "analyzer_checks": [
+        "assessment-owner-294-triples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "priorityArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "priorityArbiter.qualifiedIntent",
+        "priorityArbiter.lifecyclePrestate",
+        "priorityArbiter.operationalAssessment"
+      ],
+      "owner_local_facts": [
+        "firstApplicableOrderedCase",
+        "admittedDirective"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "arbiter-owner-595-exclusive-valuations"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "lifecycleController",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "lifecycleController.admittedDirective",
+        "lifecycleController.In(lifecycleMemory)"
+      ],
+      "owner_local_facts": [
+        "nextLifecycleState",
+        "lifecycleResult",
+        "stateConsistentControlProposal"
+      ],
+      "contract_cases": [
+        "SNAPSHOT_AND_PROPOSAL_COHERENCE",
+        "APPLY_CASE_01",
+        "APPLY_CASE_02",
+        "APPLY_CASE_03",
+        "APPLY_CASE_04",
+        "APPLY_CASE_05",
+        "APPLY_CASE_06",
+        "APPLY_CASE_07",
+        "APPLY_CASE_08",
+        "APPLY_CASE_09",
+        "APPLY_CASE_10",
+        "APPLY_CASE_11",
+        "APPLY_CASE_12",
+        "APPLY_CASE_13",
+        "APPLY_CASE_14",
+        "APPLY_CASE_15",
+        "APPLY_CASE_16",
+        "APPLY_CASE_17",
+        "APPLY_CASE_18",
+        "APPLY_CASE_19",
+        "APPLY_CASE_20"
+      ],
+      "analyzer_checks": [
+        "controller-owner-140-transitions"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "movementAndAccessSafetyGate",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "movementAndAccessSafetyGate.controlProposal",
+        "movementAndAccessSafetyGate.dockReadiness",
+        "movementAndAccessSafetyGate.serviceInterlock"
+      ],
+      "owner_local_facts": [
+        "currentConditionMovementGate",
+        "currentConditionAccessGate",
+        "mutuallyExclusiveGatedControl"
+      ],
+      "contract_cases": [
+        "MOVEMENT_GATE",
+        "ACCESS_GATE",
+        "GATED_CONTROL_COHERENCE"
+      ],
+      "analyzer_checks": [
+        "gate-owner-252-combinations"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "lifecycleReporter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "lifecycleReporter.lifecycleSnapshot",
+        "lifecycleReporter.gatedControl"
+      ],
+      "owner_local_facts": [
+        "pilotLifecycleInterpretation",
+        "stationAccessInterpretation",
+        "suppressedPermissionVisibility"
+      ],
+      "contract_cases": [
+        "LOCAL-09",
+        "LOCAL-10"
+      ],
+      "analyzer_checks": [
+        "reporter-owner-504-combinations"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "nominal-dock-service-undock",
+      "traces": [
+        {
+          "trace_id": "SCN-01-NOMINAL",
+          "initial_state": "IDLE_OUTSIDE",
+          "steps": [
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "FRESH_DOCK",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "DOCK_REQUEST",
+                  "dock_readiness": "DOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_ELIGIBLE",
+                  "admitted_directive": "AUTHORIZE_DOCK",
+                  "lifecycle_result": "DOCK_ACCEPTED",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_DOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_DOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCK_CLEARANCE_LATCHED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-14",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCKED_READY",
+                "station_report": "ACCESS_AVAILABLE"
+              },
+              "observed": {
+                "case_id": "CASE-14",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCKED_READY",
+                "station_report": "ACCESS_AVAILABLE",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_CONFIRMED",
+                  "admitted_directive": "CONFIRM_DOCK",
+                  "lifecycle_result": "DOCK_CONFIRMED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCKED_ACCESS_LOCKED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "REQUEST",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-17",
+                "next_state": "SERVICE_ACCESS_GRANTED",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "SERVICE_GRANTED",
+                "station_report": "ACCESS_RESERVED"
+              },
+              "observed": {
+                "case_id": "CASE-17",
+                "next_state": "SERVICE_ACCESS_GRANTED",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "SERVICE_GRANTED",
+                "station_report": "ACCESS_RESERVED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "SINGLE_DEMAND",
+                  "operational_assessment": "SERVICE_DEMAND_READY",
+                  "admitted_directive": "GRANT_SERVICE_ACCESS",
+                  "lifecycle_result": "SERVICE_GRANTED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "ENABLE_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "ENABLED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "SERVICE_ACCESS_GRANTED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "ACTIVE",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-09",
+                "next_state": "SERVICE_IN_PROGRESS",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "SERVICE_ACTIVE",
+                "station_report": "ACCESS_OCCUPIED"
+              },
+              "observed": {
+                "case_id": "CASE-09",
+                "next_state": "SERVICE_IN_PROGRESS",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "SERVICE_ACTIVE",
+                "station_report": "ACCESS_OCCUPIED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "SINGLE_ACTIVE",
+                  "operational_assessment": "SERVICE_OCCUPIED",
+                  "admitted_directive": "START_SERVICE",
+                  "lifecycle_result": "SERVICE_RUNNING",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "ENABLE_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "ENABLED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "SERVICE_IN_PROGRESS",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "COMPLETE",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-06",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "SERVICE_FINISHED",
+                "station_report": "ACCESS_AVAILABLE"
+              },
+              "observed": {
+                "case_id": "CASE-06",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "SERVICE_FINISHED",
+                "station_report": "ACCESS_AVAILABLE",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "SINGLE_COMPLETION",
+                  "operational_assessment": "SERVICE_RELEASED",
+                  "admitted_directive": "FINISH_SERVICE",
+                  "lifecycle_result": "SERVICE_FINISHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCKED_ACCESS_LOCKED",
+              "input": {
+                "pilot_intent": "FRESH_UNDOCK",
+                "berth_observation": "DEPARTURE_CLEAR",
+                "ship_condition": "DEPARTURE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-16",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-16",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "UNDOCK_REQUEST",
+                  "dock_readiness": "UNDOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "UNDOCK_ELIGIBLE",
+                  "admitted_directive": "AUTHORIZE_UNDOCK",
+                  "lifecycle_result": "UNDOCK_ACCEPTED",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_UNDOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_UNDOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "UNDOCK_CLEARANCE_LATCHED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "RELEASED",
+                "ship_condition": "TRANSIT",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-12",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RELEASE_CONFIRMED",
+                "station_report": "NO_ACCESS"
+              },
+              "observed": {
+                "case_id": "CASE-12",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RELEASE_CONFIRMED",
+                "station_report": "NO_ACCESS",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "RELEASE_CONFIRMED",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "RELEASE_CONFIRMED",
+                  "admitted_directive": "CONFIRM_RELEASE",
+                  "lifecycle_result": "RELEASED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "resupply-and-mutual-exclusion",
+      "traces": [
+        {
+          "trace_id": "SCN-02-RESUPPLY-CONFLICT",
+          "initial_state": "DOCKED_ACCESS_LOCKED",
+          "steps": [
+            {
+              "pre_state": "DOCKED_ACCESS_LOCKED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "REQUEST"
+              },
+              "expected": {
+                "case_id": "CASE-17",
+                "next_state": "SERVICE_ACCESS_GRANTED",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "SERVICE_GRANTED",
+                "station_report": "ACCESS_RESERVED"
+              },
+              "observed": {
+                "case_id": "CASE-17",
+                "next_state": "SERVICE_ACCESS_GRANTED",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "SERVICE_GRANTED",
+                "station_report": "ACCESS_RESERVED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "SINGLE_DEMAND",
+                  "operational_assessment": "SERVICE_DEMAND_READY",
+                  "admitted_directive": "GRANT_SERVICE_ACCESS",
+                  "lifecycle_result": "SERVICE_GRANTED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "ENABLE_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "ENABLED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "SERVICE_ACCESS_GRANTED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "REQUEST",
+                "resupply_signal": "ACTIVE"
+              },
+              "expected": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED"
+              },
+              "observed": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "SERVICE_CONFLICT",
+                  "operational_assessment": "ASSESSMENT_CONFLICT",
+                  "admitted_directive": "ENTER_RECOVERY_CONFLICT",
+                  "lifecycle_result": "RECOVERY_LATCHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "readiness-and-freshness-inhibition",
+      "traces": [
+        {
+          "trace_id": "SCN-03-FRESHNESS",
+          "initial_state": "IDLE_OUTSIDE",
+          "steps": [
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "FRESH_DOCK",
+                "berth_observation": "BLOCKED",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-19",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "INHIBITED",
+                "station_report": "ACCESS_INHIBITED"
+              },
+              "observed": {
+                "case_id": "CASE-19",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "INHIBITED",
+                "station_report": "ACCESS_INHIBITED",
+                "owner_values": {
+                  "qualified_intent": "DOCK_REQUEST",
+                  "dock_readiness": "TEMPORARILY_BLOCKED",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "TEMPORARILY_BLOCKED",
+                  "admitted_directive": "INHIBIT_ACTION",
+                  "lifecycle_result": "INHIBITED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "REPEATED_DOCK",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-20",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "OUTSIDE_IDLE",
+                "station_report": "NO_ACCESS"
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "OUTSIDE_IDLE",
+                "station_report": "NO_ACCESS",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "DOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_ELIGIBLE",
+                  "admitted_directive": "HOLD_STABLE",
+                  "lifecycle_result": "NONE",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "FRESH_DOCK",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "DOCK_REQUEST",
+                  "dock_readiness": "DOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_ELIGIBLE",
+                  "admitted_directive": "AUTHORIZE_DOCK",
+                  "lifecycle_result": "DOCK_ACCEPTED",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_DOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_DOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "service-over-undock-priority",
+      "traces": [
+        {
+          "trace_id": "SCN-04-PRIORITY",
+          "initial_state": "SERVICE_IN_PROGRESS",
+          "steps": [
+            {
+              "pre_state": "SERVICE_IN_PROGRESS",
+              "input": {
+                "pilot_intent": "FRESH_UNDOCK",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "ACTIVE",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-07",
+                "next_state": "SERVICE_IN_PROGRESS",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "UNDOCK_DEFERRED",
+                "station_report": "ACCESS_OCCUPIED"
+              },
+              "observed": {
+                "case_id": "CASE-07",
+                "next_state": "SERVICE_IN_PROGRESS",
+                "movement_directive": "HOLD",
+                "service_access": "ENABLED",
+                "pilot_report": "UNDOCK_DEFERRED",
+                "station_report": "ACCESS_OCCUPIED",
+                "owner_values": {
+                  "qualified_intent": "UNDOCK_REQUEST",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "SINGLE_ACTIVE",
+                  "operational_assessment": "SERVICE_OCCUPIED",
+                  "admitted_directive": "DEFER_UNDOCK",
+                  "lifecycle_result": "UNDOCK_DEFERRED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "ENABLE_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "ENABLED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "SERVICE_IN_PROGRESS",
+              "input": {
+                "pilot_intent": "FRESH_UNDOCK",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "COMPLETE",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-05",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_DEFERRED",
+                "station_report": "ACCESS_AVAILABLE"
+              },
+              "observed": {
+                "case_id": "CASE-05",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_DEFERRED",
+                "station_report": "ACCESS_AVAILABLE",
+                "owner_values": {
+                  "qualified_intent": "UNDOCK_REQUEST",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "SINGLE_COMPLETION",
+                  "operational_assessment": "SERVICE_RELEASED",
+                  "admitted_directive": "FINISH_SERVICE_DEFER_UNDOCK",
+                  "lifecycle_result": "UNDOCK_DEFERRED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCKED_ACCESS_LOCKED",
+              "input": {
+                "pilot_intent": "FRESH_UNDOCK",
+                "berth_observation": "DEPARTURE_CLEAR",
+                "ship_condition": "DEPARTURE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-16",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-16",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "UNDOCK_REQUEST",
+                  "dock_readiness": "UNDOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "UNDOCK_ELIGIBLE",
+                  "admitted_directive": "AUTHORIZE_UNDOCK",
+                  "lifecycle_result": "UNDOCK_ACCEPTED",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_UNDOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_UNDOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "clearance-persistence-and-gating",
+      "traces": [
+        {
+          "trace_id": "SCN-05-GATE-WITHDRAW-RESTORE",
+          "initial_state": "IDLE_OUTSIDE",
+          "steps": [
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "FRESH_DOCK",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "DOCK_REQUEST",
+                  "dock_readiness": "DOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_ELIGIBLE",
+                  "admitted_directive": "AUTHORIZE_DOCK",
+                  "lifecycle_result": "DOCK_ACCEPTED",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_DOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_DOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCK_CLEARANCE_LATCHED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "BLOCKED",
+                "ship_condition": "NOT_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-15",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "INHIBITED",
+                "station_report": "ACCESS_INHIBITED"
+              },
+              "observed": {
+                "case_id": "CASE-15",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "INHIBITED",
+                "station_report": "ACCESS_INHIBITED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "TEMPORARILY_BLOCKED",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "TEMPORARILY_BLOCKED",
+                  "admitted_directive": "HOLD_DOCK_CLEARANCE",
+                  "lifecycle_result": "NONE",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_DOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCK_CLEARANCE_LATCHED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-15",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-15",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "DOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_WAITING",
+                  "admitted_directive": "HOLD_DOCK_CLEARANCE",
+                  "lifecycle_result": "NONE",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_DOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_DOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCK_CLEARANCE_LATCHED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DOCKED_SECURE",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-14",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCKED_READY",
+                "station_report": "ACCESS_AVAILABLE"
+              },
+              "observed": {
+                "case_id": "CASE-14",
+                "next_state": "DOCKED_ACCESS_LOCKED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCKED_READY",
+                "station_report": "ACCESS_AVAILABLE",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "SERVICE_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_CONFIRMED",
+                  "admitted_directive": "CONFIRM_DOCK",
+                  "lifecycle_result": "DOCK_CONFIRMED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "DOCKED_ACCESS_LOCKED",
+              "input": {
+                "pilot_intent": "FRESH_UNDOCK",
+                "berth_observation": "DEPARTURE_CLEAR",
+                "ship_condition": "DEPARTURE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-16",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-16",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "UNDOCK_REQUEST",
+                  "dock_readiness": "UNDOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "UNDOCK_ELIGIBLE",
+                  "admitted_directive": "AUTHORIZE_UNDOCK",
+                  "lifecycle_result": "UNDOCK_ACCEPTED",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_UNDOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_UNDOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "UNDOCK_CLEARANCE_LATCHED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "BLOCKED",
+                "ship_condition": "NOT_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-13",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "INHIBITED",
+                "station_report": "ACCESS_INHIBITED"
+              },
+              "observed": {
+                "case_id": "CASE-13",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "INHIBITED",
+                "station_report": "ACCESS_INHIBITED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "TEMPORARILY_BLOCKED",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "TEMPORARILY_BLOCKED",
+                  "admitted_directive": "HOLD_UNDOCK_CLEARANCE",
+                  "lifecycle_result": "NONE",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_UNDOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "UNDOCK_CLEARANCE_LATCHED",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "DEPARTURE_CLEAR",
+                "ship_condition": "DEPARTURE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-13",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-13",
+                "next_state": "UNDOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_UNDOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "UNDOCK_PERMITTED",
+                "station_report": "DEPARTURE_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "UNDOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "UNDOCK_WAITING",
+                  "admitted_directive": "HOLD_UNDOCK_CLEARANCE",
+                  "lifecycle_result": "NONE",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_UNDOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_UNDOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-06",
+      "family": "contradiction-containment",
+      "traces": [
+        {
+          "trace_id": "SCN-06-INVALID-SHIP",
+          "initial_state": "IDLE_OUTSIDE",
+          "steps": [
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "INVALID",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-01",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED"
+              },
+              "observed": {
+                "case_id": "CASE-01",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "READINESS_FAULT",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "ASSESSMENT_FAULT",
+                  "admitted_directive": "ENTER_RECOVERY_FAULT",
+                  "lifecycle_result": "RECOVERY_LATCHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-06-MISMATCHED-READINESS",
+          "initial_state": "IDLE_OUTSIDE",
+          "steps": [
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "SERVICE_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED"
+              },
+              "observed": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "READINESS_CONFLICT",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "ASSESSMENT_CONFLICT",
+                  "admitted_directive": "ENTER_RECOVERY_CONFLICT",
+                  "lifecycle_result": "RECOVERY_LATCHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-06-UNEXPECTED-SERVICE",
+          "initial_state": "IDLE_OUTSIDE",
+          "steps": [
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "NONE",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "ACTIVE",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED"
+              },
+              "observed": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "DOCK_READY",
+                  "service_interlock": "SINGLE_ACTIVE",
+                  "operational_assessment": "ASSESSMENT_CONFLICT",
+                  "admitted_directive": "ENTER_RECOVERY_CONFLICT",
+                  "lifecycle_result": "RECOVERY_LATCHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-07",
+      "family": "recovery-reset-and-fresh-reentry",
+      "traces": [
+        {
+          "trace_id": "SCN-07-RECOVERY",
+          "initial_state": "RECOVERY_REQUIRED",
+          "steps": [
+            {
+              "pre_state": "RECOVERY_REQUIRED",
+              "input": {
+                "pilot_intent": "REPEATED_RESET",
+                "berth_observation": "RELEASED",
+                "ship_condition": "TRANSIT",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-04",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED"
+              },
+              "observed": {
+                "case_id": "CASE-04",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED",
+                "owner_values": {
+                  "qualified_intent": "NO_ACTION",
+                  "dock_readiness": "RELEASE_CONFIRMED",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "RECOVERY_CLEARABLE",
+                  "admitted_directive": "HOLD_RECOVERY",
+                  "lifecycle_result": "RECOVERY_LATCHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "RECOVERY_REQUIRED",
+              "input": {
+                "pilot_intent": "FRESH_RESET",
+                "berth_observation": "BLOCKED",
+                "ship_condition": "NOT_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-04",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED"
+              },
+              "observed": {
+                "case_id": "CASE-04",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED",
+                "owner_values": {
+                  "qualified_intent": "RESET_REQUEST",
+                  "dock_readiness": "TEMPORARILY_BLOCKED",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "TEMPORARILY_BLOCKED",
+                  "admitted_directive": "HOLD_RECOVERY",
+                  "lifecycle_result": "RECOVERY_LATCHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "RECOVERY_REQUIRED",
+              "input": {
+                "pilot_intent": "FRESH_RESET",
+                "berth_observation": "RELEASED",
+                "ship_condition": "TRANSIT",
+                "repair_signal": "REQUEST",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED"
+              },
+              "observed": {
+                "case_id": "CASE-02",
+                "next_state": "RECOVERY_REQUIRED",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RECOVERY_REQUIRED",
+                "station_report": "RECOVERY_REQUIRED",
+                "owner_values": {
+                  "qualified_intent": "RESET_REQUEST",
+                  "dock_readiness": "RELEASE_CONFIRMED",
+                  "service_interlock": "SINGLE_DEMAND",
+                  "operational_assessment": "ASSESSMENT_CONFLICT",
+                  "admitted_directive": "ENTER_RECOVERY_CONFLICT",
+                  "lifecycle_result": "RECOVERY_LATCHED",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "RECOVERY_REQUIRED",
+              "input": {
+                "pilot_intent": "FRESH_RESET",
+                "berth_observation": "RELEASED",
+                "ship_condition": "TRANSIT",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-03",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RESET_COMPLETE",
+                "station_report": "NO_ACCESS"
+              },
+              "observed": {
+                "case_id": "CASE-03",
+                "next_state": "IDLE_OUTSIDE",
+                "movement_directive": "HOLD",
+                "service_access": "LOCKED",
+                "pilot_report": "RESET_COMPLETE",
+                "station_report": "NO_ACCESS",
+                "owner_values": {
+                  "qualified_intent": "RESET_REQUEST",
+                  "dock_readiness": "RELEASE_CONFIRMED",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "RECOVERY_CLEARABLE",
+                  "admitted_directive": "RESET_RECOVERY",
+                  "lifecycle_result": "RESET_COMPLETE",
+                  "control_proposal": {
+                    "movement": "HOLD_MOVEMENT",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "HOLD",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            },
+            {
+              "pre_state": "IDLE_OUTSIDE",
+              "input": {
+                "pilot_intent": "FRESH_DOCK",
+                "berth_observation": "APPROACH_CLEAR",
+                "ship_condition": "APPROACH_READY",
+                "repair_signal": "QUIESCENT",
+                "resupply_signal": "QUIESCENT"
+              },
+              "expected": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED"
+              },
+              "observed": {
+                "case_id": "CASE-18",
+                "next_state": "DOCK_CLEARANCE_LATCHED",
+                "movement_directive": "PERMIT_DOCK",
+                "service_access": "LOCKED",
+                "pilot_report": "DOCK_PERMITTED",
+                "station_report": "DOCK_EXPECTED",
+                "owner_values": {
+                  "qualified_intent": "DOCK_REQUEST",
+                  "dock_readiness": "DOCK_READY",
+                  "service_interlock": "QUIESCENT",
+                  "operational_assessment": "DOCK_ELIGIBLE",
+                  "admitted_directive": "AUTHORIZE_DOCK",
+                  "lifecycle_result": "DOCK_ACCEPTED",
+                  "control_proposal": {
+                    "movement": "AUTHORIZE_DOCK",
+                    "access": "LOCK_ACCESS"
+                  },
+                  "gated_control": {
+                    "movement": "PERMIT_DOCK",
+                    "access": "LOCKED"
+                  }
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ]
+}

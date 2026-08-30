@@ -1,0 +1,195 @@
+AGENT PLAN
+==========
+
+Title: English requirements to GUMBO contract synthesis plan for SysML v2 models
+Authoring context: `N.md` is the complete normative English source and
+`M-star.sysml` is the supplied contract-free SysML v2 structural model. This
+plan adapts the successful Isolette GUMBO workflow to the synthetic dataset
+without changing its intended requirements-to-contract process.
+
+0) OBJECTIVE
+------------
+Given: The package, data types, components, ports, parts, connections, and
+top-level instance already exist in `M-star.sysml`; its GUMBO regions were
+removed and appear as whitespace.
+
+Goal: Convert every detailed initialization requirement, compute requirement,
+state definition, invariant, and named conditional case in `N.md` into a GUMBO
+contract embedded in the owning component. Preserve all non-GUMBO model text.
+The result must pass the exact Sireum/HAMR/Logika model gate in
+`sireum_verification_plan.txt`.
+
+The dataset-specific component and requirement names come only from `N.md` and
+`M-star.sysml`. Do not import Isolette names or behavior.
+
+1) CONTRACT EMBEDDING: CANONICAL BLOCK
+--------------------------------------
+Place one GUMBO block inside each Thread that owns requirements:
+
+language "GUMBO" /*{
+  state
+    // optional persistent state, only when N.md defines it
+    stateName: StateType;
+
+  integration
+    // optional cross-component port assumptions/guarantees explicitly required
+    assume INPUT_ID "optional trace text":
+      boolean_expression;
+    guarantee OUTPUT_ID "optional trace text":
+      boolean_expression;
+
+  initialize
+    modifies stateName;
+    guarantee INITIAL_ID "optional trace text":
+      boolean_expression;
+
+  compute
+    modifies stateName;
+    guarantee PUBLICATION_ID "optional trace text":
+      boolean_expression;
+    compute_cases
+      case CASE_ID "optional English paraphrase":
+        assume guard_expression;
+        guarantee postcondition_expression;
+}*/
+
+Grammar constraints:
+- Sections, clauses, and cases do not have `{}` braces.
+- The only closing brace is the brace in the final token `}*/`; never add a
+  separate brace before it.
+- State declarations end in `;` and have no initializer.
+- Identifiers are bare identifiers, never quoted. Optional descriptive text is
+  quoted only after the identifier and before `:`.
+- Every named assume/guarantee and every case line has `:`.
+- Clause expressions end in `;`. There is no standalone `;` after a section,
+  case, or `compute_cases`.
+- A compute case has at most one anonymous `assume` and exactly one anonymous
+  `guarantee`. Conjoin multiple guard or result facts into those expressions.
+- Use GUMBO/Slang operators `&`, `|`, `not`, and `implies`. Never use `&&`,
+  `||`, `!`, `if/then/else/endif`, or assignment (`=`, `:=`) as behavior.
+- Equality in formulas is `==`; inequality is `!=`.
+- Use `modifies` for each persistent state variable changed by initialize or
+  compute.
+- In compute contracts, `In(stateName)` denotes the value on entry when N.md
+  distinguishes entry state from the resulting state.
+- Do not add bare SysML declarations inside a component for contract state.
+
+2) WHEN TO USE EACH SECTION
+---------------------------
+2.1 state
+- Add exactly the persistent state definitions listed in N.md.
+- Do not invent state merely to encode a stateless conditional table.
+- Initialize the state with an initialize guarantee, not a declaration value.
+
+2.2 integration
+- Use only for explicit port assumptions/guarantees or cross-component
+  invariants in N.md.
+- An integration clause should constrain a single port. Do not relate multiple
+  ports in one integration clause.
+- Do not duplicate ordinary per-dispatch behavior as integration constraints.
+
+2.3 initialize
+- Map every requirement under the component's initialization phase.
+- If several output facts belong to one named requirement, conjoin them into
+  the single guarantee expression.
+
+2.4 compute
+- Map unconditional publication/invariant requirements to named compute
+  guarantees before `compute_cases`.
+- Map each named conditional requirement to one compute case with its original
+  identifier.
+- The case assume is the English guard; the case guarantee is the required
+  post-state/output condition.
+
+3) ENGLISH TO GUMBO META-RULES
+------------------------------
+R1) "If guard, output shall be value"
+
+  case REQUIREMENT_ID:
+    assume guard;
+    guarantee output == value;
+
+R2) Several required outputs in one case
+
+  guarantee outputA == valueA & outputB == valueB & outputC == valueC;
+
+R3) "If any condition" / "if all conditions"
+- Translate "any" with `|` and "all" with `&`, using parentheses.
+
+R4) Negation
+- Translate "is not" with `!=` when comparing values.
+- Translate logical negation with `not expression`, never `!expression`.
+
+R5) Conditional obligation outside a case
+
+  guarantee (guard) implies (required_result);
+
+R6) Entry-state-sensitive transition
+
+  case TRANSITION_ID:
+    assume In(stateName) == OldState & other_guard;
+    guarantee stateName == NewState & publishedOutput == expected;
+
+R7) Retain state
+
+  guarantee stateName == In(stateName);
+
+R8) Record-valued output
+- Specify the required record members through member equality expressions.
+- Do not use field assignment or construct syntax that the existing model does
+  not define.
+
+R9) Total case tables
+- Preserve the cases exactly as N.md names them. Do not merge distinct named
+  cases merely because their results are similar.
+
+4) DATASET-SPECIFIC MAPPING
+---------------------------
+- Read the complete `N.md` before editing.
+- Build a checklist grouped by the exact component headings in N.md.
+- Locate the corresponding Thread and its exact ports/types in M-star.sysml.
+- Use only existing model names, namespaces, enum literals, record members, and
+  component ownership.
+- Do not copy any Isolette-specific component, requirement, type, unit, or URL.
+- Every named detailed requirement in N.md must appear exactly once in the
+  appropriate GUMBO block unless N.md explicitly identifies it as supporting
+  prose rather than a contract clause.
+
+5) TRACEABILITY
+---------------
+- Preserve each requirement identifier as its clause/case identifier.
+- Optional quoted text may contain a short paraphrase, but identifiers and
+  behavior must remain grounded in N.md.
+- Before completion, search N.md and M-star.sysml and audit every detailed
+  requirement identifier for coverage.
+
+6) INCREMENTAL IMPLEMENTATION WORKFLOW
+--------------------------------------
+1. Read N.md and M-star.sysml completely.
+2. Make a component/requirement checklist.
+3. Edit one complete component early. The removed regions are whitespace, so
+   anchor the edit on unique stable port/component text rather than matching a
+   large whitespace block.
+4. Read the inserted block back immediately.
+5. Run the exact model gate from `sireum_verification_plan.txt`.
+6. Fix the earliest diagnostic in that component before moving on.
+7. Repeat for the next component until all components and requirements are
+   represented and the exact gate exits 0.
+
+Do not draft every component in invalid pseudo-syntax and defer compilation to
+the end. Compiler feedback after each component is part of the workflow.
+
+7) IMPLEMENTATION CHECKLIST
+---------------------------
+- One GUMBO block exists in every Thread with detailed requirements.
+- Every initialization requirement is represented.
+- Every unconditional compute requirement is represented.
+- Every named conditional case is represented with the original identifier.
+- All N.md state definitions are declared and modified in the correct phases.
+- No architecture, port, type, part, connection, or top-level instance changed.
+- No Java/block syntax, quoted identifier, assignment, or unsupported boolean
+  operator remains.
+- The exact model gate exits 0.
+- The final requirement-coverage audit is complete.
+
+After this plan, follow `sireum_verification_plan.txt`.

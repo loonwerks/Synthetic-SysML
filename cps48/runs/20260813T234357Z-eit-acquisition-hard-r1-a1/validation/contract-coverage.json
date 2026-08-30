@@ -1,0 +1,2354 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "0564e91f916c2401cdbc96441994bbf22b5364579ca13d3da394d9de63cbfd15",
+  "claim_boundary": "Exact finite logical-step conformance only; not compositional proof, solver certification, generated-code correctness, execution, physical performance, clinical validation, or safety certification.",
+  "raw_boundary_snapshots": 32400,
+  "pre_state_combinations": 180,
+  "evaluations": 5832000,
+  "semantic_connection_map": {
+    "count": 33,
+    "connections": [
+      {
+        "id": "INT-01",
+        "source": "doctor_request_qualification.request_facts",
+        "destination": "fault_composition.request_facts"
+      },
+      {
+        "id": "INT-02",
+        "source": "doctor_request_qualification.request_facts",
+        "destination": "start_feasibility.request_facts"
+      },
+      {
+        "id": "INT-03",
+        "source": "doctor_request_qualification.request_facts",
+        "destination": "session_control.request_facts"
+      },
+      {
+        "id": "INT-04",
+        "source": "doctor_request_qualification.request_facts",
+        "destination": "image_availability_control.request_facts"
+      },
+      {
+        "id": "INT-05",
+        "source": "preparation_assessment.preparation_facts",
+        "destination": "fault_composition.preparation_facts"
+      },
+      {
+        "id": "INT-06",
+        "source": "preparation_assessment.preparation_facts",
+        "destination": "start_feasibility.preparation_facts"
+      },
+      {
+        "id": "INT-07",
+        "source": "equipment_assessment.equipment_facts",
+        "destination": "fault_composition.equipment_facts"
+      },
+      {
+        "id": "INT-08",
+        "source": "equipment_assessment.equipment_facts",
+        "destination": "start_feasibility.equipment_facts"
+      },
+      {
+        "id": "INT-09",
+        "source": "equipment_assessment.equipment_facts",
+        "destination": "acquisition_cycle_control.equipment_facts"
+      },
+      {
+        "id": "INT-10",
+        "source": "batch_assessment.batch_facts",
+        "destination": "fault_composition.batch_facts"
+      },
+      {
+        "id": "INT-11",
+        "source": "batch_assessment.batch_facts",
+        "destination": "acquisition_cycle_control.batch_facts"
+      },
+      {
+        "id": "INT-12",
+        "source": "batch_assessment.batch_facts",
+        "destination": "image_availability_control.batch_facts"
+      },
+      {
+        "id": "INT-13",
+        "source": "image_result_assessment.image_result_facts",
+        "destination": "fault_composition.image_result_facts"
+      },
+      {
+        "id": "INT-14",
+        "source": "image_result_assessment.image_result_facts",
+        "destination": "image_availability_control.image_result_facts"
+      },
+      {
+        "id": "INT-15",
+        "source": "fault_composition.fault_summary",
+        "destination": "recovery_control.fault_summary"
+      },
+      {
+        "id": "INT-16",
+        "source": "recovery_control.recovery_frame",
+        "destination": "session_control.recovery_frame"
+      },
+      {
+        "id": "INT-17",
+        "source": "recovery_control.recovery_frame",
+        "destination": "acquisition_cycle_control.recovery_frame"
+      },
+      {
+        "id": "INT-18",
+        "source": "recovery_control.recovery_frame",
+        "destination": "image_availability_control.recovery_frame"
+      },
+      {
+        "id": "INT-19",
+        "source": "recovery_control.recovery_frame",
+        "destination": "start_feasibility.recovery_frame"
+      },
+      {
+        "id": "INT-20",
+        "source": "recovery_control.recovery_frame",
+        "destination": "collection_feasibility.recovery_frame"
+      },
+      {
+        "id": "INT-21",
+        "source": "recovery_control.recovery_frame",
+        "destination": "image_release_feasibility.recovery_frame"
+      },
+      {
+        "id": "INT-22",
+        "source": "recovery_control.recovery_frame",
+        "destination": "supervisory_arbitration.recovery_frame"
+      },
+      {
+        "id": "INT-23",
+        "source": "start_feasibility.start_feasibility",
+        "destination": "session_control.start_feasibility"
+      },
+      {
+        "id": "INT-24",
+        "source": "session_control.session_frame",
+        "destination": "collection_feasibility.session_frame"
+      },
+      {
+        "id": "INT-25",
+        "source": "session_control.session_frame",
+        "destination": "image_release_feasibility.session_frame"
+      },
+      {
+        "id": "INT-26",
+        "source": "session_control.session_frame",
+        "destination": "supervisory_arbitration.session_frame"
+      },
+      {
+        "id": "INT-27",
+        "source": "acquisition_cycle_control.cycle_frame",
+        "destination": "collection_feasibility.cycle_frame"
+      },
+      {
+        "id": "INT-28",
+        "source": "acquisition_cycle_control.cycle_frame",
+        "destination": "supervisory_arbitration.cycle_frame"
+      },
+      {
+        "id": "INT-29",
+        "source": "image_availability_control.image_frame",
+        "destination": "image_release_feasibility.image_frame"
+      },
+      {
+        "id": "INT-30",
+        "source": "image_availability_control.image_frame",
+        "destination": "supervisory_arbitration.image_frame"
+      },
+      {
+        "id": "INT-31",
+        "source": "collection_feasibility.collection_proposal",
+        "destination": "supervisory_arbitration.collection_proposal"
+      },
+      {
+        "id": "INT-32",
+        "source": "image_release_feasibility.release_proposal",
+        "destination": "supervisory_arbitration.release_proposal"
+      },
+      {
+        "id": "INT-33",
+        "source": "supervisory_arbitration.decision_frame",
+        "destination": "publication_composition.decision_frame"
+      }
+    ],
+    "mismatches": 0
+  },
+  "partition_counts": {
+    "CASE-01": 5715360,
+    "CASE-02": 38880,
+    "CASE-03": 12960,
+    "CASE-04": 12960,
+    "CASE-05": 51840,
+    "CASE-06": 5780160,
+    "CASE-07": 17280,
+    "CASE-08": 480,
+    "CASE-09": 16800,
+    "CASE-10": 4320,
+    "CASE-11": 12960,
+    "CASE-12": 5780160,
+    "CASE-13": 10368,
+    "CASE-14": 13824,
+    "CASE-15": 9216,
+    "CASE-16": 9216,
+    "CASE-17": 9216,
+    "CASE-18": 5780160,
+    "CASE-19": 12960,
+    "CASE-20": 19440,
+    "CASE-21": 4860,
+    "CASE-22": 4860,
+    "CASE-23": 9720,
+    "CASE-24": 5780160,
+    "CASE-25": 4320,
+    "CASE-26": 480,
+    "CASE-27": 5580,
+    "CASE-28": 7100,
+    "CASE-29": 1056,
+    "CASE-30": 33304
+  },
+  "gaps": {
+    "recovery": 0,
+    "session": 0,
+    "cycle": 0,
+    "image": 0,
+    "arbitration": 0
+  },
+  "overlaps": {
+    "recovery": 0,
+    "session": 0,
+    "cycle": 0,
+    "image": 0,
+    "arbitration": 0
+  },
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "violations": 0,
+    "fault_propagation_mismatches": 0,
+    "all_30_cases_reached": true,
+    "all_10_scenarios_passed": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "doctor_request_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "doctor_request_qualification.doctor_signal"
+      ],
+      "owner_local_facts": [
+        "total many-to-one request classification and request-input fault"
+      ],
+      "contract_cases": [
+        "TOTAL_REQUEST_QUALIFICATION"
+      ],
+      "analyzer_checks": [
+        "doctor qualification total mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "preparation_assessment",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "preparation_assessment.preparation_observation"
+      ],
+      "owner_local_facts": [
+        "ready, not-ready, failure, and invalid preparation classification"
+      ],
+      "contract_cases": [
+        "TOTAL_PREPARATION_ASSESSMENT"
+      ],
+      "analyzer_checks": [
+        "preparation assessment total mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "equipment_assessment",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "equipment_assessment.equipment_observation"
+      ],
+      "owner_local_facts": [
+        "ready, unavailable, busy, failed, and invalid equipment classification"
+      ],
+      "contract_cases": [
+        "TOTAL_EQUIPMENT_ASSESSMENT"
+      ],
+      "analyzer_checks": [
+        "equipment assessment total mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "batch_assessment",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "batch_assessment.batch_signal"
+      ],
+      "owner_local_facts": [
+        "no-batch, usable, incomplete, failed, and invalid batch classification"
+      ],
+      "contract_cases": [
+        "TOTAL_BATCH_ASSESSMENT"
+      ],
+      "analyzer_checks": [
+        "batch assessment total mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "image_result_assessment",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "image_result_assessment.image_feedback"
+      ],
+      "owner_local_facts": [
+        "no-result, available, failed, and invalid image-result classification"
+      ],
+      "contract_cases": [
+        "TOTAL_IMAGE_RESULT_ASSESSMENT"
+      ],
+      "analyzer_checks": [
+        "image-result assessment total mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "fault_composition",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "fault_composition.request_facts",
+        "fault_composition.preparation_facts",
+        "fault_composition.equipment_facts",
+        "fault_composition.batch_facts",
+        "fault_composition.image_result_facts"
+      ],
+      "owner_local_facts": [
+        "local fault presence, multiplicity, and dominant-source priority"
+      ],
+      "contract_cases": [
+        "LOCAL_FAULT_PRESENCE",
+        "LOCAL_FAULT_MULTIPLICITY",
+        "LOCAL_DOMINANT_FAULT_PRIORITY"
+      ],
+      "analyzer_checks": [
+        "fault composition source and multiplicity exhaustive check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "session_control",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "session_control.request_facts",
+        "session_control.recovery_frame",
+        "session_control.start_feasibility",
+        "session_control.sessionMemory"
+      ],
+      "owner_local_facts": [
+        "next session state and admitted start or stop transition"
+      ],
+      "contract_cases": [
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11"
+      ],
+      "analyzer_checks": [
+        "session partition exclusivity and completeness"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "acquisition_cycle_control",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "acquisition_cycle_control.equipment_facts",
+        "acquisition_cycle_control.batch_facts",
+        "acquisition_cycle_control.recovery_frame",
+        "acquisition_cycle_control.cycleMemory"
+      ],
+      "owner_local_facts": [
+        "next acquisition-cycle phase and usable-batch readiness"
+      ],
+      "contract_cases": [
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17"
+      ],
+      "analyzer_checks": [
+        "cycle partition exclusivity and completeness"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "image_availability_control",
+      "claimed_roles": [
+        "proposal",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "image_availability_control.request_facts",
+        "image_availability_control.batch_facts",
+        "image_availability_control.image_result_facts",
+        "image_availability_control.recovery_frame",
+        "image_availability_control.imageMemory"
+      ],
+      "owner_local_facts": [
+        "next image state and persistent generation proposal"
+      ],
+      "contract_cases": [
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23"
+      ],
+      "analyzer_checks": [
+        "image partition exclusivity and completeness"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recovery_control",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "recovery_control.recovery_event",
+        "recovery_control.fault_summary",
+        "recovery_control.recoveryMemory"
+      ],
+      "owner_local_facts": [
+        "latched recovery transition, effective fault cause, multiplicity, and gate"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05"
+      ],
+      "analyzer_checks": [
+        "recovery partition and effective-fault exhaustive check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "start_feasibility",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "start_feasibility.request_facts",
+        "start_feasibility.preparation_facts",
+        "start_feasibility.equipment_facts",
+        "start_feasibility.recovery_frame"
+      ],
+      "owner_local_facts": [
+        "four-input start feasibility"
+      ],
+      "contract_cases": [
+        "START_FEASIBILITY_RELATION"
+      ],
+      "analyzer_checks": [
+        "start feasibility conjunction check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "collection_feasibility",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "collection_feasibility.recovery_frame",
+        "collection_feasibility.session_frame",
+        "collection_feasibility.cycle_frame"
+      ],
+      "owner_local_facts": [
+        "collection proposal from received derived states and gate"
+      ],
+      "contract_cases": [
+        "COLLECTION_FEASIBILITY_RELATION"
+      ],
+      "analyzer_checks": [
+        "collection proposal conjunction check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "image_release_feasibility",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "image_release_feasibility.recovery_frame",
+        "image_release_feasibility.session_frame",
+        "image_release_feasibility.image_frame"
+      ],
+      "owner_local_facts": [
+        "release proposal from received derived states and gate"
+      ],
+      "contract_cases": [
+        "IMAGE_RELEASE_FEASIBILITY_RELATION"
+      ],
+      "analyzer_checks": [
+        "image release proposal conjunction check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "supervisory_arbitration",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "supervisory_arbitration.recovery_frame",
+        "supervisory_arbitration.session_frame",
+        "supervisory_arbitration.cycle_frame",
+        "supervisory_arbitration.image_frame",
+        "supervisory_arbitration.collection_proposal",
+        "supervisory_arbitration.release_proposal"
+      ],
+      "owner_local_facts": [
+        "strict-priority selected action and cause"
+      ],
+      "contract_cases": [
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "CASE-30"
+      ],
+      "analyzer_checks": [
+        "arbitration partition and lower-priority suppression check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "publication_composition",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "publication_composition.decision_frame"
+      ],
+      "owner_local_facts": [
+        "coordinated total control/status publication relation"
+      ],
+      "contract_cases": [
+        "COMPLETE_COMMAND_MAPPING",
+        "COMPLETE_STATUS_MAPPING"
+      ],
+      "analyzer_checks": [
+        "eleven-field publication composition check"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "passed": true,
+      "trace": [
+        {
+          "label": "fresh nominal start",
+          "input": {
+            "doctor": "START"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-08",
+            "CASE-26"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-08",
+            "CASE-16",
+            "CASE-23",
+            "CASE-26"
+          ],
+          "observed_outputs": {
+            "selectedAction": "START",
+            "selectedCause": "DOCTOR_START",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_START",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "STARTING",
+              "selectedCause": "DOCTOR_START",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "later collection",
+          "input": {},
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-11",
+            "CASE-16",
+            "CASE-29"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-23",
+            "CASE-29"
+          ],
+          "observed_outputs": {
+            "selectedAction": "COLLECT",
+            "selectedCause": "READY_TO_COLLECT",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_COLLECTION",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "COLLECTING",
+              "selectedCause": "READY_TO_COLLECT",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "passed": true,
+      "trace": [
+        {
+          "label": "complete batch proposes generation",
+          "input": {
+            "batch": "COMPLETE"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-14",
+            "CASE-22",
+            "CASE-28"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-14",
+            "CASE-22",
+            "CASE-28"
+          ],
+          "observed_outputs": {
+            "selectedAction": "GENERATE_IMAGE",
+            "selectedCause": "USABLE_BATCH",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "REQUEST_GENERATION"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGING",
+              "selectedCause": "USABLE_BATCH",
+              "sessionState": "MONITORING",
+              "cycleState": "BATCH_READY",
+              "imageState": "AWAITING_IMAGE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "BATCH_READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "generated image releases",
+          "input": {
+            "image": "GENERATED"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "BATCH_READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-20",
+            "CASE-27"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-20",
+            "CASE-27"
+          ],
+          "observed_outputs": {
+            "selectedAction": "RELEASE_IMAGE",
+            "selectedCause": "IMAGE_AVAILABLE",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGE_AVAILABLE",
+              "selectedCause": "IMAGE_AVAILABLE",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "AVAILABLE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "AVAILABLE_FOR_ANALYSIS",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "later acknowledgement clears",
+          "input": {
+            "doctor": "ACK_IMAGE"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-21"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-21",
+            "CASE-29"
+          ],
+          "observed_outputs": {
+            "selectedAction": "COLLECT",
+            "selectedCause": "READY_TO_COLLECT",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_COLLECTION",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "COLLECTING",
+              "selectedCause": "READY_TO_COLLECT",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "passed": true,
+      "trace": [
+        {
+          "label": "belt not applied",
+          "input": {
+            "doctor": "START",
+            "preparation": "NOT_APPLIED"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-09",
+            "CASE-30"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-09",
+            "CASE-16",
+            "CASE-23",
+            "CASE-30"
+          ],
+          "observed_outputs": {
+            "selectedAction": "HOLD",
+            "selectedCause": "NO_ELIGIBLE_WORK",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IDLE",
+              "selectedCause": "NO_ELIGIBLE_WORK",
+              "sessionState": "IDLE",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "IDLE",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "calibration not performed",
+          "input": {
+            "doctor": "START",
+            "preparation": "CALIBRATION_NOT_PERFORMED"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-09",
+            "CASE-30"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-09",
+            "CASE-16",
+            "CASE-23",
+            "CASE-30"
+          ],
+          "observed_outputs": {
+            "selectedAction": "HOLD",
+            "selectedCause": "NO_ELIGIBLE_WORK",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IDLE",
+              "selectedCause": "NO_ELIGIBLE_WORK",
+              "sessionState": "IDLE",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "IDLE",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "passed": true,
+      "trace": [
+        {
+          "label": "equipment not ready",
+          "input": {
+            "doctor": "START",
+            "equipment": "NOT_READY"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-09",
+            "CASE-30"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-09",
+            "CASE-17",
+            "CASE-23",
+            "CASE-30"
+          ],
+          "observed_outputs": {
+            "selectedAction": "HOLD",
+            "selectedCause": "NO_ELIGIBLE_WORK",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IDLE",
+              "selectedCause": "NO_ELIGIBLE_WORK",
+              "sessionState": "IDLE",
+              "cycleState": "DORMANT",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "equipment busy",
+          "input": {
+            "doctor": "START",
+            "equipment": "BUSY"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-09",
+            "CASE-30"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-09",
+            "CASE-15",
+            "CASE-23",
+            "CASE-30"
+          ],
+          "observed_outputs": {
+            "selectedAction": "HOLD",
+            "selectedCause": "NO_ELIGIBLE_WORK",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IDLE",
+              "selectedCause": "NO_ELIGIBLE_WORK",
+              "sessionState": "IDLE",
+              "cycleState": "COLLECTING",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "IDLE",
+            "cycle": "COLLECTING",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "passed": true,
+      "trace": [
+        {
+          "label": "stop suppresses available-image release",
+          "input": {
+            "doctor": "STOP"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-10",
+            "CASE-25"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-10",
+            "CASE-16",
+            "CASE-23",
+            "CASE-25"
+          ],
+          "observed_outputs": {
+            "selectedAction": "STOP",
+            "selectedCause": "DOCTOR_STOP",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IDLE",
+              "selectedCause": "DOCTOR_STOP",
+              "sessionState": "IDLE",
+              "cycleState": "READY",
+              "imageState": "AVAILABLE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "IDLE",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "passed": true,
+      "trace": [
+        {
+          "label": "release over collection",
+          "input": {},
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-27"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-23",
+            "CASE-27"
+          ],
+          "observed_outputs": {
+            "selectedAction": "RELEASE_IMAGE",
+            "selectedCause": "IMAGE_AVAILABLE",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGE_AVAILABLE",
+              "selectedCause": "IMAGE_AVAILABLE",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "AVAILABLE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "AVAILABLE_FOR_ANALYSIS",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "acknowledge to clear",
+          "input": {
+            "doctor": "ACK_IMAGE"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-21"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-21",
+            "CASE-29"
+          ],
+          "observed_outputs": {
+            "selectedAction": "COLLECT",
+            "selectedCause": "READY_TO_COLLECT",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_COLLECTION",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "COLLECTING",
+              "selectedCause": "READY_TO_COLLECT",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "batch starts image generation",
+          "input": {
+            "batch": "COMPLETE"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-22",
+            "CASE-28"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-14",
+            "CASE-22",
+            "CASE-28"
+          ],
+          "observed_outputs": {
+            "selectedAction": "GENERATE_IMAGE",
+            "selectedCause": "USABLE_BATCH",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "REQUEST_GENERATION"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGING",
+              "selectedCause": "USABLE_BATCH",
+              "sessionState": "MONITORING",
+              "cycleState": "BATCH_READY",
+              "imageState": "AWAITING_IMAGE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "BATCH_READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "persistent generation over collection",
+          "input": {},
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "BATCH_READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-23",
+            "CASE-28"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-23",
+            "CASE-28"
+          ],
+          "observed_outputs": {
+            "selectedAction": "GENERATE_IMAGE",
+            "selectedCause": "USABLE_BATCH",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "REQUEST_GENERATION"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGING",
+              "selectedCause": "USABLE_BATCH",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "AWAITING_IMAGE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "passed": true,
+      "trace": [
+        {
+          "label": "invalid Doctor",
+          "input": {
+            "doctor": "INVALID_INTENT"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "REQUEST_INPUT",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "invalid preparation",
+          "input": {
+            "preparation": "INVALID_BELT_STATUS"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "PREPARATION_INPUT",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "invalid equipment",
+          "input": {
+            "equipment": "INVALID_HEALTH_STATUS"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "EQUIPMENT_INPUT",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "invalid batch",
+          "input": {
+            "batch": "INVALID_BATCH_KIND"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "BATCH_INPUT",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "invalid image",
+          "input": {
+            "image": "INVALID_RESULT"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "IMAGE_INPUT",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "invalid recovery",
+          "input": {
+            "recovery": "INVALID_RESET"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "RECOVERY_INPUT",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "simultaneous invalid sources",
+          "input": {
+            "doctor": "INVALID_STATUS",
+            "equipment": "INVALID_AVAILABILITY_STATUS"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "REQUEST_INPUT",
+              "multipleFaults": true
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-08",
+      "passed": true,
+      "trace": [
+        {
+          "label": "calibration failure",
+          "input": {
+            "preparation": "CALIBRATION_FAILED"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "PREPARATION_FAILURE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "equipment failure",
+          "input": {
+            "equipment": "FAULTED"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "EQUIPMENT_FAILURE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "corrupt batch",
+          "input": {
+            "batch": "CORRUPT"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "BATCH_FAILURE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "image failure",
+          "input": {
+            "image": "FAILED"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-01",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-01",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "LATCHED",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "IMAGE_FAILURE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "passed": true
+        },
+        {
+          "label": "incomplete batch is nonfault and does not generate",
+          "input": {
+            "batch": "INCOMPLETE"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-02",
+            "CASE-23",
+            "CASE-29"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-23",
+            "CASE-29"
+          ],
+          "observed_outputs": {
+            "selectedAction": "COLLECT",
+            "selectedCause": "READY_TO_COLLECT",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_COLLECTION",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "COLLECTING",
+              "selectedCause": "READY_TO_COLLECT",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-09",
+      "passed": true,
+      "trace": [
+        {
+          "label": "fresh reset enters verifying",
+          "input": {
+            "recovery": "RESET"
+          },
+          "pre_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "LATCHED"
+          },
+          "expected_named_cases": [
+            "CASE-03",
+            "CASE-06",
+            "CASE-24"
+          ],
+          "observed_named_cases": [
+            "CASE-03",
+            "CASE-06",
+            "CASE-12",
+            "CASE-18",
+            "CASE-24"
+          ],
+          "observed_outputs": {
+            "selectedAction": "EMERGENCY_HOLD",
+            "selectedCause": "FAULT_OR_RECOVERY",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_STOP",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "RECOVERY",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "sessionState": "RECOVERY",
+              "cycleState": "RECOVERY",
+              "imageState": "RECOVERY",
+              "recoveryState": "VERIFYING",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "VERIFYING"
+          },
+          "passed": true
+        },
+        {
+          "label": "later verification releases and ignores coincident start",
+          "input": {
+            "doctor": "START",
+            "recovery": "VERIFY_OK"
+          },
+          "pre_state": {
+            "session": "RECOVERY",
+            "cycle": "RECOVERY",
+            "image": "RECOVERY",
+            "recovery": "VERIFYING"
+          },
+          "expected_named_cases": [
+            "CASE-04",
+            "CASE-07",
+            "CASE-13",
+            "CASE-19",
+            "CASE-30"
+          ],
+          "observed_named_cases": [
+            "CASE-04",
+            "CASE-07",
+            "CASE-13",
+            "CASE-19",
+            "CASE-30"
+          ],
+          "observed_outputs": {
+            "selectedAction": "HOLD",
+            "selectedCause": "NO_ELIGIBLE_WORK",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IDLE",
+              "selectedCause": "NO_ELIGIBLE_WORK",
+              "sessionState": "IDLE",
+              "cycleState": "DORMANT",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "still later fresh start succeeds",
+          "input": {
+            "doctor": "START"
+          },
+          "pre_state": {
+            "session": "IDLE",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-08",
+            "CASE-26"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-08",
+            "CASE-16",
+            "CASE-23",
+            "CASE-26"
+          ],
+          "observed_outputs": {
+            "selectedAction": "START",
+            "selectedCause": "DOCTOR_START",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_START",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "STARTING",
+              "selectedCause": "DOCTOR_START",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-10",
+      "passed": true,
+      "trace": [
+        {
+          "label": "busy equipment reports collecting without generation",
+          "input": {
+            "equipment": "BUSY"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "DORMANT",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-15",
+            "CASE-23",
+            "CASE-30"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-15",
+            "CASE-23",
+            "CASE-30"
+          ],
+          "observed_outputs": {
+            "selectedAction": "HOLD",
+            "selectedCause": "NO_ELIGIBLE_WORK",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "MONITORING",
+              "selectedCause": "NO_ELIGIBLE_WORK",
+              "sessionState": "MONITORING",
+              "cycleState": "COLLECTING",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "COLLECTING",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "fresh batch enters awaiting",
+          "input": {
+            "batch": "COMPLETE"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "COLLECTING",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-22",
+            "CASE-28"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-14",
+            "CASE-22",
+            "CASE-28"
+          ],
+          "observed_outputs": {
+            "selectedAction": "GENERATE_IMAGE",
+            "selectedCause": "USABLE_BATCH",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "REQUEST_GENERATION"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGING",
+              "selectedCause": "USABLE_BATCH",
+              "sessionState": "MONITORING",
+              "cycleState": "BATCH_READY",
+              "imageState": "AWAITING_IMAGE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "BATCH_READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "no feedback preserves awaiting and proposal",
+          "input": {},
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "BATCH_READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-23",
+            "CASE-28"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-23",
+            "CASE-28"
+          ],
+          "observed_outputs": {
+            "selectedAction": "GENERATE_IMAGE",
+            "selectedCause": "USABLE_BATCH",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "REQUEST_GENERATION"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGING",
+              "selectedCause": "USABLE_BATCH",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "AWAITING_IMAGE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "generated result becomes available",
+          "input": {
+            "image": "GENERATED"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AWAITING_IMAGE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-20",
+            "CASE-27"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-20",
+            "CASE-27"
+          ],
+          "observed_outputs": {
+            "selectedAction": "RELEASE_IMAGE",
+            "selectedCause": "IMAGE_AVAILABLE",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGE_AVAILABLE",
+              "selectedCause": "IMAGE_AVAILABLE",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "AVAILABLE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "AVAILABLE_FOR_ANALYSIS",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "no acknowledgement preserves availability",
+          "input": {},
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-23",
+            "CASE-27"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-23",
+            "CASE-27"
+          ],
+          "observed_outputs": {
+            "selectedAction": "RELEASE_IMAGE",
+            "selectedCause": "IMAGE_AVAILABLE",
+            "controlFrame": {
+              "acquisitionCommand": "NO_COMMAND",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "IMAGE_AVAILABLE",
+              "selectedCause": "IMAGE_AVAILABLE",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "AVAILABLE",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "AVAILABLE_FOR_ANALYSIS",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        },
+        {
+          "label": "later acknowledgement clears availability",
+          "input": {
+            "doctor": "ACK_IMAGE"
+          },
+          "pre_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "AVAILABLE",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_cases": [
+            "CASE-21"
+          ],
+          "observed_named_cases": [
+            "CASE-02",
+            "CASE-11",
+            "CASE-16",
+            "CASE-21",
+            "CASE-29"
+          ],
+          "observed_outputs": {
+            "selectedAction": "COLLECT",
+            "selectedCause": "READY_TO_COLLECT",
+            "controlFrame": {
+              "acquisitionCommand": "REQUEST_COLLECTION",
+              "imageCommand": "NO_COMMAND"
+            },
+            "statusFrame": {
+              "publicMode": "COLLECTING",
+              "selectedCause": "READY_TO_COLLECT",
+              "sessionState": "MONITORING",
+              "cycleState": "READY",
+              "imageState": "EMPTY",
+              "recoveryState": "HEALTHY",
+              "imageDisposition": "WITHHELD",
+              "dominantFault": "NONE",
+              "multipleFaults": false
+            }
+          },
+          "next_state": {
+            "session": "MONITORING",
+            "cycle": "READY",
+            "image": "EMPTY",
+            "recovery": "HEALTHY"
+          },
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

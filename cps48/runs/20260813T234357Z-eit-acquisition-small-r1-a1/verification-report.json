@@ -1,0 +1,376 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234357Z-eit-acquisition-small-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/EIT_Acquisition_Coordinator.sysml",
+  "source_sha256": "683018484c7e77a24a345bda65aef4a3af75bb530ad707b21e485185a1e8ca7a",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 18,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 113,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "COMMAND-01",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "DELIVERY-01",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INVAR-01",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "OUTPUT-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "QUAL-EVID-01",
+      "QUAL-REQ-01",
+      "STATE-01",
+      "STATUS-01"
+    ],
+    "relativePath": "cps48/runs/20260813T234357Z-eit-acquisition-small-r1-a1/system-abstract.md",
+    "taggedElementCount": 85,
+    "traceAssociationCount": 85,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a closed small monitoring-start and impedance-acquisition coordinator with 5 semantic usages, 12 interactions, 12 ordered cases, 5 scenario families, and one principal state/decision owner.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset express the Monitoring Decision Owner's two local state variables, initialization, explicit pre-state references, twelve ordered effective guards, and same-evaluation next-state/command relation without duplicating the principal decision or leaving state unconstrained?",
+        "What one-root containment and delegation mapping preserves exactly 5 semantic usages, semantic depth 1..2, one weak semantic region, and all 12 end-to-end semantic interactions while reporting required support usages and raw connections separately as uncounted generated support?",
+        "Can the joint 24-value acquisition-evidence relation, producer-total delivery relation, and prioritized Doctor-status relation each be represented as owner-local nonidentity contracts without central recomputation that would invalidate semantic-usage credit?",
+        "Can a deterministic analyzer exhaust all 864 raw input/state snapshots, report the induced 120 qualified snapshots, witness all 12 effective cases and 5 scenario families, and check unreachable anomalous delivery pairings without becoming a second architectural decision owner?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The selected 5/12/12/5 allocation is realizable unchanged and all five usages own nonidentity local behavior.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Extensionally, PART-01 has result fibers 3/1/1/1 over six raw request samples, PART-02 has fibers 18/3/1/1/1 over twenty-four acquisition-evidence samples, PART-03 performs state-dependent twelve-case selection, PART-04 has fibers 7/1/1/1 over command x evidence, and PART-05 has prioritized fibers 10/10/12/19/19 over disposition x evidence x command. None is a copy, bundle, bijective code translation, rename, or reroute wrapper.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "SysML-AADL library commit 9016cbcceefa92f0068e1811923704dd261d15f1 and the trusted Isolette patterns support System-to-Process-to-Thread containment, structured Data attributes, directed typed ports, PortConnection, fan-out, Thread-local GUMBO state, initialize, compute_cases, and In(state). Sireum build 4.20260630.386eac9f accepted a retained source using these patterns with exit 0 and Well-formed! during this review.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "One root System, one behavior-free uncredited support Process, five semantic Threads at depth 2, twelve raw boundary-delegation connections, and six direct inter-Thread connections realize exactly INT-01 through INT-12 in one weak semantic region. GUMBO compute cases are conjunctive, so the already-required PRIORITY-01 exclusions must be explicit rather than relying on first-match behavior.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Independent enumeration covers exactly 864 raw snapshots with CASE-01..12 counts 756/24/12/12/12/6/6/12/6/6/3/9 and exactly 120 qualified snapshots with counts 48/16/8/8/8/6/2/8/6/2/3/5. Every case has a reachable scenario form, so a dependency-free analyzer can check the local relations and five scenario families without becoming a second owner.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The System Abstract declares executable_profile false and preserves physical acquisition, timing, clinical, safety, proof, code-generation, execution, and production claims in DEFER-01. The logical mapping does not activate executable-agent obligations or expand that claim boundary.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved unchanged at 5/12/12/5 with PART-03 as sole decision owner and generation authorized.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized protocol recovery captured the analyzer JSON without a broken pipe; both SysML typechecks, the bounded analyzer, ownership records, hashes, metrics, and traceability passed without source-semantic changes.",
+      "canonical_source": "model/EIT_Acquisition_Coordinator.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated system-overview accepted with zero crossings and route-object collisions; native and complete traceability reviews passed.",
+      "correction_cycles": 13,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "COMMAND-01",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "DELIVERY-01",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INVAR-01",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "OUTPUT-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "QUAL-EVID-01",
+        "QUAL-REQ-01",
+        "STATE-01",
+        "STATUS-01"
+      ],
+      "reviewed_tagged_element_count": 85,
+      "reviewed_trace_association_count": 85,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound design, nonidentity ownership, exhaustive bounded semantics, and rendered overview passed without drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 12,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "requestQualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "requestQualification.requestSample"
+          ],
+          "owner_local_facts": [
+            "validity-aware 6-to-4 qualified request classification"
+          ],
+          "contract_cases": [
+            "QUAL_REQ_Invalid",
+            "QUAL_REQ_None",
+            "QUAL_REQ_Start",
+            "QUAL_REQ_Stop"
+          ],
+          "analyzer_checks": [
+            "request qualification total 6-to-4 relation",
+            "request invalid-status collapse"
+          ]
+        },
+        {
+          "usage": "acquisitionEvidenceQualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "acquisitionEvidenceQualification.calibrationSample",
+            "acquisitionEvidenceQualification.impedanceSample"
+          ],
+          "owner_local_facts": [
+            "joint validity-calibration-token acquisition evidence classification"
+          ],
+          "contract_cases": [
+            "QUAL_EVID_Invalid",
+            "QUAL_EVID_NotCurrent",
+            "QUAL_EVID_NoToken",
+            "QUAL_EVID_TokenOne",
+            "QUAL_EVID_TokenTwo"
+          ],
+          "analyzer_checks": [
+            "acquisition evidence total 24-to-5 relation",
+            "acquisition evidence 18-3-1-1-1 fibers"
+          ]
+        },
+        {
+          "usage": "monitoringDecisionOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "monitoringDecisionOwner.qualifiedRequest",
+            "monitoringDecisionOwner.acquisitionEvidence",
+            "monitoringDecisionOwner.sessionMode",
+            "monitoringDecisionOwner.recoveryPhase"
+          ],
+          "owner_local_facts": [
+            "ordered monitoring resolution",
+            "next session mode",
+            "next recovery phase",
+            "acquisition command"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "owner twelve-case partition over 120 qualified snapshots",
+            "owner complete next-state resolution and command"
+          ]
+        },
+        {
+          "usage": "impedanceDeliveryDerivation",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "impedanceDeliveryDerivation.monitoringResolution",
+            "impedanceDeliveryDerivation.acquisitionEvidence"
+          ],
+          "owner_local_facts": [
+            "command-gated producer-total impedance delivery classification"
+          ],
+          "contract_cases": [
+            "DELIVERY_Hold",
+            "DELIVERY_Anomalous",
+            "DELIVERY_None",
+            "DELIVERY_One",
+            "DELIVERY_Two"
+          ],
+          "analyzer_checks": [
+            "delivery total 10-to-4 relation",
+            "delivery 7-1-1-1 fibers",
+            "anomalous collect pairing unreachable"
+          ]
+        },
+        {
+          "usage": "doctorStatusDerivation",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "doctorStatusDerivation.monitoringResolution",
+            "doctorStatusDerivation.acquisitionEvidence"
+          ],
+          "owner_local_facts": [
+            "priority-ordered fault-recovery-calibration-monitoring status classification"
+          ],
+          "contract_cases": [
+            "STATUS_Fault",
+            "STATUS_Recovery",
+            "STATUS_Calibration",
+            "STATUS_Monitoring",
+            "STATUS_Stopped"
+          ],
+          "analyzer_checks": [
+            "Doctor status total 70-to-5 relation",
+            "Doctor status 10-10-12-19-19 fibers"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound design, nonidentity ownership, exhaustive bounded semantics, and rendered overview passed without drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

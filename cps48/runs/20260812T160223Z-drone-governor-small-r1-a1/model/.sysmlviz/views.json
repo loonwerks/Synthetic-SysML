@@ -1,0 +1,568 @@
+{
+  "schemaVersion": 2,
+  "viewRevision": 23,
+  "activeViewId": "system-overview",
+  "views": [
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "rootId": "def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System",
+      "positions": {
+        "boundary:boundary/port/lifecycle_request": {
+          "x": 80,
+          "y": 165,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/battery_sample": {
+          "x": 80,
+          "y": 335,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process": {
+          "x": 410,
+          "y": 230,
+          "pinned": false,
+          "width": 248,
+          "height": 118
+        },
+        "boundary:boundary/port/lifecycle_actuation": {
+          "x": 740,
+          "y": 80,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/commanded_phase_report": {
+          "x": 740,
+          "y": 250,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/attention_status": {
+          "x": 740,
+          "y": 420,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [],
+      "aliases": {},
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": true,
+      "showTypes": true,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-12T17:48:37.199Z"
+    },
+    {
+      "id": "system-overview",
+      "name": "System Overview",
+      "rootId": "def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System",
+      "positions": {
+        "boundary:boundary/port/lifecycle_request": {
+          "x": 80,
+          "y": 180,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/battery_sample": {
+          "x": 80,
+          "y": 460,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process": {
+          "x": 410,
+          "y": 80,
+          "width": 1000,
+          "height": 760,
+          "pinned": true
+        },
+        "boundary:boundary/port/lifecycle_actuation": {
+          "x": 1560,
+          "y": 180,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/commanded_phase_report": {
+          "x": 1560,
+          "y": 380,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/attention_status": {
+          "x": 1560,
+          "y": 600,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/battery_assessment": {
+          "x": 450,
+          "y": 460,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/lifecycle_decision_owner": {
+          "x": 780,
+          "y": 290,
+          "pinned": true,
+          "width": 248,
+          "height": 118
+        },
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/controlled_outcome_derivation": {
+          "x": 1120,
+          "y": 180,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/attention_derivation": {
+          "x": 780,
+          "y": 560,
+          "pinned": true,
+          "width": 248,
+          "height": 98
+        },
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/request_qualification": {
+          "x": 450,
+          "y": 180,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [
+        "part:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::governor_process"
+      ],
+      "aliases": {
+        "def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System": "Small Drone Lifecycle Governor",
+        "part:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::governor_process": "Generated routing support — Process containment",
+        "part:Drone_Lifecycle_Governor::Governor_Process::request_qualification": "Request Qualification",
+        "part:Drone_Lifecycle_Governor::Governor_Process::battery_assessment": "Battery Assessment",
+        "part:Drone_Lifecycle_Governor::Governor_Process::lifecycle_decision_owner": "Lifecycle Decision Owner",
+        "part:Drone_Lifecycle_Governor::Governor_Process::controlled_outcome_derivation": "Controlled Outcome Derivation",
+        "part:Drone_Lifecycle_Governor::Governor_Process::attention_derivation": "Attention Derivation",
+        "port:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::lifecycle_request": "LifecycleRequestSample",
+        "port:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::battery_sample": "BatterySample",
+        "port:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::lifecycle_actuation": "LifecycleActuation",
+        "port:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::commanded_phase_report": "CommandedPhaseReport",
+        "port:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::attention_status": "AttentionStatus",
+        "port:Drone_Lifecycle_Governor::Governor_Process::lifecycle_request": " ",
+        "port:Drone_Lifecycle_Governor::Governor_Process::battery_sample": " ",
+        "port:Drone_Lifecycle_Governor::Governor_Process::lifecycle_actuation": " ",
+        "port:Drone_Lifecycle_Governor::Governor_Process::attention_status": " ",
+        "port:Drone_Lifecycle_Governor::Governor_Process::phase_report": " "
+      },
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": false,
+      "showTypes": false,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-12T17:53:49.954Z"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "b3e4390a-3167-43e0-b28b-806396a77afb",
+      "at": "2026-08-12T17:48:51.931Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.create",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 1,
+      "targetIds": [],
+      "changedFields": [
+        "name",
+        "rootId"
+      ]
+    },
+    {
+      "id": "84dadcf9-b6a3-48c2-ae90-18ed9ac8c150",
+      "at": "2026-08-12T17:48:51.947Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.activate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 2,
+      "targetIds": [
+        "system-overview"
+      ],
+      "changedFields": [
+        "activeViewId"
+      ]
+    },
+    {
+      "id": "bfae4a26-6f98-43b0-8b51-2b479c1c789f",
+      "at": "2026-08-12T17:48:58.590Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.expand",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 3,
+      "targetIds": [
+        "part:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System::governor_process"
+      ],
+      "changedFields": [
+        "expanded"
+      ]
+    },
+    {
+      "id": "c396c024-c35a-4565-bc42-de3b0148202d",
+      "at": "2026-08-12T17:49:21.619Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 4,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "e89d6c15-5ab6-47a8-ab04-121f55475f36",
+      "at": "2026-08-12T17:49:24.997Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.apply",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 5,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process",
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/attention_derivation",
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/battery_assessment",
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/controlled_outcome_derivation",
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/lifecycle_decision_owner",
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/request_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "311823bb-5eee-4ee1-9297-aae9b26661f7",
+      "at": "2026-08-12T17:50:28.840Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 6,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "68402152-e308-448d-bae4-d5c7beb9fc35",
+      "at": "2026-08-12T17:50:32.592Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 7,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "cc534f33-53b7-4458-ba2f-4f1be1ca6860",
+      "at": "2026-08-12T17:50:35.380Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 8,
+      "targetIds": [
+        "boundary:boundary/port/lifecycle_request"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "c1217cf7-7068-459b-af88-d77da686cb0b",
+      "at": "2026-08-12T17:50:38.788Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 9,
+      "targetIds": [
+        "boundary:boundary/port/battery_sample"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "8ebe9197-f735-4da8-851b-feb732a6d68c",
+      "at": "2026-08-12T17:50:42.127Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 10,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/request_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "395b25d5-3f6b-4ed0-97c5-81b7904630ba",
+      "at": "2026-08-12T17:50:48.218Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 11,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/battery_assessment"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "644ca2e8-06be-4a3a-9796-996db5304eee",
+      "at": "2026-08-12T17:50:50.953Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 12,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/lifecycle_decision_owner"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "84e262ef-4cf8-4b2e-a445-010a7061de4d",
+      "at": "2026-08-12T17:50:54.312Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 13,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/controlled_outcome_derivation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e422d28b-dd43-433d-8ef7-c6f47a691ac3",
+      "at": "2026-08-12T17:50:58.520Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 14,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/attention_derivation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "4b493c18-cfae-45d6-a210-0a1537c00925",
+      "at": "2026-08-12T17:51:01.480Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 15,
+      "targetIds": [
+        "boundary:boundary/port/lifecycle_actuation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e6f6dc1d-6a00-4191-922c-48da1d688daa",
+      "at": "2026-08-12T17:51:04.415Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 16,
+      "targetIds": [
+        "boundary:boundary/port/commanded_phase_report"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "9931588b-70ab-48b1-afac-cb08142b8f0f",
+      "at": "2026-08-12T17:51:07.254Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 17,
+      "targetIds": [
+        "boundary:boundary/port/attention_status"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "a23569e8-fecb-4c09-bc1e-294ee6ac4d3d",
+      "at": "2026-08-12T17:51:54.306Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 18,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "37180e7d-b851-43fc-82b3-01b1ddc78c0a",
+      "at": "2026-08-12T17:51:56.982Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 19,
+      "targetIds": [
+        "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/governor_process/attention_derivation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "70789c85-5364-42e9-96de-ad5e523aea76",
+      "at": "2026-08-12T17:51:59.956Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 20,
+      "targetIds": [
+        "boundary:boundary/port/lifecycle_actuation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "290c588d-16ed-451f-ab10-f84bb10df883",
+      "at": "2026-08-12T17:52:03.150Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 21,
+      "targetIds": [
+        "boundary:boundary/port/commanded_phase_report"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "797ee78a-b3b3-4493-a5eb-f786404ef656",
+      "at": "2026-08-12T17:52:06.605Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 22,
+      "targetIds": [
+        "boundary:boundary/port/attention_status"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "9992d97c-bb7f-478a-a156-e3630104b1f4",
+      "at": "2026-08-12T17:53:49.954Z",
+      "actor": "visualization-agent",
+      "client": "api",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 23,
+      "targetIds": [
+        "system-overview"
+      ],
+      "changedFields": [
+        "aliases"
+      ]
+    }
+  ]
+}

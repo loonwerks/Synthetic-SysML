@@ -1,0 +1,791 @@
+{
+  "schemaVersion": 2,
+  "viewRevision": 38,
+  "activeViewId": "system-overview",
+  "views": [
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "rootId": "def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System",
+      "positions": {},
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [],
+      "aliases": {},
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": true,
+      "showTypes": true,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-14T14:33:29.998Z"
+    },
+    {
+      "id": "system-overview",
+      "name": "System Overview",
+      "rootId": "def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System",
+      "positions": {
+        "boundary:boundary/port/review_intent_sample": {
+          "x": 70,
+          "y": 400,
+          "pinned": false,
+          "width": 260,
+          "height": 78
+        },
+        "boundary:boundary/port/generation_result_sample": {
+          "x": 70,
+          "y": 620,
+          "pinned": false,
+          "width": 260,
+          "height": 78
+        },
+        "boundary:boundary/port/acquisition_sample": {
+          "x": 70,
+          "y": 180,
+          "pinned": false,
+          "width": 260,
+          "height": 78
+        },
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process": {
+          "x": 430,
+          "y": 80,
+          "width": 1500,
+          "height": 800,
+          "pinned": false
+        },
+        "boundary:boundary/port/image_delivery": {
+          "x": 2150,
+          "y": 500,
+          "pinned": false,
+          "width": 260,
+          "height": 78
+        },
+        "boundary:boundary/port/generation_directive": {
+          "x": 2150,
+          "y": 220,
+          "pinned": false,
+          "width": 260,
+          "height": 78
+        },
+        "boundary:boundary/port/availability_status": {
+          "x": 2150,
+          "y": 670,
+          "pinned": false,
+          "width": 260,
+          "height": 78
+        },
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/upstream_acquisition_qualification": {
+          "x": 500,
+          "y": 170,
+          "pinned": false,
+          "width": 300,
+          "height": 78
+        },
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/generation_result_qualification": {
+          "x": 500,
+          "y": 610,
+          "pinned": false,
+          "width": 300,
+          "height": 78
+        },
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/doctor_intent_qualification": {
+          "x": 500,
+          "y": 390,
+          "pinned": false,
+          "width": 300,
+          "height": 78
+        },
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/image_availability_governor": {
+          "x": 950,
+          "y": 355,
+          "pinned": false,
+          "width": 380,
+          "height": 118
+        },
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/generation_directive_derivation": {
+          "x": 1510,
+          "y": 210,
+          "pinned": false,
+          "width": 320,
+          "height": 98
+        },
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/doctor_publication": {
+          "x": 1510,
+          "y": 550,
+          "pinned": false,
+          "width": 320,
+          "height": 98
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [
+        "part:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::image_availability_process"
+      ],
+      "aliases": {
+        "def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System": "EIT Image Availability & Review Support Coordinator",
+        "part:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::image_availability_process": "Generated support · containment/delegation only",
+        "part:EIT_Image_Availability_Coordinator::Image_Availability_Process::upstream_acquisition_qualification": "Upstream acquisition qualification",
+        "part:EIT_Image_Availability_Coordinator::Image_Availability_Process::doctor_intent_qualification": "Doctor intent qualification",
+        "part:EIT_Image_Availability_Coordinator::Image_Availability_Process::generation_result_qualification": "Generation result qualification",
+        "part:EIT_Image_Availability_Coordinator::Image_Availability_Process::image_availability_governor": "Governor · sole decision/state owner",
+        "part:EIT_Image_Availability_Coordinator::Image_Availability_Process::generation_directive_derivation": "Generation directive derivation",
+        "part:EIT_Image_Availability_Coordinator::Image_Availability_Process::doctor_publication": "Doctor publication",
+        "port:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::acquisition_sample": "Acquisition sample",
+        "port:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::review_intent_sample": "Review intent sample",
+        "port:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::generation_result_sample": "Generation result sample",
+        "port:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::generation_directive": "Generation directive",
+        "port:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::image_delivery": "Image delivery",
+        "port:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::availability_status": "Availability status",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::support_acquisition_to_qualification": "",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::support_intent_to_qualification": "",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::support_result_to_qualification": "",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::support_directive_to_process": "",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::support_delivery_to_process": "",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::support_status_to_process": "",
+        "connection:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::support_boundary_acquisition": "",
+        "connection:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::support_boundary_intent": "",
+        "connection:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::support_boundary_result": "",
+        "connection:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::support_boundary_directive": "",
+        "connection:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::support_boundary_delivery": "",
+        "connection:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::support_boundary_status": "",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::qualified_acquisition_to_governor": "Qualified acquisition",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::qualified_intent_to_governor": "Qualified intent",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::qualified_result_to_governor": "Qualified result",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::governor_resolution_to_directive": "Generation resolution",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::acquisition_target_to_directive": "Acquisition target",
+        "connection:EIT_Image_Availability_Coordinator::Image_Availability_Process::governor_resolution_to_publication": "Publication resolution",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Process::acquisition_sample": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Process::review_intent_sample": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Process::generation_result_sample": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Process::generation_directive": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Process::image_delivery": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Process::availability_status": "",
+        "port:EIT_Image_Availability_Coordinator::Upstream_Acquisition_Qualification::acquisition_sample": "",
+        "port:EIT_Image_Availability_Coordinator::Upstream_Acquisition_Qualification::qualified_acquisition": "",
+        "port:EIT_Image_Availability_Coordinator::Doctor_Intent_Qualification::review_intent_sample": "",
+        "port:EIT_Image_Availability_Coordinator::Doctor_Intent_Qualification::qualified_intent": "",
+        "port:EIT_Image_Availability_Coordinator::Generation_Result_Qualification::generation_result_sample": "",
+        "port:EIT_Image_Availability_Coordinator::Generation_Result_Qualification::qualified_generation_result": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Governor::qualified_acquisition": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Governor::qualified_intent": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Governor::qualified_generation_result": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Governor::generation_resolution": "",
+        "port:EIT_Image_Availability_Coordinator::Image_Availability_Governor::publication_resolution": "",
+        "port:EIT_Image_Availability_Coordinator::Generation_Directive_Derivation::image_resolution": "",
+        "port:EIT_Image_Availability_Coordinator::Generation_Directive_Derivation::qualified_acquisition": "",
+        "port:EIT_Image_Availability_Coordinator::Generation_Directive_Derivation::generation_directive": "",
+        "port:EIT_Image_Availability_Coordinator::Doctor_Publication::image_resolution": "",
+        "port:EIT_Image_Availability_Coordinator::Doctor_Publication::image_delivery": "",
+        "port:EIT_Image_Availability_Coordinator::Doctor_Publication::availability_status": ""
+      },
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": true,
+      "showTypes": false,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-14T14:58:00.162Z"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "de6506aa-360d-490f-ae45-eebaa2cb98c1",
+      "at": "2026-08-14T14:33:29.998Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.create",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 1,
+      "targetIds": [],
+      "changedFields": [
+        "name",
+        "rootId"
+      ]
+    },
+    {
+      "id": "894d1e6c-318b-420d-8c84-e98911fb8ad5",
+      "at": "2026-08-14T14:33:30.023Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.activate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 2,
+      "targetIds": [
+        "system-overview"
+      ],
+      "changedFields": [
+        "activeViewId"
+      ]
+    },
+    {
+      "id": "1ba83251-dc78-4351-83d6-1eac7422ea3c",
+      "at": "2026-08-14T14:33:33.685Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.expand",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 3,
+      "targetIds": [
+        "part:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System::image_availability_process"
+      ],
+      "changedFields": [
+        "expanded"
+      ]
+    },
+    {
+      "id": "beec1219-cb04-45e0-b96e-b5176d2ca21c",
+      "at": "2026-08-14T14:33:36.363Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 4,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "d83afec2-10ef-4091-bf7f-d5bcd8fcb550",
+      "at": "2026-08-14T14:33:38.511Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 5,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "f62486f4-ed8f-485d-a9f7-9585f153d238",
+      "at": "2026-08-14T14:33:41.371Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 6,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "a1512e50-6693-4caa-9782-af2774955d9a",
+      "at": "2026-08-14T14:33:43.723Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 7,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "9061c4bf-2883-475c-9fb5-cecc63758046",
+      "at": "2026-08-14T14:33:48.940Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 8,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "57671734-89a7-4bfa-8b8f-2c7210f41f0e",
+      "at": "2026-08-14T14:33:53.490Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 9,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "b1b3ba2e-7cc5-42ed-bd8b-5b134d862452",
+      "at": "2026-08-14T14:33:56.027Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 10,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "82b7ea86-45c9-4eb7-bbb6-e95ab1aef36a",
+      "at": "2026-08-14T14:34:00.934Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 11,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "048669ec-16d8-40d1-9674-e124376be8a3",
+      "at": "2026-08-14T14:34:04.166Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 12,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "5cd80e2f-3929-4a0a-ad78-c05416b12cba",
+      "at": "2026-08-14T14:34:07.474Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 13,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "850eef48-f726-4d1d-9c9e-871a10a3a74b",
+      "at": "2026-08-14T14:34:10.334Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 14,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "e64d73ec-f431-4a8f-8ab9-2c22b45a1c94",
+      "at": "2026-08-14T14:34:13.027Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 15,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "d69bec87-05ff-49dc-bfea-9326276469e3",
+      "at": "2026-08-14T14:34:16.163Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 16,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "9004b47f-d49c-4e8f-b9e3-9ce79f7b8e12",
+      "at": "2026-08-14T14:34:18.680Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 17,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "9705b958-b9e4-4593-b476-833668ba793e",
+      "at": "2026-08-14T14:34:20.951Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 18,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "b2fa5076-c218-4dbf-8c44-65fcac73332b",
+      "at": "2026-08-14T14:35:15.513Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 19,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "964caf18-2ca5-4738-a14d-bbdd3fdf05f2",
+      "at": "2026-08-14T14:35:59.836Z",
+      "actor": "visualization-agent",
+      "client": "api",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 20,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "dc7765bf-1efd-4179-be6d-77bd4eec9ba4",
+      "at": "2026-08-14T14:36:24.215Z",
+      "actor": "visualization-agent",
+      "client": "api",
+      "operation": "layout.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 21,
+      "targetIds": [
+        "boundary:boundary/port/acquisition_sample",
+        "boundary:boundary/port/availability_status",
+        "boundary:boundary/port/generation_directive",
+        "boundary:boundary/port/generation_result_sample",
+        "boundary:boundary/port/image_delivery",
+        "boundary:boundary/port/review_intent_sample",
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process",
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/doctor_intent_qualification",
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/doctor_publication",
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/generation_directive_derivation",
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/generation_result_qualification",
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/image_availability_governor",
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process/upstream_acquisition_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "4c6e22f3-1b0c-4e07-ba4f-6915cbb0d3c7",
+      "at": "2026-08-14T14:37:13.281Z",
+      "actor": "visualization-agent",
+      "client": "api",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 22,
+      "targetIds": [],
+      "changedFields": [
+        "aliases",
+        "showPorts"
+      ]
+    },
+    {
+      "id": "6fb489c3-ff08-4e3b-9353-69085df8aaab",
+      "at": "2026-08-14T14:56:17.026Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 23,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "face31f0-1de0-44ad-b5ec-5b14a589e211",
+      "at": "2026-08-14T14:56:17.625Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 24,
+      "targetIds": [
+        "boundary:boundary/port/generation_directive"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "62ae4389-183b-4aaa-9e26-e78ac756db20",
+      "at": "2026-08-14T14:56:18.323Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 25,
+      "targetIds": [
+        "boundary:boundary/port/image_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e381d45b-9aed-463f-8dfe-127e7236dcf8",
+      "at": "2026-08-14T14:56:18.968Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 26,
+      "targetIds": [
+        "boundary:boundary/port/availability_status"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e662d248-9073-4f21-8d75-a0807220ea11",
+      "at": "2026-08-14T14:56:58.566Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 27,
+      "targetIds": [
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "b00a29cd-0972-4911-a1e2-edc653a21bd0",
+      "at": "2026-08-14T14:57:38.303Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 28,
+      "targetIds": [
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "c4f93e1c-f6b5-49fd-8687-7feb1dc411dd",
+      "at": "2026-08-14T14:57:38.941Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.unpin",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 29,
+      "targetIds": [
+        "node:def:EIT_Image_Availability_Coordinator::EIT_Image_Availability_System/image_availability_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "5fda8efa-8dfb-48ee-9d18-c54d663a51ba",
+      "at": "2026-08-14T14:57:39.678Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.unpin",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 30,
+      "targetIds": [
+        "boundary:boundary/port/generation_directive"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "a0bb3db3-543a-45b1-9221-358cba024059",
+      "at": "2026-08-14T14:57:41.313Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.unpin",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 31,
+      "targetIds": [
+        "boundary:boundary/port/image_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "6928c89f-73fd-44a8-a17c-53e085b26143",
+      "at": "2026-08-14T14:57:42.472Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.unpin",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 32,
+      "targetIds": [
+        "boundary:boundary/port/availability_status"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "8ef30b21-8c63-41ba-ba7c-a945cbb3897b",
+      "at": "2026-08-14T14:57:57.172Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 33,
+      "targetIds": [
+        "boundary:boundary/port/generation_directive"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "83eb67b3-4450-440f-b15a-b013eec02a81",
+      "at": "2026-08-14T14:57:57.806Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 34,
+      "targetIds": [
+        "boundary:boundary/port/image_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "71dfea48-59c4-4c56-97d1-4da0580cf0f0",
+      "at": "2026-08-14T14:57:58.356Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 35,
+      "targetIds": [
+        "boundary:boundary/port/availability_status"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "d6540100-0804-49b1-9868-c42c21c9a0ad",
+      "at": "2026-08-14T14:57:58.940Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.unpin",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 36,
+      "targetIds": [
+        "boundary:boundary/port/generation_directive"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "332d4221-e1e0-4ff7-a2e5-e7aeb333b952",
+      "at": "2026-08-14T14:57:59.547Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.unpin",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 37,
+      "targetIds": [
+        "boundary:boundary/port/image_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "3b9492c0-188f-467f-8ecf-1e04900d8e99",
+      "at": "2026-08-14T14:58:00.162Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.unpin",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 38,
+      "targetIds": [
+        "boundary:boundary/port/availability_status"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    }
+  ]
+}

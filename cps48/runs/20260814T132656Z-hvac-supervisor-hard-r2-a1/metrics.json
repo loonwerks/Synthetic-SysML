@@ -1,0 +1,338 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "source_sha256": "75dc9066af8a1e82e9bd8897e51befcbf6cddb430c0e2eb1e47d2326e945ba5b",
+  "root_system_usages": 1,
+  "behavior_free_support_processes": 1,
+  "semantic_usages": 14,
+  "semantic_interactions": 31,
+  "raw_directed_connections": 38,
+  "physical_containment_depth_below_root": 2,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 29,
+  "scenario_families": 10,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 14,
+    "semantic_interactions": 31,
+    "nontrivial_contract_cases": 29,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "preference_request_qualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-01 preference.validity",
+          "INT-01 preference.arrival",
+          "INT-01 preference.enable",
+          "INT-01 preference.filterPolicy",
+          "INT-01 preference.humidityPolicy",
+          "INT-01 preference.routineAirflow"
+        ],
+        "owner_local_facts": [
+          "qualified candidateClass and exposed candidate policies"
+        ],
+        "contract_cases": [
+          "PART-01"
+        ],
+        "analyzer_checks": [
+          "preference qualification 96-value partition"
+        ]
+      },
+      {
+        "usage": "air_quality_need_assessor",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-02 observation.validity",
+          "INT-02 observation.condition"
+        ],
+        "owner_local_facts": [
+          "airEvidence validity and demand classification"
+        ],
+        "contract_cases": [
+          "PART-02"
+        ],
+        "analyzer_checks": [
+          "air evidence 4-value partition"
+        ]
+      },
+      {
+        "usage": "humidity_need_assessor",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-03 observation.validity",
+          "INT-03 observation.condition"
+        ],
+        "owner_local_facts": [
+          "signed humidityEvidence classification"
+        ],
+        "contract_cases": [
+          "PART-03"
+        ],
+        "analyzer_checks": [
+          "humidity evidence 6-value partition"
+        ]
+      },
+      {
+        "usage": "shared_path_authority_assessor",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-04 authority.validity",
+          "INT-04 authority.grant"
+        ],
+        "owner_local_facts": [
+          "pathDisposition with invalidity precedence"
+        ],
+        "contract_cases": [
+          "PART-04"
+        ],
+        "analyzer_checks": [
+          "authority disposition 4-value partition"
+        ]
+      },
+      {
+        "usage": "treatment_capability_assessor",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-05 readiness.validity",
+          "INT-05 readiness.blowerReadiness",
+          "INT-05 readiness.filterUnit",
+          "INT-05 readiness.humidifier",
+          "INT-05 readiness.dehumidifier"
+        ],
+        "owner_local_facts": [
+          "four field-local capability dispositions and coherent projections"
+        ],
+        "contract_cases": [
+          "CAP-REL-01"
+        ],
+        "analyzer_checks": [
+          "capability 162-value field-local partition"
+        ]
+      },
+      {
+        "usage": "air_evidence_recovery_owner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-07 airEvidence",
+          "In(airTrustMemory)"
+        ],
+        "owner_local_facts": [
+          "next airTrust, air gate, evidence, and transition event"
+        ],
+        "contract_cases": [
+          "CASE-05",
+          "CASE-06",
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10"
+        ],
+        "analyzer_checks": [
+          "air recovery totality and two-valid transition"
+        ]
+      },
+      {
+        "usage": "humidity_evidence_recovery_owner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-08 humidityEvidence",
+          "In(humidityTrustMemory)"
+        ],
+        "owner_local_facts": [
+          "next humidityTrust, humidity gate, evidence, and transition event"
+        ],
+        "contract_cases": [
+          "CASE-11",
+          "CASE-12",
+          "CASE-13",
+          "CASE-14",
+          "CASE-15",
+          "CASE-16"
+        ],
+        "analyzer_checks": [
+          "humidity recovery totality and two-valid transition"
+        ]
+      },
+      {
+        "usage": "preference_session_owner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-06 candidate",
+          "accepted preference pre-state"
+        ],
+        "owner_local_facts": [
+          "accepted preference next state and acceptance event"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04"
+        ],
+        "analyzer_checks": [
+          "preference preservation and fresh replacement"
+        ]
+      },
+      {
+        "usage": "filtration_proposal_owner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "INT-15 air recovery report",
+          "INT-17 accepted filter preference",
+          "INT-09 blower and filter dispositions"
+        ],
+        "owner_local_facts": [
+          "filterProposal and proposal-local cause"
+        ],
+        "contract_cases": [
+          "PROP-FILTER-01"
+        ],
+        "analyzer_checks": [
+          "filtration demand-before-unavailability partition"
+        ]
+      },
+      {
+        "usage": "humidity_proposal_owner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "INT-16 humidity recovery report",
+          "INT-18 accepted humidity preference",
+          "INT-10 blower and signed-path dispositions"
+        ],
+        "owner_local_facts": [
+          "signed humidityProposal and proposal-local cause"
+        ],
+        "contract_cases": [
+          "PROP-HUMID-01"
+        ],
+        "analyzer_checks": [
+          "humidity demand-before-unavailability partition"
+        ]
+      },
+      {
+        "usage": "routine_airflow_proposal_owner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "INT-19 accepted routine preference",
+          "INT-13 pathDisposition",
+          "INT-11 blower disposition"
+        ],
+        "owner_local_facts": [
+          "routineProposal and authority/equipment cause"
+        ],
+        "contract_cases": [
+          "PROP-ROUTINE-01"
+        ],
+        "analyzer_checks": [
+          "routine authority-before-equipment partition"
+        ]
+      },
+      {
+        "usage": "cabin_air_priority_arbiter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-20 accepted enable",
+          "INT-21 filter proposal",
+          "INT-22 humidity proposal",
+          "INT-23 routine proposal"
+        ],
+        "owner_local_facts": [
+          "selected intent, flow class, and winning policy cause"
+        ],
+        "contract_cases": [
+          "CASE-17",
+          "CASE-18",
+          "CASE-19",
+          "CASE-20",
+          "CASE-21",
+          "CASE-22"
+        ],
+        "analyzer_checks": [
+          "action and no-selection cause precedence"
+        ]
+      },
+      {
+        "usage": "authority_safe_plan_composer",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-24 selection report",
+          "INT-14 pathDisposition",
+          "INT-12 four capability dispositions"
+        ],
+        "owner_local_facts": [
+          "coherent treatment plan and realization cause"
+        ],
+        "contract_cases": [
+          "CASE-23",
+          "CASE-24",
+          "CASE-25",
+          "CASE-26",
+          "CASE-27",
+          "CASE-28",
+          "CASE-29"
+        ],
+        "analyzer_checks": [
+          "fail-closed composition and selected-path checks"
+        ]
+      },
+      {
+        "usage": "status_outcome_reconciler",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-25 composition report",
+          "INT-26 selection report",
+          "INT-27 air recovery report",
+          "INT-28 humidity recovery report",
+          "INT-29 accepted preference and event"
+        ],
+        "owner_local_facts": [
+          "single ordered supervisor mode and cause"
+        ],
+        "contract_cases": [
+          "CAUSE-01",
+          "STATUS-01"
+        ],
+        "analyzer_checks": [
+          "cause and disjoint status precedence"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

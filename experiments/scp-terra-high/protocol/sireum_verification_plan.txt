@@ -1,0 +1,55 @@
+SIREUM VERIFICATION PLAN
+========================
+
+Run these four gates in order. Run only one Sireum/HAMR/Logika command at a
+time, never in the background. Read the tool's own exit status and diagnostics;
+warnings are retained but do not independently turn success into failure.
+
+Gate 1 — SysML typecheck
+------------------------
+
+$SIREUM_HOME/bin/sireum hamr sysml tipe \
+  --sourcepath ".:sysml-aadl-libraries" \
+  "M-star.sysml"
+
+Gate 2 — HAMR JVM/Slang code generation
+-----------------------------------------
+
+$SIREUM_HOME/bin/sireum hamr sysml codegen \
+  --platform JVM \
+  --runtime-monitoring \
+  --package-name "scp_candidate" \
+  --output-dir hamr \
+  --slang-output-dir hamr/slang \
+  --no-proyek-ive \
+  --workspace-root-dir . \
+  --sourcepath ".:sysml-aadl-libraries" \
+  --system-name "FAA_Autopilot_Engagement::Autopilot_Engagement_System" \
+  "M-star.sysml"
+
+Between Gates 2 and 3, implement the generated contracts in every preserved
+application component under hamr/slang/src/main/component. Follow
+Gumbo_FSE_agent_Plan.txt and do not edit generated-owned files.
+
+Gate 3 — component Logika
+-------------------------
+
+./bin/run-logika.cmd
+
+Gate 4 — model/integration Logika
+---------------------------------
+
+$SIREUM_HOME/bin/sireum hamr sysml logika \
+  --sourcepath ".:sysml-aadl-libraries" \
+  "M-star.sysml"
+
+Invalidation rules
+------------------
+
+- A change to M-star.sysml invalidates all four gates; restart at Gate 1.
+- A change only to preserved application component code invalidates Gates 3
+  and 4; restart at Gate 3.
+- Re-running Gate 2 invalidates Gates 3 and 4 until they pass again.
+
+The task is complete only when Gates 1, 2, 3, and 4 have all passed in order
+after the latest relevant edits.

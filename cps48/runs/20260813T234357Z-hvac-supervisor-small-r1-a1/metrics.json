@@ -1,0 +1,140 @@
+{
+  "schema_version": 2,
+  "source_sha256": "627919ff5c7c8e431bb07c9a14fb08aa72edcf76e3035da444ae113bcfe38a40",
+  "root_definition": "Windshield_Defrost_Request_Supervisor::WindshieldDefrostRequestSupervisor",
+  "root_usage": "windshieldDefrostRequestSupervisor",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 5,
+    "generated_support_processes": 1,
+    "physical_non_root_aadl_usages": 6,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 13,
+    "boundary_semantic_interactions": 8,
+    "internal_semantic_interactions": 5,
+    "generated_support_delegations": 16,
+    "raw_port_connection_declarations": 21,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2,
+      "INT-02": 2,
+      "INT-03": 2,
+      "INT-04": 2,
+      "INT-05": 2,
+      "INT-06": 2,
+      "INT-07": 1,
+      "INT-08": 1,
+      "INT-09": 1,
+      "INT-10": 2,
+      "INT-11": 1,
+      "INT-12": 1,
+      "INT-13": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "safe_initialization_guarantees": 3,
+    "state_variables": 1,
+    "identity_forwarding_cases_counted": 0,
+    "datatype_invariants_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "owner_local_valuations": {
+      "requestIntentTracker": 12,
+      "glazingConditionAssessor": 4,
+      "electricalEligibilityAssessor": 4,
+      "defrostPolicySupervisor": 45,
+      "driverFeedbackReporter": 25
+    },
+    "boundary_valuations": 64,
+    "request_pre_states": 3,
+    "composed_root_snapshots": 192,
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "next_state_mismatches": 0,
+    "intermediate_fact_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_mismatches": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    }
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 13,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "requestIntentTracker",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["requestIntentTracker.defrostSelection", "requestIntentTracker.requestValidity", "requestIntentTracker.requestMemory"],
+        "owner_local_facts": ["fresh-held-blocked request intent and next request memory"],
+        "contract_cases": ["CC-01", "CC-02", "CC-03", "CC-04", "CC-05"],
+        "analyzer_checks": ["request tracker 12-valuation total exclusive relation"]
+      },
+      {
+        "usage": "glazingConditionAssessor",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["glazingConditionAssessor.glazingCondition", "glazingConditionAssessor.glazingValidity"],
+        "owner_local_facts": ["validity-aware three-way visibility assessment"],
+        "contract_cases": ["CC-06"],
+        "analyzer_checks": ["glazing assessor 4-valuation total exclusive relation"]
+      },
+      {
+        "usage": "electricalEligibilityAssessor",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["electricalEligibilityAssessor.electricalInterfaceStatus", "electricalEligibilityAssessor.defrostLoadAllowance"],
+        "owner_local_facts": ["reason-preserving three-way electrical eligibility"],
+        "contract_cases": ["CC-07"],
+        "analyzer_checks": ["electrical assessor 4-valuation total exclusive relation"]
+      },
+      {
+        "usage": "defrostPolicySupervisor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["defrostPolicySupervisor.requestIntent", "defrostPolicySupervisor.visibilityAssessment", "defrostPolicySupervisor.defrostEligibility"],
+        "owner_local_facts": ["priority-selected enable command and policy disposition"],
+        "contract_cases": ["CC-08", "CC-09", "CC-10", "CC-11"],
+        "analyzer_checks": ["policy supervisor 45-valuation total exclusive priority relation"]
+      },
+      {
+        "usage": "driverFeedbackReporter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["driverFeedbackReporter.policyDisposition", "driverFeedbackReporter.requestIntent"],
+        "owner_local_facts": ["audience-oriented four-way driver status"],
+        "contract_cases": ["CC-12"],
+        "analyzer_checks": ["driver reporter 25-valuation total exclusive relation"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-05 only. Interactions count INT-01 through INT-13 once and exclude sixteen generated-support delegations. Nontrivial cases count CC-01 through CC-12 only. Scenario families count SCN-01 through SCN-05. Root, Process support, initialization, types, identity routes, and analyzer fixtures receive no semantic credit. Composition means executable finite-relation composition through the explicit connection map, not compositional proof."
+}

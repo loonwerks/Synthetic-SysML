@@ -1,0 +1,44 @@
+// #Sireum
+
+package scp_candidate.Station_Cargo_Transfer_Verification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object SessionController_supervisorProcess_sessionController {
+
+  // BEGIN STATE VARS
+  var sessionState: Station_Cargo_Transfer_Verification_Supervisor.SessionState.Type = Station_Cargo_Transfer_Verification_Supervisor.SessionState.Idle
+  // END STATE VARS
+
+  def initialise(api: SessionController_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee SESSION_INITIAL
+        sessionState == SessionState.Idle &&
+          api.sessionPrestate == SessionState.Idle &&
+          api.shipExpectation == SessionExpectation.None &&
+          api.warehouseExpectation == SessionExpectation.None &&
+          api.commandProposal == CommandProposal.HoldNoQuery &&
+          api.sessionSnapshot.next_state == SnapshotSessionState.Idle &&
+          api.sessionSnapshot.session_result == SnapshotSessionResult.None
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_sessionPrestate(Station_Cargo_Transfer_Verification_Supervisor.SessionState.Idle)
+    api.put_shipExpectation(Station_Cargo_Transfer_Verification_Supervisor.SessionExpectation.None)
+    api.put_warehouseExpectation(Station_Cargo_Transfer_Verification_Supervisor.SessionExpectation.None)
+    api.put_commandProposal(Station_Cargo_Transfer_Verification_Supervisor.CommandProposal.HoldNoQuery)
+    api.put_sessionSnapshot(Station_Cargo_Transfer_Verification_Supervisor.SessionSnapshot.example())
+  }
+
+  def finalise(api: SessionController_Operational_Api): Unit = { }
+}

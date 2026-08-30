@@ -1,0 +1,1657 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "2599d5211266ace93c420bbaa5c3cfabf9d73041dac8cdf15a89b0a1c2fd9a26",
+  "claim_boundary": "Finite conformance evidence for the retained SysML/GUMBO relations only; not execution, compositional proof, solver certification, generated-code correctness, physical performance, safety certification, or clinical validation.",
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "from": "root.acquisition_sample",
+      "to": "upstream_acquisition_qualification.acquisition_sample",
+      "type": "Acquisition_Sample"
+    },
+    {
+      "id": "INT-02",
+      "from": "root.review_intent_sample",
+      "to": "doctor_intent_qualification.review_intent_sample",
+      "type": "Review_Intent_Sample"
+    },
+    {
+      "id": "INT-03",
+      "from": "root.generation_result_sample",
+      "to": "generation_result_qualification.generation_result_sample",
+      "type": "Generation_Result_Sample"
+    },
+    {
+      "id": "INT-04",
+      "from": "upstream_acquisition_qualification.qualified_acquisition",
+      "to": "image_availability_governor.qualified_acquisition",
+      "type": "Qualified_Acquisition"
+    },
+    {
+      "id": "INT-05",
+      "from": "doctor_intent_qualification.qualified_intent",
+      "to": "image_availability_governor.qualified_intent",
+      "type": "Qualified_Intent"
+    },
+    {
+      "id": "INT-06",
+      "from": "generation_result_qualification.qualified_generation_result",
+      "to": "image_availability_governor.qualified_generation_result",
+      "type": "Qualified_Generation_Result"
+    },
+    {
+      "id": "INT-07",
+      "from": "image_availability_governor.generation_resolution",
+      "to": "generation_directive_derivation.image_resolution",
+      "type": "Image_Resolution"
+    },
+    {
+      "id": "INT-08",
+      "from": "upstream_acquisition_qualification.qualified_acquisition",
+      "to": "generation_directive_derivation.qualified_acquisition",
+      "type": "Qualified_Acquisition"
+    },
+    {
+      "id": "INT-09",
+      "from": "generation_directive_derivation.generation_directive",
+      "to": "root.generation_directive",
+      "type": "Generation_Directive"
+    },
+    {
+      "id": "INT-10",
+      "from": "image_availability_governor.publication_resolution",
+      "to": "doctor_publication.image_resolution",
+      "type": "Image_Resolution"
+    },
+    {
+      "id": "INT-11",
+      "from": "doctor_publication.image_delivery",
+      "to": "root.image_delivery",
+      "type": "Image_Delivery"
+    },
+    {
+      "id": "INT-12",
+      "from": "doctor_publication.availability_status",
+      "to": "root.availability_status",
+      "type": "Availability_Status"
+    }
+  ],
+  "partition_counts": {
+    "raw_end_to_end_snapshots": 4320,
+    "qualified_governor_snapshots": 1200,
+    "governor_case_population": {
+      "CASE-01": 957,
+      "CASE-02": 54,
+      "CASE-03": 27,
+      "CASE-04": 27,
+      "CASE-05": 27,
+      "CASE-06": 27,
+      "CASE-07": 27,
+      "CASE-08": 12,
+      "CASE-09": 12,
+      "CASE-10": 12,
+      "CASE-11": 9,
+      "CASE-12": 9
+    },
+    "effective_gaps": 0,
+    "effective_overlaps": 0,
+    "direct_part05_pairs": 660,
+    "direct_part06_values": 165
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": {
+    "qualification": 0,
+    "next_state_or_invariant": 0,
+    "directive": 0,
+    "publication_joint_tuple": 0,
+    "invalid_fault_response": 0
+  },
+  "invariant_checks": {
+    "INIT_01": "passed",
+    "INVAR_01": "passed",
+    "FRESH_01": "passed",
+    "MATCH_01": "passed",
+    "REQUEST_MAP_01": "passed",
+    "PRIORITY_01": "passed",
+    "DIRECTIVE_01": "passed",
+    "PUBLICATION_01": "passed",
+    "OUTPUT_01": "passed",
+    "OWNER_01": "passed",
+    "reachable_owner_states": [
+      "Empty|AwaitFreshIntent",
+      "Empty|AwaitNeutral",
+      "Empty|Normal",
+      "ReadyA|Normal",
+      "ReadyB|Normal",
+      "RequestedA|Normal",
+      "RequestedB|Normal"
+    ],
+    "anomalous_generation_started_pairings": 0
+  },
+  "local_relation_products": {
+    "PART_01": {
+      "assigned_inputs": 6,
+      "fibers": {
+        "NoAdmittedAcquisition": 1,
+        "InvalidAcquisition": 3,
+        "AdmittedA": 1,
+        "AdmittedB": 1
+      },
+      "mismatches": 0
+    },
+    "PART_02": {
+      "assigned_inputs": 6,
+      "fibers": {
+        "NeutralIntent": 1,
+        "InvalidIntent": 3,
+        "FreshImageRequest": 1,
+        "ReleaseIntent": 1
+      },
+      "mismatches": 0
+    },
+    "PART_03": {
+      "assigned_inputs": 8,
+      "fibers": {
+        "PendingResult": 1,
+        "InvalidGenerationResult": 4,
+        "FailedResult": 1,
+        "ReadyResultA": 1,
+        "ReadyResultB": 1
+      },
+      "mismatches": 0
+    },
+    "PART_04": {
+      "assigned_inputs": 1200,
+      "case_vector": [
+        957,
+        54,
+        27,
+        27,
+        27,
+        27,
+        27,
+        12,
+        12,
+        12,
+        9,
+        9
+      ],
+      "witnesses": {
+        "CASE-01": {
+          "acquisition": "InvalidAcquisition",
+          "intent": "InvalidIntent",
+          "result": "InvalidGenerationResult",
+          "state": "Empty",
+          "phase": "Normal",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "AwaitNeutral",
+            "disposition": "InputFaultDisposition"
+          }
+        },
+        "CASE-12": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "NeutralIntent",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "Normal",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "IdleDisposition"
+          }
+        },
+        "CASE-03": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "NeutralIntent",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "AwaitNeutral",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "AwaitFreshIntent",
+            "disposition": "RecoveryDisposition"
+          }
+        },
+        "CASE-04": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "NeutralIntent",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "AwaitFreshIntent",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "AwaitFreshIntent",
+            "disposition": "RecoveryDisposition"
+          }
+        },
+        "CASE-10": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "NeutralIntent",
+          "result": "PendingResult",
+          "state": "RequestedA",
+          "phase": "Normal",
+          "resolution": {
+            "nextImageState": "RequestedA",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "GenerationWaiting"
+          }
+        },
+        "CASE-08": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "NeutralIntent",
+          "result": "FailedResult",
+          "state": "RequestedA",
+          "phase": "Normal",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "GenerationFailure"
+          }
+        },
+        "CASE-09": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "NeutralIntent",
+          "result": "ReadyResultA",
+          "state": "RequestedA",
+          "phase": "Normal",
+          "resolution": {
+            "nextImageState": "ReadyA",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "GenerationCompleted"
+          }
+        },
+        "CASE-11": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "FreshImageRequest",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "Normal",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "AcquisitionRequired"
+          }
+        },
+        "CASE-02": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "FreshImageRequest",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "AwaitNeutral",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "AwaitNeutral",
+            "disposition": "RecoveryDisposition"
+          }
+        },
+        "CASE-06": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "FreshImageRequest",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "AwaitFreshIntent",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "AcquisitionRequired"
+          }
+        },
+        "CASE-07": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "ReleaseIntent",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "Normal",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "ReleasedDisposition"
+          }
+        },
+        "CASE-05": {
+          "acquisition": "NoAdmittedAcquisition",
+          "intent": "ReleaseIntent",
+          "result": "PendingResult",
+          "state": "Empty",
+          "phase": "AwaitFreshIntent",
+          "resolution": {
+            "nextImageState": "Empty",
+            "nextRecoveryPhase": "Normal",
+            "disposition": "ReleasedDisposition"
+          }
+        }
+      },
+      "mismatches": 0
+    },
+    "PART_05": {
+      "assigned_inputs": 660,
+      "fibers": {
+        "HoldGeneration": 630,
+        "GenerateFromA": 15,
+        "GenerateFromB": 15
+      },
+      "mismatches": 0
+    },
+    "PART_06": {
+      "assigned_inputs": 165,
+      "delivery_fibers": {
+        "Withheld": 99,
+        "DeliverImageA": 33,
+        "DeliverImageB": 33
+      },
+      "status_fibers": {
+        "InputFault": 15,
+        "RecoveryPending": 15,
+        "NoImageAvailable": 30,
+        "GenerationPending": 30,
+        "ImageAvailable": 45,
+        "UpstreamAcquisitionRequired": 15,
+        "GenerationFailedStatus": 15
+      },
+      "mismatches": 0
+    }
+  },
+  "fault_exhaustion": {
+    "invalid_status_masks": {
+      "R": 540,
+      "I": 540,
+      "IR": 540,
+      "A": 540,
+      "AR": 540,
+      "AI": 540,
+      "AIR": 540
+    },
+    "invalid_status_snapshots": 3780,
+    "unexpected_valid_result_state_pairs": [
+      {
+        "state": "Empty",
+        "result": "FailedResult"
+      },
+      {
+        "state": "Empty",
+        "result": "ReadyResultA"
+      },
+      {
+        "state": "Empty",
+        "result": "ReadyResultB"
+      },
+      {
+        "state": "RequestedA",
+        "result": "ReadyResultB"
+      },
+      {
+        "state": "RequestedB",
+        "result": "ReadyResultA"
+      },
+      {
+        "state": "ReadyA",
+        "result": "FailedResult"
+      },
+      {
+        "state": "ReadyA",
+        "result": "ReadyResultA"
+      },
+      {
+        "state": "ReadyA",
+        "result": "ReadyResultB"
+      },
+      {
+        "state": "ReadyB",
+        "result": "FailedResult"
+      },
+      {
+        "state": "ReadyB",
+        "result": "ReadyResultA"
+      },
+      {
+        "state": "ReadyB",
+        "result": "ReadyResultB"
+      }
+    ],
+    "unexpected_pair_count": 11,
+    "mismatches": 0
+  },
+  "scenario_families": [
+    {
+      "id": "SCN-01",
+      "status": "passed",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionA",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-11",
+          "observed": {
+            "case": "CASE-11",
+            "resolution": {
+              "nextImageState": "RequestedA",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationStarted"
+            },
+            "generation_directive": "GenerateFromA",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-10",
+          "observed": {
+            "case": "CASE-10",
+            "resolution": {
+              "nextImageState": "RequestedA",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationWaiting"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "ImageA",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-09",
+          "observed": {
+            "case": "CASE-09",
+            "resolution": {
+              "nextImageState": "ReadyA",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationCompleted"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "DeliverImageA",
+            "availability_status": "ImageAvailable"
+          },
+          "next_state": {
+            "imageState": "ReadyA",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "ReadyA",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-12",
+          "observed": {
+            "case": "CASE-12",
+            "resolution": {
+              "nextImageState": "ReadyA",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "AvailableRetained"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "DeliverImageA",
+            "availability_status": "ImageAvailable"
+          },
+          "next_state": {
+            "imageState": "ReadyA",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "ReleaseImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "ReadyA",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-07",
+          "observed": {
+            "case": "CASE-07",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "ReleasedDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "NoImageAvailable"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "status": "passed",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-11",
+          "observed": {
+            "case": "CASE-11",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "AcquisitionRequired"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "UpstreamAcquisitionRequired"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionB",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-11",
+          "observed": {
+            "case": "CASE-11",
+            "resolution": {
+              "nextImageState": "RequestedB",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationStarted"
+            },
+            "generation_directive": "GenerateFromB",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionA",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-10",
+          "observed": {
+            "case": "CASE-10",
+            "resolution": {
+              "nextImageState": "RequestedB",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationWaiting"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "ImageB",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-09",
+          "observed": {
+            "case": "CASE-09",
+            "resolution": {
+              "nextImageState": "ReadyB",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationCompleted"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "DeliverImageB",
+            "availability_status": "ImageAvailable"
+          },
+          "next_state": {
+            "imageState": "ReadyB",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "ReadyB",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-11",
+          "observed": {
+            "case": "CASE-11",
+            "resolution": {
+              "nextImageState": "ReadyB",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "ExistingImageRetained"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "DeliverImageB",
+            "availability_status": "ImageAvailable"
+          },
+          "next_state": {
+            "imageState": "ReadyB",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 6,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionA",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "ReadyB",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-11",
+          "observed": {
+            "case": "CASE-11",
+            "resolution": {
+              "nextImageState": "RequestedA",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationStarted"
+            },
+            "generation_directive": "GenerateFromA",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "status": "passed",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionA",
+              "status": "Invalid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-01",
+          "observed": {
+            "case": "CASE-01",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitNeutral",
+              "disposition": "InputFaultDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "InputFault"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionA",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Invalid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Invalid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          },
+          "expected_case": "CASE-01",
+          "observed": {
+            "case": "CASE-01",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitNeutral",
+              "disposition": "InputFaultDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "InputFault"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionB",
+              "status": "Invalid"
+            },
+            "reviewIntentSample": {
+              "intent": "ReleaseImage",
+              "status": "Invalid"
+            },
+            "generationResultSample": {
+              "result": "GenerationFailed",
+              "status": "Invalid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          },
+          "expected_case": "CASE-01",
+          "observed": {
+            "case": "CASE-01",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitNeutral",
+              "disposition": "InputFaultDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "InputFault"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "ImageA",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          },
+          "expected_case": "CASE-01",
+          "observed": {
+            "case": "CASE-01",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitNeutral",
+              "disposition": "InputFaultDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "InputFault"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "status": "passed",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionB",
+              "status": "Invalid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-01",
+          "observed": {
+            "case": "CASE-01",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitNeutral",
+              "disposition": "InputFaultDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "InputFault"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionB",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          },
+          "expected_case": "CASE-02",
+          "observed": {
+            "case": "CASE-02",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitNeutral",
+              "disposition": "RecoveryDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "RecoveryPending"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          },
+          "expected_case": "CASE-03",
+          "observed": {
+            "case": "CASE-03",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitFreshIntent",
+              "disposition": "RecoveryDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "RecoveryPending"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitFreshIntent"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitFreshIntent"
+          },
+          "expected_case": "CASE-04",
+          "observed": {
+            "case": "CASE-04",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitFreshIntent",
+              "disposition": "RecoveryDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "RecoveryPending"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitFreshIntent"
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionB",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitFreshIntent"
+          },
+          "expected_case": "CASE-06",
+          "observed": {
+            "case": "CASE-06",
+            "resolution": {
+              "nextImageState": "RequestedB",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationStarted"
+            },
+            "generation_directive": "GenerateFromB",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 6,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-10",
+          "observed": {
+            "case": "CASE-10",
+            "resolution": {
+              "nextImageState": "RequestedB",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationWaiting"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 7,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "ImageB",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "RequestedB",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-09",
+          "observed": {
+            "case": "CASE-09",
+            "resolution": {
+              "nextImageState": "ReadyB",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationCompleted"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "DeliverImageB",
+            "availability_status": "ImageAvailable"
+          },
+          "next_state": {
+            "imageState": "ReadyB",
+            "recoveryPhase": "Normal"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "status": "passed",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Invalid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-01",
+          "observed": {
+            "case": "CASE-01",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitNeutral",
+              "disposition": "InputFaultDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "InputFault"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitNeutral"
+          },
+          "expected_case": "CASE-03",
+          "observed": {
+            "case": "CASE-03",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "AwaitFreshIntent",
+              "disposition": "RecoveryDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "RecoveryPending"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitFreshIntent"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "ReleaseImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "AwaitFreshIntent"
+          },
+          "expected_case": "CASE-05",
+          "observed": {
+            "case": "CASE-05",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "ReleasedDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "NoImageAvailable"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionA",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-11",
+          "observed": {
+            "case": "CASE-11",
+            "resolution": {
+              "nextImageState": "RequestedA",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationStarted"
+            },
+            "generation_directive": "GenerateFromA",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "GenerationFailed",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-08",
+          "observed": {
+            "case": "CASE-08",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationFailure"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationFailedStatus"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 6,
+          "input": {
+            "acquisitionSample": {
+              "token": "NoAcquisition",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "NoIntent",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-12",
+          "observed": {
+            "case": "CASE-12",
+            "resolution": {
+              "nextImageState": "Empty",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "IdleDisposition"
+            },
+            "generation_directive": "HoldGeneration",
+            "image_delivery": "Withheld",
+            "availability_status": "NoImageAvailable"
+          },
+          "next_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          }
+        },
+        {
+          "step": 7,
+          "input": {
+            "acquisitionSample": {
+              "token": "AcquisitionA",
+              "status": "Valid"
+            },
+            "reviewIntentSample": {
+              "intent": "RequestImage",
+              "status": "Valid"
+            },
+            "generationResultSample": {
+              "result": "NoResult",
+              "status": "Valid"
+            }
+          },
+          "pre_state": {
+            "imageState": "Empty",
+            "recoveryPhase": "Normal"
+          },
+          "expected_case": "CASE-11",
+          "observed": {
+            "case": "CASE-11",
+            "resolution": {
+              "nextImageState": "RequestedA",
+              "nextRecoveryPhase": "Normal",
+              "disposition": "GenerationStarted"
+            },
+            "generation_directive": "GenerateFromA",
+            "image_delivery": "Withheld",
+            "availability_status": "GenerationPending"
+          },
+          "next_state": {
+            "imageState": "RequestedA",
+            "recoveryPhase": "Normal"
+          }
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "upstream_acquisition_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "upstream_acquisition_qualification.acquisition_sample"
+      ],
+      "owner_local_facts": [
+        "status-sensitive Qualified_Acquisition classification"
+      ],
+      "contract_cases": [
+        "QUAL-ACQ-01"
+      ],
+      "analyzer_checks": [
+        "part01_qualification_product_6_fibers_3_1_1_1"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "doctor_intent_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "doctor_intent_qualification.review_intent_sample"
+      ],
+      "owner_local_facts": [
+        "status-sensitive Qualified_Intent classification"
+      ],
+      "contract_cases": [
+        "QUAL-INTENT-01"
+      ],
+      "analyzer_checks": [
+        "part02_qualification_product_6_fibers_3_1_1_1"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "generation_result_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "generation_result_qualification.generation_result_sample"
+      ],
+      "owner_local_facts": [
+        "status-sensitive Qualified_Generation_Result classification"
+      ],
+      "contract_cases": [
+        "QUAL-RESULT-01"
+      ],
+      "analyzer_checks": [
+        "part03_qualification_product_8_fibers_4_1_1_1_1"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "image_availability_governor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "image_availability_governor.qualified_acquisition",
+        "image_availability_governor.qualified_intent",
+        "image_availability_governor.qualified_generation_result",
+        "image_availability_governor.image_state.pre",
+        "image_availability_governor.recovery_phase.pre"
+      ],
+      "owner_local_facts": [
+        "ordered case selection",
+        "committed Image_Resolution",
+        "next image state",
+        "next recovery phase"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "part04_governor_product_1200_case_vector_957_54_27_27_27_27_27_12_12_12_9_9"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "generation_directive_derivation",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "generation_directive_derivation.image_resolution",
+        "generation_directive_derivation.qualified_acquisition"
+      ],
+      "owner_local_facts": [
+        "producer-total two-input Generation_Directive gate"
+      ],
+      "contract_cases": [
+        "DIRECTIVE-01"
+      ],
+      "analyzer_checks": [
+        "part05_direct_product_660_fibers_15_15_630"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "doctor_publication",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "doctor_publication.image_resolution"
+      ],
+      "owner_local_facts": [
+        "joint Image_Delivery gate and Availability_Status precedence"
+      ],
+      "contract_cases": [
+        "PUBLICATION-01"
+      ],
+      "analyzer_checks": [
+        "part06_direct_product_165_delivery_33_33_99_status_15_15_30_45_15_15_30"
+      ],
+      "passed": true
+    }
+  ]
+}

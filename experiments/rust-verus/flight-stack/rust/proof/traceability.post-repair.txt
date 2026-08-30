@@ -1,0 +1,17 @@
+POST-REPAIR TRACEABILITY AUDIT
+
+canonical_source=runs/20260817T021406Z-faa-flight-stack-appendices-b-c-d/model/flight_stack.sysml
+canonical_source_sha256=c050e9438f50dc734c044d31ba5ef2bd46575df0df5b97c2efefd7d5f2556ccd
+system_abstract=runs/20260817T021406Z-faa-flight-stack-appendices-b-c-d/system-abstract.md
+system_abstract_sha256=f3ba37f113f21a61dd18baefe8cf1715458147f982d52cba944ad8f2b200549c
+
+tagged_associations=106
+unique_trace_ids=56
+trace_ids_missing_from_system_abstract=0
+
+Method: extract each `// @trace ID` from the repaired canonical source, sort
+the identifiers uniquely, and require exactly matching beginning-of-line `ID —`
+declarations in the accepted system abstract. This post-repair audit supersedes
+the canonical hash and source-line positions in the synthesis-time
+`traceability.json`; the semantic repair retained the trace identifiers but
+changed the canonical source hash and some subsequent line positions.

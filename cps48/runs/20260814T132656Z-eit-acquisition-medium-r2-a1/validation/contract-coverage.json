@@ -1,0 +1,1866 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "fd947b36c966b197720fd87889f0b35a7b3eedaea7af5a8a57ba1507e7d74b87",
+  "source_hash_boundary": "SHA-256 is embedded from the canonical source; the harness must bind it to the current file without this analyzer reading mutable external state.",
+  "claim_boundary": "Finite exhaustive logical relation and scenario evidence only; no execution, code generation, compositional proof, solver certification, physical performance, clinical validity, safety, or certification claim.",
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "source": "root.batchEvent",
+      "destination": "batchQualificationOwner.batchEvent"
+    },
+    {
+      "id": "INT-02",
+      "source": "root.generatorFeedback",
+      "destination": "generatorFeedbackQualificationOwner.generatorFeedback"
+    },
+    {
+      "id": "INT-03",
+      "source": "root.viewerObservation",
+      "destination": "reviewAccessQualificationOwner.viewerObservation"
+    },
+    {
+      "id": "INT-04",
+      "source": "root.doctorRequest",
+      "destination": "availabilityWorkflowArbiter.doctorRequest"
+    },
+    {
+      "id": "INT-05",
+      "source": "root.recoveryRequest",
+      "destination": "generatorOutcomeRecoveryOwner.recoveryRequest"
+    },
+    {
+      "id": "INT-06",
+      "source": "generationSlotStateGovernor.generationPreState",
+      "destination": "generatorFeedbackQualificationOwner.generationPreState"
+    },
+    {
+      "id": "INT-07",
+      "source": "generationSlotStateGovernor.generationPreState",
+      "destination": "generatorOutcomeRecoveryOwner.generationPreState"
+    },
+    {
+      "id": "INT-08",
+      "source": "generationSlotStateGovernor.generationPreState",
+      "destination": "availabilityWorkflowArbiter.generationPreState"
+    },
+    {
+      "id": "INT-09",
+      "source": "reviewSessionStateGovernor.reviewPreState",
+      "destination": "availabilityWorkflowArbiter.reviewPreState"
+    },
+    {
+      "id": "INT-10",
+      "source": "batchQualificationOwner.batchAssessment",
+      "destination": "availabilityWorkflowArbiter.batchAssessment"
+    },
+    {
+      "id": "INT-11",
+      "source": "generatorFeedbackQualificationOwner.feedbackAssessment",
+      "destination": "generatorOutcomeRecoveryOwner.feedbackAssessment"
+    },
+    {
+      "id": "INT-12",
+      "source": "reviewAccessQualificationOwner.viewerAssessment",
+      "destination": "availabilityWorkflowArbiter.viewerAssessment"
+    },
+    {
+      "id": "INT-13",
+      "source": "generatorOutcomeRecoveryOwner.generatorProposal",
+      "destination": "availabilityWorkflowArbiter.generatorProposal"
+    },
+    {
+      "id": "INT-14",
+      "source": "availabilityWorkflowArbiter.workflowDecision",
+      "destination": "generationSlotStateGovernor.workflowDecision"
+    },
+    {
+      "id": "INT-15",
+      "source": "availabilityWorkflowArbiter.workflowDecision",
+      "destination": "reviewSessionStateGovernor.workflowDecision"
+    },
+    {
+      "id": "INT-16",
+      "source": "generationSlotStateGovernor.generationDecision",
+      "destination": "generationCommandPolicy.generationDecision"
+    },
+    {
+      "id": "INT-17",
+      "source": "generationSlotStateGovernor.generationDecision",
+      "destination": "availabilityPublicationPolicy.generationDecision"
+    },
+    {
+      "id": "INT-18",
+      "source": "reviewSessionStateGovernor.reviewDecision",
+      "destination": "availabilityPublicationPolicy.reviewDecision"
+    },
+    {
+      "id": "INT-19",
+      "source": "generationCommandPolicy.generationCommand",
+      "destination": "root.generationCommand"
+    },
+    {
+      "id": "INT-20",
+      "source": "availabilityPublicationPolicy.reviewAvailability",
+      "destination": "root.reviewAvailability"
+    },
+    {
+      "id": "INT-21",
+      "source": "availabilityPublicationPolicy.workflowStatus",
+      "destination": "root.workflowStatus"
+    }
+  ],
+  "partition_counts": {
+    "root_input_snapshots": 288,
+    "legal_pre_state_pairs": 8,
+    "composed_valuations": 2304,
+    "owner_local_valuations": {
+      "batchQualificationOwner": 4,
+      "generatorFeedbackQualificationOwner": 24,
+      "reviewAccessQualificationOwner": 3,
+      "generatorOutcomeRecoveryOwner": 48,
+      "availabilityWorkflowArbiter": 1152,
+      "generationSlotStateGovernor": 60,
+      "reviewSessionStateGovernor": 30,
+      "generationCommandPolicy": 6,
+      "availabilityPublicationPolicy": 480
+    },
+    "producer_reachable_consumer_products": {
+      "generatorOutcomeRecoveryOwner": 28,
+      "availabilityWorkflowArbiter": 624,
+      "generationSlotStateGovernor": 66,
+      "reviewSessionStateGovernor": 42,
+      "generationCommandPolicy": 6,
+      "availabilityPublicationPolicy": 62
+    }
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "oracle_mismatches": 0,
+    "illegal_state_pair_violations": 0,
+    "command_invariant_violations": 0,
+    "availability_invariant_violations": 0,
+    "fault_propagation_violations": 0,
+    "priority_violations": 0,
+    "recovery_violations": 0,
+    "interaction_value_mismatches": 0,
+    "scenario_mismatches": 0
+  },
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "legal_state_pairs": true,
+    "command_only_while_generating": true,
+    "matched_review_only": true,
+    "fault_blocks_and_suppresses": true,
+    "ordinary_priority_conflict": true,
+    "reset_clear_requires_later_fresh_work": true
+  },
+  "checks": {
+    "exact_root_domain_exhausted": true,
+    "owner_local_partitions_total_disjoint": true,
+    "all_twenty_cases_have_local_and_composed_witnesses": true,
+    "composed_values_match_independent_oracle": true,
+    "all_twenty_one_semantic_interactions_consumed": true,
+    "legal_state_pair_invariant_preserved": true,
+    "command_and_availability_invariants_hold": true,
+    "fault_priority_and_recovery_policies_hold": true,
+    "all_seven_scenario_families_passed": true,
+    "source_guard_manifest_crosschecked": true
+  },
+  "case_hits": {
+    "owner_local": {
+      "CASE-01": 2,
+      "CASE-02": 1,
+      "CASE-03": 1,
+      "CASE-04": 6,
+      "CASE-05": 2,
+      "CASE-06": 16,
+      "CASE-07": 1,
+      "CASE-08": 2,
+      "CASE-09": 36,
+      "CASE-10": 12,
+      "CASE-11": 960,
+      "CASE-12": 64,
+      "CASE-13": 64,
+      "CASE-14": 64,
+      "CASE-15": 42,
+      "CASE-16": 18,
+      "CASE-17": 21,
+      "CASE-18": 9,
+      "CASE-19": 6,
+      "CASE-20": 480
+    },
+    "composed": {
+      "CASE-01": 1152,
+      "CASE-02": 576,
+      "CASE-03": 576,
+      "CASE-04": 576,
+      "CASE-05": 144,
+      "CASE-06": 1584,
+      "CASE-07": 768,
+      "CASE-08": 1536,
+      "CASE-09": 1728,
+      "CASE-10": 576,
+      "CASE-11": 2016,
+      "CASE-12": 96,
+      "CASE-13": 96,
+      "CASE-14": 96,
+      "CASE-15": 1806,
+      "CASE-16": 498,
+      "CASE-17": 1670,
+      "CASE-18": 634,
+      "CASE-19": 2304,
+      "CASE-20": 2304
+    },
+    "missing_case_witnesses": []
+  },
+  "ownership_audit": [
+    {
+      "usage": "batchQualificationOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "batchEvent"
+      ],
+      "owner_local_facts": [
+        "batchAssessment.usable",
+        "batchAssessment.batchCategory"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03"
+      ],
+      "analyzer_checks": [
+        "batch qualification totality and usability collapse"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "generatorFeedbackQualificationOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "generatorFeedback",
+        "generationPreState"
+      ],
+      "owner_local_facts": [
+        "feedbackAssessment.condition",
+        "feedbackAssessment.matched"
+      ],
+      "contract_cases": [
+        "CASE-04",
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "feedback matching and fault classification"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "reviewAccessQualificationOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "viewerObservation"
+      ],
+      "owner_local_facts": [
+        "viewerAssessment.accessible",
+        "viewerAssessment.condition"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-08"
+      ],
+      "analyzer_checks": [
+        "viewer accessibility collapse"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "generatorOutcomeRecoveryOwner",
+      "claimed_roles": [
+        "proposal",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "feedbackAssessment",
+        "generationPreState",
+        "recoveryRequest"
+      ],
+      "owner_local_facts": [
+        "generatorProposal.proposal",
+        "generatorProposal.condition"
+      ],
+      "contract_cases": [
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "feedback dominance and reset applicability"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "availabilityWorkflowArbiter",
+      "claimed_roles": [
+        "applicability",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "generatorProposal",
+        "doctorRequest",
+        "batchAssessment",
+        "viewerAssessment",
+        "generationPreState",
+        "reviewPreState"
+      ],
+      "owner_local_facts": [
+        "workflowDecision.selectedAction",
+        "workflowDecision.disposition",
+        "workflowDecision.notice"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14"
+      ],
+      "analyzer_checks": [
+        "workflow priority and ordinary open-versus-batch conflict"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "generationSlotStateGovernor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "workflowDecision",
+        "In(committedGenerationState)"
+      ],
+      "owner_local_facts": [
+        "committedGenerationState",
+        "generationDecision.nextState"
+      ],
+      "contract_cases": [
+        "CASE-15",
+        "CASE-16"
+      ],
+      "analyzer_checks": [
+        "exclusive generation transition and retention"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "reviewSessionStateGovernor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "workflowDecision",
+        "In(committedReviewState)"
+      ],
+      "owner_local_facts": [
+        "committedReviewState",
+        "reviewDecision.nextState"
+      ],
+      "contract_cases": [
+        "CASE-17",
+        "CASE-18"
+      ],
+      "analyzer_checks": [
+        "exclusive review transition and retention"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "generationCommandPolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "generationDecision.nextState"
+      ],
+      "owner_local_facts": [
+        "generationCommand"
+      ],
+      "contract_cases": [
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "committed-state command classification"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "availabilityPublicationPolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "generationDecision.nextState",
+        "generationDecision.disposition",
+        "generationDecision.notice",
+        "reviewDecision.nextState"
+      ],
+      "owner_local_facts": [
+        "reviewAvailability",
+        "workflowStatus.notice"
+      ],
+      "contract_cases": [
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "matched availability and public notice precedence"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "nominal image-A generation",
+      "traces": [
+        {
+          "initial_state": {
+            "generation": "GENERATION_EMPTY",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATION_EMPTY",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "BATCH_A_AVAILABLE",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-02",
+                "CASE-14",
+                "CASE-15",
+                "CASE-17",
+                "CASE-19",
+                "CASE-20"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "START_BATCH_A_ACTION"
+                },
+                "nextState": {
+                  "generation": "GENERATING_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_A",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "notice": "WAITING_FOR_GENERATOR"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-02",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-14",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "START_BATCH_A_ACTION",
+                  "disposition": "ACCEPTED",
+                  "notice": "NO_DECISION_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATING_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_A",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATING_A",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "ACCEPTED",
+                  "notice": "WAITING_FOR_GENERATOR"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "generation": "GENERATING_A",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-04",
+                "CASE-10",
+                "CASE-14",
+                "CASE-16",
+                "CASE-18"
+              ],
+              "expected": {
+                "nextState": {
+                  "generation": "GENERATING_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_A",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-14",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "NO_REQUEST_DISPOSITION",
+                  "notice": "NO_DECISION_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATING_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_A",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATING_A",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "NO_REQUEST_DISPOSITION",
+                  "notice": "WAITING_FOR_GENERATOR"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "generation": "GENERATING_A",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "IMAGE_A_GENERATED",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-05",
+                "CASE-09",
+                "CASE-11",
+                "CASE-15"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "ACCEPT_IMAGE_A_ACTION"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "notice": "IMAGE_READY"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-05",
+                  "CASE-08",
+                  "CASE-09",
+                  "CASE-11",
+                  "CASE-15",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "ACCEPT_IMAGE_A_ACTION",
+                  "disposition": "ACCEPTED",
+                  "notice": "NO_DECISION_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "IMAGE_READY_A",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "ACCEPTED",
+                  "notice": "IMAGE_READY"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "nominal Doctor review open and close",
+      "traces": [
+        {
+          "initial_state": {
+            "generation": "IMAGE_READY_A",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "IMAGE_READY_A",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_AVAILABLE",
+                "doctorRequest": "OPEN_AVAILABLE_IMAGE",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-07",
+                "CASE-13",
+                "CASE-16",
+                "CASE-17",
+                "CASE-20"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "OPEN_IMAGE_A_ACTION",
+                  "disposition": "ACCEPTED"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_A",
+                  "review": "REVIEWING_A"
+                },
+                "reviewAvailability": "IMAGE_A_AVAILABLE_FOR_REVIEW",
+                "workflowStatus": {
+                  "notice": "IMAGE_AVAILABLE"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-07",
+                  "CASE-10",
+                  "CASE-13",
+                  "CASE-16",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "OPEN_IMAGE_A_ACTION",
+                  "disposition": "ACCEPTED",
+                  "notice": "IMAGE_OPENED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_A",
+                  "review": "REVIEWING_A"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "IMAGE_A_AVAILABLE_FOR_REVIEW",
+                "workflowStatus": {
+                  "generationState": "IMAGE_READY_A",
+                  "reviewState": "REVIEWING_A",
+                  "disposition": "ACCEPTED",
+                  "notice": "IMAGE_AVAILABLE"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "generation": "IMAGE_READY_A",
+                "review": "REVIEWING_A"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "CLOSE_REVIEW",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-12",
+                "CASE-15",
+                "CASE-17"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "CLOSE_REVIEW_ACTION"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "reviewAvailability": "NO_IMAGE_AVAILABLE"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-12",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "CLOSE_REVIEW_ACTION",
+                  "disposition": "ACCEPTED",
+                  "notice": "IMAGE_CLOSED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_EMPTY",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "ACCEPTED",
+                  "notice": "NONE"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "feedback mismatch and failure blocking",
+      "traces": [
+        {
+          "initial_state": {
+            "generation": "GENERATING_B",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATING_B",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "IMAGE_A_GENERATED",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-06",
+                "CASE-09",
+                "CASE-11",
+                "CASE-15",
+                "CASE-17"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "BLOCK_ACTION"
+                },
+                "nextState": {
+                  "generation": "GENERATION_BLOCKED",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "notice": "FEEDBACK_FAULT"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-06",
+                  "CASE-08",
+                  "CASE-09",
+                  "CASE-11",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "BLOCK_ACTION",
+                  "disposition": "RECOVERY_APPLIED",
+                  "notice": "FEEDBACK_FAULT_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_BLOCKED",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_BLOCKED",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "RECOVERY_APPLIED",
+                  "notice": "FEEDBACK_FAULT"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "initial_state": {
+            "generation": "GENERATING_A",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATING_A",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "GENERATION_FAILED",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-06",
+                "CASE-09",
+                "CASE-11"
+              ],
+              "expected": {
+                "nextState": {
+                  "generation": "GENERATION_BLOCKED",
+                  "review": "REVIEW_CLOSED"
+                },
+                "workflowStatus": {
+                  "notice": "FEEDBACK_FAULT"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-06",
+                  "CASE-08",
+                  "CASE-09",
+                  "CASE-11",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "BLOCK_ACTION",
+                  "disposition": "RECOVERY_APPLIED",
+                  "notice": "FEEDBACK_FAULT_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_BLOCKED",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_BLOCKED",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "RECOVERY_APPLIED",
+                  "notice": "FEEDBACK_FAULT"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "reset clear then later fresh work",
+      "traces": [
+        {
+          "initial_state": {
+            "generation": "GENERATION_BLOCKED",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATION_BLOCKED",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "BATCH_B_AVAILABLE",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "RESET_GENERATION_WORKFLOW"
+              },
+              "expected_named_branches": [
+                "CASE-03",
+                "CASE-10",
+                "CASE-11",
+                "CASE-15",
+                "CASE-17"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "CLEAR_BLOCK_ACTION",
+                  "disposition": "PREEMPTED"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "workflowStatus": {
+                  "notice": "RESET_CLEARED"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-11",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "CLEAR_BLOCK_ACTION",
+                  "disposition": "PREEMPTED",
+                  "notice": "RESET_CLEARED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_EMPTY",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "PREEMPTED",
+                  "notice": "RESET_CLEARED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "generation": "GENERATION_EMPTY",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-14",
+                "CASE-16",
+                "CASE-18"
+              ],
+              "expected": {
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-14",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "NO_REQUEST_DISPOSITION",
+                  "notice": "NO_DECISION_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_EMPTY",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "NO_REQUEST_DISPOSITION",
+                  "notice": "NONE"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "generation": "GENERATION_EMPTY",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "BATCH_B_AVAILABLE",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-03",
+                "CASE-14",
+                "CASE-15"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "START_BATCH_B_ACTION"
+                },
+                "nextState": {
+                  "generation": "GENERATING_B",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_B"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-14",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "START_BATCH_B_ACTION",
+                  "disposition": "ACCEPTED",
+                  "notice": "NO_DECISION_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATING_B",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_B",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATING_B",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "ACCEPTED",
+                  "notice": "WAITING_FOR_GENERATOR"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "Doctor-open versus newer-batch priority conflict",
+      "traces": [
+        {
+          "initial_state": {
+            "generation": "IMAGE_READY_A",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "IMAGE_READY_A",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "BATCH_B_AVAILABLE",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_AVAILABLE",
+                "doctorRequest": "OPEN_AVAILABLE_IMAGE",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-03",
+                "CASE-07",
+                "CASE-13",
+                "CASE-16",
+                "CASE-17"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "OPEN_IMAGE_A_ACTION",
+                  "disposition": "PREEMPTED",
+                  "notice": "REQUEST_PREEMPTED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_A",
+                  "review": "REVIEWING_A"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "IMAGE_A_AVAILABLE_FOR_REVIEW",
+                "workflowStatus": {
+                  "notice": "REQUEST_PREEMPTED"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-04",
+                  "CASE-07",
+                  "CASE-10",
+                  "CASE-13",
+                  "CASE-16",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "OPEN_IMAGE_A_ACTION",
+                  "disposition": "PREEMPTED",
+                  "notice": "REQUEST_PREEMPTED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_A",
+                  "review": "REVIEWING_A"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "IMAGE_A_AVAILABLE_FOR_REVIEW",
+                "workflowStatus": {
+                  "generationState": "IMAGE_READY_A",
+                  "reviewState": "REVIEWING_A",
+                  "disposition": "PREEMPTED",
+                  "notice": "REQUEST_PREEMPTED"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-06",
+      "family": "viewer denial, restoration, and fresh retry",
+      "traces": [
+        {
+          "initial_state": {
+            "generation": "IMAGE_READY_B",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "IMAGE_READY_B",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_OBSERVATION_INVALID",
+                "doctorRequest": "OPEN_AVAILABLE_IMAGE",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-08",
+                "CASE-13",
+                "CASE-16",
+                "CASE-18"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "notice": "VIEWER_UNAVAILABLE_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEW_CLOSED"
+                },
+                "reviewAvailability": "NO_IMAGE_AVAILABLE"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-13",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "VIEWER_UNAVAILABLE_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "IMAGE_READY_B",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "REJECTED",
+                  "notice": "VIEWER_UNAVAILABLE"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "generation": "IMAGE_READY_B",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "OPEN_AVAILABLE_IMAGE",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-08",
+                "CASE-13"
+              ],
+              "expected": {
+                "decision": {
+                  "notice": "VIEWER_UNAVAILABLE_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEW_CLOSED"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-13",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "VIEWER_UNAVAILABLE_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "IMAGE_READY_B",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "REJECTED",
+                  "notice": "VIEWER_UNAVAILABLE"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "generation": "IMAGE_READY_B",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_AVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-07",
+                "CASE-14"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEW_CLOSED"
+                },
+                "reviewAvailability": "NO_IMAGE_AVAILABLE"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-07",
+                  "CASE-10",
+                  "CASE-14",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "NO_REQUEST_DISPOSITION",
+                  "notice": "NO_DECISION_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "IMAGE_READY_B",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "NO_REQUEST_DISPOSITION",
+                  "notice": "IMAGE_READY"
+                }
+              },
+              "passed": true
+            },
+            {
+              "step": 4,
+              "pre_state": {
+                "generation": "IMAGE_READY_B",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_AVAILABLE",
+                "doctorRequest": "OPEN_AVAILABLE_IMAGE",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-07",
+                "CASE-13",
+                "CASE-17"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "OPEN_IMAGE_B_ACTION"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEWING_B"
+                },
+                "reviewAvailability": "IMAGE_B_AVAILABLE_FOR_REVIEW"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-07",
+                  "CASE-10",
+                  "CASE-13",
+                  "CASE-16",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "OPEN_IMAGE_B_ACTION",
+                  "disposition": "ACCEPTED",
+                  "notice": "IMAGE_OPENED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "IMAGE_READY_B",
+                  "review": "REVIEWING_B"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "IMAGE_B_AVAILABLE_FOR_REVIEW",
+                "workflowStatus": {
+                  "generationState": "IMAGE_READY_B",
+                  "reviewState": "REVIEWING_B",
+                  "disposition": "ACCEPTED",
+                  "notice": "IMAGE_AVAILABLE"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-07",
+      "family": "invalid, unexpected, busy, and inapplicable inputs",
+      "traces": [
+        {
+          "initial_state": {
+            "generation": "GENERATION_EMPTY",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATION_EMPTY",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "INVALID_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-01",
+                "CASE-14"
+              ],
+              "expected": {
+                "decision": {
+                  "disposition": "REJECTED",
+                  "notice": "INVALID_BATCH_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-14",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "INVALID_BATCH_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_EMPTY",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "REJECTED",
+                  "notice": "INVALID_BATCH"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "initial_state": {
+            "generation": "GENERATING_A",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATING_A",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "BATCH_B_AVAILABLE",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-03",
+                "CASE-14"
+              ],
+              "expected": {
+                "decision": {
+                  "disposition": "REJECTED",
+                  "notice": "GENERATOR_BUSY_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATING_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_A"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-14",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "GENERATOR_BUSY_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATING_A",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "GENERATE_FROM_BATCH_A",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATING_A",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "REJECTED",
+                  "notice": "GENERATOR_BUSY"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "initial_state": {
+            "generation": "GENERATION_EMPTY",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATION_EMPTY",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "IMAGE_A_GENERATED",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-06",
+                "CASE-09",
+                "CASE-11"
+              ],
+              "expected": {
+                "nextState": {
+                  "generation": "GENERATION_BLOCKED",
+                  "review": "REVIEW_CLOSED"
+                },
+                "workflowStatus": {
+                  "notice": "FEEDBACK_FAULT"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-06",
+                  "CASE-08",
+                  "CASE-09",
+                  "CASE-11",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "BLOCK_ACTION",
+                  "disposition": "RECOVERY_APPLIED",
+                  "notice": "FEEDBACK_FAULT_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_BLOCKED",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_BLOCKED",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "RECOVERY_APPLIED",
+                  "notice": "FEEDBACK_FAULT"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "initial_state": {
+            "generation": "GENERATION_EMPTY",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATION_EMPTY",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "recoveryRequest": "RESET_GENERATION_WORKFLOW"
+              },
+              "expected_named_branches": [
+                "CASE-10",
+                "CASE-11"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "RESET_REJECTED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-11",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "RESET_REJECTED_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_EMPTY",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "REJECTED",
+                  "notice": "RESET_REJECTED"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "initial_state": {
+            "generation": "GENERATION_EMPTY",
+            "review": "REVIEW_CLOSED"
+          },
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "generation": "GENERATION_EMPTY",
+                "review": "REVIEW_CLOSED"
+              },
+              "inputs": {
+                "batchEvent": "NO_BATCH_EVENT",
+                "generatorFeedback": "NO_GENERATOR_FEEDBACK",
+                "viewerObservation": "VIEWER_UNAVAILABLE",
+                "doctorRequest": "CLOSE_REVIEW",
+                "recoveryRequest": "NO_RECOVERY_REQUEST"
+              },
+              "expected_named_branches": [
+                "CASE-12"
+              ],
+              "expected": {
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "NO_IMAGE_READY_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-10",
+                  "CASE-12",
+                  "CASE-16",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "decision": {
+                  "selectedAction": "NO_WORKFLOW_ACTION",
+                  "disposition": "REJECTED",
+                  "notice": "NO_IMAGE_READY_NOTICE"
+                },
+                "nextState": {
+                  "generation": "GENERATION_EMPTY",
+                  "review": "REVIEW_CLOSED"
+                },
+                "generationCommand": "NO_GENERATION_COMMAND",
+                "reviewAvailability": "NO_IMAGE_AVAILABLE",
+                "workflowStatus": {
+                  "generationState": "GENERATION_EMPTY",
+                  "reviewState": "REVIEW_CLOSED",
+                  "disposition": "REJECTED",
+                  "notice": "NO_IMAGE_READY"
+                }
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "canonical_guard_crosscheck": {
+    "status": "passed",
+    "checked_case_ids": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20"
+    ],
+    "inspected_record_members_are_attributes": [
+      "BatchAssessment.batchCategory",
+      "BatchAssessment.usable",
+      "FeedbackAssessment.condition",
+      "FeedbackAssessment.matched",
+      "ViewerAssessment.condition",
+      "ViewerAssessment.accessible",
+      "GeneratorProposalRecord.proposal",
+      "GeneratorProposalRecord.condition",
+      "WorkflowDecision.selectedAction",
+      "WorkflowDecision.disposition",
+      "WorkflowDecision.notice",
+      "GenerationDecisionSnapshot.preState",
+      "GenerationDecisionSnapshot.nextState",
+      "GenerationDecisionSnapshot.selectedAction",
+      "GenerationDecisionSnapshot.disposition",
+      "GenerationDecisionSnapshot.notice",
+      "ReviewDecisionSnapshot.preState",
+      "ReviewDecisionSnapshot.nextState",
+      "WorkflowStatus.generationState",
+      "WorkflowStatus.reviewState",
+      "WorkflowStatus.disposition",
+      "WorkflowStatus.notice"
+    ]
+  }
+}

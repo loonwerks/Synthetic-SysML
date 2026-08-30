@@ -1,0 +1,259 @@
+{
+  "source": "model/Docked_Service_Access_Lifecycle_Supervisor.sysml",
+  "source_sha256": "b377601587405036824883022a900cdd5dcf1834e441a70190b27ae0cdc4e308",
+  "root_system_usages": 1,
+  "semantic_usages": 8,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 9,
+  "all_usages_including_root": 10,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 21,
+  "generated_support_routes": 9,
+  "source_port_connection_declarations": 30,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 7,
+  "state_owners": 1,
+  "cooperating_qualification_or_decision_owners": 5,
+  "gumbo_inspected_data_fields": 6,
+  "gumbo_inspected_fields_declared_as_attributes": 6,
+  "architecture_repairs": 0,
+  "contract_repairs": 1,
+  "analyzer_repairs": 1,
+  "trace_annotation_repairs": 0,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "intentQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "intentQualifier.pilotIntent"
+        ],
+        "owner_local_facts": [
+          "qualifiedIntentFreshnessAndValidityClass"
+        ],
+        "contract_cases": [
+          "INTENT_INVALID",
+          "INTENT_FRESH_DOCK",
+          "INTENT_FRESH_UNDOCK",
+          "INTENT_FRESH_RESET",
+          "INTENT_NO_ACTION"
+        ],
+        "analyzer_checks": [
+          "intent-owner-8-inputs"
+        ]
+      },
+      {
+        "usage": "dockReadinessQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "dockReadinessQualifier.berthObservation",
+          "dockReadinessQualifier.shipCondition"
+        ],
+        "owner_local_facts": [
+          "jointDockReadinessCompatibilityClass"
+        ],
+        "contract_cases": [
+          "READINESS_INVALID",
+          "READINESS_DOCK",
+          "READINESS_SERVICE",
+          "READINESS_UNDOCK",
+          "READINESS_RELEASED",
+          "READINESS_BLOCKED",
+          "READINESS_CONTRADICTION"
+        ],
+        "analyzer_checks": [
+          "readiness-owner-36-pairs"
+        ]
+      },
+      {
+        "usage": "serviceInterlockQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "serviceInterlockQualifier.repairSignal",
+          "serviceInterlockQualifier.resupplySignal"
+        ],
+        "owner_local_facts": [
+          "mutuallyExclusiveServiceOccupancyClass"
+        ],
+        "contract_cases": [
+          "INTERLOCK_FAULT",
+          "INTERLOCK_QUIESCENT",
+          "INTERLOCK_SINGLE_DEMAND",
+          "INTERLOCK_SINGLE_ACTIVE",
+          "INTERLOCK_SINGLE_COMPLETION",
+          "INTERLOCK_CONFLICT"
+        ],
+        "analyzer_checks": [
+          "interlock-owner-36-pairs"
+        ]
+      },
+      {
+        "usage": "lifecycleConsistencyMonitor",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "lifecycleConsistencyMonitor.lifecyclePrestate",
+          "lifecycleConsistencyMonitor.dockReadiness",
+          "lifecycleConsistencyMonitor.serviceInterlock"
+        ],
+        "owner_local_facts": [
+          "lifecycleRelativeOperationalAssessment"
+        ],
+        "contract_cases": [
+          "ASSESSMENT_TOTAL_RELATION"
+        ],
+        "analyzer_checks": [
+          "assessment-owner-294-triples"
+        ]
+      },
+      {
+        "usage": "priorityArbiter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "priorityArbiter.qualifiedIntent",
+          "priorityArbiter.lifecyclePrestate",
+          "priorityArbiter.operationalAssessment"
+        ],
+        "owner_local_facts": [
+          "firstApplicableOrderedCase",
+          "admittedDirective"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04",
+          "CASE-05",
+          "CASE-06",
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10",
+          "CASE-11",
+          "CASE-12",
+          "CASE-13",
+          "CASE-14",
+          "CASE-15",
+          "CASE-16",
+          "CASE-17",
+          "CASE-18",
+          "CASE-19",
+          "CASE-20"
+        ],
+        "analyzer_checks": [
+          "arbiter-owner-595-exclusive-valuations"
+        ]
+      },
+      {
+        "usage": "lifecycleController",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "lifecycleController.admittedDirective",
+          "lifecycleController.In(lifecycleMemory)"
+        ],
+        "owner_local_facts": [
+          "nextLifecycleState",
+          "lifecycleResult",
+          "stateConsistentControlProposal"
+        ],
+        "contract_cases": [
+          "SNAPSHOT_AND_PROPOSAL_COHERENCE",
+          "APPLY_CASE_01",
+          "APPLY_CASE_02",
+          "APPLY_CASE_03",
+          "APPLY_CASE_04",
+          "APPLY_CASE_05",
+          "APPLY_CASE_06",
+          "APPLY_CASE_07",
+          "APPLY_CASE_08",
+          "APPLY_CASE_09",
+          "APPLY_CASE_10",
+          "APPLY_CASE_11",
+          "APPLY_CASE_12",
+          "APPLY_CASE_13",
+          "APPLY_CASE_14",
+          "APPLY_CASE_15",
+          "APPLY_CASE_16",
+          "APPLY_CASE_17",
+          "APPLY_CASE_18",
+          "APPLY_CASE_19",
+          "APPLY_CASE_20"
+        ],
+        "analyzer_checks": [
+          "controller-owner-140-transitions"
+        ]
+      },
+      {
+        "usage": "movementAndAccessSafetyGate",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "movementAndAccessSafetyGate.controlProposal",
+          "movementAndAccessSafetyGate.dockReadiness",
+          "movementAndAccessSafetyGate.serviceInterlock"
+        ],
+        "owner_local_facts": [
+          "currentConditionMovementGate",
+          "currentConditionAccessGate",
+          "mutuallyExclusiveGatedControl"
+        ],
+        "contract_cases": [
+          "MOVEMENT_GATE",
+          "ACCESS_GATE",
+          "GATED_CONTROL_COHERENCE"
+        ],
+        "analyzer_checks": [
+          "gate-owner-252-combinations"
+        ]
+      },
+      {
+        "usage": "lifecycleReporter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "lifecycleReporter.lifecycleSnapshot",
+          "lifecycleReporter.gatedControl"
+        ],
+        "owner_local_facts": [
+          "pilotLifecycleInterpretation",
+          "stationAccessInterpretation",
+          "suppressedPermissionVisibility"
+        ],
+        "contract_cases": [
+          "LOCAL-09",
+          "LOCAL-10"
+        ],
+        "analyzer_checks": [
+          "reporter-owner-504-combinations"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

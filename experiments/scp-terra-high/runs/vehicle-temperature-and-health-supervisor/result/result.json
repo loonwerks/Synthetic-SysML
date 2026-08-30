@@ -1,0 +1,478 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/vehicle-temperature-and-health-supervisor/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/vehicle-temperature-and-health-supervisor/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/vehicle-temperature-and-health-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/vehicle-temperature-and-health-supervisor/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/vehicle-temperature-and-health-supervisor/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2175da53a1:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_Candidate_GumboX.inititialize_IEP_Post(powerdisposition, recoveryguidance, vehiclehealthmode))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_GumboX.inititialize_IEP_Post(powerdisposition, recoveryguidance, vehiclehealthmode))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2175da53a1:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2175da53a1:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_GumboX.inititialize_IEP_Post(powerdisposition, recoveryguidance, vehiclehealthmode))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_Candidate_GumboX.inititialize_IEP_Post(powerdisposition, recoveryguidance, vehiclehealthmode))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2175da53a1:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::boundaryOutcomeDerivation::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-4584620684:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_Candidate_GumboX.compute_CEP_Post(healthdecision, recoveryproposal, powerdisposition, recoveryguidance, vehiclehealthmode))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_GumboX.compute_CEP_Post(healthdecision, recoveryproposal, powerdisposition, recoveryguidance, vehiclehealthmode))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-4584620684:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-4584620684:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_GumboX.compute_CEP_Post(healthdecision, recoveryproposal, powerdisposition, recoveryguidance, vehiclehealthmode))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_Candidate_GumboX.compute_CEP_Post(healthdecision, recoveryproposal, powerdisposition, recoveryguidance, vehiclehealthmode))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-4584620684:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::boundaryOutcomeDerivation::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-3336ea1866:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_Candidate_GumboX.inititialize_IEP_Post(healthstate, healthdecision))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_GumboX.inititialize_IEP_Post(healthstate, healthdecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-3336ea1866:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-3336ea1866:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_GumboX.inititialize_IEP_Post(healthstate, healthdecision))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_Candidate_GumboX.inititialize_IEP_Post(healthstate, healthdecision))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-3336ea1866:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::healthModeArbitration::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1ab8524003:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_Candidate_GumboX.compute_CEP_Post(in_healthstate, healthstate, maintenanceassessment, recoveryproposal, temperatureassessment, healthdecision))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_GumboX.compute_CEP_Post(in_healthstate, healthstate, maintenanceassessment, recoveryproposal, temperatureassessment, healthdecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1ab8524003:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1ab8524003:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_GumboX.compute_CEP_Post(in_healthstate, healthstate, maintenanceassessment, recoveryproposal, temperatureassessment, healthdecision))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthModeArbitration_supervisionProcess_healthModeArbitration_Candidate_GumboX.compute_CEP_Post(in_healthstate, healthstate, maintenanceassessment, recoveryproposal, temperatureassessment, healthdecision))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1ab8524003:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::healthModeArbitration::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1f9aae08db:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_Candidate_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1f9aae08db:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1f9aae08db:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_Candidate_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-1f9aae08db:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::maintenanceQualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2700ce1466:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_Candidate_GumboX.compute_CEP_Post(rawmaintenance, assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_GumboX.compute_CEP_Post(rawmaintenance, assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2700ce1466:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2700ce1466:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_GumboX.compute_CEP_Post(rawmaintenance, assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceEvidenceQualification_supervisionProcess_maintenanceQualification_Candidate_GumboX.compute_CEP_Post(rawmaintenance, assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-2700ce1466:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::maintenanceQualification::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-34c82d08ae:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_Candidate_GumboX.inititialize_IEP_Post(proposalforarbitration, proposalforoutcomes))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_GumboX.inititialize_IEP_Post(proposalforarbitration, proposalforoutcomes))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-34c82d08ae:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-34c82d08ae:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_GumboX.inititialize_IEP_Post(proposalforarbitration, proposalforoutcomes))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_Candidate_GumboX.inititialize_IEP_Post(proposalforarbitration, proposalforoutcomes))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-34c82d08ae:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::recoveryApplicability::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-d026154bec:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_Candidate_GumboX.compute_CEP_Post(maintenanceassessment, rawreturn, temperatureassessment, proposalforarbitration, proposalforoutcomes))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_GumboX.compute_CEP_Post(maintenanceassessment, rawreturn, temperatureassessment, proposalforarbitration, proposalforoutcomes))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-d026154bec:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-d026154bec:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_GumboX.compute_CEP_Post(maintenanceassessment, rawreturn, temperatureassessment, proposalforarbitration, proposalforoutcomes))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryApplicability_supervisionProcess_recoveryApplicability_Candidate_GumboX.compute_CEP_Post(maintenanceassessment, rawreturn, temperatureassessment, proposalforarbitration, proposalforoutcomes))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-d026154bec:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::recoveryApplicability::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-745d166992:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_Candidate_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-745d166992:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-745d166992:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_Candidate_GumboX.inititialize_IEP_Post(assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-745d166992:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::temperatureQualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-62623525b2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_Candidate_GumboX.compute_CEP_Post(rawtemperature, assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_GumboX.compute_CEP_Post(rawtemperature, assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-62623525b2:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-62623525b2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_GumboX.compute_CEP_Post(rawtemperature, assessmentforarbitration, assessmentforrecovery))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureEvidenceQualification_supervisionProcess_temperatureQualification_Candidate_GumboX.compute_CEP_Post(rawtemperature, assessmentforarbitration, assessmentforrecovery))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-temperature-health-supervisor-vehic-62623525b2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem/root-instance::VehicleTemperatureHealthSupervisorSystem_Instance/component::VehicleTemperatureHealthSupervisorSystem_Instance::supervisionProcess::temperatureQualification::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

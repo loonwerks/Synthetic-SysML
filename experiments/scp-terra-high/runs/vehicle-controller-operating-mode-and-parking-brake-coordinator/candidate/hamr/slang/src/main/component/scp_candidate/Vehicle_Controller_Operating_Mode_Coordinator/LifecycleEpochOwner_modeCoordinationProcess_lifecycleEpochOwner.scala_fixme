@@ -1,0 +1,46 @@
+// #Sireum
+
+package scp_candidate.Vehicle_Controller_Operating_Mode_Coordinator
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object LifecycleEpochOwner_modeCoordinationProcess_lifecycleEpochOwner {
+
+  // BEGIN STATE VARS
+  var previousStart: Vehicle_Controller_Operating_Mode_Coordinator.StartIndicationLevel.Type = Vehicle_Controller_Operating_Mode_Coordinator.StartIndicationLevel.Clear
+
+  var previousOn: Vehicle_Controller_Operating_Mode_Coordinator.OnIndicationLevel.Type = Vehicle_Controller_Operating_Mode_Coordinator.OnIndicationLevel.Clear
+
+  var previousOff: Vehicle_Controller_Operating_Mode_Coordinator.OffIndicationLevel.Type = Vehicle_Controller_Operating_Mode_Coordinator.OffIndicationLevel.Clear
+  // END STATE VARS
+
+  def initialise(api: LifecycleEpochOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_LIFECYCLE_HISTORY_INVALID
+        api.factsToConflict.freshStart == F &&
+          api.factsToConflict.freshOn == F &&
+          api.factsToConflict.offActive == F &&
+          api.factsToConflict.heldStart == F &&
+          api.factsToConflict.heldOn == F &&
+          api.factsToConflict.heldOff == F &&
+          api.factsToConflict.anyInvalid == T &&
+          api.factsToPriority == api.factsToConflict
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_factsToConflict(Vehicle_Controller_Operating_Mode_Coordinator.LifecycleEpochFacts.example())
+    api.put_factsToPriority(Vehicle_Controller_Operating_Mode_Coordinator.LifecycleEpochFacts.example())
+  }
+
+  def finalise(api: LifecycleEpochOwner_Operational_Api): Unit = { }
+}

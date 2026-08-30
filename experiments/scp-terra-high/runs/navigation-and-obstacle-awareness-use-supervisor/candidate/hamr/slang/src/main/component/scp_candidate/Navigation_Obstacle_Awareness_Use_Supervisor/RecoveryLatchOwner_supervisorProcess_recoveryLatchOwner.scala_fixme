@@ -1,0 +1,44 @@
+// #Sireum
+
+package scp_candidate.Navigation_Obstacle_Awareness_Use_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object RecoveryLatchOwner_supervisorProcess_recoveryLatchOwner {
+
+  // BEGIN STATE VARS
+  var committedRecoveryPhase: Navigation_Obstacle_Awareness_Use_Supervisor.RecoveryPhase.Type = Navigation_Obstacle_Awareness_Use_Supervisor.RecoveryPhase.WAIT_RELEASE
+  // END STATE VARS
+
+  def initialise(api: RecoveryLatchOwner_Initialization_Api): Unit = {
+    Contract(
+      Modifies(
+        // BEGIN INITIALIZES MODIFIES
+        committedRecoveryPhase
+        // END INITIALIZES MODIFIES
+      ),
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_RECOVERY_CLOSED_state
+        committedRecoveryPhase == RecoveryPhase.WAIT_RELEASE,
+        // guarantee INITIAL_RECOVERY_CLOSED_pre
+        api.preRecoveryPhase == RecoveryPhase.WAIT_RELEASE,
+        // guarantee INITIAL_RECOVERY_CLOSED_post
+        api.postRecoveryPhase == RecoveryPhase.WAIT_RELEASE
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_preRecoveryPhase(Navigation_Obstacle_Awareness_Use_Supervisor.RecoveryPhase.WAIT_RELEASE)
+    api.put_postRecoveryPhase(Navigation_Obstacle_Awareness_Use_Supervisor.RecoveryPhase.WAIT_RELEASE)
+  }
+
+  def finalise(api: RecoveryLatchOwner_Operational_Api): Unit = { }
+}

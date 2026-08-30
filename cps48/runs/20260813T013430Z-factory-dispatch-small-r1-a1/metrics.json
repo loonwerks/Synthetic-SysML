@@ -1,0 +1,149 @@
+{
+  "schema_version": 2,
+  "source_sha256": "65d7cb910a5aef063b5c540f16d2bb2a8e98a3b2f56bd689c1cc0e2eee87f8cd",
+  "root_definition": "Factory_Dispatch_Coordinator::Finished_Product_Dispatch_Coordinator_System",
+  "root_usage": "finished_product_dispatch_coordinator",
+  "explicit_root_usages": 1,
+  "architecture_nodes": {
+    "generated_support": ["dispatch_coordination_process"],
+    "semantic": [
+      "dispatch_coordination_process.request_qualification",
+      "dispatch_coordination_process.availability_assessment",
+      "dispatch_coordination_process.outcome_qualification",
+      "dispatch_coordination_process.dispatch_decision_owner",
+      "dispatch_coordination_process.release_command_derivation",
+      "dispatch_coordination_process.dispatch_notice_derivation"
+    ],
+    "semantic_count": 6,
+    "principal_decision_owners": 1
+  },
+  "semantic_domain_graph": {
+    "nodes": 6,
+    "end_to_end_directed_interactions": 11,
+    "semantic_usage_to_usage_connections": 5,
+    "unique_ordered_semantic_usage_pairs": 5,
+    "average_total_degree_internal": 1.666667,
+    "weakly_connected_regions": 1
+  },
+  "connections": {
+    "semantic_interactions": 11,
+    "boundary_semantic_interactions": 6,
+    "internal_semantic_connections": 5,
+    "process_thread_support_routes": 6,
+    "root_process_support_routes": 6,
+    "support_routes_total": 12,
+    "declarations_total": 17
+  },
+  "containment_depth_beneath_root": 2,
+  "ports": {
+    "root_boundary": 6,
+    "process_boundary": 6,
+    "semantic_thread_ports": 16,
+    "total": 28
+  },
+  "contracts": {
+    "owner_state_variables": 2,
+    "explicit_safe_initialization_guarantees": 6,
+    "qualification_cases": 9,
+    "nontrivial_owner_policy_cases": 9,
+    "release_derivation_cases": 2,
+    "notice_derivation_cases": 10,
+    "post_state_invariants": 1,
+    "identity_delivery_guarantees": 0,
+    "principal_case_owner": "dispatch_decision_owner"
+  },
+  "bounded_analysis": {
+    "raw_domain_snapshots": 384,
+    "partition_counts": {
+      "CASE-01": 336,
+      "CASE-02": 18,
+      "CASE-03": 6,
+      "CASE-04": 4,
+      "CASE-05": 8,
+      "CASE-06": 1,
+      "CASE-07": 1,
+      "CASE-08": 2,
+      "CASE-09": 8
+    },
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "qualification_mismatches": 0,
+    "guard_mismatches": 0,
+    "next_state_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "interaction_resolution_violations": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0},
+    "final": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0}
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 6,
+    "semantic_interactions": 11,
+    "nontrivial_contract_cases": 9,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "request_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["request_qualification.raw_request"],
+        "owner_local_facts": ["validity-aware qualified request classification"],
+        "contract_cases": ["REQUEST_INVALID", "REQUEST_NEUTRAL", "REQUEST_SHIPMENT"],
+        "analyzer_checks": ["request qualification total 4-to-3 relation"]
+      },
+      {
+        "usage": "availability_assessment",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["availability_assessment.raw_availability"],
+        "owner_local_facts": ["validity-aware availability classification"],
+        "contract_cases": ["AVAILABILITY_INVALID", "PRODUCT_UNAVAILABLE", "PRODUCT_AVAILABLE"],
+        "analyzer_checks": ["availability assessment total 4-to-3 relation"]
+      },
+      {
+        "usage": "outcome_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["outcome_qualification.raw_outcome"],
+        "owner_local_facts": ["validity-aware outcome classification"],
+        "contract_cases": ["OUTCOME_INVALID", "OUTCOME_NEUTRAL", "OUTCOME_ACCEPTED"],
+        "analyzer_checks": ["outcome qualification total 4-to-3 relation"]
+      },
+      {
+        "usage": "dispatch_decision_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["dispatch_decision_owner.qualified_request", "dispatch_decision_owner.availability_assessment", "dispatch_decision_owner.qualified_outcome", "dispatch_decision_owner.current_phase", "dispatch_decision_owner.recovery_required"],
+        "owner_local_facts": ["ordered dispatch resolution", "next dispatch phase", "next recovery requirement"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09"],
+        "analyzer_checks": ["owner nine-case partition", "owner complete next-state and resolution"]
+      },
+      {
+        "usage": "release_command_derivation",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["release_command_derivation.dispatch_resolution"],
+        "owner_local_facts": ["release exactly for either release disposition"],
+        "contract_cases": ["RELEASE_COMMAND", "HOLD_COMMAND"],
+        "analyzer_checks": ["release command total 9-to-2 relation"]
+      },
+      {
+        "usage": "dispatch_notice_derivation",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["dispatch_notice_derivation.dispatch_resolution"],
+        "owner_local_facts": ["disposition-and-phase status classification", "confirmation only for expected acknowledgment"],
+        "contract_cases": ["NOTICE_INPUT_FAULT", "NOTICE_RECOVERY_BLOCKED", "NOTICE_RECOVERY_CLEARED", "NOTICE_ACKNOWLEDGED", "NOTICE_UNEXPECTED", "NOTICE_RELEASE_ISSUED", "NOTICE_WAITING_PRODUCT", "NOTICE_HOLD_IDLE", "NOTICE_HOLD_AWAITING", "NOTICE_HOLD_OUTSTANDING"],
+        "analyzer_checks": ["notice derivation total disposition-and-phase relation"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-06 only and exclude the root and behavior-free Process. Semantic interactions count INT-01 through INT-11 once each and exclude twelve delegation routes. Nontrivial cases count only PART-04 CASE-01 through CASE-09; initialization, qualification, invariant, output-derivation, and scenario clauses are excluded. Scenario families count SCN-01 through SCN-05. Composition denotes finite local-relation and connection-map composition only, not compositional proof."
+}

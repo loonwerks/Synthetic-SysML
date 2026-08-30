@@ -1,0 +1,2011 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "de3cf758be9de558de457a1dca22c7ecdb1c2687bb1984cb23a4a371361e3c44",
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 16,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8
+  },
+  "ownership_audit": [
+    {
+      "usage": "lifecycleEventOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "lifecycleLevels",
+        "In(previousStart)",
+        "In(previousOn)",
+        "In(previousOff)"
+      ],
+      "owner_local_facts": [
+        "freshStart",
+        "freshOn",
+        "offActive",
+        "lifecycleConflict"
+      ],
+      "contract_cases": [
+        "LIFECYCLE_RISING_EDGES",
+        "LIFECYCLE_CONFLICT",
+        "STORE_LIFECYCLE_LEVELS"
+      ],
+      "analyzer_checks": [
+        "lifecycle-owner-64-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "serviceEventOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "serviceLevels",
+        "In(previousMaintenance)",
+        "In(previousReturn)"
+      ],
+      "owner_local_facts": [
+        "freshMaintenance",
+        "freshReturn",
+        "serviceConflict"
+      ],
+      "contract_cases": [
+        "SERVICE_RISING_EDGES",
+        "SERVICE_CONFLICT",
+        "STORE_SERVICE_LEVELS"
+      ],
+      "analyzer_checks": [
+        "service-owner-16-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "conditionAssessmentOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "conditionEvidence.reportedCondition",
+        "conditionEvidence.reportCurrency"
+      ],
+      "owner_local_facts": [
+        "conditionAssessment"
+      ],
+      "contract_cases": [
+        "CONDITION_QUALIFICATION"
+      ],
+      "analyzer_checks": [
+        "condition-owner-six-values-and-fibers"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "intentArbitrationOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "lifecycleFacts",
+        "serviceFacts",
+        "conditionAssessment"
+      ],
+      "owner_local_facts": [
+        "selectedIntent",
+        "priorityConflict"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08"
+      ],
+      "analyzer_checks": [
+        "intent-arbitration-totality-priority-conflict"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recoveryTargetOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "currentMode",
+        "appliedResolution",
+        "In(recoveryTarget)"
+      ],
+      "owner_local_facts": [
+        "storedRecoveryTarget",
+        "nextRecoveryTarget"
+      ],
+      "contract_cases": [
+        "PUBLISH_PRE_UPDATE_TARGET",
+        "UPDATE_RECOVERY_TARGET"
+      ],
+      "analyzer_checks": [
+        "recovery-target-capture-preserve-reset-75-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "transitionQualificationOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "arbitrationResult.selectedIntent",
+        "currentMode"
+      ],
+      "owner_local_facts": [
+        "qualifiedTransition"
+      ],
+      "contract_cases": [
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "transition-qualification-40-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "modeTransitionApplicationOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "In(controllerMode)",
+        "qualifiedTransition",
+        "storedRecoveryTarget"
+      ],
+      "owner_local_facts": [
+        "transitionResolution",
+        "nextControllerMode"
+      ],
+      "contract_cases": [
+        "APPLY_STAY_OR_REJECT",
+        "APPLY_GO_DIRECTIVES",
+        "APPLY_STORED_RESUME",
+        "COMMIT_AND_DELIVER_MODE"
+      ],
+      "analyzer_checks": [
+        "transition-application-120-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "coordinationPublicationOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "arbitrationResult",
+        "appliedResolution"
+      ],
+      "owner_local_facts": [
+        "parkingBrake",
+        "coordinationStatus"
+      ],
+      "contract_cases": [
+        "PARKING_BRAKE_COHERENCE",
+        "STATUS_PRECEDENCE"
+      ],
+      "analyzer_checks": [
+        "publication-precedence-and-brake-equivalence"
+      ],
+      "passed": true
+    }
+  ],
+  "owner_local_checks": [
+    {
+      "name": "lifecycle-owner-64-tuples",
+      "usage": "lifecycleEventOwner",
+      "tuples_checked": 64,
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "name": "service-owner-16-tuples",
+      "usage": "serviceEventOwner",
+      "tuples_checked": 16,
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "name": "condition-owner-six-values-and-fibers",
+      "usage": "conditionAssessmentOwner",
+      "tuples_checked": 6,
+      "fibers": {
+        "CurrentNormal": 1,
+        "CurrentDegraded": 1,
+        "Unusable": 4
+      },
+      "expected_fibers": {
+        "CurrentNormal": 1,
+        "CurrentDegraded": 1,
+        "Unusable": 4
+      },
+      "passed": true
+    },
+    {
+      "name": "intent-arbitration-totality-priority-conflict",
+      "usage": "intentArbitrationOwner",
+      "tuples_checked": 6144,
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "name": "recovery-target-capture-preserve-reset-75-tuples",
+      "usage": "recoveryTargetOwner",
+      "tuples_checked": 75,
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "name": "transition-qualification-40-pairs",
+      "usage": "transitionQualificationOwner",
+      "tuples_checked": 40,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_witnesses": {
+        "CASE-09": 5,
+        "CASE-10": 10,
+        "CASE-11": 4,
+        "CASE-12": 1,
+        "CASE-13": 1,
+        "CASE-14": 1,
+        "CASE-15": 3,
+        "CASE-16": 1,
+        "CASE-17": 4,
+        "CASE-18": 1,
+        "CASE-19": 4,
+        "CASE-20": 5
+      },
+      "passed": true
+    },
+    {
+      "name": "transition-application-120-tuples",
+      "usage": "modeTransitionApplicationOwner",
+      "tuples_checked": 120,
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "name": "publication-precedence-and-brake-equivalence",
+      "usage": "coordinationPublicationOwner",
+      "tuples_checked": 1920,
+      "mismatches": 0,
+      "passed": true
+    }
+  ],
+  "semantic_connection_map": {
+    "INT-01": "root.lifecycleLevels -> lifecycleEventOwner.lifecycleLevels",
+    "INT-02": "root.serviceLevels -> serviceEventOwner.serviceLevels",
+    "INT-03": "root.conditionEvidence -> conditionAssessmentOwner.conditionEvidence",
+    "INT-04": "lifecycleEventOwner.lifecycleFacts -> intentArbitrationOwner.lifecycleFacts",
+    "INT-05": "serviceEventOwner.serviceFacts -> intentArbitrationOwner.serviceFacts",
+    "INT-06": "conditionAssessmentOwner.conditionAssessment -> intentArbitrationOwner.conditionAssessment",
+    "INT-07": "intentArbitrationOwner.arbitrationForQualification -> transitionQualificationOwner.arbitrationResult",
+    "INT-08": "modeTransitionApplicationOwner.modeForQualification -> transitionQualificationOwner.currentMode",
+    "INT-09": "recoveryTargetOwner.storedRecoveryTarget -> modeTransitionApplicationOwner.storedRecoveryTarget",
+    "INT-10": "transitionQualificationOwner.qualifiedTransition -> modeTransitionApplicationOwner.qualifiedTransition",
+    "INT-11": "modeTransitionApplicationOwner.modeForRecovery -> recoveryTargetOwner.currentMode",
+    "INT-12": "modeTransitionApplicationOwner.resolutionForRecovery -> recoveryTargetOwner.appliedResolution",
+    "INT-13": "modeTransitionApplicationOwner.resolutionForPublication -> coordinationPublicationOwner.appliedResolution",
+    "INT-14": "intentArbitrationOwner.arbitrationForPublication -> coordinationPublicationOwner.arbitrationResult",
+    "INT-15": "modeTransitionApplicationOwner.appliedNextMode -> root.controllerMode",
+    "INT-16": "coordinationPublicationOwner.coordinationOutcome -> root.coordinationOutcome"
+  },
+  "exhaustive_root_domain": {
+    "factors": {
+      "lifecycle_levels": 8,
+      "service_levels": 4,
+      "condition_evidence": 6,
+      "previous_lifecycle": 8,
+      "previous_service": 4,
+      "recovery_target": 3,
+      "controller_mode": 5
+    },
+    "expected_valuations": 92160,
+    "observed_valuations": 92160
+  },
+  "partition_counts": {
+    "arbitration": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "qualification": {
+      "gaps": 0,
+      "overlaps": 0
+    }
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "independent_oracle_mismatches": 0,
+  "invariant_checks": {
+    "mismatches": 0,
+    "controller_mode_equals_applied_next_mode": true,
+    "brake_release_iff_on": true,
+    "recovery_target_domain_preserved": true
+  },
+  "canonical_guard_crosscheck": {
+    "grammar": "CASE-01..CASE-08 ordered arbitration guards and CASE-09..CASE-20 intent/current-mode guards",
+    "checked_guards": 20,
+    "mismatches": 0
+  },
+  "case_witnesses": {
+    "CASE-01": 46080,
+    "CASE-02": 30720,
+    "CASE-03": 7680,
+    "CASE-04": 1920,
+    "CASE-05": 1440,
+    "CASE-06": 1080,
+    "CASE-07": 810,
+    "CASE-08": 2430,
+    "CASE-09": 46080,
+    "CASE-10": 38400,
+    "CASE-11": 1536,
+    "CASE-12": 384,
+    "CASE-13": 288,
+    "CASE-14": 288,
+    "CASE-15": 864,
+    "CASE-16": 216,
+    "CASE-17": 864,
+    "CASE-18": 162,
+    "CASE-19": 648,
+    "CASE-20": 2430
+  },
+  "reachable_state_closure": {
+    "initial_states": 1,
+    "reachable_states": 128,
+    "explored_transitions": 24576,
+    "closure_rounds": 5,
+    "reachable_by_mode": {
+      "Off": 32,
+      "Starting": 16,
+      "On": 16,
+      "Maintenance": 16,
+      "Degraded": 48
+    },
+    "gap_count": 0
+  },
+  "scenario_families": [
+    {
+      "id": "SCN-01",
+      "name": "nominal two-step lifecycle",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "Off",
+        "controllerMode": "Off"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": true,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-07",
+            "CASE-18"
+          ],
+          "observed": {
+            "selectedIntent": "SelectStart",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-07",
+            "qualificationCase": "CASE-18",
+            "qualifiedTransition": "QualifiedGoStarting",
+            "transitionResolution": {
+              "nextMode": "Starting",
+              "kind": "GoStarting",
+              "accepted": true
+            },
+            "controllerMode": "Starting",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "StartingSequence"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": true,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Starting"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": true,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Starting",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Starting",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "StartingSequence"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": true,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Starting"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Starting",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Starting",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "StartingSequence"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Starting"
+            }
+          }
+        },
+        {
+          "step": 4,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": true,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-06",
+            "CASE-16"
+          ],
+          "observed": {
+            "selectedIntent": "SelectOn",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-06",
+            "qualificationCase": "CASE-16",
+            "qualifiedTransition": "QualifiedGoOn",
+            "transitionResolution": {
+              "nextMode": "On",
+              "kind": "GoOn",
+              "accepted": true
+            },
+            "controllerMode": "On",
+            "coordinationOutcome": {
+              "parkingBrake": "Release",
+              "status": "Operating"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": true,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "On"
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-02",
+      "name": "lifecycle priority collision and consumption",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "Off",
+        "controllerMode": "Off"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": true,
+              "on": true,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-06",
+            "CASE-17"
+          ],
+          "observed": {
+            "selectedIntent": "SelectOn",
+            "priorityConflict": true,
+            "arbitrationCase": "CASE-06",
+            "qualificationCase": "CASE-17",
+            "qualifiedTransition": "QualifiedReject",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "Reject",
+              "accepted": false
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "RequestInapplicable"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": true,
+                "on": true,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": true,
+              "on": true,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": true,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "RequestConflict"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": true,
+                "on": true,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "IdleOff"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        },
+        {
+          "step": 4,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": true,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-07",
+            "CASE-18"
+          ],
+          "observed": {
+            "selectedIntent": "SelectStart",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-07",
+            "qualificationCase": "CASE-18",
+            "qualifiedTransition": "QualifiedGoStarting",
+            "transitionResolution": {
+              "nextMode": "Starting",
+              "kind": "GoStarting",
+              "accepted": true
+            },
+            "controllerMode": "Starting",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "StartingSequence"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": true,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Starting"
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-03",
+      "name": "shutdown dominance",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "Off",
+        "controllerMode": "On"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": true
+            },
+            "serviceLevels": {
+              "maintenance": true,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Degraded",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-01",
+            "CASE-09"
+          ],
+          "observed": {
+            "selectedIntent": "SelectOff",
+            "priorityConflict": true,
+            "arbitrationCase": "CASE-01",
+            "qualificationCase": "CASE-09",
+            "qualifiedTransition": "QualifiedGoOff",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "GoOff",
+              "accepted": true
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "ShutdownDominant"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": true
+              },
+              "previousService": {
+                "maintenance": true,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-04",
+      "name": "degraded interruption and direct recovery",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "Off",
+        "controllerMode": "On"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Degraded",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-03",
+            "CASE-10"
+          ],
+          "observed": {
+            "selectedIntent": "SelectConditionDegraded",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-03",
+            "qualificationCase": "CASE-10",
+            "qualifiedTransition": "QualifiedGoDegraded",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "GoDegraded",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedCondition"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "On",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Degraded",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-03",
+            "CASE-10"
+          ],
+          "observed": {
+            "selectedIntent": "SelectConditionDegraded",
+            "priorityConflict": true,
+            "arbitrationCase": "CASE-03",
+            "qualificationCase": "CASE-10",
+            "qualifiedTransition": "QualifiedGoDegraded",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "GoDegraded",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedCondition"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "On",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedCondition"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "On",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 4,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-05",
+            "CASE-13"
+          ],
+          "observed": {
+            "selectedIntent": "SelectReturn",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-05",
+            "qualificationCase": "CASE-13",
+            "qualifiedTransition": "QualifiedResumeStored",
+            "transitionResolution": {
+              "nextMode": "On",
+              "kind": "ResumeStored",
+              "accepted": true
+            },
+            "controllerMode": "On",
+            "coordinationOutcome": {
+              "parkingBrake": "Release",
+              "status": "RecoveryResumed"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "On"
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-05",
+      "name": "stale evidence blocks held return",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "Off",
+        "controllerMode": "Starting"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Stale"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-02",
+            "CASE-10"
+          ],
+          "observed": {
+            "selectedIntent": "SelectInvalidDegraded",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-02",
+            "qualificationCase": "CASE-10",
+            "qualifiedTransition": "QualifiedGoDegraded",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "GoDegraded",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedInvalid"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Starting",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Stale"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-02",
+            "CASE-10"
+          ],
+          "observed": {
+            "selectedIntent": "SelectInvalidDegraded",
+            "priorityConflict": true,
+            "arbitrationCase": "CASE-02",
+            "qualificationCase": "CASE-10",
+            "qualifiedTransition": "QualifiedGoDegraded",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "GoDegraded",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedInvalid"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Starting",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedCondition"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Starting",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 4,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedCondition"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Starting",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 5,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-05",
+            "CASE-13"
+          ],
+          "observed": {
+            "selectedIntent": "SelectReturn",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-05",
+            "qualificationCase": "CASE-13",
+            "qualifiedTransition": "QualifiedResumeStored",
+            "transitionResolution": {
+              "nextMode": "Starting",
+              "kind": "ResumeStored",
+              "accepted": true
+            },
+            "controllerMode": "Starting",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "RecoveryResumed"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Starting"
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-06",
+      "name": "maintenance handoff and return to Off",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "Off",
+        "controllerMode": "On"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": true,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-04",
+            "CASE-11"
+          ],
+          "observed": {
+            "selectedIntent": "SelectMaintenance",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-04",
+            "qualificationCase": "CASE-11",
+            "qualifiedTransition": "QualifiedGoMaintenance",
+            "transitionResolution": {
+              "nextMode": "Maintenance",
+              "kind": "GoMaintenance",
+              "accepted": true
+            },
+            "controllerMode": "Maintenance",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "MaintenanceHandoff"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": true,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Maintenance"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Maintenance",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Maintenance",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "MaintenanceHandoff"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Maintenance"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-05",
+            "CASE-14"
+          ],
+          "observed": {
+            "selectedIntent": "SelectReturn",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-05",
+            "qualificationCase": "CASE-14",
+            "qualifiedTransition": "QualifiedGoOff",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "GoOff",
+              "accepted": true
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "IdleOff"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-07",
+      "name": "maintenance rejected while degraded",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "On",
+        "controllerMode": "Degraded"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": true,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-04",
+            "CASE-12"
+          ],
+          "observed": {
+            "selectedIntent": "SelectMaintenance",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-04",
+            "qualificationCase": "CASE-12",
+            "qualifiedTransition": "QualifiedReject",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "Reject",
+              "accepted": false
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "RequestInapplicable"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": true,
+                "returnNormal": false
+              },
+              "recoveryTarget": "On",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Degraded",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Degraded",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "DegradedCondition"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "On",
+              "controllerMode": "Degraded"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-05",
+            "CASE-13"
+          ],
+          "observed": {
+            "selectedIntent": "SelectReturn",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-05",
+            "qualificationCase": "CASE-13",
+            "qualifiedTransition": "QualifiedResumeStored",
+            "transitionResolution": {
+              "nextMode": "On",
+              "kind": "ResumeStored",
+              "accepted": true
+            },
+            "controllerMode": "On",
+            "coordinationOutcome": {
+              "parkingBrake": "Release",
+              "status": "RecoveryResumed"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "On"
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-08",
+      "name": "off-state rejection hold and fresh start",
+      "initial_state": {
+        "previousLifecycle": {
+          "start": false,
+          "on": false,
+          "off": false
+        },
+        "previousService": {
+          "maintenance": false,
+          "returnNormal": false
+        },
+        "recoveryTarget": "Off",
+        "controllerMode": "Off"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-05",
+            "CASE-15"
+          ],
+          "observed": {
+            "selectedIntent": "SelectReturn",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-05",
+            "qualificationCase": "CASE-15",
+            "qualifiedTransition": "QualifiedReject",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "Reject",
+              "accepted": false
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "RequestInapplicable"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": true
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "IdleOff"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": true
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": false,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-08",
+            "CASE-20"
+          ],
+          "observed": {
+            "selectedIntent": "SelectHold",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-08",
+            "qualificationCase": "CASE-20",
+            "qualifiedTransition": "QualifiedStay",
+            "transitionResolution": {
+              "nextMode": "Off",
+              "kind": "Stay",
+              "accepted": true
+            },
+            "controllerMode": "Off",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "IdleOff"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": false,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Off"
+            }
+          }
+        },
+        {
+          "step": 4,
+          "root_input": {
+            "lifecycleLevels": {
+              "start": true,
+              "on": false,
+              "off": false
+            },
+            "serviceLevels": {
+              "maintenance": false,
+              "returnNormal": false
+            },
+            "conditionEvidence": {
+              "reportedCondition": "Normal",
+              "reportCurrency": "Current"
+            }
+          },
+          "expected_named_branches": [
+            "CASE-07",
+            "CASE-18"
+          ],
+          "observed": {
+            "selectedIntent": "SelectStart",
+            "priorityConflict": false,
+            "arbitrationCase": "CASE-07",
+            "qualificationCase": "CASE-18",
+            "qualifiedTransition": "QualifiedGoStarting",
+            "transitionResolution": {
+              "nextMode": "Starting",
+              "kind": "GoStarting",
+              "accepted": true
+            },
+            "controllerMode": "Starting",
+            "coordinationOutcome": {
+              "parkingBrake": "Apply",
+              "status": "StartingSequence"
+            },
+            "nextState": {
+              "previousLifecycle": {
+                "start": true,
+                "on": false,
+                "off": false
+              },
+              "previousService": {
+                "maintenance": false,
+                "returnNormal": false
+              },
+              "recoveryTarget": "Off",
+              "controllerMode": "Starting"
+            }
+          }
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "claim_boundary": "Finite exhaustive analysis of the canonical abstract transition relation only; no compositional proof, solver certification, generated-code correctness, execution, physical performance, safety, reliability, certification, or production-suitability claim."
+}

@@ -1,0 +1,993 @@
+{
+  "schemaVersion": 2,
+  "viewRevision": 99,
+  "activeViewId": "system-overview",
+  "views": [
+    {
+      "id": "system-overview",
+      "name": "System Overview",
+      "rootId": "def:Isolette_Thermostat::IsoletteThermostatSystem",
+      "positions": {
+        "boundary:boundary/port/alarm_settings": {
+          "x": 100,
+          "y": 620,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_monitor_failure": {
+          "x": 542.3207595903485,
+          "y": 708.0031649597854,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_interface": {
+          "x": 556.3993670080429,
+          "y": 573.9245575420911,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_regulator_failure": {
+          "x": 550,
+          "y": 220,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_interface": {
+          "x": 584.5565818434317,
+          "y": 405.2735434820376,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "boundary:boundary/port/current_temperature": {
+          "x": 100,
+          "y": 480,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "boundary:boundary/port/desired_settings": {
+          "x": 100,
+          "y": 340,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_mode": {
+          "x": 1038.311264710992,
+          "y": 696.4843043453083,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_mode": {
+          "x": 953.8396202048257,
+          "y": 268.63518926112613,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm": {
+          "x": 1405.0345562691691,
+          "y": 593.1226585662198,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_heat_source": {
+          "x": 1389.676075449866,
+          "y": 334.88050639356567,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process": {
+          "x": 480,
+          "y": 140,
+          "width": 1230,
+          "height": 730,
+          "pinned": true
+        },
+        "boundary:boundary/port/heat_control": {
+          "x": 1800,
+          "y": 340,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "boundary:boundary/port/alarm_control": {
+          "x": 1800,
+          "y": 620,
+          "pinned": true,
+          "width": 248,
+          "height": 58
+        },
+        "boundary:boundary/port/monitor_supervision": {
+          "x": 80,
+          "y": 760,
+          "pinned": false,
+          "width": 248,
+          "height": 58
+        },
+        "boundary:boundary/port/regulator_supervision": {
+          "x": 80,
+          "y": 930,
+          "pinned": false,
+          "width": 248,
+          "height": 58
+        },
+        "boundary:boundary/port/regulator_feedback": {
+          "x": 1720,
+          "y": 1015,
+          "pinned": false,
+          "width": 248,
+          "height": 58
+        },
+        "boundary:boundary/port/monitor_status": {
+          "x": 1720,
+          "y": 1185,
+          "pinned": false,
+          "width": 248,
+          "height": 58
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [
+        "part:Isolette_Thermostat::IsoletteThermostatSystem::thermostat_process"
+      ],
+      "aliases": {},
+      "annotations": [
+        {
+          "id": "boundary-current-temperature",
+          "text": "INT-01 + INT-11 · Current Temperature",
+          "position": {
+            "x": 20,
+            "y": 160
+          },
+          "linkedElementId": "port:Isolette_Thermostat::IsoletteThermostatSystem::current_temperature",
+          "style": "info"
+        },
+        {
+          "id": "boundary-desired-settings",
+          "text": "INT-02 · Desired Temperature Settings",
+          "position": {
+            "x": 20,
+            "y": 390
+          },
+          "linkedElementId": "port:Isolette_Thermostat::IsoletteThermostatSystem::desired_settings",
+          "style": "info"
+        },
+        {
+          "id": "boundary-alarm-settings",
+          "text": "INT-12 · Alarm Temperature Settings",
+          "position": {
+            "x": 20,
+            "y": 540
+          },
+          "linkedElementId": "port:Isolette_Thermostat::IsoletteThermostatSystem::alarm_settings",
+          "style": "info"
+        },
+        {
+          "id": "boundary-heat-control",
+          "text": "INT-10 · Heat Control",
+          "position": {
+            "x": 1860,
+            "y": 260
+          },
+          "linkedElementId": "port:Isolette_Thermostat::IsoletteThermostatSystem::heat_control",
+          "style": "info"
+        },
+        {
+          "id": "boundary-alarm-control",
+          "text": "INT-20 · Alarm Control",
+          "position": {
+            "x": 1860,
+            "y": 540
+          },
+          "linkedElementId": "port:Isolette_Thermostat::IsoletteThermostatSystem::alarm_control",
+          "style": "info"
+        }
+      ],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": false,
+      "showEdgeLabels": false,
+      "showTypes": false,
+      "camera": {
+        "x": -283.6689353704737,
+        "y": -56.84415846726938,
+        "zoom": 0.9227417805114361
+      },
+      "updatedAt": "2026-08-26T19:58:31.922Z"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "78e63089-6fca-4a30-8426-82a69fbb8e6c",
+      "at": "2026-08-19T19:44:06.239Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.filter",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 53,
+      "targetIds": [
+        "connection:Isolette_Thermostat::IsoletteThermostatSystem::support03",
+        "connection:Isolette_Thermostat::IsoletteThermostatSystem::support07",
+        "connection:Isolette_Thermostat::IsoletteThermostatSystem::support13",
+        "connection:Isolette_Thermostat::IsoletteThermostatSystem::support17",
+        "connection:Isolette_Thermostat::ThermostatProcess::int03",
+        "connection:Isolette_Thermostat::ThermostatProcess::int06",
+        "connection:Isolette_Thermostat::ThermostatProcess::int07",
+        "connection:Isolette_Thermostat::ThermostatProcess::int13",
+        "connection:Isolette_Thermostat::ThermostatProcess::int16",
+        "connection:Isolette_Thermostat::ThermostatProcess::int17",
+        "port:Isolette_Thermostat::IsoletteThermostatSystem::monitor_status",
+        "port:Isolette_Thermostat::IsoletteThermostatSystem::monitor_supervision",
+        "port:Isolette_Thermostat::IsoletteThermostatSystem::regulator_feedback",
+        "port:Isolette_Thermostat::IsoletteThermostatSystem::regulator_supervision"
+      ],
+      "changedFields": [
+        "hidden"
+      ]
+    },
+    {
+      "id": "a4570ba5-3595-430a-a3a3-490b46d57308",
+      "at": "2026-08-19T19:44:06.516Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.apply",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 54,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_monitor_failure",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_regulator_failure",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_heat_source",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_interface",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_mode",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_interface",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_mode"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e22f7e75-ebcd-45aa-9f6c-fc7e17f8b1d6",
+      "at": "2026-08-19T19:44:54.624Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 55,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "27572685-f0eb-4e0c-b77f-b50bac5040cb",
+      "at": "2026-08-19T19:44:55.355Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 56,
+      "targetIds": [
+        "boundary:boundary/port/desired_settings"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "60cc229a-b768-4654-a737-9d1a3ec02414",
+      "at": "2026-08-19T19:44:55.727Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 57,
+      "targetIds": [
+        "boundary:boundary/port/current_temperature"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "eb8ba9de-0715-4127-9f48-27b146b68b30",
+      "at": "2026-08-19T19:44:56.064Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 58,
+      "targetIds": [
+        "boundary:boundary/port/alarm_settings"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "2669a53f-987a-485e-8572-fc092ffbcd41",
+      "at": "2026-08-19T19:44:56.433Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 59,
+      "targetIds": [
+        "boundary:boundary/port/heat_control"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "b23ff6cc-7d43-4cae-9a43-b9c6dbd6222e",
+      "at": "2026-08-19T19:44:56.777Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 60,
+      "targetIds": [
+        "boundary:boundary/port/alarm_control"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "1e68b8e3-b277-4163-9824-58875375d1d6",
+      "at": "2026-08-19T19:44:57.121Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.apply",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 61,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_monitor_failure",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_regulator_failure",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_heat_source",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_interface",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_mode",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_interface",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_mode"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "374b142d-f99a-401f-bd2d-9aea130bd412",
+      "at": "2026-08-19T19:45:32.496Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 62,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "f84175c1-f070-4f69-aa28-812dc6d2d369",
+      "at": "2026-08-19T19:45:33.255Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.apply",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 63,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_monitor_failure",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_regulator_failure",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_heat_source",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_interface",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_mode",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_interface",
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_mode"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "9f46be96-b976-462a-8e46-17033f0bfaa0",
+      "at": "2026-08-19T19:46:22.437Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 64,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "2c7d9924-5de1-450d-b546-58cee40638bd",
+      "at": "2026-08-19T19:46:22.824Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 65,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_regulator_failure"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "7859e95e-5ad2-4465-950a-7088767cf729",
+      "at": "2026-08-19T19:46:23.188Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 66,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_interface"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e709ab3a-d1d2-4f67-a731-3b75569eb9c4",
+      "at": "2026-08-19T19:46:23.549Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 67,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_mode"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "3ea86950-82e3-445b-b834-1be0b4eea144",
+      "at": "2026-08-19T19:46:23.949Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 68,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_heat_source"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "d02c9a5c-dedd-42fa-892f-a484cfab4f2e",
+      "at": "2026-08-19T19:46:24.309Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 69,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_interface"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "66942681-9eb5-4382-8f4b-c8550cea9b39",
+      "at": "2026-08-19T19:46:24.709Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 70,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_monitor_failure"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "94d13540-ba09-4152-83f0-608da2616351",
+      "at": "2026-08-19T19:46:25.057Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 71,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_mode"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "49e2e8a5-4184-4adf-a376-d03b7de8bac7",
+      "at": "2026-08-19T19:46:25.386Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 72,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "a5145387-a9a1-4550-8459-84fdcdf409b4",
+      "at": "2026-08-19T19:46:25.780Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 73,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "1aaab127-7b17-4da7-997c-c3971d2f3dd2",
+      "at": "2026-08-19T19:47:01.486Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 74,
+      "targetIds": [
+        "boundary-current-temperature"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "cac76be6-581a-42e0-8f04-f7667d0f29ff",
+      "at": "2026-08-19T19:47:01.853Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 75,
+      "targetIds": [
+        "boundary-current-temperature",
+        "boundary-desired-settings"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "79326845-3c1b-48ef-b61e-a202a0782cf7",
+      "at": "2026-08-19T19:47:02.237Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 76,
+      "targetIds": [
+        "boundary-alarm-settings",
+        "boundary-current-temperature",
+        "boundary-desired-settings"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "42e3e1b9-b96b-452b-a7af-a72aa8f222bb",
+      "at": "2026-08-19T19:47:02.641Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 77,
+      "targetIds": [
+        "boundary-alarm-settings",
+        "boundary-current-temperature",
+        "boundary-desired-settings",
+        "boundary-heat-control"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "2ae90ba4-d960-403f-8adf-930ae34cf1c1",
+      "at": "2026-08-19T19:47:02.944Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 78,
+      "targetIds": [
+        "boundary-alarm-control",
+        "boundary-alarm-settings",
+        "boundary-current-temperature",
+        "boundary-desired-settings",
+        "boundary-heat-control"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "67b84bc8-8362-405e-a86d-c99eca2e2531",
+      "at": "2026-08-19T19:47:45.905Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 79,
+      "targetIds": [
+        "boundary-current-temperature"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "d59d32d5-5876-4d69-bb33-5f77e153135d",
+      "at": "2026-08-19T19:47:46.255Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 80,
+      "targetIds": [
+        "boundary-desired-settings"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "d93c6e58-da02-4562-9fc2-bb4ca49acbd2",
+      "at": "2026-08-19T19:47:46.620Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 81,
+      "targetIds": [
+        "boundary-alarm-settings"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "b3fdfa8c-fba9-46f1-a56f-0afb0428f7d1",
+      "at": "2026-08-19T19:47:46.978Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 82,
+      "targetIds": [
+        "boundary-heat-control"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "5c4e7eda-8a1e-4772-84e4-1c5db8f7d60e",
+      "at": "2026-08-19T19:47:47.347Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.annotate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 83,
+      "targetIds": [
+        "boundary-alarm-control"
+      ],
+      "changedFields": [
+        "annotations"
+      ]
+    },
+    {
+      "id": "8f9ba29e-7479-4f0e-9f32-ecc452e976b5",
+      "at": "2026-08-26T19:58:07.491Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 84,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    },
+    {
+      "id": "40d1a0bc-fa2b-4b37-a2aa-0521b81e17cc",
+      "at": "2026-08-26T19:58:08.295Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 85,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    },
+    {
+      "id": "4c7b4f30-b5cf-4f35-8213-75009ba10353",
+      "at": "2026-08-26T19:58:09.536Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 86,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    },
+    {
+      "id": "5105804d-eb44-417a-8a53-c7f4eefe6986",
+      "at": "2026-08-26T19:58:10.807Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 87,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    },
+    {
+      "id": "45c9a46c-0bbb-4cbc-b373-ae42e2c23ed8",
+      "at": "2026-08-26T19:58:14.292Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 88,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_mode"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "7ecadbb3-40bf-4eca-a81c-2753e016b17c",
+      "at": "2026-08-26T19:58:15.715Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 89,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_heat_source"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "16d019a3-c0aa-4693-a85f-6b668f3c0aee",
+      "at": "2026-08-26T19:58:17.215Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 90,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_regulator_interface"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e7beb604-3dd6-4242-87ff-aa1207bb28b3",
+      "at": "2026-08-26T19:58:18.567Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 91,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_interface"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "5bf5249f-87a4-4e94-9ab4-cce778146987",
+      "at": "2026-08-26T19:58:19.705Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 92,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_alarm"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e491f528-c604-4a63-9988-436192211b24",
+      "at": "2026-08-26T19:58:20.725Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 93,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/manage_monitor_mode"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "a22c879e-9ab2-4754-a0c1-8ca6b4c57e6a",
+      "at": "2026-08-26T19:58:22.570Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 94,
+      "targetIds": [
+        "node:def:Isolette_Thermostat::IsoletteThermostatSystem/thermostat_process/detect_monitor_failure"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "15b43cc1-54f5-4025-9fec-43255f25e0ca",
+      "at": "2026-08-26T19:58:26.771Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 95,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    },
+    {
+      "id": "af303295-d06e-46b3-b5cc-1b6ce0f81a04",
+      "at": "2026-08-26T19:58:28.645Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 96,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    },
+    {
+      "id": "eaa1e8c4-6711-464d-b995-29b220e6d0bf",
+      "at": "2026-08-26T19:58:29.149Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.filter",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 97,
+      "targetIds": [],
+      "changedFields": [
+        "hidden"
+      ]
+    },
+    {
+      "id": "843e528e-67d3-4a6e-ad72-057b0f13b76b",
+      "at": "2026-08-26T19:58:30.681Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 98,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    },
+    {
+      "id": "81f83695-1da3-44e2-965a-7b42bedb783d",
+      "at": "2026-08-26T19:58:31.922Z",
+      "actor": "browser",
+      "client": "web",
+      "operation": "view.camera",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 99,
+      "targetIds": [],
+      "changedFields": [
+        "camera"
+      ]
+    }
+  ]
+}

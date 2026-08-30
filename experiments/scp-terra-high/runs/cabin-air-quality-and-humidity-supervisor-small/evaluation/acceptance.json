@@ -1,0 +1,58 @@
+{
+  "completed_at": "2026-08-20T23:01:04.307459Z",
+  "dataset_id": "cabin-air-quality-and-humidity-supervisor-small",
+  "failure": "component_logika",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate:experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "Cabin_Air_Care_Supervisor::CabinAirCareSupervisor",
+        "experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/M-star.sysml\n  - [430, 4] Dispatch Protocol not specified for thread preferenceInterpreter, assuming Sporadic\n  - [431, 4] Dispatch Protocol not specified for thread airQualityAssessor, assuming Sporadic\n  - [432, 4] Dispatch Protocol not specified for thread humidityAssessor, assuming Sporadic\n  - [433, 4] Dispatch Protocol not specified for thread observationConfidenceGuardian, assuming Sporadic\n  - [434, 4] Dispatch Protocol not specified for thread airCarePolicySupervisor, assuming Sporadic\n  - [474, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"cabinAirCareSupervisor\", Attr(Some([/M-star.sysml, 474, 7])))), Attr(Some([/M-star.sysml, 474, 7])))), [TypingsSpecialization([Name([Id(\"CabinAirCareSupervisor\", Attr(Some([/M-star.sysml, 474, 32])))], Attr(Some([/M-star.sysml, 474, 32])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 474, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/.slang/CabinAirCareSupervisor_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 252,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/.tmp\nChecking initialise method of AirCarePolicySupervisor_airCareSupervisionProcess_airCarePolicySupervisor.scala\n  Verification succeeded!\n\nChecking timeTriggered method of AirCarePolicySupervisor_airCareSupervisionProcess_airCarePolicySupervisor.scala\n  Verification succeeded!\n\nChecking initialise method of AirQualityAssessor_airCareSupervisionProcess_airQualityAssessor.scala\n  Verification succeeded!\n\nChecking timeTriggered method of AirQualityAssessor_airCareSupervisionProcess_airQualityAssessor.scala\n  Verification succeeded!\n\nChecking initialise method of HumidityAssessor_airCareSupervisionProcess_humidityAssessor.scala\n  Verification succeeded!\n\nChecking timeTriggered method of HumidityAssessor_airCareSupervisionProcess_humidityAssessor.scala\n  Verification succeeded!\n\nChecking initialise method of ObservationConfidenceGuardian_airCareSupervisionProcess_observationConfidenceGuardian.scala\nUnexpected error: [34, 5] Missing Modifies clause for api\n  Verification failed.\n\nChecking timeTriggered method of ObservationConfidenceGuardian_airCareSupervisionProcess_observationConfidenceGuardian.scala\n  Verification succeeded!\n\nChecking initialise method of PreferenceInterpreter_airCareSupervisionProcess_preferenceInterpreter.scala\n  Verification succeeded!\n\nChecking timeTriggered method of PreferenceInterpreter_airCareSupervisionProcess_preferenceInterpreter.scala\n  Verification succeeded!\n\nVerified 9 method(s) across 5 component(s).\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate:experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/cabin-air-quality-and-humidity-supervisor-small/candidate/M-star.sysml\n  - [430, 4] Dispatch Protocol not specified for thread preferenceInterpreter, assuming Sporadic\n  - [431, 4] Dispatch Protocol not specified for thread airQualityAssessor, assuming Sporadic\n  - [432, 4] Dispatch Protocol not specified for thread humidityAssessor, assuming Sporadic\n  - [433, 4] Dispatch Protocol not specified for thread observationConfidenceGuardian, assuming Sporadic\n  - [434, 4] Dispatch Protocol not specified for thread airCarePolicySupervisor, assuming Sporadic\n  - [474, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"cabinAirCareSupervisor\", Attr(Some([/M-star.sysml, 474, 7])))), Attr(Some([/M-star.sysml, 474, 7])))), [TypingsSpecialization([Name([Id(\"CabinAirCareSupervisor\", Attr(Some([/M-star.sysml, 474, 32])))], Attr(Some([/M-star.sysml, 474, 32])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 474, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-20T22:59:24.790613Z",
+  "status": "failed"
+}

@@ -1,0 +1,17 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_2a7e82a020f6_3_Valid {
+  @pure def check(
+      controlproposal: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.ControlProposal,
+      dockreadiness: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.DockReadiness.Type,
+      gatedcontrol: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.GatedControl,
+      movementdirective: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.MovementDirective.Type,
+      serviceaccess: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.ServiceAccess.Type,
+      serviceinterlock: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.ServiceInterlock.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: (T)))
+  }
+}

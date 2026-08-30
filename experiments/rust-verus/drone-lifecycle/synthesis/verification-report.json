@@ -1,0 +1,213 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T151848Z-drone-lifecycle-rust-verus-poc",
+  "terminal_status": "accepted",
+  "source": "model/Drone_Lifecycle_Governor.sysml",
+  "source_sha256": "5a030ca834e68299b0ae0ce79360160ed0f5656c1283f44869126fccc83bf621",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 17,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 116,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "ENABLE-01",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INVAR-01",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "NOTICE-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PRIORITY-01",
+      "QUAL-BATT-01",
+      "QUAL-CHARGE-01",
+      "QUAL-REQ-01",
+      "STATE-01"
+    ],
+    "relativePath": "experiments/rust-verus/drone-lifecycle/synthesis/system-abstract.md",
+    "taggedElementCount": 81,
+    "traceAssociationCount": 81,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a finite five-usage lifecycle governor with exact 5/11/11/5 small-scope counts and one principal decision owner.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset realize the Lifecycle Governor's two owner-local state variables, safe initialization, and eleven ordered pre-state/post-state cases without duplicating or weakening the principal decision?",
+        "Can the exact eleven semantic interactions be preserved while any containment or delegation routes are separately traced as generated support, with a complete semantic-to-raw connection mapping?",
+        "Can all four nonprincipal usages retain their owner-local qualification or derivation contracts while charger-context qualification remains owner-local to the Lifecycle Governor and is not silently centralized elsewhere?",
+        "Can the retained bounded-analyzer mechanism independently enumerate all 2,560 snapshots and execute all five scenario families without using a copied architectural decision predicate as its oracle?"
+      ],
+      "repair_actions": []
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The exact 5/11/11/5 allocation is owner-sound and realizable with 17 raw connections and complete bounded evidence.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit finds PART-01 maps 16 request/status samples to nine qualified results, PART-02 maps four battery/status samples to three evidence results, PART-03 combines qualified facts with two pre-state variables under eleven decision cases, PART-04 derives three independently meaningful command dimensions whose individual relations are 5-to-3 or 5-to-2, and PART-05 maps the 48-value disposition/battery product to six notices under priority. None merely copies, bundles, renames, or reroutes an input.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The trusted and currently accepted AADL pattern is System -> behavior-free Process -> semantic Threads. The six boundary semantic interactions each require two raw delegation connections and the five inter-usage interactions each require one, so INT-01..INT-11 map to exactly 17 raw PortConnection declarations without changing endpoints, types, directions, or meanings.",
+          "requested_change": "During generation, report the 11-to-17 semantic/raw mapping, mark the twelve boundary delegation declarations as generated support with their INT identifiers, and exclude the support Process and routes from semantic and owner credit."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Trusted Isolette and accepted current repository sources demonstrate GUMBO state, initialize, In(...) pre-state guards, attribute-based record fields, multi-output guarantees, and compute cases. Those constructs can keep both state variables and all eleven mutually exclusive priority guards local to PART-03 while PART-01, PART-02, PART-04, and PART-05 retain separate local contracts.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Independent enumeration reproduced all 2,560 snapshots and the declared CASE-01..CASE-11 counts 2240, 140, 20, 20, 4, 1, 4, 2, 2, 4, and 123. The current harness executes a retained Node analyzer and checks source binding, passed status, zero diagnostics, Boolean checks, and ownership-audit agreement, so the required finite analysis and five ordered scenario traces fit the retained evidence mechanism without expanding the proof claim.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings accepted with explicit 11-to-17 mapping and bounded-evidence claim refinement; generation is authorized.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical source passed both retained Sireum gates, complete trace audit, and exhaustive bounded analysis.",
+      "canonical_source": "model/Drone_Lifecycle_Governor.sysml",
+      "architecture_repairs": 1,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "One validated system overview passed native, route-health, source-binding, and complete traceability review.",
+      "correction_cycles": 5,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "ENABLE-01",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INVAR-01",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "NOTICE-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PRIORITY-01",
+        "QUAL-BATT-01",
+        "QUAL-CHARGE-01",
+        "QUAL-REQ-01",
+        "STATE-01"
+      ],
+      "reviewed_tagged_element_count": 81,
+      "reviewed_trace_association_count": 81,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Canonical source, owner-local bounded semantics, and the retained system overview faithfully realize the Designer resolution without padding or silent drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {},
+  "reason": "Canonical source, owner-local bounded semantics, and the retained system overview faithfully realize the Designer resolution without padding or silent drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

@@ -1,0 +1,1847 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "683018484c7e77a24a345bda65aef4a3af75bb530ad707b21e485185a1e8ca7a",
+  "bounded_analysis_claim_boundary": "Exhaustive only for the declared finite logical root-input and owner-state domains, named local relations, explicit semantic connection map, and retained bounded scenario traces; it is not compositional proof, solver certification, generated-code correctness, system execution, physical-performance evidence, clinical validation, or safety certification.",
+  "domains": {
+    "qualified_owner_snapshots": 120,
+    "raw_root_input_tuples": 144,
+    "raw_root_and_owner_state_snapshots": 864,
+    "reachable_owner_states": [
+      {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "Normal"
+      },
+      {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      {
+        "sessionMode": "SessionMonitoring",
+        "recoveryPhase": "Normal"
+      },
+      {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitFreshRequest"
+      }
+    ]
+  },
+  "connection_map": [
+    {
+      "id": "INT-01",
+      "from": "root.monitoringRequest",
+      "to": "requestQualification.requestSample",
+      "type": "MonitoringRequestSample"
+    },
+    {
+      "id": "INT-02",
+      "from": "root.calibrationEvidence",
+      "to": "acquisitionEvidenceQualification.calibrationSample",
+      "type": "CalibrationSample"
+    },
+    {
+      "id": "INT-03",
+      "from": "root.impedanceObservation",
+      "to": "acquisitionEvidenceQualification.impedanceSample",
+      "type": "ImpedanceSample"
+    },
+    {
+      "id": "INT-04",
+      "from": "requestQualification.qualifiedRequest",
+      "to": "monitoringDecisionOwner.qualifiedRequest",
+      "type": "QualifiedRequest"
+    },
+    {
+      "id": "INT-05",
+      "from": "acquisitionEvidenceQualification.acquisitionEvidence",
+      "to": "monitoringDecisionOwner.acquisitionEvidence",
+      "type": "AcquisitionEvidence"
+    },
+    {
+      "id": "INT-06",
+      "from": "monitoringDecisionOwner.acquisitionCommand",
+      "to": "root.acquisitionCommand",
+      "type": "AcquisitionCommand"
+    },
+    {
+      "id": "INT-07",
+      "from": "monitoringDecisionOwner.monitoringResolution",
+      "to": "impedanceDeliveryDerivation.monitoringResolution",
+      "type": "MonitoringResolution"
+    },
+    {
+      "id": "INT-08",
+      "from": "acquisitionEvidenceQualification.acquisitionEvidence",
+      "to": "impedanceDeliveryDerivation.acquisitionEvidence",
+      "type": "AcquisitionEvidence"
+    },
+    {
+      "id": "INT-09",
+      "from": "impedanceDeliveryDerivation.impedanceDelivery",
+      "to": "root.impedanceDelivery",
+      "type": "ImpedanceDelivery"
+    },
+    {
+      "id": "INT-10",
+      "from": "monitoringDecisionOwner.monitoringResolution",
+      "to": "doctorStatusDerivation.monitoringResolution",
+      "type": "MonitoringResolution"
+    },
+    {
+      "id": "INT-11",
+      "from": "acquisitionEvidenceQualification.acquisitionEvidence",
+      "to": "doctorStatusDerivation.acquisitionEvidence",
+      "type": "AcquisitionEvidence"
+    },
+    {
+      "id": "INT-12",
+      "from": "doctorStatusDerivation.monitoringStatus",
+      "to": "root.monitoringStatus",
+      "type": "MonitoringStatus"
+    }
+  ],
+  "qualification_fibers": {
+    "request": {
+      "InvalidRequest": 3,
+      "NoQualifiedRequest": 1,
+      "QualifiedStart": 1,
+      "QualifiedStop": 1
+    },
+    "acquisition_evidence": {
+      "InvalidAcquisitionEvidence": 18,
+      "CalibrationAbsent": 3,
+      "ReadyNoToken": 1,
+      "ReadyTokenOne": 1,
+      "ReadyTokenTwo": 1
+    }
+  },
+  "local_derivation_fibers": {
+    "impedance_delivery": {
+      "Withheld": 7,
+      "NoTokenAvailable": 1,
+      "DeliverTokenOne": 1,
+      "DeliverTokenTwo": 1
+    },
+    "doctor_status": {
+      "InputFault": 10,
+      "RecoveryPending": 10,
+      "CalibrationRequired": 12,
+      "Monitoring": 19,
+      "Stopped": 19
+    }
+  },
+  "partition_counts": {
+    "CASE-01": 48,
+    "CASE-02": 16,
+    "CASE-03": 8,
+    "CASE-04": 8,
+    "CASE-05": 8,
+    "CASE-06": 6,
+    "CASE-07": 2,
+    "CASE-08": 8,
+    "CASE-09": 6,
+    "CASE-10": 2,
+    "CASE-11": 3,
+    "CASE-12": 5
+  },
+  "raw_partition_counts": {
+    "CASE-01": 756,
+    "CASE-02": 24,
+    "CASE-03": 12,
+    "CASE-04": 12,
+    "CASE-05": 12,
+    "CASE-06": 6,
+    "CASE-07": 6,
+    "CASE-08": 12,
+    "CASE-09": 6,
+    "CASE-10": 6,
+    "CASE-11": 3,
+    "CASE-12": 9
+  },
+  "case_witnesses": {
+    "CASE-01": {
+      "qualified_inputs": {
+        "qualifiedRequest": "InvalidRequest",
+        "acquisitionEvidence": "InvalidAcquisitionEvidence"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "Normal"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "AwaitNeutral",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "InputFaultDisposition"
+      }
+    },
+    "CASE-12": {
+      "qualified_inputs": {
+        "qualifiedRequest": "NoQualifiedRequest",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "Normal"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "StoppedDisposition"
+      }
+    },
+    "CASE-03": {
+      "qualified_inputs": {
+        "qualifiedRequest": "NoQualifiedRequest",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "AwaitFreshRequest",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "RecoveryDisposition"
+      }
+    },
+    "CASE-04": {
+      "qualified_inputs": {
+        "qualifiedRequest": "NoQualifiedRequest",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitFreshRequest"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "AwaitFreshRequest",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "RecoveryDisposition"
+      }
+    },
+    "CASE-11": {
+      "qualified_inputs": {
+        "qualifiedRequest": "NoQualifiedRequest",
+        "acquisitionEvidence": "ReadyNoToken"
+      },
+      "pre_state": {
+        "sessionMode": "SessionMonitoring",
+        "recoveryPhase": "Normal"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionMonitoring",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "CollectImpedance",
+        "disposition": "MonitoringContinued"
+      }
+    },
+    "CASE-10": {
+      "qualified_inputs": {
+        "qualifiedRequest": "QualifiedStart",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "Normal"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "StartDenied"
+      }
+    },
+    "CASE-02": {
+      "qualified_inputs": {
+        "qualifiedRequest": "QualifiedStart",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "AwaitNeutral",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "RecoveryDisposition"
+      }
+    },
+    "CASE-07": {
+      "qualified_inputs": {
+        "qualifiedRequest": "QualifiedStart",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitFreshRequest"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "StartDenied"
+      }
+    },
+    "CASE-09": {
+      "qualified_inputs": {
+        "qualifiedRequest": "QualifiedStart",
+        "acquisitionEvidence": "ReadyNoToken"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "Normal"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionMonitoring",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "CollectImpedance",
+        "disposition": "StartAccepted"
+      }
+    },
+    "CASE-06": {
+      "qualified_inputs": {
+        "qualifiedRequest": "QualifiedStart",
+        "acquisitionEvidence": "ReadyNoToken"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitFreshRequest"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionMonitoring",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "CollectImpedance",
+        "disposition": "StartAccepted"
+      }
+    },
+    "CASE-08": {
+      "qualified_inputs": {
+        "qualifiedRequest": "QualifiedStop",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "Normal"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "StopAccepted"
+      }
+    },
+    "CASE-05": {
+      "qualified_inputs": {
+        "qualifiedRequest": "QualifiedStop",
+        "acquisitionEvidence": "CalibrationAbsent"
+      },
+      "pre_state": {
+        "sessionMode": "SessionStopped",
+        "recoveryPhase": "AwaitFreshRequest"
+      },
+      "observed_resolution": {
+        "nextSessionMode": "SessionStopped",
+        "nextRecoveryPhase": "Normal",
+        "acquisitionCommand": "HoldAcquisition",
+        "disposition": "StopAccepted"
+      }
+    }
+  },
+  "partition_gaps": 0,
+  "partition_overlaps": 0,
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "initialization": {
+      "sessionMode": "SessionStopped",
+      "recoveryPhase": "Normal",
+      "acquisitionCommand": "HoldAcquisition",
+      "impedanceDelivery": "Withheld",
+      "monitoringStatus": "Stopped",
+      "passed": true
+    },
+    "recovery_implies_stopped": {
+      "passed": true,
+      "reachable_states_checked": 4
+    },
+    "fresh_request": {
+      "passed": true
+    },
+    "command_matches_committed_resolution": {
+      "passed": true
+    },
+    "anomalous_collect_pairings_unreachable": {
+      "passed": true
+    }
+  },
+  "observations": {
+    "qualified_snapshots": 120,
+    "raw_root_input_tuples": 144,
+    "raw_root_state_snapshots": 864,
+    "partition_gaps": 0,
+    "raw_guard_overlaps": 0,
+    "effective_selection_overlaps": 0,
+    "guard_mismatches": 0,
+    "qualification_mismatches": 0,
+    "next_state_mismatches": 0,
+    "command_mismatches": 0,
+    "delivery_mismatches": 0,
+    "status_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "interaction_resolution_violations": 0,
+    "anomalous_delivery_reachability_violations": 0,
+    "scenario_mismatches": 0
+  },
+  "scenarios": [
+    {
+      "id": "SCN-01",
+      "family": "nominal monitoring, token delivery, and stop",
+      "traces": [
+        {
+          "name": "start_deliver_two_distinct_tokens_stop",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "NoTokenAvailable",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "DeliverTokenOne",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenTwo",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "DeliverTokenTwo",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "request": "StopMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenTwo",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-08",
+              "observed_case": "CASE-08",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "Stopped"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "family": "calibration and data boundaries",
+      "traces": [
+        {
+          "name": "deny_accept_three_delivery_results_then_calibration_loss",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "NotCurrent",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-10",
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "CalibrationRequired"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "NoTokenAvailable",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "NoTokenAvailable",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "DeliverTokenOne",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 5,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenTwo",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "DeliverTokenTwo",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 6,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "NotCurrent",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenTwo",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "CalibrationRequired"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "family": "individual and combined invalid input from both session modes",
+      "traces": [
+        {
+          "name": "invalid_request_from_SessionStopped",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_request_from_SessionMonitoring",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_calibration_from_SessionStopped",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_calibration_from_SessionMonitoring",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_request_calibration_from_SessionStopped",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_request_calibration_from_SessionMonitoring",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_impedance_from_SessionStopped",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_impedance_from_SessionMonitoring",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_request_impedance_from_SessionStopped",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_request_impedance_from_SessionMonitoring",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_calibration_impedance_from_SessionStopped",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_calibration_impedance_from_SessionMonitoring",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_request_calibration_impedance_from_SessionStopped",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_request_calibration_impedance_from_SessionMonitoring",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Invalid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "family": "qualifying neutral-then-fresh recovery",
+      "traces": [
+        {
+          "name": "fault_retained_start_neutral_wait_fresh_start",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "RecoveryPending"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "RecoveryPending"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenOne",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "RecoveryPending"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              }
+            },
+            {
+              "step": 5,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenTwo",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "acquisitionCommand": "CollectImpedance",
+                "impedanceDelivery": "DeliverTokenTwo",
+                "monitoringStatus": "Monitoring"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionMonitoring",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "family": "nonauthorizing recovery outcomes",
+      "traces": [
+        {
+          "name": "fresh_stop_completes_without_collection",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "RecoveryPending"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "request": "StopMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              },
+              "expected_case": "CASE-05",
+              "observed_case": "CASE-05",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "Stopped"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "fresh_uncalibrated_start_denied",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Invalid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "InputFault"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "RecoveryPending"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "request": "StartMonitoring",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "NotCurrent",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "TokenTwo",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "AwaitFreshRequest"
+              },
+              "expected_case": "CASE-07",
+              "observed_case": "CASE-07",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "CalibrationRequired"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "normal_stopped_neutral",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "request": "NoRequest",
+                  "status": "Valid"
+                },
+                "calibration": {
+                  "calibration": "Current",
+                  "status": "Valid"
+                },
+                "impedance": {
+                  "token": "NoToken",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "acquisitionCommand": "HoldAcquisition",
+                "impedanceDelivery": "Withheld",
+                "monitoringStatus": "Stopped"
+              },
+              "observed_next_state": {
+                "sessionMode": "SessionStopped",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "requestQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "requestQualification.requestSample"
+      ],
+      "owner_local_facts": [
+        "validity-aware 6-to-4 qualified request classification"
+      ],
+      "contract_cases": [
+        "QUAL_REQ_Invalid",
+        "QUAL_REQ_None",
+        "QUAL_REQ_Start",
+        "QUAL_REQ_Stop"
+      ],
+      "analyzer_checks": [
+        "request qualification total 6-to-4 relation",
+        "request invalid-status collapse"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "acquisitionEvidenceQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "acquisitionEvidenceQualification.calibrationSample",
+        "acquisitionEvidenceQualification.impedanceSample"
+      ],
+      "owner_local_facts": [
+        "joint validity-calibration-token acquisition evidence classification"
+      ],
+      "contract_cases": [
+        "QUAL_EVID_Invalid",
+        "QUAL_EVID_NotCurrent",
+        "QUAL_EVID_NoToken",
+        "QUAL_EVID_TokenOne",
+        "QUAL_EVID_TokenTwo"
+      ],
+      "analyzer_checks": [
+        "acquisition evidence total 24-to-5 relation",
+        "acquisition evidence 18-3-1-1-1 fibers"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "monitoringDecisionOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "monitoringDecisionOwner.qualifiedRequest",
+        "monitoringDecisionOwner.acquisitionEvidence",
+        "monitoringDecisionOwner.sessionMode",
+        "monitoringDecisionOwner.recoveryPhase"
+      ],
+      "owner_local_facts": [
+        "ordered monitoring resolution",
+        "next session mode",
+        "next recovery phase",
+        "acquisition command"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "owner twelve-case partition over 120 qualified snapshots",
+        "owner complete next-state resolution and command"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "impedanceDeliveryDerivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "impedanceDeliveryDerivation.monitoringResolution",
+        "impedanceDeliveryDerivation.acquisitionEvidence"
+      ],
+      "owner_local_facts": [
+        "command-gated producer-total impedance delivery classification"
+      ],
+      "contract_cases": [
+        "DELIVERY_Hold",
+        "DELIVERY_Anomalous",
+        "DELIVERY_None",
+        "DELIVERY_One",
+        "DELIVERY_Two"
+      ],
+      "analyzer_checks": [
+        "delivery total 10-to-4 relation",
+        "delivery 7-1-1-1 fibers",
+        "anomalous collect pairing unreachable"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "doctorStatusDerivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "doctorStatusDerivation.monitoringResolution",
+        "doctorStatusDerivation.acquisitionEvidence"
+      ],
+      "owner_local_facts": [
+        "priority-ordered fault-recovery-calibration-monitoring status classification"
+      ],
+      "contract_cases": [
+        "STATUS_Fault",
+        "STATUS_Recovery",
+        "STATUS_Calibration",
+        "STATUS_Monitoring",
+        "STATUS_Stopped"
+      ],
+      "analyzer_checks": [
+        "Doctor status total 70-to-5 relation",
+        "Doctor status 10-10-12-19-19 fibers"
+      ],
+      "passed": true
+    }
+  ],
+  "checks": {
+    "qualified_domain_exactly_120": true,
+    "raw_root_domain_exhausted": true,
+    "qualified_partition_counts_exact": true,
+    "raw_partition_counts_exact": true,
+    "partition_total_and_exclusive": true,
+    "every_policy_case_has_witness": true,
+    "canonical_guards_match_analyzer_guards": true,
+    "owner_relation_matches_oracle": true,
+    "initialization_safe": true,
+    "recovery_invariant_preserved": true,
+    "request_qualification_fibers_exact": true,
+    "evidence_qualification_fibers_exact": true,
+    "delivery_fibers_exact": true,
+    "status_fibers_exact": true,
+    "all_invalid_status_combinations_enumerated": true,
+    "explicit_connection_map_complete": true,
+    "owner_values_consumed_through_declared_flows": true,
+    "anomalous_collect_pairings_unreachable": true,
+    "fresh_request_path_executed": true,
+    "five_scenario_families_executed": true,
+    "scenario_oracles_match": true,
+    "all_local_ownership_cases_executed": true
+  }
+}

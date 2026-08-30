@@ -1,0 +1,753 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "c843b555f4601df7b706eb1bee8619349d98928143c2590fc50e3763aa634a7d",
+  "claim_boundary": "Exhaustive consistency over the seed's finite 89-state by 11,016-input domain; not execution, solver certification, compositional proof, generated-code correctness, physical performance, safety, or certification evidence.",
+  "domain": {
+    "owner_states": 89,
+    "request_arrivals": 17,
+    "inventory_samples": 18,
+    "readiness_samples": 4,
+    "shipment_results": 9,
+    "boundary_combinations": 11016,
+    "snapshots": 980424
+  },
+  "semantic_connection_map": {
+    "INT-01": {
+      "from": "root.request_arrival",
+      "to": "request_qualification.request_arrival",
+      "value": "Request_Arrival_Sample",
+      "routes": [
+        "support_boundary_arrival",
+        "support_arrival_to_qualification"
+      ]
+    },
+    "INT-02": {
+      "from": "request_qualification.arrival_fact",
+      "to": "request_registry.arrival_fact",
+      "value": "Arrival_Fact",
+      "routes": [
+        "qualified_arrival_to_registry"
+      ]
+    },
+    "INT-03": {
+      "from": "root.shipment_result",
+      "to": "request_registry.shipment_result",
+      "value": "Shipment_Result_Sample",
+      "routes": [
+        "support_boundary_result",
+        "support_result_to_registry"
+      ]
+    },
+    "INT-04": {
+      "from": "request_registry.pending_request",
+      "to": "inventory_assessment.pending_request",
+      "value": "Pending_Request_View",
+      "routes": [
+        "pending_request_to_inventory"
+      ]
+    },
+    "INT-05": {
+      "from": "root.inventory_evidence",
+      "to": "inventory_assessment.inventory_evidence",
+      "value": "Inventory_Sample",
+      "routes": [
+        "support_boundary_inventory",
+        "support_inventory_to_assessment"
+      ]
+    },
+    "INT-06": {
+      "from": "request_registry.dispatch_candidate",
+      "to": "dispatch_arbiter.dispatch_candidate",
+      "value": "Dispatch_Candidate",
+      "routes": [
+        "candidate_to_arbiter"
+      ]
+    },
+    "INT-07": {
+      "from": "inventory_assessment.inventory_finding",
+      "to": "dispatch_arbiter.inventory_finding",
+      "value": "Inventory_Finding",
+      "routes": [
+        "inventory_finding_to_arbiter"
+      ]
+    },
+    "INT-08": {
+      "from": "root.readiness_sample",
+      "to": "dispatch_arbiter.readiness_sample",
+      "value": "Dispatch_Readiness_Sample",
+      "routes": [
+        "support_boundary_readiness",
+        "support_readiness_to_arbiter"
+      ]
+    },
+    "INT-09": {
+      "from": "dispatch_arbiter.registry_instruction",
+      "to": "request_registry.registry_instruction",
+      "value": "Registry_Instruction",
+      "routes": [
+        "arbiter_instruction_to_registry"
+      ]
+    },
+    "INT-10": {
+      "from": "dispatch_arbiter.shipment_release",
+      "to": "root.shipment_release",
+      "value": "Shipment_Release_Directive",
+      "routes": [
+        "support_release_to_process",
+        "support_boundary_release"
+      ]
+    },
+    "INT-11": {
+      "from": "request_registry.registry_outcome",
+      "to": "customer_notice_synthesis.registry_outcome",
+      "value": "Registry_Outcome",
+      "routes": [
+        "registry_outcome_to_notice"
+      ]
+    },
+    "INT-12": {
+      "from": "dispatch_arbiter.dispatch_disposition",
+      "to": "customer_notice_synthesis.dispatch_disposition",
+      "value": "Dispatch_Disposition",
+      "routes": [
+        "disposition_to_notice"
+      ]
+    },
+    "INT-13": {
+      "from": "customer_notice_synthesis.customer_notice",
+      "to": "root.customer_notice",
+      "value": "Customer_Dispatch_Notice",
+      "routes": [
+        "support_notice_to_process",
+        "support_boundary_notice"
+      ]
+    }
+  },
+  "partition_counts": {
+    "CASE-01": 897120,
+    "CASE-02": 2880,
+    "CASE-03": 2880,
+    "CASE-04": 19872,
+    "CASE-05": 6408,
+    "CASE-06": 10944,
+    "CASE-07": 32832,
+    "CASE-08": 2880,
+    "CASE-09": 4608,
+    "CASE-10": 534024,
+    "CASE-11": 444852,
+    "CASE-12": 1548
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "effective_partition_overlaps": 0,
+    "state_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "coherence_violations": 0,
+    "owner_local_mismatches": 0
+  },
+  "invariant_checks": {
+    "INIT-01": true,
+    "INVAR-01": true,
+    "COHERENCE-01": true
+  },
+  "checks": {
+    "exact_state_domain": true,
+    "exact_boundary_domain": true,
+    "exact_snapshot_count": true,
+    "exact_semantic_connection_map": true,
+    "all_twelve_cases_witnessed": true,
+    "zero_diagnostics": true,
+    "initialization_safe": true,
+    "invariant_preserved": true,
+    "release_instruction_coherent": true,
+    "all_five_scenario_traces_passed": true,
+    "owner_local_cases_executed": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "request_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "request_qualification.request_arrival"
+      ],
+      "owner_local_facts": [
+        "17-value arrival qualification"
+      ],
+      "contract_cases": [
+        "QUAL_NO_ARRIVAL",
+        "QUAL_INVALID_ARRIVAL",
+        "QUAL_VALID_ARRIVAL"
+      ],
+      "analyzer_checks": [
+        "qualification 17-to-10 total relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "request_registry",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "request_registry.arrival_fact",
+        "request_registry.shipment_result",
+        "request_registry.registry_instruction",
+        "request_registry.active",
+        "request_registry.last_completed"
+      ],
+      "owner_local_facts": [
+        "ordered event classification",
+        "provisional registry transition",
+        "event and recovery blockers"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09"
+      ],
+      "analyzer_checks": [
+        "registry nine-case effective partition",
+        "registry commit and invariant"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "inventory_assessment",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "inventory_assessment.pending_request",
+        "inventory_assessment.inventory_evidence"
+      ],
+      "owner_local_facts": [
+        "product-and-amount stock threshold classification"
+      ],
+      "contract_cases": [
+        "STOCK_NO_DEMAND",
+        "STOCK_INVALID",
+        "STOCK_SUFFICIENT",
+        "STOCK_INSUFFICIENT"
+      ],
+      "analyzer_checks": [
+        "inventory four-class total relation",
+        "both-product two-amount threshold matrix"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "dispatch_arbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "dispatch_arbiter.dispatch_candidate",
+        "dispatch_arbiter.inventory_finding",
+        "dispatch_arbiter.readiness_sample"
+      ],
+      "owner_local_facts": [
+        "prioritized release authorization",
+        "matching submission instruction"
+      ],
+      "contract_cases": [
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "arbiter three-case effective partition",
+        "release instruction coherence"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "customer_notice_synthesis",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "customer_notice_synthesis.registry_outcome",
+        "customer_notice_synthesis.dispatch_disposition"
+      ],
+      "owner_local_facts": [
+        "ordered competing-fact notice resolution"
+      ],
+      "contract_cases": [
+        "NOTICE_PRIORITY_RESOLUTION"
+      ],
+      "analyzer_checks": [
+        "notice priority total relation"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "passed": true,
+      "initial_state": {
+        "active": "Empty",
+        "lastCompleted": "No_Completion"
+      },
+      "trace": [
+        {
+          "input": {
+            "arrival": "Valid_R1_AngleA_One",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-08",
+            "CASE-12"
+          ],
+          "observed": {
+            "event_case": "CASE-08",
+            "dispatch_case": "CASE-12",
+            "release": "Release_R1_AngleA_One",
+            "notice": "Release_Issued",
+            "next_state": {
+              "active": "Submitted_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "No_Arrival",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "Valid_R1_Succeeded"
+          },
+          "expected_named_branch": [
+            "CASE-02",
+            "CASE-10"
+          ],
+          "observed": {
+            "event_case": "CASE-02",
+            "dispatch_case": "CASE-10",
+            "release": "No_Release",
+            "notice": "Shipment_Confirmed",
+            "next_state": {
+              "active": "Empty",
+              "lastCompleted": "Completed_R1_AngleA_One"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "passed": true,
+      "initial_state": {
+        "active": "Empty",
+        "lastCompleted": "No_Completion"
+      },
+      "trace": [
+        {
+          "input": {
+            "arrival": "Valid_R1_AngleB_Two",
+            "inventory": {
+              "angleA": "Zero",
+              "angleB": "One",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-08",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-08",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Waiting_For_Stock",
+            "next_state": {
+              "active": "Pending_R1_AngleB_Two",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "No_Arrival",
+            "inventory": {
+              "angleA": "Zero",
+              "angleB": "Two_Or_More",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-05",
+            "CASE-12"
+          ],
+          "observed": {
+            "event_case": "CASE-05",
+            "dispatch_case": "CASE-12",
+            "release": "Release_R1_AngleB_Two",
+            "notice": "Release_Issued",
+            "next_state": {
+              "active": "Submitted_R1_AngleB_Two",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "passed": true,
+      "initial_state": {
+        "active": "Pending_R1_AngleA_One",
+        "lastCompleted": "No_Completion"
+      },
+      "trace": [
+        {
+          "input": {
+            "arrival": "Valid_R1_AngleA_One",
+            "inventory": {
+              "angleA": "Zero",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-06",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-06",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Duplicate_Acknowledged",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "Valid_R1_AngleB_One",
+            "inventory": {
+              "angleA": "Zero",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-07",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-07",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Identifier_Conflict",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "Valid_R2_AngleB_One",
+            "inventory": {
+              "angleA": "Zero",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-09",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-09",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Busy",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "passed": true,
+      "initial_state": {
+        "active": "Pending_R1_AngleA_One",
+        "lastCompleted": "No_Completion"
+      },
+      "trace": [
+        {
+          "input": {
+            "arrival": "Invalid_R2_AngleA_One",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-01",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Invalid_Event",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "Valid_R2_AngleA_One",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "Valid_R2_Failed"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-01",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Invalid_Event",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "No_Arrival",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Invalid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-05",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-05",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Inventory_Evidence_Invalid",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "No_Arrival",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Invalid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-05",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-05",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Readiness_Evidence_Invalid",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "passed": true,
+      "initial_state": {
+        "active": "Submitted_R1_AngleA_One",
+        "lastCompleted": "No_Completion"
+      },
+      "trace": [
+        {
+          "input": {
+            "arrival": "No_Arrival",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "Valid_R1_Failed"
+          },
+          "expected_named_branch": [
+            "CASE-03",
+            "CASE-11"
+          ],
+          "observed": {
+            "event_case": "CASE-03",
+            "dispatch_case": "CASE-11",
+            "release": "No_Release",
+            "notice": "Shipment_Failed_Retry_Pending",
+            "next_state": {
+              "active": "Pending_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "No_Arrival",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "No_Result"
+          },
+          "expected_named_branch": [
+            "CASE-05",
+            "CASE-12"
+          ],
+          "observed": {
+            "event_case": "CASE-05",
+            "dispatch_case": "CASE-12",
+            "release": "Release_R1_AngleA_One",
+            "notice": "Release_Issued",
+            "next_state": {
+              "active": "Submitted_R1_AngleA_One",
+              "lastCompleted": "No_Completion"
+            }
+          }
+        },
+        {
+          "input": {
+            "arrival": "No_Arrival",
+            "inventory": {
+              "angleA": "One",
+              "angleB": "Zero",
+              "status": "Valid"
+            },
+            "readiness": {
+              "readiness": "Ready",
+              "status": "Valid"
+            },
+            "result": "Valid_R1_Succeeded"
+          },
+          "expected_named_branch": [
+            "CASE-02",
+            "CASE-10"
+          ],
+          "observed": {
+            "event_case": "CASE-02",
+            "dispatch_case": "CASE-10",
+            "release": "No_Release",
+            "notice": "Shipment_Confirmed",
+            "next_state": {
+              "active": "Empty",
+              "lastCompleted": "Completed_R1_AngleA_One"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

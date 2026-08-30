@@ -1,0 +1,4132 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "8472c1e85c443cbb1c53485c8c4c089823f3f9400a377a0d0c4161afc9dbe568",
+  "claim_boundary": "Deterministic finite-domain conformance evidence for the retained SysML policy only; not compositional proof, solver certification, generated-code correctness, execution evidence, physical-performance evidence, or safety certification.",
+  "root_input_domain_exhaustion": {
+    "method": "campaign-v1 factorized exhaustive enumeration of every finite root alphabet through its declared producing owner; downstream products consume only owner outputs through the explicit semantic connection map",
+    "batteryObservation": 16,
+    "powerManagementEvidence": 16,
+    "oddEngineGroupEvidence": 64,
+    "evenEngineGroupEvidence": 64,
+    "configurationEvidence": 36,
+    "chargerEvidence": 16,
+    "controlEvent": 4,
+    "actuationFeedback": 3
+  },
+  "partition_counts": {
+    "PART_01": 16,
+    "PART_02": 12,
+    "PART_03": 16,
+    "PART_04": 64,
+    "PART_05": 64,
+    "PART_06": 36,
+    "PART_07": 125,
+    "PART_08": 16,
+    "PART_09": 45,
+    "PART_10": 4800,
+    "PART_11": 105,
+    "PART_12": 36000,
+    "PART_13": 2700
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": {
+    "availability_oracle": 0,
+    "command_oracle": 0,
+    "scenario": 0
+  },
+  "invariant_checks": [
+    {
+      "name": "safe_initialization",
+      "passed": true
+    },
+    {
+      "name": "invalid_before_stale",
+      "passed": true
+    },
+    {
+      "name": "engine_first_position_priority",
+      "passed": true
+    },
+    {
+      "name": "charger_global_priority",
+      "passed": true
+    },
+    {
+      "name": "same_evaluation_fault_disable",
+      "passed": true
+    },
+    {
+      "name": "fresh_post_recovery_request",
+      "passed": true
+    },
+    {
+      "name": "single_enable_new_per_uninterrupted_demand",
+      "passed": true
+    },
+    {
+      "name": "composition_boundary_oracle_agreement",
+      "passed": true
+    },
+    {
+      "name": "all_semantic_connections_executed",
+      "passed": true
+    },
+    {
+      "name": "all_owner_local_cases_executed",
+      "passed": true
+    }
+  ],
+  "owner_reports": {
+    "part01_admission_partition": {
+      "domain_size": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "{\"admission\":\"ADMITTED_NONE\",\"quality\":\"ADEQUATE\"}": 1,
+        "{\"admission\":\"REJECTED_STALE\",\"quality\":\"ADEQUATE\"}": 1,
+        "{\"admission\":\"REJECTED_INVALID\",\"quality\":\"ADEQUATE\"}": 2,
+        "{\"admission\":\"ADMITTED_NONE\",\"quality\":\"LIMITED\"}": 1,
+        "{\"admission\":\"REJECTED_STALE\",\"quality\":\"LIMITED\"}": 1,
+        "{\"admission\":\"REJECTED_INVALID\",\"quality\":\"LIMITED\"}": 2,
+        "{\"admission\":\"ADMITTED_NONE\",\"quality\":\"DEPLETED\"}": 1,
+        "{\"admission\":\"REJECTED_STALE\",\"quality\":\"DEPLETED\"}": 1,
+        "{\"admission\":\"REJECTED_INVALID\",\"quality\":\"DEPLETED\"}": 2,
+        "{\"admission\":\"ADMITTED_NONE\",\"quality\":\"UNKNOWN\"}": 1,
+        "{\"admission\":\"REJECTED_STALE\",\"quality\":\"UNKNOWN\"}": 1,
+        "{\"admission\":\"REJECTED_INVALID\",\"quality\":\"UNKNOWN\"}": 2
+      },
+      "case_hits": {
+        "CASE-01": 4,
+        "CASE-02": 12
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part01_admission_partition",
+      "nonidentity_witness": {
+        "input": {
+          "quality": "ADEQUATE",
+          "validity": "VALID",
+          "freshness": "CURRENT"
+        },
+        "output": {
+          "admission": "ADMITTED_NONE",
+          "quality": "ADEQUATE"
+        },
+        "distinct_output_count": 12
+      }
+    },
+    "part02_capacity_partition": {
+      "domain_size": 12,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"READY_NONE\"": 1,
+        "\"NOT_READY_LIMITED\"": 1,
+        "\"NOT_READY_DEPLETED_OR_UNKNOWN\"": 2,
+        "\"NOT_READY_INVALID\"": 4,
+        "\"NOT_READY_STALE\"": 4
+      },
+      "case_hits": {
+        "CASE-03": 1,
+        "CASE-04": 11
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part02_capacity_partition",
+      "nonidentity_witness": {
+        "input": {
+          "admission": "ADMITTED_NONE",
+          "quality": "ADEQUATE"
+        },
+        "output": "READY_NONE",
+        "distinct_output_count": 5
+      }
+    },
+    "part03_power_partition": {
+      "domain_size": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"READY_NONE\"": 1,
+        "\"NOT_READY_STALE\"": 4,
+        "\"NOT_READY_INVALID\"": 8,
+        "\"NOT_READY_CONDITION\"": 3
+      },
+      "case_hits": {
+        "CASE-05": 1,
+        "CASE-06": 15
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part03_power_partition",
+      "nonidentity_witness": {
+        "input": {
+          "condition": "NOMINAL",
+          "validity": "VALID",
+          "freshness": "CURRENT"
+        },
+        "output": "READY_NONE",
+        "distinct_output_count": 4
+      }
+    },
+    "part04_odd_group_partition": {
+      "domain_size": 64,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"READY_NONE\"": 1,
+        "\"NOT_READY_STALE\"": 16,
+        "\"NOT_READY_INVALID\"": 32,
+        "\"NOT_READY_SECOND_POSITION\"": 3,
+        "\"NOT_READY_FIRST_POSITION\"": 12
+      },
+      "case_hits": {
+        "CASE-07": 1,
+        "CASE-08": 63
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part04_odd_group_partition",
+      "nonidentity_witness": {
+        "input": {
+          "first": "NOMINAL",
+          "second": "NOMINAL",
+          "validity": "VALID",
+          "freshness": "CURRENT"
+        },
+        "output": "READY_NONE",
+        "distinct_output_count": 5
+      }
+    },
+    "part05_even_group_partition": {
+      "domain_size": 64,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"READY_NONE\"": 1,
+        "\"NOT_READY_STALE\"": 16,
+        "\"NOT_READY_INVALID\"": 32,
+        "\"NOT_READY_SECOND_POSITION\"": 3,
+        "\"NOT_READY_FIRST_POSITION\"": 12
+      },
+      "case_hits": {
+        "CASE-09": 1,
+        "CASE-10": 63
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part05_even_group_partition",
+      "nonidentity_witness": {
+        "input": {
+          "first": "NOMINAL",
+          "second": "NOMINAL",
+          "validity": "VALID",
+          "freshness": "CURRENT"
+        },
+        "output": "READY_NONE",
+        "distinct_output_count": 5
+      }
+    },
+    "part06_configuration_partition": {
+      "domain_size": 36,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"READY_NONE\"": 1,
+        "\"NOT_READY_STALE\"": 9,
+        "\"NOT_READY_INVALID\"": 18,
+        "\"NOT_READY_ALTERNATION\"": 2,
+        "\"NOT_READY_ENGINE_COUNT\"": 6
+      },
+      "case_hits": {
+        "CASE-11": 1,
+        "CASE-12": 35
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part06_configuration_partition",
+      "nonidentity_witness": {
+        "input": {
+          "engineCount": "FOUR",
+          "alternatingKinds": "MATCHES_SOURCE",
+          "validity": "VALID",
+          "freshness": "CURRENT"
+        },
+        "output": "READY_NONE",
+        "distinct_output_count": 5
+      }
+    },
+    "part07_propulsion_partition": {
+      "domain_size": 125,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"READY_NONE\"": 1,
+        "\"NOT_READY_CONFIGURATION\"": 4,
+        "\"NOT_READY_EVEN_ENGINE_GROUP\"": 20,
+        "\"NOT_READY_ODD_ENGINE_GROUP\"": 100
+      },
+      "case_hits": {
+        "CASE-13": 1,
+        "CASE-14": 124
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part07_propulsion_partition",
+      "nonidentity_witness": {
+        "input": {
+          "odd": "READY_NONE",
+          "even": "READY_NONE",
+          "configuration": "READY_NONE"
+        },
+        "output": "READY_NONE",
+        "distinct_output_count": 4
+      }
+    },
+    "part08_charging_partition": {
+      "domain_size": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"READY_NONE\"": 1,
+        "\"NOT_READY_STALE\"": 4,
+        "\"NOT_READY_INVALID\"": 8,
+        "\"NOT_READY_CONNECTED_IDLE\"": 1,
+        "\"NOT_READY_CHARGING_OR_UNKNOWN\"": 2
+      },
+      "case_hits": {
+        "CASE-15": 1,
+        "CASE-16": 15
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part08_charging_partition",
+      "nonidentity_witness": {
+        "input": {
+          "coupling": "DISCONNECTED",
+          "validity": "VALID",
+          "freshness": "CURRENT"
+        },
+        "output": "READY_NONE",
+        "distinct_output_count": 5
+      }
+    },
+    "part09_demand_transition_partition": {
+      "domain_size": 45,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "\"IDLE\"": 30,
+        "\"REQUESTED\"": 9,
+        "\"ACTIVE\"": 6
+      },
+      "case_hits": {
+        "CASE-17": 27,
+        "CASE-19": 12,
+        "CASE-18": 6
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part09_demand_transition_partition",
+      "nonidentity_witness": {
+        "input": {
+          "preDemand": "IDLE",
+          "acceptedDirective": "INHIBIT",
+          "actuationFeedback": "DISABLED_CONFIRMED",
+          "candidateEvent": "NONE"
+        },
+        "output": "IDLE",
+        "distinct_output_count": 3
+      }
+    },
+    "part10_fault_action_partition": {
+      "domain_size": 4800,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "{\"acceptedDirective\":\"HOLD\",\"summary\":{\"fault\":\"CLEAR\",\"cause\":\"NONE\",\"directive\":\"HOLD\"}}": 5,
+        "{\"acceptedDirective\":\"ENABLE\",\"summary\":{\"fault\":\"CLEAR\",\"cause\":\"NONE\",\"directive\":\"ENABLE\"}}": 1,
+        "{\"acceptedDirective\":\"DISABLE\",\"summary\":{\"fault\":\"CLEAR\",\"cause\":\"NONE\",\"directive\":\"DISABLE\"}}": 3,
+        "{\"acceptedDirective\":\"RECOVER\",\"summary\":{\"fault\":\"CLEAR\",\"cause\":\"NONE\",\"directive\":\"RECOVER\"}}": 3,
+        "{\"acceptedDirective\":\"INHIBIT\",\"summary\":{\"fault\":\"ACTIVE\",\"cause\":\"CHARGER\",\"directive\":\"INHIBIT\"}}": 3840,
+        "{\"acceptedDirective\":\"INHIBIT\",\"summary\":{\"fault\":\"ACTIVE\",\"cause\":\"ODD_ENGINE_GROUP\",\"directive\":\"INHIBIT\"}}": 12,
+        "{\"acceptedDirective\":\"INHIBIT\",\"summary\":{\"fault\":\"ACTIVE\",\"cause\":\"EVEN_ENGINE_GROUP\",\"directive\":\"INHIBIT\"}}": 12,
+        "{\"acceptedDirective\":\"INHIBIT\",\"summary\":{\"fault\":\"ACTIVE\",\"cause\":\"CONFIGURATION\",\"directive\":\"INHIBIT\"}}": 12,
+        "{\"acceptedDirective\":\"INHIBIT\",\"summary\":{\"fault\":\"ACTIVE\",\"cause\":\"POWER_MANAGEMENT\",\"directive\":\"INHIBIT\"}}": 720,
+        "{\"acceptedDirective\":\"INHIBIT\",\"summary\":{\"fault\":\"ACTIVE\",\"cause\":\"BATTERY\",\"directive\":\"INHIBIT\"}}": 192
+      },
+      "case_hits": {
+        "CASE-24": 3,
+        "CASE-23": 3,
+        "CASE-21": 3,
+        "CASE-22": 3,
+        "CASE-20": 4788
+      },
+      "producer_unreachable": 0,
+      "executed_function": "part10_fault_action_partition",
+      "nonidentity_witness": {
+        "input": {
+          "battery": "READY_NONE",
+          "power": "READY_NONE",
+          "propulsion": "READY_NONE",
+          "charging": "READY_NONE",
+          "requestContext": {
+            "demand": "IDLE",
+            "candidateEvent": "NONE"
+          }
+        },
+        "output": {
+          "acceptedDirective": "HOLD",
+          "summary": {
+            "fault": "CLEAR",
+            "cause": "NONE",
+            "directive": "HOLD"
+          }
+        },
+        "distinct_output_count": 10
+      }
+    },
+    "part11_recovery_transition_partition": {
+      "domain_size": 105,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "{\"nextRecovery\":\"NORMAL\",\"gate\":\"OPEN\"}": 6,
+        "{\"nextRecovery\":\"QUARANTINED\",\"gate\":\"CLOSED\"}": 90,
+        "{\"nextRecovery\":\"AWAITING_ACK\",\"gate\":\"CLOSED\"}": 9
+      },
+      "case_hits": {
+        "CASE-27": 6,
+        "CASE-25": 90,
+        "CASE-26": 9
+      },
+      "producer_unreachable": 75,
+      "executed_function": "part11_recovery_transition_partition",
+      "nonidentity_witness": {
+        "input": {
+          "preRecovery": "NORMAL",
+          "summary": {
+            "fault": "CLEAR",
+            "cause": "NONE",
+            "directive": "INHIBIT"
+          }
+        },
+        "output": {
+          "nextRecovery": "NORMAL",
+          "gate": "OPEN"
+        },
+        "distinct_output_count": 3
+      }
+    },
+    "part12_availability_partition": {
+      "domain_size": 36000,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"BATTERY\"}": 1449,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"POWER_MANAGEMENT\"}": 5409,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"ODD_ENGINE_GROUP\"}": 99,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"EVEN_ENGINE_GROUP\"}": 99,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"CONFIGURATION\"}": 99,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"CHARGER\"}": 28809,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"OPERATOR_DISABLE\"}": 9,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"RECOVERY\"}": 21,
+        "{\"decision\":\"UNAVAILABLE\",\"cause\":\"NO_DEMAND\"}": 2,
+        "{\"decision\":\"AVAILABLE_FOR_ENABLE\",\"cause\":\"NONE\"}": 4
+      },
+      "case_hits": {
+        "CASE-29": 35996,
+        "CASE-28": 4
+      },
+      "producer_unreachable": 34783,
+      "executed_function": "part12_availability_partition",
+      "nonidentity_witness": {
+        "input": {
+          "battery": "READY_NONE",
+          "power": "READY_NONE",
+          "propulsion": "READY_NONE",
+          "charging": "READY_NONE",
+          "demand": "IDLE",
+          "summary": {
+            "fault": "ACTIVE",
+            "cause": "BATTERY",
+            "directive": "INHIBIT"
+          },
+          "recoveryFrame": {
+            "phase": "NORMAL",
+            "gate": "OPEN"
+          }
+        },
+        "output": {
+          "decision": "UNAVAILABLE",
+          "cause": "BATTERY"
+        },
+        "distinct_output_count": 10
+      }
+    },
+    "part13_command_transition_partition": {
+      "domain_size": 2700,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_fibers": {
+        "{\"nextCommand\":\"DISABLED\",\"command\":\"DISABLE\"}": 2664,
+        "{\"nextCommand\":\"ENABLE_PENDING\",\"command\":\"ENABLE_NEW\"}": 12,
+        "{\"nextCommand\":\"ENABLE_PENDING\",\"command\":\"ENABLE_HOLD\"}": 12,
+        "{\"nextCommand\":\"ENABLED\",\"command\":\"ENABLE_HOLD\"}": 12
+      },
+      "branch_hits": {
+        "BEH-01-DISABLE": 2664,
+        "BEH-01-ENABLE-NEW": 12,
+        "BEH-01-ENABLE-HOLD": 24
+      },
+      "producer_unreachable": 2358,
+      "executed_function": "part13",
+      "one_new_per_admitted_cycle_violations": 0,
+      "nonidentity_witness": {
+        "input": {
+          "preCommand": "DISABLED",
+          "availability": {
+            "decision": "AVAILABLE_FOR_ENABLE",
+            "cause": "NONE"
+          },
+          "demand": "REQUESTED",
+          "gate": "OPEN",
+          "acceptedDirective": "HOLD",
+          "actuationFeedback": "UNKNOWN"
+        },
+        "output": {
+          "branch": "BEH-01-ENABLE-NEW",
+          "nextCommand": "ENABLE_PENDING",
+          "command": "ENABLE_NEW"
+        },
+        "distinct_output_count": 4
+      }
+    }
+  },
+  "case_hits": {
+    "CASE-01": 4,
+    "CASE-02": 12,
+    "CASE-03": 1,
+    "CASE-04": 11,
+    "CASE-05": 1,
+    "CASE-06": 15,
+    "CASE-07": 1,
+    "CASE-08": 63,
+    "CASE-09": 1,
+    "CASE-10": 63,
+    "CASE-11": 1,
+    "CASE-12": 35,
+    "CASE-13": 1,
+    "CASE-14": 124,
+    "CASE-15": 1,
+    "CASE-16": 15,
+    "CASE-17": 27,
+    "CASE-18": 6,
+    "CASE-19": 12,
+    "CASE-20": 4788,
+    "CASE-21": 3,
+    "CASE-22": 3,
+    "CASE-23": 3,
+    "CASE-24": 3,
+    "CASE-25": 90,
+    "CASE-26": 9,
+    "CASE-27": 6,
+    "CASE-28": 4,
+    "CASE-29": 35996
+  },
+  "case_witnesses": {
+    "CASE-01": {
+      "owner": "part01_admission_partition",
+      "input": {
+        "quality": "ADEQUATE",
+        "validity": "VALID",
+        "freshness": "CURRENT"
+      },
+      "output": {
+        "admission": "ADMITTED_NONE",
+        "quality": "ADEQUATE"
+      }
+    },
+    "CASE-02": {
+      "owner": "part01_admission_partition",
+      "input": {
+        "quality": "ADEQUATE",
+        "validity": "VALID",
+        "freshness": "STALE"
+      },
+      "output": {
+        "admission": "REJECTED_STALE",
+        "quality": "ADEQUATE"
+      }
+    },
+    "CASE-03": {
+      "owner": "part02_capacity_partition",
+      "input": {
+        "admission": "ADMITTED_NONE",
+        "quality": "ADEQUATE"
+      },
+      "output": "READY_NONE"
+    },
+    "CASE-04": {
+      "owner": "part02_capacity_partition",
+      "input": {
+        "admission": "ADMITTED_NONE",
+        "quality": "LIMITED"
+      },
+      "output": "NOT_READY_LIMITED"
+    },
+    "CASE-05": {
+      "owner": "part03_power_partition",
+      "input": {
+        "condition": "NOMINAL",
+        "validity": "VALID",
+        "freshness": "CURRENT"
+      },
+      "output": "READY_NONE"
+    },
+    "CASE-06": {
+      "owner": "part03_power_partition",
+      "input": {
+        "condition": "NOMINAL",
+        "validity": "VALID",
+        "freshness": "STALE"
+      },
+      "output": "NOT_READY_STALE"
+    },
+    "CASE-07": {
+      "owner": "part04_odd_group_partition",
+      "input": {
+        "first": "NOMINAL",
+        "second": "NOMINAL",
+        "validity": "VALID",
+        "freshness": "CURRENT"
+      },
+      "output": "READY_NONE"
+    },
+    "CASE-08": {
+      "owner": "part04_odd_group_partition",
+      "input": {
+        "first": "NOMINAL",
+        "second": "NOMINAL",
+        "validity": "VALID",
+        "freshness": "STALE"
+      },
+      "output": "NOT_READY_STALE"
+    },
+    "CASE-09": {
+      "owner": "part05_even_group_partition",
+      "input": {
+        "first": "NOMINAL",
+        "second": "NOMINAL",
+        "validity": "VALID",
+        "freshness": "CURRENT"
+      },
+      "output": "READY_NONE"
+    },
+    "CASE-10": {
+      "owner": "part05_even_group_partition",
+      "input": {
+        "first": "NOMINAL",
+        "second": "NOMINAL",
+        "validity": "VALID",
+        "freshness": "STALE"
+      },
+      "output": "NOT_READY_STALE"
+    },
+    "CASE-11": {
+      "owner": "part06_configuration_partition",
+      "input": {
+        "engineCount": "FOUR",
+        "alternatingKinds": "MATCHES_SOURCE",
+        "validity": "VALID",
+        "freshness": "CURRENT"
+      },
+      "output": "READY_NONE"
+    },
+    "CASE-12": {
+      "owner": "part06_configuration_partition",
+      "input": {
+        "engineCount": "FOUR",
+        "alternatingKinds": "MATCHES_SOURCE",
+        "validity": "VALID",
+        "freshness": "STALE"
+      },
+      "output": "NOT_READY_STALE"
+    },
+    "CASE-13": {
+      "owner": "part07_propulsion_partition",
+      "input": {
+        "odd": "READY_NONE",
+        "even": "READY_NONE",
+        "configuration": "READY_NONE"
+      },
+      "output": "READY_NONE"
+    },
+    "CASE-14": {
+      "owner": "part07_propulsion_partition",
+      "input": {
+        "odd": "READY_NONE",
+        "even": "READY_NONE",
+        "configuration": "NOT_READY_INVALID"
+      },
+      "output": "NOT_READY_CONFIGURATION"
+    },
+    "CASE-15": {
+      "owner": "part08_charging_partition",
+      "input": {
+        "coupling": "DISCONNECTED",
+        "validity": "VALID",
+        "freshness": "CURRENT"
+      },
+      "output": "READY_NONE"
+    },
+    "CASE-16": {
+      "owner": "part08_charging_partition",
+      "input": {
+        "coupling": "DISCONNECTED",
+        "validity": "VALID",
+        "freshness": "STALE"
+      },
+      "output": "NOT_READY_STALE"
+    },
+    "CASE-17": {
+      "owner": "part09_demand_transition_partition",
+      "input": {
+        "preDemand": "IDLE",
+        "acceptedDirective": "INHIBIT",
+        "actuationFeedback": "DISABLED_CONFIRMED",
+        "candidateEvent": "NONE"
+      },
+      "output": "IDLE"
+    },
+    "CASE-19": {
+      "owner": "part09_demand_transition_partition",
+      "input": {
+        "preDemand": "IDLE",
+        "acceptedDirective": "ENABLE",
+        "actuationFeedback": "DISABLED_CONFIRMED",
+        "candidateEvent": "NONE"
+      },
+      "output": "REQUESTED"
+    },
+    "CASE-18": {
+      "owner": "part09_demand_transition_partition",
+      "input": {
+        "preDemand": "REQUESTED",
+        "acceptedDirective": "ENABLE",
+        "actuationFeedback": "ENABLED_CONFIRMED",
+        "candidateEvent": "NONE"
+      },
+      "output": "ACTIVE"
+    },
+    "CASE-24": {
+      "owner": "part10_fault_action_partition",
+      "input": {
+        "battery": "READY_NONE",
+        "power": "READY_NONE",
+        "propulsion": "READY_NONE",
+        "charging": "READY_NONE",
+        "requestContext": {
+          "demand": "IDLE",
+          "candidateEvent": "NONE"
+        }
+      },
+      "output": {
+        "acceptedDirective": "HOLD",
+        "summary": {
+          "fault": "CLEAR",
+          "cause": "NONE",
+          "directive": "HOLD"
+        }
+      }
+    },
+    "CASE-23": {
+      "owner": "part10_fault_action_partition",
+      "input": {
+        "battery": "READY_NONE",
+        "power": "READY_NONE",
+        "propulsion": "READY_NONE",
+        "charging": "READY_NONE",
+        "requestContext": {
+          "demand": "IDLE",
+          "candidateEvent": "REQUEST_ENABLE"
+        }
+      },
+      "output": {
+        "acceptedDirective": "ENABLE",
+        "summary": {
+          "fault": "CLEAR",
+          "cause": "NONE",
+          "directive": "ENABLE"
+        }
+      }
+    },
+    "CASE-21": {
+      "owner": "part10_fault_action_partition",
+      "input": {
+        "battery": "READY_NONE",
+        "power": "READY_NONE",
+        "propulsion": "READY_NONE",
+        "charging": "READY_NONE",
+        "requestContext": {
+          "demand": "IDLE",
+          "candidateEvent": "REQUEST_DISABLE"
+        }
+      },
+      "output": {
+        "acceptedDirective": "DISABLE",
+        "summary": {
+          "fault": "CLEAR",
+          "cause": "NONE",
+          "directive": "DISABLE"
+        }
+      }
+    },
+    "CASE-22": {
+      "owner": "part10_fault_action_partition",
+      "input": {
+        "battery": "READY_NONE",
+        "power": "READY_NONE",
+        "propulsion": "READY_NONE",
+        "charging": "READY_NONE",
+        "requestContext": {
+          "demand": "IDLE",
+          "candidateEvent": "ACKNOWLEDGE_RECOVERY"
+        }
+      },
+      "output": {
+        "acceptedDirective": "RECOVER",
+        "summary": {
+          "fault": "CLEAR",
+          "cause": "NONE",
+          "directive": "RECOVER"
+        }
+      }
+    },
+    "CASE-20": {
+      "owner": "part10_fault_action_partition",
+      "input": {
+        "battery": "READY_NONE",
+        "power": "READY_NONE",
+        "propulsion": "READY_NONE",
+        "charging": "NOT_READY_INVALID",
+        "requestContext": {
+          "demand": "IDLE",
+          "candidateEvent": "NONE"
+        }
+      },
+      "output": {
+        "acceptedDirective": "INHIBIT",
+        "summary": {
+          "fault": "ACTIVE",
+          "cause": "CHARGER",
+          "directive": "INHIBIT"
+        }
+      }
+    },
+    "CASE-27": {
+      "owner": "part11_recovery_transition_partition",
+      "input": {
+        "preRecovery": "NORMAL",
+        "summary": {
+          "fault": "CLEAR",
+          "cause": "NONE",
+          "directive": "INHIBIT"
+        }
+      },
+      "output": {
+        "nextRecovery": "NORMAL",
+        "gate": "OPEN"
+      }
+    },
+    "CASE-25": {
+      "owner": "part11_recovery_transition_partition",
+      "input": {
+        "preRecovery": "NORMAL",
+        "summary": {
+          "fault": "ACTIVE",
+          "cause": "BATTERY",
+          "directive": "INHIBIT"
+        }
+      },
+      "output": {
+        "nextRecovery": "QUARANTINED",
+        "gate": "CLOSED"
+      }
+    },
+    "CASE-26": {
+      "owner": "part11_recovery_transition_partition",
+      "input": {
+        "preRecovery": "QUARANTINED",
+        "summary": {
+          "fault": "CLEAR",
+          "cause": "NONE",
+          "directive": "INHIBIT"
+        }
+      },
+      "output": {
+        "nextRecovery": "AWAITING_ACK",
+        "gate": "CLOSED"
+      }
+    },
+    "CASE-29": {
+      "owner": "part12_availability_partition",
+      "input": {
+        "battery": "READY_NONE",
+        "power": "READY_NONE",
+        "propulsion": "READY_NONE",
+        "charging": "READY_NONE",
+        "demand": "IDLE",
+        "summary": {
+          "fault": "ACTIVE",
+          "cause": "BATTERY",
+          "directive": "INHIBIT"
+        },
+        "recoveryFrame": {
+          "phase": "NORMAL",
+          "gate": "OPEN"
+        }
+      },
+      "output": {
+        "decision": "UNAVAILABLE",
+        "cause": "BATTERY"
+      }
+    },
+    "CASE-28": {
+      "owner": "part12_availability_partition",
+      "input": {
+        "battery": "READY_NONE",
+        "power": "READY_NONE",
+        "propulsion": "READY_NONE",
+        "charging": "READY_NONE",
+        "demand": "REQUESTED",
+        "summary": {
+          "fault": "CLEAR",
+          "cause": "NONE",
+          "directive": "ENABLE"
+        },
+        "recoveryFrame": {
+          "phase": "NORMAL",
+          "gate": "OPEN"
+        }
+      },
+      "output": {
+        "decision": "AVAILABLE_FOR_ENABLE",
+        "cause": "NONE"
+      }
+    }
+  },
+  "scenario_family_count": 10,
+  "scenario_results": [
+    {
+      "id": "SCN-01",
+      "passed": true,
+      "description": "Startup and acknowledgment remain fail closed without demand.",
+      "trace_ids": [
+        "SCN-01-startup"
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "passed": true,
+      "description": "Fresh request produces disabled, one new command, then held enabled state.",
+      "trace_ids": [
+        "SCN-02-fresh-enable"
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "passed": true,
+      "description": "Ready evidence without demand remains unavailable.",
+      "trace_ids": [
+        "SCN-03-no-demand"
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "passed": true,
+      "description": "Repeated requests do not create another ENABLE_NEW.",
+      "trace_ids": [
+        "SCN-04-duplicate-request"
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "passed": true,
+      "description": "Operator disable wins in the same evaluation.",
+      "trace_ids": [
+        "SCN-05-operator-disable"
+      ]
+    },
+    {
+      "id": "SCN-06",
+      "passed": true,
+      "description": "Battery and power-management faults propagate from their local owners.",
+      "trace_ids": [
+        "SCN-06A-battery-invalid",
+        "SCN-06B-power-condition"
+      ]
+    },
+    {
+      "id": "SCN-07",
+      "passed": true,
+      "description": "Engine-position and configuration faults preserve owner distinctions.",
+      "trace_ids": [
+        "SCN-07A-odd-first",
+        "SCN-07B-even-second",
+        "SCN-07C-configuration"
+      ]
+    },
+    {
+      "id": "SCN-08",
+      "passed": true,
+      "description": "Charging faults disable and charger wins while losing owner faults remain visible.",
+      "trace_ids": [
+        "SCN-08A-connected-idle",
+        "SCN-08B-charging",
+        "SCN-08C-concurrent-priority"
+      ]
+    },
+    {
+      "id": "SCN-09",
+      "passed": true,
+      "description": "Fault clearance alone cannot reopen recovery or restore demand.",
+      "trace_ids": [
+        "SCN-09-clear-without-ack"
+      ]
+    },
+    {
+      "id": "SCN-10",
+      "passed": true,
+      "description": "Acknowledgment requires a later fresh request and recurrent fault re-quarantines.",
+      "trace_ids": [
+        "SCN-10A-ack-fresh-request",
+        "SCN-10B-recurrent-fault"
+      ]
+    }
+  ],
+  "scenario_traces": [
+    {
+      "family": "SCN-01",
+      "trace_id": "SCN-01-startup",
+      "initial_state": {
+        "demand": "IDLE",
+        "recovery": "AWAITING_ACK",
+        "command": "DISABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-26",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "RECOVERY",
+              "demand": "IDLE",
+              "recovery": "AWAITING_ACK"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "ACKNOWLEDGE_RECOVERY",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-22/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-17",
+            "CASE-22",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "RECOVER",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "RECOVER"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "RECOVERY",
+              "demand": "IDLE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "NO_DEMAND",
+              "demand": "IDLE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-02",
+      "trace_id": "SCN-02-fresh-enable",
+      "initial_state": {
+        "demand": "IDLE",
+        "recovery": "NORMAL",
+        "command": "DISABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "REQUEST_ENABLE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-23/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-23",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "ENABLE",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "ENABLE"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "NO_DEMAND",
+              "demand": "IDLE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-28/BEH-01-ENABLE-NEW",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-27",
+            "CASE-28",
+            "BEH-01-ENABLE-NEW"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "ENABLE_NEW",
+            "report": {
+              "decision": "AVAILABLE_FOR_ENABLE",
+              "cause": "NONE",
+              "demand": "REQUESTED",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "ENABLE_PENDING"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "ENABLE_PENDING"
+          },
+          "expected_named_branch": "CASE-18/CASE-28/BEH-01-ENABLE-HOLD",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-18",
+            "CASE-24",
+            "CASE-27",
+            "CASE-28",
+            "BEH-01-ENABLE-HOLD"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "ENABLE_HOLD",
+            "report": {
+              "decision": "AVAILABLE_FOR_ENABLE",
+              "cause": "NONE",
+              "demand": "REQUESTED",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-03",
+      "trace_id": "SCN-03-no-demand",
+      "initial_state": {
+        "demand": "IDLE",
+        "recovery": "NORMAL",
+        "command": "DISABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "NO_DEMAND",
+              "demand": "IDLE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "NO_DEMAND",
+              "demand": "IDLE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-04",
+      "trace_id": "SCN-04-duplicate-request",
+      "initial_state": {
+        "demand": "REQUESTED",
+        "recovery": "NORMAL",
+        "command": "ENABLE_PENDING"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "REQUEST_ENABLE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "ENABLE_PENDING"
+          },
+          "expected_named_branch": "CASE-23/CASE-28/BEH-01-ENABLE-HOLD",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-23",
+            "CASE-27",
+            "CASE-28",
+            "BEH-01-ENABLE-HOLD"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "ENABLE_HOLD",
+            "report": {
+              "decision": "AVAILABLE_FOR_ENABLE",
+              "cause": "NONE",
+              "demand": "REQUESTED",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "ENABLE_PENDING"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "REQUEST_ENABLE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "ENABLE_PENDING"
+          },
+          "expected_named_branch": "CASE-23/CASE-28/BEH-01-ENABLE-HOLD",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-23",
+            "CASE-27",
+            "CASE-28",
+            "BEH-01-ENABLE-HOLD"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "ENABLE_HOLD",
+            "report": {
+              "decision": "AVAILABLE_FOR_ENABLE",
+              "cause": "NONE",
+              "demand": "REQUESTED",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "ENABLE_PENDING"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-05",
+      "trace_id": "SCN-05-operator-disable",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "REQUEST_DISABLE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-21/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-17",
+            "CASE-21",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "DISABLE",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "DISABLE"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "OPERATOR_DISABLE",
+              "demand": "ACTIVE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-06",
+      "trace_id": "SCN-06A-battery-invalid",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "INVALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-02/CASE-04/CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-02",
+            "CASE-04",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "NOT_READY_INVALID",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "BATTERY",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "BATTERY",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-06",
+      "trace_id": "SCN-06B-power-condition",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "DEGRADED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-06/CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-06",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "NOT_READY_CONDITION",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "POWER_MANAGEMENT",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "POWER_MANAGEMENT",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-07",
+      "trace_id": "SCN-07A-odd-first",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NON_NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-08/CASE-14/CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-08",
+            "CASE-09",
+            "CASE-11",
+            "CASE-14",
+            "CASE-15",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "NOT_READY_FIRST_POSITION",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "NOT_READY_ODD_ENGINE_GROUP",
+            "charging": "READY_NONE",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "ODD_ENGINE_GROUP",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "ODD_ENGINE_GROUP",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-07",
+      "trace_id": "SCN-07B-even-second",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "UNAVAILABLE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-10/CASE-14/CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-10",
+            "CASE-11",
+            "CASE-14",
+            "CASE-15",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "NOT_READY_SECOND_POSITION",
+            "configuration": "READY_NONE",
+            "propulsion": "NOT_READY_EVEN_ENGINE_GROUP",
+            "charging": "READY_NONE",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "EVEN_ENGINE_GROUP",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "EVEN_ENGINE_GROUP",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-07",
+      "trace_id": "SCN-07C-configuration",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "OTHER",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-12/CASE-14/CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-12",
+            "CASE-14",
+            "CASE-15",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "NOT_READY_ENGINE_COUNT",
+            "propulsion": "NOT_READY_CONFIGURATION",
+            "charging": "READY_NONE",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "CONFIGURATION",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "CONFIGURATION",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-08",
+      "trace_id": "SCN-08A-connected-idle",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "CONNECTED_IDLE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-16/CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-16",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "NOT_READY_CONNECTED_IDLE",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "CHARGER",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "CHARGER",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-08",
+      "trace_id": "SCN-08B-charging",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "CHARGING",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-16/CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-16",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "NOT_READY_CHARGING_OR_UNKNOWN",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "CHARGER",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "CHARGER",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-08",
+      "trace_id": "SCN-08C-concurrent-priority",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "DEPLETED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "UNAVAILABLE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NON_NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "CHARGING",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-20-CHARGER-PRIORITY/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-04",
+            "CASE-06",
+            "CASE-08",
+            "CASE-09",
+            "CASE-11",
+            "CASE-14",
+            "CASE-16",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "NOT_READY_DEPLETED_OR_UNKNOWN",
+            "power": "NOT_READY_CONDITION",
+            "odd": "NOT_READY_FIRST_POSITION",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "NOT_READY_ODD_ENGINE_GROUP",
+            "charging": "NOT_READY_CHARGING_OR_UNKNOWN",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "CHARGER",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "CHARGER",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-09",
+      "trace_id": "SCN-09-clear-without-ack",
+      "initial_state": {
+        "demand": "ACTIVE",
+        "recovery": "NORMAL",
+        "command": "ENABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "CHARGING",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "ENABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "ACTIVE",
+            "recovery": "NORMAL",
+            "command": "ENABLED"
+          },
+          "expected_named_branch": "CASE-25/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-16",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "NOT_READY_CHARGING_OR_UNKNOWN",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "CHARGER",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "CHARGER",
+              "demand": "ACTIVE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-26/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-26",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "RECOVERY",
+              "demand": "IDLE",
+              "recovery": "AWAITING_ACK"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-26/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-26",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "RECOVERY",
+              "demand": "IDLE",
+              "recovery": "AWAITING_ACK"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-10",
+      "trace_id": "SCN-10A-ack-fresh-request",
+      "initial_state": {
+        "demand": "IDLE",
+        "recovery": "QUARANTINED",
+        "command": "DISABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-26/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-26",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "RECOVERY",
+              "demand": "IDLE",
+              "recovery": "AWAITING_ACK"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "ACKNOWLEDGE_RECOVERY",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-27/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-17",
+            "CASE-22",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "RECOVER",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "RECOVER"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "RECOVERY",
+              "demand": "IDLE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "REQUEST_ENABLE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-23/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-23",
+            "CASE-27",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "ENABLE",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "ENABLE"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "NO_DEMAND",
+              "demand": "IDLE",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "DISCONNECTED",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "NONE",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-28/BEH-01-ENABLE-NEW",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-15",
+            "CASE-19",
+            "CASE-24",
+            "CASE-27",
+            "CASE-28",
+            "BEH-01-ENABLE-NEW"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "READY_NONE",
+            "directive": "HOLD",
+            "faultSummary": {
+              "fault": "CLEAR",
+              "cause": "NONE",
+              "directive": "HOLD"
+            }
+          },
+          "observed_outputs": {
+            "command": "ENABLE_NEW",
+            "report": {
+              "decision": "AVAILABLE_FOR_ENABLE",
+              "cause": "NONE",
+              "demand": "REQUESTED",
+              "recovery": "NORMAL"
+            }
+          },
+          "observed_next_state": {
+            "demand": "REQUESTED",
+            "recovery": "NORMAL",
+            "command": "ENABLE_PENDING"
+          }
+        }
+      ]
+    },
+    {
+      "family": "SCN-10",
+      "trace_id": "SCN-10B-recurrent-fault",
+      "initial_state": {
+        "demand": "IDLE",
+        "recovery": "AWAITING_ACK",
+        "command": "DISABLED"
+      },
+      "steps": [
+        {
+          "step": 1,
+          "input": {
+            "battery": {
+              "quality": "ADEQUATE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "power": {
+              "condition": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "odd": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "even": {
+              "first": "NOMINAL",
+              "second": "NOMINAL",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "configuration": {
+              "engineCount": "FOUR",
+              "alternatingKinds": "MATCHES_SOURCE",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "charger": {
+              "coupling": "CHARGING",
+              "validity": "VALID",
+              "freshness": "CURRENT"
+            },
+            "event": "ACKNOWLEDGE_RECOVERY",
+            "feedback": "DISABLED_CONFIRMED"
+          },
+          "pre_state": {
+            "demand": "IDLE",
+            "recovery": "AWAITING_ACK",
+            "command": "DISABLED"
+          },
+          "expected_named_branch": "CASE-20/CASE-25/CASE-29/BEH-01-DISABLE",
+          "observed_branches": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-16",
+            "CASE-17",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29",
+            "BEH-01-DISABLE"
+          ],
+          "observed_owner_outputs": {
+            "battery": "READY_NONE",
+            "power": "READY_NONE",
+            "odd": "READY_NONE",
+            "even": "READY_NONE",
+            "configuration": "READY_NONE",
+            "propulsion": "READY_NONE",
+            "charging": "NOT_READY_CHARGING_OR_UNKNOWN",
+            "directive": "INHIBIT",
+            "faultSummary": {
+              "fault": "ACTIVE",
+              "cause": "CHARGER",
+              "directive": "INHIBIT"
+            }
+          },
+          "observed_outputs": {
+            "command": "DISABLE",
+            "report": {
+              "decision": "UNAVAILABLE",
+              "cause": "CHARGER",
+              "demand": "IDLE",
+              "recovery": "QUARANTINED"
+            }
+          },
+          "observed_next_state": {
+            "demand": "IDLE",
+            "recovery": "QUARANTINED",
+            "command": "DISABLED"
+          }
+        }
+      ]
+    }
+  ],
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "source": "CTX-02.batteryObservation",
+      "destination": "PART-01.battery_observation",
+      "value": "BatteryObservation"
+    },
+    {
+      "id": "INT-02",
+      "source": "PART-01.qualified_battery",
+      "destination": "PART-02.qualified_battery",
+      "value": "QualifiedBatteryObservation"
+    },
+    {
+      "id": "INT-03",
+      "source": "CTX-02.powerManagementEvidence",
+      "destination": "PART-03.power_evidence",
+      "value": "PowerEvidence"
+    },
+    {
+      "id": "INT-04",
+      "source": "CTX-03.oddEngineGroupEvidence",
+      "destination": "PART-04.odd_engine_evidence",
+      "value": "EnginePairEvidence"
+    },
+    {
+      "id": "INT-05",
+      "source": "CTX-03.evenEngineGroupEvidence",
+      "destination": "PART-05.even_engine_evidence",
+      "value": "EnginePairEvidence"
+    },
+    {
+      "id": "INT-06",
+      "source": "CTX-03.configurationEvidence",
+      "destination": "PART-06.configuration_evidence",
+      "value": "ConfigurationEvidence"
+    },
+    {
+      "id": "INT-07",
+      "source": "PART-04.odd_engine_assessment",
+      "destination": "PART-07.odd_engine_assessment",
+      "value": "EnginePairAssessment"
+    },
+    {
+      "id": "INT-08",
+      "source": "PART-05.even_engine_assessment",
+      "destination": "PART-07.even_engine_assessment",
+      "value": "EnginePairAssessment"
+    },
+    {
+      "id": "INT-09",
+      "source": "PART-06.configuration_assessment",
+      "destination": "PART-07.configuration_assessment",
+      "value": "ConfigurationAssessment"
+    },
+    {
+      "id": "INT-10",
+      "source": "CTX-04.chargerEvidence",
+      "destination": "PART-08.charger_evidence",
+      "value": "ChargerEvidence"
+    },
+    {
+      "id": "INT-11",
+      "source": "CTX-01.controlEvent",
+      "destination": "PART-09.control_event",
+      "value": "ControlEvent"
+    },
+    {
+      "id": "INT-12",
+      "source": "CTX-05.actuationFeedback",
+      "destination": "PART-09.actuation_feedback",
+      "value": "ActuationFeedback"
+    },
+    {
+      "id": "INT-13",
+      "source": "PART-09.request_context",
+      "destination": "PART-10.request_context",
+      "value": "RequestContext"
+    },
+    {
+      "id": "INT-14",
+      "source": "PART-02.battery_assessment",
+      "destination": "PART-10.battery_assessment",
+      "value": "BatteryAssessment"
+    },
+    {
+      "id": "INT-15",
+      "source": "PART-03.power_assessment",
+      "destination": "PART-10.power_assessment",
+      "value": "PowerAssessment"
+    },
+    {
+      "id": "INT-16",
+      "source": "PART-07.propulsion_assessment",
+      "destination": "PART-10.propulsion_assessment",
+      "value": "PropulsionAssessment"
+    },
+    {
+      "id": "INT-17",
+      "source": "PART-08.charging_assessment",
+      "destination": "PART-10.charging_assessment",
+      "value": "ChargingAssessment"
+    },
+    {
+      "id": "INT-18",
+      "source": "PART-10.accepted_directive",
+      "destination": "PART-09.accepted_directive",
+      "value": "PriorityDirective"
+    },
+    {
+      "id": "INT-19",
+      "source": "CTX-05.actuationFeedback",
+      "destination": "PART-13.actuation_feedback",
+      "value": "ActuationFeedback"
+    },
+    {
+      "id": "INT-20",
+      "source": "PART-10.fault_action_summary",
+      "destination": "PART-11.fault_action_summary",
+      "value": "FaultActionSummary"
+    },
+    {
+      "id": "INT-21",
+      "source": "PART-02.battery_assessment",
+      "destination": "PART-12.battery_assessment",
+      "value": "BatteryAssessment"
+    },
+    {
+      "id": "INT-22",
+      "source": "PART-03.power_assessment",
+      "destination": "PART-12.power_assessment",
+      "value": "PowerAssessment"
+    },
+    {
+      "id": "INT-23",
+      "source": "PART-07.propulsion_assessment",
+      "destination": "PART-12.propulsion_assessment",
+      "value": "PropulsionAssessment"
+    },
+    {
+      "id": "INT-24",
+      "source": "PART-08.charging_assessment",
+      "destination": "PART-12.charging_assessment",
+      "value": "ChargingAssessment"
+    },
+    {
+      "id": "INT-25",
+      "source": "PART-09.demand_view",
+      "destination": "PART-12.demand_view",
+      "value": "DemandPhase"
+    },
+    {
+      "id": "INT-26",
+      "source": "PART-10.fault_action_summary",
+      "destination": "PART-12.fault_action_summary",
+      "value": "FaultActionSummary"
+    },
+    {
+      "id": "INT-27",
+      "source": "PART-11.recovery_frame",
+      "destination": "PART-12.recovery_frame",
+      "value": "RecoveryFrame"
+    },
+    {
+      "id": "INT-28",
+      "source": "PART-12.availability_decision",
+      "destination": "PART-13.availability_decision",
+      "value": "AvailabilityDecision"
+    },
+    {
+      "id": "INT-29",
+      "source": "PART-09.demand_view",
+      "destination": "PART-13.demand_view",
+      "value": "DemandPhase"
+    },
+    {
+      "id": "INT-30",
+      "source": "PART-11.recovery_gate",
+      "destination": "PART-13.recovery_gate",
+      "value": "RecoveryGate"
+    },
+    {
+      "id": "INT-31",
+      "source": "PART-10.accepted_directive",
+      "destination": "PART-13.accepted_directive",
+      "value": "PriorityDirective"
+    },
+    {
+      "id": "INT-32",
+      "source": "PART-13.power_command",
+      "destination": "CTX-05.propulsionPowerCommand",
+      "value": "PowerCommand"
+    },
+    {
+      "id": "INT-33",
+      "source": "PART-12.availability_report",
+      "destination": "CTX-01.availabilityReport",
+      "value": "AvailabilityReport"
+    }
+  ],
+  "executed_semantic_connections": [
+    "INT-01",
+    "INT-02",
+    "INT-03",
+    "INT-04",
+    "INT-05",
+    "INT-06",
+    "INT-07",
+    "INT-08",
+    "INT-09",
+    "INT-10",
+    "INT-11",
+    "INT-12",
+    "INT-13",
+    "INT-14",
+    "INT-15",
+    "INT-16",
+    "INT-17",
+    "INT-18",
+    "INT-19",
+    "INT-20",
+    "INT-21",
+    "INT-22",
+    "INT-23",
+    "INT-24",
+    "INT-25",
+    "INT-26",
+    "INT-27",
+    "INT-28",
+    "INT-29",
+    "INT-30",
+    "INT-31",
+    "INT-32",
+    "INT-33"
+  ],
+  "ownership_audit": [
+    {
+      "usage": "battery_observation_admission",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-01.battery_observation"
+      ],
+      "owner_local_facts": [
+        "prioritized battery admission"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02"
+      ],
+      "analyzer_checks": [
+        "part01_admission_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "battery_capacity_assessment",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-02.qualified_battery"
+      ],
+      "owner_local_facts": [
+        "qualified qualitative battery readiness"
+      ],
+      "contract_cases": [
+        "CASE-03",
+        "CASE-04"
+      ],
+      "analyzer_checks": [
+        "part02_capacity_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "power_management_assessment",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-03.power_evidence"
+      ],
+      "owner_local_facts": [
+        "prioritized power-management readiness"
+      ],
+      "contract_cases": [
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "part03_power_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "odd_engine_group_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-04.odd_engine_evidence"
+      ],
+      "owner_local_facts": [
+        "joint odd-position group readiness"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-08"
+      ],
+      "analyzer_checks": [
+        "part04_odd_group_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "even_engine_group_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-05.even_engine_evidence"
+      ],
+      "owner_local_facts": [
+        "joint even-position group readiness"
+      ],
+      "contract_cases": [
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "part05_even_group_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "four_engine_configuration_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-06.configuration_evidence"
+      ],
+      "owner_local_facts": [
+        "four-engine structural concordance"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "part06_configuration_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "propulsion_evidence_composer",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-07.odd_engine_assessment",
+        "PART-07.even_engine_assessment",
+        "PART-07.configuration_assessment"
+      ],
+      "owner_local_facts": [
+        "prioritized propulsion evidence composition"
+      ],
+      "contract_cases": [
+        "CASE-13",
+        "CASE-14"
+      ],
+      "analyzer_checks": [
+        "part07_propulsion_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "charging_interlock_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-08.charger_evidence"
+      ],
+      "owner_local_facts": [
+        "prioritized charger interlock readiness"
+      ],
+      "contract_cases": [
+        "CASE-15",
+        "CASE-16"
+      ],
+      "analyzer_checks": [
+        "part08_charging_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "enable_demand_lifecycle",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-09.control_event",
+        "PART-09.actuation_feedback",
+        "PART-09.accepted_directive",
+        "PART-09.In(demandMemory)"
+      ],
+      "owner_local_facts": [
+        "fresh/requested/active demand transition"
+      ],
+      "contract_cases": [
+        "CASE-17",
+        "CASE-18",
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "part09_demand_transition_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "fault_action_priority_resolver",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-10.request_context",
+        "PART-10.battery_assessment",
+        "PART-10.power_assessment",
+        "PART-10.propulsion_assessment",
+        "PART-10.charging_assessment"
+      ],
+      "owner_local_facts": [
+        "charger-first fault cause and action priority"
+      ],
+      "contract_cases": [
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24"
+      ],
+      "analyzer_checks": [
+        "part10_fault_action_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recovery_qualification",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-11.fault_action_summary",
+        "PART-11.In(recoveryMemory)"
+      ],
+      "owner_local_facts": [
+        "fault-latched acknowledgment-gated recovery"
+      ],
+      "contract_cases": [
+        "CASE-25",
+        "CASE-26",
+        "CASE-27"
+      ],
+      "analyzer_checks": [
+        "part11_recovery_transition_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "availability_decision_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-12.battery_assessment",
+        "PART-12.power_assessment",
+        "PART-12.propulsion_assessment",
+        "PART-12.charging_assessment",
+        "PART-12.demand_view",
+        "PART-12.fault_action_summary",
+        "PART-12.recovery_frame"
+      ],
+      "owner_local_facts": [
+        "composed availability and prioritized report cause"
+      ],
+      "contract_cases": [
+        "CASE-28",
+        "CASE-29"
+      ],
+      "analyzer_checks": [
+        "part12_availability_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "power_command_interlock",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "PART-13.availability_decision",
+        "PART-13.demand_view",
+        "PART-13.recovery_gate",
+        "PART-13.accepted_directive",
+        "PART-13.actuation_feedback",
+        "PART-13.In(commandMemory)"
+      ],
+      "owner_local_facts": [
+        "first-versus-held command sequencing"
+      ],
+      "contract_cases": [
+        "BEH-01"
+      ],
+      "analyzer_checks": [
+        "part13_command_transition_partition"
+      ],
+      "passed": true
+    }
+  ],
+  "failures": []
+}

@@ -1,0 +1,637 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132656Z-fire-observation-sortie-hard-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Power_Propulsion_Availability_Supervisor.sysml",
+  "source_sha256": "8472c1e85c443cbb1c53485c8c4c089823f3f9400a377a0d0c4161afc9dbe568",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 14,
+    "edgeCount": 11,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 190,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BEH-01",
+      "BEH-05",
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28",
+      "CASE-29",
+      "COMP-03",
+      "CTRL-01",
+      "CTRL-02",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "MON-07",
+      "MON-08",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "QMODEL-02",
+      "TYPE-01",
+      "TYPE-05",
+      "TYPE-06",
+      "TYPE-07"
+    ],
+    "relativePath": "cps48/runs/20260814T132656Z-fire-observation-sortie-hard-r2-a1/system-abstract.md",
+    "taggedElementCount": 168,
+    "traceAssociationCount": 168,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a 13-owner power-and-propulsion availability supervisor with 33 semantic interactions, 29 contract cases, 10 scenario families, distributed demand/recovery/command state, and explicit fail-closed priority and fresh-request recovery.",
+      "questions_for_model": [
+        "Can one root ActuationFeedback input be delegated to both the Demand Lifecycle Owner and Power Command Interlock Owner with trusted SysML-AADL forms while preserving exactly 33 semantic connections, 20 boundary delegations, and 53 raw connections?",
+        "Can the Demand Lifecycle, Recovery Qualification, and Power Command Interlock express the declared pre-state/next-state relations and same-evaluation fail-closed outputs with owner-local In(state) contracts without adding a scheduling assumption or another state owner?",
+        "Can the bounded analyzer enumerate producer-admissible downstream tuples, identify producer-unreachable inconsistencies, and bind all 29 cases, the command relation, and 10 scenarios to the final source without substituting a central policy for owner relations?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "power-and-propulsion availability supervisor",
+        "closest_baseline": "accepted replicate-1 Hard Observation-Sortie Eligibility Supervisor",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system removes observation, sortie, navigation, radio, camera, and obstacle evidence and never emits observation permission. It instead controls a sequenced propulsion-power command from battery admission, power-management, charger, engine-group/configuration, demand, and actuation-feedback inputs; state belongs to demand, recovery, and command-cycle owners, and every fault discards demand so acknowledgment must be followed by a fresh request."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Preserve all 13 owners and 33 logical interactions, but correct the nonduplicative physical inventory from 20/53 to 21/43 boundary/raw connections.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "The architecture has 10 unique root quantities but 11 boundary owner endpoints because MON-08 fans out to PART-09 and PART-13. A nonduplicative System->Process->Thread realization therefore has 10 root/Process segments, 11 Process/Thread boundary segments, and 22 sibling-Thread segments: 21 generated-support boundary declarations and 43 raw PortConnections. The selected 20/53 inventory double-counts logical boundary interactions and can reach 53 only through duplicate endpoint declarations or route padding, contrary to M-03/M-05/M-17.",
+          "requested_change": "Change only generated_support_boundary_delegation_count 20->21 and raw_port_connection_count 53->43 in the resolved frontmatter, SEL-SUPPORT-01, SUPPORT-01, and PASS-01. Preserve PART-01..PART-13, INT-01..INT-33, the 13/33/29/10 semantic point, all policies/cases/scenarios, boundary behavior, and claim exclusions."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit finds substantive owner relations throughout: PART-01 admission fibers 4/8/4; PART-02 fibers 1/4/4/1/2; PART-03 1/8/4/3; each engine-group owner 1/32/16/12/3; PART-06 1/18/9/6/2; PART-07 1/100/20/4; and PART-08 1/8/4/1/2. PART-09, PART-11, and PART-13 are state-dependent, while PART-10 and PART-12 are multi-input priority/composition decisions. No complete credited relation is a copy, bundle, route, or bijective enum/code rename.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted Isolette forms show one source DataPort legally fanning out through separate binary PortConnections, and show Thread-local state, initialization, compute cases, and In(state). Publishing PART-09 pre-state independently of PART-10's returning directive breaks the apparent cycle; PART-11/PART-13 can similarly derive same-evaluation fail-closed outputs while updating only owner-local post-state.",
+          "requested_change": "Use one root and Process actuationFeedback port, one root/Process segment, and two distinct Process/Thread fan-out segments for INT-12 and INT-19. Publish PART-09 demand context from In(demandPhase), and use In(recoveryPhase)/In(commandPhase) in PART-11/PART-13 guards; add no scheduler assumption or state owner."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Finite attribute-based record DataPorts and factorized owner functions are supported. The current harness binds analyzer output to the source hash and cross-checks ownership records and reported failures, but does not extract GUMBO relations; owner evidence must therefore execute named local relations and retain direct domain, fiber, case, priority, nonidentity, and producer-unreachable results before an independent boundary oracle comparison.",
+          "requested_change": "No Designer allocation change. Generate direct attribute fields for every GUMBO-inspected record and structure the analyzer as PART-01..PART-13 owner functions executed in INT order, with the oracle used only for CTRL comparison and all 29 cases, BEH-01, and 10 scenarios explicitly witnessed."
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved generation after correcting only generated-support accounting from 20/53 to the nonduplicative 21/43 physical inventory.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Removed the unsupported state claimed-role token from the campaign-v1 ownership wire records while preserving the three state owners and all source semantics; the focused protocol check, SysML typecheck, bounded analyzer, metrics consistency, and traceability consistency checks passed.",
+      "canonical_source": "model/Power_Propulsion_Availability_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Repaired the retained system-overview in presentation state only by suppressing the two redundant collocated AvailabilityDecisionOwner labels while preserving all semantic routes and endpoints. Unchanged source revision 1 validates; crossings, route-object collisions, overlaps, unresolved endpoints, truncation, and out-of-bounds content are zero; native review passes; and all 168 trace associations across 95 IDs are relevant and complete.",
+      "correction_cycles": 9,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BEH-01",
+        "BEH-05",
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "COMP-03",
+        "CTRL-01",
+        "CTRL-02",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "MON-07",
+        "MON-08",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "QMODEL-02",
+        "TYPE-01",
+        "TYPE-05",
+        "TYPE-06",
+        "TYPE-07"
+      ],
+      "reviewed_tagged_element_count": 168,
+      "reviewed_trace_association_count": 168,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Canonical source, all thirteen owner-local behaviors, bounded hard-tier obligations, traceability, and the rendered overview pass without Designer-intent drift; execution is not run by profile.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 13,
+        "semantic_interactions": 33,
+        "nontrivial_contract_cases": 29,
+        "scenario_families": 10
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "battery_observation_admission",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-01.battery_observation"
+          ],
+          "owner_local_facts": [
+            "prioritized battery admission"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02"
+          ],
+          "analyzer_checks": [
+            "part01_admission_partition"
+          ]
+        },
+        {
+          "usage": "battery_capacity_assessment",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-02.qualified_battery"
+          ],
+          "owner_local_facts": [
+            "qualified qualitative battery readiness"
+          ],
+          "contract_cases": [
+            "CASE-03",
+            "CASE-04"
+          ],
+          "analyzer_checks": [
+            "part02_capacity_partition"
+          ]
+        },
+        {
+          "usage": "power_management_assessment",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-03.power_evidence"
+          ],
+          "owner_local_facts": [
+            "prioritized power-management readiness"
+          ],
+          "contract_cases": [
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "part03_power_partition"
+          ]
+        },
+        {
+          "usage": "odd_engine_group_assessor",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-04.odd_engine_evidence"
+          ],
+          "owner_local_facts": [
+            "joint odd-position group readiness"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08"
+          ],
+          "analyzer_checks": [
+            "part04_odd_group_partition"
+          ]
+        },
+        {
+          "usage": "even_engine_group_assessor",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-05.even_engine_evidence"
+          ],
+          "owner_local_facts": [
+            "joint even-position group readiness"
+          ],
+          "contract_cases": [
+            "CASE-09",
+            "CASE-10"
+          ],
+          "analyzer_checks": [
+            "part05_even_group_partition"
+          ]
+        },
+        {
+          "usage": "four_engine_configuration_assessor",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-06.configuration_evidence"
+          ],
+          "owner_local_facts": [
+            "four-engine structural concordance"
+          ],
+          "contract_cases": [
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "part06_configuration_partition"
+          ]
+        },
+        {
+          "usage": "propulsion_evidence_composer",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-07.odd_engine_assessment",
+            "PART-07.even_engine_assessment",
+            "PART-07.configuration_assessment"
+          ],
+          "owner_local_facts": [
+            "prioritized propulsion evidence composition"
+          ],
+          "contract_cases": [
+            "CASE-13",
+            "CASE-14"
+          ],
+          "analyzer_checks": [
+            "part07_propulsion_partition"
+          ]
+        },
+        {
+          "usage": "charging_interlock_assessor",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-08.charger_evidence"
+          ],
+          "owner_local_facts": [
+            "prioritized charger interlock readiness"
+          ],
+          "contract_cases": [
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "part08_charging_partition"
+          ]
+        },
+        {
+          "usage": "enable_demand_lifecycle",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-09.control_event",
+            "PART-09.actuation_feedback",
+            "PART-09.accepted_directive",
+            "PART-09.In(demandMemory)"
+          ],
+          "owner_local_facts": [
+            "fresh/requested/active demand transition"
+          ],
+          "contract_cases": [
+            "CASE-17",
+            "CASE-18",
+            "CASE-19"
+          ],
+          "analyzer_checks": [
+            "part09_demand_transition_partition"
+          ]
+        },
+        {
+          "usage": "fault_action_priority_resolver",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-10.request_context",
+            "PART-10.battery_assessment",
+            "PART-10.power_assessment",
+            "PART-10.propulsion_assessment",
+            "PART-10.charging_assessment"
+          ],
+          "owner_local_facts": [
+            "charger-first fault cause and action priority"
+          ],
+          "contract_cases": [
+            "CASE-20",
+            "CASE-21",
+            "CASE-22",
+            "CASE-23",
+            "CASE-24"
+          ],
+          "analyzer_checks": [
+            "part10_fault_action_partition"
+          ]
+        },
+        {
+          "usage": "recovery_qualification",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-11.fault_action_summary",
+            "PART-11.In(recoveryMemory)"
+          ],
+          "owner_local_facts": [
+            "fault-latched acknowledgment-gated recovery"
+          ],
+          "contract_cases": [
+            "CASE-25",
+            "CASE-26",
+            "CASE-27"
+          ],
+          "analyzer_checks": [
+            "part11_recovery_transition_partition"
+          ]
+        },
+        {
+          "usage": "availability_decision_owner",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-12.battery_assessment",
+            "PART-12.power_assessment",
+            "PART-12.propulsion_assessment",
+            "PART-12.charging_assessment",
+            "PART-12.demand_view",
+            "PART-12.fault_action_summary",
+            "PART-12.recovery_frame"
+          ],
+          "owner_local_facts": [
+            "composed availability and prioritized report cause"
+          ],
+          "contract_cases": [
+            "CASE-28",
+            "CASE-29"
+          ],
+          "analyzer_checks": [
+            "part12_availability_partition"
+          ]
+        },
+        {
+          "usage": "power_command_interlock",
+          "passed": true,
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "PART-13.availability_decision",
+            "PART-13.demand_view",
+            "PART-13.recovery_gate",
+            "PART-13.accepted_directive",
+            "PART-13.actuation_feedback",
+            "PART-13.In(commandMemory)"
+          ],
+          "owner_local_facts": [
+            "first-versus-held command sequencing"
+          ],
+          "contract_cases": [
+            "BEH-01"
+          ],
+          "analyzer_checks": [
+            "part13_command_transition_partition"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Canonical source, all thirteen owner-local behaviors, bounded hard-tier obligations, traceability, and the rendered overview pass without Designer-intent drift; execution is not run by profile.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

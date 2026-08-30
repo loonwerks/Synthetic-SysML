@@ -1,0 +1,284 @@
+{
+  "affected_units": [
+    {
+      "candidate_clause_ids": [],
+      "candidate_locations": [],
+      "candidate_trace_ids": [],
+      "classification": "CANDIDATE_WEAKER",
+      "classifier": "Greenhouse_Ventilation::Upper_Temperature_Limit",
+      "evidence_paths": [
+        "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:01-a-----a-validity",
+        "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:02-a----g----g-validity",
+        "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:02-a----g----g-complement",
+        "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:03-a----a-validity",
+        "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:04-a---g-----g-validity"
+      ],
+      "failed_atomic_vcs": [
+        "A* & G -> G*"
+      ],
+      "oracle_clause_ids": [
+        "SELECTABLE_UPPER_LIMIT_RANGE"
+      ],
+      "oracle_locations": [
+        {
+          "column": 8,
+          "line": 40,
+          "offset": 1049,
+          "uri": "/tmp/equiv-result-staging-3qg17ish/bundle/inputs/oracle.sysml"
+        }
+      ],
+      "oracle_trace_ids": [
+        "MON-02",
+        "ASM-02"
+      ],
+      "owner_instance": null,
+      "phase": "invariant",
+      "unit_key": "datatype::Greenhouse_Ventilation::Upper_Temperature_Limit::invariant"
+    },
+    {
+      "candidate_clause_ids": [
+        "BEH_01_VALID_ABOVE",
+        "BEH_02_VALID_AT_OR_BELOW",
+        "FAULT_01_INVALID"
+      ],
+      "candidate_locations": [
+        {
+          "column": 10,
+          "line": 68,
+          "offset": 2116,
+          "uri": "/tmp/equiv-result-staging-3qg17ish/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 74,
+          "offset": 2404,
+          "uri": "/tmp/equiv-result-staging-3qg17ish/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 80,
+          "offset": 2700,
+          "uri": "/tmp/equiv-result-staging-3qg17ish/bundle/inputs/candidate.sysml"
+        }
+      ],
+      "candidate_trace_ids": [],
+      "classification": "CANDIDATE_STRONGER",
+      "classifier": "Greenhouse_Ventilation::Ventilation_Decision_i",
+      "evidence_paths": [
+        "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:01-a-----a-validity",
+        "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:02-a----g----g-validity",
+        "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:03-a----a-validity",
+        "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:03-a----a-complement",
+        "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:04-a---g-----g-validity"
+      ],
+      "failed_atomic_vcs": [
+        "A -> A*"
+      ],
+      "oracle_clause_ids": [
+        "BEH_01_VALID_ABOVE",
+        "BEH_02_VALID_AT_OR_BELOW",
+        "FAULT_01_INVALID"
+      ],
+      "oracle_locations": [
+        {
+          "column": 10,
+          "line": 92,
+          "offset": 2915,
+          "uri": "/tmp/equiv-result-staging-3qg17ish/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 99,
+          "offset": 3352,
+          "uri": "/tmp/equiv-result-staging-3qg17ish/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 106,
+          "offset": 3814,
+          "uri": "/tmp/equiv-result-staging-3qg17ish/bundle/inputs/oracle.sysml"
+        }
+      ],
+      "oracle_trace_ids": [
+        "BEH-01",
+        "CTRL-01",
+        "CTRL-02",
+        "BEH-02",
+        "FAULT-01",
+        "RISK-01"
+      ],
+      "owner_instance": "Greenhouse_Ventilation_Root_Instance::control_process::ventilation_decision",
+      "phase": "compute",
+      "unit_key": "root::Greenhouse_Ventilation::Greenhouse_Ventilation_Root/root-instance::Greenhouse_Ventilation_Root_Instance/component::Greenhouse_Ventilation_Root_Instance::control_process::ventilation_decision::compute"
+    }
+  ],
+  "breakdown_complete": false,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/single-zone-greenhouse-ventilation-controller/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/single-zone-greenhouse-ventilation-controller/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/single-zone-greenhouse-ventilation-controller/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INCOMPARABLE",
+  "diagnostics": [
+    "proof tool failure: datatype::Greenhouse_Ventilation::Temperature_Celsius::invariant"
+  ],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/single-zone-greenhouse-ventilation-controller/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/single-zone-greenhouse-ventilation-controller/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "NOT_EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-temperature-cels-88bd37dcae:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Greenhouse_Ventilation.Temperature_Celsius.D_Inv_Temperature_Celsius(value))) & T",
+          "name": "A* & G -> G*",
+          "status": "TOOL_ERROR",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-temperature-cels-88bd37dcae:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-temperature-cels-88bd37dcae:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Greenhouse_Ventilation.Temperature_Celsius.D_Inv_Temperature_Celsius(value))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-temperature-cels-88bd37dcae:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "datatype::Greenhouse_Ventilation::Temperature_Celsius::invariant",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Greenhouse_Ventilation.Upper_Temperature_Limit.D_Inv_Upper_Temperature_Limit(value))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Greenhouse_Ventilation.Upper_Temperature_Limit.D_Inv_Upper_Temperature_Limit(value))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-greenhouse-ventilation-upper-temperatur-f16439ec11:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "datatype::Greenhouse_Ventilation::Upper_Temperature_Limit::invariant",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Greenhouse_Ventilation.Ventilation_Decision_i_control_process_ventilation_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Greenhouse_Ventilation.Ventilation_Decision_i_control_process_ventilation_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) & (equiv_shared_0.Greenhouse_Ventilation.Ventilation_Decision_i_control_process_ventilation_decision_Candidate_GumboX.compute_CEP_Post(temperature, upper_limit, validity, fan_command, sensor_fault))) ___>: (equiv_shared_0.Greenhouse_Ventilation.Ventilation_Decision_i_control_process_ventilation_decision_GumboX.compute_CEP_Post(temperature, upper_limit, validity, fan_command, sensor_fault))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (equiv_shared_0.Greenhouse_Ventilation.Ventilation_Decision_i_control_process_ventilation_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity))",
+          "name": "A -> A*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:03-a----a-validity",
+          "witness_evidence": "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:03-a----a-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Greenhouse_Ventilation.Ventilation_Decision_i_control_process_ventilation_decision_GumboX.compute_CEP_Post(temperature, upper_limit, validity, fan_command, sensor_fault))) ___>: (equiv_shared_0.Greenhouse_Ventilation.Ventilation_Decision_i_control_process_ventilation_decision_Candidate_GumboX.compute_CEP_Post(temperature, upper_limit, validity, fan_command, sensor_fault))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-greenhouse-ventilation-greenhouse-ventilati-ac6f6908f6:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_STRONGER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Greenhouse_Ventilation::Greenhouse_Ventilation_Root/root-instance::Greenhouse_Ventilation_Root_Instance/component::Greenhouse_Ventilation_Root_Instance::control_process::ventilation_decision::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

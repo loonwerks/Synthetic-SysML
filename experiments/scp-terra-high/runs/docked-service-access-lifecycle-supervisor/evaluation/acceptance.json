@@ -1,0 +1,70 @@
+{
+  "completed_at": "2026-08-20T23:03:11.695949Z",
+  "dataset_id": "docked-service-access-lifecycle-supervisor",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate:experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "Docked_Service_Access_Lifecycle_Supervisor::DockedServiceAccessLifecycleSupervisorSystem",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/M-star.sysml\n  - [1455, 4] Dispatch Protocol not specified for thread intentQualifier, assuming Sporadic\n  - [1456, 4] Dispatch Protocol not specified for thread dockReadinessQualifier, assuming Sporadic\n  - [1457, 4] Dispatch Protocol not specified for thread serviceInterlockQualifier, assuming Sporadic\n  - [1458, 4] Dispatch Protocol not specified for thread lifecycleConsistencyMonitor, assuming Sporadic\n  - [1459, 4] Dispatch Protocol not specified for thread priorityArbiter, assuming Sporadic\n  - [1460, 4] Dispatch Protocol not specified for thread lifecycleController, assuming Sporadic\n  - [1461, 4] Dispatch Protocol not specified for thread movementAndAccessSafetyGate, assuming Sporadic\n  - [1462, 4] Dispatch Protocol not specified for thread lifecycleReporter, assuming Sporadic\n  - [1516, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"dockedServiceAccessLifecycleSupervisor\", Attr(Some([/M-star.sysml, 1516, 7])))), Attr(Some([/M-star.sysml, 1516, 7])))), [TypingsSpecialization([Name([Id(\"DockedServiceAccessLifecycleSupervisorSystem\", Attr(Some([/M-star.sysml, 1516, 48])))], Attr(Some([/M-star.sysml, 1516, 48])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1516, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/.slang/DockedServiceAccessLifecycleSupervisorSystem_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/.tmp\nChecking initialise method of DockReadinessQualifier_supervisorProcess_dockReadinessQualifier.scala\n  Verification succeeded!\n\nChecking timeTriggered method of DockReadinessQualifier_supervisorProcess_dockReadinessQualifier.scala\n  Verification succeeded!\n\nChecking initialise method of IntentQualifier_supervisorProcess_intentQualifier.scala\n  Verification succeeded!\n\nChecking timeTriggered method of IntentQualifier_supervisorProcess_intentQualifier.scala\n  Verification succeeded!\n\nChecking initialise method of LifecycleConsistencyMonitor_supervisorProcess_lifecycleConsistencyMonitor.scala\n  Verification succeeded!\n\nChecking timeTriggered method of LifecycleConsistencyMonitor_supervisorProcess_lifecycleConsistencyMonitor.scala\n  Verification succeeded!\n\nChecking initialise method of LifecycleController_supervisorProcess_lifecycleController.scala\n  Verification succeeded!\n\nChecking timeTriggered method of LifecycleController_supervisorProcess_lifecycleController.scala\n  Verification succeeded!\n\nChecking initialise method of LifecycleReporter_supervisorProcess_lifecycleReporter.scala\n  Verification succeeded!\n\nChecking timeTriggered method of LifecycleReporter_supervisorProcess_lifecycleReporter.scala\n  Verification succeeded!\n\nChecking initialise method of MovementAndAccessSafetyGate_supervisorProcess_movementAndAccessSafetyGate.scala\n  Verification succeeded!\n\nChecking timeTriggered method of MovementAndAccessSafetyGate_supervisorProcess_movementAndAccessSafetyGate.scala\n  Verification succeeded!\n\nChecking initialise method of PriorityArbiter_supervisorProcess_priorityArbiter.scala\n  Verification succeeded!\n\nChecking timeTriggered method of PriorityArbiter_supervisorProcess_priorityArbiter.scala\n  Verification succeeded!\n\nChecking initialise method of ServiceInterlockQualifier_supervisorProcess_serviceInterlockQualifier.scala\n  Verification succeeded!\n\nChecking timeTriggered method of ServiceInterlockQualifier_supervisorProcess_serviceInterlockQualifier.scala\n  Verification succeeded!\n\nVerified 16 method(s) across 8 component(s).\n"
+    },
+    "integration_logika": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "logika",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate:experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/M-star.sysml\n  - [1455, 4] Dispatch Protocol not specified for thread intentQualifier, assuming Sporadic\n  - [1456, 4] Dispatch Protocol not specified for thread dockReadinessQualifier, assuming Sporadic\n  - [1457, 4] Dispatch Protocol not specified for thread serviceInterlockQualifier, assuming Sporadic\n  - [1458, 4] Dispatch Protocol not specified for thread lifecycleConsistencyMonitor, assuming Sporadic\n  - [1459, 4] Dispatch Protocol not specified for thread priorityArbiter, assuming Sporadic\n  - [1460, 4] Dispatch Protocol not specified for thread lifecycleController, assuming Sporadic\n  - [1461, 4] Dispatch Protocol not specified for thread movementAndAccessSafetyGate, assuming Sporadic\n  - [1462, 4] Dispatch Protocol not specified for thread lifecycleReporter, assuming Sporadic\n  - [1516, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"dockedServiceAccessLifecycleSupervisor\", Attr(Some([/M-star.sysml, 1516, 7])))), Attr(Some([/M-star.sysml, 1516, 7])))), [TypingsSpecialization([Name([Id(\"DockedServiceAccessLifecycleSupervisorSystem\", Attr(Some([/M-star.sysml, 1516, 48])))], Attr(Some([/M-star.sysml, 1516, 48])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1516, 2]), None(), None())))\n* file://experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/M-star.sysml\n  - [1455, 4] Dispatch Protocol not specified for thread intentQualifier, assuming Sporadic\n  - [1456, 4] Dispatch Protocol not specified for thread dockReadinessQualifier, assuming Sporadic\n  - [1457, 4] Dispatch Protocol not specified for thread serviceInterlockQualifier, assuming Sporadic\n  - [1458, 4] Dispatch Protocol not specified for thread lifecycleConsistencyMonitor, assuming Sporadic\n  - [1459, 4] Dispatch Protocol not specified for thread priorityArbiter, assuming Sporadic\n  - [1460, 4] Dispatch Protocol not specified for thread lifecycleController, assuming Sporadic\n  - [1461, 4] Dispatch Protocol not specified for thread movementAndAccessSafetyGate, assuming Sporadic\n  - [1462, 4] Dispatch Protocol not specified for thread lifecycleReporter, assuming Sporadic\n  - [1516, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"dockedServiceAccessLifecycleSupervisor\", Attr(Some([/M-star.sysml, 1516, 7])))), Attr(Some([/M-star.sysml, 1516, 7])))), [TypingsSpecialization([Name([Id(\"DockedServiceAccessLifecycleSupervisorSystem\", Attr(Some([/M-star.sysml, 1516, 48])))], Attr(Some([/M-star.sysml, 1516, 48])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1516, 2]), None(), None())))\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate:experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/docked-service-access-lifecycle-supervisor/candidate/M-star.sysml\n  - [1455, 4] Dispatch Protocol not specified for thread intentQualifier, assuming Sporadic\n  - [1456, 4] Dispatch Protocol not specified for thread dockReadinessQualifier, assuming Sporadic\n  - [1457, 4] Dispatch Protocol not specified for thread serviceInterlockQualifier, assuming Sporadic\n  - [1458, 4] Dispatch Protocol not specified for thread lifecycleConsistencyMonitor, assuming Sporadic\n  - [1459, 4] Dispatch Protocol not specified for thread priorityArbiter, assuming Sporadic\n  - [1460, 4] Dispatch Protocol not specified for thread lifecycleController, assuming Sporadic\n  - [1461, 4] Dispatch Protocol not specified for thread movementAndAccessSafetyGate, assuming Sporadic\n  - [1462, 4] Dispatch Protocol not specified for thread lifecycleReporter, assuming Sporadic\n  - [1516, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"dockedServiceAccessLifecycleSupervisor\", Attr(Some([/M-star.sysml, 1516, 7])))), Attr(Some([/M-star.sysml, 1516, 7])))), [TypingsSpecialization([Name([Id(\"DockedServiceAccessLifecycleSupervisorSystem\", Attr(Some([/M-star.sysml, 1516, 48])))], Attr(Some([/M-star.sysml, 1516, 48])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1516, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-20T23:01:04.308147Z",
+  "status": "passed"
+}

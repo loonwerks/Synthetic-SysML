@@ -1,0 +1,14 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_fa746fda9140_2_Valid {
+  @pure def check(
+      chargedecision: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.Type,
+      chargeeligibilityenvelope: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeEligibilityEnvelope.Type,
+      chargerequest: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeRequest.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((((T) & (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, chargedecision))) ___>: (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, chargedecision))) & T))
+  }
+}

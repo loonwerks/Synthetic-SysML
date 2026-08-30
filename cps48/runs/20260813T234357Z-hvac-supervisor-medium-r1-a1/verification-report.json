@@ -1,0 +1,458 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234357Z-hvac-supervisor-medium-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/HVAC_Energy_Interface_Supervisor.sysml",
+  "source_sha256": "324230a6acbba3a2a9805173a3a56f8e028ac94334de66db322b55ac8456a6b7",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 24,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 128,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "MON-07",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "SCOPE-01",
+      "STATE-01"
+    ],
+    "relativePath": "cps48/runs/20260813T234357Z-hvac-supervisor-medium-r1-a1/system-abstract.md",
+    "taggedElementCount": 99,
+    "traceAssociationCount": 99,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited an eight-owner energy-aware cabin climate supervisor with 21 interactions, 20 closed cases, eight scenario families, explicit defrost priority, and fresh-request recovery.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO forms retain eight distinct owner-local contracts and one persistent recovery owner without downstream recomputation of qualified facts?",
+        "Can one composite EnergyContext flow remain one of exactly 21 semantic interactions while field-level or containment routing is reported separately as generated support?",
+        "Can the independent bounded analyzer exhaust 36,864 snapshots and the eight ordered scenario families while checking, rather than replacing, each owner-local contract?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "All eight owners are nonidentity finite derivations and the unchanged 8/21/20/8 allocation is realizable with current SysML-AADL, GUMBO, and bounded-checker forms.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit: PART-01 has 8-to-5 fibers 4/1/1/1/1; PART-02 has 6-to-3 fibers 2/3/1; PART-03 has 48-to-5 fibers 30/10/2/3/3; PART-04 has 20 valuations partitioned 4/4/3/3/6. PART-05 combines three inputs under recovery, invalidity, and defrost priority; PART-06 has grant fibers Off=11, FullThermal=3, EconomyHeat=2, VentOnly=1, Denied=3 over Service x Capability; PART-07 combines selection, grant, and fan into a consistency-checked atomic tuple; PART-08 applies four-input status precedence. No owner is a copy, bundle, rename, reroute, or one-to-one code mapping.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "One behavior-free Process can contain the eight contract-bearing Threads at depth 2. The nine boundary semantic deliveries require 18 containment-delegation connections and the twelve inter-owner deliveries require 12 direct connections, for 30 raw PortConnection declarations while retaining exactly 21 semantic interactions. EnergyContext remains one Data record interaction with three GUMBO-visible attribute fields.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "CASE-06 through CASE-12 already induce nine finite ServiceSelection reason classes: three matching recovery blocks, invalid demand, selected defrost, selected heat, selected cool, temperature hold, and user off. Materializing those classes as an enum and record attribute is a source-local type mapping; it changes neither PART-05 behavior nor INT-12/15/17 meaning or counts.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Trusted and currently retained passing models demonstrate Thread-local state, initialize, compute_cases, In(pre-state), record-attribute access, composite Data ports, and point-to-point fan-outs. The current harness reruns independent Sireum typechecking, binds analyzer evidence to the source hash, rejects reported gaps/overlaps/mismatches/violations, and requires exact metrics/analyzer ownership-audit agreement; 36,864 snapshots plus eight ordered scenario families are tractable without making the analyzer a behavior owner.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Initial 8/21/20/8 architecture approved unchanged; Model generation authorized with source-local mapping and independent evidence obligations.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Corrected the canonical source binding to the retained SysML candidate; verified the required SHA-256, SysML typecheck, bounded analyzer, metrics, and traceability consistency.",
+      "canonical_source": "model/HVAC_Energy_Interface_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Accepted one validated system overview after reducing redundant label density while retaining representative flows and hard-zero routing health.",
+      "correction_cycles": 4,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "MON-07",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "SCOPE-01",
+        "STATE-01"
+      ],
+      "reviewed_tagged_element_count": 99,
+      "reviewed_trace_association_count": 99,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Canonical source, owner-local bounded semantics, traceability, and rendered overview pass without drift or padding; execution is not run by profile.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 8
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "comfortDemandQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "climateRequest",
+            "thermalRelation"
+          ],
+          "owner_local_facts": [
+            "comfortDemand"
+          ],
+          "contract_cases": [
+            "QUAL-01"
+          ],
+          "analyzer_checks": [
+            "comfort-owner-qualification"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "visibilityDemandQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "defrostRequest",
+            "glazingCondition"
+          ],
+          "owner_local_facts": [
+            "visibilityDemand"
+          ],
+          "contract_cases": [
+            "QUAL-02"
+          ],
+          "analyzer_checks": [
+            "visibility-owner-qualification"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "energyCapabilityQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "energyContext.electricalState",
+            "energyContext.powerEnvelope",
+            "energyContext.engineHeat"
+          ],
+          "owner_local_facts": [
+            "energyCapability"
+          ],
+          "contract_cases": [
+            "QUAL-03"
+          ],
+          "analyzer_checks": [
+            "energy-owner-qualification"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "recoveryAuthority",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recoveryState",
+            "energyCapability",
+            "freshRequest"
+          ],
+          "owner_local_facts": [
+            "nextRecoveryState",
+            "recoveryDecision"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05"
+          ],
+          "analyzer_checks": [
+            "recovery-owner-partition"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "servicePriorityArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "comfortDemand",
+            "visibilityDemand",
+            "recoveryDecision"
+          ],
+          "owner_local_facts": [
+            "serviceSelection.service",
+            "serviceSelection.reason"
+          ],
+          "contract_cases": [
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "priority-owner-partition",
+            "defrost-over-comfort-conflict"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "resourceAllocationDecision",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "serviceSelection.service",
+            "energyCapability"
+          ],
+          "owner_local_facts": [
+            "resourceGrant"
+          ],
+          "contract_cases": [
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "allocation-owner-partition",
+            "reduced-capability-downgrade"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "actuationCommandCoordinator",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "serviceSelection.service",
+            "resourceGrant",
+            "fanPreference"
+          ],
+          "owner_local_facts": [
+            "plantCommand",
+            "actuationDisposition"
+          ],
+          "contract_cases": [
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "command-owner-partition",
+            "quiescent-fault-output"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "supervisoryStatusComposer",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recoveryDecision",
+            "serviceSelection.service",
+            "serviceSelection.reason",
+            "resourceGrant",
+            "actuationDisposition"
+          ],
+          "owner_local_facts": [
+            "supervisorStatus"
+          ],
+          "contract_cases": [
+            "STAT-01"
+          ],
+          "analyzer_checks": [
+            "status-owner-composition"
+          ],
+          "passed": true
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Canonical source, owner-local bounded semantics, traceability, and rendered overview pass without drift or padding; execution is not run by profile.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

@@ -1,0 +1,19 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_5db858b14248_Oracle_Pointwise_Realizable {
+  @pure def check(
+      observation_evidence: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EquipmentEvidence): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.None))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Invalid))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Stale))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Condition))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.None))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Invalid))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Stale))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.ObservationEvidenceAssessor_eligibility_supervisor_process_observation_evidence_assessor_GumboX.compute_CEP_Post(observation_evidence, equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Condition))))))
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "completed_at": "2026-08-20T23:39:50.920024Z",
+  "dataset_id": "finished-product-dispatch-coordinator",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate:experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "Factory_Dispatch_Coordinator::Finished_Product_Dispatch_Coordinator_System",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/M-star.sysml\n  - [1022, 4] Dispatch Protocol not specified for thread request_qualifier, assuming Sporadic\n  - [1023, 4] Dispatch Protocol not specified for thread inventory_qualifier, assuming Sporadic\n  - [1024, 4] Dispatch Protocol not specified for thread dock_qualifier, assuming Sporadic\n  - [1025, 4] Dispatch Protocol not specified for thread outcome_recovery_classifier, assuming Sporadic\n  - [1026, 4] Dispatch Protocol not specified for thread dispatch_priority_resolver, assuming Sporadic\n  - [1027, 4] Dispatch Protocol not specified for thread release_arbiter, assuming Sporadic\n  - [1028, 4] Dispatch Protocol not specified for thread commitment_tracker, assuming Sporadic\n  - [1029, 4] Dispatch Protocol not specified for thread confirmation_determiner, assuming Sporadic\n  - [1030, 4] Dispatch Protocol not specified for thread status_determiner, assuming Sporadic\n  - [1083, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"finished_product_dispatch_coordinator\", Attr(Some([/M-star.sysml, 1083, 7])))), Attr(Some([/M-star.sysml, 1083, 7])))), [TypingsSpecialization([Name([Id(\"Finished_Product_Dispatch_Coordinator_System\", Attr(Some([/M-star.sysml, 1083, 47])))], Attr(Some([/M-star.sysml, 1083, 47])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1083, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/.slang/Finished_Product_Dispatch_Coordinator_System_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/.tmp\nChecking initialise method of Commitment_Tracker_dispatch_coordinator_process_commitment_tracker.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Commitment_Tracker_dispatch_coordinator_process_commitment_tracker.scala\n  Verification succeeded!\n\nChecking initialise method of Confirmation_Determiner_dispatch_coordinator_process_confirmation_determiner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Confirmation_Determiner_dispatch_coordinator_process_confirmation_determiner.scala\n  Verification succeeded!\n\nChecking initialise method of Dispatch_Priority_Resolver_dispatch_coordinator_process_dispatch_priority_resolver.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Dispatch_Priority_Resolver_dispatch_coordinator_process_dispatch_priority_resolver.scala\n  Verification succeeded!\n\nChecking initialise method of Dock_Qualifier_dispatch_coordinator_process_dock_qualifier.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Dock_Qualifier_dispatch_coordinator_process_dock_qualifier.scala\n  Verification succeeded!\n\nChecking initialise method of Inventory_Qualifier_dispatch_coordinator_process_inventory_qualifier.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Inventory_Qualifier_dispatch_coordinator_process_inventory_qualifier.scala\n  Verification succeeded!\n\nChecking initialise method of Outcome_Recovery_Classifier_dispatch_coordinator_process_outcome_recovery_classifier.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Outcome_Recovery_Classifier_dispatch_coordinator_process_outcome_recovery_classifier.scala\n  Verification succeeded!\n\nChecking initialise method of Release_Arbiter_dispatch_coordinator_process_release_arbiter.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Release_Arbiter_dispatch_coordinator_process_release_arbiter.scala\n  Verification succeeded!\n\nChecking initialise method of Request_Qualifier_dispatch_coordinator_process_request_qualifier.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Request_Qualifier_dispatch_coordinator_process_request_qualifier.scala\n  Verification succeeded!\n\nChecking initialise method of Status_Determiner_dispatch_coordinator_process_status_determiner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Status_Determiner_dispatch_coordinator_process_status_determiner.scala\n  Verification succeeded!\n\nVerified 18 method(s) across 9 component(s).\n"
+    },
+    "integration_logika": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "logika",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate:experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/M-star.sysml\n  - [1022, 4] Dispatch Protocol not specified for thread request_qualifier, assuming Sporadic\n  - [1023, 4] Dispatch Protocol not specified for thread inventory_qualifier, assuming Sporadic\n  - [1024, 4] Dispatch Protocol not specified for thread dock_qualifier, assuming Sporadic\n  - [1025, 4] Dispatch Protocol not specified for thread outcome_recovery_classifier, assuming Sporadic\n  - [1026, 4] Dispatch Protocol not specified for thread dispatch_priority_resolver, assuming Sporadic\n  - [1027, 4] Dispatch Protocol not specified for thread release_arbiter, assuming Sporadic\n  - [1028, 4] Dispatch Protocol not specified for thread commitment_tracker, assuming Sporadic\n  - [1029, 4] Dispatch Protocol not specified for thread confirmation_determiner, assuming Sporadic\n  - [1030, 4] Dispatch Protocol not specified for thread status_determiner, assuming Sporadic\n  - [1083, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"finished_product_dispatch_coordinator\", Attr(Some([/M-star.sysml, 1083, 7])))), Attr(Some([/M-star.sysml, 1083, 7])))), [TypingsSpecialization([Name([Id(\"Finished_Product_Dispatch_Coordinator_System\", Attr(Some([/M-star.sysml, 1083, 47])))], Attr(Some([/M-star.sysml, 1083, 47])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1083, 2]), None(), None())))\n* file://experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/M-star.sysml\n  - [1022, 4] Dispatch Protocol not specified for thread request_qualifier, assuming Sporadic\n  - [1023, 4] Dispatch Protocol not specified for thread inventory_qualifier, assuming Sporadic\n  - [1024, 4] Dispatch Protocol not specified for thread dock_qualifier, assuming Sporadic\n  - [1025, 4] Dispatch Protocol not specified for thread outcome_recovery_classifier, assuming Sporadic\n  - [1026, 4] Dispatch Protocol not specified for thread dispatch_priority_resolver, assuming Sporadic\n  - [1027, 4] Dispatch Protocol not specified for thread release_arbiter, assuming Sporadic\n  - [1028, 4] Dispatch Protocol not specified for thread commitment_tracker, assuming Sporadic\n  - [1029, 4] Dispatch Protocol not specified for thread confirmation_determiner, assuming Sporadic\n  - [1030, 4] Dispatch Protocol not specified for thread status_determiner, assuming Sporadic\n  - [1083, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"finished_product_dispatch_coordinator\", Attr(Some([/M-star.sysml, 1083, 7])))), Attr(Some([/M-star.sysml, 1083, 7])))), [TypingsSpecialization([Name([Id(\"Finished_Product_Dispatch_Coordinator_System\", Attr(Some([/M-star.sysml, 1083, 47])))], Attr(Some([/M-star.sysml, 1083, 47])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1083, 2]), None(), None())))\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate:experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/finished-product-dispatch-coordinator/candidate/M-star.sysml\n  - [1022, 4] Dispatch Protocol not specified for thread request_qualifier, assuming Sporadic\n  - [1023, 4] Dispatch Protocol not specified for thread inventory_qualifier, assuming Sporadic\n  - [1024, 4] Dispatch Protocol not specified for thread dock_qualifier, assuming Sporadic\n  - [1025, 4] Dispatch Protocol not specified for thread outcome_recovery_classifier, assuming Sporadic\n  - [1026, 4] Dispatch Protocol not specified for thread dispatch_priority_resolver, assuming Sporadic\n  - [1027, 4] Dispatch Protocol not specified for thread release_arbiter, assuming Sporadic\n  - [1028, 4] Dispatch Protocol not specified for thread commitment_tracker, assuming Sporadic\n  - [1029, 4] Dispatch Protocol not specified for thread confirmation_determiner, assuming Sporadic\n  - [1030, 4] Dispatch Protocol not specified for thread status_determiner, assuming Sporadic\n  - [1083, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"finished_product_dispatch_coordinator\", Attr(Some([/M-star.sysml, 1083, 7])))), Attr(Some([/M-star.sysml, 1083, 7])))), [TypingsSpecialization([Name([Id(\"Finished_Product_Dispatch_Coordinator_System\", Attr(Some([/M-star.sysml, 1083, 47])))], Attr(Some([/M-star.sysml, 1083, 47])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1083, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-20T23:38:02.254822Z",
+  "status": "passed"
+}

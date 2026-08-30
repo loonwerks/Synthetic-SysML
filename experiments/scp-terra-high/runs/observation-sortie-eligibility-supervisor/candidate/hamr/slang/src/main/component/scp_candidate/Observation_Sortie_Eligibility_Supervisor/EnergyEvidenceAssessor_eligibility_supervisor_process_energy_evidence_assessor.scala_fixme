@@ -1,0 +1,31 @@
+// #Sireum
+
+package scp_candidate.Observation_Sortie_Eligibility_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object EnergyEvidenceAssessor_eligibility_supervisor_process_energy_evidence_assessor {
+
+  def initialise(api: EnergyEvidenceAssessor_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_ENERGY_NOT_READY
+        api.energy_assessment.ready == F &&
+          api.energy_assessment.localCause == EnergyCause.Invalid
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_energy_assessment(Observation_Sortie_Eligibility_Supervisor.EnergyAssessment.example())
+  }
+
+  def finalise(api: EnergyEvidenceAssessor_Operational_Api): Unit = { }
+}

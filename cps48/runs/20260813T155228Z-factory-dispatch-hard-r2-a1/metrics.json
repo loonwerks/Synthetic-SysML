@@ -1,0 +1,343 @@
+{
+  "source": "model/Factory_Material_Continuity_Coordinator.sysml",
+  "source_sha256": "a0d536bd69898122aacee8b6d8c03d08385de2a118a5475becdbb1d95ca05c71",
+  "root_system_usages": 1,
+  "semantic_usages": 14,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 15,
+  "all_usages_including_root": 16,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 35,
+  "generated_support_routes": 7,
+  "source_port_connection_declarations": 42,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 29,
+  "scenario_families": 10,
+  "state_owners": 3,
+  "gumbo_inspected_data_fields": 30,
+  "gumbo_inspected_fields_declared_as_attributes": 30,
+  "architecture_repairs": 0,
+  "contract_repairs": 0,
+  "analyzer_repairs": 2,
+  "trace_annotation_repairs": 1,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 14,
+    "semantic_interactions": 35,
+    "nontrivial_contract_cases": 29,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "demand_acquisition",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "demand_acquisition.demand_signal"
+        ],
+        "owner_local_facts": [
+          "demand presence classification"
+        ],
+        "contract_cases": [
+          "REL-DEM-01"
+        ],
+        "analyzer_checks": [
+          "demand acquisition classification"
+        ]
+      },
+      {
+        "usage": "inventory_acquisition",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "inventory_acquisition.inventory_band"
+        ],
+        "owner_local_facts": [
+          "inventory usability classification"
+        ],
+        "contract_cases": [
+          "REL-INV-01"
+        ],
+        "analyzer_checks": [
+          "inventory acquisition classification"
+        ]
+      },
+      {
+        "usage": "event_acquisition",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "event_acquisition.material_event"
+        ],
+        "owner_local_facts": [
+          "event class classification"
+        ],
+        "contract_cases": [
+          "REL-EVT-01"
+        ],
+        "analyzer_checks": [
+          "event acquisition classification"
+        ]
+      },
+      {
+        "usage": "demand_qualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "demand_qualification.demand_boundary_facts"
+        ],
+        "owner_local_facts": [
+          "validity urgency and material class"
+        ],
+        "contract_cases": [
+          "REL-DEM-01"
+        ],
+        "analyzer_checks": [
+          "demand qualification derivation"
+        ]
+      },
+      {
+        "usage": "material_readiness_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "material_readiness_assessment.inventory_boundary_facts",
+          "material_readiness_assessment.production_availability"
+        ],
+        "owner_local_facts": [
+          "material availability reserve and acceptance facts"
+        ],
+        "contract_cases": [
+          "REL-INV-01"
+        ],
+        "analyzer_checks": [
+          "readiness derivation"
+        ]
+      },
+      {
+        "usage": "event_coherence",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "event_coherence.event_boundary_facts",
+          "event_coherence.prior_demand_state",
+          "event_coherence.prior_supply_state"
+        ],
+        "owner_local_facts": [
+          "qualified event and fault trigger"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04",
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "event coherence partition"
+        ]
+      },
+      {
+        "usage": "demand_registry",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "demand_registry.demand_facts",
+          "demand_registry.qualified_event",
+          "demand_registry.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "next demand phase update and disposition"
+        ],
+        "contract_cases": [
+          "CASE-13",
+          "CASE-14",
+          "CASE-15",
+          "CASE-16"
+        ],
+        "analyzer_checks": [
+          "demand transition partition",
+          "demand disposition relation"
+        ]
+      },
+      {
+        "usage": "supply_lifecycle",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "supply_lifecycle.qualified_event",
+          "supply_lifecycle.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "next supply phase"
+        ],
+        "contract_cases": [
+          "CASE-17",
+          "CASE-18"
+        ],
+        "analyzer_checks": [
+          "supply transition partition"
+        ]
+      },
+      {
+        "usage": "recovery_supervisor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "recovery_supervisor.recovery_event",
+          "recovery_supervisor.fault_trigger"
+        ],
+        "owner_local_facts": [
+          "next recovery phase gate and emergency"
+        ],
+        "contract_cases": [
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10",
+          "CASE-11",
+          "CASE-12"
+        ],
+        "analyzer_checks": [
+          "recovery transition partition",
+          "two event recovery sequence"
+        ]
+      },
+      {
+        "usage": "urgent_release_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "urgent_release_eligibility.demand_state",
+          "urgent_release_eligibility.material_readiness_facts",
+          "urgent_release_eligibility.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "urgent release proposal"
+        ],
+        "contract_cases": [
+          "CASE-19",
+          "CASE-20"
+        ],
+        "analyzer_checks": [
+          "urgent proposal partition"
+        ]
+      },
+      {
+        "usage": "routine_release_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "routine_release_eligibility.demand_state",
+          "routine_release_eligibility.material_readiness_facts",
+          "routine_release_eligibility.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "routine release proposal"
+        ],
+        "contract_cases": [
+          "CASE-21",
+          "CASE-22"
+        ],
+        "analyzer_checks": [
+          "routine proposal partition"
+        ]
+      },
+      {
+        "usage": "replenishment_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "replenishment_eligibility.material_readiness_facts",
+          "replenishment_eligibility.supply_state",
+          "replenishment_eligibility.supplier_availability",
+          "replenishment_eligibility.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "replenishment proposal"
+        ],
+        "contract_cases": [
+          "CASE-23",
+          "CASE-24"
+        ],
+        "analyzer_checks": [
+          "replenishment proposal partition"
+        ]
+      },
+      {
+        "usage": "material_action_arbitration",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "material_action_arbitration.emergency_state",
+          "material_action_arbitration.urgent_proposal",
+          "material_action_arbitration.replenishment_proposal",
+          "material_action_arbitration.routine_proposal"
+        ],
+        "owner_local_facts": [
+          "strict priority action and cause"
+        ],
+        "contract_cases": [
+          "CASE-25",
+          "CASE-26",
+          "CASE-27",
+          "CASE-28",
+          "CASE-29"
+        ],
+        "analyzer_checks": [
+          "arbitration priority partition"
+        ]
+      },
+      {
+        "usage": "result_composition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "result_composition.demand_transition",
+          "result_composition.supply_state",
+          "result_composition.recovery_state",
+          "result_composition.decision"
+        ],
+        "owner_local_facts": [
+          "atomic public mode and flat result"
+        ],
+        "contract_cases": [
+          "REL-COMP-01"
+        ],
+        "analyzer_checks": [
+          "atomic composition mapping"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "PART-01 through PART-14 are responsibility-bearing Threads; root and behavior-free support Process are excluded.",
+    "semantic_interactions": "INT-01 through INT-35; seven root/Process delegations are excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-29; initialization, acquisition maps, projections, disposition, composition mapping, and support relations are excluded.",
+    "scenario_families": "SCN-01 through SCN-10; each has checked concrete bounded input/state trace evidence.",
+    "ownership": "Every claimed applicability, proposal, state/decision, decision, or composition owner executes its assigned local relation in all 97,200 evaluations; identity subrelations receive no separate credit.",
+    "composition": "Bounded composition of named local relations over the explicit INT-01..35 map; not a compositional-proof claim."
+  }
+}

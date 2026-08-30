@@ -1,0 +1,415 @@
+{
+  "source": "model/EIT_Image_Availability_Coordinator.sysml",
+  "source_sha256": "eb9945247f0f310140417622b23b5cfb9ef7a0efee2bb1b6c1f9ec486021d02a",
+  "root_system_usages": 1,
+  "semantic_usages": 14,
+  "generated_support_usages": 1,
+  "reachable_architecture_usages_excluding_root": 15,
+  "all_usages_including_root": 16,
+  "containment_depth_beneath_root": 2,
+  "semantic_responsibility_layers": 1,
+  "semantic_interactions": 34,
+  "sibling_thread_semantic_connection_declarations": 34,
+  "boundary_semantic_meanings_realized_by_support": 7,
+  "generated_support_routes": 14,
+  "source_port_connection_declarations": 48,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 30,
+  "specified_scenario_families": 10,
+  "scenario_families": 10,
+  "state_owners": 4,
+  "decision_or_classification_owners": 14,
+  "gumbo_inspected_record_attributes": 44,
+  "architecture_repairs": 3,
+  "architecture_diagnostic_cycles": 2,
+  "contract_repairs": 4,
+  "contract_diagnostic_cycles": 15,
+  "analyzer_repairs": 1,
+  "analyzer_diagnostic_cycles": 2,
+  "bounded_analysis": {
+    "status": "passed",
+    "raw_boundary_snapshots": 7560,
+    "state_combinations": 400,
+    "one_step_valuations": 3024000,
+    "partition_case_hits": {
+      "CASE-01": 2870400,
+      "CASE-02": 38400,
+      "CASE-03": 9600,
+      "CASE-04": 9600,
+      "CASE-05": 9600,
+      "CASE-06": 86400,
+      "CASE-07": 2976000,
+      "CASE-08": 12000,
+      "CASE-09": 12000,
+      "CASE-10": 12000,
+      "CASE-11": 12000,
+      "CASE-12": 2976000,
+      "CASE-13": 9600,
+      "CASE-14": 12800,
+      "CASE-15": 10000,
+      "CASE-16": 1200,
+      "CASE-17": 14400,
+      "CASE-18": 2976000,
+      "CASE-19": 9600,
+      "CASE-20": 37120,
+      "CASE-21": 320,
+      "CASE-22": 640,
+      "CASE-23": 320,
+      "CASE-24": 2976000,
+      "CASE-25": 12800,
+      "CASE-26": 10000,
+      "CASE-27": 640,
+      "CASE-28": 720,
+      "CASE-29": 160,
+      "CASE-30": 23680
+    },
+    "gaps": 0,
+    "overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_failures": 0,
+    "scenario_failures": 0
+  },
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 14,
+    "semantic_interactions": 34,
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "image_event_qualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "image_event_qualification.imageSignal"
+        ],
+        "owner_local_facts": [
+          "IMAGE_QUALIFICATION"
+        ],
+        "contract_cases": [
+          "IMAGE_QUALIFICATION"
+        ],
+        "analyzer_checks": [
+          "check_image_qualification"
+        ]
+      },
+      {
+        "usage": "doctor_event_qualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "doctor_event_qualification.doctorSignal"
+        ],
+        "owner_local_facts": [
+          "DOCTOR_QUALIFICATION"
+        ],
+        "contract_cases": [
+          "DOCTOR_QUALIFICATION"
+        ],
+        "analyzer_checks": [
+          "check_doctor_qualification"
+        ]
+      },
+      {
+        "usage": "preparation_context_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "preparation_context_assessment.preparationContext"
+        ],
+        "owner_local_facts": [
+          "CONTEXT_ASSESSMENT"
+        ],
+        "contract_cases": [
+          "CONTEXT_ASSESSMENT"
+        ],
+        "analyzer_checks": [
+          "check_context_assessment"
+        ]
+      },
+      {
+        "usage": "availability_service_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "availability_service_assessment.availabilityService"
+        ],
+        "owner_local_facts": [
+          "SERVICE_ASSESSMENT"
+        ],
+        "contract_cases": [
+          "SERVICE_ASSESSMENT"
+        ],
+        "analyzer_checks": [
+          "check_service_assessment"
+        ]
+      },
+      {
+        "usage": "fault_composition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "fault_composition.imageFacts",
+          "fault_composition.reviewFacts",
+          "fault_composition.contextFacts",
+          "fault_composition.serviceFacts"
+        ],
+        "owner_local_facts": [
+          "FAULT_PRESENCE_AND_MULTIPLICITY",
+          "FAULT_DOMINANCE"
+        ],
+        "contract_cases": [
+          "FAULT_PRESENCE_AND_MULTIPLICITY",
+          "FAULT_DOMINANCE"
+        ],
+        "analyzer_checks": [
+          "check_fault_composition"
+        ]
+      },
+      {
+        "usage": "recovery_control",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "recovery_control.recoveryEvent",
+          "recovery_control.faultSummary",
+          "recovery_control.recovery"
+        ],
+        "owner_local_facts": [
+          "RECOVERY_TRANSITION",
+          "EFFECTIVE_FAULT"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04",
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "check_recovery_partition",
+          "check_recovery_fault_dominance"
+        ]
+      },
+      {
+        "usage": "evidence_lifecycle",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "evidence_lifecycle.imageFacts",
+          "evidence_lifecycle.contextFacts",
+          "evidence_lifecycle.recoveryFrame",
+          "evidence_lifecycle.evidence"
+        ],
+        "owner_local_facts": [
+          "EVIDENCE_TRANSITION",
+          "CONTEXT_ACCEPTED"
+        ],
+        "contract_cases": [
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10",
+          "CASE-11"
+        ],
+        "analyzer_checks": [
+          "check_evidence_partition"
+        ]
+      },
+      {
+        "usage": "admission_decision",
+        "claimed_roles": [
+          "applicability",
+          "decision"
+        ],
+        "assigned_inputs": [
+          "admission_decision.imageFacts",
+          "admission_decision.contextFacts",
+          "admission_decision.serviceFacts",
+          "admission_decision.recoveryFrame",
+          "admission_decision.evidenceFrame"
+        ],
+        "owner_local_facts": [
+          "ADMISSION_POLICY"
+        ],
+        "contract_cases": [
+          "ADMISSION_POLICY"
+        ],
+        "analyzer_checks": [
+          "check_admission_policy"
+        ]
+      },
+      {
+        "usage": "artifact_lifecycle",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "artifact_lifecycle.imageFacts",
+          "artifact_lifecycle.recoveryFrame",
+          "artifact_lifecycle.admissionFrame",
+          "artifact_lifecycle.reviewFacts",
+          "artifact_lifecycle.artifact"
+        ],
+        "owner_local_facts": [
+          "ARTIFACT_TRANSITION",
+          "WITHDRAW_PROPOSAL",
+          "REJECT_PROPOSAL",
+          "ACCEPT_PROPOSAL",
+          "CLOSURE_WINDOW"
+        ],
+        "contract_cases": [
+          "CASE-12",
+          "CASE-13",
+          "CASE-14",
+          "CASE-15",
+          "CASE-16",
+          "CASE-17"
+        ],
+        "analyzer_checks": [
+          "check_artifact_partition",
+          "check_closure_window"
+        ]
+      },
+      {
+        "usage": "availability_decision",
+        "claimed_roles": [
+          "applicability",
+          "decision"
+        ],
+        "assigned_inputs": [
+          "availability_decision.serviceFacts",
+          "availability_decision.recoveryFrame",
+          "availability_decision.evidenceFrame",
+          "availability_decision.artifactFrame"
+        ],
+        "owner_local_facts": [
+          "AVAILABILITY_POLICY",
+          "BLOCK_REASON"
+        ],
+        "contract_cases": [
+          "AVAILABILITY_POLICY"
+        ],
+        "analyzer_checks": [
+          "check_availability_policy"
+        ]
+      },
+      {
+        "usage": "review_lifecycle",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "review_lifecycle.reviewFacts",
+          "review_lifecycle.recoveryFrame",
+          "review_lifecycle.availabilityFrame",
+          "review_lifecycle.review"
+        ],
+        "owner_local_facts": [
+          "REVIEW_TRANSITION"
+        ],
+        "contract_cases": [
+          "CASE-18",
+          "CASE-19",
+          "CASE-20",
+          "CASE-21",
+          "CASE-22",
+          "CASE-23"
+        ],
+        "analyzer_checks": [
+          "check_review_partition"
+        ]
+      },
+      {
+        "usage": "presentation_decision",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "presentation_decision.availabilityFrame",
+          "presentation_decision.reviewFrame"
+        ],
+        "owner_local_facts": [
+          "PRESENTATION_POLICY"
+        ],
+        "contract_cases": [
+          "PRESENTATION_POLICY"
+        ],
+        "analyzer_checks": [
+          "check_presentation_policy"
+        ]
+      },
+      {
+        "usage": "availability_arbitration",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "availability_arbitration.recoveryFrame",
+          "availability_arbitration.admissionFrame",
+          "availability_arbitration.artifactFrame",
+          "availability_arbitration.presentationFrame",
+          "availability_arbitration.evidenceFrame",
+          "availability_arbitration.availabilityFrame",
+          "availability_arbitration.reviewFrame"
+        ],
+        "owner_local_facts": [
+          "SELECTED_ACTION",
+          "SELECTED_REASON",
+          "OWNER_SOURCED_FRAME"
+        ],
+        "contract_cases": [
+          "CASE-24",
+          "CASE-25",
+          "CASE-26",
+          "CASE-27",
+          "CASE-28",
+          "CASE-29",
+          "CASE-30"
+        ],
+        "analyzer_checks": [
+          "check_arbitration_partition",
+          "check_priority_witnesses",
+          "check_owner_sourced_frame"
+        ]
+      },
+      {
+        "usage": "publication_composition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "publication_composition.decisionFrame"
+        ],
+        "owner_local_facts": [
+          "ACTION_OUTPUT_COMPOSITION",
+          "TOTAL_PUBLIC_MODE"
+        ],
+        "contract_cases": [
+          "ACTION_OUTPUT_COMPOSITION",
+          "TOTAL_PUBLIC_MODE"
+        ],
+        "analyzer_checks": [
+          "check_publication_totality",
+          "check_output_coordination"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

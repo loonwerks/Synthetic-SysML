@@ -1,0 +1,20 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_a9da6bc742a0_Oracle_Pointwise_Realizable {
+  @pure def check(
+      generationprestate: equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationState.Type,
+      generatorfeedback: equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedback.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.NO_RESULT, matched = F))) |
+        (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.NO_RESULT, matched = T))) |
+        (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.MATCHED_IMAGE_A, matched = F))) |
+        (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.MATCHED_IMAGE_A, matched = T))) |
+        (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.MATCHED_IMAGE_B, matched = F))) |
+        (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.MATCHED_IMAGE_B, matched = T))) |
+        (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.FEEDBACK_FAULT, matched = F))) |
+        (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackAssessment(condition = equiv_shared_0.EIT_Image_Review_Availability_Coordinator.FeedbackCondition.FEEDBACK_FAULT, matched = T))))))
+  }
+}

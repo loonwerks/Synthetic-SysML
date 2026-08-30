@@ -1,0 +1,1198 @@
+{
+  "status": "passed",
+  "source_sha256": "22064e03e97700d3681763675948c193b804cc357ca2c0b39fc8665e6b648b69",
+  "claim_boundary": "Exhaustive only over the approved finite logical-step domain; this is not solver proof, generated-code correctness, execution evidence, physical-performance evidence, or safety certification.",
+  "partition_counts": {
+    "root_input_snapshots": 5184,
+    "prior_state_pairs": 6,
+    "exhaustive_one_step_evaluations": 31104,
+    "covered_contract_cases": 30,
+    "scenario_families_executed": 11
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "semantic_connection_map_violations": 0,
+    "closed_gate_violations": 0,
+    "scenario_mismatches": 0,
+    "fault_propagation_mismatches": 0
+  },
+  "checks": {
+    "exact_finite_domain": true,
+    "all_30_cases_covered": true,
+    "all_11_scenario_traces_pass": true,
+    "exact_31_semantic_interactions_composed": true,
+    "closed_gate_noninterference": true,
+    "dispatch_over_production_reachable": true,
+    "dispatch_over_procurement_reachable": true,
+    "same_evaluation_fault_propagation_all_prior_pairs": true,
+    "lifecycle_stutter_and_progress": true,
+    "flat_tuple_preservation": true,
+    "recovery_gate_invariant": true,
+    "owner_local_checks_executed": true
+  },
+  "case_counts": {
+    "CASE-01": 5184,
+    "CASE-02": 15552,
+    "CASE-03": 2592,
+    "CASE-04": 2592,
+    "CASE-05": 2592,
+    "CASE-06": 2592,
+    "CASE-07": 15552,
+    "CASE-08": 5184,
+    "CASE-09": 1728,
+    "CASE-10": 3456,
+    "CASE-11": 1728,
+    "CASE-12": 3456,
+    "CASE-13": 1152,
+    "CASE-14": 29952,
+    "CASE-15": 768,
+    "CASE-16": 30336,
+    "CASE-17": 768,
+    "CASE-18": 30336,
+    "CASE-19": 768,
+    "CASE-20": 30336,
+    "CASE-21": 24192,
+    "CASE-22": 768,
+    "CASE-23": 640,
+    "CASE-24": 640,
+    "CASE-25": 1152,
+    "CASE-26": 3712,
+    "CASE-27": 7776,
+    "CASE-28": 7776,
+    "CASE-29": 1152,
+    "CASE-30": 14400
+  },
+  "priority_witness_counts": {
+    "dispatch_over_production": 128,
+    "dispatch_over_procurement": 128
+  },
+  "semantic_connection_map": [
+    "INT-01",
+    "INT-02",
+    "INT-03",
+    "INT-07",
+    "INT-08",
+    "INT-09",
+    "INT-10",
+    "INT-11",
+    "INT-12",
+    "INT-13",
+    "INT-14",
+    "INT-15",
+    "INT-16",
+    "INT-17",
+    "INT-18",
+    "INT-19",
+    "INT-20",
+    "INT-21",
+    "INT-22",
+    "INT-23",
+    "INT-24",
+    "INT-25",
+    "INT-26",
+    "INT-27",
+    "INT-28",
+    "INT-29",
+    "INT-30",
+    "INT-31",
+    "INT-32",
+    "INT-33",
+    "INT-34"
+  ],
+  "ownership_audit": [
+    {
+      "usage": "customer_request_acquisition",
+      "assigned_inputs": [
+        "freshRequest"
+      ],
+      "owner_local_facts": [
+        "requestPresent"
+      ],
+      "contract_cases": [
+        "REL-REQ-01"
+      ],
+      "analyzer_checks": [
+        "customer_request_presence_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "inventory_acquisition",
+      "assigned_inputs": [
+        "inventorySnapshot.materialBand",
+        "inventorySnapshot.productBand"
+      ],
+      "owner_local_facts": [
+        "materialUsable",
+        "productUsable"
+      ],
+      "contract_cases": [
+        "REL-STOCK-01"
+      ],
+      "analyzer_checks": [
+        "inventory_usability_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "execution_outcome_acquisition",
+      "assigned_inputs": [
+        "executionOutcome"
+      ],
+      "owner_local_facts": [
+        "eventClass"
+      ],
+      "contract_cases": [
+        "REL-OUT-01"
+      ],
+      "analyzer_checks": [
+        "outcome_event_class_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "request_qualification",
+      "assigned_inputs": [
+        "request_boundary_facts.fresh_request",
+        "request_boundary_facts.request_present"
+      ],
+      "owner_local_facts": [
+        "requestValid",
+        "requestExpedited"
+      ],
+      "contract_cases": [
+        "REL-REQ-01"
+      ],
+      "analyzer_checks": [
+        "request_qualification_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "stock_assessment",
+      "assigned_inputs": [
+        "material_boundary_facts",
+        "product_boundary_facts"
+      ],
+      "owner_local_facts": [
+        "materialShortage",
+        "materialReady",
+        "productAvailable"
+      ],
+      "contract_cases": [
+        "REL-STOCK-01"
+      ],
+      "analyzer_checks": [
+        "stock_assessment_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "outcome_qualification",
+      "assigned_inputs": [
+        "outcome_boundary_facts.event_class",
+        "outcome_boundary_facts.execution_outcome",
+        "prior_order_state"
+      ],
+      "owner_local_facts": [
+        "qualifiedOutcome"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "qualified_outcome_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recovery_control",
+      "assigned_inputs": [
+        "qualified_outcome",
+        "recoveryEvent",
+        "In(recoveryState)"
+      ],
+      "owner_local_facts": [
+        "nextRecoveryState",
+        "recoveryGate",
+        "emergencyState"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "recovery_transition_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "order_lifecycle",
+      "assigned_inputs": [
+        "qualified_outcome",
+        "recovery_gate",
+        "In(orderState)"
+      ],
+      "owner_local_facts": [
+        "priorOrderState",
+        "nextOrderState"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "order_transition_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "quotation_eligibility",
+      "assigned_inputs": [
+        "request_facts.request_valid",
+        "order_state",
+        "recovery_gate"
+      ],
+      "owner_local_facts": [
+        "quotationProposal"
+      ],
+      "contract_cases": [
+        "CASE-13",
+        "CASE-14"
+      ],
+      "analyzer_checks": [
+        "quotation_proposal_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "procurement_eligibility",
+      "assigned_inputs": [
+        "stock_facts.material_usable",
+        "stock_facts.material_shortage",
+        "supplier_available",
+        "order_state",
+        "recovery_gate"
+      ],
+      "owner_local_facts": [
+        "procurementProposal"
+      ],
+      "contract_cases": [
+        "CASE-15",
+        "CASE-16"
+      ],
+      "analyzer_checks": [
+        "procurement_proposal_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "production_eligibility",
+      "assigned_inputs": [
+        "stock_facts.material_usable",
+        "stock_facts.material_ready",
+        "production_available",
+        "order_state",
+        "recovery_gate"
+      ],
+      "owner_local_facts": [
+        "productionProposal"
+      ],
+      "contract_cases": [
+        "CASE-17",
+        "CASE-18"
+      ],
+      "analyzer_checks": [
+        "production_proposal_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "dispatch_eligibility",
+      "assigned_inputs": [
+        "stock_facts.product_usable",
+        "stock_facts.product_available",
+        "dispatch_available",
+        "order_state",
+        "recovery_gate"
+      ],
+      "owner_local_facts": [
+        "dispatchProposal"
+      ],
+      "contract_cases": [
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "dispatch_proposal_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "action_arbitration",
+      "assigned_inputs": [
+        "emergency_state",
+        "quotation_proposal",
+        "procurement_proposal",
+        "production_proposal",
+        "dispatch_proposal"
+      ],
+      "owner_local_facts": [
+        "selectedAction"
+      ],
+      "contract_cases": [
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26"
+      ],
+      "analyzer_checks": [
+        "action_priority_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "status_derivation",
+      "assigned_inputs": [
+        "selected_action",
+        "order_state",
+        "recovery_state"
+      ],
+      "owner_local_facts": [
+        "mode",
+        "selectedCause",
+        "statusRecord"
+      ],
+      "contract_cases": [
+        "REL-STAT-01"
+      ],
+      "analyzer_checks": [
+        "status_mapping_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "public_composition",
+      "assigned_inputs": [
+        "request_facts",
+        "selected_action",
+        "status_record"
+      ],
+      "owner_local_facts": [
+        "requestDisposition",
+        "publicResult"
+      ],
+      "contract_cases": [
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "CASE-30"
+      ],
+      "analyzer_checks": [
+        "public_disposition_partition",
+        "flat_tuple_composition"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "id": "SCN-01",
+      "name": "nominal_standard_request",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "VALID_STANDARD",
+            "inventorySnapshot": {
+              "materialBand": "INVALID",
+              "productBand": "ABSENT"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": false,
+              "dispatchAvailable": false
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "IDLE",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-13",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "IDLE",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "QUOTING",
+              "selectedCause": "QUOTE_AVAILABLE",
+              "orderState": "IDLE",
+              "recoveryState": "HEALTHY",
+              "action": "ISSUE_QUOTE",
+              "requestDisposition": "QUOTED",
+              "caseId": "CASE-29"
+            },
+            "requestExpedited": false
+          }
+        },
+        {
+          "input": {
+            "freshRequest": "NONE",
+            "inventorySnapshot": {
+              "materialBand": "INVALID",
+              "productBand": "ABSENT"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": false,
+              "dispatchAvailable": false
+            },
+            "executionOutcome": "QUOTE_OK",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "IDLE",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-03",
+            "CASE-08",
+            "CASE-14",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-26",
+            "CASE-27"
+          ],
+          "observed": {
+            "qualifiedOutcome": "QUOTE_ACCEPTED",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "HOLDING",
+              "selectedCause": "NO_ELIGIBLE_WORK",
+              "orderState": "OPEN",
+              "recoveryState": "HEALTHY",
+              "action": "HOLD",
+              "requestDisposition": "NO_REQUEST",
+              "caseId": "CASE-27"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "name": "nominal_expedited_request",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "VALID_EXPEDITE",
+            "inventorySnapshot": {
+              "materialBand": "INVALID",
+              "productBand": "ABSENT"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": false,
+              "dispatchAvailable": false
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "IDLE",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-13",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "IDLE",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "QUOTING",
+              "selectedCause": "QUOTE_AVAILABLE",
+              "orderState": "IDLE",
+              "recoveryState": "HEALTHY",
+              "action": "ISSUE_QUOTE",
+              "requestDisposition": "QUOTED",
+              "caseId": "CASE-29"
+            },
+            "requestExpedited": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "name": "material_shortage",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "NONE",
+            "inventorySnapshot": {
+              "materialBand": "SHORT",
+              "productBand": "ABSENT"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": true,
+              "productionAvailable": false,
+              "dispatchAvailable": false
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "OPEN",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-14",
+            "CASE-15",
+            "CASE-18",
+            "CASE-20",
+            "CASE-24",
+            "CASE-27"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "PROCURING",
+              "selectedCause": "PROCUREMENT_PRIORITY",
+              "orderState": "OPEN",
+              "recoveryState": "HEALTHY",
+              "action": "ORDER_MATERIAL",
+              "requestDisposition": "NO_REQUEST",
+              "caseId": "CASE-27"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "name": "production_release",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "NONE",
+            "inventorySnapshot": {
+              "materialBand": "READY",
+              "productBand": "ABSENT"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": true,
+              "dispatchAvailable": false
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "OPEN",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-14",
+            "CASE-16",
+            "CASE-17",
+            "CASE-20",
+            "CASE-23",
+            "CASE-27"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "PRODUCING",
+              "selectedCause": "PRODUCTION_PRIORITY",
+              "orderState": "OPEN",
+              "recoveryState": "HEALTHY",
+              "action": "RELEASE_PRODUCTION",
+              "requestDisposition": "NO_REQUEST",
+              "caseId": "CASE-27"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "name": "dispatch_release",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "NONE",
+            "inventorySnapshot": {
+              "materialBand": "INVALID",
+              "productBand": "AVAILABLE"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": false,
+              "dispatchAvailable": true
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "OPEN",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-14",
+            "CASE-16",
+            "CASE-18",
+            "CASE-19",
+            "CASE-22",
+            "CASE-27"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "DISPATCHING",
+              "selectedCause": "DISPATCH_PRIORITY",
+              "orderState": "OPEN",
+              "recoveryState": "HEALTHY",
+              "action": "RELEASE_DISPATCH",
+              "requestDisposition": "NO_REQUEST",
+              "caseId": "CASE-27"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-06",
+      "name": "dispatch_over_production",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "NONE",
+            "inventorySnapshot": {
+              "materialBand": "READY",
+              "productBand": "AVAILABLE"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": true,
+              "dispatchAvailable": true
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "OPEN",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-14",
+            "CASE-16",
+            "CASE-17",
+            "CASE-19",
+            "CASE-22",
+            "CASE-27"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "PROPOSED",
+              "dispatch": "PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "DISPATCHING",
+              "selectedCause": "DISPATCH_PRIORITY",
+              "orderState": "OPEN",
+              "recoveryState": "HEALTHY",
+              "action": "RELEASE_DISPATCH",
+              "requestDisposition": "NO_REQUEST",
+              "caseId": "CASE-27"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-07",
+      "name": "dispatch_over_procurement",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "NONE",
+            "inventorySnapshot": {
+              "materialBand": "SHORT",
+              "productBand": "AVAILABLE"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": true,
+              "productionAvailable": false,
+              "dispatchAvailable": true
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "OPEN",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-14",
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-22",
+            "CASE-27"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "DISPATCHING",
+              "selectedCause": "DISPATCH_PRIORITY",
+              "orderState": "OPEN",
+              "recoveryState": "HEALTHY",
+              "action": "RELEASE_DISPATCH",
+              "requestDisposition": "NO_REQUEST",
+              "caseId": "CASE-27"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-08",
+      "name": "failed_outcome",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "VALID_STANDARD",
+            "inventorySnapshot": {
+              "materialBand": "READY",
+              "productBand": "AVAILABLE"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": true,
+              "productionAvailable": true,
+              "dispatchAvailable": true
+            },
+            "executionOutcome": "FAILED",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "IDLE",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-02",
+            "CASE-07",
+            "CASE-14",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-21",
+            "CASE-30"
+          ],
+          "observed": {
+            "qualifiedOutcome": "FAULT",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "IDLE",
+            "nextRecoveryState": "LATCHED",
+            "publicResult": {
+              "mode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "orderState": "IDLE",
+              "recoveryState": "LATCHED",
+              "action": "HOLD",
+              "requestDisposition": "DEFERRED",
+              "caseId": "CASE-30"
+            },
+            "requestExpedited": false
+          }
+        },
+        {
+          "input": {
+            "freshRequest": "VALID_STANDARD",
+            "inventorySnapshot": {
+              "materialBand": "READY",
+              "productBand": "AVAILABLE"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": true,
+              "productionAvailable": true,
+              "dispatchAvailable": true
+            },
+            "executionOutcome": "FAILED",
+            "recoveryEvent": "VERIFY_OK"
+          },
+          "prior_state": {
+            "orderState": "OPEN",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-02",
+            "CASE-07",
+            "CASE-14",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-21",
+            "CASE-30"
+          ],
+          "observed": {
+            "qualifiedOutcome": "FAULT",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "LATCHED",
+            "publicResult": {
+              "mode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "orderState": "OPEN",
+              "recoveryState": "LATCHED",
+              "action": "HOLD",
+              "requestDisposition": "DEFERRED",
+              "caseId": "CASE-30"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-09",
+      "name": "unexpected_success",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "VALID_STANDARD",
+            "inventorySnapshot": {
+              "materialBand": "READY",
+              "productBand": "AVAILABLE"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": true,
+              "productionAvailable": true,
+              "dispatchAvailable": true
+            },
+            "executionOutcome": "DISPATCH_OK",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "IDLE",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-02",
+            "CASE-07",
+            "CASE-14",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-21",
+            "CASE-30"
+          ],
+          "observed": {
+            "qualifiedOutcome": "FAULT",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "IDLE",
+            "nextRecoveryState": "LATCHED",
+            "publicResult": {
+              "mode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "orderState": "IDLE",
+              "recoveryState": "LATCHED",
+              "action": "HOLD",
+              "requestDisposition": "DEFERRED",
+              "caseId": "CASE-30"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-10",
+      "name": "two_event_recovery",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "VALID_STANDARD",
+            "inventorySnapshot": {
+              "materialBand": "INVALID",
+              "productBand": "ABSENT"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": false,
+              "dispatchAvailable": false
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "RESET"
+          },
+          "prior_state": {
+            "orderState": "IDLE",
+            "recoveryState": "LATCHED"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-09",
+            "CASE-14",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-21",
+            "CASE-30"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "IDLE",
+            "nextRecoveryState": "RECOVERING",
+            "publicResult": {
+              "mode": "FAULT",
+              "selectedCause": "FAULT_OR_RECOVERY",
+              "orderState": "IDLE",
+              "recoveryState": "RECOVERING",
+              "action": "HOLD",
+              "requestDisposition": "DEFERRED",
+              "caseId": "CASE-30"
+            },
+            "requestExpedited": false
+          }
+        },
+        {
+          "input": {
+            "freshRequest": "VALID_STANDARD",
+            "inventorySnapshot": {
+              "materialBand": "INVALID",
+              "productBand": "ABSENT"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": false,
+              "dispatchAvailable": false
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "VERIFY_OK"
+          },
+          "prior_state": {
+            "orderState": "IDLE",
+            "recoveryState": "RECOVERING"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-11",
+            "CASE-13",
+            "CASE-16",
+            "CASE-18",
+            "CASE-20",
+            "CASE-25",
+            "CASE-29"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "NOT_PROPOSED"
+            },
+            "nextOrderState": "IDLE",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "QUOTING",
+              "selectedCause": "QUOTE_AVAILABLE",
+              "orderState": "IDLE",
+              "recoveryState": "HEALTHY",
+              "action": "ISSUE_QUOTE",
+              "requestDisposition": "QUOTED",
+              "caseId": "CASE-29"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-11",
+      "name": "fresh_request_while_busy",
+      "traces": [
+        {
+          "input": {
+            "freshRequest": "VALID_STANDARD",
+            "inventorySnapshot": {
+              "materialBand": "READY",
+              "productBand": "AVAILABLE"
+            },
+            "capabilitySnapshot": {
+              "supplierAvailable": false,
+              "productionAvailable": false,
+              "dispatchAvailable": true
+            },
+            "executionOutcome": "NONE",
+            "recoveryEvent": "NONE"
+          },
+          "prior_state": {
+            "orderState": "OPEN",
+            "recoveryState": "HEALTHY"
+          },
+          "expected_branch": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-14",
+            "CASE-16",
+            "CASE-18",
+            "CASE-19",
+            "CASE-22",
+            "CASE-30"
+          ],
+          "observed": {
+            "qualifiedOutcome": "NO_PROGRESS",
+            "proposals": {
+              "quotation": "NOT_PROPOSED",
+              "procurement": "NOT_PROPOSED",
+              "production": "NOT_PROPOSED",
+              "dispatch": "PROPOSED"
+            },
+            "nextOrderState": "OPEN",
+            "nextRecoveryState": "HEALTHY",
+            "publicResult": {
+              "mode": "DISPATCHING",
+              "selectedCause": "DISPATCH_PRIORITY",
+              "orderState": "OPEN",
+              "recoveryState": "HEALTHY",
+              "action": "RELEASE_DISPATCH",
+              "requestDisposition": "DEFERRED",
+              "caseId": "CASE-30"
+            },
+            "requestExpedited": false
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_43569624de77_2_Complement {
+  @pure def check(
+      service_activity: equiv_shared_0.Docking_Access_Supervisor.ServiceActivity.Type,
+      service_facts: equiv_shared_0.Docking_Access_Supervisor.ServiceFacts,
+      service_readiness: equiv_shared_0.Docking_Access_Supervisor.ServiceFacts): Unit = {
+    Contract(Requires(!((((T) & (T)) ___>: (equiv_shared_0.Docking_Access_Supervisor.ServiceActivityAssessment_supervisor_process_service_activity_assessment_GumboX.inititialize_IEP_Post(service_facts, service_readiness))) & T)))
+  }
+}

@@ -1,0 +1,26 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_919daefbcccd_Oracle_Pointwise_Realizable {
+  @pure def check(
+      communication_assessment: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment,
+      energy_assessment: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EnergyAssessment,
+      navigation_assessment: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.NavigationAssessment,
+      observation_assessment: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment,
+      obstacle_assessment: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment,
+      propulsion_assessment: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.PropulsionAssessment,
+      recovery_facts: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.RecoveryFacts,
+      request_phase: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.RequestPhase.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Withhold, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.None))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Withhold, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.Equipment))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Withhold, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.Recovery))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Withhold, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.NoRequest))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Permit, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.None))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Permit, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.Equipment))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Permit, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.Recovery))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecisionOwner_eligibility_supervisor_process_eligibility_decision_owner_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityDecision(directive = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SortieDirective.Permit, reason = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EligibilityReason.NoRequest))))))
+  }
+}

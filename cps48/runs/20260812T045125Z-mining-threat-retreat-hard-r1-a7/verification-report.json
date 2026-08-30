@@ -1,0 +1,673 @@
+{
+  "schema_version": 2,
+  "run_id": "20260812T045125Z-mining-threat-retreat-hard-r1-a7",
+  "terminal_status": "accepted",
+  "source": "model/Mining_Threat_Retreat_Supervision.sysml",
+  "source_sha256": "bb13339d7f5660e87e36ccfe82be77a6da2b6dd236c89790652c1e07a81df79d",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "presentation_repair": "passed",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 14,
+    "edgeCount": 14,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 184,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BEH-02",
+      "BEH-08",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28",
+      "CONSTR-01",
+      "CTRL-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-14",
+      "SCOPE-01",
+      "STATE-01",
+      "SUPPORT-01",
+      "TYPE-01",
+      "TYPE-02",
+      "TYPE-03",
+      "TYPE-04",
+      "TYPE-05",
+      "TYPE-06",
+      "TYPE-07",
+      "TYPE-08",
+      "TYPE-09",
+      "TYPE-10",
+      "TYPE-11"
+    ],
+    "relativePath": "cps48/runs/20260812T045125Z-mining-threat-retreat-hard-r1-a7/system-abstract.md",
+    "taggedElementCount": 203,
+    "traceAssociationCount": 204,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "seed-generation": {
+      "disposition": "passed",
+      "summary": "Frozen hard-tier mining threat, retreat, service, fault, and recovery supervision seed.",
+      "source_files": [
+        "models/example_EveOnlineMiningFrigate/DomainModel/BusinessCaseOpsCon.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/Concerns.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/Domain.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/MiningFrigate.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/MiningFrigateRequirementsDef.sysml",
+        "models/example_EveOnlineMiningFrigate/UseCases/OperationalUseCaseActions.sysml"
+      ],
+      "selected_problem": "Mining-frigate threat, retreat, and service supervision"
+    },
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected the 14-owner composed design with 34 interactions, 28 cases, and 12 scenarios; all hard-tier obligations are explicit.",
+      "questions_for_model": [
+        "Can the supported SysML-AADL and GUMBO subset realize the exact 14-usage, 34-interaction typed fan-out without routing wrappers or centralized recomputation?",
+        "Can recovery control alone express previous-to-next recovery, first-match trigger priority, and same-evaluation gate/emergency derivation in owner-local contracts checked by the bounded analyzer?",
+        "Can one atomic PublicResult boundary value compose action, cause, mode, and actual next recovery from their separate owners with complete field-level traceability?",
+        "Can the independent harness exhaust the finite input and previous-recovery space while preserving exactly 28 credited nontrivial contract cases?"
+      ]
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Three claimed owners are identity relations; localized reassignment preserves the frozen behavior within hard bounds.",
+      "findings": [
+        {
+          "classification": "localized-mapping",
+          "evidence": "PART-06 is extensionally the bijection INVALID->UNKNOWN, CLEAR->CLEAR, SUSPECT->SUSPECT, HOSTILE->HOSTILE. Different enum labels do not make this more than a one-to-one rename.",
+          "requested_change": "Add a many-to-one ThreatValidity fact owned by PART-06; change INT-15 to carry it to recovery control while INT-16..18 retain ThreatDisposition. Keep CASE-01..04 and all public behavior unchanged."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-07 currently maps cargo, capacitor, location, and five availability values into a record containing the same values; this is pure bundling and supplies no owner-local classification or combination.",
+          "requested_change": "Make PART-07 derive mining readiness, defense readiness, retreat feasibility, full-cargo, and dock-service applicability facts; retain INT-06..13 and three revised assessment fan-outs INT-19..21, and prove CASE-10..16 extensionally unchanged."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-14's planned PublicResult relation copies each of four assigned fields to the corresponding output field, so atomic bundling alone cannot earn owner or semantic-usage credit.",
+          "requested_change": "Delete standalone PART-13 and expand PART-14 to own CASE-23..28 mode derivation plus atomic publication. Replace original INT-29..34 with three inputs to the merged owner; update metrics to 13 semantic usages and 31 semantic interactions."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The current library and a fresh exit-0 Sireum check support System/Process/Thread containment, typed ports/connections, local state, and composition forms. Exhaustive analysis has 161,280 raw-input/previous-state valuations, while the harness watchdog is 180 seconds. PART-08..12 and PART-13's mode relation are state-dependent, combining, or priority-selecting rather than identity relations.",
+          "requested_change": "Clarify that PART-01..05 are external-context/source usages, never internal receive-and-forward wrappers; otherwise no containment, interface, GUMBO-locality, or bounded-scale change is required."
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Localized ownership revision approved; exact frozen behavior retained at 13 usages, 31 interactions, 28 cases, and 12 scenarios.",
+      "revision_used": true,
+      "generation_authorized": true
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical SysML, both retained typecheck gates, complete trace audit, and the 161,280-valuation ownership-aware bounded analysis passed the approved hard-tier baseline.",
+      "canonical_source": "model/Mining_Threat_Retreat_Supervision.sysml",
+      "architecture_repairs": 1,
+      "contract_repairs": 2
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated 14-edge system overview passed native, machine-health, and complete traceability review.",
+      "correction_cycles": 9,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BEH-02",
+        "BEH-08",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CONSTR-01",
+        "CTRL-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-14",
+        "SCOPE-01",
+        "STATE-01",
+        "SUPPORT-01",
+        "TYPE-01",
+        "TYPE-02",
+        "TYPE-03",
+        "TYPE-04",
+        "TYPE-05",
+        "TYPE-06",
+        "TYPE-07",
+        "TYPE-08",
+        "TYPE-09",
+        "TYPE-11"
+      ],
+      "reviewed_tagged_element_count": 203,
+      "reviewed_trace_association_count": 203,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source and bounded semantics passed; coincident action/cause edges failed visualization fitness.",
+      "source_fitness": "passed",
+      "visualization_fitness": "failed",
+      "executable_fitness": "not-run"
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 13,
+        "semantic_interactions": 31,
+        "nontrivial_contract_cases": 28,
+        "scenario_families": 12
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "threat_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "threat_qualification.threat_sample"
+          ],
+          "owner_local_facts": [
+            "threat_qualification.threat_disposition",
+            "threat_qualification.threat_validity"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04"
+          ],
+          "analyzer_checks": [
+            "threat_qualification_total_partition",
+            "threat_validity_many_to_one"
+          ]
+        },
+        {
+          "usage": "readiness_assessment",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "readiness_assessment.cargo_band",
+            "readiness_assessment.capacitor_band",
+            "readiness_assessment.location",
+            "readiness_assessment.mining_available",
+            "readiness_assessment.defense_available",
+            "readiness_assessment.retreat_available",
+            "readiness_assessment.destination_available",
+            "readiness_assessment.service_available"
+          ],
+          "owner_local_facts": [
+            "readiness_assessment.mining_ready",
+            "readiness_assessment.defense_ready",
+            "readiness_assessment.retreat_feasible",
+            "readiness_assessment.cargo_full",
+            "readiness_assessment.dock_service_applicable"
+          ],
+          "contract_cases": [
+            "READINESS_LOCAL_FACTS"
+          ],
+          "analyzer_checks": [
+            "readiness_owner_exact_equations",
+            "readiness_policy_extensional_equivalence"
+          ]
+        },
+        {
+          "usage": "recovery_control",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recovery_control.recovery_memory",
+            "recovery_control.intent",
+            "recovery_control.threat_validity",
+            "recovery_control.action_outcome"
+          ],
+          "owner_local_facts": [
+            "recovery_control.next_recovery_state",
+            "recovery_control.recovery_gate",
+            "recovery_control.emergency_state"
+          ],
+          "contract_cases": [
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09"
+          ],
+          "analyzer_checks": [
+            "recovery_first_match_partition",
+            "recovery_gate_emergency_mapping"
+          ]
+        },
+        {
+          "usage": "mining_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "mining_eligibility.intent",
+            "mining_eligibility.threat_disposition",
+            "mining_eligibility.assessment.mining_ready",
+            "mining_eligibility.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "mining_eligibility.mining_proposal"
+          ],
+          "contract_cases": [
+            "CASE-10",
+            "CASE-11"
+          ],
+          "analyzer_checks": [
+            "mining_eligibility_partition",
+            "mining_raw_policy_equivalence"
+          ]
+        },
+        {
+          "usage": "defense_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "defense_eligibility.intent",
+            "defense_eligibility.threat_disposition",
+            "defense_eligibility.assessment.defense_ready",
+            "defense_eligibility.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "defense_eligibility.defense_proposal"
+          ],
+          "contract_cases": [
+            "CASE-12",
+            "CASE-13"
+          ],
+          "analyzer_checks": [
+            "defense_eligibility_partition",
+            "defense_raw_policy_equivalence"
+          ]
+        },
+        {
+          "usage": "mobility_service_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "mobility_service_eligibility.intent",
+            "mobility_service_eligibility.threat_disposition",
+            "mobility_service_eligibility.assessment.retreat_feasible",
+            "mobility_service_eligibility.assessment.cargo_full",
+            "mobility_service_eligibility.assessment.dock_service_applicable",
+            "mobility_service_eligibility.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "mobility_service_eligibility.mobility_proposal"
+          ],
+          "contract_cases": [
+            "CASE-14",
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "mobility_service_first_match_partition",
+            "mobility_service_raw_policy_equivalence"
+          ]
+        },
+        {
+          "usage": "priority_arbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "priority_arbitration.emergency_state",
+            "priority_arbitration.mining_proposal",
+            "priority_arbitration.defense_proposal",
+            "priority_arbitration.mobility_proposal"
+          ],
+          "owner_local_facts": [
+            "priority_arbitration.selected_action",
+            "priority_arbitration.selected_cause"
+          ],
+          "contract_cases": [
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20",
+            "CASE-21",
+            "CASE-22"
+          ],
+          "analyzer_checks": [
+            "arbitration_strict_priority_partition",
+            "action_cause_pair_integrity"
+          ]
+        },
+        {
+          "usage": "mission_mode_and_public_result",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "mission_mode_and_public_result.selected_action",
+            "mission_mode_and_public_result.selected_cause",
+            "mission_mode_and_public_result.next_recovery_state"
+          ],
+          "owner_local_facts": [
+            "mission_mode_and_public_result.next_mode",
+            "mission_mode_and_public_result.public_result"
+          ],
+          "contract_cases": [
+            "CASE-23",
+            "CASE-24",
+            "CASE-25",
+            "CASE-26",
+            "CASE-27",
+            "CASE-28"
+          ],
+          "analyzer_checks": [
+            "mission_mode_partition",
+            "atomic_public_composition"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    },
+    "seed-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "seed": "cps48/runs/20260812T045125Z-mining-threat-retreat-hard-r1-a7/seed.md",
+      "seed_sha256": "a8e093282b040aaf8d550df64b8d8e3fa2c556735b72698c2926b20a1fd8a3ce",
+      "source": "cps48/seeds/sources/mining-threat-retreat-v1.md",
+      "source_sha256": "fdc47798d44f639cfbf033fb3a72402e63da2c4cff278b8d04433ad385477adb",
+      "identifier_classes": [
+        "NEED",
+        "PURPOSE",
+        "STAKE",
+        "CTX",
+        "MON",
+        "CTRL",
+        "REQ",
+        "SCN",
+        "ASM",
+        "EXCL"
+      ],
+      "complexity": "hard",
+      "realizability_audit": {
+        "status": "passed",
+        "semantic_interactions": 34,
+        "bounds": [
+          22,
+          35
+        ],
+        "interaction_ids": [
+          "INT-01",
+          "INT-02",
+          "INT-03",
+          "INT-04",
+          "INT-05",
+          "INT-06",
+          "INT-07",
+          "INT-08",
+          "INT-09",
+          "INT-10",
+          "INT-11",
+          "INT-12",
+          "INT-13",
+          "INT-14",
+          "INT-15",
+          "INT-16",
+          "INT-17",
+          "INT-18",
+          "INT-19",
+          "INT-20",
+          "INT-21",
+          "INT-22",
+          "INT-23",
+          "INT-24",
+          "INT-25",
+          "INT-26",
+          "INT-27",
+          "INT-28",
+          "INT-29",
+          "INT-30",
+          "INT-31",
+          "INT-32",
+          "INT-33",
+          "INT-34"
+        ],
+        "semantic_review_owner": "seed-agent"
+      },
+      "advisories": []
+    }
+  },
+  "presentation_repair": {
+    "repaired_at": "2026-08-12T06:51:36.411Z",
+    "scope": "Presentation routing plus one trace-comment relocation only; executable SysML declarations, contracts, and the System Abstract were not changed.",
+    "original_finding": "The final Designer accepted source semantics but set visualization_fitness to failed because INT-29 selected-action and INT-30 selected-cause edges were coincident.",
+    "history_preservation": "The original Designer decision remains unchanged under agent_decisions.designer-final; this record is the explicit superseding repair adjudication.",
+    "repair": "Kept both semantic interactions visible and assigned distinct pinned orthogonal routes to their exact edge IDs before re-export.",
+    "complete_trace_association_audit": {
+      "historical_visualization_agent_associations_reviewed": 203,
+      "new_association_reviewed": "PublicResultValue -> TYPE-10",
+      "new_association_target": "TYPE-10: Mode is the externally distinguishable supervisory mode.",
+      "new_association_relevance": "PublicResultValue owns the public mode field constrained to that six-value mode domain.",
+      "current_total_associations_reviewed": 204,
+      "all_source_trace_ids_represented": true,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "edge_ids": [
+      "edge:def:Mining_Threat_Retreat_Supervision::Mining_Threat_Retreat_Supervision_Root/supervisor_process/int_29",
+      "edge:def:Mining_Threat_Retreat_Supervision::Mining_Threat_Retreat_Supervision_Root/supervisor_process/int_30"
+    ],
+    "pre_repair_paths_identical": true,
+    "post_repair_paths_distinct": true,
+    "superseding_adjudication": "passed",
+    "validation": {
+      "model_revision": 1,
+      "view_revision": 58,
+      "parse_status": "valid",
+      "sireum_validation_status": "valid",
+      "edge_count": 14,
+      "unresolved_endpoint_count": 0,
+      "overlap_count": 0,
+      "crossing_count": 0,
+      "route_object_collision_count": 0,
+      "truncated_text_count": 0,
+      "out_of_bounds_count": 0,
+      "trace_anchor_count": 184,
+      "tagged_element_count": 203,
+      "trace_association_count": 204,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "distinct_referenced_trace_id_count": 95
+    },
+    "hashes": {
+      "canonical_source_sha256": "bb13339d7f5660e87e36ccfe82be77a6da2b6dd236c89790652c1e07a81df79d",
+      "views_sha256": "4f80752e2d786e4db987ec8f661d4e701c128591ed2d2aebf1307f578a0a7bcc",
+      "svg_sha256": "6fbeea9961c4cf3a4ee1096ab1ea79c44504758a2c15c314f6766b9583a78b1f",
+      "sidecar_sha256": "08a69beb592a4b6938ef4b6fcfa172b970951432425122fb271c7c10a655b79b"
+    },
+    "trace_comment_repair": "Moved TYPE-10 from an unparsed attribute comment to the semantically relevant PublicResultValue definition so every source trace ID participates in the exact sysml-viz join."
+  },
+  "reason": "Source and bounded semantics passed; the original Designer coincident-edge finding was repaired with distinct INT-29 and INT-30 routes, then re-exported from Sireum-valid revision 1 with passing traceability and diagram-health gates.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

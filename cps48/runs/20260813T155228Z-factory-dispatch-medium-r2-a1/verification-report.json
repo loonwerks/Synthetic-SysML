@@ -1,0 +1,534 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T155228Z-factory-dispatch-medium-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/factory_flow_supervisor.sysml",
+  "source_sha256": "6021ecad6d6ae12651dea1ecb72ea594b762e6c00d20b60f1e96d0fd08a5de63",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 10,
+    "edgeCount": 16,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 147,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ARCH-SEL-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PARTITION-02",
+      "POL-01",
+      "POL-03",
+      "POL-06",
+      "REP-01",
+      "REP-02",
+      "STATE-01"
+    ],
+    "relativePath": "cps48/runs/20260813T155228Z-factory-dispatch-medium-r2-a1/system-abstract.md",
+    "taggedElementCount": 206,
+    "traceAssociationCount": 206,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a diversity-compliant fixed-line production-flow supervisor with an exact 9/21/20/8 medium-tier design.",
+      "questions_for_model": [
+        "Can PART-07 pre-state feedback to PART-03, PART-04, and PART-05 be realized with canonical In(...) references without algebraic cycles or additional semantic interactions?",
+        "Can the explicit six-step successor, entry-only terminal outcome, and unconditional next-evaluation reset be expressed with trusted finite enum, flat record, Thread-state, and GUMBO forms without ordinal assumptions?",
+        "Can independent-oracle owner-product enumeration plus all eight bounded scenario sequences complete within the 180-second analyzer watchdog?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "fixed-line production-flow supervision from work/material admission through ordered heating-to-polishing progression and production outcome",
+        "closest_baseline": "accepted replicate-2 Small stateful request-registry plus dispatch-arbiter finished-product shipment system",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system controls ordered production-step start, transfer, advance, same-step retry, abort, and production outcome using a step/attempt Flow Ledger; it has no shipment request, dispatch commitment, shipment release, or shipping confirmation. Its station-readiness and correlated-step-result topology remains complete if all dispatch context is removed, so adding dispatch would require a separate downstream system rather than elaborating or renaming this one."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The 9/21/20/8 production-flow allocation is realizable and all nine owner claims are behaviorally substantive.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Trusted Isolette forms and the current accepted factory-medium source support System-to-Process-to-Thread containment, flat attribute records, finite enums, Thread-local state, explicit initialization, compute cases, and output contexts constrained from In(state). Publishing INT-12 through INT-14 only from PART-07 In(...) values breaks the feedback cycle without adding semantic interactions.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit of PART-01 through PART-09 found classification, correlation, state-dependent target/priority choice, multi-input authorization, persistent transition, terminal gating/suppression, or status precedence at every owner. Copied payload, context, identifier, and delegation subrelations are explicitly uncredited and are not used as owner evidence.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The explicit six-step successor is expressible as a conditional enum helper without ordinal semantics. PART-08 can combine PART-04's correlated outcome with PART-07's applied snapshot so terminal entry emits once and the following applied-Idle reset suppresses repetition.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Owner-local enumeration is tractable: the largest direct planned qualifier product is at most 216 state tuples by 144 process-result observations (31,104) before legal-state pruning, with smaller readiness and normalized authorization products; eight bounded scenario traces and the six-step sequence fit the 180-second watchdog. The current harness independently reruns Sireum and requires passed owner records and zero reported gaps, overlaps, or mismatches.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved the unchanged 9/21/20/8 production-flow design with explicit feasibility, support, contract, analysis, and claim-boundary obligations.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Normalized ownership-audit roles without source changes; targeted protocol validation, independent SysML typechecking, bounded analysis, trace checks, and medium campaign-v1 metrics validation all passed.",
+      "canonical_source": "model/factory_flow_supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Accepted validated 16-edge production-flow overview with zero crossings and zero route-object collisions.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ARCH-SEL-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PARTITION-02",
+        "POL-01",
+        "POL-03",
+        "POL-06",
+        "REP-01",
+        "REP-02",
+        "STATE-01"
+      ],
+      "reviewed_tagged_element_count": 206,
+      "reviewed_trace_association_count": 206,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound medium candidate preserves all substantive owners and passes bounded semantic and visualization review.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 9,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 8
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "workRequestQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "presentedWork"
+          ],
+          "owner_local_facts": [
+            "AdmissionAssessment and eligible work identity"
+          ],
+          "contract_cases": [
+            "RequestAbsent",
+            "RequestEligible",
+            "RequestMalformed"
+          ],
+          "analyzer_checks": [
+            "request_classification_product"
+          ]
+        },
+        {
+          "usage": "materialCorrelationQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "admission",
+            "materialObservation"
+          ],
+          "owner_local_facts": [
+            "MaterialAssessment with identifier correlation"
+          ],
+          "contract_cases": [
+            "MaterialReadyCorrelated",
+            "MaterialUnavailableCorrelated",
+            "MaterialUnknownOrInapplicable"
+          ],
+          "analyzer_checks": [
+            "material_correlation_product"
+          ]
+        },
+        {
+          "usage": "targetStepReadinessQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "readinessObservation",
+            "flowContext"
+          ],
+          "owner_local_facts": [
+            "state-derived target and TargetQualification"
+          ],
+          "contract_cases": [
+            "TargetReadyCorrelated",
+            "TargetBlockedCorrelated",
+            "TargetUnknownOrMismatched"
+          ],
+          "analyzer_checks": [
+            "target_readiness_product"
+          ]
+        },
+        {
+          "usage": "processOutcomeCorrelator",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "processResult",
+            "flowContext"
+          ],
+          "owner_local_facts": [
+            "five-way CorrelatedOutcomePlan"
+          ],
+          "contract_cases": [
+            "IntermediateCompletion",
+            "FinalCompletion",
+            "FirstAttemptFailure",
+            "RetryAttemptFailure",
+            "PreserveUncorrelated"
+          ],
+          "analyzer_checks": [
+            "process_outcome_product"
+          ]
+        },
+        {
+          "usage": "protectedWorkPriorityResolver",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "admission",
+            "protectionContext"
+          ],
+          "owner_local_facts": [
+            "protected FlowIntent and competitor classification"
+          ],
+          "contract_cases": [
+            "IdleWithoutEligibleWork",
+            "FreshWorkIntent",
+            "ActiveWorkProtected",
+            "TransferWorkProtected",
+            "RecoveryWorkProtected",
+            "TerminalResetIntent"
+          ],
+          "analyzer_checks": [
+            "priority_intent_product",
+            "retry_over_fresh_conflict"
+          ]
+        },
+        {
+          "usage": "flowAuthorizationOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "materialFact",
+            "targetFact",
+            "outcomeFact",
+            "intentFact"
+          ],
+          "owner_local_facts": [
+            "complete FlowDecision and DecisionReason partition"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "authorization_partition_product"
+          ]
+        },
+        {
+          "usage": "flowLedger",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "authorization",
+            "pre-state phase",
+            "pre-state work",
+            "pre-state step",
+            "pre-state attempt"
+          ],
+          "owner_local_facts": [
+            "persistent transition and LineFlowCommand"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "ledger_transition_partition"
+          ]
+        },
+        {
+          "usage": "productionOutcomeDeterminer",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "outcomeFact",
+            "appliedSnapshot"
+          ],
+          "owner_local_facts": [
+            "entry-only ProductionOutcome"
+          ],
+          "contract_cases": [
+            "CompletionEntry",
+            "FailureEntry",
+            "SuppressNonterminalAndReset"
+          ],
+          "analyzer_checks": [
+            "entry_outcome_product"
+          ]
+        },
+        {
+          "usage": "flowStatusDeterminer",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "decisionReason",
+            "appliedSnapshot"
+          ],
+          "owner_local_facts": [
+            "lifecycle-precedence ProductionFlowStatus"
+          ],
+          "contract_cases": [
+            "TerminalCompleteStatus",
+            "TerminalFailedStatus",
+            "RecoveryPendingStatus",
+            "RetryReleasedStatus",
+            "TransferPendingStatus",
+            "RejectedStatus",
+            "MaterialWaitStatus",
+            "HeatingWaitStatus",
+            "StartedStatus",
+            "AdvancedStatus",
+            "BusyStatus",
+            "ProcessingStatus",
+            "IdleStatus"
+          ],
+          "analyzer_checks": [
+            "status_precedence_product"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound medium candidate preserves all substantive owners and passes bounded semantic and visualization review.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

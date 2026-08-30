@@ -1,0 +1,665 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234357Z-hvac-supervisor-hard-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/HVAC_Visibility_Priority_Supervisor.sysml",
+  "source_sha256": "9b5f6232373b02d747440a994c6fbf03aa376cf3530699f519fbd6d26e89f50e",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 16,
+    "edgeCount": 33,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 178,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28",
+      "CASE-29",
+      "CASE-30",
+      "CTRL-01",
+      "CTRL-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "MON-07",
+      "MON-08",
+      "MON-09",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "PART-14",
+      "PART-15"
+    ],
+    "relativePath": "cps48/runs/20260813T234357Z-hvac-supervisor-hard-r1-a1/system-abstract.md",
+    "taggedElementCount": 185,
+    "traceAssociationCount": 185,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Retained a visibility-priority whole-cabin HVAC supervisor with 15 behavioral usages, 33 typed semantic interactions, 30 closed owner-local cases, 10 distinct scenario families, and independent recovery and fresh-authorization state owners.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset express two independent finite pre-state owners and expose PART-14's same-evaluation recovery event to PART-09 without an implicit cycle or scheduling delay?",
+        "Can a depth-two realization preserve exactly 33 end-to-end semantic interactions as 44 raw connections while carrying atomic finite actuation-plan and status records through supported port and data forms?",
+        "Can the deterministic analyzer exhaust or semantics-preservingly factor all local owner partitions and four-evaluation recovery traces within the harness watchdog while retaining witnesses for all 30 cases and 10 scenario families?",
+        "Can contracts distinguish one-evaluation New request and Fresh acknowledgment events from held values without assuming executable semantics outside this run profile?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "visibility-priority whole-cabin HVAC supervision",
+        "closest_baseline": "none; no diversity card was supplied",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [],
+        "why_not_extension_or_rename": "No frozen baseline applies to this run; the scope was independently selected from the reusable seed and no diversity comparison is claimed."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Close one readiness interface and two status-cause relation gaps; retain the 15/33/30/10 allocation and domain behavior.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-10 is credited with Ventilate applicability and CASE-25 permits Ventilate only when equipment permits it, but INT-20 carries only thermal-path readiness. PART-09 has no PART-08 input and PART-10 receives blower readiness through no other interaction, so the planned owner-local Ventilate relation lacks a required assigned input.",
+          "requested_change": "Change only INT-20's payload to carry blower readiness together with thermal-path readiness from PART-08 to PART-10. Keep PART-01..PART-15, INT-01..INT-33, all metrics, cases, scenarios, priorities, and fault behavior unchanged."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-06 distinguishes budget denial from interface invalidity and CASE-27 requires an all-off candidate with its corresponding winning cause, but CTRL-02 has no ElectricalDenied value and INT-29 carries only the all-off plan. That plan is extensionally identical to other all-off holds, so PART-15 cannot recover or publish the denial distinction without falsely using ElectricalUnavailable.",
+          "requested_change": "Add ElectricalDenied to CTRL-02 cause; extend the existing INT-29 payload with PART-13's candidate-plan cause; and require PART-15 to publish the denied all-off result as mode=Degraded/cause=ElectricalDenied, the COMP-03 form for None with a noncritical cause. INT-29 remains one interaction, and no PART, metric, case count, scenario count, priority, recovery rule, or claim-boundary exclusion changes."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-14 can receive concurrent InvalidVisibility, EquipmentFault, and ElectricalUnavailable facts but must emit one critical cause, while SCN-07 explicitly includes combined noncritical invalidity although CTRL-02 can carry only one of InvalidThermal, InvalidHumidity, and InvalidAirQuality. No selected policy defines either precedence, so the planned finite relations are not functional for required valuations and zero-overlap/result-correct analysis is impossible.",
+          "requested_change": "Define one deterministic critical-cause precedence in PART-14 and one deterministic noncritical-degradation precedence in PART-09's selected-intent/status summary, carry the latter on existing INT-30, and enumerate simultaneous cause combinations in ANALYSIS-01/03 and SCN-07/08 variants. Preserve every control, priority, state-transition, and suppression outcome; only the previously unspecified single status cause is completed."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit of all 15 planned owners finds genuine classification, combination, state-dependent choice, or composition. Simple domains have nonidentity fibers (PART-03: invalid glazing collapses three values; PART-04: invalid values collapse and Dry/Acceptable share None; PART-05: invalid values collapse; PART-07: eligibility fibers are 1/3), while PART-01/02/06/08..15 combine multiple facts or pre-state. PART-15 is creditable only for mode/cause classification and consistency/suppression; copied plan fields, record construction, and fan-out remain uncredited.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "SysML-AADL library commit 9016cbcceefa92f0068e1811923704dd261d15f1, trusted Isolette patterns, and current Sireum v4.20260630.386eac9f accepted models support one System root, one behavior-free Process, sibling Threads, typed DataPorts/PortConnections, attribute-based records, local GUMBO state with In(...), actual-next state outputs, compute cases, and logical same-evaluation sibling composition. Eleven two-hop boundary interactions plus 22 direct internal interactions yield exactly 44 raw connections.",
+          "requested_change": "Realize the selected depth-two mapping, declare all GUMBO-inspected record fields as attributes, and treat New/Fresh as finite current-snapshot DataPort values under ASM-01; claim no executable scheduling or event semantics."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Factorized bounded analysis is feasible: primitive owner products include 96 PART-01 values, 12 PART-06 values, and 162 PART-08 values, and canonical owner relations keep four-step state traces small. Current retained analyzers under the same 180-second watchdog have exhausted 1,492,992 valuations and factorized a 47,185,920-valuation product in about 1.5 seconds. The run has no executable profile.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved after three local relation and status-cause corrections; generation is authorized on the retained 15/33/30/10 baseline.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Recovered the operational BrokenPipeError without changing source semantics; confirmed source, metrics, and traceability consistency, reran SysML-AADL typechecking to Well-formed, and reran the bounded analyzer with zero observations, all checks true, and all 15 ownership records passed.",
+      "canonical_source": "model/HVAC_Visibility_Priority_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated, trace-complete system overview with eight explicit context actors, fifteen responsibility owners, all thirty-three semantic flows, and zero connector crossings or route-object collisions.",
+      "correction_cycles": 19,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "CASE-30",
+        "CTRL-01",
+        "CTRL-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "MON-07",
+        "MON-08",
+        "MON-09",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "PART-14",
+        "PART-15"
+      ],
+      "reviewed_tagged_element_count": 185,
+      "reviewed_trace_association_count": 185,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Canonical source, nonpadded bounded semantics, traceability, and the repaired source-bound visualization pass; executable claims remain not run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 15,
+        "semantic_interactions": 33,
+        "nontrivial_contract_cases": 30,
+        "scenario_families": 10
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "requestQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-01 userRequest"
+          ],
+          "owner_local_facts": [
+            "requestClass and freshness intent"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04"
+          ],
+          "analyzer_checks": [
+            "request qualifier 96-value partition"
+          ]
+        },
+        {
+          "usage": "thermalNeedAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-02 cabinObservation",
+            "INT-10 qualifiedTarget"
+          ],
+          "owner_local_facts": [
+            "thermalNeed and observation-invalid distinction"
+          ],
+          "contract_cases": [
+            "THERMAL_COMPARISON"
+          ],
+          "analyzer_checks": [
+            "thermal comparison 576-value partition"
+          ]
+        },
+        {
+          "usage": "visibilityNeedAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-03 glazingObservation"
+          ],
+          "owner_local_facts": [
+            "visibility urgency and visibility criticality"
+          ],
+          "contract_cases": [
+            "VISIBILITY_CLASSIFICATION",
+            "VISIBILITY_CRITICAL_FACT"
+          ],
+          "analyzer_checks": [
+            "visibility six-value partition"
+          ]
+        },
+        {
+          "usage": "humidityNeedAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-04 humidityObservation"
+          ],
+          "owner_local_facts": [
+            "humidityNeed"
+          ],
+          "contract_cases": [
+            "HUMIDITY_CLASSIFICATION"
+          ],
+          "analyzer_checks": [
+            "humidity six-value partition"
+          ]
+        },
+        {
+          "usage": "airQualityNeedAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-05 airObservation"
+          ],
+          "owner_local_facts": [
+            "airNeed"
+          ],
+          "contract_cases": [
+            "AIR_CLASSIFICATION"
+          ],
+          "analyzer_checks": [
+            "air-quality four-value partition"
+          ]
+        },
+        {
+          "usage": "electricalEligibilityOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-06 electricalAvailability"
+          ],
+          "owner_local_facts": [
+            "electricalTier, denial provenance, and criticality"
+          ],
+          "contract_cases": [
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09"
+          ],
+          "analyzer_checks": [
+            "electrical 12-value partition"
+          ]
+        },
+        {
+          "usage": "wasteHeatEligibilityOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-07 wasteHeatAvailability"
+          ],
+          "owner_local_facts": [
+            "two-field wasteHeatEligibility"
+          ],
+          "contract_cases": [
+            "WASTE_HEAT_ELIGIBILITY"
+          ],
+          "analyzer_checks": [
+            "waste-heat four-value partition"
+          ]
+        },
+        {
+          "usage": "equipmentFaultAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "INT-08 equipmentReadiness"
+          ],
+          "owner_local_facts": [
+            "critical equipment fact and affected readiness set"
+          ],
+          "contract_cases": [
+            "EQUIPMENT_AFFECTED_SET"
+          ],
+          "analyzer_checks": [
+            "equipment 162-value partition"
+          ]
+        },
+        {
+          "usage": "priorityAuthorizationArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "INT-11 qualifiedRequest",
+            "INT-24 recoveryReport",
+            "INT-25 thermalProposal",
+            "INT-26 visibilityProposal",
+            "INT-27 cabinAirProposal"
+          ],
+          "owner_local_facts": [
+            "selected service, authorization next state, and noncritical cause"
+          ],
+          "contract_cases": [
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20",
+            "CASE-21",
+            "CASE-22",
+            "CASE-23",
+            "CASE-24",
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "arbiter effective-guard exhaustion",
+            "priority loser suppression"
+          ]
+        },
+        {
+          "usage": "thermalServiceProposer",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "INT-12 thermalAssessment",
+            "INT-18 wasteHeatEligibility",
+            "INT-20 thermalPath"
+          ],
+          "owner_local_facts": [
+            "thermal proposal applicability and heat source"
+          ],
+          "contract_cases": [
+            "THERMAL_PROPOSAL_APPLICABILITY"
+          ],
+          "analyzer_checks": [
+            "thermal proposal product exhaustion"
+          ]
+        },
+        {
+          "usage": "visibilityServiceProposer",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "INT-13 visibilityNeed",
+            "INT-21 visibilityPath"
+          ],
+          "owner_local_facts": [
+            "visibility proposal applicability and urgency"
+          ],
+          "contract_cases": [
+            "VISIBILITY_PROPOSAL_APPLICABILITY",
+            "VISIBILITY_URGENCY_MAPPING"
+          ],
+          "analyzer_checks": [
+            "visibility proposal product exhaustion"
+          ]
+        },
+        {
+          "usage": "cabinAirServiceProposer",
+          "claimed_roles": [
+            "proposal",
+            "decision"
+          ],
+          "assigned_inputs": [
+            "INT-14 humidityNeed",
+            "INT-15 airNeed",
+            "INT-22 airPath"
+          ],
+          "owner_local_facts": [
+            "Filter-over-Dry local decision and degradation facts"
+          ],
+          "contract_cases": [
+            "CABIN_AIR_LOCAL_PRIORITY"
+          ],
+          "analyzer_checks": [
+            "cabin-air proposal product exhaustion"
+          ]
+        },
+        {
+          "usage": "energySafePlanComposer",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "INT-16 electricalEligibility",
+            "INT-28 selectedIntent"
+          ],
+          "owner_local_facts": [
+            "energy-tier constrained candidate plan and cause"
+          ],
+          "contract_cases": [
+            "CASE-26",
+            "CASE-27",
+            "CASE-28",
+            "CASE-29",
+            "CASE-30"
+          ],
+          "analyzer_checks": [
+            "composer effective-guard exhaustion",
+            "plan coherence checks"
+          ]
+        },
+        {
+          "usage": "criticalFaultRecoveryOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "INT-09 recoveryAcknowledgment",
+            "INT-17 criticalElectrical",
+            "INT-19 criticalEquipment",
+            "INT-23 visibilityFault"
+          ],
+          "owner_local_facts": [
+            "recovery next state, event, and critical cause"
+          ],
+          "contract_cases": [
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14",
+            "CASE-15"
+          ],
+          "analyzer_checks": [
+            "recovery 48-value partition",
+            "critical cause precedence"
+          ]
+        },
+        {
+          "usage": "atomicResultPublisher",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "INT-29 candidatePlan",
+            "INT-30 arbitrationStatus",
+            "INT-31 recoveryReport"
+          ],
+          "owner_local_facts": [
+            "atomic public mode/cause consistency and hold suppression"
+          ],
+          "contract_cases": [
+            "PUBLICATION_MODE_AND_SUPPRESSION",
+            "PUBLICATION_CAUSE_PRECEDENCE"
+          ],
+          "analyzer_checks": [
+            "public composition invariant checks"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Canonical source, nonpadded bounded semantics, traceability, and the repaired source-bound visualization pass; executable claims remain not run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

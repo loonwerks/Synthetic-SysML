@@ -1,0 +1,40 @@
+RUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none
+   Compiling referenceManager_behavior v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/referenceManager_behavior)
+error: cannot use function `data::FlightStack::impl&%130::eq` which is ignored because it is either declared outside the verus! macro or it is marked as `external`.
+   --> src/component/referenceManager_behavior_app.rs:136:8
+    |
+136 |        fd.fdAction == FlightStack::FdAction::Display ||
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+151 |         fdState: if fd.fdAction == FlightStack::FdAction::Display {
+    |                     ---------------------------------------------
+...
+162 |         fdState: if fd.fdAction == FlightStack::FdAction::Clear && !clear_inhibit {
+    |                     -------------------------------------------
+    |
+    = help: The following declaration may resolve this error:
+            pub assume_specification [<data::FlightStack::FdAction as core::cmp::PartialEq>::eq] (_0: &data::FlightStack::FdAction, _1: &data::FlightStack::FdAction) -> bool;
+
+error: cannot use function `data::FlightStack::impl&%102::eq` which is ignored because it is either declared outside the verus! macro or it is marked as `external`.
+   --> src/component/referenceManager_behavior_app.rs:137:8
+    |
+137 |        request == FlightStack::ApGuidanceRequestValue::Requested);
+    |        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: The following declaration may resolve this error:
+            pub assume_specification [<data::FlightStack::ApGuidanceRequestValue as core::cmp::PartialEq>::eq] (_0: &data::FlightStack::ApGuidanceRequestValue, _1: &data::FlightStack::ApGuidanceRequestValue) -> bool;
+
+error: cannot use function `data::FlightStack::impl&%109::eq` which is ignored because it is either declared outside the verus! macro or it is marked as `external`.
+   --> src/component/referenceManager_behavior_app.rs:134:23
+    |
+134 |     let synchronize = attitude.classification == FlightStack::AttitudeClass::Safe &&
+    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+139 |     let next = if attitude.classification == FlightStack::AttitudeClass::Invalid {
+    |                   --------------------------------------------------------------
+    |
+    = help: The following declaration may resolve this error:
+            pub assume_specification [<data::FlightStack::AttitudeClass as core::cmp::PartialEq>::eq] (_0: &data::FlightStack::AttitudeClass, _1: &data::FlightStack::AttitudeClass) -> bool;
+
+error: could not compile `referenceManager_behavior` (lib) due to 3 previous errors
+make: *** [Makefile:32: verus] Error 101

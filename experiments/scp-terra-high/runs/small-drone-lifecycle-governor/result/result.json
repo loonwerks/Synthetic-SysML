@@ -1,0 +1,39 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "UNKNOWN",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/small-drone-lifecycle-governor/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/small-drone-lifecycle-governor/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/small-drone-lifecycle-governor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INVALID_INPUT",
+  "diagnostics": [
+    "contract-erased resolved SysML AST fingerprints differ"
+  ],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/small-drone-lifecycle-governor/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/small-drone-lifecycle-governor/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "UNKNOWN",
+  "result": "MODEL_MISMATCH",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [],
+  "verification": "verification.json"
+}

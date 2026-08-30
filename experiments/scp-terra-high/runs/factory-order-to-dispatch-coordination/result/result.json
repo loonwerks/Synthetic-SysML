@@ -1,0 +1,1358 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/factory-order-to-dispatch-coordination/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/factory-order-to-dispatch-coordination/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/factory-order-to-dispatch-coordination/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/factory-order-to-dispatch-coordination/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/factory-order-to-dispatch-coordination/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-7789987c83:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_Candidate_GumboX.inititialize_IEP_Post(selected_action))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_GumboX.inititialize_IEP_Post(selected_action))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-7789987c83:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-7789987c83:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_GumboX.inititialize_IEP_Post(selected_action))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_Candidate_GumboX.inititialize_IEP_Post(selected_action))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-7789987c83:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::action_arbitration::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-803c6644a5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_Candidate_GumboX.compute_CEP_Post(dispatch_proposal, emergency_state, procurement_proposal, production_proposal, quotation_proposal, selected_action))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_GumboX.compute_CEP_Post(dispatch_proposal, emergency_state, procurement_proposal, production_proposal, quotation_proposal, selected_action))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-803c6644a5:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-803c6644a5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_GumboX.compute_CEP_Post(dispatch_proposal, emergency_state, procurement_proposal, production_proposal, quotation_proposal, selected_action))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ActionArbitration_coordinator_process_action_arbitration_Candidate_GumboX.compute_CEP_Post(dispatch_proposal, emergency_state, procurement_proposal, production_proposal, quotation_proposal, selected_action))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-803c6644a5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::action_arbitration::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-1d09487425:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_Candidate_GumboX.inititialize_IEP_Post(request_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_GumboX.inititialize_IEP_Post(request_boundary_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-1d09487425:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-1d09487425:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_GumboX.inititialize_IEP_Post(request_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_Candidate_GumboX.inititialize_IEP_Post(request_boundary_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-1d09487425:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::customer_request_acquisition::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-268f619c45:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_Candidate_GumboX.compute_CEP_Post(fresh_request, request_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_GumboX.compute_CEP_Post(fresh_request, request_boundary_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-268f619c45:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-268f619c45:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_GumboX.compute_CEP_Post(fresh_request, request_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.CustomerRequestAcquisition_coordinator_process_customer_request_acquisition_Candidate_GumboX.compute_CEP_Post(fresh_request, request_boundary_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-268f619c45:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::customer_request_acquisition::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-24a9af804f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-24a9af804f:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-24a9af804f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-24a9af804f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::dispatch_eligibility::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4230866976:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_Candidate_GumboX.compute_CEP_Post(dispatch_available, order_state, recovery_gate, stock_facts, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_GumboX.compute_CEP_Post(dispatch_available, order_state, recovery_gate, stock_facts, proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4230866976:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4230866976:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_GumboX.compute_CEP_Post(dispatch_available, order_state, recovery_gate, stock_facts, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.DispatchEligibility_coordinator_process_dispatch_eligibility_Candidate_GumboX.compute_CEP_Post(dispatch_available, order_state, recovery_gate, stock_facts, proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4230866976:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::dispatch_eligibility::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4833143b71:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_Candidate_GumboX.inititialize_IEP_Post(outcome_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_GumboX.inititialize_IEP_Post(outcome_boundary_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4833143b71:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4833143b71:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_GumboX.inititialize_IEP_Post(outcome_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_Candidate_GumboX.inititialize_IEP_Post(outcome_boundary_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-4833143b71:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::execution_outcome_acquisition::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-35a3e431b7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_Candidate_GumboX.compute_CEP_Post(execution_outcome, outcome_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_GumboX.compute_CEP_Post(execution_outcome, outcome_boundary_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-35a3e431b7:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-35a3e431b7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_GumboX.compute_CEP_Post(execution_outcome, outcome_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ExecutionOutcomeAcquisition_coordinator_process_execution_outcome_acquisition_Candidate_GumboX.compute_CEP_Post(execution_outcome, outcome_boundary_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-35a3e431b7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::execution_outcome_acquisition::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-28073b4ca0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_Candidate_GumboX.inititialize_IEP_Post(material_boundary_facts, product_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_GumboX.inititialize_IEP_Post(material_boundary_facts, product_boundary_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-28073b4ca0:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-28073b4ca0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_GumboX.inititialize_IEP_Post(material_boundary_facts, product_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_Candidate_GumboX.inititialize_IEP_Post(material_boundary_facts, product_boundary_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-28073b4ca0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::inventory_acquisition::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-905dc67d4b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_Candidate_GumboX.compute_CEP_Post(inventory_snapshot, material_boundary_facts, product_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_GumboX.compute_CEP_Post(inventory_snapshot, material_boundary_facts, product_boundary_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-905dc67d4b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-905dc67d4b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_GumboX.compute_CEP_Post(inventory_snapshot, material_boundary_facts, product_boundary_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.InventoryAcquisition_coordinator_process_inventory_acquisition_Candidate_GumboX.compute_CEP_Post(inventory_snapshot, material_boundary_facts, product_boundary_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-905dc67d4b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::inventory_acquisition::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c7f3922bca:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_Candidate_GumboX.inititialize_IEP_Post(retained_order, order_state, prior_order_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_GumboX.inititialize_IEP_Post(retained_order, order_state, prior_order_state))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c7f3922bca:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c7f3922bca:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_GumboX.inititialize_IEP_Post(retained_order, order_state, prior_order_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_Candidate_GumboX.inititialize_IEP_Post(retained_order, order_state, prior_order_state))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c7f3922bca:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::order_lifecycle::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-52827accfa:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_Candidate_GumboX.compute_CEP_Post(in_retained_order, retained_order, qualified_outcome, recovery_gate, order_state, prior_order_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_GumboX.compute_CEP_Post(in_retained_order, retained_order, qualified_outcome, recovery_gate, order_state, prior_order_state))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-52827accfa:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-52827accfa:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_GumboX.compute_CEP_Post(in_retained_order, retained_order, qualified_outcome, recovery_gate, order_state, prior_order_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OrderLifecycle_coordinator_process_order_lifecycle_Candidate_GumboX.compute_CEP_Post(in_retained_order, retained_order, qualified_outcome, recovery_gate, order_state, prior_order_state))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-52827accfa:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::order_lifecycle::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-ded261d894:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_Candidate_GumboX.inititialize_IEP_Post(qualified_outcome))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_GumboX.inititialize_IEP_Post(qualified_outcome))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-ded261d894:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-ded261d894:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_GumboX.inititialize_IEP_Post(qualified_outcome))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_Candidate_GumboX.inititialize_IEP_Post(qualified_outcome))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-ded261d894:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::outcome_qualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-86c7512491:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_Candidate_GumboX.compute_CEP_Post(outcome_boundary_facts, prior_order_state, qualified_outcome))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_GumboX.compute_CEP_Post(outcome_boundary_facts, prior_order_state, qualified_outcome))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-86c7512491:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-86c7512491:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_GumboX.compute_CEP_Post(outcome_boundary_facts, prior_order_state, qualified_outcome))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.OutcomeQualification_coordinator_process_outcome_qualification_Candidate_GumboX.compute_CEP_Post(outcome_boundary_facts, prior_order_state, qualified_outcome))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-86c7512491:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::outcome_qualification::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-0bb6327170:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-0bb6327170:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-0bb6327170:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-0bb6327170:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::procurement_eligibility::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d772988240:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_Candidate_GumboX.compute_CEP_Post(order_state, recovery_gate, stock_facts, supplier_available, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_GumboX.compute_CEP_Post(order_state, recovery_gate, stock_facts, supplier_available, proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d772988240:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d772988240:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_GumboX.compute_CEP_Post(order_state, recovery_gate, stock_facts, supplier_available, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProcurementEligibility_coordinator_process_procurement_eligibility_Candidate_GumboX.compute_CEP_Post(order_state, recovery_gate, stock_facts, supplier_available, proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d772988240:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::procurement_eligibility::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-e9973fe5c8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-e9973fe5c8:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-e9973fe5c8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-e9973fe5c8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::production_eligibility::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-fabd430974:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_Candidate_GumboX.compute_CEP_Post(order_state, production_available, recovery_gate, stock_facts, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_GumboX.compute_CEP_Post(order_state, production_available, recovery_gate, stock_facts, proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-fabd430974:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-fabd430974:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_GumboX.compute_CEP_Post(order_state, production_available, recovery_gate, stock_facts, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.ProductionEligibility_coordinator_process_production_eligibility_Candidate_GumboX.compute_CEP_Post(order_state, production_available, recovery_gate, stock_facts, proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-fabd430974:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::production_eligibility::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d6cf813362:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_Candidate_GumboX.inititialize_IEP_Post(public_result))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_GumboX.inititialize_IEP_Post(public_result))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d6cf813362:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d6cf813362:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_GumboX.inititialize_IEP_Post(public_result))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_Candidate_GumboX.inititialize_IEP_Post(public_result))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-d6cf813362:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::public_composition::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-31251e909b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_Candidate_GumboX.compute_CEP_Post(request_facts, selected_action, status_record, public_result))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_GumboX.compute_CEP_Post(request_facts, selected_action, status_record, public_result))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-31251e909b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-31251e909b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_GumboX.compute_CEP_Post(request_facts, selected_action, status_record, public_result))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.PublicComposition_coordinator_process_public_composition_Candidate_GumboX.compute_CEP_Post(request_facts, selected_action, status_record, public_result))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-31251e909b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::public_composition::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-bac10e185d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-bac10e185d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-bac10e185d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_GumboX.inititialize_IEP_Post(proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_Candidate_GumboX.inititialize_IEP_Post(proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-bac10e185d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::quotation_eligibility::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-333abed12f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_Candidate_GumboX.compute_CEP_Post(order_state, recovery_gate, request_facts, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_GumboX.compute_CEP_Post(order_state, recovery_gate, request_facts, proposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-333abed12f:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-333abed12f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_GumboX.compute_CEP_Post(order_state, recovery_gate, request_facts, proposal))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.QuotationEligibility_coordinator_process_quotation_eligibility_Candidate_GumboX.compute_CEP_Post(order_state, recovery_gate, request_facts, proposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-333abed12f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::quotation_eligibility::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-17bcb39a0d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_Candidate_GumboX.inititialize_IEP_Post(retained_recovery, emergency_state, recovery_gate, recovery_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_GumboX.inititialize_IEP_Post(retained_recovery, emergency_state, recovery_gate, recovery_state))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-17bcb39a0d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-17bcb39a0d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_GumboX.inititialize_IEP_Post(retained_recovery, emergency_state, recovery_gate, recovery_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_Candidate_GumboX.inititialize_IEP_Post(retained_recovery, emergency_state, recovery_gate, recovery_state))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-17bcb39a0d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::recovery_control::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-33e2cfec3b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_Candidate_GumboX.compute_CEP_Post(in_retained_recovery, retained_recovery, qualified_outcome, recovery_event, emergency_state, recovery_gate, recovery_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_GumboX.compute_CEP_Post(in_retained_recovery, retained_recovery, qualified_outcome, recovery_event, emergency_state, recovery_gate, recovery_state))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-33e2cfec3b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-33e2cfec3b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_GumboX.compute_CEP_Post(in_retained_recovery, retained_recovery, qualified_outcome, recovery_event, emergency_state, recovery_gate, recovery_state))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RecoveryControl_coordinator_process_recovery_control_Candidate_GumboX.compute_CEP_Post(in_retained_recovery, retained_recovery, qualified_outcome, recovery_event, emergency_state, recovery_gate, recovery_state))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-33e2cfec3b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::recovery_control::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-88fa98ab57:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_Candidate_GumboX.inititialize_IEP_Post(request_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_GumboX.inititialize_IEP_Post(request_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-88fa98ab57:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-88fa98ab57:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_GumboX.inititialize_IEP_Post(request_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_Candidate_GumboX.inititialize_IEP_Post(request_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-88fa98ab57:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::request_qualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-6221b9dcb5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_Candidate_GumboX.compute_CEP_Post(request_boundary_facts, request_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_GumboX.compute_CEP_Post(request_boundary_facts, request_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-6221b9dcb5:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-6221b9dcb5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_GumboX.compute_CEP_Post(request_boundary_facts, request_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.RequestQualification_coordinator_process_request_qualification_Candidate_GumboX.compute_CEP_Post(request_boundary_facts, request_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-6221b9dcb5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::request_qualification::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-375f58e36f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_Candidate_GumboX.inititialize_IEP_Post(status_record))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_GumboX.inititialize_IEP_Post(status_record))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-375f58e36f:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-375f58e36f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_GumboX.inititialize_IEP_Post(status_record))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_Candidate_GumboX.inititialize_IEP_Post(status_record))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-375f58e36f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::status_derivation::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c02ca70a71:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_Candidate_GumboX.compute_CEP_Post(order_state, recovery_state, selected_action, status_record))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_GumboX.compute_CEP_Post(order_state, recovery_state, selected_action, status_record))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c02ca70a71:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c02ca70a71:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_GumboX.compute_CEP_Post(order_state, recovery_state, selected_action, status_record))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StatusDerivation_coordinator_process_status_derivation_Candidate_GumboX.compute_CEP_Post(order_state, recovery_state, selected_action, status_record))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-c02ca70a71:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::status_derivation::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-471312a20b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_Candidate_GumboX.inititialize_IEP_Post(stock_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_GumboX.inititialize_IEP_Post(stock_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-471312a20b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-471312a20b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_GumboX.inititialize_IEP_Post(stock_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_Candidate_GumboX.inititialize_IEP_Post(stock_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-471312a20b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::stock_assessment::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-5ab1d0f5d5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_Candidate_GumboX.compute_CEP_Post(material_boundary_facts, product_boundary_facts, stock_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_GumboX.compute_CEP_Post(material_boundary_facts, product_boundary_facts, stock_facts))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-5ab1d0f5d5:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-5ab1d0f5d5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_GumboX.compute_CEP_Post(material_boundary_facts, product_boundary_facts, stock_facts))) ___>: (equiv_shared_0.Factory_Dispatch_Coordinator.StockAssessment_coordinator_process_stock_assessment_Candidate_GumboX.compute_CEP_Post(material_boundary_facts, product_boundary_facts, stock_facts))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-factory-dispatch-coordinator-factorydispatc-5ab1d0f5d5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Factory_Dispatch_Coordinator::FactoryDispatchCoordinatorSystem/root-instance::FactoryDispatchCoordinatorSystem_Instance/component::FactoryDispatchCoordinatorSystem_Instance::coordinator_process::stock_assessment::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

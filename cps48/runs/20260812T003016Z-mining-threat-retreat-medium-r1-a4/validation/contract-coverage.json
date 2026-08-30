@@ -1,0 +1,2638 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "521f5796085d5aedab7ade2f73c2918d459ae6646cd23511b1c06dbcaf105174",
+  "bounded_analysis_claim_boundary": "Exhaustive checking over the frozen finite state/input product; not formal proof, generated-code evidence, physical validation, performance evidence, safety certification, readiness, or mission-success evidence.",
+  "finite_domain": {
+    "expected_combinations": 47185920,
+    "analyzed_combinations": 47185920,
+    "factorization": "5 phases * 3 streaks * 8 threat pairs * 8 cargo pairs * 8 capacitor pairs * 4 target pairs * 16 availability tuples * 6 intent pairs * 4 arrival pairs * 4 resupply pairs"
+  },
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "producer": "AS.phase_context",
+      "consumer": "MR.phase_context"
+    },
+    {
+      "id": "INT-02",
+      "producer": "AS.phase_context",
+      "consumer": "TR.phase_context"
+    },
+    {
+      "id": "INT-03",
+      "producer": "TQ.qualified_threat",
+      "consumer": "MR.threat_fact"
+    },
+    {
+      "id": "INT-04",
+      "producer": "TQ.qualified_threat",
+      "consumer": "TR.threat_fact"
+    },
+    {
+      "id": "INT-05",
+      "producer": "RQ.mining_recovery_facts",
+      "consumer": "MR.resource_facts"
+    },
+    {
+      "id": "INT-06",
+      "producer": "RQ.defense_facts",
+      "consumer": "TR.defense_facts"
+    },
+    {
+      "id": "INT-07",
+      "producer": "PQ.mission_facts",
+      "consumer": "MR.mission_facts"
+    },
+    {
+      "id": "INT-08",
+      "producer": "PQ.arrival_fact",
+      "consumer": "TR.arrival_fact"
+    },
+    {
+      "id": "INT-09",
+      "producer": "MR.mission_proposal",
+      "consumer": "AS.mission_candidate"
+    },
+    {
+      "id": "INT-10",
+      "producer": "TR.response_proposal",
+      "consumer": "AS.response_candidate"
+    },
+    {
+      "id": "INT-11",
+      "producer": "TQ.threat_publication",
+      "consumer": "AS.threat_publication"
+    },
+    {
+      "id": "INT-12",
+      "producer": "RQ.resource_publication",
+      "consumer": "AS.resource_publication"
+    },
+    {
+      "id": "INT-13",
+      "producer": "PQ.mission_invalidity",
+      "consumer": "FA.mission_invalidity"
+    },
+    {
+      "id": "INT-14",
+      "producer": "TQ.threat_invalidity",
+      "consumer": "FA.threat_invalidity"
+    },
+    {
+      "id": "INT-15",
+      "producer": "RQ.resource_invalidity",
+      "consumer": "FA.resource_invalidity"
+    },
+    {
+      "id": "INT-16",
+      "producer": "AS.phase_context",
+      "consumer": "FA.phase_context"
+    },
+    {
+      "id": "INT-17",
+      "producer": "FA.fault",
+      "consumer": "AS.fault"
+    },
+    {
+      "id": "INT-18",
+      "producer": "AS.resolved_atomic_result",
+      "consumer": "AP.atomic_result"
+    }
+  ],
+  "guard_crosscheck": {
+    "source_bound_by_sha256": true,
+    "proposal_guards": [
+      "MR_PROPOSAL_PARTITIONS",
+      "TR_PROPOSAL_PARTITIONS"
+    ],
+    "arbitration_guards": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20"
+    ],
+    "exact_effective_guard_inputs": [
+      "phase_state.current_phase",
+      "mission_candidate.proposed_reason",
+      "response_candidate.proposed_reason"
+    ],
+    "passed": true
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "effective_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "fault_mismatches": 0,
+    "advisory_mismatches": 0,
+    "state_mismatches": 0,
+    "actuator_mismatches": 0,
+    "proposal_domain_violations": 0,
+    "tq_mapping_mismatches": 0,
+    "rq_mapping_mismatches": 0,
+    "pq_mapping_mismatches": 0,
+    "fa_mapping_mismatches": 0,
+    "mr_partition_mismatches": 0,
+    "tr_partition_mismatches": 0,
+    "as_atomic_preservation_mismatches": 0,
+    "ap_preservation_mismatches": 0
+  },
+  "partition_counts": {
+    "CASE-01": 128,
+    "CASE-02": 9437056,
+    "CASE-03": 6291456,
+    "CASE-04": 786432,
+    "CASE-05": 49152,
+    "CASE-06": 737280,
+    "CASE-07": 1048576,
+    "CASE-08": 475136,
+    "CASE-09": 46080,
+    "CASE-10": 1536,
+    "CASE-11": 1536,
+    "CASE-12": 9289728,
+    "CASE-13": 49152,
+    "CASE-14": 768,
+    "CASE-15": 97536,
+    "CASE-16": 2359296,
+    "CASE-17": 7077888,
+    "CASE-18": 9431040,
+    "CASE-19": 2048,
+    "CASE-20": 4096
+  },
+  "case_witnesses": {
+    "CASE-01": {
+      "phase": 0,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 1,
+      "resupply_validity": 0,
+      "mission_proposal": 1,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 1,
+        "command": 1,
+        "next_phase": 1,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-02": {
+      "phase": 0,
+      "streak": 0,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 2,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 2,
+        "command": 0,
+        "next_phase": 0,
+        "fault": 0,
+        "next_streak": 1
+      }
+    },
+    "CASE-03": {
+      "phase": 1,
+      "streak": 0,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 11,
+      "response_proposal": 3,
+      "observed": {
+        "reason": 3,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 0,
+        "next_streak": 1
+      }
+    },
+    "CASE-04": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 3,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 11,
+      "response_proposal": 4,
+      "observed": {
+        "reason": 4,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-05": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 2,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 11,
+      "response_proposal": 5,
+      "observed": {
+        "reason": 5,
+        "command": 4,
+        "next_phase": 2,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-06": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 2,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 1,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 9,
+      "response_proposal": 6,
+      "observed": {
+        "reason": 6,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 1,
+        "next_streak": 2
+      }
+    },
+    "CASE-07": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 1,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 7,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 7,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 1,
+        "next_streak": 2
+      }
+    },
+    "CASE-08": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 1,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 8,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 8,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 1,
+        "next_streak": 2
+      }
+    },
+    "CASE-09": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 1,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 9,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 9,
+        "command": 3,
+        "next_phase": 1,
+        "fault": 1,
+        "next_streak": 2
+      }
+    },
+    "CASE-10": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 1,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 10,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 10,
+        "command": 3,
+        "next_phase": 1,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-11": {
+      "phase": 1,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 11,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 11,
+        "command": 2,
+        "next_phase": 1,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-12": {
+      "phase": 2,
+      "streak": 0,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 0,
+      "response_proposal": 12,
+      "observed": {
+        "reason": 12,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 0,
+        "next_streak": 1
+      }
+    },
+    "CASE-13": {
+      "phase": 2,
+      "streak": 1,
+      "threat": 2,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 0,
+      "response_proposal": 13,
+      "observed": {
+        "reason": 13,
+        "command": 4,
+        "next_phase": 2,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-14": {
+      "phase": 2,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 14,
+      "response_proposal": 15,
+      "observed": {
+        "reason": 14,
+        "command": 2,
+        "next_phase": 1,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-15": {
+      "phase": 2,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 1,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 0,
+      "response_proposal": 15,
+      "observed": {
+        "reason": 15,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 1,
+        "next_streak": 2
+      }
+    },
+    "CASE-16": {
+      "phase": 3,
+      "streak": 0,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 1,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 0,
+      "response_proposal": 16,
+      "observed": {
+        "reason": 16,
+        "command": 6,
+        "next_phase": 4,
+        "fault": 0,
+        "next_streak": 1
+      }
+    },
+    "CASE-17": {
+      "phase": 3,
+      "streak": 0,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 0,
+      "response_proposal": 17,
+      "observed": {
+        "reason": 17,
+        "command": 5,
+        "next_phase": 3,
+        "fault": 0,
+        "next_streak": 1
+      }
+    },
+    "CASE-18": {
+      "phase": 4,
+      "streak": 0,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 18,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 18,
+        "command": 6,
+        "next_phase": 4,
+        "fault": 0,
+        "next_streak": 1
+      }
+    },
+    "CASE-19": {
+      "phase": 4,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 1,
+      "resupply_validity": 0,
+      "mission_proposal": 19,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 19,
+        "command": 1,
+        "next_phase": 1,
+        "fault": 0,
+        "next_streak": 2
+      }
+    },
+    "CASE-20": {
+      "phase": 4,
+      "streak": 1,
+      "threat": 0,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 1,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 1,
+      "resupply_validity": 0,
+      "mission_proposal": 20,
+      "response_proposal": 0,
+      "observed": {
+        "reason": 20,
+        "command": 0,
+        "next_phase": 0,
+        "fault": 0,
+        "next_streak": 2
+      }
+    }
+  },
+  "priority_conflict_witnesses": [
+    {
+      "phase": 1,
+      "streak": 1,
+      "threat": 2,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 0,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 1,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 7,
+      "response_proposal": 5,
+      "observed": {
+        "reason": 5,
+        "command": 4,
+        "next_phase": 2,
+        "fault": 1,
+        "next_streak": 2
+      }
+    },
+    {
+      "phase": 1,
+      "streak": 1,
+      "threat": 2,
+      "threat_validity": 0,
+      "cargo": 0,
+      "cargo_validity": 1,
+      "capacitor": 0,
+      "capacitor_validity": 0,
+      "target": 0,
+      "target_validity": 0,
+      "mining_availability": 0,
+      "defense_availability": 0,
+      "retreat_availability": 0,
+      "availability_validity": 0,
+      "pilot_intent": 0,
+      "intent_validity": 0,
+      "arrival": 0,
+      "arrival_validity": 0,
+      "resupply": 0,
+      "resupply_validity": 0,
+      "mission_proposal": 8,
+      "response_proposal": 5,
+      "observed": {
+        "reason": 5,
+        "command": 4,
+        "next_phase": 2,
+        "fault": 1,
+        "next_streak": 2
+      }
+    }
+  ],
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "traces": [
+        {
+          "trace_id": "SCN-01-TRACE-A",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 0,
+                "streak": 0
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-02",
+              "expected_outputs": {
+                "command": 0,
+                "next_phase": 0
+              },
+              "observed_proposals": {
+                "mission": 2,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 2,
+                "command": 0,
+                "current_phase": 0,
+                "next_phase": 0,
+                "fault": 0,
+                "next_valid_streak": 1,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 0,
+                "streak": 1
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-01",
+              "expected_outputs": {
+                "command": 1,
+                "next_phase": 1
+              },
+              "observed_proposals": {
+                "mission": 1,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 1,
+                "command": 1,
+                "current_phase": 0,
+                "next_phase": 1,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "traces": [
+        {
+          "trace_id": "SCN-02-TRACE-A",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 1,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 1,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-09",
+              "expected_outputs": {
+                "command": 3,
+                "next_phase": 1
+              },
+              "observed_proposals": {
+                "mission": 9,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 9,
+                "command": 3,
+                "current_phase": 1,
+                "next_phase": 1,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 1,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 1,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-10",
+              "expected_outputs": {
+                "command": 3,
+                "next_phase": 1
+              },
+              "observed_proposals": {
+                "mission": 10,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 10,
+                "command": 3,
+                "current_phase": 1,
+                "next_phase": 1,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 1,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-11",
+              "expected_outputs": {
+                "command": 2,
+                "next_phase": 1
+              },
+              "observed_proposals": {
+                "mission": 11,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 11,
+                "command": 2,
+                "current_phase": 1,
+                "next_phase": 1,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 0,
+                "drones": 1
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "traces": [
+        {
+          "trace_id": "SCN-03-TRACE-A",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 1,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 3,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-08",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 8,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 8,
+                "command": 5,
+                "current_phase": 1,
+                "next_phase": 3,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 2,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 4,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 2,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-18",
+              "expected_outputs": {
+                "command": 6,
+                "next_phase": 4
+              },
+              "observed_proposals": {
+                "mission": 18,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 18,
+                "command": 6,
+                "current_phase": 4,
+                "next_phase": 4,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 1,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 4,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 1,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-18",
+              "expected_outputs": {
+                "command": 6,
+                "next_phase": 4
+              },
+              "observed_proposals": {
+                "mission": 18,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 18,
+                "command": 6,
+                "current_phase": 4,
+                "next_phase": 4,
+                "fault": 1,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 3,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "traces": [
+        {
+          "trace_id": "SCN-04-TRACE-A",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 1,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 0,
+                "cargo": 3,
+                "cargo_validity": 0,
+                "capacitor": 1,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 2,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-05",
+              "expected_outputs": {
+                "command": 4,
+                "next_phase": 2
+              },
+              "observed_proposals": {
+                "mission": 7,
+                "response": 5
+              },
+              "observed_outputs": {
+                "reason": 5,
+                "command": 4,
+                "current_phase": 1,
+                "next_phase": 2,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 2,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 2
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 1,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 0,
+                "cargo": 3,
+                "cargo_validity": 0,
+                "capacitor": 2,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 2,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-06",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 7,
+                "response": 6
+              },
+              "observed_outputs": {
+                "reason": 6,
+                "command": 5,
+                "current_phase": 1,
+                "next_phase": 3,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 2,
+                "capacitor_advisory": 1,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 2,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 1,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-13",
+              "expected_outputs": {
+                "command": 4,
+                "next_phase": 2
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 13
+              },
+              "observed_outputs": {
+                "reason": 13,
+                "command": 4,
+                "current_phase": 2,
+                "next_phase": 2,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 2
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "traces": [
+        {
+          "trace_id": "SCN-05-TRACE-A",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 1,
+                "streak": 0
+              },
+              "boundary_input": {
+                "threat": 3,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 1,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-03",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 11,
+                "response": 3
+              },
+              "observed_outputs": {
+                "reason": 3,
+                "command": 5,
+                "current_phase": 1,
+                "next_phase": 3,
+                "fault": 0,
+                "next_valid_streak": 1,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 1,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 1,
+                "streak": 1
+              },
+              "boundary_input": {
+                "threat": 3,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 1,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-04",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 11,
+                "response": 4
+              },
+              "observed_outputs": {
+                "reason": 4,
+                "command": 5,
+                "current_phase": 1,
+                "next_phase": 3,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 1,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 2,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 3,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 1,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-12",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 12
+              },
+              "observed_outputs": {
+                "reason": 12,
+                "command": 5,
+                "current_phase": 2,
+                "next_phase": 3,
+                "fault": 1,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 2,
+                "laser": 1,
+                "drones": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "traces": [
+        {
+          "trace_id": "SCN-06-TRACE-A",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 3,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-17",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 17
+              },
+              "observed_outputs": {
+                "reason": 17,
+                "command": 5,
+                "current_phase": 3,
+                "next_phase": 3,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 3,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 1,
+                "arrival_validity": 1,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-17",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 17
+              },
+              "observed_outputs": {
+                "reason": 17,
+                "command": 5,
+                "current_phase": 3,
+                "next_phase": 3,
+                "fault": 1,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 3,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 1,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-16",
+              "expected_outputs": {
+                "command": 6,
+                "next_phase": 4
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 16
+              },
+              "observed_outputs": {
+                "reason": 16,
+                "command": 6,
+                "current_phase": 3,
+                "next_phase": 4,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 4,
+              "input_state": {
+                "phase": 4,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 0,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-18",
+              "expected_outputs": {
+                "command": 6,
+                "next_phase": 4
+              },
+              "observed_proposals": {
+                "mission": 18,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 18,
+                "command": 6,
+                "current_phase": 4,
+                "next_phase": 4,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 5,
+              "input_state": {
+                "phase": 4,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-19",
+              "expected_outputs": {
+                "command": 1,
+                "next_phase": 1
+              },
+              "observed_proposals": {
+                "mission": 19,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 19,
+                "command": 1,
+                "current_phase": 4,
+                "next_phase": 1,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 6,
+              "input_state": {
+                "phase": 4,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 1,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-20",
+              "expected_outputs": {
+                "command": 0,
+                "next_phase": 0
+              },
+              "observed_proposals": {
+                "mission": 20,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 20,
+                "command": 0,
+                "current_phase": 4,
+                "next_phase": 0,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "traces": [
+        {
+          "trace_id": "SCN-07-MINING-TRUST",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 1,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 1,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-03",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 11,
+                "response": 3
+              },
+              "observed_outputs": {
+                "reason": 3,
+                "command": 5,
+                "current_phase": 1,
+                "next_phase": 3,
+                "fault": 1,
+                "next_valid_streak": 0,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 1,
+                "streak": 0
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-03",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 11,
+                "response": 3
+              },
+              "observed_outputs": {
+                "reason": 3,
+                "command": 5,
+                "current_phase": 1,
+                "next_phase": 3,
+                "fault": 0,
+                "next_valid_streak": 1,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 1,
+                "streak": 1
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-05",
+              "expected_outputs": {
+                "command": 4,
+                "next_phase": 2
+              },
+              "observed_proposals": {
+                "mission": 11,
+                "response": 5
+              },
+              "observed_outputs": {
+                "reason": 5,
+                "command": 4,
+                "current_phase": 1,
+                "next_phase": 2,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 2
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-07-DEFENDING-TRUST",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 2,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 1,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-12",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 12
+              },
+              "observed_outputs": {
+                "reason": 12,
+                "command": 5,
+                "current_phase": 2,
+                "next_phase": 3,
+                "fault": 1,
+                "next_valid_streak": 0,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 2,
+                "streak": 0
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-12",
+              "expected_outputs": {
+                "command": 5,
+                "next_phase": 3
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 12
+              },
+              "observed_outputs": {
+                "reason": 12,
+                "command": 5,
+                "current_phase": 2,
+                "next_phase": 3,
+                "fault": 0,
+                "next_valid_streak": 1,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 2,
+                "streak": 1
+              },
+              "boundary_input": {
+                "threat": 2,
+                "threat_validity": 0,
+                "cargo": 1,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-13",
+              "expected_outputs": {
+                "command": 4,
+                "next_phase": 2
+              },
+              "observed_proposals": {
+                "mission": 0,
+                "response": 13
+              },
+              "observed_outputs": {
+                "reason": 13,
+                "command": 4,
+                "current_phase": 2,
+                "next_phase": 2,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 2
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-07-RECOVERY-TRUST",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "input_state": {
+                "phase": 4,
+                "streak": 2
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 1,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-18",
+              "expected_outputs": {
+                "command": 6,
+                "next_phase": 4
+              },
+              "observed_proposals": {
+                "mission": 18,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 18,
+                "command": 6,
+                "current_phase": 4,
+                "next_phase": 4,
+                "fault": 1,
+                "next_valid_streak": 0,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 2,
+              "input_state": {
+                "phase": 4,
+                "streak": 0
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-18",
+              "expected_outputs": {
+                "command": 6,
+                "next_phase": 4
+              },
+              "observed_proposals": {
+                "mission": 18,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 18,
+                "command": 6,
+                "current_phase": 4,
+                "next_phase": 4,
+                "fault": 0,
+                "next_valid_streak": 1,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            },
+            {
+              "step": 3,
+              "input_state": {
+                "phase": 4,
+                "streak": 1
+              },
+              "boundary_input": {
+                "threat": 0,
+                "threat_validity": 0,
+                "cargo": 0,
+                "cargo_validity": 0,
+                "capacitor": 0,
+                "capacitor_validity": 0,
+                "target": 0,
+                "target_validity": 0,
+                "mining_availability": 0,
+                "defense_availability": 0,
+                "retreat_availability": 0,
+                "availability_validity": 0,
+                "pilot_intent": 0,
+                "intent_validity": 0,
+                "arrival": 0,
+                "arrival_validity": 0,
+                "resupply": 1,
+                "resupply_validity": 0
+              },
+              "expected_named_branch": "CASE-19",
+              "expected_outputs": {
+                "command": 1,
+                "next_phase": 1
+              },
+              "observed_proposals": {
+                "mission": 19,
+                "response": 0
+              },
+              "observed_outputs": {
+                "reason": 19,
+                "command": 1,
+                "current_phase": 4,
+                "next_phase": 1,
+                "fault": 0,
+                "next_valid_streak": 2,
+                "cargo_advisory": 0,
+                "capacitor_advisory": 0,
+                "retreat_advisory": 0,
+                "laser": 1,
+                "drones": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "Fault Assessment",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "phase_context.current_phase",
+        "threat_invalidity.threat_invalid",
+        "resource_invalidity.resource_invalid",
+        "mission_invalidity.intent_invalid",
+        "mission_invalidity.arrival_invalid",
+        "mission_invalidity.resupply_invalid"
+      ],
+      "owner_local_facts": [
+        "phase_relevant_fault"
+      ],
+      "contract_cases": [
+        "FA_PHASE_RELEVANT_FAULT"
+      ],
+      "analyzer_checks": [
+        "fa_exact_fault_predicate"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "Threat Qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "raw_threat.threat",
+        "raw_threat.threat_validity",
+        "streak_state.current_valid_streak"
+      ],
+      "owner_local_facts": [
+        "qualified_threat",
+        "next_valid_streak",
+        "threat_invalid"
+      ],
+      "contract_cases": [
+        "TQ_STREAK_AND_TRUST",
+        "TQ_QUALIFIED_FACTS"
+      ],
+      "analyzer_checks": [
+        "tq_streak_and_trust_mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "Resource Qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "raw_resources.cargo",
+        "raw_resources.cargo_validity",
+        "raw_resources.capacitor",
+        "raw_resources.capacitor_validity",
+        "raw_resources.target",
+        "raw_resources.target_validity",
+        "raw_resources.mining_availability",
+        "raw_resources.defense_availability",
+        "raw_resources.retreat_availability",
+        "raw_resources.availability_validity"
+      ],
+      "owner_local_facts": [
+        "mine_ready",
+        "resource_reset",
+        "defense_ready",
+        "cargo_or_capacitor_retreat",
+        "target_or_mining_block",
+        "resource_advisories",
+        "resource_invalid"
+      ],
+      "contract_cases": [
+        "RQ_MINING_AND_RESET",
+        "RQ_DEFENSE",
+        "RQ_ADVISORIES"
+      ],
+      "analyzer_checks": [
+        "rq_readiness_advisory_invalidity_mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "Personnel Mission Qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "raw_mission.pilot_intent",
+        "raw_mission.intent_validity",
+        "raw_mission.arrival",
+        "raw_mission.arrival_validity",
+        "raw_mission.resupply",
+        "raw_mission.resupply_validity"
+      ],
+      "owner_local_facts": [
+        "valid_mine",
+        "invalid_or_return",
+        "valid_hold_or_return",
+        "valid_safe_at_station",
+        "valid_complete_resupply",
+        "mission_invalidity"
+      ],
+      "contract_cases": [
+        "PQ_INTENT_FACTS",
+        "PQ_PROGRESS_FACTS",
+        "PQ_INDEPENDENT_INVALIDITY"
+      ],
+      "analyzer_checks": [
+        "pq_independent_mission_mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "Mission Recovery Decision",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "phase_context.current_phase",
+        "threat_fact.acceptable",
+        "resource_facts.mine_ready",
+        "resource_facts.resource_reset",
+        "resource_facts.cargo_or_capacitor_retreat",
+        "resource_facts.target_or_mining_block",
+        "mission_facts.valid_mine",
+        "mission_facts.invalid_or_return",
+        "mission_facts.valid_hold_or_return",
+        "mission_facts.valid_complete_resupply",
+        "mission_facts.intent_invalid"
+      ],
+      "owner_local_facts": [
+        "mission_proposal"
+      ],
+      "contract_cases": [
+        "MR_PROPOSAL_PARTITIONS"
+      ],
+      "analyzer_checks": [
+        "mr_total_local_proposal_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "Threat Retreat Decision",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "phase_context.current_phase",
+        "threat_fact.untrusted",
+        "threat_fact.hostile",
+        "threat_fact.severe",
+        "defense_facts.defense_ready",
+        "arrival_fact.valid_safe_at_station"
+      ],
+      "owner_local_facts": [
+        "response_proposal"
+      ],
+      "contract_cases": [
+        "TR_PROPOSAL_PARTITIONS"
+      ],
+      "analyzer_checks": [
+        "tr_total_local_proposal_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "Priority Phase Arbitration",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "phase_state.current_phase",
+        "mission_candidate.proposed_reason",
+        "response_candidate.proposed_reason",
+        "threat_publication.next_valid_streak",
+        "resource_publication.cargo_advisory",
+        "resource_publication.capacitor_advisory",
+        "resource_publication.retreat_advisory",
+        "fault.fault"
+      ],
+      "owner_local_facts": [
+        "selected_reason",
+        "command",
+        "next_phase",
+        "atomic_status"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "as_effective_guard_totality",
+        "as_priority_resolution",
+        "as_atomic_preservation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "Atomic Publication",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "atomic_result.command",
+        "atomic_result.current_phase",
+        "atomic_result.next_phase",
+        "atomic_result.reason",
+        "atomic_result.fault",
+        "atomic_result.next_valid_streak",
+        "atomic_result.cargo_advisory",
+        "atomic_result.capacitor_advisory",
+        "atomic_result.retreat_advisory"
+      ],
+      "owner_local_facts": [
+        "laser_command",
+        "drone_assignment",
+        "coherent_publication"
+      ],
+      "contract_cases": [
+        "AP_ACTUATOR_MAPPING",
+        "AP_ATOMIC_PRESERVATION"
+      ],
+      "analyzer_checks": [
+        "ap_command_to_actuator_mapping",
+        "ap_atomic_field_preservation"
+      ],
+      "passed": true
+    }
+  ],
+  "checks": {
+    "exact_domain_exhausted": true,
+    "all_twenty_cases_reachable": true,
+    "all_seven_scenario_families_executed": true,
+    "c05_priority_conflict_observed": true,
+    "local_ownership_checks_passed": true,
+    "source_guard_manifest_crosschecked": true,
+    "no_compositional_or_certification_claim": true
+  }
+}

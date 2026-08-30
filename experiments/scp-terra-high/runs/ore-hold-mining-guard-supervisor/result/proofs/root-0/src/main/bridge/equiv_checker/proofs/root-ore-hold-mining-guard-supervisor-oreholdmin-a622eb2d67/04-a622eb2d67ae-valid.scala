@@ -1,0 +1,14 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_a622eb2d67ae_4_Valid {
+  @pure def check(
+      guard_resolution: equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution,
+      guard_status: equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus.Type,
+      offload_readiness: equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.compute_CEP_Post(guard_resolution, guard_status, offload_readiness))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.compute_CEP_Post(guard_resolution, guard_status, offload_readiness))) & T))
+  }
+}

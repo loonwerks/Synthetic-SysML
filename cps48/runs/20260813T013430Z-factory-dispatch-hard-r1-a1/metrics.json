@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "run_id": "20260813T013430Z-factory-dispatch-hard-r1-a1",
+  "source": "model/Factory_Dispatch_Coordinator.sysml",
+  "source_sha256": "22064e03e97700d3681763675948c193b804cc357ca2c0b39fc8665e6b648b69",
+  "root_system_usages": 1,
+  "semantic_usages": 15,
+  "generated_support_usages": 1,
+  "semantic_interactions": 31,
+  "generated_support_routes": 3,
+  "root_delegations": 6,
+  "raw_port_connections": 40,
+  "nontrivial_contract_cases": 30,
+  "scenario_families": 11,
+  "retained_state_owners": 2,
+  "containment_depth": 2,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 15,
+    "semantic_interactions": 31,
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 11,
+    "ownership_audit": [
+      {
+        "usage": "customer_request_acquisition",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "freshRequest"
+        ],
+        "owner_local_facts": [
+          "requestPresent"
+        ],
+        "contract_cases": [
+          "REL-REQ-01"
+        ],
+        "analyzer_checks": [
+          "customer_request_presence_partition"
+        ]
+      },
+      {
+        "usage": "inventory_acquisition",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "inventorySnapshot.materialBand",
+          "inventorySnapshot.productBand"
+        ],
+        "owner_local_facts": [
+          "materialUsable",
+          "productUsable"
+        ],
+        "contract_cases": [
+          "REL-STOCK-01"
+        ],
+        "analyzer_checks": [
+          "inventory_usability_partition"
+        ]
+      },
+      {
+        "usage": "execution_outcome_acquisition",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "executionOutcome"
+        ],
+        "owner_local_facts": [
+          "eventClass"
+        ],
+        "contract_cases": [
+          "REL-OUT-01"
+        ],
+        "analyzer_checks": [
+          "outcome_event_class_partition"
+        ]
+      },
+      {
+        "usage": "request_qualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "request_boundary_facts.fresh_request",
+          "request_boundary_facts.request_present"
+        ],
+        "owner_local_facts": [
+          "requestValid",
+          "requestExpedited"
+        ],
+        "contract_cases": [
+          "REL-REQ-01"
+        ],
+        "analyzer_checks": [
+          "request_qualification_partition"
+        ]
+      },
+      {
+        "usage": "stock_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "material_boundary_facts",
+          "product_boundary_facts"
+        ],
+        "owner_local_facts": [
+          "materialShortage",
+          "materialReady",
+          "productAvailable"
+        ],
+        "contract_cases": [
+          "REL-STOCK-01"
+        ],
+        "analyzer_checks": [
+          "stock_assessment_partition"
+        ]
+      },
+      {
+        "usage": "outcome_qualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "outcome_boundary_facts.event_class",
+          "outcome_boundary_facts.execution_outcome",
+          "prior_order_state"
+        ],
+        "owner_local_facts": [
+          "qualifiedOutcome"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04",
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "qualified_outcome_partition"
+        ]
+      },
+      {
+        "usage": "recovery_control",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "qualified_outcome",
+          "recoveryEvent",
+          "In(recoveryState)"
+        ],
+        "owner_local_facts": [
+          "nextRecoveryState",
+          "recoveryGate",
+          "emergencyState"
+        ],
+        "contract_cases": [
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10",
+          "CASE-11",
+          "CASE-12"
+        ],
+        "analyzer_checks": [
+          "recovery_transition_partition"
+        ]
+      },
+      {
+        "usage": "order_lifecycle",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "qualified_outcome",
+          "recovery_gate",
+          "In(orderState)"
+        ],
+        "owner_local_facts": [
+          "priorOrderState",
+          "nextOrderState"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04",
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "order_transition_partition"
+        ]
+      },
+      {
+        "usage": "quotation_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "request_facts.request_valid",
+          "order_state",
+          "recovery_gate"
+        ],
+        "owner_local_facts": [
+          "quotationProposal"
+        ],
+        "contract_cases": [
+          "CASE-13",
+          "CASE-14"
+        ],
+        "analyzer_checks": [
+          "quotation_proposal_partition"
+        ]
+      },
+      {
+        "usage": "procurement_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "stock_facts.material_usable",
+          "stock_facts.material_shortage",
+          "supplier_available",
+          "order_state",
+          "recovery_gate"
+        ],
+        "owner_local_facts": [
+          "procurementProposal"
+        ],
+        "contract_cases": [
+          "CASE-15",
+          "CASE-16"
+        ],
+        "analyzer_checks": [
+          "procurement_proposal_partition"
+        ]
+      },
+      {
+        "usage": "production_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "stock_facts.material_usable",
+          "stock_facts.material_ready",
+          "production_available",
+          "order_state",
+          "recovery_gate"
+        ],
+        "owner_local_facts": [
+          "productionProposal"
+        ],
+        "contract_cases": [
+          "CASE-17",
+          "CASE-18"
+        ],
+        "analyzer_checks": [
+          "production_proposal_partition"
+        ]
+      },
+      {
+        "usage": "dispatch_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "stock_facts.product_usable",
+          "stock_facts.product_available",
+          "dispatch_available",
+          "order_state",
+          "recovery_gate"
+        ],
+        "owner_local_facts": [
+          "dispatchProposal"
+        ],
+        "contract_cases": [
+          "CASE-19",
+          "CASE-20"
+        ],
+        "analyzer_checks": [
+          "dispatch_proposal_partition"
+        ]
+      },
+      {
+        "usage": "action_arbitration",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "emergency_state",
+          "quotation_proposal",
+          "procurement_proposal",
+          "production_proposal",
+          "dispatch_proposal"
+        ],
+        "owner_local_facts": [
+          "selectedAction"
+        ],
+        "contract_cases": [
+          "CASE-21",
+          "CASE-22",
+          "CASE-23",
+          "CASE-24",
+          "CASE-25",
+          "CASE-26"
+        ],
+        "analyzer_checks": [
+          "action_priority_partition"
+        ]
+      },
+      {
+        "usage": "status_derivation",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "selected_action",
+          "order_state",
+          "recovery_state"
+        ],
+        "owner_local_facts": [
+          "mode",
+          "selectedCause",
+          "statusRecord"
+        ],
+        "contract_cases": [
+          "REL-STAT-01"
+        ],
+        "analyzer_checks": [
+          "status_mapping_partition"
+        ]
+      },
+      {
+        "usage": "public_composition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "request_facts",
+          "selected_action",
+          "status_record"
+        ],
+        "owner_local_facts": [
+          "requestDisposition",
+          "publicResult"
+        ],
+        "contract_cases": [
+          "CASE-27",
+          "CASE-28",
+          "CASE-29",
+          "CASE-30"
+        ],
+        "analyzer_checks": [
+          "public_disposition_partition",
+          "flat_tuple_composition"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "excluded_from_campaign_counts": [
+    "root system usage",
+    "FactoryDispatchCoordinatorProcess",
+    "capability_acquisition",
+    "INT-04",
+    "INT-05",
+    "INT-06",
+    "six root delegations",
+    "outer BoundaryExposure interfaces",
+    "initialization clauses",
+    "datatype and mapping support",
+    "status mapping support",
+    "tuple-preservation support"
+  ],
+  "verification": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "code_generation": "not-run",
+    "application_execution": "not-run",
+    "formal_proof": "not-run"
+  }
+}

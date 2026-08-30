@@ -1,0 +1,593 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/ore-hold-mining-guard-supervisor/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/ore-hold-mining-guard-supervisor/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/ore-hold-mining-guard-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/ore-hold-mining-guard-supervisor/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/ore-hold-mining-guard-supervisor/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "retry_attempts": [
+    {
+      "attempt": "300s-memory",
+      "evidence_id": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6aa0427385:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "300s-memory",
+      "evidence_id": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-78efc1d63d:atomic:01-a-----a-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "300s-memory",
+      "evidence_id": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-90378282ce:atomic:01-a-----a-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "300s-memory",
+      "evidence_id": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-90378282ce:atomic:02-a----g----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "300s-memory",
+      "evidence_id": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fcbae4ba4a:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    }
+  ],
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdfafa6f23:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.inititialize_IEP_Post(guard_status, offload_readiness))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.inititialize_IEP_Post(guard_status, offload_readiness))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdfafa6f23:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdfafa6f23:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.inititialize_IEP_Post(guard_status, offload_readiness))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.inititialize_IEP_Post(guard_status, offload_readiness))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdfafa6f23:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::guard_reporting_derivation_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-a622eb2d67:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.compute_CEP_Post(guard_resolution, guard_status, offload_readiness))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.compute_CEP_Post(guard_resolution, guard_status, offload_readiness))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-a622eb2d67:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-a622eb2d67:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.compute_CEP_Post(guard_resolution, guard_status, offload_readiness))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.compute_CEP_Post(guard_resolution, guard_status, offload_readiness))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-a622eb2d67:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::guard_reporting_derivation_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-1d4cd10f25:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(hold_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.inititialize_IEP_Post(hold_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-1d4cd10f25:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-1d4cd10f25:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.inititialize_IEP_Post(hold_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(hold_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-1d4cd10f25:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::hold_guard_qualification_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-7f2a02d990:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.compute_CEP_Post(hold_sample, hold_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.compute_CEP_Post(hold_sample, hold_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-7f2a02d990:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-7f2a02d990:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.compute_CEP_Post(hold_sample, hold_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.compute_CEP_Post(hold_sample, hold_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-7f2a02d990:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::hold_guard_qualification_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b2c9afa3d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.inititialize_IEP_Post(mining_command))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.inititialize_IEP_Post(mining_command))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b2c9afa3d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b2c9afa3d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.inititialize_IEP_Post(mining_command))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.inititialize_IEP_Post(mining_command))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b2c9afa3d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_command_derivation_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6aa0427385:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.compute_CEP_Post(guard_resolution, mining_command))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.compute_CEP_Post(guard_resolution, mining_command))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6aa0427385:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6aa0427385:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.compute_CEP_Post(guard_resolution, mining_command))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.compute_CEP_Post(guard_resolution, mining_command))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6aa0427385:atomic:04-a---g-----g-validity:retry-300s-memory-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_command_derivation_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-90378282ce:atomic:01-a-----a-validity:retry-300s-memory-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(support_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.inititialize_IEP_Post(support_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-90378282ce:atomic:02-a----g----g-validity:retry-300s-memory-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-90378282ce:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.inititialize_IEP_Post(support_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(support_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-90378282ce:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_support_qualification_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-78efc1d63d:atomic:01-a-----a-validity:retry-300s-memory-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.compute_CEP_Post(mining_support, support_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.compute_CEP_Post(mining_support, support_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-78efc1d63d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-78efc1d63d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.compute_CEP_Post(mining_support, support_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.compute_CEP_Post(mining_support, support_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-78efc1d63d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_support_qualification_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b3e3b36ba:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.inititialize_IEP_Post(guardmode, resolution_to_command, resolution_to_reporting))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.inititialize_IEP_Post(guardmode, resolution_to_command, resolution_to_reporting))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b3e3b36ba:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b3e3b36ba:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.inititialize_IEP_Post(guardmode, resolution_to_command, resolution_to_reporting))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.inititialize_IEP_Post(guardmode, resolution_to_command, resolution_to_reporting))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-6b3e3b36ba:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::ore_hold_decision_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-f30eb1d2c6:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.compute_CEP_Post(in_guardmode, guardmode, hold_assessment, request_assessment, support_assessment, resolution_to_command, resolution_to_reporting))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.compute_CEP_Post(in_guardmode, guardmode, hold_assessment, request_assessment, support_assessment, resolution_to_command, resolution_to_reporting))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-f30eb1d2c6:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-f30eb1d2c6:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.compute_CEP_Post(in_guardmode, guardmode, hold_assessment, request_assessment, support_assessment, resolution_to_command, resolution_to_reporting))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.compute_CEP_Post(in_guardmode, guardmode, hold_assessment, request_assessment, support_assessment, resolution_to_command, resolution_to_reporting))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-f30eb1d2c6:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::ore_hold_decision_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdf5bcd35e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.inititialize_IEP_Post(previoushalt, previousresume, previousstart, request_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.inititialize_IEP_Post(previoushalt, previousresume, previousstart, request_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdf5bcd35e:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdf5bcd35e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.inititialize_IEP_Post(previoushalt, previousresume, previousstart, request_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.inititialize_IEP_Post(previoushalt, previousresume, previousstart, request_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fdf5bcd35e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::request_freshness_priority_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fcbae4ba4a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.compute_CEP_Post(in_previoushalt, in_previousresume, in_previousstart, previoushalt, previousresume, previousstart, pilot_request, request_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.compute_CEP_Post(in_previoushalt, in_previousresume, in_previousstart, previoushalt, previousresume, previousstart, pilot_request, request_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fcbae4ba4a:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fcbae4ba4a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.compute_CEP_Post(in_previoushalt, in_previousresume, in_previousstart, previoushalt, previousresume, previousstart, pilot_request, request_assessment))) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.compute_CEP_Post(in_previoushalt, in_previousresume, in_previousstart, previoushalt, previousresume, previousstart, pilot_request, request_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-ore-hold-mining-guard-supervisor-oreholdmin-fcbae4ba4a:atomic:04-a---g-----g-validity:retry-300s-memory-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::request_freshness_priority_owner::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

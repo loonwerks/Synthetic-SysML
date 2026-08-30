@@ -1,0 +1,193 @@
+--- canonical-GUMBO.before
++++ canonical-GUMBO.after
+@@ -234,15 +234,31 @@
+             request == FlightStack::ApGuidanceRequestValue.Invalid & not inhibit & not authority) &
+           ((not initializing & priorMode == FlightStack::ApModeValue.Off) implies
+             (((ap.apAction == FlightStack::ApAction.ForceDisengage |
++               ap.cwsAction == FlightStack::CwsAction.ForceDisengage |
+                attitude.classification == FlightStack::AttitudeClass.Invalid) implies
+                 nextMode == FlightStack::ApModeValue.Failed) &
+-             ((ap.apAction == FlightStack::ApAction.Engage &
+-               attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid) implies
+-                nextMode == FlightStack::ApModeValue.SyncPending) &
+              ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               attitude.classification != FlightStack::AttitudeClass.Invalid &
++               ap.apAction == FlightStack::ApAction.Disengage) implies
++                nextMode == FlightStack::ApModeValue.Off) &
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                attitude.classification != FlightStack::AttitudeClass.Invalid &
+-               not (ap.apAction == FlightStack::ApAction.Engage &
+-                 attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid)) implies
++               ap.apAction != FlightStack::ApAction.Disengage &
++               attitude.classification == FlightStack::AttitudeClass.Unsafe) implies
++                nextMode == FlightStack::ApModeValue.Off) &
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               attitude.classification == FlightStack::AttitudeClass.Safe &
++               ap.apAction == FlightStack::ApAction.Engage & guidance.guidanceValid) implies
++                nextMode == FlightStack::ApModeValue.SyncPending) &
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               attitude.classification == FlightStack::AttitudeClass.Safe &
++               not (ap.apAction == FlightStack::ApAction.Engage & guidance.guidanceValid)) implies
+                 nextMode == FlightStack::ApModeValue.Off) &
+              apObservables(nextMode, ap.cwsAction == FlightStack::CwsAction.Hold,
+                            status.leftStatus, status.rightStatus,
+@@ -260,14 +276,24 @@
+                        authority: Base_Types::Boolean): Base_Types::Boolean :=
+           (priorMode == FlightStack::ApModeValue.SyncPending) implies
+             (((ap.apAction == FlightStack::ApAction.ForceDisengage |
++               ap.cwsAction == FlightStack::CwsAction.ForceDisengage |
+                attitude.classification == FlightStack::AttitudeClass.Invalid |
+                (attitude.classification == FlightStack::AttitudeClass.Safe & not guidance.guidanceValid)) implies
+                 nextMode == FlightStack::ApModeValue.Failed) &
+-             ((ap.apAction == FlightStack::ApAction.Disengage |
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               attitude.classification != FlightStack::AttitudeClass.Invalid &
++               not (attitude.classification == FlightStack::AttitudeClass.Safe & not guidance.guidanceValid) &
++               ap.apAction == FlightStack::ApAction.Disengage) implies
++                nextMode == FlightStack::ApModeValue.Off) &
++             ((ap.apAction != FlightStack::ApAction.Disengage &
++               ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                attitude.classification == FlightStack::AttitudeClass.Unsafe) implies
+                 nextMode == FlightStack::ApModeValue.Off) &
+              ((ap.apAction != FlightStack::ApAction.Disengage &
+                ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid) implies
+                 nextMode == FlightStack::ApModeValue.On) &
+              apObservables(nextMode, ap.cwsAction == FlightStack::CwsAction.Hold,
+@@ -278,14 +304,17 @@
+         def CASE_AP_03(priorMode: FlightStack::ApModeValue,
+                        ap: FlightStack::QualifiedApDisposition,
+                        attitude: FlightStack::QualifiedAttitude,
++                       guidance: FlightStack::ApGuidanceAndValidity,
+                        nextMode: FlightStack::ApModeValue,
+                        status: FlightStack::PairedApStatus,
+                        request: FlightStack::ApGuidanceRequestValue,
+                        inhibit: Base_Types::Boolean,
+                        authority: Base_Types::Boolean): Base_Types::Boolean :=
+-          ((priorMode == FlightStack::ApModeValue.On | priorMode == FlightStack::ApModeValue.CWS) &
++          (priorMode == FlightStack::ApModeValue.On &
++           ap.apAction != FlightStack::ApAction.ForceDisengage &
++           ap.apAction != FlightStack::ApAction.Disengage &
+            ap.cwsAction == FlightStack::CwsAction.Hold &
+-           attitude.classification == FlightStack::AttitudeClass.Safe) implies
++           attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid) implies
+             nextMode == FlightStack::ApModeValue.CWS &
+             apObservables(nextMode, true, status.leftStatus, status.rightStatus,
+                           request, inhibit, authority);
+@@ -301,20 +330,57 @@
+                        inhibit: Base_Types::Boolean,
+                        authority: Base_Types::Boolean): Base_Types::Boolean :=
+           ((priorMode == FlightStack::ApModeValue.CWS | priorMode == FlightStack::ApModeValue.CwsSuspended)) implies
+-            (((attitude.classification == FlightStack::AttitudeClass.Unsafe &
++            (((ap.apAction == FlightStack::ApAction.ForceDisengage |
++               ap.cwsAction == FlightStack::CwsAction.ForceDisengage |
++               attitude.classification == FlightStack::AttitudeClass.Invalid |
++               (attitude.classification == FlightStack::AttitudeClass.Safe & not guidance.guidanceValid)) implies
++                nextMode == FlightStack::ApModeValue.Failed) &
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               attitude.classification != FlightStack::AttitudeClass.Invalid &
++               not (attitude.classification == FlightStack::AttitudeClass.Safe & not guidance.guidanceValid) &
++               ap.apAction == FlightStack::ApAction.Disengage) implies
++                nextMode == FlightStack::ApModeValue.Off) &
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               attitude.classification == FlightStack::AttitudeClass.Unsafe &
+                ap.cwsAction == FlightStack::CwsAction.Hold) implies
+                 nextMode == FlightStack::ApModeValue.CwsSuspended) &
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               attitude.classification == FlightStack::AttitudeClass.Unsafe &
++               ap.cwsAction != FlightStack::CwsAction.Hold) implies
++                nextMode == FlightStack::ApModeValue.Off) &
+              ((priorMode == FlightStack::ApModeValue.CWS &
++               ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid &
+                ap.cwsAction == FlightStack::CwsAction.Release) implies
+                 nextMode == FlightStack::ApModeValue.On) &
++             ((priorMode == FlightStack::ApModeValue.CWS &
++               ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid &
++               ap.cwsAction != FlightStack::CwsAction.Release) implies
++                nextMode == FlightStack::ApModeValue.CWS) &
+              ((priorMode == FlightStack::ApModeValue.CwsSuspended &
++               ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid &
+                ap.cwsAction == FlightStack::CwsAction.Release) implies
+                 nextMode == FlightStack::ApModeValue.Off) &
+-             ((ap.apAction == FlightStack::ApAction.ForceDisengage |
+-               attitude.classification == FlightStack::AttitudeClass.Invalid |
+-               (attitude.classification == FlightStack::AttitudeClass.Safe & not guidance.guidanceValid)) implies
+-                nextMode == FlightStack::ApModeValue.Failed) &
++             ((priorMode == FlightStack::ApModeValue.CwsSuspended &
++               ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.apAction != FlightStack::ApAction.Disengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid &
++               ap.cwsAction != FlightStack::CwsAction.Release) implies
++                nextMode == FlightStack::ApModeValue.CwsSuspended) &
+              apObservables(nextMode, ap.cwsAction == FlightStack::CwsAction.Hold,
+                            status.leftStatus, status.rightStatus,
+                            request, inhibit, authority));
+@@ -329,16 +395,30 @@
+                        request: FlightStack::ApGuidanceRequestValue,
+                        inhibit: Base_Types::Boolean,
+                        authority: Base_Types::Boolean): Base_Types::Boolean :=
+-          (priorMode == FlightStack::ApModeValue.On & ap.cwsAction != FlightStack::CwsAction.Hold) implies
++          (priorMode == FlightStack::ApModeValue.On &
++           not (ap.apAction != FlightStack::ApAction.ForceDisengage &
++             ap.apAction != FlightStack::ApAction.Disengage &
++             ap.cwsAction == FlightStack::CwsAction.Hold &
++             attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid)) implies
+             (((ap.apAction == FlightStack::ApAction.ForceDisengage |
++               ap.cwsAction == FlightStack::CwsAction.ForceDisengage |
+                attitude.classification == FlightStack::AttitudeClass.Invalid |
+                (attitude.classification == FlightStack::AttitudeClass.Safe & not guidance.guidanceValid)) implies
+                 nextMode == FlightStack::ApModeValue.Failed) &
+-             ((ap.apAction == FlightStack::ApAction.Disengage |
++             ((ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
++               attitude.classification != FlightStack::AttitudeClass.Invalid &
++               not (attitude.classification == FlightStack::AttitudeClass.Safe & not guidance.guidanceValid) &
++               ap.apAction == FlightStack::ApAction.Disengage) implies
++                nextMode == FlightStack::ApModeValue.Off) &
++             ((ap.apAction != FlightStack::ApAction.Disengage &
++               ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                attitude.classification == FlightStack::AttitudeClass.Unsafe) implies
+                 nextMode == FlightStack::ApModeValue.Off) &
+              ((ap.apAction != FlightStack::ApAction.Disengage &
+                ap.apAction != FlightStack::ApAction.ForceDisengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid) implies
+                 nextMode == FlightStack::ApModeValue.On) &
+              apObservables(nextMode, false, status.leftStatus, status.rightStatus,
+@@ -356,9 +436,11 @@
+                        authority: Base_Types::Boolean): Base_Types::Boolean :=
+           (priorMode == FlightStack::ApModeValue.Failed) implies
+             (((ap.apAction == FlightStack::ApAction.Disengage &
++               ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid) implies
+                 nextMode == FlightStack::ApModeValue.Off) &
+              ((not (ap.apAction == FlightStack::ApAction.Disengage &
++                ap.cwsAction != FlightStack::CwsAction.ForceDisengage &
+                 attitude.classification == FlightStack::AttitudeClass.Safe & guidance.guidanceValid)) implies
+                 nextMode == FlightStack::ApModeValue.Failed) &
+              apObservables(nextMode, false, status.leftStatus, status.rightStatus,

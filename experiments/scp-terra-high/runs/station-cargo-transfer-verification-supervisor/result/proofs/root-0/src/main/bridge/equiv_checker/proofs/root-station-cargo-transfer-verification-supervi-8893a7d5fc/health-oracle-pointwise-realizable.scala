@@ -1,0 +1,18 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_8893a7d5fc79_Oracle_Pointwise_Realizable {
+  @pure def check(
+      commandproposal: equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.CommandProposal.Type,
+      serviceeligibility: equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.ServiceEligibility.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.CommandSafetyGate_supervisorProcess_commandSafetyGate_GumboX.compute_CEP_Post(commandproposal, serviceeligibility, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.WarehouseQuery.NoQuery, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.ShipCommand.Hold)) |
+        (equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.CommandSafetyGate_supervisorProcess_commandSafetyGate_GumboX.compute_CEP_Post(commandproposal, serviceeligibility, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.WarehouseQuery.NoQuery, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.ShipCommand.BeginOffload)) |
+        (equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.CommandSafetyGate_supervisorProcess_commandSafetyGate_GumboX.compute_CEP_Post(commandproposal, serviceeligibility, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.WarehouseQuery.NoQuery, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.ShipCommand.StopOffload)) |
+        (equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.CommandSafetyGate_supervisorProcess_commandSafetyGate_GumboX.compute_CEP_Post(commandproposal, serviceeligibility, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.WarehouseQuery.RequestReceipt, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.ShipCommand.Hold)) |
+        (equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.CommandSafetyGate_supervisorProcess_commandSafetyGate_GumboX.compute_CEP_Post(commandproposal, serviceeligibility, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.WarehouseQuery.RequestReceipt, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.ShipCommand.BeginOffload)) |
+        (equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.CommandSafetyGate_supervisorProcess_commandSafetyGate_GumboX.compute_CEP_Post(commandproposal, serviceeligibility, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.WarehouseQuery.RequestReceipt, equiv_shared_0.Station_Cargo_Transfer_Verification_Supervisor.ShipCommand.StopOffload)))))
+  }
+}

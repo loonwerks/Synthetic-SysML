@@ -1,0 +1,674 @@
+{
+  "status": "passed",
+  "passed": true,
+  "analyzer": "drone-lifecycle-governor-bounded-mirror-v1",
+  "source_sha256": "361b07a781b30345e58c494eeabc8153669914ca72a014a3627b4b1e5e482a19",
+  "finite_root_input_domain": {
+    "expression": "9*2*2*2*3*3*5",
+    "combinations": 3240
+  },
+  "explicit_semantic_connection_map": {
+    "INT-01": "root.pilotRequest -> requestArbiter.pilotRequest",
+    "INT-02": "root.chargerState -> requestArbiter.chargerState",
+    "INT-03": "root.chargerState -> operationalEligibilityOwner.chargerState",
+    "INT-04": "root.batteryCapacity -> batteryQualificationOwner.batteryCapacity",
+    "INT-05": "root.batteryCheck -> batteryQualificationOwner.batteryCheck",
+    "INT-06": "root.navigationCondition -> flightReadinessOwner.navigationCondition",
+    "INT-07": "root.radioCondition -> flightReadinessOwner.radioCondition",
+    "INT-08": "batteryQualificationOwner.batteryQualification -> operationalEligibilityOwner.batteryQualification",
+    "INT-09": "batteryQualificationOwner.batteryQualification -> supervisoryStatusAssessment.batteryQualification",
+    "INT-10": "flightReadinessOwner.flightQualification -> operationalEligibilityOwner.flightQualification",
+    "INT-11": "lifecycleStateGovernor.currentLifecycleState -> operationalEligibilityOwner.currentLifecycleState",
+    "INT-12": "operationalEligibilityOwner.recoveryProposal -> requestArbiter.recoveryProposal",
+    "INT-13": "operationalEligibilityOwner.eligibilityEnvelope -> lifecycleStateGovernor.eligibilityEnvelope",
+    "INT-14": "requestArbiter.arbitratedIntent -> lifecycleStateGovernor.arbitratedIntent",
+    "INT-15": "lifecycleStateGovernor.decisionSnapshot -> powerChargeCommandPolicy.decisionSnapshot",
+    "INT-16": "lifecycleStateGovernor.decisionSnapshot -> flightAuthorizationPolicy.decisionSnapshot",
+    "INT-17": "lifecycleStateGovernor.decisionSnapshot -> supervisoryStatusAssessment.decisionSnapshot",
+    "INT-18": "powerChargeCommandPolicy.powerCommand -> root.powerCommand",
+    "INT-19": "powerChargeCommandPolicy.chargeCommand -> root.chargeCommand",
+    "INT-20": "flightAuthorizationPolicy.flightAuthorization -> root.flightAuthorization",
+    "INT-21": "supervisoryStatusAssessment.pilotStatus -> root.pilotStatus"
+  },
+  "named_local_relations": [
+    "batteryQualificationOwner",
+    "flightReadinessOwner",
+    "operationalEligibilityOwner",
+    "requestArbiter",
+    "lifecycleStateGovernor",
+    "powerChargeCommandPolicy",
+    "flightAuthorizationPolicy",
+    "supervisoryStatusAssessment"
+  ],
+  "partition_counts": {
+    "owner_local_products": {
+      "batteryQualificationOwner": 4,
+      "flightReadinessOwner": 9,
+      "operationalEligibilityOwner": 90,
+      "requestArbiter": 72,
+      "lifecycleStateGovernor": 1440,
+      "powerChargeCommandPolicy": 5,
+      "flightAuthorizationPolicy": 5,
+      "supervisoryStatusAssessment": 24750
+    },
+    "owner_local_case_hits": {
+      "CASE-01": 2,
+      "CASE-02": 1,
+      "CASE-03": 1,
+      "CASE-04": 5,
+      "CASE-05": 3,
+      "CASE-06": 1,
+      "CASE-07": 24,
+      "CASE-08": 8,
+      "CASE-09": 12,
+      "CASE-10": 46,
+      "CASE-11": 8,
+      "CASE-12": 48,
+      "CASE-13": 16,
+      "CASE-14": 120,
+      "CASE-15": 60,
+      "CASE-16": 216,
+      "CASE-17": 1044,
+      "CASE-18": 5,
+      "CASE-19": 5,
+      "CASE-20": 24750
+    },
+    "end_to_end_case_hits": {
+      "CASE-01": 1620,
+      "CASE-02": 810,
+      "CASE-03": 810,
+      "CASE-04": 1800,
+      "CASE-05": 1080,
+      "CASE-06": 360,
+      "CASE-07": 972,
+      "CASE-08": 288,
+      "CASE-09": 486,
+      "CASE-10": 1494,
+      "CASE-11": 360,
+      "CASE-12": 1552,
+      "CASE-13": 1328,
+      "CASE-14": 360,
+      "CASE-15": 94,
+      "CASE-16": 1574,
+      "CASE-17": 1212,
+      "CASE-18": 3240,
+      "CASE-19": 3240,
+      "CASE-20": 3240
+    }
+  },
+  "gaps": [],
+  "overlaps": [],
+  "required_output_mismatches": [],
+  "invariant_checks": {
+    "exact_end_to_end_domain_3240": true,
+    "all_twenty_cases_reached_end_to_end": true,
+    "owner_products_exact": true,
+    "priority_conflict_exercised": true,
+    "recovery_clearing_and_fresh_reentry": true,
+    "safe_initialization": true,
+    "no_required_output_mismatches": true,
+    "all_scenarios_have_concrete_traces": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "requestArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "requestArbiter.pilotRequest",
+        "requestArbiter.chargerState",
+        "requestArbiter.recoveryProposal"
+      ],
+      "owner_local_facts": [
+        "priority-selected effective intent",
+        "fresh-request preemption",
+        "disconnected-charge rejection"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12",
+        "CASE-13"
+      ],
+      "analyzer_checks": [
+        "request-arbiter-total-priority-check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "operationalEligibilityOwner",
+      "claimed_roles": [
+        "applicability",
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "operationalEligibilityOwner.batteryQualification",
+        "operationalEligibilityOwner.flightQualification",
+        "operationalEligibilityOwner.chargerState",
+        "operationalEligibilityOwner.currentLifecycleState"
+      ],
+      "owner_local_facts": [
+        "flight eligibility",
+        "charge eligibility",
+        "state-dependent recovery proposal",
+        "eligibility reason precedence"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "operational-eligibility-total-recovery-check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "lifecycleStateGovernor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "lifecycleStateGovernor.arbitratedIntent",
+        "lifecycleStateGovernor.eligibilityEnvelope",
+        "lifecycleStateGovernor.committedLifecycleState"
+      ],
+      "owner_local_facts": [
+        "next lifecycle state",
+        "transition result",
+        "decision reason"
+      ],
+      "contract_cases": [
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17"
+      ],
+      "analyzer_checks": [
+        "lifecycle-governor-total-transition-check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "flightAuthorizationPolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "flightAuthorizationPolicy.decisionSnapshot.nextState"
+      ],
+      "owner_local_facts": [
+        "flight permission classification"
+      ],
+      "contract_cases": [
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "flight-authorization-five-state-check"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "initial_state": "OFF",
+      "steps": [
+        {
+          "name": "power-up",
+          "preState": "OFF",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "SWITCH_ON"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "STANDBY",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "STANDBY"
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "initial_state": "STANDBY",
+      "steps": [
+        {
+          "name": "begin-charge",
+          "preState": "STANDBY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "BEGIN_CHARGE"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_outputs": {
+            "powerCommand": "POWER_OFF",
+            "chargeCommand": "CHARGE_ENABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "CHARGING",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "CHARGING"
+        },
+        {
+          "name": "end-charge",
+          "preState": "CHARGING",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "END_CHARGE"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-16",
+          "observed_branch": "CASE-10+CASE-13+CASE-16",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "STANDBY",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "STANDBY"
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "initial_state": "STANDBY",
+      "steps": [
+        {
+          "name": "activate",
+          "preState": "STANDBY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "ACTIVATE"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "READY",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "READY"
+        },
+        {
+          "name": "begin-flight",
+          "preState": "READY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "BEGIN_FLIGHT"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_outputs": {
+            "powerCommand": "FLIGHT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "PERMITTED",
+            "pilotStatus": {
+              "lifecycleState": "FLYING",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "FLYING"
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "initial_state": "FLYING",
+      "steps": [
+        {
+          "name": "end-flight",
+          "preState": "FLYING",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "END_FLIGHT"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-16",
+          "observed_branch": "CASE-10+CASE-13+CASE-16",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "READY",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "READY"
+        },
+        {
+          "name": "deactivate",
+          "preState": "READY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "DEACTIVATE"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-16",
+          "observed_branch": "CASE-10+CASE-13+CASE-16",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "STANDBY",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "STANDBY"
+        },
+        {
+          "name": "switch-off",
+          "preState": "STANDBY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "SWITCH_OFF"
+          },
+          "expected_branch": "CASE-10+CASE-11+CASE-14",
+          "observed_branch": "CASE-10+CASE-11+CASE-14",
+          "observed_outputs": {
+            "powerCommand": "POWER_OFF",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "OFF",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "OFF"
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "initial_state": "STANDBY",
+      "steps": [
+        {
+          "name": "disconnected-charge-rejection",
+          "preState": "STANDBY",
+          "input": {
+            "chargerState": "DISCONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "BEGIN_CHARGE"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-17",
+          "observed_branch": "CASE-10+CASE-13+CASE-17",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "STANDBY",
+              "requestDisposition": "REJECTED",
+              "pilotNotice": "CHARGER_DISCONNECTED",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "STANDBY"
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "initial_state": "FLYING",
+      "steps": [
+        {
+          "name": "battery-over-readiness-recovery-preempts-request",
+          "preState": "FLYING",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "LOW",
+            "batteryCheck": "VALID",
+            "navigationCondition": "INVALID",
+            "radioCondition": "READY",
+            "pilotRequest": "ACTIVATE"
+          },
+          "expected_branch": "CASE-07+CASE-12+CASE-16",
+          "observed_branch": "CASE-07+CASE-12+CASE-16",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "STANDBY",
+              "requestDisposition": "PREEMPTED",
+              "pilotNotice": "BATTERY_LOW",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "STANDBY"
+        },
+        {
+          "name": "fresh-reactivation",
+          "preState": "STANDBY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "ACTIVATE"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "READY",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "READY"
+        },
+        {
+          "name": "fresh-flight-entry",
+          "preState": "READY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "BEGIN_FLIGHT"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_outputs": {
+            "powerCommand": "FLIGHT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "PERMITTED",
+            "pilotStatus": {
+              "lifecycleState": "FLYING",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "FLYING"
+        },
+        {
+          "name": "shutdown-preempts-recovery",
+          "preState": "FLYING",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "LOW",
+            "batteryCheck": "VALID",
+            "navigationCondition": "INVALID",
+            "radioCondition": "READY",
+            "pilotRequest": "SWITCH_OFF"
+          },
+          "expected_branch": "CASE-07+CASE-11+CASE-14",
+          "observed_branch": "CASE-07+CASE-11+CASE-14",
+          "observed_outputs": {
+            "powerCommand": "POWER_OFF",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "OFF",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "BATTERY_LOW",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "OFF"
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "initial_state": "CHARGING",
+      "steps": [
+        {
+          "name": "charger-loss-recovery",
+          "preState": "CHARGING",
+          "input": {
+            "chargerState": "DISCONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "NO_REQUEST"
+          },
+          "expected_branch": "CASE-09+CASE-12+CASE-16",
+          "observed_branch": "CASE-09+CASE-12+CASE-16",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "STANDBY",
+              "requestDisposition": "RECOVERY_APPLIED",
+              "pilotNotice": "CHARGER_DISCONNECTED",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "STANDBY"
+        },
+        {
+          "name": "cleared-hold",
+          "preState": "STANDBY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "NO_REQUEST"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-17",
+          "observed_branch": "CASE-10+CASE-13+CASE-17",
+          "observed_outputs": {
+            "powerCommand": "SUPPORT_POWER",
+            "chargeCommand": "CHARGE_DISABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "STANDBY",
+              "requestDisposition": "NO_CHANGE",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "STANDBY"
+        },
+        {
+          "name": "fresh-charge-reentry",
+          "preState": "STANDBY",
+          "input": {
+            "chargerState": "CONNECTED",
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "navigationCondition": "READY",
+            "radioCondition": "READY",
+            "pilotRequest": "BEGIN_CHARGE"
+          },
+          "expected_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_branch": "CASE-10+CASE-13+CASE-15",
+          "observed_outputs": {
+            "powerCommand": "POWER_OFF",
+            "chargeCommand": "CHARGE_ENABLED",
+            "flightAuthorization": "DENIED",
+            "pilotStatus": {
+              "lifecycleState": "CHARGING",
+              "requestDisposition": "ACCEPTED",
+              "pilotNotice": "NONE",
+              "caseId": "CASE-20"
+            }
+          },
+          "nextState": "CHARGING"
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "Exhaustive only over the declared finite one-evaluation domain and the seven retained bounded logical traces; not execution, unbounded temporal proof, compositional proof, solver certification, generated-code correctness, physical performance, safety, or certification."
+}

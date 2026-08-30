@@ -1,0 +1,362 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T195936Z-mining-threat-retreat-small-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Frigate_Threat_Response_Coordinator.sysml",
+  "source_sha256": "3f03db15b5504cb8bc7dcf189c53b73119679554616351c6994c72a2bb2fa0c3",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 22,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 125,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CONS-06",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "GEN-SUPPORT-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05"
+    ],
+    "relativePath": "cps48/runs/20260813T195936Z-mining-threat-retreat-small-r2-a1/system-abstract.md",
+    "taggedElementCount": 92,
+    "traceAssociationCount": 92,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a narrow five-usage threat-response system with 13 interactions, 12 complete cases, five scenarios, one principal response owner, and no mining/service mission governor.",
+      "questions_for_model": [
+        "Can the supported GUMBO subset express the principal coordinator's two initialized state items and explicit eight-case next-state relation without relying on textual first-match semantics?",
+        "Can concrete containment preserve exactly 13 traced end-to-end semantic interactions when routing requires additional generated-support hops?",
+        "Can the report composer express one structured report and four acknowledgment/disposition priority cases while leaving response disposition and both commands exclusively owned by the principal coordinator?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "threat evidence, reporting, defense activation, and retreat-oriented navigation, with mining, cargo, docking, offload, resupply, and whole-mission governance external",
+        "closest_baseline": "accepted replicate-1 Small combined mining-threat-retreat supervisor",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system removes cargo, capacitor, mining, service progress, mission phase, and five-way action arbitration; derives three threat-response facts through distinct owners; branches reporting after the sole response coordinator; and recovers through route availability, retreat completion, and request rearming rather than docking, offload, resupply, and return-to-idle progression."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Clarify PART-02's omitted fourth valid defense/drone tuple; retain ALT-01 and all selected counts and behavior.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "MON-03 has four value pairs when both statuses are valid. CONS-03 assigns Available plus Ready to Ready but says Unavailable covers only 'both remaining valid combinations'; three valid value pairs remain. This leaves one tuple textually unassigned despite CONTRACT-LOCAL-02's required total 16-combination relation and makes exact bounded conformance ambiguous.",
+          "requested_change": "Change CONS-03 to assign Unavailable to all three remaining valid value combinations, and restate CONTRACT-LOCAL-02 as Ready exactly when both statuses are Valid, defense is Available, and drones are Ready. Change no PART, INT, metric, CASE, SCN, priority, recovery, state, or claim-boundary choice; preserve the intended Unknown/Ready/Unavailable behavior."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "After the localized tuple clarification, extensional audit shows PART-01 maps 16 evidence combinations to four threat classes, PART-02 maps 16 defense/drone combinations to three readiness classes, PART-03 maps 32 navigation combinations to four retreat classes, PART-04 makes state-dependent command and disposition choices, and PART-05 maps acknowledgment plus six dispositions to four priorities. None of these owner credits depends on a one-to-one rename or identity relation.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "SysML-AADL library commit 9016cbcceefa92f0068e1811923704dd261d15f1 and Sireum v4.20260630.386eac9f support System/Process/Thread containment, typed DataPort connections, local GUMBO state and initialization, explicit compute cases, flat Data attributes, and multiple local state variables. One generated-support Process can place all five semantic Threads at depth 2 without acquiring behavior.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "CASE-01 through CASE-08 are disjoint and exhaustive after explicit earlier-branch exclusions, and CASE-09 through CASE-12 cover both acknowledgment statuses, both acknowledgment values when valid, and all six dispositions. The boundary arithmetic yields exactly 196,608 input combinations and 1,179,648 input/pre-state snapshots.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The current harness validates ownership-audit wire fields and agreement between metrics and executed analyzer evidence but does not infer substantive ownership from role labels. Generation must therefore retain owner-local relation execution and witnesses, use values through INT-06 through INT-08 and INT-11, and leave copied response/report fields and routing hops uncredited.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Corrected PART-02's valid-tuple cardinality wording; retained ALT-01, exact metrics, policy, and claim boundary; Model generation authorized.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical revision-2 ALT-01 model passes both retained Sireum gates, exhaustive bounded analysis, scenario evidence, ownership audit, and exact trace association review.",
+      "canonical_source": "model/Frigate_Threat_Response_Coordinator.sysml",
+      "architecture_repairs": 1,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Localized CTX-01 through CTX-04 presentation repair passes validated native review, exact trace audit, and zero-crossing/zero-route-collision gates without changing SysML semantics.",
+      "correction_cycles": 8,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CONS-06",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "GEN-SUPPORT-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05"
+      ],
+      "reviewed_tagged_element_count": 92,
+      "reviewed_trace_association_count": 92,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Revision-2 ALT-01 passes source, bounded semantic, ownership, traceability, and rendered-artifact fitness without silent drift; execution is not required by the seed.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 13,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "threatEvidenceInterpreter",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "threatEvidenceInterpreter.contactEvidence",
+            "threatEvidenceInterpreter.identificationEvidence"
+          ],
+          "owner_local_facts": [
+            "qualifiedThreat four-class evidence interpretation"
+          ],
+          "contract_cases": [
+            "CONTRACT-LOCAL-01"
+          ],
+          "analyzer_checks": [
+            "part01_total_16_relation"
+          ]
+        },
+        {
+          "usage": "defenseReadinessAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "defenseReadinessAssessor.defenseEvidence"
+          ],
+          "owner_local_facts": [
+            "defenseCondition conjunction of independently valid defense and drone readiness"
+          ],
+          "contract_cases": [
+            "CONTRACT-LOCAL-02"
+          ],
+          "analyzer_checks": [
+            "part02_total_16_relation"
+          ]
+        },
+        {
+          "usage": "retreatReadinessAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "retreatReadinessAssessor.retreatNavigationEvidence"
+          ],
+          "owner_local_facts": [
+            "retreatCondition completion-precedent route classification"
+          ],
+          "contract_cases": [
+            "CONTRACT-LOCAL-03"
+          ],
+          "analyzer_checks": [
+            "part03_total_32_relation"
+          ]
+        },
+        {
+          "usage": "principalResponseCoordinator",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "principalResponseCoordinator.responseRequest",
+            "principalResponseCoordinator.qualifiedThreat",
+            "principalResponseCoordinator.defenseCondition",
+            "principalResponseCoordinator.retreatCondition",
+            "principalResponseCoordinator.responseCommitment",
+            "principalResponseCoordinator.retreatRequestArmed"
+          ],
+          "owner_local_facts": [
+            "exclusive response disposition and command choice",
+            "response commitment transition",
+            "fresh-request arming transition"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08"
+          ],
+          "analyzer_checks": [
+            "part04_eight_case_partition",
+            "source_guards_match_analyzer_guards"
+          ]
+        },
+        {
+          "usage": "threatReportComposer",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "threatReportComposer.responseRecord",
+            "threatReportComposer.reportAcknowledgment"
+          ],
+          "owner_local_facts": [
+            "acknowledgment-aware four-class report priority"
+          ],
+          "contract_cases": [
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "part05_four_case_partition",
+            "response_record_preserved"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Revision-2 ALT-01 passes source, bounded semantic, ownership, traceability, and rendered-artifact fitness without silent drift; execution is not required by the seed.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

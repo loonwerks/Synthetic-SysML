@@ -1,0 +1,33 @@
+// #Sireum
+
+package scp_candidate.Cabin_Air_Treatment_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter {
+
+  def initialise(api: AirCarePriorityResultArbiter_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_RESULT_SAFE
+        api.airTreatmentCommand == AirTreatmentCommand.Off &&
+          api.airCareSupervisorStatus.mode == StatusMode.Idle &&
+          api.airCareSupervisorStatus.reason == StatusReason.None
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_airTreatmentCommand(Cabin_Air_Treatment_Supervisor.AirTreatmentCommand.Off)
+    api.put_airCareSupervisorStatus(Cabin_Air_Treatment_Supervisor.AirCareSupervisorStatus.example())
+  }
+
+  def finalise(api: AirCarePriorityResultArbiter_Operational_Api): Unit = { }
+}

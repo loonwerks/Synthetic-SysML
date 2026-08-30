@@ -1,0 +1,19 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_9bd727c8b611_Oracle_Pointwise_Realizable {
+  @pure def check(
+      communication_evidence: equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.EquipmentEvidence): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.None))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Invalid))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Stale))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = F, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Condition))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.None))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Invalid))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Stale))) |
+        (equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.CommunicationEvidenceAssessor_eligibility_supervisor_process_communication_evidence_assessor_GumboX.inititialize_IEP_Post(equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentAssessment(ready = T, localCause = equiv_shared_0.Observation_Sortie_Eligibility_Supervisor.SingleEquipmentCause.Condition))))))
+  }
+}

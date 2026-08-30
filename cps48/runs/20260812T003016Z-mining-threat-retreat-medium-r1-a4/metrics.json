@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "source_sha256": "521f5796085d5aedab7ade2f73c2918d459ae6646cd23511b1c06dbcaf105174",
+  "root_system_usages": 1,
+  "semantic_regions": 1,
+  "containment_depth": { "minimum": 1, "maximum": 2 },
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 18,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "Fault Assessment",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["phase_context.current_phase", "threat_invalidity.threat_invalid", "resource_invalidity.resource_invalid", "mission_invalidity.intent_invalid", "mission_invalidity.arrival_invalid", "mission_invalidity.resupply_invalid"],
+        "owner_local_facts": ["phase_relevant_fault"],
+        "contract_cases": ["FA_PHASE_RELEVANT_FAULT"],
+        "analyzer_checks": ["fa_exact_fault_predicate"]
+      },
+      {
+        "usage": "Threat Qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["raw_threat.threat", "raw_threat.threat_validity", "streak_state.current_valid_streak"],
+        "owner_local_facts": ["qualified_threat", "next_valid_streak", "threat_invalid"],
+        "contract_cases": ["TQ_STREAK_AND_TRUST", "TQ_QUALIFIED_FACTS"],
+        "analyzer_checks": ["tq_streak_and_trust_mapping"]
+      },
+      {
+        "usage": "Resource Qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["raw_resources.cargo", "raw_resources.cargo_validity", "raw_resources.capacitor", "raw_resources.capacitor_validity", "raw_resources.target", "raw_resources.target_validity", "raw_resources.mining_availability", "raw_resources.defense_availability", "raw_resources.retreat_availability", "raw_resources.availability_validity"],
+        "owner_local_facts": ["mine_ready", "resource_reset", "defense_ready", "cargo_or_capacitor_retreat", "target_or_mining_block", "resource_advisories", "resource_invalid"],
+        "contract_cases": ["RQ_MINING_AND_RESET", "RQ_DEFENSE", "RQ_ADVISORIES"],
+        "analyzer_checks": ["rq_readiness_advisory_invalidity_mapping"]
+      },
+      {
+        "usage": "Personnel Mission Qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["raw_mission.pilot_intent", "raw_mission.intent_validity", "raw_mission.arrival", "raw_mission.arrival_validity", "raw_mission.resupply", "raw_mission.resupply_validity"],
+        "owner_local_facts": ["valid_mine", "invalid_or_return", "valid_hold_or_return", "valid_safe_at_station", "valid_complete_resupply", "mission_invalidity"],
+        "contract_cases": ["PQ_INTENT_FACTS", "PQ_PROGRESS_FACTS", "PQ_INDEPENDENT_INVALIDITY"],
+        "analyzer_checks": ["pq_independent_mission_mapping"]
+      },
+      {
+        "usage": "Mission Recovery Decision",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["phase_context.current_phase", "threat_fact.acceptable", "resource_facts.mine_ready", "resource_facts.resource_reset", "resource_facts.cargo_or_capacitor_retreat", "resource_facts.target_or_mining_block", "mission_facts.valid_mine", "mission_facts.invalid_or_return", "mission_facts.valid_hold_or_return", "mission_facts.valid_complete_resupply", "mission_facts.intent_invalid"],
+        "owner_local_facts": ["mission_proposal"],
+        "contract_cases": ["MR_PROPOSAL_PARTITIONS"],
+        "analyzer_checks": ["mr_total_local_proposal_partition"]
+      },
+      {
+        "usage": "Threat Retreat Decision",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["phase_context.current_phase", "threat_fact.untrusted", "threat_fact.hostile", "threat_fact.severe", "defense_facts.defense_ready", "arrival_fact.valid_safe_at_station"],
+        "owner_local_facts": ["response_proposal"],
+        "contract_cases": ["TR_PROPOSAL_PARTITIONS"],
+        "analyzer_checks": ["tr_total_local_proposal_partition"]
+      },
+      {
+        "usage": "Priority Phase Arbitration",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["phase_state.current_phase", "mission_candidate.proposed_reason", "response_candidate.proposed_reason", "threat_publication.next_valid_streak", "resource_publication.cargo_advisory", "resource_publication.capacitor_advisory", "resource_publication.retreat_advisory", "fault.fault"],
+        "owner_local_facts": ["selected_reason", "command", "next_phase", "atomic_status"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12", "CASE-13", "CASE-14", "CASE-15", "CASE-16", "CASE-17", "CASE-18", "CASE-19", "CASE-20"],
+        "analyzer_checks": ["as_effective_guard_totality", "as_priority_resolution", "as_atomic_preservation"]
+      },
+      {
+        "usage": "Atomic Publication",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["atomic_result.command", "atomic_result.current_phase", "atomic_result.next_phase", "atomic_result.reason", "atomic_result.fault", "atomic_result.next_valid_streak", "atomic_result.cargo_advisory", "atomic_result.capacitor_advisory", "atomic_result.retreat_advisory"],
+        "owner_local_facts": ["laser_command", "drone_assignment", "coherent_publication"],
+        "contract_cases": ["AP_ACTUATOR_MAPPING", "AP_ATOMIC_PRESERVATION"],
+        "analyzer_checks": ["ap_command_to_actuator_mapping", "ap_atomic_field_preservation"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

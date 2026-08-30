@@ -1,0 +1,26 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_f0f00f7dd053_Candidate_Pointwise_Realizable {
+  @pure def check(
+      dispatch_disposition: equiv_shared_0.Factory_Dispatch_Coordinator.Dispatch_Disposition.Type,
+      registry_outcome: equiv_shared_0.Factory_Dispatch_Coordinator.Registry_Outcome.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.None)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Invalid_Event)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Request_Accepted)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Duplicate_Acknowledged)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Identifier_Conflict)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Busy)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Stale_Result)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Inventory_Evidence_Invalid)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Readiness_Evidence_Invalid)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Waiting_For_Stock)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Waiting_For_Dispatch)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Release_Issued)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Shipment_Confirmed)) |
+        (equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Notice_Synthesis_dispatch_coordination_process_customer_notice_synthesis_Candidate_GumboX.compute_CEP_Post(dispatch_disposition, registry_outcome, equiv_shared_0.Factory_Dispatch_Coordinator.Customer_Dispatch_Notice.Shipment_Failed_Retry_Pending)))))
+  }
+}

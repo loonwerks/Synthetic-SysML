@@ -1,0 +1,44 @@
+// #Sireum
+
+package scp_candidate.Battery_Status_Assessment_Service
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object CheckLifecycle_battery_assessment_process_check_lifecycle {
+
+  // BEGIN STATE VARS
+  var lifecycleState: Battery_Status_Assessment_Service.LifecycleState.Type = Battery_Status_Assessment_Service.LifecycleState.Idle
+
+  var lastAdmittedToken: Battery_Status_Assessment_Service.LastAdmittedToken.Type = Battery_Status_Assessment_Service.LastAdmittedToken.None
+  // END STATE VARS
+
+  def initialise(api: CheckLifecycle_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_LIFECYCLE_SAFE
+        lifecycleState == LifecycleState.Idle &
+          lastAdmittedToken == LastAdmittedToken.None &
+          api.acquisition_directive == AcquisitionDirective.NoAcquisition &
+          api.assessment_context == AssessmentContext.NoContext &
+          api.publication_directive == PublicationDirective.NoPublicationDirective &
+          api.check_status == CheckStatus.Idle
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_acquisition_directive(Battery_Status_Assessment_Service.AcquisitionDirective.NoAcquisition)
+    api.put_assessment_context(Battery_Status_Assessment_Service.AssessmentContext.NoContext)
+    api.put_publication_directive(Battery_Status_Assessment_Service.PublicationDirective.NoPublicationDirective)
+    api.put_check_status(Battery_Status_Assessment_Service.CheckStatus.Idle)
+  }
+
+  def finalise(api: CheckLifecycle_Operational_Api): Unit = { }
+}

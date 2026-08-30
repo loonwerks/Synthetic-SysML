@@ -1,0 +1,23 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_f9851a6a6346_Oracle_Pointwise_Realizable {
+  @pure def check(
+      batteryin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryStateFacts,
+      chargerin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargerFacts,
+      interfacein: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.InterfaceFacts,
+      lifecyclein: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.LifecycleFacts): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Blocked, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Blocked)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Blocked, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.NotNeeded)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Blocked, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Permitted)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.NotNeeded, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Blocked)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.NotNeeded, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.NotNeeded)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.NotNeeded, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Permitted)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Permitted, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Blocked)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Permitted, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.NotNeeded)) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_GumboX.compute_CEP_Post(batteryin, chargerin, interfacein, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Permitted, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Permitted)))))
+  }
+}

@@ -1,0 +1,253 @@
+{
+  "source": "model/Station_Cargo_Transfer_Verification_Supervisor.sysml",
+  "source_sha256": "53cf4c62581c7091131f798da66d5ba55af272d5bbe6f2f12036d86670aa3067",
+  "root_system_usages": 1,
+  "semantic_usages": 9,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 10,
+  "all_usages_including_root": 11,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 21,
+  "generated_support_routes": 9,
+  "source_port_connection_declarations": 30,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 7,
+  "gumbo_inspected_data_fields": 2,
+  "gumbo_inspected_fields_declared_as_attributes": 2,
+  "architecture_repairs": 1,
+  "contract_repairs": 1,
+  "analyzer_repairs": 1,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 9,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "RequestQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "RequestQualifier.transferRequest",
+          "RequestQualifier.cargoState"
+        ],
+        "owner_local_facts": [
+          "QualifiedRequest validity, freshness, and cargo applicability classification"
+        ],
+        "contract_cases": [
+          "REQUEST_INPUT_FAULT",
+          "REQUEST_START_CANDIDATE",
+          "REQUEST_EMPTY_REJECTION"
+        ],
+        "analyzer_checks": [
+          "RequestQualifier 24-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "ServiceReadinessQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "ServiceReadinessQualifier.serviceCondition"
+        ],
+        "owner_local_facts": [
+          "ServiceEligibility readiness, preemption, ineligibility, and fault classification"
+        ],
+        "contract_cases": [
+          "SERVICE_READY",
+          "SERVICE_UNDOCK_PREEMPTION",
+          "SERVICE_INELIGIBLE",
+          "SERVICE_FAULT"
+        ],
+        "analyzer_checks": [
+          "ServiceReadinessQualifier 5-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "PriorityArbiter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PriorityArbiter.qualifiedRequest",
+          "PriorityArbiter.serviceEligibility",
+          "PriorityArbiter.sessionPrestate"
+        ],
+        "owner_local_facts": [
+          "AdmittedDirective ordered admission, preemption, cancellation, and reset decision"
+        ],
+        "contract_cases": [
+          "ARBITER_FAULT",
+          "ARBITER_ACTIVE_UNDOCK",
+          "ARBITER_ACTIVE_CANCEL",
+          "ARBITER_IDLE_BEGIN",
+          "ARBITER_LATCH_RESET"
+        ],
+        "analyzer_checks": [
+          "PriorityArbiter 192-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "SessionController",
+        "claimed_roles": [
+          "proposal",
+          "decision"
+        ],
+        "assigned_inputs": [
+          "SessionController.admittedDirective",
+          "SessionController.verificationDisposition",
+          "SessionController.sessionState pre-state"
+        ],
+        "owner_local_facts": [
+          "SessionState transition, SessionExpectation, CommandProposal, and SessionSnapshot decision"
+        ],
+        "contract_cases": [
+          "ACTIVE_FAULT_TRANSITION",
+          "ACTIVE_UNDOCK_STOP",
+          "ACTIVE_CANCEL_STOP",
+          "ACTIVE_VERIFIED",
+          "ACTIVE_PROGRESS",
+          "RECOVERY_CLEAR",
+          "TERMINAL_RESET",
+          "IDLE_BEGIN"
+        ],
+        "analyzer_checks": [
+          "SessionController 360-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "ShipEvidenceQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "ShipEvidenceQualifier.transferEvidence",
+          "ShipEvidenceQualifier.sessionExpectation"
+        ],
+        "owner_local_facts": [
+          "ShipFinding expectation-sensitive evidence qualification"
+        ],
+        "contract_cases": [
+          "SHIP_ACTIVE_FAULT",
+          "SHIP_ACTIVE_NOT_COMPLETE",
+          "SHIP_ACTIVE_COMPLETE",
+          "SHIP_RECOVERY_NEUTRAL"
+        ],
+        "analyzer_checks": [
+          "ShipEvidenceQualifier 15-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "WarehouseEvidenceQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "WarehouseEvidenceQualifier.receiptEvidence",
+          "WarehouseEvidenceQualifier.sessionExpectation"
+        ],
+        "owner_local_facts": [
+          "WarehouseFinding expectation-sensitive receipt qualification"
+        ],
+        "contract_cases": [
+          "WAREHOUSE_ACTIVE_FAULT",
+          "WAREHOUSE_ACTIVE_MISSING",
+          "WAREHOUSE_ACTIVE_MATCH",
+          "WAREHOUSE_RECOVERY_NEUTRAL"
+        ],
+        "analyzer_checks": [
+          "WarehouseEvidenceQualifier 12-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "CompletionReconciler",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "CompletionReconciler.shipFinding",
+          "CompletionReconciler.warehouseFinding"
+        ],
+        "owner_local_facts": [
+          "VerificationDisposition two-source verification, waiting, recovery, and clearance decision"
+        ],
+        "contract_cases": [
+          "RECONCILE_FAULT",
+          "RECONCILE_RECOVERY_CLEARABLE",
+          "RECONCILE_VERIFIED",
+          "RECONCILE_MISSING",
+          "RECONCILE_OTHER_PARTIAL"
+        ],
+        "analyzer_checks": [
+          "CompletionReconciler 25-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "CommandSafetyGate",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "CommandSafetyGate.commandProposal",
+          "CommandSafetyGate.serviceEligibility"
+        ],
+        "owner_local_facts": [
+          "Joint ShipCommand and WarehouseQuery safety-gating decision"
+        ],
+        "contract_cases": [
+          "COMMAND_STOP_PRESERVED",
+          "COMMAND_BEGIN_READY",
+          "COMMAND_QUERY_READY",
+          "COMMAND_SUPPRESSED"
+        ],
+        "analyzer_checks": [
+          "CommandSafetyGate 16-value direct-product relation"
+        ]
+      },
+      {
+        "usage": "OutcomeReporter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "OutcomeReporter.sessionSnapshot.next_state",
+          "OutcomeReporter.sessionSnapshot.session_result"
+        ],
+        "owner_local_facts": [
+          "Recipient-specific PilotTransferReport and StationTransferReport decision"
+        ],
+        "contract_cases": [
+          "REPORT_RESET_COMPLETE",
+          "REPORT_IDLE_CANCELLED",
+          "REPORT_IDLE_INHIBITED",
+          "REPORT_STARTED",
+          "REPORT_AWAITING",
+          "REPORT_VERIFIED",
+          "REPORT_RECOVERY"
+        ],
+        "analyzer_checks": [
+          "OutcomeReporter 64-value direct-product relation"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "Nine responsibility-bearing Thread usages; the root and behavior-free support Process are excluded.",
+    "semantic_interactions": "INT-01 through INT-21; nine root/Process delegation hops are excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-20; initialization, snapshot wire encoding, fan-out equality, producer-inconsistent fail-closed clauses, and identity support are excluded.",
+    "scenario_families": "SCN-01 through SCN-07, each executed as a concrete state-carrying bounded trace.",
+    "composition": "The analyzer composes the nine named local relations through the explicit INT-01..INT-21 map; this is not a compositional-proof claim."
+  }
+}

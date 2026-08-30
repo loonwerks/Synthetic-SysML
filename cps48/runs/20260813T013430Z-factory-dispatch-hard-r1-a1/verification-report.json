@@ -1,0 +1,673 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T013430Z-factory-dispatch-hard-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Factory_Dispatch_Coordinator.sysml",
+  "source_sha256": "22064e03e97700d3681763675948c193b804cc357ca2c0b39fc8665e6b648b69",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 17,
+    "edgeCount": 20,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 180,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ASM-INIT-01",
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28",
+      "CASE-29",
+      "CASE-30",
+      "CTRL-PUB-01",
+      "FAULT-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "INT-34",
+      "MON-CAP-01",
+      "MON-INV-01",
+      "MON-OUT-01",
+      "MON-REC-01",
+      "MON-REQ-01",
+      "PART-01",
+      "PART-02",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "PART-14",
+      "PART-15",
+      "PART-16",
+      "REL-COMP-01",
+      "REL-LIFE-01",
+      "REL-OUT-01",
+      "REL-REQ-01",
+      "REL-STAT-01",
+      "REL-STOCK-01",
+      "TYPE-BOUND-01",
+      "TYPE-LOCAL-01"
+    ],
+    "relativePath": "cps48/runs/20260813T013430Z-factory-dispatch-hard-r1-a1/system-abstract.md",
+    "taggedElementCount": 228,
+    "traceAssociationCount": 228,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Approved a bounded hard-tier order-to-dispatch design with 16 usages, 34 interactions, 30 cases, and 11 scenarios.",
+      "questions_for_model": [
+        "Can retained prior OrderState feed phase-aware outcome qualification and return QualifiedOutcome to the lifecycle owner without an algebraic-cycle diagnostic in the trusted SysML-AADL/GUMBO forms?",
+        "Can StatusRecord and PublicResult use supported finite record/product types while preserving one public writer and field-level contract inspection?",
+        "Can raw root delegations be reported separately from the exact 34 cross-usage semantic interactions while retaining complete endpoint traceability?"
+      ],
+      "repair_actions": []
+    },
+    "model-review": {
+      "disposition": "blocker",
+      "summary": "Local allocation repair is required for four identity acquisition usages, the prior/next order-state interface, and the supported flat public-record mapping.",
+      "findings": [
+        {
+          "classification": "blocker",
+          "evidence": "PART-01 forwards FreshRequest, PART-02 splits InventorySnapshot into its corresponding fields, PART-03 splits three capability Booleans into the same three Booleans, and PART-04 forwards ExecutionOutcome; all behavioral classifications are assigned downstream or freshness is assigned to the environment. These are extensional identity/split/routing wrappers, so OWN-AUD-02 cannot grant all four semantic-usage credit under M-17.",
+          "requested_change": "Move request-presence classification to PART-01, material/product usability classification to PART-02, and NO_EVENT/FAILURE/SUCCESS classification to PART-04, with downstream owners consuming rather than recomputing those facts. Reclassify PART-03 as one generated-support splitter and INT-04..INT-06 as support routes. Change the selected metrics from 16/34 to 15 semantic usages and 31 semantic interactions; keep 30 cases and 11 scenarios unchanged."
+        },
+        {
+          "classification": "blocker",
+          "evidence": "INT-22 and INT-23..INT-27 assign two temporal meanings to the single order_lifecycle.order_state output. CASE-03 and CASE-06 make prior and next OrderState differ, so using next state creates a qualification/lifecycle dependency cycle while using prior state makes same-evaluation eligibility and status stale.",
+          "requested_change": "Add PART-09.prior_order_state constrained to In(orderState), change only INT-22 to source that port, and retain PART-09.order_state as the derived next-state source for INT-23..INT-27. Preserve PART-07/PART-09 ownership and CASE-01..CASE-06."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted models support flat part def :> Data records with attribute members and field-level GUMBO expressions. MODEL_AGENT_GUIDELINES M-06 records that GUMBO inspection of a nested part member produces member-not-found; no trusted example establishes a nested Data record as an inspectable attribute payload.",
+          "requested_change": "Authorize flat StatusRecord and flat PublicResult Data records. PART-16 shall copy the received StatusRecord fields into flat PublicResult attributes and constrain tuple consistency on one public output port; do not introduce a nested PublicResult.status part. Preserve atomic one-writer behavior and CASE-27..CASE-30."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "After the stated fact moves, PART-05..PART-16 each retain classification, combination, state-dependent choice, or priority/composition policy rather than a one-to-one rename. The current harness also has separate semantic, generated-support, and raw-connection metric fields and cross-checks owner evidence with the bounded analyzer.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved revision 2 with meaningful acquisition classifications, support-only capability routing, split prior/current order state, and flat atomic public records.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical SysML passes retained architecture/final Sireum gates and exhaustive 31,104-case bounded analysis.",
+      "canonical_source": "model/Factory_Dispatch_Coordinator.sysml",
+      "architecture_repairs": 2,
+      "contract_repairs": 4,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated 20-edge system overview passes native, route-health, and complete traceability review.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ASM-INIT-01",
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "CASE-30",
+        "CTRL-PUB-01",
+        "FAULT-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "INT-34",
+        "MON-CAP-01",
+        "MON-INV-01",
+        "MON-OUT-01",
+        "MON-REC-01",
+        "MON-REQ-01",
+        "PART-01",
+        "PART-02",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "PART-14",
+        "PART-15",
+        "PART-16",
+        "REL-COMP-01",
+        "REL-LIFE-01",
+        "REL-OUT-01",
+        "REL-REQ-01",
+        "REL-STAT-01",
+        "REL-STOCK-01",
+        "TYPE-BOUND-01",
+        "TYPE-LOCAL-01"
+      ],
+      "reviewed_tagged_element_count": 228,
+      "reviewed_trace_association_count": 228,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and rendered artifact pass without silent drift; executable evidence is not run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 15,
+        "semantic_interactions": 31,
+        "nontrivial_contract_cases": 30,
+        "scenario_families": 11
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "customer_request_acquisition",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "freshRequest"
+          ],
+          "owner_local_facts": [
+            "requestPresent"
+          ],
+          "contract_cases": [
+            "REL-REQ-01"
+          ],
+          "analyzer_checks": [
+            "customer_request_presence_partition"
+          ]
+        },
+        {
+          "usage": "inventory_acquisition",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "inventorySnapshot.materialBand",
+            "inventorySnapshot.productBand"
+          ],
+          "owner_local_facts": [
+            "materialUsable",
+            "productUsable"
+          ],
+          "contract_cases": [
+            "REL-STOCK-01"
+          ],
+          "analyzer_checks": [
+            "inventory_usability_partition"
+          ]
+        },
+        {
+          "usage": "execution_outcome_acquisition",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "executionOutcome"
+          ],
+          "owner_local_facts": [
+            "eventClass"
+          ],
+          "contract_cases": [
+            "REL-OUT-01"
+          ],
+          "analyzer_checks": [
+            "outcome_event_class_partition"
+          ]
+        },
+        {
+          "usage": "request_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "request_boundary_facts.fresh_request",
+            "request_boundary_facts.request_present"
+          ],
+          "owner_local_facts": [
+            "requestValid",
+            "requestExpedited"
+          ],
+          "contract_cases": [
+            "REL-REQ-01"
+          ],
+          "analyzer_checks": [
+            "request_qualification_partition"
+          ]
+        },
+        {
+          "usage": "stock_assessment",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "material_boundary_facts",
+            "product_boundary_facts"
+          ],
+          "owner_local_facts": [
+            "materialShortage",
+            "materialReady",
+            "productAvailable"
+          ],
+          "contract_cases": [
+            "REL-STOCK-01"
+          ],
+          "analyzer_checks": [
+            "stock_assessment_partition"
+          ]
+        },
+        {
+          "usage": "outcome_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "outcome_boundary_facts.event_class",
+            "outcome_boundary_facts.execution_outcome",
+            "prior_order_state"
+          ],
+          "owner_local_facts": [
+            "qualifiedOutcome"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "qualified_outcome_partition"
+          ]
+        },
+        {
+          "usage": "recovery_control",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "qualified_outcome",
+            "recoveryEvent",
+            "In(recoveryState)"
+          ],
+          "owner_local_facts": [
+            "nextRecoveryState",
+            "recoveryGate",
+            "emergencyState"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "recovery_transition_partition"
+          ]
+        },
+        {
+          "usage": "order_lifecycle",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "qualified_outcome",
+            "recovery_gate",
+            "In(orderState)"
+          ],
+          "owner_local_facts": [
+            "priorOrderState",
+            "nextOrderState"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "order_transition_partition"
+          ]
+        },
+        {
+          "usage": "quotation_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "request_facts.request_valid",
+            "order_state",
+            "recovery_gate"
+          ],
+          "owner_local_facts": [
+            "quotationProposal"
+          ],
+          "contract_cases": [
+            "CASE-13",
+            "CASE-14"
+          ],
+          "analyzer_checks": [
+            "quotation_proposal_partition"
+          ]
+        },
+        {
+          "usage": "procurement_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "stock_facts.material_usable",
+            "stock_facts.material_shortage",
+            "supplier_available",
+            "order_state",
+            "recovery_gate"
+          ],
+          "owner_local_facts": [
+            "procurementProposal"
+          ],
+          "contract_cases": [
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "procurement_proposal_partition"
+          ]
+        },
+        {
+          "usage": "production_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "stock_facts.material_usable",
+            "stock_facts.material_ready",
+            "production_available",
+            "order_state",
+            "recovery_gate"
+          ],
+          "owner_local_facts": [
+            "productionProposal"
+          ],
+          "contract_cases": [
+            "CASE-17",
+            "CASE-18"
+          ],
+          "analyzer_checks": [
+            "production_proposal_partition"
+          ]
+        },
+        {
+          "usage": "dispatch_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "stock_facts.product_usable",
+            "stock_facts.product_available",
+            "dispatch_available",
+            "order_state",
+            "recovery_gate"
+          ],
+          "owner_local_facts": [
+            "dispatchProposal"
+          ],
+          "contract_cases": [
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "dispatch_proposal_partition"
+          ]
+        },
+        {
+          "usage": "action_arbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "emergency_state",
+            "quotation_proposal",
+            "procurement_proposal",
+            "production_proposal",
+            "dispatch_proposal"
+          ],
+          "owner_local_facts": [
+            "selectedAction"
+          ],
+          "contract_cases": [
+            "CASE-21",
+            "CASE-22",
+            "CASE-23",
+            "CASE-24",
+            "CASE-25",
+            "CASE-26"
+          ],
+          "analyzer_checks": [
+            "action_priority_partition"
+          ]
+        },
+        {
+          "usage": "status_derivation",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "selected_action",
+            "order_state",
+            "recovery_state"
+          ],
+          "owner_local_facts": [
+            "mode",
+            "selectedCause",
+            "statusRecord"
+          ],
+          "contract_cases": [
+            "REL-STAT-01"
+          ],
+          "analyzer_checks": [
+            "status_mapping_partition"
+          ]
+        },
+        {
+          "usage": "public_composition",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "request_facts",
+            "selected_action",
+            "status_record"
+          ],
+          "owner_local_facts": [
+            "requestDisposition",
+            "publicResult"
+          ],
+          "contract_cases": [
+            "CASE-27",
+            "CASE-28",
+            "CASE-29",
+            "CASE-30"
+          ],
+          "analyzer_checks": [
+            "public_disposition_partition",
+            "flat_tuple_composition"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and rendered artifact pass without silent drift; executable evidence is not run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

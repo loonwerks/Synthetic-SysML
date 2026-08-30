@@ -1,0 +1,24 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_6b582425a044_Candidate_Pointwise_Realizable {
+  @pure def check(
+      accepted_directive: equiv_shared_0.Power_Propulsion_Availability_Supervisor.PriorityDirective.Type,
+      actuation_feedback: equiv_shared_0.Power_Propulsion_Availability_Supervisor.ActuationFeedback.Type,
+      availability_decision: equiv_shared_0.Power_Propulsion_Availability_Supervisor.AvailabilityDecision,
+      demand_view: equiv_shared_0.Power_Propulsion_Availability_Supervisor.DemandPhase.Type,
+      recovery_gate: equiv_shared_0.Power_Propulsion_Availability_Supervisor.RecoveryGate.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.DISABLED, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.DISABLE)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.ENABLE_PENDING, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.DISABLE)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.ENABLED, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.DISABLE)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.DISABLED, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.ENABLE_NEW)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.ENABLE_PENDING, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.ENABLE_NEW)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.ENABLED, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.ENABLE_NEW)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.DISABLED, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.ENABLE_HOLD)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.ENABLE_PENDING, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.ENABLE_HOLD)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommandInterlockOwner_supervisor_process_power_command_interlock_Candidate_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.CommandPhase.ENABLED, equiv_shared_0.Power_Propulsion_Availability_Supervisor.PowerCommand.ENABLE_HOLD)))))
+  }
+}

@@ -1,0 +1,749 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/energy-and-interface-aware-cabin-climate-supervisor/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/energy-and-interface-aware-cabin-climate-supervisor/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/energy-and-interface-aware-cabin-climate-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/energy-and-interface-aware-cabin-climate-supervisor/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/energy-and-interface-aware-cabin-climate-supervisor/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "retry_attempts": [
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-d13a8adffb:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    }
+  ],
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-e8f03ae972:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_Candidate_GumboX.inititialize_IEP_Post(actuationdisposition, plantcommand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_GumboX.inititialize_IEP_Post(actuationdisposition, plantcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-e8f03ae972:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-e8f03ae972:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_GumboX.inititialize_IEP_Post(actuationdisposition, plantcommand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_Candidate_GumboX.inititialize_IEP_Post(actuationdisposition, plantcommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-e8f03ae972:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::actuationCommandCoordinator::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-5c82577237:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_Candidate_GumboX.compute_CEP_Post(fanpreference, resourcegrant, serviceselection, actuationdisposition, plantcommand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_GumboX.compute_CEP_Post(fanpreference, resourcegrant, serviceselection, actuationdisposition, plantcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-5c82577237:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-5c82577237:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_GumboX.compute_CEP_Post(fanpreference, resourcegrant, serviceselection, actuationdisposition, plantcommand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ActuationCommandCoordinator_climateSupervisionProcess_actuationCommandCoordinator_Candidate_GumboX.compute_CEP_Post(fanpreference, resourcegrant, serviceselection, actuationdisposition, plantcommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-5c82577237:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::actuationCommandCoordinator::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-cf391236b0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_Candidate_GumboX.inititialize_IEP_Post(comfortdemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_GumboX.inititialize_IEP_Post(comfortdemand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-cf391236b0:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-cf391236b0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_GumboX.inititialize_IEP_Post(comfortdemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_Candidate_GumboX.inititialize_IEP_Post(comfortdemand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-cf391236b0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::comfortDemandQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-6d54d91262:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_Candidate_GumboX.compute_CEP_Post(climaterequest, thermalrelation, comfortdemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_GumboX.compute_CEP_Post(climaterequest, thermalrelation, comfortdemand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-6d54d91262:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-6d54d91262:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_GumboX.compute_CEP_Post(climaterequest, thermalrelation, comfortdemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier_Candidate_GumboX.compute_CEP_Post(climaterequest, thermalrelation, comfortdemand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-6d54d91262:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::comfortDemandQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-58a2c346c3:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_Candidate_GumboX.inititialize_IEP_Post(energycapability))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_GumboX.inititialize_IEP_Post(energycapability))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-58a2c346c3:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-58a2c346c3:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_GumboX.inititialize_IEP_Post(energycapability))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_Candidate_GumboX.inititialize_IEP_Post(energycapability))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-58a2c346c3:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::energyCapabilityQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-3b4b89ceca:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_Candidate_GumboX.compute_CEP_Post(energycontext, energycapability))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_GumboX.compute_CEP_Post(energycontext, energycapability))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-3b4b89ceca:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-3b4b89ceca:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_GumboX.compute_CEP_Post(energycontext, energycapability))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.EnergyCapabilityQualifier_climateSupervisionProcess_energyCapabilityQualifier_Candidate_GumboX.compute_CEP_Post(energycontext, energycapability))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-3b4b89ceca:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::energyCapabilityQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-77af43e699:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_Candidate_GumboX.inititialize_IEP_Post(recoverystate, recoverydecision))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_GumboX.inititialize_IEP_Post(recoverystate, recoverydecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-77af43e699:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-77af43e699:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_GumboX.inititialize_IEP_Post(recoverystate, recoverydecision))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_Candidate_GumboX.inititialize_IEP_Post(recoverystate, recoverydecision))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-77af43e699:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::recoveryAuthority::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-203961cf34:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_Candidate_GumboX.compute_CEP_Post(in_recoverystate, recoverystate, energycapability, freshrequest, recoverydecision))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_GumboX.compute_CEP_Post(in_recoverystate, recoverystate, energycapability, freshrequest, recoverydecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-203961cf34:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-203961cf34:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_GumboX.compute_CEP_Post(in_recoverystate, recoverystate, energycapability, freshrequest, recoverydecision))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.RecoveryAuthority_climateSupervisionProcess_recoveryAuthority_Candidate_GumboX.compute_CEP_Post(in_recoverystate, recoverystate, energycapability, freshrequest, recoverydecision))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-203961cf34:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::recoveryAuthority::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7aa25d2ce2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_Candidate_GumboX.inititialize_IEP_Post(resourcegrant))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_GumboX.inititialize_IEP_Post(resourcegrant))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7aa25d2ce2:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7aa25d2ce2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_GumboX.inititialize_IEP_Post(resourcegrant))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_Candidate_GumboX.inititialize_IEP_Post(resourcegrant))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7aa25d2ce2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::resourceAllocationDecision::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7f8b800763:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_Candidate_GumboX.compute_CEP_Post(energycapability, serviceselection, resourcegrant))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_GumboX.compute_CEP_Post(energycapability, serviceselection, resourcegrant))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7f8b800763:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7f8b800763:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_GumboX.compute_CEP_Post(energycapability, serviceselection, resourcegrant))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ResourceAllocationDecision_climateSupervisionProcess_resourceAllocationDecision_Candidate_GumboX.compute_CEP_Post(energycapability, serviceselection, resourcegrant))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-7f8b800763:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::resourceAllocationDecision::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-897833dfcf:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_Candidate_GumboX.inititialize_IEP_Post(serviceselection))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_GumboX.inititialize_IEP_Post(serviceselection))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-897833dfcf:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-897833dfcf:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_GumboX.inititialize_IEP_Post(serviceselection))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_Candidate_GumboX.inititialize_IEP_Post(serviceselection))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-897833dfcf:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::servicePriorityArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-ae60e2a0e5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_Candidate_GumboX.compute_CEP_Post(comfortdemand, recoverydecision, visibilitydemand, serviceselection))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_GumboX.compute_CEP_Post(comfortdemand, recoverydecision, visibilitydemand, serviceselection))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-ae60e2a0e5:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-ae60e2a0e5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_GumboX.compute_CEP_Post(comfortdemand, recoverydecision, visibilitydemand, serviceselection))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter_Candidate_GumboX.compute_CEP_Post(comfortdemand, recoverydecision, visibilitydemand, serviceselection))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-ae60e2a0e5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::servicePriorityArbiter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-f34d2c92f1:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_Candidate_GumboX.inititialize_IEP_Post(supervisorstatus))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_GumboX.inititialize_IEP_Post(supervisorstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-f34d2c92f1:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-f34d2c92f1:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_GumboX.inititialize_IEP_Post(supervisorstatus))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_Candidate_GumboX.inititialize_IEP_Post(supervisorstatus))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-f34d2c92f1:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::supervisoryStatusComposer::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-d13a8adffb:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_Candidate_GumboX.compute_CEP_Post(actuationdisposition, recoverydecision, resourcegrant, serviceselection, supervisorstatus))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_GumboX.compute_CEP_Post(actuationdisposition, recoverydecision, resourcegrant, serviceselection, supervisorstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-d13a8adffb:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-d13a8adffb:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_GumboX.compute_CEP_Post(actuationdisposition, recoverydecision, resourcegrant, serviceselection, supervisorstatus))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.SupervisoryStatusComposer_climateSupervisionProcess_supervisoryStatusComposer_Candidate_GumboX.compute_CEP_Post(actuationdisposition, recoverydecision, resourcegrant, serviceselection, supervisorstatus))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-d13a8adffb:atomic:04-a---g-----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::supervisoryStatusComposer::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-c58cc39d11:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_Candidate_GumboX.inititialize_IEP_Post(visibilitydemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_GumboX.inititialize_IEP_Post(visibilitydemand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-c58cc39d11:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-c58cc39d11:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_GumboX.inititialize_IEP_Post(visibilitydemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_Candidate_GumboX.inititialize_IEP_Post(visibilitydemand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-c58cc39d11:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::visibilityDemandQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-193014fde2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_Candidate_GumboX.compute_CEP_Post(defrostrequest, glazingcondition, visibilitydemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_GumboX.compute_CEP_Post(defrostrequest, glazingcondition, visibilitydemand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-193014fde2:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-193014fde2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_GumboX.compute_CEP_Post(defrostrequest, glazingcondition, visibilitydemand))) ___>: (equiv_shared_0.HVAC_Energy_Interface_Supervisor.VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier_Candidate_GumboX.compute_CEP_Post(defrostrequest, glazingcondition, visibilitydemand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-energy-interface-supervisor-hvacsuperv-193014fde2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Energy_Interface_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::climateSupervisionProcess::visibilityDemandQualifier::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

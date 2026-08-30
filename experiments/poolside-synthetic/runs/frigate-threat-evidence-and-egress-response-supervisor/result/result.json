@@ -1,0 +1,742 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/frigate-threat-evidence-and-egress-response-supervisor/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/frigate-threat-evidence-and-egress-response-supervisor/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/frigate-threat-evidence-and-egress-response-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INCONCLUSIVE",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/frigate-threat-evidence-and-egress-response-supervisor/agent/M-star.sysml",
+    "oracle": "datasets/frigate-threat-evidence-and-egress-response-supervisor/evaluator/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": null,
+  "run_status": "INCONCLUSIVE",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-0a5f26a2a4:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.DefenseReadinessQualifier_threatResponseProcess_defenseReadinessQualifier_GumboX.inititialize_IEP_Post(defensesupport, evidenceassessment, defensequalification))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-0a5f26a2a4:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-0a5f26a2a4:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-0a5f26a2a4:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.DefenseReadinessQualifier_threatResponseProcess_defenseReadinessQualifier_GumboX.inititialize_IEP_Post(defensesupport, evidenceassessment, defensequalification))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-0a5f26a2a4:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::defenseReadinessQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-d4064329bd:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.DefenseReadinessQualifier_threatResponseProcess_defenseReadinessQualifier_GumboX.compute_CEP_Post(defensesupport, evidenceassessment, defensequalification))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-d4064329bd:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-d4064329bd:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-d4064329bd:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.DefenseReadinessQualifier_threatResponseProcess_defenseReadinessQualifier_GumboX.compute_CEP_Post(defensesupport, evidenceassessment, defensequalification))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-d4064329bd:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::defenseReadinessQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-f38745928e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.EgressReadinessQualifier_threatResponseProcess_egressReadinessQualifier_GumboX.inititialize_IEP_Post(egressroute, evidenceassessment, egressqualification))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-f38745928e:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-f38745928e:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-f38745928e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.EgressReadinessQualifier_threatResponseProcess_egressReadinessQualifier_GumboX.inititialize_IEP_Post(egressroute, evidenceassessment, egressqualification))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-f38745928e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::egressReadinessQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-a1d92f2225:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.EgressReadinessQualifier_threatResponseProcess_egressReadinessQualifier_GumboX.compute_CEP_Post(egressroute, evidenceassessment, egressqualification))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-a1d92f2225:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-a1d92f2225:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-a1d92f2225:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.EgressReadinessQualifier_threatResponseProcess_egressReadinessQualifier_GumboX.compute_CEP_Post(egressroute, evidenceassessment, egressqualification))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-a1d92f2225:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::egressReadinessQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-06f8ba1e76:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStateController_threatResponseProcess_responseStateController_GumboX.inititialize_IEP_Post(committedegress, responsedirective, defensecommand, egresscommand, responsesnapshot))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-06f8ba1e76:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-06f8ba1e76:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-06f8ba1e76:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStateController_threatResponseProcess_responseStateController_GumboX.inititialize_IEP_Post(committedegress, responsedirective, defensecommand, egresscommand, responsesnapshot))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-06f8ba1e76:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::responseStateController::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-980559ba17:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStateController_threatResponseProcess_responseStateController_GumboX.compute_CEP_Post(in_committedegress, committedegress, egressprogress, responsedirective, defensecommand, egresscommand, responsesnapshot))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-980559ba17:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-980559ba17:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStateController_threatResponseProcess_responseStateController_GumboX.compute_CEP_Post(in_committedegress, committedegress, egressprogress, responsedirective, defensecommand, egresscommand, responsesnapshot))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-980559ba17:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::responseStateController::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ffe5120b5f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStatusAssessor_threatResponseProcess_responseStatusAssessor_GumboX.inititialize_IEP_Post(responsestatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ffe5120b5f:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ffe5120b5f:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ffe5120b5f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStatusAssessor_threatResponseProcess_responseStatusAssessor_GumboX.inititialize_IEP_Post(responsestatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ffe5120b5f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::responseStatusAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-7f9ef9c031:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStatusAssessor_threatResponseProcess_responseStatusAssessor_GumboX.compute_CEP_Post(episodesnapshot, responsesnapshot, responsestatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-7f9ef9c031:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-7f9ef9c031:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-7f9ef9c031:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ResponseStatusAssessor_threatResponseProcess_responseStatusAssessor_GumboX.compute_CEP_Post(episodesnapshot, responsesnapshot, responsestatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-7f9ef9c031:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::responseStatusAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-c6ef7a1323:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEpisodeTracker_threatResponseProcess_threatEpisodeTracker_GumboX.inititialize_IEP_Post(committedepisode, evidenceassessment, pilotdisposition, episodesnapshot))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-c6ef7a1323:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-c6ef7a1323:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-c6ef7a1323:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEpisodeTracker_threatResponseProcess_threatEpisodeTracker_GumboX.inititialize_IEP_Post(committedepisode, evidenceassessment, pilotdisposition, episodesnapshot))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-c6ef7a1323:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatEpisodeTracker::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-43f95be2a0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEpisodeTracker_threatResponseProcess_threatEpisodeTracker_GumboX.compute_CEP_Post(in_committedepisode, committedepisode, evidenceassessment, pilotdisposition, episodesnapshot))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-43f95be2a0:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-43f95be2a0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEpisodeTracker_threatResponseProcess_threatEpisodeTracker_GumboX.compute_CEP_Post(in_committedepisode, committedepisode, evidenceassessment, pilotdisposition, episodesnapshot))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-43f95be2a0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatEpisodeTracker::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-cb469c18b3:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEvidenceQualifier_threatResponseProcess_threatEvidenceQualifier_GumboX.inititialize_IEP_Post(threatobservation, evidenceassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-cb469c18b3:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-cb469c18b3:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-cb469c18b3:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEvidenceQualifier_threatResponseProcess_threatEvidenceQualifier_GumboX.inititialize_IEP_Post(threatobservation, evidenceassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-cb469c18b3:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatEvidenceQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ab87cc59f2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEvidenceQualifier_threatResponseProcess_threatEvidenceQualifier_GumboX.compute_CEP_Post(threatobservation, evidenceassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ab87cc59f2:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ab87cc59f2:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ab87cc59f2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEvidenceQualifier_threatResponseProcess_threatEvidenceQualifier_GumboX.compute_CEP_Post(threatobservation, evidenceassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-ab87cc59f2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatEvidenceQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-fb75865cac:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatReportPolicy_threatResponseProcess_threatReportPolicy_GumboX.inititialize_IEP_Post(threatreport))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-fb75865cac:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-fb75865cac:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-fb75865cac:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatReportPolicy_threatResponseProcess_threatReportPolicy_GumboX.inititialize_IEP_Post(threatreport))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-fb75865cac:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatReportPolicy::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-120db4b2f7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatReportPolicy_threatResponseProcess_threatReportPolicy_GumboX.compute_CEP_Post(episodesnapshot, threatreport))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-120db4b2f7:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-120db4b2f7:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-120db4b2f7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatReportPolicy_threatResponseProcess_threatReportPolicy_GumboX.compute_CEP_Post(episodesnapshot, threatreport))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-120db4b2f7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatReportPolicy::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-37f61d1843:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatResponseArbiter_threatResponseProcess_threatResponseArbiter_GumboX.inititialize_IEP_Post(responsedirective))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-37f61d1843:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-37f61d1843:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-37f61d1843:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatResponseArbiter_threatResponseProcess_threatResponseArbiter_GumboX.inititialize_IEP_Post(responsedirective))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-37f61d1843:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatResponseArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-59670858c6:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatResponseArbiter_threatResponseProcess_threatResponseArbiter_GumboX.compute_CEP_Post(defensequalification, egressqualification, episodesnapshot, responseauthorization, responsedirective))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-59670858c6:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-59670858c6:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-59670858c6:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatResponseArbiter_threatResponseProcess_threatResponseArbiter_GumboX.compute_CEP_Post(defensequalification, egressqualification, episodesnapshot, responseauthorization, responsedirective))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-egress-supervisor-frigatethr-59670858c6:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Egress_Supervisor::FrigateThreatEgressSupervisor/root-instance::FrigateThreatEgressSupervisor_Instance/component::FrigateThreatEgressSupervisor_Instance::threatResponseProcess::threatResponseArbiter::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

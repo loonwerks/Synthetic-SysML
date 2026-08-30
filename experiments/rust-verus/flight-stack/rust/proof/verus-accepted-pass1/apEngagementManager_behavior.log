@@ -1,0 +1,144 @@
+RUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling unicode-ident v1.0.24
+   Compiling compiler_builtins v0.1.160 (RUSTUP_HOME/toolchains/1.92.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (RUSTUP_HOME/toolchains/1.92.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/core)
+   Compiling autocfg v1.5.1
+   Compiling verus_prettyplease v0.0.0-2026-01-25-0057
+   Compiling hashbrown v0.12.3
+   Compiling vstd v0.0.0-2026-01-25-0057
+   Compiling indexmap v1.9.3
+   Compiling verus_syn v0.0.0-2026-01-25-0057
+   Compiling syn v2.0.119
+   Compiling synstructure v0.13.2
+   Compiling verus_builtin_macros v0.0.0-2026-01-25-0057
+   Compiling verus_state_machines_macros v0.0.0-2026-01-25-0057
+   Compiling alloc v0.0.0 (RUSTUP_HOME/toolchains/1.92.0-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/library/alloc)
+   Compiling verus_builtin v0.0.0-2026-01-25-0057
+   Compiling linux-raw-sys v0.12.0
+   Compiling log v0.4.33
+verification results:: 1190 verified, 0 errors
+   Compiling data v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/data)
+verification results:: 38 verified, 0 errors
+   Compiling FlightStack v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack)
+verification results:: 0 verified, 0 errors
+   Compiling apEngagementManager_behavior v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/apEngagementManager_behavior)
+error[E0061]: this function takes 10 arguments but 9 arguments were supplied
+    --> src/component/apEngagementManager_behavior_app.rs:69:7
+     |
+  69 |       FlightStack_Spec::CASE_AP_02_spec(
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  70 |         old(self).apMode, old(api).apDisposition,
+     |         ---------------- argument #1 of type `bool` is missing
+     |
+note: function defined here
+    --> experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack/src/lib.rs:1117:20
+     |
+1117 |   pub open spec fn CASE_AP_02_spec(
+     |                    ^^^^^^^^^^^^^^^
+help: provide the argument
+     |
+  69 -       FlightStack_Spec::CASE_AP_02_spec(
+  70 -         old(self).apMode, old(api).apDisposition,
+  71 -         old(api).qualifiedAttitude, old(api).apGuidance,
+  72 -         self.apMode, api.pairedApStatus, api.apGuidanceRequest,
+  73 -         api.apActiveClearInhibit, api.actuationAuthority),
+  69 +       FlightStack_Spec::CASE_AP_02_spec(/* bool */, old(self).apMode, old(api).apDisposition, old(api).qualifiedAttitude, old(api).apGuidance, self.apMode, api.pairedApStatus, api.apGuidanceRequest, api.actuationAuthority, api.apActiveClearInhibit),
+     |
+
+error[E0061]: this function takes 10 arguments but 9 arguments were supplied
+    --> src/component/apEngagementManager_behavior_app.rs:74:7
+     |
+  74 |       FlightStack_Spec::CASE_AP_03_spec(
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  75 |         old(self).apMode, old(api).apDisposition,
+     |         ---------------- argument #1 of type `bool` is missing
+     |
+note: function defined here
+    --> experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack/src/lib.rs:1158:20
+     |
+1158 |   pub open spec fn CASE_AP_03_spec(
+     |                    ^^^^^^^^^^^^^^^
+help: provide the argument
+     |
+  74 -       FlightStack_Spec::CASE_AP_03_spec(
+  75 -         old(self).apMode, old(api).apDisposition,
+  76 -         old(api).qualifiedAttitude, old(api).apGuidance, self.apMode,
+  77 -         api.pairedApStatus, api.apGuidanceRequest,
+  78 -         api.apActiveClearInhibit, api.actuationAuthority),
+  74 +       FlightStack_Spec::CASE_AP_03_spec(/* bool */, old(self).apMode, old(api).apDisposition, old(api).qualifiedAttitude, old(api).apGuidance, self.apMode, api.pairedApStatus, api.apGuidanceRequest, api.actuationAuthority, api.apActiveClearInhibit),
+     |
+
+error[E0061]: this function takes 10 arguments but 9 arguments were supplied
+    --> src/component/apEngagementManager_behavior_app.rs:79:7
+     |
+  79 |       FlightStack_Spec::CASE_AP_04_spec(
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  80 |         old(self).apMode, old(api).apDisposition,
+     |         ---------------- argument #1 of type `bool` is missing
+     |
+note: function defined here
+    --> experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack/src/lib.rs:1181:20
+     |
+1181 |   pub open spec fn CASE_AP_04_spec(
+     |                    ^^^^^^^^^^^^^^^
+help: provide the argument
+     |
+  79 -       FlightStack_Spec::CASE_AP_04_spec(
+  80 -         old(self).apMode, old(api).apDisposition,
+  81 -         old(api).qualifiedAttitude, old(api).apGuidance,
+  82 -         self.apMode, api.pairedApStatus, api.apGuidanceRequest,
+  83 -         api.apActiveClearInhibit, api.actuationAuthority),
+  79 +       FlightStack_Spec::CASE_AP_04_spec(/* bool */, old(self).apMode, old(api).apDisposition, old(api).qualifiedAttitude, old(api).apGuidance, self.apMode, api.pairedApStatus, api.apGuidanceRequest, api.actuationAuthority, api.apActiveClearInhibit),
+     |
+
+error[E0061]: this function takes 10 arguments but 9 arguments were supplied
+    --> src/component/apEngagementManager_behavior_app.rs:84:7
+     |
+  84 |       FlightStack_Spec::CASE_AP_05_spec(
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  85 |         old(self).apMode, old(api).apDisposition,
+     |         ---------------- argument #1 of type `bool` is missing
+     |
+note: function defined here
+    --> experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack/src/lib.rs:1256:20
+     |
+1256 |   pub open spec fn CASE_AP_05_spec(
+     |                    ^^^^^^^^^^^^^^^
+help: provide the argument
+     |
+  84 -       FlightStack_Spec::CASE_AP_05_spec(
+  85 -         old(self).apMode, old(api).apDisposition,
+  86 -         old(api).qualifiedAttitude, old(api).apGuidance,
+  87 -         self.apMode, api.pairedApStatus, api.apGuidanceRequest,
+  88 -         api.apActiveClearInhibit, api.actuationAuthority),
+  84 +       FlightStack_Spec::CASE_AP_05_spec(/* bool */, old(self).apMode, old(api).apDisposition, old(api).qualifiedAttitude, old(api).apGuidance, self.apMode, api.pairedApStatus, api.apGuidanceRequest, api.actuationAuthority, api.apActiveClearInhibit),
+     |
+
+error[E0061]: this function takes 10 arguments but 9 arguments were supplied
+    --> src/component/apEngagementManager_behavior_app.rs:89:7
+     |
+  89 |       FlightStack_Spec::CASE_AP_06_spec(
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  90 |         old(self).apMode, old(api).apDisposition,
+     |         ---------------- argument #1 of type `bool` is missing
+     |
+note: function defined here
+    --> experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack/src/lib.rs:1302:20
+     |
+1302 |   pub open spec fn CASE_AP_06_spec(
+     |                    ^^^^^^^^^^^^^^^
+help: provide the argument
+     |
+  89 -       FlightStack_Spec::CASE_AP_06_spec(
+  90 -         old(self).apMode, old(api).apDisposition,
+  91 -         old(api).qualifiedAttitude, old(api).apGuidance,
+  92 -         self.apMode, api.pairedApStatus, api.apGuidanceRequest,
+  93 -         api.apActiveClearInhibit, api.actuationAuthority),
+  89 +       FlightStack_Spec::CASE_AP_06_spec(/* bool */, old(self).apMode, old(api).apDisposition, old(api).qualifiedAttitude, old(api).apGuidance, self.apMode, api.pairedApStatus, api.apGuidanceRequest, api.actuationAuthority, api.apActiveClearInhibit),
+     |
+
+For more information about this error, try `rustc --explain E0061`.
+error: could not compile `apEngagementManager_behavior` (lib) due to 5 previous errors
+make: *** [Makefile:32: verus] Error 101

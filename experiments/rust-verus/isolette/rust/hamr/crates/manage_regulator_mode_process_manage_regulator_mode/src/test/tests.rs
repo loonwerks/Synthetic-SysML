@@ -1,0 +1,85 @@
+// This file will not be overwritten if HAMR codegen is rerun
+
+mod tests {
+  // NOTE: need to run tests sequentially to prevent race conditions
+  //       on the app and the testing apis which are static
+  use serial_test::serial;
+
+  use crate::test::util::*;
+  use data::*;
+
+  #[test]
+  #[serial]
+  fn test_initialization() {
+    crate::manage_regulator_mode_process_manage_regulator_mode_initialize();
+}
+
+  #[test]
+  #[serial]
+  fn test_compute() {
+    crate::manage_regulator_mode_process_manage_regulator_mode_initialize();
+
+    // populate incoming data ports
+    test_apis::put_interface_facts(Isolette_Thermostat_Rust::RegulatorInterfaceFacts::default());
+    test_apis::put_diagnostic_facts(Isolette_Thermostat_Rust::RegulatorDiagnosticFacts::default());
+
+    crate::manage_regulator_mode_process_manage_regulator_mode_timeTriggered();
+  }
+}
+
+mod GUMBOX_tests {
+  use serial_test::serial;
+  use proptest::prelude::*;
+
+  use crate::test::util::*;
+  use crate::testInitializeCB_macro;
+  use crate::testComputeCB_macro;
+    use crate::testComputeCBwGSV_macro;
+
+  // number of valid (i.e., non-rejected) test cases that must be executed for the compute method.
+  const numValidComputeTestCases: u32 = 100;
+
+  // how many total test cases (valid + rejected) that may be attempted.
+  //   0 means all inputs must satisfy the precondition (if present),
+  //   5 means at most 5 rejected inputs are allowed per valid test case
+  const computeRejectRatio: u32 = 5;
+
+  const verbosity: u32 = 2;
+
+  testInitializeCB_macro! {
+    prop_testInitializeCB_macro, // test name
+    config: ProptestConfig { // proptest configuration, built by overriding fields from default config
+      cases: numValidComputeTestCases,
+      max_global_rejects: numValidComputeTestCases * computeRejectRatio,
+      verbose: verbosity,
+      ..ProptestConfig::default()
+    }
+  }
+
+  testComputeCB_macro! {
+    prop_testComputeCB_macro, // test name
+    config: ProptestConfig { // proptest configuration, built by overriding fields from default config
+      cases: numValidComputeTestCases,
+      max_global_rejects: numValidComputeTestCases * computeRejectRatio,
+      verbose: verbosity,
+      ..ProptestConfig::default()
+    },
+    // strategies for generating each component input
+    api_diagnostic_facts: generators::Isolette_Thermostat_Rust_RegulatorDiagnosticFacts_strategy_default(),
+    api_interface_facts: generators::Isolette_Thermostat_Rust_RegulatorInterfaceFacts_strategy_default()
+  }
+
+  testComputeCBwGSV_macro! {
+    prop_testComputeCBwGSV_macro, // test name
+    config: ProptestConfig { // proptest configuration, built by overriding fields from default config
+      cases: numValidComputeTestCases,
+      max_global_rejects: numValidComputeTestCases * computeRejectRatio,
+      verbose: verbosity,
+      ..ProptestConfig::default()
+    },
+    // strategies for generating each component input
+    In_regulator_mode_state: generators::Isolette_Thermostat_Rust_ThermostatMode_strategy_default(),
+    api_diagnostic_facts: generators::Isolette_Thermostat_Rust_RegulatorDiagnosticFacts_strategy_default(),
+    api_interface_facts: generators::Isolette_Thermostat_Rust_RegulatorInterfaceFacts_strategy_default()
+  }
+}

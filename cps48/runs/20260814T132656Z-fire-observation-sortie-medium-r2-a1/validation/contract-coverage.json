@@ -1,0 +1,1239 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source": "model/Navigation_Obstacle_Awareness_Use_Supervisor.sysml",
+  "source_sha256": "0378021a553d8861748f3ca3dae1b52fde0fcba8b6caaee8d06fd29ed7100601",
+  "claim_boundary": "Exhaustive only over the frozen finite logical domains and bounded traces; this is not compositional proof, solver certification, generated-code correctness, execution evidence, physical-performance evidence, safety certification, or unbounded temporal proof.",
+  "semantic_connection_map": {
+    "INT-01": [
+      "root.gpsEvidence",
+      "gpsEvidenceQualifier.gpsEvidence",
+      "NavigationEvidence"
+    ],
+    "INT-02": [
+      "root.inertialEvidence",
+      "inertialEvidenceQualifier.inertialEvidence",
+      "NavigationEvidence"
+    ],
+    "INT-03": [
+      "root.barometricEvidence",
+      "barometricEvidenceQualifier.barometricEvidence",
+      "NavigationEvidence"
+    ],
+    "INT-04": [
+      "root.obstacleEvidence",
+      "obstacleEvidenceQualifier.obstacleEvidence",
+      "ObstacleEvidence"
+    ],
+    "INT-05": [
+      "root.motionContext",
+      "awarenessConditionOwner.motionContext",
+      "MotionContext"
+    ],
+    "INT-06": [
+      "root.supervisionEvent",
+      "eventPriorityArbiter.supervisionEvent",
+      "SupervisionEvent"
+    ],
+    "INT-07": [
+      "gpsEvidenceQualifier.gpsAssessment",
+      "navigationBasisOwner.gpsAssessment",
+      "EvidenceAssessment"
+    ],
+    "INT-08": [
+      "inertialEvidenceQualifier.inertialAssessment",
+      "navigationBasisOwner.inertialAssessment",
+      "EvidenceAssessment"
+    ],
+    "INT-09": [
+      "barometricEvidenceQualifier.barometricAssessment",
+      "navigationBasisOwner.barometricAssessment",
+      "EvidenceAssessment"
+    ],
+    "INT-10": [
+      "obstacleEvidenceQualifier.obstacleAssessment",
+      "awarenessConditionOwner.obstacleAssessment",
+      "ObstacleAssessment"
+    ],
+    "INT-11": [
+      "navigationBasisOwner.proposalBasis",
+      "constraintProposalOwner.navigationBasis",
+      "NavigationBasis"
+    ],
+    "INT-12": [
+      "awarenessConditionOwner.awarenessCondition",
+      "constraintProposalOwner.awarenessCondition",
+      "AwarenessCondition"
+    ],
+    "INT-13": [
+      "constraintProposalOwner.constraintProposal",
+      "eventPriorityArbiter.constraintProposal",
+      "ConstraintProposal"
+    ],
+    "INT-14": [
+      "recoveryLatchOwner.preRecoveryPhase",
+      "eventPriorityArbiter.preRecoveryPhase",
+      "RecoveryPhase"
+    ],
+    "INT-15": [
+      "eventPriorityArbiter.recoveryAction",
+      "recoveryLatchOwner.acceptedAction",
+      "AcceptedAction"
+    ],
+    "INT-16": [
+      "eventPriorityArbiter.outcomeAction",
+      "supervisionOutcomeOwner.acceptedAction",
+      "AcceptedAction"
+    ],
+    "INT-17": [
+      "recoveryLatchOwner.postRecoveryPhase",
+      "supervisionOutcomeOwner.postRecoveryPhase",
+      "RecoveryPhase"
+    ],
+    "INT-18": [
+      "navigationBasisOwner.outcomeBasis",
+      "supervisionOutcomeOwner.navigationBasis",
+      "NavigationBasis"
+    ],
+    "INT-19": [
+      "supervisionOutcomeOwner.navigationUseDirective",
+      "root.navigationUseDirective",
+      "NavigationUseDirective"
+    ],
+    "INT-20": [
+      "supervisionOutcomeOwner.obstacleAwarenessNotice",
+      "root.obstacleAwarenessNotice",
+      "ObstacleAwarenessNotice"
+    ],
+    "INT-21": [
+      "supervisionOutcomeOwner.supervisionStatus",
+      "root.supervisionStatus",
+      "SupervisionStatus"
+    ]
+  },
+  "partition_counts": {
+    "gps_qualifier": 5,
+    "inertial_qualifier": 5,
+    "barometric_qualifier": 5,
+    "obstacle_qualifier": 5,
+    "navigation_basis": 27,
+    "awareness_condition": 12,
+    "constraint_proposal": 20,
+    "event_priority_arbiter": 80,
+    "recovery_structural_pairs": 32,
+    "recovery_producer_reachable_pairs": 27,
+    "outcome_structural_triples": 128,
+    "outcome_producer_reachable_triples": 24,
+    "root_input_prestate_valuations": 40000,
+    "scenario_families": 8
+  },
+  "gaps": {
+    "qualifiers": [],
+    "navigationBasis": [],
+    "awarenessCondition": [],
+    "constraintProposal": [],
+    "eventPriorityArbiter": [],
+    "recoveryLatch": [],
+    "supervisionOutcome": []
+  },
+  "overlaps": {
+    "qualifiers": [],
+    "navigationBasis": [],
+    "awarenessCondition": [],
+    "constraintProposal": [],
+    "eventPriorityArbiter": [],
+    "recoveryLatch": [],
+    "supervisionOutcome": []
+  },
+  "mismatches": [],
+  "required_output_mismatches": [],
+  "invariant_checks": {
+    "exact_root_domain_size": true,
+    "exact_interaction_inventory": true,
+    "every_interaction_consumed_per_valuation": true,
+    "no_gaps": true,
+    "no_overlaps": true,
+    "no_relation_mismatches": true,
+    "no_required_output_mismatches": true,
+    "all_twenty_cases_witnessed": true,
+    "exact_recovery_reachability": true,
+    "exact_outcome_reachability": true,
+    "every_structural_recovery_pair_contradiction_checked": true,
+    "every_structural_outcome_triple_contradiction_checked": true,
+    "evidence_hold_defeats_combined_event": true,
+    "combined_event_is_external_hold_when_evidence_safe": true,
+    "improved_evidence_does_not_open_latched_recovery": true,
+    "fresh_reset_opens_only_from_armed": true,
+    "all_scenarios_pass": true,
+    "all_owners_execute_local_checks": true
+  },
+  "case_witnesses": {
+    "CASE-01": {
+      "input": "NOMINAL_CURRENT",
+      "output": "READY"
+    },
+    "CASE-02": {
+      "input": "DEGRADED_CURRENT",
+      "output": "LIMITED"
+    },
+    "CASE-03": {
+      "input": "INVALID",
+      "output": "REJECTED"
+    },
+    "CASE-04": {
+      "input": "STALE",
+      "output": "UNAVAILABLE"
+    },
+    "CASE-05": {
+      "input": "READY|READY|READY",
+      "output": "FULL_BASIS"
+    },
+    "CASE-06": {
+      "input": "REJECTED|LIMITED|READY",
+      "output": "RELATIVE_BASIS"
+    },
+    "CASE-07": {
+      "input": "LIMITED|READY|REJECTED",
+      "output": "LIMITED_BASIS"
+    },
+    "CASE-08": {
+      "input": "READY|REJECTED|REJECTED",
+      "output": "UNUSABLE_BASIS"
+    },
+    "CASE-09": {
+      "input": "NO_INDICATION|STATIONARY",
+      "output": "AWARENESS_CLEAR"
+    },
+    "CASE-10": {
+      "input": "INDICATED|TRANSLATING",
+      "output": "ACTIVE_OBSTACLE_CONFLICT"
+    },
+    "CASE-11": {
+      "input": "INDICATED|STATIONARY",
+      "output": "STATIONARY_OBSTACLE_PRESENT"
+    },
+    "CASE-12": {
+      "input": "UNAVAILABLE|LANDING_CONTEXT",
+      "output": "ACTIVE_AWARENESS_LOSS"
+    },
+    "CASE-13": {
+      "input": "UNAVAILABLE|STATIONARY",
+      "output": "STATIONARY_AWARENESS_UNAVAILABLE"
+    },
+    "CASE-14": {
+      "input": "FULL_BASIS|ACTIVE_OBSTACLE_CONFLICT",
+      "output": "HOLD_OBSTACLE"
+    },
+    "CASE-15": {
+      "input": "HOLD_NAVIGATION|FORCE_HOLD_WITH_RESET|OPEN",
+      "output": "APPLY_NAV_HOLD"
+    },
+    "CASE-16": {
+      "input": "ALLOW_FULL|RESET_ONLY|ARMED",
+      "output": "ACCEPT_RESET"
+    },
+    "CASE-17": {
+      "input": "RESTRICT_NAVIGATION|NONE|OPEN",
+      "output": "APPLY_RESTRICTED"
+    },
+    "CASE-18": {
+      "input": "LATCHED|APPLY_FULL",
+      "output": "ARMED"
+    },
+    "CASE-19": {
+      "input": "ARMED|ACCEPT_RESET",
+      "output": "OPEN"
+    },
+    "CASE-20": {
+      "input": "ACCEPT_RESET|OPEN|FULL_BASIS",
+      "output": {
+        "navigationUseDirective": "FULL_NAV_USE",
+        "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+        "supervisionStatus": "FULL_USE"
+      }
+    }
+  },
+  "contradiction_checks": {
+    "recovery_structural_pairs_checked": 32,
+    "recovery_reachability_mismatches": [],
+    "outcome_structural_triples_checked": 128,
+    "outcome_reachability_mismatches": []
+  },
+  "recovery_reachability": {
+    "reachable": [
+      "ARMED|ACCEPT_RESET",
+      "ARMED|APPLY_AWARENESS_HOLD",
+      "ARMED|APPLY_EXTERNAL_HOLD",
+      "ARMED|APPLY_FULL",
+      "ARMED|APPLY_NAV_HOLD",
+      "ARMED|APPLY_OBSTACLE_HOLD",
+      "ARMED|APPLY_RESTRICTED",
+      "LATCHED|APPLY_AWARENESS_HOLD",
+      "LATCHED|APPLY_EXTERNAL_HOLD",
+      "LATCHED|APPLY_FULL",
+      "LATCHED|APPLY_NAV_HOLD",
+      "LATCHED|APPLY_OBSTACLE_HOLD",
+      "LATCHED|APPLY_RESTRICTED",
+      "LATCHED|IGNORE_RESET",
+      "OPEN|APPLY_AWARENESS_HOLD",
+      "OPEN|APPLY_EXTERNAL_HOLD",
+      "OPEN|APPLY_FULL",
+      "OPEN|APPLY_NAV_HOLD",
+      "OPEN|APPLY_OBSTACLE_HOLD",
+      "OPEN|APPLY_RESTRICTED",
+      "WAIT_RELEASE|APPLY_AWARENESS_HOLD",
+      "WAIT_RELEASE|APPLY_EXTERNAL_HOLD",
+      "WAIT_RELEASE|APPLY_FULL",
+      "WAIT_RELEASE|APPLY_NAV_HOLD",
+      "WAIT_RELEASE|APPLY_OBSTACLE_HOLD",
+      "WAIT_RELEASE|APPLY_RESTRICTED",
+      "WAIT_RELEASE|IGNORE_RESET"
+    ],
+    "unreachable": [
+      "ARMED|IGNORE_RESET",
+      "LATCHED|ACCEPT_RESET",
+      "OPEN|ACCEPT_RESET",
+      "OPEN|IGNORE_RESET",
+      "WAIT_RELEASE|ACCEPT_RESET"
+    ]
+  },
+  "outcome_reachability": {
+    "reachable": [
+      "ACCEPT_RESET|OPEN|FULL_BASIS",
+      "ACCEPT_RESET|OPEN|LIMITED_BASIS",
+      "ACCEPT_RESET|OPEN|RELATIVE_BASIS",
+      "APPLY_AWARENESS_HOLD|LATCHED|FULL_BASIS",
+      "APPLY_AWARENESS_HOLD|LATCHED|LIMITED_BASIS",
+      "APPLY_AWARENESS_HOLD|LATCHED|RELATIVE_BASIS",
+      "APPLY_AWARENESS_HOLD|LATCHED|UNUSABLE_BASIS",
+      "APPLY_EXTERNAL_HOLD|LATCHED|FULL_BASIS",
+      "APPLY_EXTERNAL_HOLD|LATCHED|LIMITED_BASIS",
+      "APPLY_EXTERNAL_HOLD|LATCHED|RELATIVE_BASIS",
+      "APPLY_FULL|ARMED|FULL_BASIS",
+      "APPLY_FULL|OPEN|FULL_BASIS",
+      "APPLY_NAV_HOLD|LATCHED|UNUSABLE_BASIS",
+      "APPLY_OBSTACLE_HOLD|LATCHED|FULL_BASIS",
+      "APPLY_OBSTACLE_HOLD|LATCHED|LIMITED_BASIS",
+      "APPLY_OBSTACLE_HOLD|LATCHED|RELATIVE_BASIS",
+      "APPLY_OBSTACLE_HOLD|LATCHED|UNUSABLE_BASIS",
+      "APPLY_RESTRICTED|ARMED|LIMITED_BASIS",
+      "APPLY_RESTRICTED|ARMED|RELATIVE_BASIS",
+      "APPLY_RESTRICTED|OPEN|LIMITED_BASIS",
+      "APPLY_RESTRICTED|OPEN|RELATIVE_BASIS",
+      "IGNORE_RESET|WAIT_RELEASE|FULL_BASIS",
+      "IGNORE_RESET|WAIT_RELEASE|LIMITED_BASIS",
+      "IGNORE_RESET|WAIT_RELEASE|RELATIVE_BASIS"
+    ],
+    "unreachable": [
+      "ACCEPT_RESET|ARMED|FULL_BASIS",
+      "ACCEPT_RESET|ARMED|LIMITED_BASIS",
+      "ACCEPT_RESET|ARMED|RELATIVE_BASIS",
+      "ACCEPT_RESET|ARMED|UNUSABLE_BASIS",
+      "ACCEPT_RESET|LATCHED|FULL_BASIS",
+      "ACCEPT_RESET|LATCHED|LIMITED_BASIS",
+      "ACCEPT_RESET|LATCHED|RELATIVE_BASIS",
+      "ACCEPT_RESET|LATCHED|UNUSABLE_BASIS",
+      "ACCEPT_RESET|OPEN|UNUSABLE_BASIS",
+      "ACCEPT_RESET|WAIT_RELEASE|FULL_BASIS",
+      "ACCEPT_RESET|WAIT_RELEASE|LIMITED_BASIS",
+      "ACCEPT_RESET|WAIT_RELEASE|RELATIVE_BASIS",
+      "ACCEPT_RESET|WAIT_RELEASE|UNUSABLE_BASIS",
+      "APPLY_AWARENESS_HOLD|ARMED|FULL_BASIS",
+      "APPLY_AWARENESS_HOLD|ARMED|LIMITED_BASIS",
+      "APPLY_AWARENESS_HOLD|ARMED|RELATIVE_BASIS",
+      "APPLY_AWARENESS_HOLD|ARMED|UNUSABLE_BASIS",
+      "APPLY_AWARENESS_HOLD|OPEN|FULL_BASIS",
+      "APPLY_AWARENESS_HOLD|OPEN|LIMITED_BASIS",
+      "APPLY_AWARENESS_HOLD|OPEN|RELATIVE_BASIS",
+      "APPLY_AWARENESS_HOLD|OPEN|UNUSABLE_BASIS",
+      "APPLY_AWARENESS_HOLD|WAIT_RELEASE|FULL_BASIS",
+      "APPLY_AWARENESS_HOLD|WAIT_RELEASE|LIMITED_BASIS",
+      "APPLY_AWARENESS_HOLD|WAIT_RELEASE|RELATIVE_BASIS",
+      "APPLY_AWARENESS_HOLD|WAIT_RELEASE|UNUSABLE_BASIS",
+      "APPLY_EXTERNAL_HOLD|ARMED|FULL_BASIS",
+      "APPLY_EXTERNAL_HOLD|ARMED|LIMITED_BASIS",
+      "APPLY_EXTERNAL_HOLD|ARMED|RELATIVE_BASIS",
+      "APPLY_EXTERNAL_HOLD|ARMED|UNUSABLE_BASIS",
+      "APPLY_EXTERNAL_HOLD|LATCHED|UNUSABLE_BASIS",
+      "APPLY_EXTERNAL_HOLD|OPEN|FULL_BASIS",
+      "APPLY_EXTERNAL_HOLD|OPEN|LIMITED_BASIS",
+      "APPLY_EXTERNAL_HOLD|OPEN|RELATIVE_BASIS",
+      "APPLY_EXTERNAL_HOLD|OPEN|UNUSABLE_BASIS",
+      "APPLY_EXTERNAL_HOLD|WAIT_RELEASE|FULL_BASIS",
+      "APPLY_EXTERNAL_HOLD|WAIT_RELEASE|LIMITED_BASIS",
+      "APPLY_EXTERNAL_HOLD|WAIT_RELEASE|RELATIVE_BASIS",
+      "APPLY_EXTERNAL_HOLD|WAIT_RELEASE|UNUSABLE_BASIS",
+      "APPLY_FULL|ARMED|LIMITED_BASIS",
+      "APPLY_FULL|ARMED|RELATIVE_BASIS",
+      "APPLY_FULL|ARMED|UNUSABLE_BASIS",
+      "APPLY_FULL|LATCHED|FULL_BASIS",
+      "APPLY_FULL|LATCHED|LIMITED_BASIS",
+      "APPLY_FULL|LATCHED|RELATIVE_BASIS",
+      "APPLY_FULL|LATCHED|UNUSABLE_BASIS",
+      "APPLY_FULL|OPEN|LIMITED_BASIS",
+      "APPLY_FULL|OPEN|RELATIVE_BASIS",
+      "APPLY_FULL|OPEN|UNUSABLE_BASIS",
+      "APPLY_FULL|WAIT_RELEASE|FULL_BASIS",
+      "APPLY_FULL|WAIT_RELEASE|LIMITED_BASIS",
+      "APPLY_FULL|WAIT_RELEASE|RELATIVE_BASIS",
+      "APPLY_FULL|WAIT_RELEASE|UNUSABLE_BASIS",
+      "APPLY_NAV_HOLD|ARMED|FULL_BASIS",
+      "APPLY_NAV_HOLD|ARMED|LIMITED_BASIS",
+      "APPLY_NAV_HOLD|ARMED|RELATIVE_BASIS",
+      "APPLY_NAV_HOLD|ARMED|UNUSABLE_BASIS",
+      "APPLY_NAV_HOLD|LATCHED|FULL_BASIS",
+      "APPLY_NAV_HOLD|LATCHED|LIMITED_BASIS",
+      "APPLY_NAV_HOLD|LATCHED|RELATIVE_BASIS",
+      "APPLY_NAV_HOLD|OPEN|FULL_BASIS",
+      "APPLY_NAV_HOLD|OPEN|LIMITED_BASIS",
+      "APPLY_NAV_HOLD|OPEN|RELATIVE_BASIS",
+      "APPLY_NAV_HOLD|OPEN|UNUSABLE_BASIS",
+      "APPLY_NAV_HOLD|WAIT_RELEASE|FULL_BASIS",
+      "APPLY_NAV_HOLD|WAIT_RELEASE|LIMITED_BASIS",
+      "APPLY_NAV_HOLD|WAIT_RELEASE|RELATIVE_BASIS",
+      "APPLY_NAV_HOLD|WAIT_RELEASE|UNUSABLE_BASIS",
+      "APPLY_OBSTACLE_HOLD|ARMED|FULL_BASIS",
+      "APPLY_OBSTACLE_HOLD|ARMED|LIMITED_BASIS",
+      "APPLY_OBSTACLE_HOLD|ARMED|RELATIVE_BASIS",
+      "APPLY_OBSTACLE_HOLD|ARMED|UNUSABLE_BASIS",
+      "APPLY_OBSTACLE_HOLD|OPEN|FULL_BASIS",
+      "APPLY_OBSTACLE_HOLD|OPEN|LIMITED_BASIS",
+      "APPLY_OBSTACLE_HOLD|OPEN|RELATIVE_BASIS",
+      "APPLY_OBSTACLE_HOLD|OPEN|UNUSABLE_BASIS",
+      "APPLY_OBSTACLE_HOLD|WAIT_RELEASE|FULL_BASIS",
+      "APPLY_OBSTACLE_HOLD|WAIT_RELEASE|LIMITED_BASIS",
+      "APPLY_OBSTACLE_HOLD|WAIT_RELEASE|RELATIVE_BASIS",
+      "APPLY_OBSTACLE_HOLD|WAIT_RELEASE|UNUSABLE_BASIS",
+      "APPLY_RESTRICTED|ARMED|FULL_BASIS",
+      "APPLY_RESTRICTED|ARMED|UNUSABLE_BASIS",
+      "APPLY_RESTRICTED|LATCHED|FULL_BASIS",
+      "APPLY_RESTRICTED|LATCHED|LIMITED_BASIS",
+      "APPLY_RESTRICTED|LATCHED|RELATIVE_BASIS",
+      "APPLY_RESTRICTED|LATCHED|UNUSABLE_BASIS",
+      "APPLY_RESTRICTED|OPEN|FULL_BASIS",
+      "APPLY_RESTRICTED|OPEN|UNUSABLE_BASIS",
+      "APPLY_RESTRICTED|WAIT_RELEASE|FULL_BASIS",
+      "APPLY_RESTRICTED|WAIT_RELEASE|LIMITED_BASIS",
+      "APPLY_RESTRICTED|WAIT_RELEASE|RELATIVE_BASIS",
+      "APPLY_RESTRICTED|WAIT_RELEASE|UNUSABLE_BASIS",
+      "IGNORE_RESET|ARMED|FULL_BASIS",
+      "IGNORE_RESET|ARMED|LIMITED_BASIS",
+      "IGNORE_RESET|ARMED|RELATIVE_BASIS",
+      "IGNORE_RESET|ARMED|UNUSABLE_BASIS",
+      "IGNORE_RESET|LATCHED|FULL_BASIS",
+      "IGNORE_RESET|LATCHED|LIMITED_BASIS",
+      "IGNORE_RESET|LATCHED|RELATIVE_BASIS",
+      "IGNORE_RESET|LATCHED|UNUSABLE_BASIS",
+      "IGNORE_RESET|OPEN|FULL_BASIS",
+      "IGNORE_RESET|OPEN|LIMITED_BASIS",
+      "IGNORE_RESET|OPEN|RELATIVE_BASIS",
+      "IGNORE_RESET|OPEN|UNUSABLE_BASIS",
+      "IGNORE_RESET|WAIT_RELEASE|UNUSABLE_BASIS"
+    ]
+  },
+  "scenarios": [
+    {
+      "scenario_id": "SCN-01",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "WAIT_RELEASE"
+          },
+          "expected_branch_or_case": "CASE-17/CASE-18",
+          "expected": {
+            "acceptedAction": "APPLY_FULL",
+            "postRecoveryPhase": "ARMED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "supervisionStatus": "RESET_REQUIRED"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "APPLY_FULL",
+            "postRecoveryPhase": "ARMED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "RESET_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "RESET_ONLY",
+            "preRecoveryPhase": "ARMED"
+          },
+          "expected_branch_or_case": "CASE-16/CASE-19/CASE-20",
+          "expected": {
+            "acceptedAction": "ACCEPT_RESET",
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "FULL_USE"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "ACCEPT_RESET",
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "FULL_USE"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-02",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "INVALID",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "OPEN"
+          },
+          "expected_branch_or_case": "CASE-06/CASE-14/CASE-17/CASE-20",
+          "expected": {
+            "navigationBasis": "RELATIVE_BASIS",
+            "acceptedAction": "APPLY_RESTRICTED",
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "RESTRICTED_NAV_USE",
+            "supervisionStatus": "RESTRICTED_USE"
+          },
+          "observed": {
+            "gpsAssessment": "REJECTED",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "RELATIVE_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "RESTRICT_NAVIGATION",
+            "acceptedAction": "APPLY_RESTRICTED",
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "RESTRICTED_NAV_USE",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "RESTRICTED_USE"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-03",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "INDICATION_CURRENT",
+            "motionContext": "TRANSLATING",
+            "supervisionEvent": "FORCE_HOLD_WITH_RESET",
+            "preRecoveryPhase": "OPEN"
+          },
+          "expected_branch_or_case": "CASE-10/CASE-14/CASE-15/CASE-18/CASE-20",
+          "expected": {
+            "acceptedAction": "APPLY_OBSTACLE_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "CURRENT_INDICATION",
+            "supervisionStatus": "HELD_OBSTACLE_INDICATION"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "INDICATED",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "ACTIVE_OBSTACLE_CONFLICT",
+            "constraintProposal": "HOLD_OBSTACLE",
+            "acceptedAction": "APPLY_OBSTACLE_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "CURRENT_INDICATION",
+            "supervisionStatus": "HELD_OBSTACLE_INDICATION"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-04",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "INVALID",
+            "inertialEvidence": "INVALID",
+            "barometricEvidence": "INVALID",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "FORCE_HOLD_WITH_RESET",
+            "preRecoveryPhase": "OPEN"
+          },
+          "expected_branch_or_case": "CASE-08/CASE-14/CASE-15",
+          "expected": {
+            "acceptedAction": "APPLY_NAV_HOLD",
+            "supervisionStatus": "HELD_NAV_EVIDENCE"
+          },
+          "observed": {
+            "gpsAssessment": "REJECTED",
+            "inertialAssessment": "REJECTED",
+            "barometricAssessment": "REJECTED",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "UNUSABLE_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "HOLD_NAVIGATION",
+            "acceptedAction": "APPLY_NAV_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "HELD_NAV_EVIDENCE"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "FORCE_HOLD_WITH_RESET",
+            "preRecoveryPhase": "OPEN"
+          },
+          "expected_branch_or_case": "CASE-16",
+          "expected": {
+            "acceptedAction": "APPLY_EXTERNAL_HOLD",
+            "supervisionStatus": "HELD_EXTERNAL"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "APPLY_EXTERNAL_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "HELD_EXTERNAL"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-05",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "INVALID",
+            "inertialEvidence": "INVALID",
+            "barometricEvidence": "INVALID",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "OPEN"
+          },
+          "expected_branch_or_case": "CASE-08/CASE-15/CASE-18",
+          "expected": {
+            "acceptedAction": "APPLY_NAV_HOLD",
+            "postRecoveryPhase": "LATCHED"
+          },
+          "observed": {
+            "gpsAssessment": "REJECTED",
+            "inertialAssessment": "REJECTED",
+            "barometricAssessment": "REJECTED",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "UNUSABLE_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "HOLD_NAVIGATION",
+            "acceptedAction": "APPLY_NAV_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "HELD_NAV_EVIDENCE"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "LATCHED"
+          },
+          "expected_branch_or_case": "CASE-17/CASE-18",
+          "expected": {
+            "postRecoveryPhase": "ARMED",
+            "navigationUseDirective": "MOTION_INHIBITED"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "APPLY_FULL",
+            "postRecoveryPhase": "ARMED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "RESET_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "RESET_ONLY",
+            "preRecoveryPhase": "ARMED"
+          },
+          "expected_branch_or_case": "CASE-16/CASE-19",
+          "expected": {
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "ACCEPT_RESET",
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "FULL_USE"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-06",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "STALE",
+            "motionContext": "TRANSLATING",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "OPEN"
+          },
+          "expected_branch_or_case": "CASE-04/CASE-12/CASE-14/CASE-15",
+          "expected": {
+            "awarenessCondition": "ACTIVE_AWARENESS_LOSS",
+            "acceptedAction": "APPLY_AWARENESS_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "obstacleAwarenessNotice": "AWARENESS_UNAVAILABLE",
+            "supervisionStatus": "HELD_AWARENESS_LOSS"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "UNAVAILABLE",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "ACTIVE_AWARENESS_LOSS",
+            "constraintProposal": "HOLD_AWARENESS",
+            "acceptedAction": "APPLY_AWARENESS_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "AWARENESS_UNAVAILABLE",
+            "supervisionStatus": "HELD_AWARENESS_LOSS"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-07",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "INDICATION_CURRENT",
+            "motionContext": "TRANSLATING",
+            "supervisionEvent": "RESET_ONLY",
+            "preRecoveryPhase": "OPEN"
+          },
+          "expected_branch_or_case": "CASE-15/CASE-18",
+          "expected": {
+            "acceptedAction": "APPLY_OBSTACLE_HOLD",
+            "postRecoveryPhase": "LATCHED"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "INDICATED",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "ACTIVE_OBSTACLE_CONFLICT",
+            "constraintProposal": "HOLD_OBSTACLE",
+            "acceptedAction": "APPLY_OBSTACLE_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "CURRENT_INDICATION",
+            "supervisionStatus": "HELD_OBSTACLE_INDICATION"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "RESET_ONLY",
+            "preRecoveryPhase": "LATCHED"
+          },
+          "expected_branch_or_case": "CASE-16/CASE-18",
+          "expected": {
+            "acceptedAction": "IGNORE_RESET",
+            "postRecoveryPhase": "WAIT_RELEASE",
+            "supervisionStatus": "RESET_RELEASE_REQUIRED"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "IGNORE_RESET",
+            "postRecoveryPhase": "WAIT_RELEASE",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "RESET_RELEASE_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "WAIT_RELEASE"
+          },
+          "expected_branch_or_case": "CASE-17/CASE-18",
+          "expected": {
+            "postRecoveryPhase": "ARMED"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "APPLY_FULL",
+            "postRecoveryPhase": "ARMED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "RESET_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "RESET_ONLY",
+            "preRecoveryPhase": "ARMED"
+          },
+          "expected_branch_or_case": "CASE-16/CASE-19",
+          "expected": {
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "ACCEPT_RESET",
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "FULL_USE"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-08",
+      "steps": [
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "WAIT_RELEASE"
+          },
+          "expected_branch_or_case": "CASE-11/CASE-14/CASE-15",
+          "expected": {
+            "awarenessCondition": "STATIONARY_OBSTACLE_PRESENT",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "INDICATED",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "STATIONARY_OBSTACLE_PRESENT",
+            "constraintProposal": "HOLD_OBSTACLE",
+            "acceptedAction": "APPLY_OBSTACLE_HOLD",
+            "postRecoveryPhase": "LATCHED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "CURRENT_INDICATION",
+            "supervisionStatus": "HELD_OBSTACLE_INDICATION"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "NONE",
+            "preRecoveryPhase": "LATCHED"
+          },
+          "expected_branch_or_case": "CASE-17/CASE-18",
+          "expected": {
+            "postRecoveryPhase": "ARMED",
+            "navigationUseDirective": "MOTION_INHIBITED"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "APPLY_FULL",
+            "postRecoveryPhase": "ARMED",
+            "navigationUseDirective": "MOTION_INHIBITED",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "RESET_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "gpsEvidence": "NOMINAL_CURRENT",
+            "inertialEvidence": "NOMINAL_CURRENT",
+            "barometricEvidence": "NOMINAL_CURRENT",
+            "obstacleEvidence": "NO_INDICATION_CURRENT",
+            "motionContext": "STATIONARY",
+            "supervisionEvent": "RESET_ONLY",
+            "preRecoveryPhase": "ARMED"
+          },
+          "expected_branch_or_case": "CASE-16/CASE-19",
+          "expected": {
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE"
+          },
+          "observed": {
+            "gpsAssessment": "READY",
+            "inertialAssessment": "READY",
+            "barometricAssessment": "READY",
+            "obstacleAssessment": "NO_INDICATION",
+            "navigationBasis": "FULL_BASIS",
+            "awarenessCondition": "AWARENESS_CLEAR",
+            "constraintProposal": "ALLOW_FULL",
+            "acceptedAction": "ACCEPT_RESET",
+            "postRecoveryPhase": "OPEN",
+            "navigationUseDirective": "FULL_NAV_USE",
+            "obstacleAwarenessNotice": "NO_CURRENT_INDICATION",
+            "supervisionStatus": "FULL_USE"
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "gpsEvidenceQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "gpsEvidenceQualifier.gpsEvidence"
+      ],
+      "owner_local_facts": [
+        "gpsAssessment"
+      ],
+      "contract_cases": [
+        "CASE-01"
+      ],
+      "analyzer_checks": [
+        "gps-qualifier-five-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "inertialEvidenceQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "inertialEvidenceQualifier.inertialEvidence"
+      ],
+      "owner_local_facts": [
+        "inertialAssessment"
+      ],
+      "contract_cases": [
+        "CASE-02"
+      ],
+      "analyzer_checks": [
+        "inertial-qualifier-five-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "barometricEvidenceQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "barometricEvidenceQualifier.barometricEvidence"
+      ],
+      "owner_local_facts": [
+        "barometricAssessment"
+      ],
+      "contract_cases": [
+        "CASE-03"
+      ],
+      "analyzer_checks": [
+        "barometric-qualifier-five-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "obstacleEvidenceQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "obstacleEvidenceQualifier.obstacleEvidence"
+      ],
+      "owner_local_facts": [
+        "obstacleAssessment"
+      ],
+      "contract_cases": [
+        "CASE-04"
+      ],
+      "analyzer_checks": [
+        "obstacle-qualifier-five-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "navigationBasisOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "navigationBasisOwner.gpsAssessment",
+        "navigationBasisOwner.inertialAssessment",
+        "navigationBasisOwner.barometricAssessment"
+      ],
+      "owner_local_facts": [
+        "navigationBasis"
+      ],
+      "contract_cases": [
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08"
+      ],
+      "analyzer_checks": [
+        "navigation-basis-27-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "awarenessConditionOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "awarenessConditionOwner.obstacleAssessment",
+        "awarenessConditionOwner.motionContext"
+      ],
+      "owner_local_facts": [
+        "awarenessCondition"
+      ],
+      "contract_cases": [
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13"
+      ],
+      "analyzer_checks": [
+        "awareness-condition-12-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "constraintProposalOwner",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "constraintProposalOwner.navigationBasis",
+        "constraintProposalOwner.awarenessCondition"
+      ],
+      "owner_local_facts": [
+        "constraintProposal"
+      ],
+      "contract_cases": [
+        "CASE-14"
+      ],
+      "analyzer_checks": [
+        "constraint-proposal-20-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "eventPriorityArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "eventPriorityArbiter.constraintProposal",
+        "eventPriorityArbiter.supervisionEvent",
+        "eventPriorityArbiter.preRecoveryPhase"
+      ],
+      "owner_local_facts": [
+        "acceptedAction"
+      ],
+      "contract_cases": [
+        "CASE-15",
+        "CASE-16",
+        "CASE-17"
+      ],
+      "analyzer_checks": [
+        "event-priority-80-tuples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recoveryLatchOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "recoveryLatchOwner.acceptedAction",
+        "state.committedRecoveryPhase"
+      ],
+      "owner_local_facts": [
+        "postRecoveryPhase"
+      ],
+      "contract_cases": [
+        "CASE-18",
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "recovery-reachable-27-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "supervisionOutcomeOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "supervisionOutcomeOwner.acceptedAction",
+        "supervisionOutcomeOwner.postRecoveryPhase",
+        "supervisionOutcomeOwner.navigationBasis"
+      ],
+      "owner_local_facts": [
+        "navigationUseDirective",
+        "obstacleAwarenessNotice",
+        "supervisionStatus"
+      ],
+      "contract_cases": [
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "outcome-reachable-24-triples"
+      ],
+      "passed": true
+    }
+  ]
+}

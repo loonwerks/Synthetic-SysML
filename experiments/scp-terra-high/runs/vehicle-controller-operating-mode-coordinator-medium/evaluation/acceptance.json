@@ -1,0 +1,70 @@
+{
+  "completed_at": "2026-08-21T00:42:22.305429Z",
+  "dataset_id": "vehicle-controller-operating-mode-coordinator-medium",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate:experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "Vehicle_Mode_Coordinator::VehicleControllerOperatingModeCoordinator",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/M-star.sysml\n  - [960, 4] Dispatch Protocol not specified for thread lifecycleEventOwner, assuming Sporadic\n  - [961, 4] Dispatch Protocol not specified for thread serviceEventOwner, assuming Sporadic\n  - [962, 4] Dispatch Protocol not specified for thread conditionAssessmentOwner, assuming Sporadic\n  - [963, 4] Dispatch Protocol not specified for thread intentArbitrationOwner, assuming Sporadic\n  - [964, 4] Dispatch Protocol not specified for thread coordinationPublicationOwner, assuming Sporadic\n  - [965, 4] Dispatch Protocol not specified for thread recoveryTargetOwner, assuming Sporadic\n  - [966, 4] Dispatch Protocol not specified for thread transitionQualificationOwner, assuming Sporadic\n  - [967, 4] Dispatch Protocol not specified for thread modeTransitionApplicationOwner, assuming Sporadic\n  - [1003, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 7])))), Attr(Some([/M-star.sysml, 1003, 7])))), [TypingsSpecialization([Name([Id(\"VehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 51])))], Attr(Some([/M-star.sysml, 1003, 51])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1003, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/.slang/VehicleControllerOperatingModeCoordinator_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/.tmp\nChecking initialise method of ConditionAssessmentOwner_vehicleModeCoordinationProcess_conditionAssessmentOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of ConditionAssessmentOwner_vehicleModeCoordinationProcess_conditionAssessmentOwner.scala\n  Verification succeeded!\n\nChecking initialise method of CoordinationPublicationOwner_vehicleModeCoordinationProcess_coordinationPublicationOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of CoordinationPublicationOwner_vehicleModeCoordinationProcess_coordinationPublicationOwner.scala\n  Verification succeeded!\n\nChecking initialise method of IntentArbitrationOwner_vehicleModeCoordinationProcess_intentArbitrationOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of IntentArbitrationOwner_vehicleModeCoordinationProcess_intentArbitrationOwner.scala\n  Verification succeeded!\n\nChecking initialise method of LifecycleEventOwner_vehicleModeCoordinationProcess_lifecycleEventOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of LifecycleEventOwner_vehicleModeCoordinationProcess_lifecycleEventOwner.scala\n  Verification succeeded!\n\nChecking initialise method of ModeTransitionApplicationOwner_vehicleModeCoordinationProcess_modeTransitionApplicationOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of ModeTransitionApplicationOwner_vehicleModeCoordinationProcess_modeTransitionApplicationOwner.scala\n  Verification succeeded!\n\nChecking initialise method of RecoveryTargetOwner_vehicleModeCoordinationProcess_recoveryTargetOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of RecoveryTargetOwner_vehicleModeCoordinationProcess_recoveryTargetOwner.scala\n  Verification succeeded!\n\nChecking initialise method of ServiceEventOwner_vehicleModeCoordinationProcess_serviceEventOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of ServiceEventOwner_vehicleModeCoordinationProcess_serviceEventOwner.scala\n  Verification succeeded!\n\nChecking initialise method of TransitionQualificationOwner_vehicleModeCoordinationProcess_transitionQualificationOwner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of TransitionQualificationOwner_vehicleModeCoordinationProcess_transitionQualificationOwner.scala\n  Verification succeeded!\n\nVerified 16 method(s) across 8 component(s).\n"
+    },
+    "integration_logika": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "logika",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate:experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/M-star.sysml\n  - [960, 4] Dispatch Protocol not specified for thread lifecycleEventOwner, assuming Sporadic\n  - [961, 4] Dispatch Protocol not specified for thread serviceEventOwner, assuming Sporadic\n  - [962, 4] Dispatch Protocol not specified for thread conditionAssessmentOwner, assuming Sporadic\n  - [963, 4] Dispatch Protocol not specified for thread intentArbitrationOwner, assuming Sporadic\n  - [964, 4] Dispatch Protocol not specified for thread coordinationPublicationOwner, assuming Sporadic\n  - [965, 4] Dispatch Protocol not specified for thread recoveryTargetOwner, assuming Sporadic\n  - [966, 4] Dispatch Protocol not specified for thread transitionQualificationOwner, assuming Sporadic\n  - [967, 4] Dispatch Protocol not specified for thread modeTransitionApplicationOwner, assuming Sporadic\n  - [1003, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 7])))), Attr(Some([/M-star.sysml, 1003, 7])))), [TypingsSpecialization([Name([Id(\"VehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 51])))], Attr(Some([/M-star.sysml, 1003, 51])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1003, 2]), None(), None())))\n* file://experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/M-star.sysml\n  - [960, 4] Dispatch Protocol not specified for thread lifecycleEventOwner, assuming Sporadic\n  - [961, 4] Dispatch Protocol not specified for thread serviceEventOwner, assuming Sporadic\n  - [962, 4] Dispatch Protocol not specified for thread conditionAssessmentOwner, assuming Sporadic\n  - [963, 4] Dispatch Protocol not specified for thread intentArbitrationOwner, assuming Sporadic\n  - [964, 4] Dispatch Protocol not specified for thread coordinationPublicationOwner, assuming Sporadic\n  - [965, 4] Dispatch Protocol not specified for thread recoveryTargetOwner, assuming Sporadic\n  - [966, 4] Dispatch Protocol not specified for thread transitionQualificationOwner, assuming Sporadic\n  - [967, 4] Dispatch Protocol not specified for thread modeTransitionApplicationOwner, assuming Sporadic\n  - [1003, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 7])))), Attr(Some([/M-star.sysml, 1003, 7])))), [TypingsSpecialization([Name([Id(\"VehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 51])))], Attr(Some([/M-star.sysml, 1003, 51])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1003, 2]), None(), None())))\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate:experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/vehicle-controller-operating-mode-coordinator-medium/candidate/M-star.sysml\n  - [960, 4] Dispatch Protocol not specified for thread lifecycleEventOwner, assuming Sporadic\n  - [961, 4] Dispatch Protocol not specified for thread serviceEventOwner, assuming Sporadic\n  - [962, 4] Dispatch Protocol not specified for thread conditionAssessmentOwner, assuming Sporadic\n  - [963, 4] Dispatch Protocol not specified for thread intentArbitrationOwner, assuming Sporadic\n  - [964, 4] Dispatch Protocol not specified for thread coordinationPublicationOwner, assuming Sporadic\n  - [965, 4] Dispatch Protocol not specified for thread recoveryTargetOwner, assuming Sporadic\n  - [966, 4] Dispatch Protocol not specified for thread transitionQualificationOwner, assuming Sporadic\n  - [967, 4] Dispatch Protocol not specified for thread modeTransitionApplicationOwner, assuming Sporadic\n  - [1003, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 7])))), Attr(Some([/M-star.sysml, 1003, 7])))), [TypingsSpecialization([Name([Id(\"VehicleControllerOperatingModeCoordinator\", Attr(Some([/M-star.sysml, 1003, 51])))], Attr(Some([/M-star.sysml, 1003, 51])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 1003, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-21T00:40:13.215496Z",
+  "status": "passed"
+}

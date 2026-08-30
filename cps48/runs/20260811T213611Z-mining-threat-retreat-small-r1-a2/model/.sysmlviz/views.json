@@ -1,0 +1,877 @@
+{
+  "schemaVersion": 2,
+  "viewRevision": 39,
+  "activeViewId": "system-overview",
+  "views": [
+    {
+      "id": "system-overview",
+      "name": "System Overview",
+      "rootId": "def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System",
+      "positions": {
+        "boundary:boundary/port/threat_observation": {
+          "x": 20,
+          "y": 170,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/service_progress_observation": {
+          "x": 20,
+          "y": 890,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/retreat_availability_observation": {
+          "x": 80,
+          "y": 762,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/request_observation": {
+          "x": 20,
+          "y": 650,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/mining_availability_observation": {
+          "x": 80,
+          "y": 932,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/defense_availability_observation": {
+          "x": 80,
+          "y": 1102,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/cargo_observation": {
+          "x": 20,
+          "y": 410,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/capacitor_observation": {
+          "x": 80,
+          "y": 1272,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process": {
+          "x": 360,
+          "y": 80,
+          "width": 1500,
+          "height": 1050,
+          "pinned": false
+        },
+        "boundary:boundary/port/phase_report": {
+          "x": 1920,
+          "y": 710,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/movement_service_command": {
+          "x": 1920,
+          "y": 530,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/mining_command": {
+          "x": 1920,
+          "y": 170,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/input_fault": {
+          "x": 1920,
+          "y": 890,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/defense_command": {
+          "x": 1920,
+          "y": 350,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/threat_qualification": {
+          "x": 470,
+          "y": 190,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/resource_qualification": {
+          "x": 470,
+          "y": 480,
+          "pinned": true,
+          "width": 248,
+          "height": 98
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/request_availability_qualification": {
+          "x": 470,
+          "y": 300,
+          "pinned": true,
+          "width": 248,
+          "height": 138
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/principal_decision_owner": {
+          "x": 870,
+          "y": 440,
+          "pinned": true,
+          "width": 248,
+          "height": 218
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/movement_service_command_delivery": {
+          "x": 1180,
+          "y": 770,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/mining_command_delivery": {
+          "x": 1320,
+          "y": 190,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/defense_command_delivery": {
+          "x": 1320,
+          "y": 480,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_capacitor",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_capacitor_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_capacitor_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_mining_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_mining_availability_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_mining_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_defense_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_defense_availability_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_defense_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_retreat_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_retreat_availability_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_retreat_availability_to_owner",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::capacitor_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::capacitor_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Resource_Qualification::raw_capacitor",
+        "port:Mining_Threat_Retreat_Supervisor::Resource_Qualification::qualified_capacitor",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::capacitor_input",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::mining_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::mining_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::raw_mining_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::qualified_mining_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::mining_availability_input",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::defense_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::defense_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::raw_defense_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::qualified_defense_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::defense_availability_input",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::retreat_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::retreat_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::raw_retreat_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::qualified_retreat_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::retreat_availability_input"
+      ],
+      "expanded": [
+        "part:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::supervisor_process"
+      ],
+      "aliases": {
+        "part:Mining_Threat_Retreat_Supervisor::Supervisor_Process::threat_qualification": "Threat qualification",
+        "part:Mining_Threat_Retreat_Supervisor::Supervisor_Process::resource_qualification": "Resource qualification",
+        "part:Mining_Threat_Retreat_Supervisor::Supervisor_Process::request_availability_qualification": "Request/availability qualifier",
+        "part:Mining_Threat_Retreat_Supervisor::Supervisor_Process::principal_decision_owner": "Principal decision owner",
+        "part:Mining_Threat_Retreat_Supervisor::Supervisor_Process::mining_command_delivery": "Mining command delivery",
+        "part:Mining_Threat_Retreat_Supervisor::Supervisor_Process::defense_command_delivery": "Defense command delivery",
+        "part:Mining_Threat_Retreat_Supervisor::Supervisor_Process::movement_service_command_delivery": "Movement/service delivery"
+      },
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": false,
+      "showTypes": false,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-11T22:49:25.240Z"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "cf4ea56f-6de3-4086-be84-f01f0b7c0ab9",
+      "at": "2026-08-11T22:31:20.337Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.create",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 1,
+      "targetIds": [],
+      "changedFields": [
+        "name",
+        "rootId"
+      ]
+    },
+    {
+      "id": "32f55949-90b4-4f24-9b45-a4bf1e314389",
+      "at": "2026-08-11T22:31:20.348Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.activate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 2,
+      "targetIds": [
+        "system-overview"
+      ],
+      "changedFields": [
+        "activeViewId"
+      ]
+    },
+    {
+      "id": "6ed66b2d-0c82-49ba-b8a0-fa141adc3e11",
+      "at": "2026-08-11T22:31:20.668Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.activate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 3,
+      "targetIds": [
+        "system-overview"
+      ],
+      "changedFields": [
+        "activeViewId"
+      ]
+    },
+    {
+      "id": "217fec8b-d8f5-4df2-a6f8-b224a9497f90",
+      "at": "2026-08-11T22:31:21.173Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.expand",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 4,
+      "targetIds": [
+        "part:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::supervisor_process"
+      ],
+      "changedFields": [
+        "expanded"
+      ]
+    },
+    {
+      "id": "f766e8d3-4dfe-4685-b0aa-f27742bcca73",
+      "at": "2026-08-11T22:31:21.476Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 5,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "fe42ebe8-5f72-47af-86e4-69cfa98c07c7",
+      "at": "2026-08-11T22:31:58.511Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.filter",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 6,
+      "targetIds": [
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_capacitor",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_defense_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_mining_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_retreat_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_capacitor_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_defense_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_mining_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_retreat_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_capacitor_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_defense_availability_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_mining_availability_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_retreat_availability_to_qualifier"
+      ],
+      "changedFields": [
+        "hidden"
+      ]
+    },
+    {
+      "id": "62cc08be-7389-4854-8d3b-714bd668fc3a",
+      "at": "2026-08-11T22:31:58.754Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 7,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "1d231444-d92b-4a54-8187-80ee24b755ae",
+      "at": "2026-08-11T22:31:58.999Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 8,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "75c9714c-27ba-454d-b76d-795105eceff9",
+      "at": "2026-08-11T22:31:59.244Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 9,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "7a1b3840-c555-400e-a6b4-76b50e70d660",
+      "at": "2026-08-11T22:31:59.499Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 10,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "ef02d159-0280-456e-8565-dddcbdeed708",
+      "at": "2026-08-11T22:31:59.760Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 11,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "de73d9c3-f44d-4a95-9321-240fdb813acf",
+      "at": "2026-08-11T22:32:00.030Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 12,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "d6594ef4-ccbf-4848-8553-d4d3f04a624d",
+      "at": "2026-08-11T22:32:00.291Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 13,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "c9f23383-eea5-48d5-9b02-64d271b06a53",
+      "at": "2026-08-11T22:32:07.328Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.apply",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 14,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process",
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/defense_command_delivery",
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/mining_command_delivery",
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/movement_service_command_delivery",
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/principal_decision_owner",
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/request_availability_qualification",
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/resource_qualification",
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/threat_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "7aaefa3e-10af-4186-8593-6b306a05b324",
+      "at": "2026-08-11T22:33:21.404Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.filter",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 15,
+      "targetIds": [
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_capacitor",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_defense_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_mining_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::boundary_retreat_availability",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_capacitor_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_defense_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_mining_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::qualified_retreat_availability_to_owner",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_capacitor_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_defense_availability_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_mining_availability_to_qualifier",
+        "connection:Mining_Threat_Retreat_Supervisor::Supervisor_Process::route_retreat_availability_to_qualifier",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::capacitor_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::defense_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::mining_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System::retreat_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::capacitor_input",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::defense_availability_input",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::mining_availability_input",
+        "port:Mining_Threat_Retreat_Supervisor::Principal_Decision_Owner::retreat_availability_input",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::qualified_defense_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::qualified_mining_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::qualified_retreat_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::raw_defense_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::raw_mining_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Request_Availability_Qualification::raw_retreat_availability",
+        "port:Mining_Threat_Retreat_Supervisor::Resource_Qualification::qualified_capacitor",
+        "port:Mining_Threat_Retreat_Supervisor::Resource_Qualification::raw_capacitor",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::capacitor_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::defense_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::mining_availability_observation",
+        "port:Mining_Threat_Retreat_Supervisor::Supervisor_Process::retreat_availability_observation"
+      ],
+      "changedFields": [
+        "hidden"
+      ]
+    },
+    {
+      "id": "da973fd4-ed32-44cc-87a5-19d5df1664b9",
+      "at": "2026-08-11T22:33:21.660Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 16,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "352a2f01-fb09-4f31-8d06-8be5abc61689",
+      "at": "2026-08-11T22:33:21.907Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 17,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "81299175-37ca-4bec-92b9-5cf23c79e5c2",
+      "at": "2026-08-11T22:33:22.112Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 18,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "710620eb-ed57-499f-98f1-9fc5b4ebb40a",
+      "at": "2026-08-11T22:33:53.791Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 19,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/threat_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "211ec918-b0b4-4aee-b512-220b3d6cd2c1",
+      "at": "2026-08-11T22:33:54.076Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 20,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/resource_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "7e7be331-9c76-4e49-9031-ffd690e5e0cc",
+      "at": "2026-08-11T22:33:54.359Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 21,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/request_availability_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "9a4345f9-f1aa-4073-bae6-a3e421b85979",
+      "at": "2026-08-11T22:33:54.634Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 22,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/principal_decision_owner"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "30239036-a2a5-46ba-ace0-5e9d65750b48",
+      "at": "2026-08-11T22:33:54.899Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 23,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/mining_command_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "6c7ecfa6-1f61-44ef-891e-557dda5656d8",
+      "at": "2026-08-11T22:33:55.163Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 24,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/defense_command_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "2d84680f-3615-40f1-9774-f4d17068bb54",
+      "at": "2026-08-11T22:33:55.446Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 25,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/movement_service_command_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "c92dff98-534c-409c-9f40-33a0a00df349",
+      "at": "2026-08-11T22:33:55.733Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 26,
+      "targetIds": [
+        "boundary:boundary/port/threat_observation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "823e99fd-853c-415c-871d-6dfc35e8e43a",
+      "at": "2026-08-11T22:33:55.997Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 27,
+      "targetIds": [
+        "boundary:boundary/port/cargo_observation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "ac62ab04-42ad-4a1f-965c-bff44dc3ff1e",
+      "at": "2026-08-11T22:33:56.265Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 28,
+      "targetIds": [
+        "boundary:boundary/port/request_observation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "5133a1d7-eb01-4f70-bdb8-970c68a0b75f",
+      "at": "2026-08-11T22:33:56.572Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 29,
+      "targetIds": [
+        "boundary:boundary/port/service_progress_observation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "fa7678c9-0152-4088-bd8e-a6a76abac8df",
+      "at": "2026-08-11T22:33:56.822Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 30,
+      "targetIds": [
+        "boundary:boundary/port/mining_command"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "e7cb6d53-8314-402a-873a-3e0d86846110",
+      "at": "2026-08-11T22:33:57.093Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 31,
+      "targetIds": [
+        "boundary:boundary/port/defense_command"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "f46cd939-579b-4188-bc9a-5f46abe2ffe6",
+      "at": "2026-08-11T22:33:57.380Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 32,
+      "targetIds": [
+        "boundary:boundary/port/movement_service_command"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "b1b15745-db4f-4d1f-9fbe-2a4ccb3a5f5e",
+      "at": "2026-08-11T22:33:57.660Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 33,
+      "targetIds": [
+        "boundary:boundary/port/phase_report"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "54929ad5-5eb8-4d60-a462-53e6ab7ed80b",
+      "at": "2026-08-11T22:33:57.918Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 34,
+      "targetIds": [
+        "boundary:boundary/port/input_fault"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "7dfca348-fa99-4adf-b979-ff4fde874242",
+      "at": "2026-08-11T22:33:58.202Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 35,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "395b826d-bd07-4b2c-9073-8035aca6676c",
+      "at": "2026-08-11T22:34:36.671Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 36,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/request_availability_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "f4fd49e7-4815-46db-be38-b2b5126fc414",
+      "at": "2026-08-11T22:34:36.944Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 37,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/movement_service_command_delivery"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "bcfb4387-f875-4709-aea6-4238f15bf3f4",
+      "at": "2026-08-11T22:35:00.883Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 38,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/request_availability_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "02defade-b46b-4574-92e6-eee7f2386749",
+      "at": "2026-08-11T22:49:25.240Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 39,
+      "targetIds": [
+        "node:def:Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System/supervisor_process/request_availability_qualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    }
+  ]
+}

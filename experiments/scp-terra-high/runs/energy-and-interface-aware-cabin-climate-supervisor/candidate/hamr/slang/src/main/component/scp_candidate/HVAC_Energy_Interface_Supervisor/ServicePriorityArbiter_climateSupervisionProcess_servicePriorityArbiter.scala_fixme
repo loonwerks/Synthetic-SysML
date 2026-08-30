@@ -1,0 +1,31 @@
+// #Sireum
+
+package scp_candidate.HVAC_Energy_Interface_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ServicePriorityArbiter_climateSupervisionProcess_servicePriorityArbiter {
+
+  def initialise(api: ServicePriorityArbiter_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_SELECTION_OFF
+        api.serviceSelection.service == Service.Off &&
+          api.serviceSelection.reason == SelectionReason.BlockAwaitFresh
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_serviceSelection(HVAC_Energy_Interface_Supervisor.ServiceSelection.example())
+  }
+
+  def finalise(api: ServicePriorityArbiter_Operational_Api): Unit = { }
+}

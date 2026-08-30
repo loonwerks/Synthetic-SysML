@@ -1,0 +1,114 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T013430Z-factory-dispatch-medium-r1-a1",
+  "source": "model/Factory_Dispatch_Coordinator.sysml",
+  "source_sha256": "51b6e31e3dbad8e6f5baf352dc8c68631e79837efda1275e09e2c6a3aee1816d",
+  "raw_node_count": 10,
+  "root_system_usage_count": 1,
+  "containment_depth": 2,
+  "weakly_connected_semantic_regions": 1,
+  "semantic_connections": 21,
+  "generated_support_delegations": 7,
+  "port_connection_declarations": 28,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 9,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {
+        "usage": "request_qualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["request"],
+        "owner_local_facts": ["four-way admission classification"],
+        "contract_cases": ["CCASE-01", "CCASE-02", "CCASE-03", "CCASE-20"],
+        "analyzer_checks": ["request-owner-450-valuations"]
+      },
+      {
+        "usage": "inventory_qualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["inventory_snapshot", "request_fact", "recovery_context"],
+        "owner_local_facts": ["candidate-specific fresh inventory assessment", "candidate-specific stored recovery inventory assessment"],
+        "contract_cases": ["CCASE-04", "CCASE-05", "CCASE-06"],
+        "analyzer_checks": ["fresh-inventory-owner-6400-pairs", "recovery-inventory-owner-6400-pairs"]
+      },
+      {
+        "usage": "dock_qualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["dock_snapshot"],
+        "owner_local_facts": ["validity-disposition dock assessment"],
+        "contract_cases": ["CCASE-07", "CCASE-08", "CCASE-09"],
+        "analyzer_checks": ["dock-owner-6-valuations"]
+      },
+      {
+        "usage": "outcome_recovery_classifier",
+        "claimed_roles": ["applicability", "decision"],
+        "assigned_inputs": ["execution_outcome", "execution_context"],
+        "owner_local_facts": ["correlated state-dependent outcome plan"],
+        "contract_cases": ["CCASE-14", "CCASE-15", "CCASE-16", "CCASE-18", "CCASE-19"],
+        "analyzer_checks": ["outcome-owner-7776-context-pairs"]
+      },
+      {
+        "usage": "dispatch_priority_resolver",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["admission", "recovery_plan"],
+        "owner_local_facts": ["recovery-over-fresh priority selection"],
+        "contract_cases": ["CCASE-14"],
+        "analyzer_checks": ["priority-owner-16-pairs"]
+      },
+      {
+        "usage": "release_arbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["request_fact", "candidate_readiness", "dock_assessment", "selected_intent"],
+        "owner_local_facts": ["matching-source release/wait/reject/busy decision", "terminal-pre-state reset decision"],
+        "contract_cases": ["CCASE-01", "CCASE-02", "CCASE-10", "CCASE-11", "CCASE-12", "CCASE-13", "CCASE-15", "CCASE-17", "CCASE-18", "CCASE-19", "CCASE-20"],
+        "analyzer_checks": ["arbiter-owner-partition-check", "terminal-reset-29160000-products"]
+      },
+      {
+        "usage": "commitment_tracker",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["outcome_plan", "dispatch_decision", "In(lifecycle,payload,attempt)"],
+        "owner_local_facts": ["state-dependent commitment transition and instruction", "terminal reset clears commitment"],
+        "contract_cases": ["CCASE-10", "CCASE-11", "CCASE-12", "CCASE-15", "CCASE-16", "CCASE-17", "CCASE-18", "CCASE-19", "CCASE-20"],
+        "analyzer_checks": ["tracker-transition-oracle-check"]
+      },
+      {
+        "usage": "confirmation_determiner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["confirmation_context"],
+        "owner_local_facts": ["two-class confirmation suppression and terminal distinction"],
+        "contract_cases": ["CCASE-15", "CCASE-16", "CCASE-18", "CCASE-19"],
+        "analyzer_checks": ["confirmation-owner-four-classes"]
+      },
+      {
+        "usage": "status_determiner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["decision_reason", "lifecycle_snapshot"],
+        "owner_local_facts": ["terminal/recovery/busy/wait/reset status precedence"],
+        "contract_cases": ["CCASE-01", "CCASE-10", "CCASE-11", "CCASE-12", "CCASE-13", "CCASE-15", "CCASE-16", "CCASE-18", "CCASE-20"],
+        "analyzer_checks": ["status-owner-42-precedence-pairs"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "validation": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "complete"
+  },
+  "exclusions": {
+    "semantic_usages": ["finished_product_dispatch_coordinator", "dispatch_coordinator_process"],
+    "semantic_interactions": ["seven System/Process support delegations"],
+    "contract_cases": ["initialization", "datatype helpers", "identity conversions and routed context", "terminal-reset restatements beyond CCASE-15 and CCASE-18"],
+    "scenario_families": ["aggregate partition counts and reachability summaries"]
+  }
+}

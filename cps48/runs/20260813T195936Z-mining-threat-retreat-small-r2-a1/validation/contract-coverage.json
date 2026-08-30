@@ -1,0 +1,2167 @@
+{
+  "schema_version": 2,
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "3f03db15b5504cb8bc7dcf189c53b73119679554616351c6994c72a2bb2fa0c3",
+  "bounded_analysis_claim_boundary": "Exhaustive finite conformance over the declared logical value/status and two-state snapshot domain only; not execution, physical validation, safety certification, solver certification, compositional proof, or unbounded proof.",
+  "domain_counts": {
+    "raw_boundary_combinations": 196608,
+    "principal_pre_states": 6,
+    "snapshots": 1179648
+  },
+  "semantic_connection_map": {
+    "INT-01": {
+      "from": "root.contactEvidence",
+      "to": "threatEvidenceInterpreter.contactEvidence",
+      "value": "ContactEvidence"
+    },
+    "INT-02": {
+      "from": "root.identificationEvidence",
+      "to": "threatEvidenceInterpreter.identificationEvidence",
+      "value": "IdentificationEvidence"
+    },
+    "INT-03": {
+      "from": "root.defenseEvidence",
+      "to": "defenseReadinessAssessor.defenseEvidence",
+      "value": "DefenseEvidence"
+    },
+    "INT-04": {
+      "from": "root.retreatNavigationEvidence",
+      "to": "retreatReadinessAssessor.retreatNavigationEvidence",
+      "value": "RetreatNavigationEvidence"
+    },
+    "INT-05": {
+      "from": "root.responseRequest",
+      "to": "principalResponseCoordinator.responseRequest",
+      "value": "ResponseRequest"
+    },
+    "INT-06": {
+      "from": "threatEvidenceInterpreter.qualifiedThreat",
+      "to": "principalResponseCoordinator.qualifiedThreat",
+      "value": "QualifiedThreat"
+    },
+    "INT-07": {
+      "from": "defenseReadinessAssessor.defenseCondition",
+      "to": "principalResponseCoordinator.defenseCondition",
+      "value": "DefenseCondition"
+    },
+    "INT-08": {
+      "from": "retreatReadinessAssessor.retreatCondition",
+      "to": "principalResponseCoordinator.retreatCondition",
+      "value": "RetreatCondition"
+    },
+    "INT-09": {
+      "from": "principalResponseCoordinator.defenseActivation",
+      "to": "root.defenseActivation",
+      "value": "DefenseActivation"
+    },
+    "INT-10": {
+      "from": "principalResponseCoordinator.retreatNavigationCommand",
+      "to": "root.retreatNavigationCommand",
+      "value": "RetreatNavigationCommand"
+    },
+    "INT-11": {
+      "from": "principalResponseCoordinator.responseRecord",
+      "to": "threatReportComposer.responseRecord",
+      "value": "ResponseRecord"
+    },
+    "INT-12": {
+      "from": "root.reportAcknowledgment",
+      "to": "threatReportComposer.reportAcknowledgment",
+      "value": "ReportAcknowledgment"
+    },
+    "INT-13": {
+      "from": "threatReportComposer.threatReport",
+      "to": "root.threatReport",
+      "value": "ThreatReport"
+    }
+  },
+  "partition_counts": {
+    "command_policy": {
+      "CASE-01": 1172736,
+      "CASE-02": 576,
+      "CASE-03": 1152,
+      "CASE-04": 576,
+      "CASE-05": 288,
+      "CASE-06": 576,
+      "CASE-07": 128,
+      "CASE-08": 3616
+    },
+    "reporting": {
+      "CASE-09": 589824,
+      "CASE-10": 294912,
+      "CASE-11": 293616,
+      "CASE-12": 1296
+    }
+  },
+  "owner_local_products": {
+    "threat_interpreter_combinations": 16,
+    "defense_assessor_combinations": 16,
+    "retreat_assessor_combinations": 32
+  },
+  "observations": {
+    "command_partition_gaps": 0,
+    "command_partition_overlaps": 0,
+    "report_partition_gaps": 0,
+    "report_partition_overlaps": 0,
+    "assessor_mismatches": 0,
+    "owner_local_relation_mismatches": 0,
+    "required_output_mismatches": 0,
+    "state_invariant_violations": 0,
+    "report_preservation_mismatches": 0,
+    "command_override_mismatches": 0,
+    "unresolved_endpoint_mismatches": 0,
+    "metric_evidence_mismatches": 0
+  },
+  "first_witnesses": {},
+  "invariant_checks": {
+    "command_mutual_exclusion": true,
+    "retreat_commitment_persistence": true,
+    "report_record_preservation": true,
+    "acknowledgment_fault_command_isolation": true
+  },
+  "checks": {
+    "raw_boundary_product_exact": true,
+    "six_principal_pre_states": true,
+    "snapshot_count_exact": true,
+    "semantic_connection_map_exact": true,
+    "part01_total_16_relation": true,
+    "part02_total_16_relation": true,
+    "part03_total_32_relation": true,
+    "part04_eight_case_partition": true,
+    "part05_four_case_partition": true,
+    "command_partition_complete_disjoint": true,
+    "report_partition_complete_disjoint": true,
+    "outputs_and_next_state_complete": true,
+    "state_and_command_invariants": true,
+    "response_record_preserved": true,
+    "source_guards_match_analyzer_guards": true,
+    "all_five_scenario_families": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "threatEvidenceInterpreter",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "threatEvidenceInterpreter.contactEvidence",
+        "threatEvidenceInterpreter.identificationEvidence"
+      ],
+      "owner_local_facts": [
+        "qualifiedThreat four-class evidence interpretation"
+      ],
+      "contract_cases": [
+        "CONTRACT-LOCAL-01"
+      ],
+      "analyzer_checks": [
+        "part01_total_16_relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "defenseReadinessAssessor",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "defenseReadinessAssessor.defenseEvidence"
+      ],
+      "owner_local_facts": [
+        "defenseCondition conjunction of independently valid defense and drone readiness"
+      ],
+      "contract_cases": [
+        "CONTRACT-LOCAL-02"
+      ],
+      "analyzer_checks": [
+        "part02_total_16_relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "retreatReadinessAssessor",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "retreatReadinessAssessor.retreatNavigationEvidence"
+      ],
+      "owner_local_facts": [
+        "retreatCondition completion-precedent route classification"
+      ],
+      "contract_cases": [
+        "CONTRACT-LOCAL-03"
+      ],
+      "analyzer_checks": [
+        "part03_total_32_relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "principalResponseCoordinator",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "principalResponseCoordinator.responseRequest",
+        "principalResponseCoordinator.qualifiedThreat",
+        "principalResponseCoordinator.defenseCondition",
+        "principalResponseCoordinator.retreatCondition",
+        "principalResponseCoordinator.responseCommitment",
+        "principalResponseCoordinator.retreatRequestArmed"
+      ],
+      "owner_local_facts": [
+        "exclusive response disposition and command choice",
+        "response commitment transition",
+        "fresh-request arming transition"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08"
+      ],
+      "analyzer_checks": [
+        "part04_eight_case_partition",
+        "source_guards_match_analyzer_guards"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "threatReportComposer",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "threatReportComposer.responseRecord",
+        "threatReportComposer.reportAcknowledgment"
+      ],
+      "owner_local_facts": [
+        "acknowledgment-aware four-class report priority"
+      ],
+      "contract_cases": [
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "part05_four_case_partition",
+        "response_record_preserved"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_families": {
+    "SCN-01": {
+      "passed": true,
+      "trace": [
+        {
+          "id": "clear-observation",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "suspect-observation",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "SUSPECT",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "confirmed-defense",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "DEFEND_IF_HOSTILE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "HOSTILE",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-12",
+            "defenseActivation": "ACTIVATE",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "DEFENSE_ACTIVE",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "DEFENSE_COMMITTED",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "continued-defense-acknowledged",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "DEFEND_IF_HOSTILE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "DEFENSE_COMMITTED",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-10"
+          },
+          "observed": {
+            "qualifiedThreat": "HOSTILE",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-10",
+            "defenseActivation": "ACTIVATE",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "DEFENSE_ACTIVE",
+            "reportPriority": "CLOSED",
+            "nextState": {
+              "responseCommitment": "DEFENSE_COMMITTED",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "threat-clearance",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "DEFENSE_COMMITTED",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        }
+      ]
+    },
+    "SCN-02": {
+      "passed": true,
+      "trace": [
+        {
+          "id": "clear-ready-available",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "suspect-unavailable-route",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "UNAVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "ABSENT",
+              "destinationStatus": "VALID",
+              "warpProgress": "UNAVAILABLE",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "SUSPECT",
+            "defenseCondition": "UNAVAILABLE",
+            "retreatCondition": "UNAVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "hostile-defense-at-completion",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "COMPLETE",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "DEFEND_IF_HOSTILE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "HOSTILE",
+            "defenseCondition": "READY",
+            "retreatCondition": "COMPLETE",
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-12",
+            "defenseActivation": "ACTIVATE",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "DEFENSE_ACTIVE",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "DEFENSE_COMMITTED",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "contradictory-unknown-threat",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "UNKNOWN",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "unknown-defense",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "INVALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "UNKNOWN",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "unknown-retreat",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "INVALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "UNKNOWN",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "hostile-unavailable-defense-fallback",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "UNAVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "DEFEND_IF_HOSTILE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-05",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "HOSTILE",
+            "defenseCondition": "UNAVAILABLE",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-05",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "RETREAT",
+            "disposition": "RETREAT_ACTIVE",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "RETREAT_COMMITTED",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "retreat-priority-over-ready-defense",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "ABSENT",
+              "destinationStatus": "VALID",
+              "warpProgress": "UNAVAILABLE",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-06",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "HOSTILE",
+            "defenseCondition": "READY",
+            "retreatCondition": "UNAVAILABLE",
+            "commandCase": "CASE-06",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "RETREAT_BLOCKED",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "RETREAT_COMMITTED",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        }
+      ]
+    },
+    "SCN-03": {
+      "passed": true,
+      "trace": [
+        {
+          "id": "invalid-signature-status",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "INVALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "UNKNOWN",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-identity-status",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "INVALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "UNKNOWN",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-defense-status",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "INVALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "UNKNOWN",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-drone-status",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "INVALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "UNKNOWN",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-destination-status",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "INVALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "UNKNOWN",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-warp-status",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "INVALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "UNKNOWN",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-request-status",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "INVALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-ack-only",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "CONTACT",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "DEFEND_IF_HOSTILE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "INVALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-09"
+          },
+          "observed": {
+            "qualifiedThreat": "HOSTILE",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-07",
+            "reportCase": "CASE-09",
+            "defenseActivation": "ACTIVATE",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "DEFENSE_ACTIVE",
+            "reportPriority": "COMMUNICATION_FAULT",
+            "nextState": {
+              "responseCommitment": "DEFENSE_COMMITTED",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "multiple-invalid",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "INVALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "INVALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "INVALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "UNKNOWN",
+            "defenseCondition": "UNKNOWN",
+            "retreatCondition": "UNKNOWN",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "valid-contradiction",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "UNKNOWN",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-01",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "INPUT_FAULT",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "valid-restoration",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        }
+      ]
+    },
+    "SCN-04": {
+      "passed": true,
+      "trace": [
+        {
+          "id": "fresh-blocked-retreat",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "ABSENT",
+              "destinationStatus": "VALID",
+              "warpProgress": "UNAVAILABLE",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-06",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "UNAVAILABLE",
+            "commandCase": "CASE-06",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "RETREAT_BLOCKED",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "RETREAT_COMMITTED",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "route-recovery",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "RETREAT_COMMITTED",
+            "retreatRequestArmed": false
+          },
+          "expected": {
+            "commandCase": "CASE-02",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-02",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "RETREAT",
+            "disposition": "RETREAT_ACTIVE",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "RETREAT_COMMITTED",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "completion-closure",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "COMPLETE",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "RETREAT_COMMITTED",
+            "retreatRequestArmed": false
+          },
+          "expected": {
+            "commandCase": "CASE-04",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "COMPLETE",
+            "commandCase": "CASE-04",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "RETREAT_COMPLETE",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        }
+      ]
+    },
+    "SCN-05": {
+      "passed": true,
+      "trace": [
+        {
+          "id": "persistent-consumed-request",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": false
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "non-retreat-rearm",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": false
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "second-fresh-request-blocked",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "ABSENT",
+              "destinationStatus": "VALID",
+              "warpProgress": "UNAVAILABLE",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": true
+          },
+          "expected": {
+            "commandCase": "CASE-06",
+            "reportCase": "CASE-11"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "UNAVAILABLE",
+            "commandCase": "CASE-06",
+            "reportCase": "CASE-11",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "RETREAT_BLOCKED",
+            "reportPriority": "URGENT",
+            "nextState": {
+              "responseCommitment": "RETREAT_COMMITTED",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "second-retreat-active",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "RETREAT_COMMITTED",
+            "retreatRequestArmed": false
+          },
+          "expected": {
+            "commandCase": "CASE-02",
+            "reportCase": "CASE-12"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-02",
+            "reportCase": "CASE-12",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "RETREAT",
+            "disposition": "RETREAT_ACTIVE",
+            "reportPriority": "ROUTINE",
+            "nextState": {
+              "responseCommitment": "RETREAT_COMMITTED",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "second-retreat-acknowledged-complete",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "COMPLETE",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "RETREAT",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "ACKNOWLEDGED",
+              "acknowledgmentStatus": "VALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "RETREAT_COMMITTED",
+            "retreatRequestArmed": false
+          },
+          "expected": {
+            "commandCase": "CASE-04",
+            "reportCase": "CASE-10"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "COMPLETE",
+            "commandCase": "CASE-04",
+            "reportCase": "CASE-10",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "RETREAT_COMPLETE",
+            "reportPriority": "CLOSED",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": false
+            }
+          },
+          "passed": true
+        },
+        {
+          "id": "invalid-ack-after-completion",
+          "boundaryInput": {
+            "contactEvidence": {
+              "signature": "NONE",
+              "signatureStatus": "VALID"
+            },
+            "identificationEvidence": {
+              "identity": "NO_HOSTILE",
+              "identityStatus": "VALID"
+            },
+            "defenseEvidence": {
+              "defenseAvailable": "AVAILABLE",
+              "defenseStatus": "VALID",
+              "droneReadiness": "READY",
+              "droneStatus": "VALID"
+            },
+            "retreatNavigationEvidence": {
+              "destination": "IDENTIFIED",
+              "destinationStatus": "VALID",
+              "warpProgress": "READY",
+              "warpStatus": "VALID"
+            },
+            "responseRequest": {
+              "request": "OBSERVE",
+              "requestStatus": "VALID"
+            },
+            "reportAcknowledgment": {
+              "acknowledgment": "NOT_ACKNOWLEDGED",
+              "acknowledgmentStatus": "INVALID"
+            }
+          },
+          "preState": {
+            "responseCommitment": "OPEN",
+            "retreatRequestArmed": false
+          },
+          "expected": {
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-09"
+          },
+          "observed": {
+            "qualifiedThreat": "CLEAR",
+            "defenseCondition": "READY",
+            "retreatCondition": "AVAILABLE",
+            "commandCase": "CASE-08",
+            "reportCase": "CASE-09",
+            "defenseActivation": "STAND_DOWN",
+            "retreatNavigationCommand": "HOLD",
+            "disposition": "OBSERVED",
+            "reportPriority": "COMMUNICATION_FAULT",
+            "nextState": {
+              "responseCommitment": "OPEN",
+              "retreatRequestArmed": true
+            }
+          },
+          "passed": true
+        }
+      ]
+    }
+  }
+}

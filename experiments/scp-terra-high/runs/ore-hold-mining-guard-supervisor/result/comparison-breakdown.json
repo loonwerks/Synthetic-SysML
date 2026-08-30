@@ -1,0 +1,2575 @@
+{
+  "coverage_complete": true,
+  "coverage_gaps": [],
+  "roots": [
+    "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem"
+  ],
+  "schema_version": "2.0.0",
+  "types": [
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardMode",
+      "kind": "enum",
+      "literals": [
+        "Idle",
+        "Mining",
+        "CapacityHold",
+        "ConditionHold",
+        "RecoveryReady"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardMode",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+      "element_type": null,
+      "fields": [
+        [
+          "nextMode",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::nextMode"
+        ],
+        [
+          "reason",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::reason"
+        ],
+        [
+          "requestConflict",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::requestConflict"
+        ]
+      ],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::nextMode",
+      "kind": "enum",
+      "literals": [
+        "Idle",
+        "Mining",
+        "CapacityHold",
+        "ConditionHold",
+        "RecoveryReady"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::nextMode",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.ResolutionReason",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.ResolutionReason.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::reason",
+      "kind": "enum",
+      "literals": [
+        "HaltSelected",
+        "InvalidEvidence",
+        "HoldGuardReached",
+        "SupportUnavailable",
+        "StartAdmitted",
+        "IdleWaiting",
+        "MiningMaintained",
+        "GuardCleared",
+        "EvidenceRestored",
+        "ResumeAdmitted",
+        "RecoveryWaiting"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.ResolutionReason",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.ResolutionReason.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::reason",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::requestConflict",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution::field::requestConflict",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardStatus",
+      "kind": "enum",
+      "literals": [
+        "Idle",
+        "MiningAuthorized",
+        "HaltedByPilot",
+        "GuardedNearlyFull",
+        "HeldForSupport",
+        "InputFault",
+        "AwaitingFreshResume",
+        "RequestConflict"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardStatus",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldAssessment",
+      "kind": "enum",
+      "literals": [
+        "SpaceAvailable",
+        "GuardReached",
+        "InvalidHold"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldAssessment",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldSample",
+      "element_type": null,
+      "fields": [
+        [
+          "observation",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample::field::observation"
+        ],
+        [
+          "status",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample::field::status"
+        ]
+      ],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldSample",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldObservation",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldObservation.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample::field::observation",
+      "kind": "enum",
+      "literals": [
+        "RoomAvailable",
+        "NearlyFull"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldObservation",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldObservation.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample::field::observation",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample::field::status",
+      "kind": "enum",
+      "literals": [
+        "Valid",
+        "Invalid"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample::field::status",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningCommand",
+      "kind": "enum",
+      "literals": [
+        "StopMining",
+        "ContinueMining"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningCommand",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportSample",
+      "element_type": null,
+      "fields": [
+        [
+          "asteroid",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::asteroid"
+        ],
+        [
+          "laser",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::laser"
+        ],
+        [
+          "target",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::target"
+        ],
+        [
+          "status",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::status"
+        ]
+      ],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportSample",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.AsteroidCondition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.AsteroidCondition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::asteroid",
+      "kind": "enum",
+      "literals": [
+        "OreAvailable",
+        "Depleted"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.AsteroidCondition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.AsteroidCondition.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::asteroid",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.LaserCondition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.LaserCondition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::laser",
+      "kind": "enum",
+      "literals": [
+        "Ready",
+        "Overheated"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.LaserCondition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.LaserCondition.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::laser",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::status",
+      "kind": "enum",
+      "literals": [
+        "Valid",
+        "Invalid"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::status",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.TargetCondition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.TargetCondition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::target",
+      "kind": "enum",
+      "literals": [
+        "Locked",
+        "Interfered"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.TargetCondition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.TargetCondition.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample::field::target",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::OffloadReadiness",
+      "kind": "enum",
+      "literals": [
+        "NotReadyForOffload",
+        "ReadyForLaterOffload"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::OffloadReadiness",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.PilotRequestSample",
+      "element_type": null,
+      "fields": [
+        [
+          "start",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::start"
+        ],
+        [
+          "halt_request",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::halt_request"
+        ],
+        [
+          "resume",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::resume"
+        ],
+        [
+          "status",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::status"
+        ]
+      ],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.PilotRequestSample",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::halt_request",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::halt_request",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::resume",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::resume",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::start",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::start",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::status",
+      "kind": "enum",
+      "literals": [
+        "Valid",
+        "Invalid"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.InputStatus.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample::field::status",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+      "element_type": null,
+      "fields": [
+        [
+          "disposition",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment::field::disposition"
+        ],
+        [
+          "conflict",
+          "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment::field::conflict"
+        ]
+      ],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment::field::conflict",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment::field::conflict",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestDisposition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestDisposition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment::field::disposition",
+      "kind": "enum",
+      "literals": [
+        "InvalidRequest",
+        "HaltDominant",
+        "FreshResume",
+        "FreshStart",
+        "NoFreshRequest"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestDisposition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestDisposition.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment::field::disposition",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::SupportAssessment",
+      "kind": "enum",
+      "literals": [
+        "SupportReady",
+        "SupportBlocked",
+        "InvalidSupport"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+      "qualified_name": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::SupportAssessment",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    }
+  ],
+  "units": [
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "c0b8d13c2765fffff6b9d1f26a107e68e613a8df430d075fc346666600c8f305",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "guard_status",
+          "offload_readiness"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INITIAL_REPORTING_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 189,
+            "offset": 14360,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::GuardReportingDerivationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::guard_reporting_derivation_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::guard_reporting_derivation_owner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "guard_resolution",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus.Type",
+          "name": "guard_status",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardStatus"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness.Type",
+          "name": "offload_readiness",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::OffloadReadiness"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "b542c5582f8632a7c3a49e1c695b839780b712654254766bc6dd2240371cbc87",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "guard_status",
+          "offload_readiness"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INITIAL_REPORTING_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 403,
+            "offset": 21312,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "INIT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "c0b8d13c2765fffff6b9d1f26a107e68e613a8df430d075fc346666600c8f305",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "guard_resolution",
+          "guard_status",
+          "offload_readiness"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INVALID_EVIDENCE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 191,
+            "offset": 14509,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "HALT_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 192,
+            "offset": 14653,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "HOLD_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 193,
+            "offset": 14792,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "SUPPORT_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 194,
+            "offset": 14939,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "MINING_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 195,
+            "offset": 15088,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "RECOVERY_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 196,
+            "offset": 15359,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CONFLICT_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 197,
+            "offset": 15635,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "IDLE_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 198,
+            "offset": 15814,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "OFFLOAD_READINESS_EXACT_DERIVATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 199,
+            "offset": 15979,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::GuardReportingDerivationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::guard_reporting_derivation_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::guard_reporting_derivation_owner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "guard_resolution",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus.Type",
+          "name": "guard_status",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardStatus.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardStatus"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness.Type",
+          "name": "offload_readiness",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OffloadReadiness.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::OffloadReadiness"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "b542c5582f8632a7c3a49e1c695b839780b712654254766bc6dd2240371cbc87",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "guard_resolution",
+          "guard_status",
+          "offload_readiness"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardReportingDerivationOwner_mining_guard_process_guard_reporting_derivation_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "GUARD_STATUS_EXACT_DERIVATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 408,
+            "offset": 21509,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "OUTPUT-02"
+          ]
+        },
+        {
+          "clause_id": "OFFLOAD_READINESS_EXACT_DERIVATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 432,
+            "offset": 23029,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "OUTPUT-03"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "70cb7d930770ed5030161ab10a58f5bb999bc337124e438a155bd515fb8f29c7",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "hold_assessment"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INITIAL_HOLD_ASSESSMENT_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 91,
+            "offset": 4943,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::HoldGuardQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::hold_guard_qualification_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::hold_guard_qualification_owner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "name": "hold_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldSample",
+          "name": "hold_sample",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldSample",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "5e3e884ba0bff622fe54c5a97718d5240a321dc13d7d9ffa4fadd9507bd297b5",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "hold_assessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INITIAL_HOLD_ASSESSMENT_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 139,
+            "offset": 5652,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "INIT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "70cb7d930770ed5030161ab10a58f5bb999bc337124e438a155bd515fb8f29c7",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "hold_sample",
+          "hold_assessment"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INVALID_HOLD",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 93,
+            "offset": 5052,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "SPACE_AVAILABLE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 94,
+            "offset": 5181,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "GUARD_REACHED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 95,
+            "offset": 5373,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::HoldGuardQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::hold_guard_qualification_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::hold_guard_qualification_owner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "name": "hold_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldSample",
+          "name": "hold_sample",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldSample",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldSample"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "5e3e884ba0bff622fe54c5a97718d5240a321dc13d7d9ffa4fadd9507bd297b5",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "hold_sample",
+          "hold_assessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldGuardQualificationOwner_mining_guard_process_hold_guard_qualification_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "HOLD_GUARD_QUALIFICATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 143,
+            "offset": 5802,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "QUAL-HOLD-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "7aab95349a8d74dcfbbb83e86d64d63cb3b452b70c19582b2fb79e4178077989",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "mining_command"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INITIAL_MINING_COMMAND_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 175,
+            "offset": 13659,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::MiningCommandDerivationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_command_derivation_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_command_derivation_owner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "guard_resolution",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand.Type",
+          "name": "mining_command",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningCommand"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "89f4549636f3c9c5d70fd1cd7f14b8e538a0c62539c792efd7f3520b976c90fc",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "mining_command"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INITIAL_MINING_COMMAND_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 379,
+            "offset": 20448,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "INIT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "7aab95349a8d74dcfbbb83e86d64d63cb3b452b70c19582b2fb79e4178077989",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "guard_resolution",
+          "mining_command"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "MINING_COMMAND_EXACT_DERIVATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 177,
+            "offset": 13764,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::MiningCommandDerivationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_command_derivation_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_command_derivation_owner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "guard_resolution",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand.Type",
+          "name": "mining_command",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningCommand"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "89f4549636f3c9c5d70fd1cd7f14b8e538a0c62539c792efd7f3520b976c90fc",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "guard_resolution",
+          "mining_command"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "MINING_COMMAND_EXACT_DERIVATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 383,
+            "offset": 20591,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "OUTPUT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "539c464aad5574b71918daa3342c904838bf9432fbd1de7555ebbe0223eb349a",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "support_assessment"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INITIAL_SUPPORT_ASSESSMENT_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 104,
+            "offset": 5819,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::MiningSupportQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_support_qualification_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_support_qualification_owner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportSample",
+          "name": "mining_support",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportSample",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "name": "support_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::SupportAssessment"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "01a94b3d1f3f746a82136a2f73a23663020d475d9aebe652603fb4f0d2129b30",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "support_assessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INITIAL_SUPPORT_ASSESSMENT_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 165,
+            "offset": 6686,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "INIT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "539c464aad5574b71918daa3342c904838bf9432fbd1de7555ebbe0223eb349a",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "mining_support",
+          "support_assessment"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INVALID_SUPPORT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 106,
+            "offset": 5940,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "SUPPORT_READY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 107,
+            "offset": 6084,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "SUPPORT_BLOCKED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 108,
+            "offset": 6379,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::MiningSupportQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_support_qualification_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::mining_support_qualification_owner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportSample",
+          "name": "mining_support",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportSample",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::MiningSupportSample"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "name": "support_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::SupportAssessment"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "01a94b3d1f3f746a82136a2f73a23663020d475d9aebe652603fb4f0d2129b30",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "mining_support",
+          "support_assessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningSupportQualificationOwner_mining_guard_process_mining_support_qualification_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "MINING_SUPPORT_QUALIFICATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 169,
+            "offset": 6851,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "QUAL-SUPPORT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "f248e7b0e871457ea7f9f0bd97e260feb8a5e1fca9eee69f9908023d702b36d0",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "guardMode",
+          "resolution_to_command",
+          "resolution_to_reporting"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INITIAL_DECISION_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 122,
+            "offset": 7201,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::OreHoldDecisionOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::ore_hold_decision_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::ore_hold_decision_owner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "name": "hold_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "name": "request_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "resolution_to_command",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "resolution_to_reporting",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "name": "support_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::SupportAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+          "name": "guardMode",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardMode"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "2ced167e6146c5786780f967f3de561b9b220cf32dbe390ce11978d053af60ae",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "guardMode",
+          "resolution_to_command",
+          "resolution_to_reporting"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INITIAL_DECISION_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 205,
+            "offset": 8398,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "INIT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": true,
+        "targets": [
+          "guardMode"
+        ]
+      },
+      "phase": "initialize",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "f248e7b0e871457ea7f9f0bd97e260feb8a5e1fca9eee69f9908023d702b36d0",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_guardMode",
+          "guardMode",
+          "hold_assessment",
+          "request_assessment",
+          "support_assessment",
+          "resolution_to_command",
+          "resolution_to_reporting"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "MIRRORED_RESOLUTION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 129,
+            "offset": 7677,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "INVALID_ASSESSMENT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 134,
+            "offset": 8043,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "HALT_DOMINANT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 137,
+            "offset": 8449,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "HOLD_GUARD_REACHED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 140,
+            "offset": 8895,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "SUPPORT_UNAVAILABLE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 143,
+            "offset": 9415,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "FRESH_START_ADMITTED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 146,
+            "offset": 9894,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "IDLE_WAITING",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 149,
+            "offset": 10315,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "MINING_MAINTAINED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 152,
+            "offset": 10860,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CAPACITY_GUARD_CLEARED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 155,
+            "offset": 11355,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CONDITION_EVIDENCE_RESTORED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 158,
+            "offset": 11871,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "FRESH_RESUME_ADMITTED",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 161,
+            "offset": 12397,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "RECOVERY_WAITING",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 164,
+            "offset": 12830,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": true,
+        "targets": [
+          "guardMode"
+        ]
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::OreHoldDecisionOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::ore_hold_decision_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::ore_hold_decision_owner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "name": "hold_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.HoldAssessment.Type",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::HoldAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "name": "request_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "resolution_to_command",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "name": "resolution_to_reporting",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardResolution"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "name": "support_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.SupportAssessment.Type",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::SupportAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+          "name": "In_guardMode",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+          "role": "pre-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardMode"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+          "name": "guardMode",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardMode.Type",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::GuardMode"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "2ced167e6146c5786780f967f3de561b9b220cf32dbe390ce11978d053af60ae",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_guardMode",
+          "guardMode",
+          "hold_assessment",
+          "request_assessment",
+          "support_assessment",
+          "resolution_to_command",
+          "resolution_to_reporting"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.OreHoldDecisionOwner_mining_guard_process_ore_hold_decision_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INVALID_ASSESSMENT",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 217,
+            "offset": 8956,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-01"
+          ]
+        },
+        {
+          "clause_id": "HALT_DOMINANT",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 229,
+            "offset": 9867,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-02"
+          ]
+        },
+        {
+          "clause_id": "HOLD_GUARD_REACHED",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 242,
+            "offset": 10823,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-03"
+          ]
+        },
+        {
+          "clause_id": "SUPPORT_UNAVAILABLE",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 256,
+            "offset": 11873,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-04"
+          ]
+        },
+        {
+          "clause_id": "FRESH_START_ADMITTED",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 269,
+            "offset": 12880,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-05"
+          ]
+        },
+        {
+          "clause_id": "IDLE_WAITING",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 282,
+            "offset": 13806,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-06"
+          ]
+        },
+        {
+          "clause_id": "MINING_MAINTAINED",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 297,
+            "offset": 14887,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-07"
+          ]
+        },
+        {
+          "clause_id": "CAPACITY_GUARD_CLEARED",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 311,
+            "offset": 15924,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-08"
+          ]
+        },
+        {
+          "clause_id": "CONDITION_EVIDENCE_RESTORED",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 325,
+            "offset": 16992,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-09"
+          ]
+        },
+        {
+          "clause_id": "FRESH_RESUME_ADMITTED",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 339,
+            "offset": 18075,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-10"
+          ]
+        },
+        {
+          "clause_id": "RECOVERY_WAITING",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 352,
+            "offset": 19004,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-11"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": true,
+        "targets": [
+          "guardMode"
+        ]
+      },
+      "phase": "compute",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "e4914e5714323c251d0acc58bb3035b2b395121fe648ae7ef6e1cf7e2056a774",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "previousHalt",
+          "previousResume",
+          "previousStart",
+          "request_assessment"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INITIAL_REQUEST_OWNER_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 53,
+            "offset": 2650,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::RequestFreshnessPriorityOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::request_freshness_priority_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::request_freshness_priority_owner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.PilotRequestSample",
+          "name": "pilot_request",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.PilotRequestSample",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "name": "request_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "previousHalt",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "previousResume",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "previousStart",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "b1861742493729cbf5f8e50e7d6c329ffdf00abb2a23d100e7bdcfd2f8dd2fa2",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "previousHalt",
+          "previousResume",
+          "previousStart",
+          "request_assessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INITIAL_REQUEST_OWNER_SAFE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 95,
+            "offset": 3452,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "INIT-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": true,
+        "targets": [
+          "previousStart",
+          "previousHalt",
+          "previousResume"
+        ]
+      },
+      "phase": "initialize",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "e4914e5714323c251d0acc58bb3035b2b395121fe648ae7ef6e1cf7e2056a774",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_previousHalt",
+          "In_previousResume",
+          "In_previousStart",
+          "previousHalt",
+          "previousResume",
+          "previousStart",
+          "pilot_request",
+          "request_assessment"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "REQUEST_HISTORY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 59,
+            "offset": 2969,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "INVALID_REQUEST",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 62,
+            "offset": 3148,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "HALT_DOMINANT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 65,
+            "offset": 3359,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "FRESH_RESUME",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 68,
+            "offset": 3558,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "FRESH_START",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 71,
+            "offset": 3801,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "NO_FRESH_REQUEST",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 75,
+            "offset": 4097,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CONFLICT_EXACT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 79,
+            "offset": 4404,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": true,
+        "targets": [
+          "previousStart",
+          "previousHalt",
+          "previousResume"
+        ]
+      },
+      "classifier": "Ore_Hold_Mining_Guard_Supervisor::RequestFreshnessPriorityOwner",
+      "coverage_complete": true,
+      "instance_path": "OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::request_freshness_priority_owner",
+      "key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/root-instance::OreHoldMiningGuardSupervisorSystem_Instance/component::OreHoldMiningGuardSupervisorSystem_Instance::mining_guard_process::request_freshness_priority_owner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.PilotRequestSample",
+          "name": "pilot_request",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.PilotRequestSample",
+          "role": "input",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::PilotRequestSample"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "name": "request_assessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestAssessment",
+          "role": "output",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Ore_Hold_Mining_Guard_Supervisor::RequestAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "In_previousHalt",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "pre-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "previousHalt",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "In_previousResume",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "pre-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "previousResume",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "In_previousStart",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "pre-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "B",
+          "name": "previousStart",
+          "oracle_declared": true,
+          "oracle_type": "B",
+          "role": "post-state",
+          "type_key": "root::Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem/type::Base_Types::Boolean"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "b1861742493729cbf5f8e50e7d6c329ffdf00abb2a23d100e7bdcfd2f8dd2fa2",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/Ore_Hold_Mining_Guard_Supervisor/RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.scala",
+        "guarantee": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_previousHalt",
+          "In_previousResume",
+          "In_previousStart",
+          "previousHalt",
+          "previousResume",
+          "previousStart",
+          "pilot_request",
+          "request_assessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.RequestFreshnessPriorityOwner_mining_guard_process_request_freshness_priority_owner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "REQUEST_QUALIFICATION_PRIORITY_AND_FRESHNESS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 102,
+            "offset": 3801,
+            "uri": "/tmp/equiv-result-staging-ol843z_t/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "QUAL-REQ-01"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": true,
+        "targets": [
+          "previousStart",
+          "previousHalt",
+          "previousResume"
+        ]
+      },
+      "phase": "compute",
+      "root": "Ore_Hold_Mining_Guard_Supervisor::OreHoldMiningGuardSupervisorSystem",
+      "unsupported_reasons": []
+    }
+  ]
+}

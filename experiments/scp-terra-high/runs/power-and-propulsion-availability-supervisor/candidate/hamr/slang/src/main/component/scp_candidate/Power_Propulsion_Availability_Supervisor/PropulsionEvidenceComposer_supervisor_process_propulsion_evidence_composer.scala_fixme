@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.Power_Propulsion_Availability_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object PropulsionEvidenceComposer_supervisor_process_propulsion_evidence_composer {
+
+  def initialise(api: PropulsionEvidenceComposer_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_PROPULSION_NOT_READY
+        api.propulsion_assessment == PropulsionAssessment.NOT_READY_ODD_ENGINE_GROUP
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_propulsion_assessment(Power_Propulsion_Availability_Supervisor.PropulsionAssessment.READY_NONE)
+  }
+
+  def finalise(api: PropulsionEvidenceComposer_Operational_Api): Unit = { }
+}

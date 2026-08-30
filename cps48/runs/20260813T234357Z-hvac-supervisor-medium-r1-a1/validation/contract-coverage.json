@@ -1,0 +1,2345 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source": {
+    "path": "model/HVAC_Energy_Interface_Supervisor.sysml",
+    "sha256": "324230a6acbba3a2a9805173a3a56f8e028ac94334de66db322b55ac8456a6b7"
+  },
+  "claim_boundary": "Exhaustive conformance only for the approved finite 36,864-snapshot abstraction and listed ordered traces; not compositional proof, solver certification, generated-code correctness, execution, physical HVAC performance, automotive safety, or certification.",
+  "domain": {
+    "expected_snapshots": 36864,
+    "enumerated_snapshots": 36864,
+    "factorization": "2 climate * 4 thermal * 2 defrost * 3 glazing * 48 energy * 2 fresh * 4 fan * 2 prior recovery state"
+  },
+  "semantic_connection_map": {
+    "INT-01": "root.climateRequest -> comfortDemandQualifier.climateRequest",
+    "INT-02": "root.thermalRelation -> comfortDemandQualifier.thermalRelation",
+    "INT-03": "root.defrostRequest -> visibilityDemandQualifier.defrostRequest",
+    "INT-04": "root.glazingCondition -> visibilityDemandQualifier.glazingCondition",
+    "INT-05": "root.energyContext -> energyCapabilityQualifier.energyContext",
+    "INT-06": "root.freshRequest -> recoveryAuthority.freshRequest",
+    "INT-07": "root.fanPreference -> actuationCommandCoordinator.fanPreference",
+    "INT-08": "comfortDemandQualifier.comfortDemand -> servicePriorityArbiter.comfortDemand",
+    "INT-09": "visibilityDemandQualifier.visibilityDemand -> servicePriorityArbiter.visibilityDemand",
+    "INT-10": "energyCapabilityQualifier.energyCapability -> recoveryAuthority.energyCapability",
+    "INT-11": "recoveryAuthority.recoveryDecision -> servicePriorityArbiter.recoveryDecision",
+    "INT-12": "servicePriorityArbiter.serviceSelection -> resourceAllocationDecision.serviceSelection",
+    "INT-13": "energyCapabilityQualifier.energyCapability -> resourceAllocationDecision.energyCapability",
+    "INT-14": "resourceAllocationDecision.resourceGrant -> actuationCommandCoordinator.resourceGrant",
+    "INT-15": "servicePriorityArbiter.serviceSelection -> actuationCommandCoordinator.serviceSelection",
+    "INT-16": "actuationCommandCoordinator.actuationDisposition -> supervisoryStatusComposer.actuationDisposition",
+    "INT-17": "servicePriorityArbiter.serviceSelection -> supervisoryStatusComposer.serviceSelection",
+    "INT-18": "resourceAllocationDecision.resourceGrant -> supervisoryStatusComposer.resourceGrant",
+    "INT-19": "recoveryAuthority.recoveryDecision -> supervisoryStatusComposer.recoveryDecision",
+    "INT-20": "actuationCommandCoordinator.plantCommand -> root.plantCommand",
+    "INT-21": "supervisoryStatusComposer.supervisorStatus -> root.supervisorStatus"
+  },
+  "partition_counts": {
+    "comfort": {
+      "QUAL-01-OFF": 18432,
+      "QUAL-01-BELOW": 4608,
+      "QUAL-01-WITHIN": 4608,
+      "QUAL-01-ABOVE": 4608,
+      "QUAL-01-UNKNOWN": 4608
+    },
+    "visibility": {
+      "QUAL-02-NONE": 6144,
+      "QUAL-02-REQUIRED": 18432,
+      "QUAL-02-INVALID": 12288
+    },
+    "energy": {
+      "QUAL-03-FULL": 1536,
+      "QUAL-03-INVALID": 23040,
+      "QUAL-03-REDUCED-HEAT": 2304,
+      "QUAL-03-REDUCED-ELECTRIC": 2304,
+      "QUAL-03-NONE": 7680
+    },
+    "recovery": {
+      "CASE-05": 3072,
+      "CASE-03": 1536,
+      "CASE-04": 1536,
+      "CASE-01": 23040,
+      "CASE-02": 7680
+    },
+    "priority": {
+      "CASE-12": 384,
+      "CASE-06": 32256,
+      "CASE-08": 2016,
+      "CASE-07": 1920,
+      "CASE-09": 96,
+      "CASE-11": 96,
+      "CASE-10": 96
+    },
+    "allocation": {
+      "CASE-13": 34656,
+      "CASE-14": 2016,
+      "CASE-15": 96,
+      "CASE-16": 96
+    },
+    "actuation": {
+      "CASE-17": 34764,
+      "CASE-20": 1512,
+      "CASE-18": 525,
+      "CASE-19": 63
+    },
+    "status": {
+      "STAT-01-Inactive": 384,
+      "STAT-01-Inhibited": 9216,
+      "STAT-01-InputFault": 25485,
+      "STAT-01-DefrostRequested": 378,
+      "STAT-01-Limited": 1269,
+      "STAT-01-HeatingRequested": 18,
+      "STAT-01-Holding": 96,
+      "STAT-01-CoolingRequested": 18
+    }
+  },
+  "gaps": [],
+  "overlaps": [],
+  "required_output_mismatches": [],
+  "violation_counts": {
+    "stale_replay": 0,
+    "priority": 0,
+    "nonquiescent_fault": 0,
+    "contradictory_command": 0,
+    "missing_assignment": 0,
+    "publication_equality": 0
+  },
+  "invariant_checks": {
+    "exact_snapshot_count": true,
+    "all_local_partitions_total": true,
+    "all_local_partitions_exclusive": true,
+    "all_owner_relations_match": true,
+    "every_counted_case_reachable": true,
+    "stale_request_not_replayed": true,
+    "defrost_priority_preserved": true,
+    "faults_and_inconsistency_quiescent": true,
+    "complete_required_outputs": true,
+    "command_tuple_noncontradictory": true,
+    "publications_equal_at_all_consumers": true,
+    "exact_semantic_connection_inventory": true,
+    "every_ownership_check_executed": true,
+    "all_scenario_traces_passed": true,
+    "exact_scenario_family_count": true
+  },
+  "missing_case_witnesses": [],
+  "case_witnesses": {
+    "QUAL-01-OFF": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-02-NONE": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-03-FULL": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-05": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-12": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-13": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-17": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "STAT-01-Inactive": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-03": {
+      "previousState": "Inhibited",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-06": {
+      "previousState": "Inhibited",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "STAT-01-Inhibited": {
+      "previousState": "Inhibited",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-04": {
+      "previousState": "Inhibited",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Present",
+      "fanPreference": "Auto"
+    },
+    "QUAL-03-INVALID": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Unknown"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-01": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Unknown"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "STAT-01-InputFault": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Unknown"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-03-REDUCED-HEAT": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Reduced",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-03-REDUCED-ELECTRIC": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Reduced",
+        "engineHeat": "Unavailable"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-03-NONE": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "None",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-02": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "None",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-02-REQUIRED": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Obscured",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-08": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Obscured",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-14": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Obscured",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-20": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Obscured",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "STAT-01-DefrostRequested": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Obscured",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-18": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Obscured",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Unknown"
+    },
+    "STAT-01-Limited": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Obscured",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Reduced",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-02-INVALID": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Unknown",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-07": {
+      "previousState": "Armed",
+      "climateRequest": "Off",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Unknown",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-01-BELOW": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-09": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-15": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-19": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "STAT-01-HeatingRequested": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Below",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-01-WITHIN": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Within",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-11": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Within",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "STAT-01-Holding": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Within",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-01-ABOVE": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Above",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-10": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Above",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "CASE-16": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Above",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "STAT-01-CoolingRequested": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Above",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    },
+    "QUAL-01-UNKNOWN": {
+      "previousState": "Armed",
+      "climateRequest": "Regulate",
+      "thermalRelation": "Unknown",
+      "defrostRequest": "Off",
+      "glazingCondition": "Clear",
+      "energyContext": {
+        "electricalState": "Ready",
+        "powerEnvelope": "Normal",
+        "engineHeat": "Available"
+      },
+      "freshRequest": "Absent",
+      "fanPreference": "Auto"
+    }
+  },
+  "ownership_audit": [
+    {
+      "usage": "comfortDemandQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "climateRequest",
+        "thermalRelation"
+      ],
+      "owner_local_facts": [
+        "comfortDemand"
+      ],
+      "contract_cases": [
+        "QUAL-01"
+      ],
+      "analyzer_checks": [
+        "comfort-owner-qualification"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "comfort-owner-qualification": 36864
+      }
+    },
+    {
+      "usage": "visibilityDemandQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "defrostRequest",
+        "glazingCondition"
+      ],
+      "owner_local_facts": [
+        "visibilityDemand"
+      ],
+      "contract_cases": [
+        "QUAL-02"
+      ],
+      "analyzer_checks": [
+        "visibility-owner-qualification"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "visibility-owner-qualification": 36864
+      }
+    },
+    {
+      "usage": "energyCapabilityQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "energyContext.electricalState",
+        "energyContext.powerEnvelope",
+        "energyContext.engineHeat"
+      ],
+      "owner_local_facts": [
+        "energyCapability"
+      ],
+      "contract_cases": [
+        "QUAL-03"
+      ],
+      "analyzer_checks": [
+        "energy-owner-qualification"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "energy-owner-qualification": 36864
+      }
+    },
+    {
+      "usage": "recoveryAuthority",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "recoveryState",
+        "energyCapability",
+        "freshRequest"
+      ],
+      "owner_local_facts": [
+        "nextRecoveryState",
+        "recoveryDecision"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05"
+      ],
+      "analyzer_checks": [
+        "recovery-owner-partition"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "recovery-owner-partition": 36864
+      }
+    },
+    {
+      "usage": "servicePriorityArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "comfortDemand",
+        "visibilityDemand",
+        "recoveryDecision"
+      ],
+      "owner_local_facts": [
+        "serviceSelection.service",
+        "serviceSelection.reason"
+      ],
+      "contract_cases": [
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "priority-owner-partition",
+        "defrost-over-comfort-conflict"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "priority-owner-partition": 36864,
+        "defrost-over-comfort-conflict": 576
+      }
+    },
+    {
+      "usage": "resourceAllocationDecision",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "serviceSelection.service",
+        "energyCapability"
+      ],
+      "owner_local_facts": [
+        "resourceGrant"
+      ],
+      "contract_cases": [
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16"
+      ],
+      "analyzer_checks": [
+        "allocation-owner-partition",
+        "reduced-capability-downgrade"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "allocation-owner-partition": 36864,
+        "reduced-capability-downgrade": 1656
+      }
+    },
+    {
+      "usage": "actuationCommandCoordinator",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "serviceSelection.service",
+        "resourceGrant",
+        "fanPreference"
+      ],
+      "owner_local_facts": [
+        "plantCommand",
+        "actuationDisposition"
+      ],
+      "contract_cases": [
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "command-owner-partition",
+        "quiescent-fault-output"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "command-owner-partition": 36864,
+        "quiescent-fault-output": 36864
+      }
+    },
+    {
+      "usage": "supervisoryStatusComposer",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "recoveryDecision",
+        "serviceSelection.service",
+        "serviceSelection.reason",
+        "resourceGrant",
+        "actuationDisposition"
+      ],
+      "owner_local_facts": [
+        "supervisorStatus"
+      ],
+      "contract_cases": [
+        "STAT-01"
+      ],
+      "analyzer_checks": [
+        "status-owner-composition"
+      ],
+      "passed": true,
+      "executed": true,
+      "execution_counts": {
+        "status-owner-composition": 36864
+      }
+    }
+  ],
+  "scenario_family_count": 8,
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "initial activation",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Inhibited",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "supervisorStatus": "Inhibited"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "recoveryDecision": "BlockAwaitFresh",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Inhibited"
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "previousState": "Inhibited",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Present",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-04",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "service": "Heat",
+                "supervisorStatus": "HeatingRequested"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-04",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "PermitRecovered",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Heat",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "HeatingRequested"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "nominal thermal cycle",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "supervisorStatus": "HeatingRequested"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Heat",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "HeatingRequested"
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Within",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-11",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "supervisorStatus": "Holding",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-11",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Hold",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Holding"
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Above",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-19"
+                ],
+                "supervisorStatus": "CoolingRequested"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Cool",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Cool",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Cool",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "CoolingRequested"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "defrost priority and release",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Above",
+                "defrostRequest": "Off",
+                "glazingCondition": "Obscured",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-08",
+                  "CASE-14",
+                  "CASE-20"
+                ],
+                "service": "Defrost",
+                "supervisorStatus": "DefrostRequested"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-08",
+                  "CASE-14",
+                  "CASE-20"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Cool",
+                "visibilityDemand": "Required",
+                "energyCapability": "Full",
+                "service": "Defrost",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Glazing",
+                  "blower": "High"
+                },
+                "supervisorStatus": "DefrostRequested"
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Above",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-19"
+                ],
+                "service": "Cool",
+                "supervisorStatus": "CoolingRequested"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Cool",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Cool",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Cool",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "CoolingRequested"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "reduced allocation",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "On",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Constrained",
+                  "powerEnvelope": "Reduced",
+                  "engineHeat": "Available"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-08",
+                  "CASE-14",
+                  "CASE-20"
+                ],
+                "resourceGrant": "EconomyHeat",
+                "supervisorStatus": "Limited"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-08",
+                  "CASE-14",
+                  "CASE-20"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "Required",
+                "energyCapability": "ReducedHeat",
+                "service": "Defrost",
+                "resourceGrant": "EconomyHeat",
+                "actuationDisposition": "LimitedActive",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Glazing",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "Limited"
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "On",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Constrained",
+                  "powerEnvelope": "Reduced",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-08",
+                  "CASE-14",
+                  "CASE-20"
+                ],
+                "resourceGrant": "VentOnly",
+                "supervisorStatus": "Limited"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-08",
+                  "CASE-14",
+                  "CASE-20"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "Required",
+                "energyCapability": "ReducedElectric",
+                "service": "Defrost",
+                "resourceGrant": "VentOnly",
+                "actuationDisposition": "LimitedActive",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Glazing",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "Limited"
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Constrained",
+                  "powerEnvelope": "Reduced",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-17"
+                ],
+                "resourceGrant": "Denied",
+                "supervisorStatus": "Limited"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-17"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "ReducedElectric",
+                "service": "Heat",
+                "resourceGrant": "Denied",
+                "actuationDisposition": "Denied",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Limited"
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Above",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Constrained",
+                  "powerEnvelope": "Reduced",
+                  "engineHeat": "Available"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-17"
+                ],
+                "resourceGrant": "Denied",
+                "supervisorStatus": "Limited"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-17"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Cool",
+                "visibilityDemand": "None",
+                "energyCapability": "ReducedHeat",
+                "service": "Cool",
+                "resourceGrant": "Denied",
+                "actuationDisposition": "Denied",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Limited"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "energy-loss inhibition",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "supervisorStatus": "HeatingRequested"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Heat",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "HeatingRequested"
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Unavailable",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-02",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "supervisorStatus": "Inhibited",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-02",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "recoveryDecision": "BlockEnergyUnavailable",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "None",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Inhibited"
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "previousState": "Inhibited",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "supervisorStatus": "Inhibited",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "recoveryDecision": "BlockAwaitFresh",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Inhibited"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "family": "fresh-request recovery",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Inhibited",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Unavailable",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Present",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-02",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-02",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "recoveryDecision": "BlockEnergyUnavailable",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "None",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Inhibited"
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "previousState": "Inhibited",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "recoveryDecision": "BlockAwaitFresh",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Inhibited"
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "previousState": "Inhibited",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Above",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Present",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-04",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "PermitRecovered",
+                "supervisorStatus": "CoolingRequested"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-04",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "PermitRecovered",
+                "comfortDemand": "Cool",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Cool",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Cool",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "CoolingRequested"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "family": "invalid-input suppression",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Unknown",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-07",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "supervisorStatus": "InputFault",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-07",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Invalid",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "InputFault"
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Unknown",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-07",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "supervisorStatus": "InputFault",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-07",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "Invalid",
+                "energyCapability": "Full",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "InputFault"
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Unknown",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "supervisorStatus": "InputFault",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-06",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Inhibited",
+                "recoveryDecision": "BlockEnergyInvalid",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Invalid",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "InputFault"
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Unknown"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-18"
+                ],
+                "supervisorStatus": "InputFault",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-18"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Heat",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "InputFault",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "InputFault"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-08",
+      "family": "user-off and fan boundary",
+      "traces": [
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Off",
+                "thermalRelation": "Unknown",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Unknown"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-12",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "supervisorStatus": "Inactive",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-12",
+                  "CASE-13",
+                  "CASE-17"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "None",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Off",
+                "resourceGrant": "Off",
+                "actuationDisposition": "Quiescent",
+                "plantCommand": {
+                  "thermalService": "Off",
+                  "airPath": "Off",
+                  "blower": "Off"
+                },
+                "supervisorStatus": "Inactive"
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Low"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Heat",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "HeatingRequested"
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "High"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "High"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Heat",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "High"
+                },
+                "supervisorStatus": "HeatingRequested"
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "previousState": "Armed",
+              "boundaryInputs": {
+                "climateRequest": "Regulate",
+                "thermalRelation": "Below",
+                "defrostRequest": "Off",
+                "glazingCondition": "Clear",
+                "energyContext": {
+                  "electricalState": "Ready",
+                  "powerEnvelope": "Normal",
+                  "engineHeat": "Unavailable"
+                },
+                "freshRequest": "Absent",
+                "fanPreference": "Auto"
+              },
+              "expected": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                }
+              },
+              "observed": {
+                "cases": [
+                  "CASE-05",
+                  "CASE-09",
+                  "CASE-15",
+                  "CASE-19"
+                ],
+                "nextState": "Armed",
+                "recoveryDecision": "Permit",
+                "comfortDemand": "Heat",
+                "visibilityDemand": "None",
+                "energyCapability": "Full",
+                "service": "Heat",
+                "resourceGrant": "FullThermal",
+                "actuationDisposition": "Active",
+                "plantCommand": {
+                  "thermalService": "Heat",
+                  "airPath": "Cabin",
+                  "blower": "Low"
+                },
+                "supervisorStatus": "HeatingRequested"
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scenario_failures": [],
+  "source_sha256": "324230a6acbba3a2a9805173a3a56f8e028ac94334de66db322b55ac8456a6b7"
+}

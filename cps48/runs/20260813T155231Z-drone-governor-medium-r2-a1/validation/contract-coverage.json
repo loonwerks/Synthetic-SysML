@@ -1,0 +1,680 @@
+{
+  "schema": "drone-battery-charge-bounded-analysis-v1",
+  "status": "passed",
+  "passed": true,
+  "source": {
+    "path": "model/Battery_Evidence_Charge_Qualification_Supervisor.sysml",
+    "sha256": "07723356d02d38bb1427b17b8c2a228f92e1f9fd3010976449925dc089ceb87f"
+  },
+  "semantic_connection_map": {
+    "INT-01": "root.batteryCapacity -> BatteryEvidenceQualifier.batteryCapacity",
+    "INT-02": "root.batteryCheck -> BatteryEvidenceQualifier.batteryCheck",
+    "INT-03": "root.chargerConnection -> ChargerPathQualifier.chargerConnection",
+    "INT-04": "root.chargeActivity -> ChargerPathQualifier.chargeActivity",
+    "INT-05": "root.lifecycleContext -> ChargeContextQualifier.lifecycleContext",
+    "INT-06": "root.lifecycleContext -> FlightControlBatteryNoticePolicy.lifecycleContext",
+    "INT-07": "root.chargeRequest -> ChargeIntentArbiter.chargeRequest",
+    "INT-08": "BatteryEvidenceQualifier.batteryAssessment -> ChargeContextQualifier.batteryAssessment",
+    "INT-09": "BatteryEvidenceQualifier.batteryAssessment -> FlightControlBatteryNoticePolicy.batteryAssessment",
+    "INT-10": "BatteryEvidenceQualifier.batteryAssessment -> PilotBatteryStatusPolicy.batteryAssessment",
+    "INT-11": "ChargerPathQualifier.chargerPathQualification -> ChargeEligibilityRecoveryOwner.chargerPathQualification",
+    "INT-12": "ChargerPathQualifier.chargerPathQualification -> PilotBatteryStatusPolicy.chargerPathQualification",
+    "INT-13": "ChargeContextQualifier.chargeContextQualification -> ChargeEligibilityRecoveryOwner.chargeContextQualification",
+    "INT-14": "ChargeSessionController.currentChargeSession -> ChargeEligibilityRecoveryOwner.currentChargeSession",
+    "INT-15": "ChargeEligibilityRecoveryOwner.chargeEligibilityEnvelope -> ChargeIntentArbiter.chargeEligibilityEnvelope",
+    "INT-16": "ChargeIntentArbiter.chargeDecision -> ChargeSessionController.chargeDecision",
+    "INT-17": "ChargeSessionController.chargeSessionSnapshot -> PilotBatteryStatusPolicy.chargeSessionSnapshot",
+    "INT-18": "ChargeSessionController.chargePermission -> root.chargePermission",
+    "INT-19": "ChargeContextQualifier.batteryReadinessAdvice -> root.batteryReadinessAdvice",
+    "INT-20": "FlightControlBatteryNoticePolicy.flightControlBatteryNotice -> root.flightControlBatteryNotice",
+    "INT-21": "PilotBatteryStatusPolicy.pilotBatteryStatus -> root.pilotBatteryStatus"
+  },
+  "local_relations": [
+    {
+      "name": "battery-owner-partition",
+      "combinations": 4,
+      "partition_counts": {
+        "CASE-01": 2,
+        "CASE-02": 1,
+        "CASE-03": 1
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "undefined_outputs": 0,
+      "passed": true
+    },
+    {
+      "name": "charger-owner-partition",
+      "combinations": 4,
+      "partition_counts": {
+        "CASE-04": 2,
+        "CASE-05": 1,
+        "CASE-06": 1
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "undefined_outputs": 0,
+      "passed": true
+    },
+    {
+      "name": "context-owner-partition",
+      "combinations": 15,
+      "partition_counts": {
+        "CASE-07": 5,
+        "CASE-08": 4,
+        "CASE-09": 6
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "undefined_outputs": 0,
+      "passed": true
+    },
+    {
+      "name": "eligibility-owner-partition",
+      "combinations": 27,
+      "partition_counts": {
+        "CASE-10": 9,
+        "CASE-11": 6,
+        "CASE-12": 6,
+        "CASE-13": 6
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "undefined_outputs": 0,
+      "passed": true
+    },
+    {
+      "name": "arbiter-priority-partition",
+      "combinations": 21,
+      "partition_counts": {
+        "CASE-14": 7,
+        "CASE-15": 6,
+        "CASE-16": 8
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "undefined_outputs": 0,
+      "passed": true
+    },
+    {
+      "name": "session-owner-partition",
+      "combinations": 27,
+      "partition_counts": {
+        "CASE-17": 15,
+        "CASE-18": 12
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "undefined_outputs": 0,
+      "passed": true
+    },
+    {
+      "name": "notice-owner-totality",
+      "combinations": 15,
+      "partition_counts": {
+        "CASE-19": 15
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "undefined_outputs": 0,
+      "passed": true
+    }
+  ],
+  "status_policy": {
+    "combinations": 1620,
+    "partition_counts": {
+      "unavailable": 540,
+      "recovery": 162,
+      "activity_without_permission": 204,
+      "low": 357,
+      "rejected": 105,
+      "none": 252
+    },
+    "gaps": 0,
+    "overlaps": 0,
+    "producer_reachable_combinations": 88,
+    "unreachable_recovery_reason_fallthrough_count": 108,
+    "unreachable_recovery_reason_fallthrough_witnesses": [
+      {
+        "assessment": "LOW",
+        "path": "UNAVAILABLE",
+        "preSession": "IDLE",
+        "nextSession": "IDLE",
+        "disposition": "RECOVERY_APPLIED",
+        "reason": "NONE",
+        "advisory": "CHARGE_RECOMMENDED"
+      },
+      {
+        "assessment": "LOW",
+        "path": "UNAVAILABLE",
+        "preSession": "IDLE",
+        "nextSession": "IDLE",
+        "disposition": "RECOVERY_APPLIED",
+        "reason": "CANCELLED",
+        "advisory": "CHARGE_RECOMMENDED"
+      },
+      {
+        "assessment": "LOW",
+        "path": "UNAVAILABLE",
+        "preSession": "IDLE",
+        "nextSession": "ENABLED",
+        "disposition": "RECOVERY_APPLIED",
+        "reason": "NONE",
+        "advisory": "CHARGE_RECOMMENDED"
+      },
+      {
+        "assessment": "LOW",
+        "path": "UNAVAILABLE",
+        "preSession": "IDLE",
+        "nextSession": "ENABLED",
+        "disposition": "RECOVERY_APPLIED",
+        "reason": "CANCELLED",
+        "advisory": "CHARGE_RECOMMENDED"
+      }
+    ]
+  },
+  "end_to_end": {
+    "combinations": 720,
+    "owner_case_application_counts": {
+      "CASE-01": 360,
+      "CASE-02": 180,
+      "CASE-03": 180,
+      "CASE-04": 360,
+      "CASE-05": 180,
+      "CASE-06": 180,
+      "CASE-07": 360,
+      "CASE-08": 144,
+      "CASE-09": 216,
+      "CASE-10": 360,
+      "CASE-11": 180,
+      "CASE-12": 108,
+      "CASE-13": 72,
+      "CASE-14": 240,
+      "CASE-15": 144,
+      "CASE-16": 336,
+      "CASE-17": 408,
+      "CASE-18": 312,
+      "CASE-19": 720,
+      "CASE-20": 720
+    },
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "reference_relation_mismatches": 0,
+    "required_output_mismatches": 0
+  },
+  "invariant_checks": {
+    "recovery_reason_invariant_violations": 0,
+    "sole_state_owner": true,
+    "lifecycle_is_read_only": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "batteryEvidenceQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "batteryCapacity",
+        "batteryCheck"
+      ],
+      "owner_local_facts": [
+        "batteryAssessment"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03"
+      ],
+      "analyzer_checks": [
+        "battery-owner-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "chargeContextQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "batteryAssessment",
+        "lifecycleContext"
+      ],
+      "owner_local_facts": [
+        "chargeContextQualification",
+        "batteryReadinessAdvice"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-08",
+        "CASE-09"
+      ],
+      "analyzer_checks": [
+        "context-owner-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "chargerPathQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "chargerConnection",
+        "chargeActivity"
+      ],
+      "owner_local_facts": [
+        "chargerPathQualification"
+      ],
+      "contract_cases": [
+        "CASE-04",
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "charger-owner-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "chargeEligibilityRecoveryOwner",
+      "claimed_roles": [
+        "proposal",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "chargeContextQualification",
+        "chargerPathQualification",
+        "currentChargeSession"
+      ],
+      "owner_local_facts": [
+        "chargeEligibilityEnvelope"
+      ],
+      "contract_cases": [
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13"
+      ],
+      "analyzer_checks": [
+        "eligibility-owner-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "chargeIntentArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "chargeRequest",
+        "chargeEligibilityEnvelope"
+      ],
+      "owner_local_facts": [
+        "chargeDecision"
+      ],
+      "contract_cases": [
+        "CASE-14",
+        "CASE-15",
+        "CASE-16"
+      ],
+      "analyzer_checks": [
+        "arbiter-priority-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "chargeSessionController",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "chargeDecision",
+        "committedChargeSession"
+      ],
+      "owner_local_facts": [
+        "nextChargeSession",
+        "chargePermission",
+        "chargeSessionSnapshot"
+      ],
+      "contract_cases": [
+        "CASE-17",
+        "CASE-18"
+      ],
+      "analyzer_checks": [
+        "session-owner-partition",
+        "recovery-reason-invariant"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "flightControlBatteryNoticePolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "batteryAssessment",
+        "lifecycleContext"
+      ],
+      "owner_local_facts": [
+        "flightControlBatteryNotice"
+      ],
+      "contract_cases": [
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "notice-owner-totality"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "pilotBatteryStatusPolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "batteryAssessment",
+        "chargerPathQualification",
+        "chargeSessionSnapshot"
+      ],
+      "owner_local_facts": [
+        "pilotAdvisory"
+      ],
+      "contract_cases": [
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "status-owner-totality",
+        "status-fallthrough-totality"
+      ],
+      "passed": true
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": "SCN-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "capacity": "USABLE",
+            "check": "VALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "REQUEST_CHARGE",
+            "expectedCase": "CASE-16/CASE-17",
+            "preSession": "IDLE"
+          },
+          "expected_case": "CASE-16/CASE-17",
+          "observed_case": "CASE-16/CASE-17",
+          "outputs": {
+            "chargePermission": "ENABLED",
+            "batteryReadinessAdvice": "READY",
+            "flightControlBatteryNotice": "CLEAR",
+            "pilotAdvisory": "NONE"
+          },
+          "nextState": "ENABLED"
+        },
+        {
+          "step": 2,
+          "input": {
+            "capacity": "USABLE",
+            "check": "VALID",
+            "connection": "CONNECTED",
+            "activity": "ACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "NO_REQUEST",
+            "expectedCase": "CASE-16/CASE-18",
+            "preSession": "ENABLED"
+          },
+          "expected_case": "CASE-16/CASE-18",
+          "observed_case": "CASE-16/CASE-18",
+          "outputs": {
+            "chargePermission": "ENABLED",
+            "batteryReadinessAdvice": "READY",
+            "flightControlBatteryNotice": "CLEAR",
+            "pilotAdvisory": "NONE"
+          },
+          "nextState": "ENABLED"
+        }
+      ]
+    },
+    {
+      "scenario": "SCN-02",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "capacity": "LOW",
+            "check": "VALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "REQUEST_CHARGE",
+            "expectedCase": "CASE-16/CASE-17",
+            "preSession": "IDLE"
+          },
+          "expected_case": "CASE-16/CASE-17",
+          "observed_case": "CASE-16/CASE-17",
+          "outputs": {
+            "chargePermission": "ENABLED",
+            "batteryReadinessAdvice": "NOT_READY",
+            "flightControlBatteryNotice": "LOW_BATTERY",
+            "pilotAdvisory": "CHARGE_RECOMMENDED"
+          },
+          "nextState": "ENABLED"
+        }
+      ]
+    },
+    {
+      "scenario": "SCN-03",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "capacity": "USABLE",
+            "check": "INVALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "CANCEL_CHARGE",
+            "expectedCase": "CASE-14/CASE-17",
+            "preSession": "ENABLED"
+          },
+          "expected_case": "CASE-14/CASE-17",
+          "observed_case": "CASE-14/CASE-17",
+          "outputs": {
+            "chargePermission": "DISABLED",
+            "batteryReadinessAdvice": "UNAVAILABLE",
+            "flightControlBatteryNotice": "EVIDENCE_UNAVAILABLE",
+            "pilotAdvisory": "EVIDENCE_UNAVAILABLE"
+          },
+          "nextState": "IDLE"
+        }
+      ]
+    },
+    {
+      "scenario": "SCN-04",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "capacity": "USABLE",
+            "check": "VALID",
+            "connection": "DISCONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "REQUEST_CHARGE",
+            "expectedCase": "CASE-15/CASE-17",
+            "preSession": "ENABLED"
+          },
+          "expected_case": "CASE-15/CASE-17",
+          "observed_case": "CASE-15/CASE-17",
+          "outputs": {
+            "chargePermission": "DISABLED",
+            "batteryReadinessAdvice": "READY",
+            "flightControlBatteryNotice": "CLEAR",
+            "pilotAdvisory": "CHARGER_UNAVAILABLE"
+          },
+          "nextState": "SUSPENDED"
+        }
+      ]
+    },
+    {
+      "scenario": "SCN-05",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "capacity": "USABLE",
+            "check": "INVALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "NO_REQUEST",
+            "expectedCase": "CASE-15/CASE-17",
+            "preSession": "ENABLED"
+          },
+          "expected_case": "CASE-15/CASE-17",
+          "observed_case": "CASE-15/CASE-17",
+          "outputs": {
+            "chargePermission": "DISABLED",
+            "batteryReadinessAdvice": "UNAVAILABLE",
+            "flightControlBatteryNotice": "EVIDENCE_UNAVAILABLE",
+            "pilotAdvisory": "EVIDENCE_UNAVAILABLE"
+          },
+          "nextState": "SUSPENDED"
+        },
+        {
+          "step": 2,
+          "input": {
+            "capacity": "USABLE",
+            "check": "INVALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "REQUEST_CHARGE",
+            "expectedCase": "CASE-16/CASE-18",
+            "preSession": "SUSPENDED"
+          },
+          "expected_case": "CASE-16/CASE-18",
+          "observed_case": "CASE-16/CASE-18",
+          "outputs": {
+            "chargePermission": "DISABLED",
+            "batteryReadinessAdvice": "UNAVAILABLE",
+            "flightControlBatteryNotice": "EVIDENCE_UNAVAILABLE",
+            "pilotAdvisory": "EVIDENCE_UNAVAILABLE"
+          },
+          "nextState": "SUSPENDED"
+        }
+      ]
+    },
+    {
+      "scenario": "SCN-06",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "capacity": "LOW",
+            "check": "VALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "FLYING",
+            "request": "NO_REQUEST",
+            "expectedCase": "CASE-15/CASE-17",
+            "preSession": "ENABLED"
+          },
+          "expected_case": "CASE-15/CASE-17",
+          "observed_case": "CASE-15/CASE-17",
+          "outputs": {
+            "chargePermission": "DISABLED",
+            "batteryReadinessAdvice": "NOT_READY",
+            "flightControlBatteryNotice": "LOW_IN_FLIGHT_CONTEXT",
+            "pilotAdvisory": "CONTEXT_INELIGIBLE"
+          },
+          "nextState": "SUSPENDED"
+        }
+      ]
+    },
+    {
+      "scenario": "SCN-07",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "capacity": "USABLE",
+            "check": "VALID",
+            "connection": "DISCONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "NO_REQUEST",
+            "expectedCase": "CASE-15/CASE-17",
+            "preSession": "ENABLED"
+          },
+          "expected_case": "CASE-15/CASE-17",
+          "observed_case": "CASE-15/CASE-17",
+          "outputs": {
+            "chargePermission": "DISABLED",
+            "batteryReadinessAdvice": "READY",
+            "flightControlBatteryNotice": "CLEAR",
+            "pilotAdvisory": "CHARGER_UNAVAILABLE"
+          },
+          "nextState": "SUSPENDED"
+        },
+        {
+          "step": 2,
+          "input": {
+            "capacity": "USABLE",
+            "check": "VALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "NO_REQUEST",
+            "expectedCase": "CASE-16/CASE-18",
+            "preSession": "SUSPENDED"
+          },
+          "expected_case": "CASE-16/CASE-18",
+          "observed_case": "CASE-16/CASE-18",
+          "outputs": {
+            "chargePermission": "DISABLED",
+            "batteryReadinessAdvice": "READY",
+            "flightControlBatteryNotice": "CLEAR",
+            "pilotAdvisory": "NONE"
+          },
+          "nextState": "SUSPENDED"
+        },
+        {
+          "step": 3,
+          "input": {
+            "capacity": "USABLE",
+            "check": "VALID",
+            "connection": "CONNECTED",
+            "activity": "INACTIVE",
+            "lifecycle": "STANDBY",
+            "request": "REQUEST_CHARGE",
+            "expectedCase": "CASE-16/CASE-17",
+            "preSession": "SUSPENDED"
+          },
+          "expected_case": "CASE-16/CASE-17",
+          "observed_case": "CASE-16/CASE-17",
+          "outputs": {
+            "chargePermission": "ENABLED",
+            "batteryReadinessAdvice": "READY",
+            "flightControlBatteryNotice": "CLEAR",
+            "pilotAdvisory": "NONE"
+          },
+          "nextState": "ENABLED"
+        }
+      ]
+    }
+  ],
+  "claim_boundary": "Exhaustive finite logical conformance over the declared enum domains and named local relations only; not execution, compositional proof, solver certification, generated-code correctness, physical performance, timing, safety, or certification.",
+  "source_sha256": "07723356d02d38bb1427b17b8c2a228f92e1f9fd3010976449925dc089ceb87f"
+}

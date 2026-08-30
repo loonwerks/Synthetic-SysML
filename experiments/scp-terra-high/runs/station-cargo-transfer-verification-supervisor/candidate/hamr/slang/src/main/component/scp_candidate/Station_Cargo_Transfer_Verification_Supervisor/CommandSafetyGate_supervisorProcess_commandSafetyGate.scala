@@ -1,0 +1,34 @@
+// #Sireum
+
+package scp_candidate.Station_Cargo_Transfer_Verification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object CommandSafetyGate_supervisorProcess_commandSafetyGate {
+
+  def initialise(api: CommandSafetyGate_Initialization_Api): Unit = {
+    Contract(
+      Modifies(api),
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee COMMAND_GATE_INITIAL
+        api.shipCommand == ShipCommand.Hold &&
+          api.receiptQuery == WarehouseQuery.NoQuery
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_shipCommand(Station_Cargo_Transfer_Verification_Supervisor.ShipCommand.Hold)
+    api.put_receiptQuery(Station_Cargo_Transfer_Verification_Supervisor.WarehouseQuery.NoQuery)
+  }
+
+  def timeTriggered(api: CommandSafetyGate_Operational_Api): Unit = { }
+  def finalise(api: CommandSafetyGate_Operational_Api): Unit = { }
+}

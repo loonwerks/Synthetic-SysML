@@ -1,0 +1,375 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234357Z-fire-observation-sortie-small-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Forest_Observation_Eligibility_Supervisor.sysml",
+  "source_sha256": "b82ea4965527d7d5f3119e27cfd3a69128353f1cf6cd127d96a986dc3dc9e510",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 14,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 123,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ARCH-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CTRL-01",
+      "CTRL-02",
+      "FAULT-01",
+      "FAULT-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "LOCAL-02",
+      "LOCAL-03",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "POL-01",
+      "POL-02",
+      "POL-03",
+      "POL-06",
+      "POL-07",
+      "SCOPE-01",
+      "STATE-01",
+      "STATE-02",
+      "TRANS-01",
+      "TRANS-02"
+    ],
+    "relativePath": "cps48/runs/20260813T234357Z-fire-observation-sortie-small-r1-a1/system-abstract.md",
+    "taggedElementCount": 123,
+    "traceAssociationCount": 123,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a five-usage observation-sortie eligibility supervisor with one arbiter, fourteen typed semantic interactions, twelve closed contract cases, and five scenario families.",
+      "questions_for_model": [
+        "Can ticket-matched energy and support verdicts be realized in the supported SysML/GUMBO subset without adding a semantic owner or recomputing request freshness in the arbiter?",
+        "Can AuthorizationGate-to-RequestLifecycle feedback use explicit previous-state/next-state semantics so the seven-internal-flow topology within the fourteen-flow inventory has no instantaneous algebraic cycle?",
+        "Can the total failure-hold and idle-recovery partition be contracted while EligibilityArbiter remains the sole principal permit/deny owner?",
+        "Can paired request input and token-tagged verdicts use trusted finite types, or is a trace-preserving representation refinement required?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "The five-owner allocation is non-padded and realizable, but INT-06 through INT-11 need explicit no-ticket, no-context, no-verdict, and no-decision values before DataPort generation.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "CASE-06/CASE-07 and POL-01 require no evaluation traffic, and POL-04 requires missing or mismatched tickets to produce no decision. Yet INT-06/07 allow only TokenA/TokenB, INT-08 allows only two evaluate contexts or cancellation, INT-09/10 have no absent tagged verdict, and every INT-11 value is an active gate decision. Ordinary typed DataPorts cannot distinguish these required absence branches from stale or fabricated active values; trusted examples use explicit finite sentinels and do not demonstrate event-port absence contracts.",
+          "requested_change": "Keep all PARTs, endpoints, counts, ownership, policy priority, scenarios, and claim boundaries unchanged. Add NoTicket to INT-06/07; NoContext to INT-08; use flat attribute-based tagged verdict records on INT-09/10 with NoEnergyVerdict/NoSupportVerdict exactly when the tag is NoTicket; add NoDecision to INT-11; and extend PART-01..05 totality clauses so absent or mismatched pipeline values cannot permit while existing progress/fault/recovery precedence remains unchanged."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional ownership audit: PART-02 maps 5 energy values to 3 verdicts with fibers 1/1/3; PART-03 maps 25 camera-radio pairs to 3 verdicts with fibers 1/3/21; PART-04 combines context, matched tickets, and two verdicts under priority; PART-01 is token/state/feedback dependent; and PART-05 is phase/progress/fault dependent. No claimed fact is a bijective enum/code rename or identity wrapper.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The library and retained trusted pattern support one root System, one behavior-free Process, sibling contract-bearing Threads, typed ports, and PortConnections. Seven boundary INTs require two delegation hops and seven internal INTs require one hop, yielding 21 raw connections while retaining 14 semantic interactions and five semantic usages after generated-support collapse.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Trusted GUMBO supports owner-local state, initialization, compute cases, In(localState), and attribute-member access. The PART-05-to-PART-01 feedback is realizable as prior committed feedback under ASM-05 with composed-step bounded analysis; end-to-end CASE effects can be traced across local contracts without a nonlocal owner guarantee or a sixth owner.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved after adding explicit inactive typed-pipeline values while preserving the exact 5/14/12/5 architecture and frozen policy.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized completion-priority guard repair; retained and independent SysML typechecks, unordered raw-guard bounded analysis, metrics, and traceability all passed consistently.",
+      "canonical_source": "model/Forest_Observation_Eligibility_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Rebound the retained system overview to the repaired canonical source; current-revision validation, hard routing health, native review, and all 123 trace associations passed.",
+      "correction_cycles": 0,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ARCH-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CTRL-01",
+        "CTRL-02",
+        "FAULT-01",
+        "FAULT-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "LOCAL-02",
+        "LOCAL-03",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "POL-01",
+        "POL-02",
+        "POL-03",
+        "POL-06",
+        "POL-07",
+        "SCOPE-01",
+        "STATE-01",
+        "STATE-02",
+        "TRANS-01",
+        "TRANS-02"
+      ],
+      "reviewed_tagged_element_count": 123,
+      "reviewed_trace_association_count": 123,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, owner-local bounded semantics, traceability, and rendered artifact pass without silent drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 14,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "requestLifecycle",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "requestLifecycle.requestInput",
+            "requestLifecycle.gateOutcome",
+            "requestLifecycle.requestState",
+            "requestLifecycle.lastAcceptedToken"
+          ],
+          "owner_local_facts": [
+            "requestAdmissionAndFreshness"
+          ],
+          "contract_cases": [
+            "CASE-06",
+            "CASE-07",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "request-lifecycle-totality"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "energyAssessor",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "energyAssessor.energyEvidence",
+            "energyAssessor.evaluationTicket"
+          ],
+          "owner_local_facts": [
+            "ticketScopedEnergyVerdict"
+          ],
+          "contract_cases": [
+            "CASE-02",
+            "CASE-03"
+          ],
+          "analyzer_checks": [
+            "energy-qualification-fibers"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "observationSupportAssessor",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "observationSupportAssessor.cameraEvidence",
+            "observationSupportAssessor.radioEvidence",
+            "observationSupportAssessor.evaluationTicket"
+          ],
+          "owner_local_facts": [
+            "jointTicketScopedSupportVerdict"
+          ],
+          "contract_cases": [
+            "CASE-04",
+            "CASE-05"
+          ],
+          "analyzer_checks": [
+            "support-qualification-fibers"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "eligibilityArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "eligibilityArbiter.requestContext",
+            "eligibilityArbiter.energyVerdictIn",
+            "eligibilityArbiter.supportVerdictIn"
+          ],
+          "owner_local_facts": [
+            "matchedEligibilityDecision"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-08"
+          ],
+          "analyzer_checks": [
+            "arbiter-ticket-priority"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "authorizationGate",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "authorizationGate.eligibilityDecision",
+            "authorizationGate.observationProgress",
+            "authorizationGate.gatePhase"
+          ],
+          "owner_local_facts": [
+            "failClosedAuthorizationApplication"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "gate-priority-and-recovery"
+          ],
+          "passed": true
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, owner-local bounded semantics, traceability, and rendered artifact pass without silent drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

@@ -1,0 +1,29 @@
+// #Sireum
+
+package scp_candidate.Power_Propulsion_Availability_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ChargingInterlockAssessor_supervisor_process_charging_interlock_assessor {
+
+  def initialise(api: ChargingInterlockAssessor_Initialization_Api): Unit = {
+    Contract(Modifies(api), Ensures(
+      // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_CHARGING_NOT_READY
+        api.charging_assessment == ChargingAssessment.NOT_READY_INVALID
+        // END INITIALIZES ENSURES
+    ))
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_charging_assessment(Power_Propulsion_Availability_Supervisor.ChargingAssessment.NOT_READY_INVALID)
+  }
+
+  def timeTriggered(api: ChargingInterlockAssessor_Operational_Api): Unit = { }
+  def finalise(api: ChargingInterlockAssessor_Operational_Api): Unit = { }
+}

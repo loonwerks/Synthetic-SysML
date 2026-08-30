@@ -1,0 +1,58 @@
+{
+  "completed_at": "2026-08-21T00:32:13.545583Z",
+  "dataset_id": "small-finished-product-dispatch-coordinator",
+  "failure": "component_logika",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate:experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "Factory_Dispatch_Coordinator::Finished_Product_Dispatch_Coordinator_System",
+        "experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/M-star.sysml\n  - [772, 4] Dispatch Protocol not specified for thread request_qualification, assuming Sporadic\n  - [773, 4] Dispatch Protocol not specified for thread availability_assessment, assuming Sporadic\n  - [774, 4] Dispatch Protocol not specified for thread outcome_qualification, assuming Sporadic\n  - [775, 4] Dispatch Protocol not specified for thread dispatch_decision_owner, assuming Sporadic\n  - [776, 4] Dispatch Protocol not specified for thread release_command_derivation, assuming Sporadic\n  - [777, 4] Dispatch Protocol not specified for thread dispatch_notice_derivation, assuming Sporadic\n  - [834, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"finished_product_dispatch_coordinator\", Attr(Some([/M-star.sysml, 834, 7])))), Attr(Some([/M-star.sysml, 834, 7])))), [TypingsSpecialization([Name([Id(\"Finished_Product_Dispatch_Coordinator_System\", Attr(Some([/M-star.sysml, 834, 47])))], Attr(Some([/M-star.sysml, 834, 47])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 834, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/.slang/Finished_Product_Dispatch_Coordinator_System_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 252,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/.tmp\nChecking initialise method of Availability_Assessment_dispatch_coordination_process_availability_assessment.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Availability_Assessment_dispatch_coordination_process_availability_assessment.scala\n  Verification succeeded!\n\nChecking initialise method of Dispatch_Decision_Owner_dispatch_coordination_process_dispatch_decision_owner.scala\nUnexpected error: [45, 5] Missing Modifies clause for api\nUnexpected error: [46, 5] Missing Modifies clause for api\n  Verification failed.\n\nChecking timeTriggered method of Dispatch_Decision_Owner_dispatch_coordination_process_dispatch_decision_owner.scala\n  Verification succeeded!\n\nChecking initialise method of Dispatch_Notice_Derivation_dispatch_coordination_process_dispatch_notice_derivation.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Dispatch_Notice_Derivation_dispatch_coordination_process_dispatch_notice_derivation.scala\n  Verification succeeded!\n\nChecking initialise method of Outcome_Qualification_dispatch_coordination_process_outcome_qualification.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Outcome_Qualification_dispatch_coordination_process_outcome_qualification.scala\n  Verification succeeded!\n\nChecking initialise method of Release_Command_Derivation_dispatch_coordination_process_release_command_derivation.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Release_Command_Derivation_dispatch_coordination_process_release_command_derivation.scala\n  Verification succeeded!\n\nChecking initialise method of Request_Qualification_dispatch_coordination_process_request_qualification.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Request_Qualification_dispatch_coordination_process_request_qualification.scala\n  Verification succeeded!\n\nVerified 11 method(s) across 6 component(s).\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate:experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/small-finished-product-dispatch-coordinator/candidate/M-star.sysml\n  - [772, 4] Dispatch Protocol not specified for thread request_qualification, assuming Sporadic\n  - [773, 4] Dispatch Protocol not specified for thread availability_assessment, assuming Sporadic\n  - [774, 4] Dispatch Protocol not specified for thread outcome_qualification, assuming Sporadic\n  - [775, 4] Dispatch Protocol not specified for thread dispatch_decision_owner, assuming Sporadic\n  - [776, 4] Dispatch Protocol not specified for thread release_command_derivation, assuming Sporadic\n  - [777, 4] Dispatch Protocol not specified for thread dispatch_notice_derivation, assuming Sporadic\n  - [834, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"finished_product_dispatch_coordinator\", Attr(Some([/M-star.sysml, 834, 7])))), Attr(Some([/M-star.sysml, 834, 7])))), [TypingsSpecialization([Name([Id(\"Finished_Product_Dispatch_Coordinator_System\", Attr(Some([/M-star.sysml, 834, 47])))], Attr(Some([/M-star.sysml, 834, 47])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 834, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-21T00:24:42.975967Z",
+  "status": "failed"
+}

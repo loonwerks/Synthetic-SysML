@@ -1,0 +1,830 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/eit-image-review-availability-coordinator/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/eit-image-review-availability-coordinator/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/eit-image-review-availability-coordinator/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INCONCLUSIVE",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/eit-image-review-availability-coordinator/agent/M-star.sysml",
+    "oracle": "datasets/eit-image-review-availability-coordinator/evaluator/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": null,
+  "run_status": "INCONCLUSIVE",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-b009a51ed7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityPublicationPolicy_imageReviewCoordinationProcess_availabilityPublicationPolicy_GumboX.inititialize_IEP_Post(reviewavailability, workflowstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-b009a51ed7:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-b009a51ed7:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-b009a51ed7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityPublicationPolicy_imageReviewCoordinationProcess_availabilityPublicationPolicy_GumboX.inititialize_IEP_Post(reviewavailability, workflowstatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-b009a51ed7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::availabilityPublicationPolicy::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-24eb916000:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityPublicationPolicy_imageReviewCoordinationProcess_availabilityPublicationPolicy_GumboX.compute_CEP_Post(generationdecision, reviewdecision, reviewavailability, workflowstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-24eb916000:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-24eb916000:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityPublicationPolicy_imageReviewCoordinationProcess_availabilityPublicationPolicy_GumboX.compute_CEP_Post(generationdecision, reviewdecision, reviewavailability, workflowstatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-24eb916000:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::availabilityPublicationPolicy::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-94bbbeca8d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityWorkflowArbiter_imageReviewCoordinationProcess_availabilityWorkflowArbiter_GumboX.inititialize_IEP_Post(workflowdecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-94bbbeca8d:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-94bbbeca8d:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-94bbbeca8d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityWorkflowArbiter_imageReviewCoordinationProcess_availabilityWorkflowArbiter_GumboX.inititialize_IEP_Post(workflowdecision))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-94bbbeca8d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::availabilityWorkflowArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-6f23f06c0f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityWorkflowArbiter_imageReviewCoordinationProcess_availabilityWorkflowArbiter_GumboX.compute_CEP_Post(batchassessment, doctorrequest, generationprestate, generatorproposal, reviewprestate, viewerassessment, workflowdecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-6f23f06c0f:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-6f23f06c0f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.AvailabilityWorkflowArbiter_imageReviewCoordinationProcess_availabilityWorkflowArbiter_GumboX.compute_CEP_Post(batchassessment, doctorrequest, generationprestate, generatorproposal, reviewprestate, viewerassessment, workflowdecision))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-6f23f06c0f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::availabilityWorkflowArbiter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-09f63c0a6e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.BatchQualificationOwner_imageReviewCoordinationProcess_batchQualificationOwner_GumboX.inititialize_IEP_Post(batchassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-09f63c0a6e:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-09f63c0a6e:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-09f63c0a6e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.BatchQualificationOwner_imageReviewCoordinationProcess_batchQualificationOwner_GumboX.inititialize_IEP_Post(batchassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-09f63c0a6e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::batchQualificationOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f27c50971a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.BatchQualificationOwner_imageReviewCoordinationProcess_batchQualificationOwner_GumboX.compute_CEP_Post(batchevent, batchassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f27c50971a:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f27c50971a:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f27c50971a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.BatchQualificationOwner_imageReviewCoordinationProcess_batchQualificationOwner_GumboX.compute_CEP_Post(batchevent, batchassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f27c50971a:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::batchQualificationOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34d3493261:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationCommandPolicy_imageReviewCoordinationProcess_generationCommandPolicy_GumboX.inititialize_IEP_Post(generationcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34d3493261:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34d3493261:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34d3493261:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationCommandPolicy_imageReviewCoordinationProcess_generationCommandPolicy_GumboX.inititialize_IEP_Post(generationcommand))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34d3493261:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generationCommandPolicy::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-8b6a863ffa:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationCommandPolicy_imageReviewCoordinationProcess_generationCommandPolicy_GumboX.compute_CEP_Post(generationdecision, generationcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-8b6a863ffa:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-8b6a863ffa:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-8b6a863ffa:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationCommandPolicy_imageReviewCoordinationProcess_generationCommandPolicy_GumboX.compute_CEP_Post(generationdecision, generationcommand))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-8b6a863ffa:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generationCommandPolicy::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f3614e627a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationSlotStateGovernor_imageReviewCoordinationProcess_generationSlotStateGovernor_GumboX.inititialize_IEP_Post(committedgenerationstate, generationdecision, generationprestate))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f3614e627a:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f3614e627a:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f3614e627a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationSlotStateGovernor_imageReviewCoordinationProcess_generationSlotStateGovernor_GumboX.inititialize_IEP_Post(committedgenerationstate, generationdecision, generationprestate))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-f3614e627a:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generationSlotStateGovernor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-12d900af6b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationSlotStateGovernor_imageReviewCoordinationProcess_generationSlotStateGovernor_GumboX.compute_CEP_Post(in_committedgenerationstate, committedgenerationstate, workflowdecision, generationdecision, generationprestate))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-12d900af6b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-12d900af6b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GenerationSlotStateGovernor_imageReviewCoordinationProcess_generationSlotStateGovernor_GumboX.compute_CEP_Post(in_committedgenerationstate, committedgenerationstate, workflowdecision, generationdecision, generationprestate))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-12d900af6b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generationSlotStateGovernor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-fd1433bce4:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.inititialize_IEP_Post(feedbackassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-fd1433bce4:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-fd1433bce4:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-fd1433bce4:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.inititialize_IEP_Post(feedbackassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-fd1433bce4:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generatorFeedbackQualificationOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-a9da6bc742:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, feedbackassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-a9da6bc742:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-a9da6bc742:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-a9da6bc742:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorFeedbackQualificationOwner_imageReviewCoordinationProcess_generatorFeedbackQualificationOwner_GumboX.compute_CEP_Post(generationprestate, generatorfeedback, feedbackassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-a9da6bc742:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generatorFeedbackQualificationOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-af7ede133e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorOutcomeRecoveryOwner_imageReviewCoordinationProcess_generatorOutcomeRecoveryOwner_GumboX.inititialize_IEP_Post(generatorproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-af7ede133e:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-af7ede133e:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-af7ede133e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorOutcomeRecoveryOwner_imageReviewCoordinationProcess_generatorOutcomeRecoveryOwner_GumboX.inititialize_IEP_Post(generatorproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-af7ede133e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generatorOutcomeRecoveryOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-bb826aa4e3:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorOutcomeRecoveryOwner_imageReviewCoordinationProcess_generatorOutcomeRecoveryOwner_GumboX.compute_CEP_Post(feedbackassessment, generationprestate, recoveryrequest, generatorproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-bb826aa4e3:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-bb826aa4e3:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-bb826aa4e3:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.GeneratorOutcomeRecoveryOwner_imageReviewCoordinationProcess_generatorOutcomeRecoveryOwner_GumboX.compute_CEP_Post(feedbackassessment, generationprestate, recoveryrequest, generatorproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-bb826aa4e3:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::generatorOutcomeRecoveryOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-ea9d33073e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewAccessQualificationOwner_imageReviewCoordinationProcess_reviewAccessQualificationOwner_GumboX.inititialize_IEP_Post(viewerassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-ea9d33073e:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-ea9d33073e:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-ea9d33073e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewAccessQualificationOwner_imageReviewCoordinationProcess_reviewAccessQualificationOwner_GumboX.inititialize_IEP_Post(viewerassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-ea9d33073e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::reviewAccessQualificationOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-771cd23ff0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewAccessQualificationOwner_imageReviewCoordinationProcess_reviewAccessQualificationOwner_GumboX.compute_CEP_Post(viewerobservation, viewerassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-771cd23ff0:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-771cd23ff0:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-771cd23ff0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewAccessQualificationOwner_imageReviewCoordinationProcess_reviewAccessQualificationOwner_GumboX.compute_CEP_Post(viewerobservation, viewerassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-771cd23ff0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::reviewAccessQualificationOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34e39e33be:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewSessionStateGovernor_imageReviewCoordinationProcess_reviewSessionStateGovernor_GumboX.inititialize_IEP_Post(committedreviewstate, reviewdecision, reviewprestate))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34e39e33be:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34e39e33be:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34e39e33be:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewSessionStateGovernor_imageReviewCoordinationProcess_reviewSessionStateGovernor_GumboX.inititialize_IEP_Post(committedreviewstate, reviewdecision, reviewprestate))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-34e39e33be:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::reviewSessionStateGovernor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-9df120b027:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewSessionStateGovernor_imageReviewCoordinationProcess_reviewSessionStateGovernor_GumboX.compute_CEP_Post(in_committedreviewstate, committedreviewstate, workflowdecision, reviewdecision, reviewprestate))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-9df120b027:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-image-review-availability-coordinator-e-9df120b027:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-9df120b027:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Image_Review_Availability_Coordinator.ReviewSessionStateGovernor_imageReviewCoordinationProcess_reviewSessionStateGovernor_GumboX.compute_CEP_Post(in_committedreviewstate, committedreviewstate, workflowdecision, reviewdecision, reviewprestate))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-image-review-availability-coordinator-e-9df120b027:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Image_Review_Availability_Coordinator::EITImageReviewAvailabilityCoordinator/root-instance::EITImageReviewAvailabilityCoordinator_Instance/component::EITImageReviewAvailabilityCoordinator_Instance::imageReviewCoordinationProcess::reviewSessionStateGovernor::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

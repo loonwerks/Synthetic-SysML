@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.HVAC_Energy_Interface_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object VisibilityDemandQualifier_climateSupervisionProcess_visibilityDemandQualifier {
+
+  def initialise(api: VisibilityDemandQualifier_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_VISIBILITY_SAFE
+        api.visibilityDemand == VisibilityDemand.Invalid
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_visibilityDemand(HVAC_Energy_Interface_Supervisor.VisibilityDemand.None)
+  }
+
+  def finalise(api: VisibilityDemandQualifier_Operational_Api): Unit = { }
+}

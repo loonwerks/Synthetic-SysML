@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "source_sha256": "3f03db15b5504cb8bc7dcf189c53b73119679554616351c6994c72a2bb2fa0c3",
+  "root_definition": "Frigate_Threat_Response_Coordinator::FrigateThreatResponseCoordinator",
+  "root_usage": "frigateThreatResponseCoordinator",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 5,
+    "generated_support_processes": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 13,
+    "boundary_semantic_interactions": 9,
+    "internal_semantic_interactions": 4,
+    "generated_support_delegations": 9,
+    "raw_port_connection_declarations": 22,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2,
+      "INT-02": 2,
+      "INT-03": 2,
+      "INT-04": 2,
+      "INT-05": 2,
+      "INT-06": 1,
+      "INT-07": 1,
+      "INT-08": 1,
+      "INT-09": 2,
+      "INT-10": 2,
+      "INT-11": 1,
+      "INT-12": 2,
+      "INT-13": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "principal_response_cases": 8,
+    "report_priority_cases": 4,
+    "owner_local_classification_relations": 3,
+    "safe_initialization_guarantees": 1,
+    "identity_forwarding_cases_counted": 0,
+    "datatype_invariants_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "raw_boundary_combinations": 196608,
+    "principal_pre_states": 6,
+    "snapshots": 1179648,
+    "partition_gaps": 0,
+    "effective_partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "state_invariant_violations": 0,
+    "owner_local_relation_mismatches": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    },
+    "analyzer_repairs": 1
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 13,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "threatEvidenceInterpreter",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["threatEvidenceInterpreter.contactEvidence", "threatEvidenceInterpreter.identificationEvidence"],
+        "owner_local_facts": ["qualifiedThreat four-class evidence interpretation"],
+        "contract_cases": ["CONTRACT-LOCAL-01"],
+        "analyzer_checks": ["part01_total_16_relation"]
+      },
+      {
+        "usage": "defenseReadinessAssessor",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["defenseReadinessAssessor.defenseEvidence"],
+        "owner_local_facts": ["defenseCondition conjunction of independently valid defense and drone readiness"],
+        "contract_cases": ["CONTRACT-LOCAL-02"],
+        "analyzer_checks": ["part02_total_16_relation"]
+      },
+      {
+        "usage": "retreatReadinessAssessor",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["retreatReadinessAssessor.retreatNavigationEvidence"],
+        "owner_local_facts": ["retreatCondition completion-precedent route classification"],
+        "contract_cases": ["CONTRACT-LOCAL-03"],
+        "analyzer_checks": ["part03_total_32_relation"]
+      },
+      {
+        "usage": "principalResponseCoordinator",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["principalResponseCoordinator.responseRequest", "principalResponseCoordinator.qualifiedThreat", "principalResponseCoordinator.defenseCondition", "principalResponseCoordinator.retreatCondition", "principalResponseCoordinator.responseCommitment", "principalResponseCoordinator.retreatRequestArmed"],
+        "owner_local_facts": ["exclusive response disposition and command choice", "response commitment transition", "fresh-request arming transition"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08"],
+        "analyzer_checks": ["part04_eight_case_partition", "source_guards_match_analyzer_guards"]
+      },
+      {
+        "usage": "threatReportComposer",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["threatReportComposer.responseRecord", "threatReportComposer.reportAcknowledgment"],
+        "owner_local_facts": ["acknowledgment-aware four-class report priority"],
+        "contract_cases": ["CASE-09", "CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["part05_four_case_partition", "response_record_preserved"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-05 only. Interactions count INT-01 through INT-13 once each and exclude nine root-to-Process delegations. Nontrivial cases count CASE-01 through CASE-12 only. Scenario families count SCN-01 through SCN-05. Root, Process support, types, initialization, local classification relations, preservation, routing hops, and analyzer fixtures receive no semantic credit. Composition denotes finite relation and explicit interaction-map composition, not compositional proof."
+}

@@ -1,0 +1,473 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T195936Z-mining-threat-retreat-medium-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Frigate_Threat_Egress_Supervisor.sysml",
+  "source_sha256": "93b4a01942241129e5345e9e7517009fb9b922e25641a9e78949b2fa9adce875",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 13,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 164,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "CTRL-04",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "SCOPE-IN-01",
+      "TYPE-02",
+      "TYPE-03",
+      "TYPE-07",
+      "TYPE-08"
+    ],
+    "relativePath": "cps48/runs/20260813T195936Z-mining-threat-retreat-medium-r2-a1/system-abstract.md",
+    "taggedElementCount": 99,
+    "traceAssociationCount": 99,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a medium, narrow threat-evidence and egress-response supervisor with an exact 8/20/20/8 semantic tuple, two unique state owners, explicit egress-over-defense priority, and closed recovery paths.",
+      "questions_for_model": [
+        "Can the retained SysML-AADL/GUMBO subset realize the two independent state owners and their same-evaluation snapshots without moving either state update into the root or support Process?",
+        "Can owner-local contracts express the exact 20-case first-match partitions, including the 140-combination response-controller case, while preserving exactly 20 semantic interactions and no downstream recomputation?",
+        "Can the bounded analyzer independently compose all eight owner relations across exactly 51,840 root valuations and separately report structurally valid versus producer-reachable composite-snapshot combinations?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "Frigate threat response: threat evidence, reporting, defense activation, and retreat-oriented navigation, with mining, cargo, and service external",
+        "closest_baseline": "Accepted replicate-1 Small, Medium, and Hard combined mining-threat-retreat supervisors",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The design has no mining, cargo, offload, resupply, five-way operation, or mission-phase boundary. Separate threat-episode and egress-session owners coordinate only reporting, defense activation, and retreat-oriented navigation; arrival does not clear threat and blocked egress requires a fresh request. Adding replicate-1 mission choices would change the controlled purpose and topology rather than elaborate or rename this system."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "All eight planned owners have nonidentity local relations, and the exact containment, interfaces, state locality, contracts, and bounded products are realizable without baseline revision.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "PART-02 and PART-07 own distinct state-dependent transition relations; PART-03, PART-06, and PART-08 combine multiple assigned facts with explicit priority; none is credited merely for snapshot copying or routing.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "PART-01 maps all three invalid evidence bands to UNAVAILABLE, PART-04 collapses all non-hostile support combinations to INAPPLICABLE before availability/capacitor classification, and PART-05 collapses all nine non-hostile route combinations to INAPPLICABLE. These full relations are non-bijective even though some valid/hostile branches use corresponding domain labels.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The retained library and trusted Isolette syntax support System/Process/Thread containment, typed DataPort connections, component-local GUMBO state, initialize/compute contracts, compute cases, and In(state) pre-state references; inspected record fields can be declared as attributes for GUMBO locality.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Twenty Process-level semantic connections plus ten root/Process delegations produce exactly 30 declarations, preserve one weak semantic region, and require no state or behavior in the support Process. The finite products recompute to 51,840 root valuations and owner-local totals 6, 48, 16, 12, 192, 9,216, 140, and 336,000.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings accepted or narrowed; unchanged 8/20/20/8 baseline approved for generation.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical 8/20/20/8 model passed both retained Sireum gates and the source-bound exhaustive analyzer.",
+      "canonical_source": "model/Frigate_Threat_Egress_Supervisor.sysml",
+      "architecture_repairs": 2,
+      "contract_repairs": 2,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated 13-edge system overview passed native, geometry, and complete traceability review.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "CTRL-04",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "SCOPE-IN-01",
+        "TYPE-02",
+        "TYPE-03",
+        "TYPE-07",
+        "TYPE-08"
+      ],
+      "reviewed_tagged_element_count": 99,
+      "reviewed_trace_association_count": 99,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Canonical source, owner-local bounded semantics, traceability, and retained visualization passed final Designer validation.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 20,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 8
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "threatEvidenceQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "threatObservation.evidenceBand",
+            "threatObservation.validity"
+          ],
+          "owner_local_facts": [
+            "evidenceAssessment"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03"
+          ],
+          "analyzer_checks": [
+            "evidence-owner-partition"
+          ]
+        },
+        {
+          "usage": "threatEpisodeTracker",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "evidenceAssessment",
+            "pilotDisposition",
+            "committedEpisode"
+          ],
+          "owner_local_facts": [
+            "nextThreatEpisode",
+            "episodeSnapshot"
+          ],
+          "contract_cases": [
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "episode-owner-partition",
+            "invalid-evidence-retention",
+            "clear-confirmation-recovery"
+          ]
+        },
+        {
+          "usage": "threatReportPolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "episodeSnapshot.assessment",
+            "episodeSnapshot.preEpisode",
+            "episodeSnapshot.nextEpisode",
+            "episodeSnapshot.pilotDisposition"
+          ],
+          "owner_local_facts": [
+            "threatReport"
+          ],
+          "contract_cases": [
+            "CASE-15"
+          ],
+          "analyzer_checks": [
+            "report-owner-totality",
+            "report-precedence"
+          ]
+        },
+        {
+          "usage": "defenseReadinessQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "evidenceAssessment",
+            "defenseSupport.defenseAvailability",
+            "defenseSupport.capacitorSupport"
+          ],
+          "owner_local_facts": [
+            "defenseQualification"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10"
+          ],
+          "analyzer_checks": [
+            "defense-owner-partition"
+          ]
+        },
+        {
+          "usage": "egressReadinessQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "evidenceAssessment",
+            "egressRoute"
+          ],
+          "owner_local_facts": [
+            "egressQualification"
+          ],
+          "contract_cases": [
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14"
+          ],
+          "analyzer_checks": [
+            "egress-owner-partition"
+          ]
+        },
+        {
+          "usage": "threatResponseArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "episodeSnapshot.nextEpisode",
+            "episodeSnapshot.assessment",
+            "defenseQualification",
+            "egressQualification",
+            "responseAuthorization"
+          ],
+          "owner_local_facts": [
+            "responseDirective"
+          ],
+          "contract_cases": [
+            "CASE-16",
+            "CASE-17",
+            "CASE-18"
+          ],
+          "analyzer_checks": [
+            "arbiter-priority-partition",
+            "egress-over-defense-conflict"
+          ]
+        },
+        {
+          "usage": "responseStateController",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "responseDirective",
+            "egressProgress",
+            "committedEgress"
+          ],
+          "owner_local_facts": [
+            "nextEgressSession",
+            "defenseCommand",
+            "egressCommand",
+            "responseSnapshot"
+          ],
+          "contract_cases": [
+            "CASE-19"
+          ],
+          "analyzer_checks": [
+            "controller-owner-totality",
+            "fresh-retry-only",
+            "arrival-over-cancellation"
+          ]
+        },
+        {
+          "usage": "responseStatusAssessor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "episodeSnapshot.assessment",
+            "episodeSnapshot.nextEpisode",
+            "responseSnapshot.nextEgress",
+            "responseSnapshot.defenseCommand"
+          ],
+          "owner_local_facts": [
+            "responseStatus"
+          ],
+          "contract_cases": [
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "status-owner-totality",
+            "status-precedence"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Canonical source, owner-local bounded semantics, traceability, and retained visualization passed final Designer validation.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

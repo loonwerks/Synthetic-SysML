@@ -1,0 +1,89 @@
+AGENT PLAN
+==========
+
+Title: English Requirements to GUMBO Contract Synthesis for SysML v2
+
+OBJECTIVE
+---------
+
+Given a SysML v2 architecture in M-star.sysml and normative requirements in
+N.md, reconstruct the GUMBO contracts required by N.md, generate JVM/Slang
+artifacts with HAMR, implement the preserved application component code, and
+prove the result with component and model-level Logika.
+
+N.md is the requirements authority. M-star.sysml is the structural authority
+for package, type, port, part, connection, containment, and root names. Do not
+copy requirements, values, identifiers, or architectural choices from examples
+outside the current dataset.
+
+CONTRACT EMBEDDING
+------------------
+
+Place a GUMBO annex inside the Thread definition that owns the behavior:
+
+language "GUMBO" /*{
+  state
+    // Optional persistent values required by N.md.
+
+  functions
+    // Optional pure helper functions.
+
+  integration
+    // Environment assumptions and cross-component guarantees.
+
+  initialize
+    // Initialization guarantees.
+
+  compute
+    // Invariants and a total set of compute cases.
+}*/
+
+Use only sections needed by the current requirements and accepted by the
+installed Sireum grammar. Preserve generated BEGIN/END contract regions after
+HAMR code generation.
+
+META-RULES
+----------
+
+1. Translate each conditional requirement into a case whose assumption is the
+   guard and whose guarantee is the required post-state.
+2. Translate unconditional output requirements into initialize or compute
+   guarantees at the owning Thread.
+3. Use integration assumptions only for environment facts supplied by N.md.
+   Never assume the behavior that the component is required to guarantee.
+4. Use integration guarantees for producer properties that must hold across
+   the interface independently of one transient compute case.
+5. Add state only when N.md requires history, hysteresis, latching, recovery,
+   or another cross-dispatch property. Frame every modified state variable.
+6. Make finite behavioral partitions total. Cover normal, invalid, conflicting,
+   recovery, and no-request cases required by N.md; do not use `assume F`, false
+   preconditions, or unreachable cases to obtain a proof.
+7. Preserve input values with `In(portOrState)` when a postcondition needs the
+   pre-state. Use generated API getters and setters in Slang application code.
+8. Match the exact generated types and enumeration literals. Do not invent
+   numeric bounds, timing claims, or dispatch semantics absent from N.md.
+9. If the tool lacks a temporal construct needed by N.md, retain the requirement
+   trace and report the unsupported obligation; do not replace it with a weaker
+   claim.
+10. A tool warning is not a failure. A command passes or fails according to its
+    own exit status, while every warning remains part of the run report.
+
+APPLICATION CODE
+----------------
+
+After HAMR code generation, edit only preserved developer component files under
+hamr/slang/src/main/component. Implement the generated operational entrypoints
+with generated APIs and behavior matching the contracts. Do not edit Bridges,
+APIs, GumboX, architecture, data, runtime-monitoring, project, or generated test
+sources. Do not add proof-only assertions, process exits, recursive shortcuts,
+or assumptions that make obligations unreachable.
+
+REPAIR DISCIPLINE
+-----------------
+
+Read the concrete Sireum/HAMR/Logika diagnostic, identify whether the defect is
+in the SysML contract or preserved component code, make the smallest semantic
+repair, and repeat every invalidated verification step from
+sireum_verification_plan.txt. Do not ask for oracle information or evaluator
+repairs. Continue until all four steps pass or the external run timeout stops
+the session.

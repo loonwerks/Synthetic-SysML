@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "source": "model/Mining_Cargo_Transfer_Evidence_Coordinator.sysml",
+  "source_sha256": "636d1a08dbe9bfd0a2a831901c1107194cf018ef435e780b8f0e2a42c75fce37",
+  "root_system_usages": 1,
+  "support_container_usages": 1,
+  "raw_connections": 41,
+  "semantic_connections": 35,
+  "support_delegations": 6,
+  "physical_containment_depth": 2,
+  "semantic_responsibility_layers": 1,
+  "weakly_connected_regions": 1,
+  "retained_state_owners": 5,
+  "source_trace_associations": 229,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 15,
+    "semantic_interactions": 35,
+    "nontrivial_contract_cases": 28,
+    "scenario_families": 11,
+    "ownership_audit": [
+      {"usage":"request_admission","claimed_roles":["decision"],"assigned_inputs":["request_facts","dock_facts","prior_session_view","coordination_guard","In(requestLedger)"],"owner_local_facts":["request disposition and next ledger"],"contract_cases":["CASE-13","CASE-14","CASE-15","CASE-16","CASE-17","CASE-18","CASE-19","CASE-20"],"analyzer_checks":["exhaustive request admission partition"]},
+      {"usage":"evidence_coherence","claimed_roles":["decision"],"assigned_inputs":["ship_report_facts","warehouse_report_facts","control_event","prior_recovery_state","prior_session_view","prior_ship_evidence","prior_warehouse_evidence"],"owner_local_facts":["fault trigger, recovery intent, qualified progress, and priority directive"],"contract_cases":["CASE-21","CASE-22","CASE-23","CASE-24"],"analyzer_checks":["exhaustive coherence and fault partition"]},
+      {"usage":"transfer_session","claimed_roles":["decision"],"assigned_inputs":["admission_decision","coordination_frame","In(sessionState)"],"owner_local_facts":["next session phase and prior active-session view"],"contract_cases":["CASE-25"],"analyzer_checks":["exhaustive session transition"]},
+      {"usage":"ship_evidence_lifecycle","claimed_roles":["decision"],"assigned_inputs":["ship_update","admission_decision","In(shipEvidenceState)"],"owner_local_facts":["next ship evidence stage"],"contract_cases":["CASE-25"],"analyzer_checks":["exhaustive ship evidence transition"]},
+      {"usage":"warehouse_evidence_lifecycle","claimed_roles":["decision"],"assigned_inputs":["warehouse_update","admission_decision","In(warehouseEvidenceState)"],"owner_local_facts":["next warehouse evidence stage"],"contract_cases":["CASE-25"],"analyzer_checks":["exhaustive warehouse evidence transition"]},
+      {"usage":"recovery_supervisor","claimed_roles":["decision"],"assigned_inputs":["recovery_transition","In(recoveryState)"],"owner_local_facts":["next recovery state"],"contract_cases":["CASE-22"],"analyzer_checks":["exhaustive recovery transition"]},
+      {"usage":"request_action_eligibility","claimed_roles":["proposal"],"assigned_inputs":["admission_decision"],"owner_local_facts":["correlated start or cancellation proposal"],"contract_cases":["CASE-26"],"analyzer_checks":["request proposal ownership check"]},
+      {"usage":"ship_progress_eligibility","claimed_roles":["proposal"],"assigned_inputs":["prior_session_view","prior_ship_evidence"],"owner_local_facts":["phase-consistent ship continuation proposal"],"contract_cases":["CASE-26"],"analyzer_checks":["ship proposal ownership check"]},
+      {"usage":"warehouse_verification_eligibility","claimed_roles":["proposal"],"assigned_inputs":["prior_session_view","prior_ship_evidence","prior_warehouse_evidence"],"owner_local_facts":["phase-consistent warehouse verification proposal"],"contract_cases":["CASE-26"],"analyzer_checks":["warehouse proposal ownership check"]},
+      {"usage":"transfer_action_arbitration","claimed_roles":["decision"],"assigned_inputs":["priority_directive","request_proposal","ship_proposal","warehouse_proposal"],"owner_local_facts":["single strict-priority transfer decision"],"contract_cases":["CASE-27"],"analyzer_checks":["strict priority conflict check"]},
+      {"usage":"result_composition","claimed_roles":["decision"],"assigned_inputs":["transfer_decision","request_disposition"],"owner_local_facts":["atomic public mode, disposition, correlation, and outcome"],"contract_cases":["CASE-28"],"analyzer_checks":["atomic composition check"]}
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

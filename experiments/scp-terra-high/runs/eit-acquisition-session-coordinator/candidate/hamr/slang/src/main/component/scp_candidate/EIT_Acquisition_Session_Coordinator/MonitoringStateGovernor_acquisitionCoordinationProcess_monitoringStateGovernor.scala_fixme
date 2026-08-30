@@ -1,0 +1,42 @@
+// #Sireum
+
+package scp_candidate.EIT_Acquisition_Session_Coordinator
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor {
+
+  // BEGIN STATE VARS
+  var committedMonitoringState: EIT_Acquisition_Session_Coordinator.MonitoringState.Type = EIT_Acquisition_Session_Coordinator.MonitoringState.MONITORING_INACTIVE
+  // END STATE VARS
+
+  def initialise(api: MonitoringStateGovernor_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_MONITORING_STATE
+        committedMonitoringState == MonitoringState.MONITORING_INACTIVE &&
+          api.monitoringState == MonitoringState.MONITORING_INACTIVE &&
+          api.monitoringDecision.preState == MonitoringDecisionPreState.MONITORING_INACTIVE &&
+          api.monitoringDecision.nextState == MonitoringDecisionNextState.MONITORING_INACTIVE &&
+          api.monitoringDecision.effectiveIntent == MonitoringDecisionIntent.NO_INTENT &&
+          api.monitoringDecision.disposition == MonitoringDecisionDisposition.NO_REQUEST_DISPOSITION &&
+          api.monitoringDecision.notice == MonitoringDecisionNotice.NONE &&
+          api.monitoringDecision.preparationState == MonitoringDecisionPreparationState.UNPREPARED
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_monitoringState(EIT_Acquisition_Session_Coordinator.MonitoringState.MONITORING_INACTIVE)
+    api.put_monitoringDecision(EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot.example())
+  }
+
+  def finalise(api: MonitoringStateGovernor_Operational_Api): Unit = { }
+}

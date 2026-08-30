@@ -1,0 +1,40 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "UNKNOWN",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/protected-start-and-power-enablement-supervisor/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/protected-start-and-power-enablement-supervisor/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/protected-start-and-power-enablement-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INCONCLUSIVE",
+  "diagnostics": [
+    "coverage gap: candidate:Protected_Start_Power_Supervisor::BrakePedalQualificationOwner:integration-constraints",
+    "coverage gap: root::Protected_Start_Power_Supervisor::ProtectedStartPowerSupervisorSystem/root-instance::ProtectedStartPowerSupervisorSystem_Instance/component::ProtectedStartPowerSupervisorSystem_Instance::protected_start_power_process::brake_pedal_qualification_owner::compute:integration-constraints"
+  ],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/protected-start-and-power-enablement-supervisor/agent/M-star.sysml",
+    "oracle": "datasets/protected-start-and-power-enablement-supervisor/evaluator/oracle.sysml"
+  },
+  "oracle_health": "UNKNOWN",
+  "result": null,
+  "run_status": "INCONCLUSIVE",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [],
+  "verification": "verification.json"
+}

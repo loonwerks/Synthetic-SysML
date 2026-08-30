@@ -1,0 +1,47 @@
+// #Sireum
+
+package scp_candidate.Navigation_Obstacle_Awareness_Use_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object GpsEvidenceQualifier_supervisorProcess_gpsEvidenceQualifier {
+
+  def initialise(api: GpsEvidenceQualifier_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_GPS_ASSESSMENT_nominal
+        api.gpsEvidence == NavigationEvidence.NOMINAL_CURRENT ___>:
+          api.gpsAssessment == EvidenceAssessment.READY,
+        // guarantee INITIAL_GPS_ASSESSMENT_degraded
+        api.gpsEvidence == NavigationEvidence.DEGRADED_CURRENT ___>:
+          api.gpsAssessment == EvidenceAssessment.LIMITED,
+        // guarantee INITIAL_GPS_ASSESSMENT_rejected
+        api.gpsEvidence == NavigationEvidence.UNAVAILABLE_CURRENT |
+          api.gpsEvidence == NavigationEvidence.STALE |
+          api.gpsEvidence == NavigationEvidence.INVALID ___>:
+          api.gpsAssessment == EvidenceAssessment.REJECTED
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_gpsAssessment(Navigation_Obstacle_Awareness_Use_Supervisor.EvidenceAssessment.READY)
+  }
+
+  def finalise(api: GpsEvidenceQualifier_Operational_Api): Unit = { }
+
+  def timeTriggered(api: GpsEvidenceQualifier_Operational_Api): Unit = {
+    api.get_gpsEvidence() match {
+      case Some(NavigationEvidence.NOMINAL_CURRENT) => api.put_gpsAssessment(EvidenceAssessment.READY)
+      case Some(NavigationEvidence.DEGRADED_CURRENT) => api.put_gpsAssessment(EvidenceAssessment.LIMITED)
+      case _ => api.put_gpsAssessment(EvidenceAssessment.REJECTED)
+    }
+  }
+}

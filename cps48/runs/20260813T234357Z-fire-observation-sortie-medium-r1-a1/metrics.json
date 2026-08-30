@@ -1,0 +1,157 @@
+{
+  "source_sha256": "b8571ac04301cacfd65c4fe66d61545a53a92f20025031ed6987fed27a04db90",
+  "structural": {
+    "root_system_usages": 1,
+    "support_process_usages": 1,
+    "semantic_thread_usages": 8,
+    "non_root_architecture_nodes": 9,
+    "semantic_containment_depth": 2,
+    "semantic_interactions": 21,
+    "support_delegations": 12,
+    "raw_port_connections": 33,
+    "weak_semantic_regions": 1
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 20,
+    "initialization_clauses": 7,
+    "state_owners": 1,
+    "data_records_with_gumbo_inspected_fields": 2,
+    "inspected_nested_part_fields": 0
+  },
+  "analysis": {
+    "root_input_valuations": 864,
+    "pre_session_states": 5,
+    "end_to_end_evaluations": 4320,
+    "local_product_evaluations": 4150,
+    "scenario_families": 8,
+    "gaps": 0,
+    "overlaps": 0,
+    "mismatches": 0,
+    "required_output_mismatches": 0
+  },
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {
+        "usage": "SortieApplicabilityQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "SortieApplicabilityQualifier.batteryAssessment",
+          "SortieApplicabilityQualifier.sortieContext"
+        ],
+        "owner_local_facts": [
+          "sortieQualification"
+        ],
+        "contract_cases": [
+          "CASE-04",
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "sortieQualifierCompletePartition"
+        ]
+      },
+      {
+        "usage": "SessionProposalOwner",
+        "claimed_roles": [
+          "proposal",
+          "decision"
+        ],
+        "assigned_inputs": [
+          "SessionProposalOwner.sortieQualification",
+          "SessionProposalOwner.cameraEvidence",
+          "SessionProposalOwner.radioEvidence",
+          "SessionProposalOwner.sessionPhaseInput"
+        ],
+        "owner_local_facts": [
+          "sessionProposal"
+        ],
+        "contract_cases": [
+          "CASE-13",
+          "CASE-14",
+          "CASE-15"
+        ],
+        "analyzer_checks": [
+          "sessionProposalCompletePartition"
+        ]
+      },
+      {
+        "usage": "ObservationIntentArbiter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "ObservationIntentArbiter.observationIntent",
+          "ObservationIntentArbiter.sessionProposal"
+        ],
+        "owner_local_facts": [
+          "sessionDecision"
+        ],
+        "contract_cases": [
+          "CASE-16",
+          "CASE-17",
+          "CASE-18"
+        ],
+        "analyzer_checks": [
+          "intentArbiterPriorityPartition"
+        ]
+      },
+      {
+        "usage": "ObservationSessionController",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "ObservationSessionController.sessionDecision",
+          "ObservationSessionController.committedSession"
+        ],
+        "owner_local_facts": [
+          "nextSession",
+          "cameraAcquisitionCommand",
+          "radioDeliveryCommand",
+          "sessionSnapshot"
+        ],
+        "contract_cases": [
+          "CASE-19"
+        ],
+        "analyzer_checks": [
+          "stateControllerTotalRelation"
+        ]
+      },
+      {
+        "usage": "CoordinationOutcomePolicy",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "CoordinationOutcomePolicy.sessionSnapshot",
+          "CoordinationOutcomePolicy.batteryAssessment"
+        ],
+        "owner_local_facts": [
+          "operatorAdvisory",
+          "droneControlObservationNotice"
+        ],
+        "contract_cases": [
+          "CASE-20"
+        ],
+        "analyzer_checks": [
+          "outcomePolicyStructuralProduct"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

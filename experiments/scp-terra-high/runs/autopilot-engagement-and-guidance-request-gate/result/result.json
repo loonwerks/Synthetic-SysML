@@ -1,0 +1,287 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "PASSED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/autopilot-engagement-and-guidance-request-gate/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/autopilot-engagement-and-guidance-request-gate/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/autopilot-engagement-and-guidance-request-gate/result",
+      "--timeout",
+      "180.0"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/autopilot-engagement-and-guidance-request-gate/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/autopilot-engagement-and-guidance-request-gate/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "PASSED",
+  "result": "EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.CSA_Enable_Delivery_Thread_control_process_csa_enable_delivery_Candidate_GumboX.compute_CEP_Post(ap_on_in, ap_on_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.CSA_Enable_Delivery_Thread_control_process_csa_enable_delivery_GumboX.compute_CEP_Post(ap_on_in, ap_on_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.CSA_Enable_Delivery_Thread_control_process_csa_enable_delivery_GumboX.compute_CEP_Post(ap_on_in, ap_on_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.CSA_Enable_Delivery_Thread_control_process_csa_enable_delivery_Candidate_GumboX.compute_CEP_Post(ap_on_in, ap_on_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:health:03-candidate-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:health:01-oracle-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-4e1f7b88f4:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_Autopilot_Engagement::Autopilot_Engagement_System/root-instance::Autopilot_Engagement_System_Instance/component::Autopilot_Engagement_System_Instance::control_process::csa_enable_delivery::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.Engagement_Decision_Thread_control_process_engagement_decision_Candidate_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, command_status, engage_ap, guidance_valid, ap_guidance_request, ap_on, ap_status))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.Engagement_Decision_Thread_control_process_engagement_decision_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, command_status, engage_ap, guidance_valid, ap_guidance_request, ap_on, ap_status))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.Engagement_Decision_Thread_control_process_engagement_decision_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, command_status, engage_ap, guidance_valid, ap_guidance_request, ap_on, ap_status))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.Engagement_Decision_Thread_control_process_engagement_decision_Candidate_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, command_status, engage_ap, guidance_valid, ap_guidance_request, ap_on, ap_status))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:health:03-candidate-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:health:01-oracle-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-58705300fd:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_Autopilot_Engagement::Autopilot_Engagement_System/root-instance::Autopilot_Engagement_System_Instance/component::Autopilot_Engagement_System_Instance::control_process::engagement_decision::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.FCI_Command_Intake_Thread_control_process_fci_command_intake_Candidate_GumboX.compute_CEP_Post(command_status_in, engage_ap_in, command_status_out, engage_ap_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.FCI_Command_Intake_Thread_control_process_fci_command_intake_GumboX.compute_CEP_Post(command_status_in, engage_ap_in, command_status_out, engage_ap_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.FCI_Command_Intake_Thread_control_process_fci_command_intake_GumboX.compute_CEP_Post(command_status_in, engage_ap_in, command_status_out, engage_ap_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.FCI_Command_Intake_Thread_control_process_fci_command_intake_Candidate_GumboX.compute_CEP_Post(command_status_in, engage_ap_in, command_status_out, engage_ap_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:health:03-candidate-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:health:01-oracle-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-2c74b9e2ac:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_Autopilot_Engagement::Autopilot_Engagement_System/root-instance::Autopilot_Engagement_System_Instance/component::Autopilot_Engagement_System_Instance::control_process::fci_command_intake::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.Guidance_Request_Delivery_Thread_control_process_guidance_request_delivery_Candidate_GumboX.compute_CEP_Post(request_in, request_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.Guidance_Request_Delivery_Thread_control_process_guidance_request_delivery_GumboX.compute_CEP_Post(request_in, request_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.Guidance_Request_Delivery_Thread_control_process_guidance_request_delivery_GumboX.compute_CEP_Post(request_in, request_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.Guidance_Request_Delivery_Thread_control_process_guidance_request_delivery_Candidate_GumboX.compute_CEP_Post(request_in, request_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:health:03-candidate-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:health:01-oracle-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-caff34ec0b:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_Autopilot_Engagement::Autopilot_Engagement_System/root-instance::Autopilot_Engagement_System_Instance/component::Autopilot_Engagement_System_Instance::control_process::guidance_request_delivery::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.Status_Reporting_Thread_control_process_status_reporting_Candidate_GumboX.compute_CEP_Post(status_in, status_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.Status_Reporting_Thread_control_process_status_reporting_GumboX.compute_CEP_Post(status_in, status_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_Autopilot_Engagement.Status_Reporting_Thread_control_process_status_reporting_GumboX.compute_CEP_Post(status_in, status_out))) ___>: (equiv_shared_0.FAA_Autopilot_Engagement.Status_Reporting_Thread_control_process_status_reporting_Candidate_GumboX.compute_CEP_Post(status_in, status_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:health:03-candidate-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:health:01-oracle-assumption-satisfiable",
+        "root-0:root-faa-autopilot-engagement-autopilot-engageme-8b2fa9e4aa:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_Autopilot_Engagement::Autopilot_Engagement_System/root-instance::Autopilot_Engagement_System_Instance/component::Autopilot_Engagement_System_Instance::control_process::status_reporting::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

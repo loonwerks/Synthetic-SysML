@@ -1,0 +1,39 @@
+// #Sireum
+
+package scp_candidate.Battery_Evidence_Charge_Qualification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ChargeSessionController_supervisorProcess_chargeSessionController {
+
+  def initialise(api: ChargeSessionController_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee initial_session
+        api.currentChargeSession == ChargeSessionState.IDLE,
+        // guarantee initial_permission
+        api.chargePermission == ChargePermission.DISABLED,
+        // guarantee initial_snapshot
+        api.chargeSessionSnapshot.preSession == SnapshotPreSessionState.IDLE &&
+          api.chargeSessionSnapshot.nextSession == SnapshotNextSessionState.IDLE &&
+          api.chargeSessionSnapshot.disposition == SnapshotChargeDisposition.NO_CHANGE &&
+          api.chargeSessionSnapshot.reason == ChargeReason.NONE
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_currentChargeSession(Battery_Evidence_Charge_Qualification_Supervisor.ChargeSessionState.IDLE)
+    api.put_chargeSessionSnapshot(Battery_Evidence_Charge_Qualification_Supervisor.ChargeSessionSnapshot.example())
+    api.put_chargePermission(Battery_Evidence_Charge_Qualification_Supervisor.ChargePermission.DISABLED)
+  }
+
+  def finalise(api: ChargeSessionController_Operational_Api): Unit = { }
+}

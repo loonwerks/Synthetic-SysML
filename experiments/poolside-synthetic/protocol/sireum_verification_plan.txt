@@ -1,0 +1,79 @@
+SIREUM VERIFICATION PLAN
+========================
+
+This is the successful Isolette verification workflow adapted to the confined
+synthetic-dataset layout. `N.md` and `M-star.sysml` are in `/workspace`.
+Sireum and the standard SysML/AADL libraries are read-only mounts. Never run or
+seek an evaluator, oracle, or reference answer.
+
+PHASE A: MODEL CONTRACT SYNTHESIS AND INTEGRATION
+-------------------------------------------------
+
+Step A1 - After each component-sized GUMBO edit, run exactly:
+
+  /opt/sireum/bin/sireum hamr sysml logika \
+    --sourcepath /workspace:/opt/sysml-aadl-libraries \
+    /workspace/M-star.sysml
+
+Expected behavior:
+- Exit status 0.
+- Warnings about unspecified dispatch protocols or global part usage may be
+  reported; warnings alone do not fail the command.
+- Any parse, resolution, type, contract, or integration error must be repaired.
+
+If A1 fails:
+1. Read the earliest diagnostic.
+2. Explain its concrete grammar/type/contract cause internally.
+3. Repair only M-star.sysml, following Gumbo_FSE_agent_Plan.txt.
+4. Rerun A1 immediately.
+5. Do not move to another component while the current component remains the
+   earliest failure.
+
+Step A2 - Coverage and preservation audit:
+- Confirm every detailed requirement identifier in N.md is represented.
+- Confirm package/types/ports/parts/connections/instances are unchanged.
+- Rerun A1 after the audit.
+
+Phase A succeeds only when the exact command exits 0. Do not claim success on
+the basis of visual inspection or a different command.
+
+PHASE B: HAMR APPLICATION CODE AND LOGIKA
+-----------------------------------------
+
+The external orchestrator performs periodic projection and HAMR codegen only
+after Phase A passes. In the resulting application workspace, modify only the
+existing Scala files under:
+
+  /workspace/hamr/slang/src/main/component
+
+Do not edit generated contracts, bridges, APIs, data types, runtime files,
+project files, manifests, the staged SysML model, N.md, or the proof gate.
+
+Step B1 - Read N.md, the staged model, generated GumboX contracts, APIs, data
+types, and each generated application component.
+
+Step B2 - Implement each component incrementally. Preserve developer regions.
+For each `initialise` and `timeTriggered` method, add the Logika method contract
+shape required by the generated code and implement behavior using generated
+APIs/types. Run the fixed proof gate after each coherent component edit:
+
+  SIREUM_BIN=/opt/sireum/bin/sireum \
+    /workspace/run-logika.sh /workspace/hamr/slang /workspace/proof
+
+Step B3 - Repair only application files until the fixed gate reports:
+
+  APPLICATION_LOGIKA_PASSED
+
+Warnings about infeasible pattern cases or over-approximated string
+interpolation may be benign; an unsuccessful exit, compilation error, missing
+method, failed proof, or modified protected file is a failure.
+
+AUTONOMY AND GUARDRAILS
+-----------------------
+- Continue autonomously through diagnostics; do not wait for user approval.
+- Never weaken or bypass a contract or gate.
+- Never modify N.md.
+- Never use the network.
+- Never access outside `/workspace` except the mounted read-only Sireum and
+  SysML/AADL library paths named above.
+- Never run an evaluator/equivalence checker.

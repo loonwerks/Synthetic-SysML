@@ -1,0 +1,555 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234356Z-mining-cargo-docking-hard-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Mining_Cargo_Transfer_Evidence_Coordinator.sysml",
+  "source_sha256": "636d1a08dbe9bfd0a2a831901c1107194cf018ef435e780b8f0e2a42c75fce37",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 16,
+    "edgeCount": 24,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 179,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CTRL-RES-01",
+      "CTX-SYS-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "INT-34",
+      "INT-35",
+      "MON-CTRL-01",
+      "MON-DOCK-01",
+      "MON-REQ-01",
+      "MON-SHIP-01",
+      "MON-WARE-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "PART-14",
+      "PART-15",
+      "SUPPORT-01",
+      "TYPE-DEC-01",
+      "TYPE-FACT-01"
+    ],
+    "relativePath": "cps48/runs/20260813T234356Z-mining-cargo-docking-hard-r1-a1/system-abstract.md",
+    "taggedElementCount": 170,
+    "traceAssociationCount": 170,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a finite station cargo-transfer evidence coordinator with an exact 15/33/28/11 hard-tier target, five retained-state owners, explicit priority, fault propagation, two-event recovery, and atomic result composition.",
+      "questions_for_model": [
+        "Can the supported SysML-AADL and GUMBO subset expose prior-state views from five independent state owners and constrain post-transition values without a combinational cycle between evidence coherence and recovery?",
+        "Can the independent bounded analyzer exhaust 4,838,400 one-step combinations with per-case witnesses under practical tool limits, or is a semantics-preserving analysis factorization required?",
+        "Can exactly 33 semantic interactions be lowered through exactly six uncredited root delegations and 39 raw connections using compatible flat enum or record ports with complete trace coverage?",
+        "Can owner-local contracts express simultaneous request, report, and control precedence so same-evaluation faults inhibit every ordinary state update while reset and verification stay on distinct evaluations?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Add two admission-to-evidence-state interactions; the resulting 15/35/28/11 allocation is realizable without changing domain behavior.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "CASE-25 requires accepted cancellation to clear both ShipEvidenceState and WarehouseEvidenceState. PART-08 and PART-09 currently receive only coherence update/freeze values. Evidence coherence receives no request or admission input, and request admission sends its decision only to PART-07 and PART-11. Thus a healthy active PENDING snapshot with a matching cancel gives PART-09 the same assigned inputs as the corresponding no-request snapshot even though the required next evidence states differ.",
+          "requested_change": "Add an AdmissionDecision input to PART-08 and PART-09 plus INT-34 request_admission.admission_decision -> ship_evidence_lifecycle.admission_decision and INT-35 request_admission.admission_decision -> warehouse_evidence_lifecycle.admission_decision. Revise exact targets from 33 to 35 semantic interactions and from 39 to 41 raw connections, including frontmatter edge_count, ARCH-01, INT-AUD-01, BOUND-02, PASS-01, DS-ALT-01, and DS-COUNT-01. Preserve all PARTs, 28 cases, 11 scenarios, priority, recovery, and domain behavior."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The extensional audit found a nonidentity local distinction for every claimed owner: PART-01 through PART-04 derive independently consumed many-to-one validity/kind/class/readiness facts; PART-05 through PART-10 make multi-input or prior-state-dependent choices; PART-11 through PART-13 classify proposal eligibility; PART-14 combines proposals by strict priority; and PART-15 combines decision and disposition while classifying mode/outcome. Exact-report, token, duplicate-publication, and unchanged-state copies receive no ownership credit.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted Regulate.sysml and accepted terminal run 20260813T013430Z-factory-dispatch-hard-r1-a1 demonstrate GUMBO state, initialize, compute cases, In(state), and a typechecked delayed feedback in which order_lifecycle publishes prior_order_state == In(retained_order), outcome_qualification derives qualified_outcome, and lifecycle consumes that result. Library revision 9016cbcceefa92f0068e1811923704dd261d15f1 and Sireum v4.20260630.386eac9f support the required flat Data attributes, directed ports, connections, and containment.",
+          "requested_change": "Publish every prior-state view from In(owner_state), constrain post-state from received directives, use attribute members for GUMBO-inspected records, and never substitute current/post-state outputs into prior-view interactions."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The declared product is exactly 9,600 input snapshots times 504 prior-state tuples, or 4,838,400 evaluations. Node v18.19.1 executed a same-cardinality arithmetic loop locally in 0.18 seconds, so there is no concrete resource basis to reduce the finite domains under the harness's 180-second watchdog. The harness checks exit, timeout, source hash, passed status, ownership evidence, zero diagnostic counters, and true checks, though oracle independence remains an auditable analyzer-design obligation.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "With the two required sibling flows, 35 semantic raw connections plus the unchanged six transparent root-to-container delegations yield 41 raw connections. This remains within the hard interaction bound and requires no extra library support connection, no new usage, and no containment change.",
+          "requested_change": "Trace new INT-34 and INT-35 as semantic interactions, update every exact inventory and count assertion, and keep the six delegations uncredited."
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved the narrow two-flow admission repair; final baseline is 15/35/28/11 with 41 raw connections.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Restored the interrupted Model decision handoff without changing source semantics; fresh SysML typechecking and bounded analysis passed, including source/metrics/trace hash consistency, hard 15/35/28/11 campaign-v1 counts, and passed=true on every ownership record.",
+      "canonical_source": "model/Mining_Cargo_Transfer_Evidence_Coordinator.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Accepted one validated source-bound system overview with 24 visible routes, zero crossings and route-object collisions, passed native review, and complete 170-association traceability review.",
+      "correction_cycles": 2,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CTRL-RES-01",
+        "CTX-SYS-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "INT-34",
+        "INT-35",
+        "MON-CTRL-01",
+        "MON-DOCK-01",
+        "MON-REQ-01",
+        "MON-SHIP-01",
+        "MON-WARE-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "PART-14",
+        "PART-15",
+        "SUPPORT-01",
+        "TYPE-DEC-01",
+        "TYPE-FACT-01"
+      ],
+      "reviewed_tagged_element_count": 170,
+      "reviewed_trace_association_count": 170,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Accepted: source-bound, owner-local hard-tier semantics and the retained visualization pass; no executable profile was declared.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 15,
+        "semantic_interactions": 35,
+        "nontrivial_contract_cases": 28,
+        "scenario_families": 11
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "request_admission",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "request_facts",
+            "dock_facts",
+            "prior_session_view",
+            "coordination_guard",
+            "In(requestLedger)"
+          ],
+          "owner_local_facts": [
+            "request disposition and next ledger"
+          ],
+          "contract_cases": [
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "exhaustive request admission partition"
+          ]
+        },
+        {
+          "usage": "evidence_coherence",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "ship_report_facts",
+            "warehouse_report_facts",
+            "control_event",
+            "prior_recovery_state",
+            "prior_session_view",
+            "prior_ship_evidence",
+            "prior_warehouse_evidence"
+          ],
+          "owner_local_facts": [
+            "fault trigger, recovery intent, qualified progress, and priority directive"
+          ],
+          "contract_cases": [
+            "CASE-21",
+            "CASE-22",
+            "CASE-23",
+            "CASE-24"
+          ],
+          "analyzer_checks": [
+            "exhaustive coherence and fault partition"
+          ]
+        },
+        {
+          "usage": "transfer_session",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "admission_decision",
+            "coordination_frame",
+            "In(sessionState)"
+          ],
+          "owner_local_facts": [
+            "next session phase and prior active-session view"
+          ],
+          "contract_cases": [
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "exhaustive session transition"
+          ]
+        },
+        {
+          "usage": "ship_evidence_lifecycle",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "ship_update",
+            "admission_decision",
+            "In(shipEvidenceState)"
+          ],
+          "owner_local_facts": [
+            "next ship evidence stage"
+          ],
+          "contract_cases": [
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "exhaustive ship evidence transition"
+          ]
+        },
+        {
+          "usage": "warehouse_evidence_lifecycle",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "warehouse_update",
+            "admission_decision",
+            "In(warehouseEvidenceState)"
+          ],
+          "owner_local_facts": [
+            "next warehouse evidence stage"
+          ],
+          "contract_cases": [
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "exhaustive warehouse evidence transition"
+          ]
+        },
+        {
+          "usage": "recovery_supervisor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recovery_transition",
+            "In(recoveryState)"
+          ],
+          "owner_local_facts": [
+            "next recovery state"
+          ],
+          "contract_cases": [
+            "CASE-22"
+          ],
+          "analyzer_checks": [
+            "exhaustive recovery transition"
+          ]
+        },
+        {
+          "usage": "request_action_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "admission_decision"
+          ],
+          "owner_local_facts": [
+            "correlated start or cancellation proposal"
+          ],
+          "contract_cases": [
+            "CASE-26"
+          ],
+          "analyzer_checks": [
+            "request proposal ownership check"
+          ]
+        },
+        {
+          "usage": "ship_progress_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "prior_session_view",
+            "prior_ship_evidence"
+          ],
+          "owner_local_facts": [
+            "phase-consistent ship continuation proposal"
+          ],
+          "contract_cases": [
+            "CASE-26"
+          ],
+          "analyzer_checks": [
+            "ship proposal ownership check"
+          ]
+        },
+        {
+          "usage": "warehouse_verification_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "prior_session_view",
+            "prior_ship_evidence",
+            "prior_warehouse_evidence"
+          ],
+          "owner_local_facts": [
+            "phase-consistent warehouse verification proposal"
+          ],
+          "contract_cases": [
+            "CASE-26"
+          ],
+          "analyzer_checks": [
+            "warehouse proposal ownership check"
+          ]
+        },
+        {
+          "usage": "transfer_action_arbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "priority_directive",
+            "request_proposal",
+            "ship_proposal",
+            "warehouse_proposal"
+          ],
+          "owner_local_facts": [
+            "single strict-priority transfer decision"
+          ],
+          "contract_cases": [
+            "CASE-27"
+          ],
+          "analyzer_checks": [
+            "strict priority conflict check"
+          ]
+        },
+        {
+          "usage": "result_composition",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "transfer_decision",
+            "request_disposition"
+          ],
+          "owner_local_facts": [
+            "atomic public mode, disposition, correlation, and outcome"
+          ],
+          "contract_cases": [
+            "CASE-28"
+          ],
+          "analyzer_checks": [
+            "atomic composition check"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Accepted: source-bound, owner-local hard-tier semantics and the retained visualization pass; no executable profile was declared.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

@@ -1,0 +1,1847 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "d4edf7ab89d07cfec03c783df4ab33931b2135029558ac6dd30c89d1acb0bc91",
+  "claim_boundary": "Exhaustive finite-domain consistency for the retained SysML/GUMBO relations over 8 lifecycle samples, 8 condition samples, and 5 pre-modes, plus all owner-local spaces; not execution, solver certification, compositional proof, generated-code correctness, physical performance, safety, or certification evidence.",
+  "domain": {
+    "lifecycle_samples": 8,
+    "condition_samples": 8,
+    "pre_modes": 5,
+    "root_input_combinations": 64,
+    "composed_snapshots": 320,
+    "owner_local_spaces": {
+      "lifecycle_qualification": 8,
+      "condition_qualification": 8,
+      "compatibility": 25,
+      "arbitration": 875,
+      "frame_derivation": 55
+    },
+    "malformed_class_tuples": 750,
+    "consistent_class_tuples": 125
+  },
+  "semantic_connection_map": {
+    "INT-01": {
+      "from": "root.lifecycle_sample",
+      "to": "lifecycle_indication_qualification.lifecycle_sample",
+      "type": "LifecycleSample"
+    },
+    "INT-02": {
+      "from": "root.condition_sample",
+      "to": "condition_indication_qualification.condition_sample",
+      "type": "ConditionSample"
+    },
+    "INT-03": {
+      "from": "lifecycle_indication_qualification.assessment_to_compatibility",
+      "to": "cross_channel_compatibility.lifecycle_assessment",
+      "type": "LifecycleAssessment"
+    },
+    "INT-04": {
+      "from": "condition_indication_qualification.assessment_to_compatibility",
+      "to": "cross_channel_compatibility.condition_assessment",
+      "type": "ConditionAssessment"
+    },
+    "INT-05": {
+      "from": "lifecycle_indication_qualification.assessment_to_arbiter",
+      "to": "controller_mode_arbitration.lifecycle_assessment",
+      "type": "LifecycleAssessment"
+    },
+    "INT-06": {
+      "from": "condition_indication_qualification.assessment_to_arbiter",
+      "to": "controller_mode_arbitration.condition_assessment",
+      "type": "ConditionAssessment"
+    },
+    "INT-07": {
+      "from": "cross_channel_compatibility.coordination_class",
+      "to": "controller_mode_arbitration.coordination_class",
+      "type": "CoordinationClass"
+    },
+    "INT-08": {
+      "from": "controller_mode_arbitration.mode_decision",
+      "to": "coordination_frame_derivation.mode_decision",
+      "type": "ModeDecision"
+    },
+    "INT-09": {
+      "from": "coordination_frame_derivation.mode_disposition",
+      "to": "root.mode_disposition",
+      "type": "ControllerModeDisposition"
+    },
+    "INT-10": {
+      "from": "coordination_frame_derivation.coordination_result",
+      "to": "root.coordination_result",
+      "type": "CoordinationResult"
+    }
+  },
+  "canonical_guard_manifest": [
+    {
+      "id": "CASE-01",
+      "guard": "invalid lifecycle or invalid condition or class inconsistent"
+    },
+    {
+      "id": "CASE-02",
+      "guard": "otherwise lifecycle OffRequested"
+    },
+    {
+      "id": "CASE-03",
+      "guard": "otherwise condition DegradedReported"
+    },
+    {
+      "id": "CASE-04",
+      "guard": "otherwise condition MaintenanceRequested"
+    },
+    {
+      "id": "CASE-05",
+      "guard": "otherwise class RecoveryConflict"
+    },
+    {
+      "id": "CASE-06",
+      "guard": "otherwise unopposed ReturnRequested in Maintenance or Degraded"
+    },
+    {
+      "id": "CASE-07",
+      "guard": "otherwise unopposed ReturnRequested in Off, Starting, or On"
+    },
+    {
+      "id": "CASE-08",
+      "guard": "otherwise OnRequested in Starting or On"
+    },
+    {
+      "id": "CASE-09",
+      "guard": "otherwise StartRequested in Off or Starting"
+    },
+    {
+      "id": "CASE-10",
+      "guard": "otherwise NoLifecycle and NoCondition"
+    },
+    {
+      "id": "CASE-11",
+      "guard": "every remaining valid transition"
+    }
+  ],
+  "partition_counts": {
+    "owner_local_875": {
+      "CASE-01": 795,
+      "CASE-02": 20,
+      "CASE-03": 15,
+      "CASE-04": 15,
+      "CASE-05": 10,
+      "CASE-06": 2,
+      "CASE-07": 3,
+      "CASE-08": 2,
+      "CASE-09": 2,
+      "CASE-10": 5,
+      "CASE-11": 6
+    },
+    "composed_root_320": {
+      "CASE-01": 240,
+      "CASE-02": 20,
+      "CASE-03": 15,
+      "CASE-04": 15,
+      "CASE-05": 10,
+      "CASE-06": 2,
+      "CASE-07": 3,
+      "CASE-08": 2,
+      "CASE-09": 2,
+      "CASE-10": 5,
+      "CASE-11": 6
+    }
+  },
+  "owner_fibers": {
+    "lifecycle_qualification": {
+      "NoLifecycle": 1,
+      "InvalidLifecycle": 4,
+      "StartRequested": 1,
+      "OnRequested": 1,
+      "OffRequested": 1
+    },
+    "condition_qualification": {
+      "NoCondition": 1,
+      "InvalidCondition": 4,
+      "MaintenanceRequested": 1,
+      "DegradedReported": 1,
+      "ReturnRequested": 1
+    },
+    "compatibility": {
+      "InvalidEvidence": 9,
+      "Quiet": 1,
+      "LifecycleOnly": 3,
+      "ConditionOnly": 3,
+      "OffDominantConflict": 3,
+      "ConditionDominantConflict": 4,
+      "RecoveryConflict": 2
+    },
+    "frame_result": {
+      "Applied": 30,
+      "Stable": 5,
+      "Rejected": 15,
+      "EvidenceFault": 5
+    }
+  },
+  "observations": {
+    "qualification_gaps": 0,
+    "compatibility_gaps": 0,
+    "effective_case_overlaps": 0,
+    "malformed_class_mismatches": 0,
+    "owner_local_mismatches": 0,
+    "next_state_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_mismatches": 0
+  },
+  "invariant_checks": {
+    "INIT-01": true,
+    "SEM-01": true,
+    "CONSIST-01": true,
+    "OUT-01": true
+  },
+  "checks": {
+    "exact_owner_local_spaces": true,
+    "exact_root_input_domain": true,
+    "exact_composed_snapshot_count": true,
+    "exact_semantic_connection_map": true,
+    "canonical_guard_manifest_complete": true,
+    "canonical_guards_total_and_exclusive": true,
+    "all_eleven_cases_witnessed": true,
+    "malformed_classes_fail_closed": true,
+    "required_outputs_match_oracle": true,
+    "initialization_safe": true,
+    "applied_decision_coherent": true,
+    "all_five_scenario_traces_passed": true,
+    "owner_local_cases_executed": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "lifecycle_indication_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "lifecycle_indication_qualification.lifecycle_sample"
+      ],
+      "owner_local_facts": [
+        "eight-value lifecycle applicability classification"
+      ],
+      "contract_cases": [
+        "QUAL_LIFE_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "lifecycle-owner-eight-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "condition_indication_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "condition_indication_qualification.condition_sample"
+      ],
+      "owner_local_facts": [
+        "eight-value condition applicability classification"
+      ],
+      "contract_cases": [
+        "QUAL_COND_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "condition-owner-eight-values"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "cross_channel_compatibility",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "cross_channel_compatibility.lifecycle_assessment",
+        "cross_channel_compatibility.condition_assessment"
+      ],
+      "owner_local_facts": [
+        "seven-valued cross-channel compatibility classification"
+      ],
+      "contract_cases": [
+        "COMPATIBILITY_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "compatibility-owner-twenty-five-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "controller_mode_arbitration",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "controller_mode_arbitration.lifecycle_assessment",
+        "controller_mode_arbitration.condition_assessment",
+        "controller_mode_arbitration.coordination_class",
+        "state.controllerMode"
+      ],
+      "owner_local_facts": [
+        "class-consistency defense",
+        "strict transition priority",
+        "applied next-mode decision"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11"
+      ],
+      "analyzer_checks": [
+        "arbiter-owner-eight-hundred-seventy-five-tuples",
+        "arbiter-canonical-guard-cross-check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "coordination_frame_derivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "coordination_frame_derivation.mode_decision"
+      ],
+      "owner_local_facts": [
+        "eleven-reason to four-result classification"
+      ],
+      "contract_cases": [
+        "FRAME_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "frame-owner-fifty-five-decisions"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "passed": true,
+      "initial_mode": "Off",
+      "final_mode": "Off",
+      "trace": [
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-09",
+          "expected": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Starting",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Starting",
+            "reason": "NoRequest",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Starting",
+            "reason": "NoRequest",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Starting",
+          "input": {
+            "lifecycle_sample": {
+              "event": "On",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-08",
+          "expected": {
+            "caseId": "CASE-08",
+            "nextMode": "On",
+            "reason": "OnAccepted",
+            "modeDisposition": "On",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-08",
+            "nextMode": "On",
+            "reason": "OnAccepted",
+            "modeDisposition": "On",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "On",
+            "reason": "NoRequest",
+            "modeDisposition": "On",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "On",
+            "reason": "NoRequest",
+            "modeDisposition": "On",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Off",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-02",
+          "expected": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "passed": true,
+      "initial_mode": "Off",
+      "final_mode": "Degraded",
+      "trace": [
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "On",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-11",
+          "expected": {
+            "caseId": "CASE-11",
+            "nextMode": "Off",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Off",
+            "coordinationResult": "Rejected"
+          },
+          "observed": {
+            "caseId": "CASE-11",
+            "nextMode": "Off",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Off",
+            "coordinationResult": "Rejected"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-09",
+          "expected": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Starting",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Starting",
+            "reason": "NoRequest",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Starting",
+            "reason": "NoRequest",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Starting",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-09",
+          "expected": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Starting",
+          "input": {
+            "lifecycle_sample": {
+              "event": "On",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-08",
+          "expected": {
+            "caseId": "CASE-08",
+            "nextMode": "On",
+            "reason": "OnAccepted",
+            "modeDisposition": "On",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-08",
+            "nextMode": "On",
+            "reason": "OnAccepted",
+            "modeDisposition": "On",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "On",
+            "reason": "NoRequest",
+            "modeDisposition": "On",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "On",
+            "reason": "NoRequest",
+            "modeDisposition": "On",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "On",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-08",
+          "expected": {
+            "caseId": "CASE-08",
+            "nextMode": "On",
+            "reason": "OnAccepted",
+            "modeDisposition": "On",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-08",
+            "nextMode": "On",
+            "reason": "OnAccepted",
+            "modeDisposition": "On",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-11",
+          "expected": {
+            "caseId": "CASE-11",
+            "nextMode": "On",
+            "reason": "TransitionRejected",
+            "modeDisposition": "On",
+            "coordinationResult": "Rejected"
+          },
+          "observed": {
+            "caseId": "CASE-11",
+            "nextMode": "On",
+            "reason": "TransitionRejected",
+            "modeDisposition": "On",
+            "coordinationResult": "Rejected"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Maintenance",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-04",
+          "expected": {
+            "caseId": "CASE-04",
+            "nextMode": "Maintenance",
+            "reason": "MaintenanceAccepted",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-04",
+            "nextMode": "Maintenance",
+            "reason": "MaintenanceAccepted",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-11",
+          "expected": {
+            "caseId": "CASE-11",
+            "nextMode": "Maintenance",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "observed": {
+            "caseId": "CASE-11",
+            "nextMode": "Maintenance",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Degraded",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-03",
+          "expected": {
+            "caseId": "CASE-03",
+            "nextMode": "Degraded",
+            "reason": "DegradedAccepted",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-03",
+            "nextMode": "Degraded",
+            "reason": "DegradedAccepted",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-11",
+          "expected": {
+            "caseId": "CASE-11",
+            "nextMode": "Degraded",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Rejected"
+          },
+          "observed": {
+            "caseId": "CASE-11",
+            "nextMode": "Degraded",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Rejected"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "passed": true,
+      "initial_mode": "On",
+      "final_mode": "Starting",
+      "trace": [
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Maintenance",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-04",
+          "expected": {
+            "caseId": "CASE-04",
+            "nextMode": "Maintenance",
+            "reason": "MaintenanceAccepted",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-04",
+            "nextMode": "Maintenance",
+            "reason": "MaintenanceAccepted",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "On",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-11",
+          "expected": {
+            "caseId": "CASE-11",
+            "nextMode": "Maintenance",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "observed": {
+            "caseId": "CASE-11",
+            "nextMode": "Maintenance",
+            "reason": "TransitionRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "ReturnToNormal",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-06",
+          "expected": {
+            "caseId": "CASE-06",
+            "nextMode": "Off",
+            "reason": "ReturnAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-06",
+            "nextMode": "Off",
+            "reason": "ReturnAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-09",
+          "expected": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-09",
+            "nextMode": "Starting",
+            "reason": "StartAccepted",
+            "modeDisposition": "Starting",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "passed": true,
+      "initial_mode": "On",
+      "final_mode": "Off",
+      "trace": [
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Degraded",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-03",
+          "expected": {
+            "caseId": "CASE-03",
+            "nextMode": "Degraded",
+            "reason": "DegradedAccepted",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-03",
+            "nextMode": "Degraded",
+            "reason": "DegradedAccepted",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Invalid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-01",
+          "expected": {
+            "caseId": "CASE-01",
+            "nextMode": "Degraded",
+            "reason": "InvalidEvidence",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "EvidenceFault"
+          },
+          "observed": {
+            "caseId": "CASE-01",
+            "nextMode": "Degraded",
+            "reason": "InvalidEvidence",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "EvidenceFault"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Maintenance",
+              "status": "Invalid"
+            }
+          },
+          "expected_named_branch": "CASE-01",
+          "expected": {
+            "caseId": "CASE-01",
+            "nextMode": "Degraded",
+            "reason": "InvalidEvidence",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "EvidenceFault"
+          },
+          "observed": {
+            "caseId": "CASE-01",
+            "nextMode": "Degraded",
+            "reason": "InvalidEvidence",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "EvidenceFault"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "ReturnToNormal",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-06",
+          "expected": {
+            "caseId": "CASE-06",
+            "nextMode": "Off",
+            "reason": "ReturnAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-06",
+            "nextMode": "Off",
+            "reason": "ReturnAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "passed": true,
+      "initial_mode": "On",
+      "final_mode": "Off",
+      "trace": [
+        {
+          "pre_mode": "On",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Off",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Maintenance",
+              "status": "Invalid"
+            }
+          },
+          "expected_named_branch": "CASE-01",
+          "expected": {
+            "caseId": "CASE-01",
+            "nextMode": "Degraded",
+            "reason": "InvalidEvidence",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "EvidenceFault"
+          },
+          "observed": {
+            "caseId": "CASE-01",
+            "nextMode": "Degraded",
+            "reason": "InvalidEvidence",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "EvidenceFault"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Off",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Maintenance",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-02",
+          "expected": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Off",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Degraded",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-02",
+          "expected": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Off",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "ReturnToNormal",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-02",
+          "expected": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-02",
+            "nextMode": "Off",
+            "reason": "OffAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Degraded",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-03",
+          "expected": {
+            "caseId": "CASE-03",
+            "nextMode": "Degraded",
+            "reason": "DegradedAccepted",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-03",
+            "nextMode": "Degraded",
+            "reason": "DegradedAccepted",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Degraded",
+            "reason": "NoRequest",
+            "modeDisposition": "Degraded",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Degraded",
+          "input": {
+            "lifecycle_sample": {
+              "event": "On",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "Maintenance",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-04",
+          "expected": {
+            "caseId": "CASE-04",
+            "nextMode": "Maintenance",
+            "reason": "MaintenanceAccepted",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-04",
+            "nextMode": "Maintenance",
+            "reason": "MaintenanceAccepted",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "Start",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "ReturnToNormal",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-05",
+          "expected": {
+            "caseId": "CASE-05",
+            "nextMode": "Maintenance",
+            "reason": "ConflictingRequestsRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "observed": {
+            "caseId": "CASE-05",
+            "nextMode": "Maintenance",
+            "reason": "ConflictingRequestsRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "On",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "ReturnToNormal",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-05",
+          "expected": {
+            "caseId": "CASE-05",
+            "nextMode": "Maintenance",
+            "reason": "ConflictingRequestsRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "observed": {
+            "caseId": "CASE-05",
+            "nextMode": "Maintenance",
+            "reason": "ConflictingRequestsRejected",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Rejected"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Maintenance",
+            "reason": "NoRequest",
+            "modeDisposition": "Maintenance",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Maintenance",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "ReturnToNormal",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-06",
+          "expected": {
+            "caseId": "CASE-06",
+            "nextMode": "Off",
+            "reason": "ReturnAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "observed": {
+            "caseId": "CASE-06",
+            "nextMode": "Off",
+            "reason": "ReturnAccepted",
+            "modeDisposition": "Off",
+            "coordinationResult": "Applied"
+          },
+          "passed": true
+        },
+        {
+          "pre_mode": "Off",
+          "input": {
+            "lifecycle_sample": {
+              "event": "NoLifecycleEvent",
+              "status": "Valid"
+            },
+            "condition_sample": {
+              "event": "NoConditionEvent",
+              "status": "Valid"
+            }
+          },
+          "expected_named_branch": "CASE-10",
+          "expected": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "observed": {
+            "caseId": "CASE-10",
+            "nextMode": "Off",
+            "reason": "NoRequest",
+            "modeDisposition": "Off",
+            "coordinationResult": "Stable"
+          },
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

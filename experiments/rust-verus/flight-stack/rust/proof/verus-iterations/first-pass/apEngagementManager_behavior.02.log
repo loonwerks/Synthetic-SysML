@@ -1,0 +1,29 @@
+RUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none
+   Compiling apEngagementManager_behavior v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/apEngagementManager_behavior)
+error[E0061]: this function takes 9 arguments but 8 arguments were supplied
+    --> src/component/apEngagementManager_behavior_app.rs:74:7
+     |
+  74 |       FlightStack_Spec::CASE_AP_03_spec(
+     |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  75 |         old(self).apMode, old(api).apDisposition,
+  76 |         old(api).qualifiedAttitude, self.apMode,
+     |                                     ----------- argument #4 of type `data::FlightStack::ApGuidanceAndValidity` is missing
+     |
+note: function defined here
+    --> experiments/rust-verus/flight-stack/rust/hamr/crates/FlightStack/src/lib.rs:1031:20
+     |
+1031 |   pub open spec fn CASE_AP_03_spec(
+     |                    ^^^^^^^^^^^^^^^
+help: provide the argument
+     |
+  74 -       FlightStack_Spec::CASE_AP_03_spec(
+  75 -         old(self).apMode, old(api).apDisposition,
+  76 -         old(api).qualifiedAttitude, self.apMode,
+  77 -         api.pairedApStatus, api.apGuidanceRequest,
+  78 -         api.apActiveClearInhibit, api.actuationAuthority),
+  74 +       FlightStack_Spec::CASE_AP_03_spec(old(self).apMode, old(api).apDisposition, old(api).qualifiedAttitude, /* data::FlightStack::ApGuidanceAndValidity */, self.apMode, api.pairedApStatus, api.apGuidanceRequest, api.actuationAuthority, api.apActiveClearInhibit),
+     |
+
+For more information about this error, try `rustc --explain E0061`.
+error: could not compile `apEngagementManager_behavior` (lib) due to 1 previous error
+make: *** [Makefile:32: verus] Error 101

@@ -1,0 +1,698 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/observation-acquisition-and-radio-delivery-coordinator/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/observation-acquisition-and-radio-delivery-coordinator/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/observation-acquisition-and-radio-delivery-coordinator/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INCONCLUSIVE",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/observation-acquisition-and-radio-delivery-coordinator/agent/M-star.sysml",
+    "oracle": "datasets/observation-acquisition-and-radio-delivery-coordinator/evaluator/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": null,
+  "run_status": "INCONCLUSIVE",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-d0df72c272:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.BatteryEvidenceQualifier_coordinatorProcess_batteryEvidenceQualifier_GumboX.inititialize_IEP_Post(batterycapacity, batterycheck, batteryassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-d0df72c272:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-d0df72c272:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-d0df72c272:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.BatteryEvidenceQualifier_coordinatorProcess_batteryEvidenceQualifier_GumboX.inititialize_IEP_Post(batterycapacity, batterycheck, batteryassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-d0df72c272:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::batteryEvidenceQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-b7125346bb:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.BatteryEvidenceQualifier_coordinatorProcess_batteryEvidenceQualifier_GumboX.compute_CEP_Post(batterycapacity, batterycheck, batteryassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-b7125346bb:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-b7125346bb:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-b7125346bb:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.BatteryEvidenceQualifier_coordinatorProcess_batteryEvidenceQualifier_GumboX.compute_CEP_Post(batterycapacity, batterycheck, batteryassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-b7125346bb:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::batteryEvidenceQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-790a92ff2a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CameraEvidenceQualifier_coordinatorProcess_cameraEvidenceQualifier_GumboX.inititialize_IEP_Post(cameracondition, captureresult, cameraevidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-790a92ff2a:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-790a92ff2a:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-790a92ff2a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CameraEvidenceQualifier_coordinatorProcess_cameraEvidenceQualifier_GumboX.inititialize_IEP_Post(cameracondition, captureresult, cameraevidence))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-790a92ff2a:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::cameraEvidenceQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-fd00533b81:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CameraEvidenceQualifier_coordinatorProcess_cameraEvidenceQualifier_GumboX.compute_CEP_Post(cameracondition, captureresult, cameraevidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-fd00533b81:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-fd00533b81:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-fd00533b81:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CameraEvidenceQualifier_coordinatorProcess_cameraEvidenceQualifier_GumboX.compute_CEP_Post(cameracondition, captureresult, cameraevidence))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-fd00533b81:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::cameraEvidenceQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-f8eaaf9c2b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CoordinationOutcomePolicy_coordinatorProcess_coordinationOutcomePolicy_GumboX.inititialize_IEP_Post(batteryassessment, sessionsnapshot, dronecontrolobservationnotice, operatorcoordinationstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-f8eaaf9c2b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-f8eaaf9c2b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CoordinationOutcomePolicy_coordinatorProcess_coordinationOutcomePolicy_GumboX.inititialize_IEP_Post(batteryassessment, sessionsnapshot, dronecontrolobservationnotice, operatorcoordinationstatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-f8eaaf9c2b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::coordinationOutcomePolicy::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-5cd4c81b28:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CoordinationOutcomePolicy_coordinatorProcess_coordinationOutcomePolicy_GumboX.compute_CEP_Post(batteryassessment, sessionsnapshot, dronecontrolobservationnotice, operatorcoordinationstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-5cd4c81b28:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-5cd4c81b28:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CoordinationOutcomePolicy_coordinatorProcess_coordinationOutcomePolicy_GumboX.compute_CEP_Post(batteryassessment, sessionsnapshot, dronecontrolobservationnotice, operatorcoordinationstatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-5cd4c81b28:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::coordinationOutcomePolicy::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cf062147e0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationIntentArbiter_coordinatorProcess_observationIntentArbiter_GumboX.inititialize_IEP_Post(observationintent, sessionproposal, sessiondecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cf062147e0:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cf062147e0:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cf062147e0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationIntentArbiter_coordinatorProcess_observationIntentArbiter_GumboX.inititialize_IEP_Post(observationintent, sessionproposal, sessiondecision))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cf062147e0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::observationIntentArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-a7bd0fd69e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationIntentArbiter_coordinatorProcess_observationIntentArbiter_GumboX.compute_CEP_Post(observationintent, sessionproposal, sessiondecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-a7bd0fd69e:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-a7bd0fd69e:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-a7bd0fd69e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationIntentArbiter_coordinatorProcess_observationIntentArbiter_GumboX.compute_CEP_Post(observationintent, sessionproposal, sessiondecision))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-a7bd0fd69e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::observationIntentArbiter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-8f4d576264:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationSessionController_coordinatorProcess_observationSessionController_GumboX.inititialize_IEP_Post(committedsession, cameraacquisitioncommand, radiodeliverycommand, sessionphaseoutput, sessionsnapshot))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-8f4d576264:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-8f4d576264:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-8f4d576264:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationSessionController_coordinatorProcess_observationSessionController_GumboX.inititialize_IEP_Post(committedsession, cameraacquisitioncommand, radiodeliverycommand, sessionphaseoutput, sessionsnapshot))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-8f4d576264:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::observationSessionController::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-7706f9c177:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationSessionController_coordinatorProcess_observationSessionController_GumboX.compute_CEP_Post(in_committedsession, committedsession, sessiondecision, cameraacquisitioncommand, radiodeliverycommand, sessionphaseoutput, sessionsnapshot))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-7706f9c177:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-7706f9c177:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationSessionController_coordinatorProcess_observationSessionController_GumboX.compute_CEP_Post(in_committedsession, committedsession, sessiondecision, cameraacquisitioncommand, radiodeliverycommand, sessionphaseoutput, sessionsnapshot))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-7706f9c177:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::observationSessionController::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-3215aff672:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.RadioEvidenceQualifier_coordinatorProcess_radioEvidenceQualifier_GumboX.inititialize_IEP_Post(deliveryresult, radiocondition, radioevidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-3215aff672:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-3215aff672:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-3215aff672:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.RadioEvidenceQualifier_coordinatorProcess_radioEvidenceQualifier_GumboX.inititialize_IEP_Post(deliveryresult, radiocondition, radioevidence))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-3215aff672:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::radioEvidenceQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-bdbc518ad8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.RadioEvidenceQualifier_coordinatorProcess_radioEvidenceQualifier_GumboX.compute_CEP_Post(deliveryresult, radiocondition, radioevidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-bdbc518ad8:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-bdbc518ad8:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-bdbc518ad8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.RadioEvidenceQualifier_coordinatorProcess_radioEvidenceQualifier_GumboX.compute_CEP_Post(deliveryresult, radiocondition, radioevidence))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-bdbc518ad8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::radioEvidenceQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-88e03f552b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, sessionproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-88e03f552b:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-88e03f552b:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-88e03f552b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, sessionproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-88e03f552b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::sessionProposalOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-c6fce97ed4:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SortieApplicabilityQualifier_coordinatorProcess_sortieApplicabilityQualifier_GumboX.inititialize_IEP_Post(batteryassessment, sortiecontext, sortiequalification))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-c6fce97ed4:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-c6fce97ed4:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-c6fce97ed4:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SortieApplicabilityQualifier_coordinatorProcess_sortieApplicabilityQualifier_GumboX.inititialize_IEP_Post(batteryassessment, sortiecontext, sortiequalification))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-c6fce97ed4:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::sortieApplicabilityQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cbc61978c6:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SortieApplicabilityQualifier_coordinatorProcess_sortieApplicabilityQualifier_GumboX.compute_CEP_Post(batteryassessment, sortiecontext, sortiequalification))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cbc61978c6:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cbc61978c6:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cbc61978c6:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SortieApplicabilityQualifier_coordinatorProcess_sortieApplicabilityQualifier_GumboX.compute_CEP_Post(batteryassessment, sortiecontext, sortiequalification))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-observation-acquisition-radio-delivery-coor-cbc61978c6:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Observation_Acquisition_Radio_Delivery_Coordinator::ObservationAcquisitionRadioDeliveryCoordinator/root-instance::ObservationAcquisitionRadioDeliveryCoordinator_Instance/component::ObservationAcquisitionRadioDeliveryCoordinator_Instance::coordinatorProcess::sortieApplicabilityQualifier::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

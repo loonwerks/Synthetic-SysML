@@ -1,0 +1,39 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "UNKNOWN",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/mining-threat-response-and-retreat-supervisor/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/mining-threat-response-and-retreat-supervisor/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/mining-threat-response-and-retreat-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INVALID_INPUT",
+  "diagnostics": [
+    "InventoryInvalidInput: Wrote /tmp/equiv-inventory-batch-1lcekof3/inventory-0.json\n* file:///tmp/equiv-result-staging-dwra3264/bundle/inputs/candidate.sysml\n  - [337, 29] Expecting type 'String', but 'Z' found.\n  - [880, 4] Dispatch Protocol not specified for thread fa, assuming Sporadic\n  - [881, 4] Dispatch Protocol not specified for thread tq, assuming Sporadic\n  - [882, 4] Dispatch Protocol not specified for thread rq, assuming Sporadic\n  - [883, 4] Dispatch Protocol not specified for thread pq, assuming Sporadic\n  - [884, 4] Dispatch Protocol not specified for thread mr, assuming Sporadic\n  - [885, 4] Dispatch Protocol not specified for thread tr, assuming Sporadic\n  - [886, 4] Dispatch Protocol not specified for thread arb, assuming Sporadic\n  - [887, 4] Dispatch Protocol not specified for thread ap, assuming Sporadic\n  - [935, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"mining_threat_retreat_supervisor\", Attr(Some([/candidate.sysml, 935, 7])))), Attr(Some([/candidate.sysml, 935, 7])))), [TypingsSpecialization([Name([Id(\"Mining_Threat_Retreat_Supervisor_Root\", Attr(Some([/candidate.sysml, 935, 42])))], Attr(Some([/candidate.sysml, 935, 42])))])], None(), [], None(), ResolvedAttr(Some([/candidate.sysml, 935, 2]), None(), None())))\nGUMBO_INVENTORY_RESULT=INVALID_INPUT"
+  ],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/mining-threat-response-and-retreat-supervisor/agent/M-star.sysml",
+    "oracle": "datasets/mining-threat-response-and-retreat-supervisor/evaluator/oracle.sysml"
+  },
+  "oracle_health": "UNKNOWN",
+  "result": null,
+  "run_status": "INCONCLUSIVE",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [],
+  "verification": "verification.json"
+}

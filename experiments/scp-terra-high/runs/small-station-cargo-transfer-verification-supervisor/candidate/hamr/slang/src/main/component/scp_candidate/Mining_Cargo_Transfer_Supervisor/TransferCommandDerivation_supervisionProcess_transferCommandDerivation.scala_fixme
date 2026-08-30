@@ -1,0 +1,34 @@
+// #Sireum
+
+package scp_candidate.Mining_Cargo_Transfer_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object TransferCommandDerivation_supervisionProcess_transferCommandDerivation {
+
+  // BEGIN FUNCTIONS
+  @strictpure def commandFor(value: Mining_Cargo_Transfer_Supervisor.TransferResolution): Mining_Cargo_Transfer_Supervisor.CargoTransferCommand.Type = if (value.disposition == TransferDisposition.BeginAccepted) CargoTransferCommand.BeginOffload else CargoTransferCommand.Hold
+  // END FUNCTIONS
+
+  def initialise(api: TransferCommandDerivation_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_COMMAND_SAFE
+        api.command == CargoTransferCommand.Hold
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_command(Mining_Cargo_Transfer_Supervisor.CargoTransferCommand.Hold)
+  }
+
+  def finalise(api: TransferCommandDerivation_Operational_Api): Unit = { }
+}

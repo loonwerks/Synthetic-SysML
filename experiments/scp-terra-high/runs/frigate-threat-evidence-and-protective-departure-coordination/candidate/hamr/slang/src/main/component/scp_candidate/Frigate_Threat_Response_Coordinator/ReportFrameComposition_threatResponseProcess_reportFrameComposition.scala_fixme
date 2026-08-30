@@ -1,0 +1,36 @@
+// #Sireum
+
+package scp_candidate.Frigate_Threat_Response_Coordinator
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ReportFrameComposition_threatResponseProcess_reportFrameComposition {
+
+  def initialise(api: ReportFrameComposition_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_RESPONSE_FRAME
+        api.responseFrameOut.threatReport == ThreatReport.UNKNOWN &
+          api.responseFrameOut.defenseDirective == DefenseDirective.STANDBY &
+          api.responseFrameOut.escapeDirective == EscapeDirective.STAY &
+          api.responseFrameOut.responsePattern == ResponsePattern.OBSERVE &
+          api.responseFrameOut.responseStage == ResponseStage.INITIALIZING &
+          api.responseFrameOut.defenseCondition == DefenseChannelCondition.AVAILABLE &
+          api.responseFrameOut.escapeCondition == EscapeChannelCondition.AVAILABLE
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_responseFrameOut(Frigate_Threat_Response_Coordinator.ResponseFrame.example())
+  }
+
+  def finalise(api: ReportFrameComposition_Operational_Api): Unit = { }
+}

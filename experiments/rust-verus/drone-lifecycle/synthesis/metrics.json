@@ -1,0 +1,148 @@
+{
+  "schema_version": 2,
+  "source_sha256": "5a030ca834e68299b0ae0ce79360160ed0f5656c1283f44869126fccc83bf621",
+  "root_definition": "Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System",
+  "root_usage": "drone_lifecycle_governor",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 5,
+    "generated_support_processes": 1,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "semantic_containment_depth": [1, 2],
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 11,
+    "boundary_semantic_interactions": 6,
+    "internal_semantic_interactions": 5,
+    "generated_support_delegations": 12,
+    "raw_port_connection_declarations": 17,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2,
+      "INT-02": 1,
+      "INT-03": 2,
+      "INT-04": 1,
+      "INT-05": 1,
+      "INT-06": 2,
+      "INT-07": 1,
+      "INT-08": 1,
+      "INT-09": 2,
+      "INT-10": 2,
+      "INT-11": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_principal_contract_cases": 11,
+    "principal_case_owner": "PART-03",
+    "owner_local_total_equations": 4,
+    "safe_initialization_guarantees": 5,
+    "state_invariant_guarantees": 1,
+    "identity_forwarding_cases_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "finite_root_input_and_state_snapshots": 2560,
+    "partition_counts": {
+      "CASE-01": 2240,
+      "CASE-02": 140,
+      "CASE-03": 20,
+      "CASE-04": 20,
+      "CASE-05": 4,
+      "CASE-06": 1,
+      "CASE-07": 4,
+      "CASE-08": 2,
+      "CASE-09": 2,
+      "CASE-10": 4,
+      "CASE-11": 123
+    },
+    "partition_gaps": 0,
+    "effective_partition_overlaps": 0,
+    "state_mismatches": 0,
+    "disposition_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_families": 5,
+    "scenario_failures": 0,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    }
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 11,
+    "nontrivial_contract_cases": 11,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "request_qualification",
+        "trace_id": "PART-01",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["request_qualification.request_sample"],
+        "owner_local_facts": ["16 request/status combinations classified into nine validity-aware qualified requests"],
+        "contract_cases": ["REQUEST_QUALIFICATION_TOTAL"],
+        "analyzer_checks": ["PART-01 total 16-to-9 relation", "INT-01 to INT-02 consumption"]
+      },
+      {
+        "usage": "battery_evidence_assessment",
+        "trace_id": "PART-02",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["battery_evidence_assessment.battery_sample"],
+        "owner_local_facts": ["four battery indication/status combinations classified into three evidence results"],
+        "contract_cases": ["BATTERY_ASSESSMENT_TOTAL"],
+        "analyzer_checks": ["PART-02 total 4-to-3 relation", "purposeful INT-04 and INT-05 fan-out"]
+      },
+      {
+        "usage": "lifecycle_governor",
+        "trace_id": "PART-03",
+        "claimed_roles": ["principal-decision", "persistent-state", "charge-qualification"],
+        "assigned_inputs": ["lifecycle_governor.qualified_request", "lifecycle_governor.battery_evidence", "lifecycle_governor.charge_sample", "lifecycle_governor.current_phase", "lifecycle_governor.recovery_required"],
+        "owner_local_facts": ["three-valued charge qualification", "strict eleven-case lifecycle partition", "next phase and recovery state", "decision disposition"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11"],
+        "analyzer_checks": ["eleven-case effective partition", "next-state and disposition equivalence", "recovery invariant"]
+      },
+      {
+        "usage": "enablement_derivation",
+        "trace_id": "PART-04",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["enablement_derivation.selected_phase"],
+        "owner_local_facts": ["five phases classified into three independently meaningful permission fields"],
+        "contract_cases": ["ENABLEMENT_TOTAL"],
+        "analyzer_checks": ["PART-04 three-field relation consuming INT-07"]
+      },
+      {
+        "usage": "pilot_notice_derivation",
+        "trace_id": "PART-05",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["pilot_notice_derivation.decision_disposition", "pilot_notice_derivation.battery_evidence"],
+        "owner_local_facts": ["ordered six-result notice resolution across 48 disposition/battery combinations"],
+        "contract_cases": ["NOTICE_PRIORITY_TOTAL"],
+        "analyzer_checks": ["PART-05 ordered relation consuming INT-08 and INT-05"]
+      }
+    ],
+    "features": {
+      "multiple_principal_decision_owners": false,
+      "priority_conflict": true,
+      "fault_response": true,
+      "recovery": true,
+      "owner_local_composition": true
+    }
+  },
+  "metric_boundary": "The 5/11/11/5 tuple counts PART-01 through PART-05, INT-01 through INT-11 once each, CASE-01 through CASE-11, and SCN-01 through SCN-05. It excludes the root, support Process, twelve delegations, datatypes, initialization, invariant, qualification and output equations, identity routing, analyzer fixtures, and duplicate end-to-end statements."
+}

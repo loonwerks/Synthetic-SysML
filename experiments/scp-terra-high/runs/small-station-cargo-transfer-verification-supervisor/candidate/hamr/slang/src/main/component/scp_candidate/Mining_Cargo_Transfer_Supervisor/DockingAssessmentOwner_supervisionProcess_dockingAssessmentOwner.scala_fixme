@@ -1,0 +1,34 @@
+// #Sireum
+
+package scp_candidate.Mining_Cargo_Transfer_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner {
+
+  // BEGIN FUNCTIONS
+  @strictpure def assessDocking(sample: Mining_Cargo_Transfer_Supervisor.DockingSample): Mining_Cargo_Transfer_Supervisor.DockingAssessment.Type = if (sample.status == InputStatus.Invalid) DockingAssessment.InvalidDocking else if (sample.docking == DockingObservation.Docked) DockingAssessment.DockedAssessment else DockingAssessment.NotDockedAssessment
+  // END FUNCTIONS
+
+  def initialise(api: DockingAssessmentOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_DOCKING_ASSESSMENT
+        api.dockingAssessment == DockingAssessment.InvalidDocking
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_dockingAssessment(Mining_Cargo_Transfer_Supervisor.DockingAssessment.InvalidDocking)
+  }
+
+  def finalise(api: DockingAssessmentOwner_Operational_Api): Unit = { }
+}

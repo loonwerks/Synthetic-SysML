@@ -1,0 +1,104 @@
+{
+  "source": "model/Vehicle_Start_Readiness_Recovery_Supervisor.sysml",
+  "source_sha256": "1a4cb0d0296ebe42b7b525f88eb330dda0cfdc2ed36398b51cd031ec104eb8da",
+  "root_system_usages": 1,
+  "semantic_usages": 8,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 9,
+  "all_usages_including_root": 10,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 19,
+  "generated_support_routes": 6,
+  "source_port_connection_declarations": 25,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 8,
+  "state_owners": 3,
+  "gumbo_inspected_data_fields": 26,
+  "gumbo_inspected_fields_declared_as_attributes": 26,
+  "architecture_repairs": 3,
+  "contract_repairs": 0,
+  "analyzer_repairs": 1,
+  "trace_annotation_repairs": 0,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 19,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {
+        "usage": "request_priority_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["request_priority_owner.request_levels", "state.previous_request_levels"],
+        "owner_local_facts": ["offActive", "freshReturn", "freshStart", "requestConflict", "requestDisposition"],
+        "contract_cases": ["REQUEST_PRIORITY_DERIVATION"],
+        "analyzer_checks": ["request-owner-64-pairs"]
+      },
+      {
+        "usage": "brake_qualification_owner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["brake_qualification_owner.brake_observation"],
+        "owner_local_facts": ["brakeEvidenceTrusted", "brakeReadyForAdmission"],
+        "contract_cases": ["BRAKE_FACT_DERIVATION"],
+        "analyzer_checks": ["brake-owner-three-values"]
+      },
+      {
+        "usage": "health_qualification_owner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["health_qualification_owner.health_observation"],
+        "owner_local_facts": ["combinedHealthQualification", "invalidOverNotReadyPriority"],
+        "contract_cases": ["HEALTH_QUALIFICATION_DERIVATION"],
+        "analyzer_checks": ["health-owner-nine-values"]
+      },
+      {
+        "usage": "power_qualification_owner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["power_qualification_owner.power_observation"],
+        "owner_local_facts": ["powerEvidenceTrusted", "powerAvailableForSupervision"],
+        "contract_cases": ["POWER_FACT_DERIVATION"],
+        "analyzer_checks": ["power-owner-three-values"]
+      },
+      {
+        "usage": "self_test_cycle_owner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["self_test_cycle_owner.self_test_observation", "self_test_cycle_owner.test_cycle_directive", "state.committed_test_cycle"],
+        "owner_local_facts": ["preUpdateCycleAssessment", "postUpdateCommittedTestCycle"],
+        "contract_cases": ["PRE_UPDATE_CYCLE_ASSESSMENT", "INDEPENDENT_TEST_CYCLE_STORAGE"],
+        "analyzer_checks": ["cycle-owner-112-tuples"]
+      },
+      {
+        "usage": "start_authorization_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["start_authorization_owner.request_facts", "start_authorization_owner.brake_facts", "start_authorization_owner.health_qualification", "start_authorization_owner.power_facts"],
+        "owner_local_facts": ["fiveWayStartDecision"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05"],
+        "analyzer_checks": ["authorization-total-exclusive-product"]
+      },
+      {
+        "usage": "lifecycle_recovery_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["lifecycle_recovery_owner.request_facts", "lifecycle_recovery_owner.brake_facts", "lifecycle_recovery_owner.health_qualification", "lifecycle_recovery_owner.power_facts", "lifecycle_recovery_owner.cycle_assessment", "lifecycle_recovery_owner.authorization", "state.lifecycle_mode"],
+        "owner_local_facts": ["nextLifecycleMode", "lifecycleReason", "testCycleDirective"],
+        "contract_cases": ["CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12", "CASE-13", "CASE-14", "CASE-15", "CASE-16", "CASE-17", "CASE-18", "CASE-19", "CASE-20"],
+        "analyzer_checks": ["lifecycle-total-exclusive-product"]
+      },
+      {
+        "usage": "coordinated_outcome_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["coordinated_outcome_owner.authorization", "coordinated_outcome_owner.applied_lifecycle"],
+        "owner_local_facts": ["atomicControlFrame", "failClosedStatusPrecedence"],
+        "contract_cases": ["STARTING_AND_ON_FRAME_MAPPING", "DEGRADED_FRAME_MAPPING", "OFF_FRAME_MAPPING"],
+        "analyzer_checks": ["complete-frame-oracle-product"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

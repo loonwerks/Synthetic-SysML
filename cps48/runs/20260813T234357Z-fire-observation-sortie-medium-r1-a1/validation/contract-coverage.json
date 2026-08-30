@@ -1,0 +1,1017 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "b8571ac04301cacfd65c4fe66d61545a53a92f20025031ed6987fed27a04db90",
+  "claim_boundary": "Exhaustive finite logical conformance evidence only; no execution, unbounded proof, physical-performance, safety, certification, or generated-code claim.",
+  "bounded_analysis_claim_boundary": "Exhaustive only for the frozen finite logical domains, one-evaluation composition, and eight named bounded traces; not execution, unbounded temporal proof, physical performance, safety, certification, or compositional proof.",
+  "gaps": 0,
+  "overlaps": 0,
+  "mismatches": 0,
+  "required_output_mismatches": 0,
+  "invariant_violations": 0,
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "source": "root.batteryCapacity",
+      "destination": "BatteryEvidenceQualifier.batteryCapacity",
+      "type": "BatteryCapacityBand"
+    },
+    {
+      "id": "INT-02",
+      "source": "root.batteryCheck",
+      "destination": "BatteryEvidenceQualifier.batteryCheck",
+      "type": "BatteryCheck"
+    },
+    {
+      "id": "INT-03",
+      "source": "root.sortieContext",
+      "destination": "SortieApplicabilityQualifier.sortieContext",
+      "type": "SortieContext"
+    },
+    {
+      "id": "INT-04",
+      "source": "root.cameraCondition",
+      "destination": "CameraEvidenceQualifier.cameraCondition",
+      "type": "CameraCondition"
+    },
+    {
+      "id": "INT-05",
+      "source": "root.captureResult",
+      "destination": "CameraEvidenceQualifier.captureResult",
+      "type": "CaptureResult"
+    },
+    {
+      "id": "INT-06",
+      "source": "root.radioCondition",
+      "destination": "RadioEvidenceQualifier.radioCondition",
+      "type": "RadioCondition"
+    },
+    {
+      "id": "INT-07",
+      "source": "root.deliveryResult",
+      "destination": "RadioEvidenceQualifier.deliveryResult",
+      "type": "DeliveryResult"
+    },
+    {
+      "id": "INT-08",
+      "source": "root.observationIntent",
+      "destination": "ObservationIntentArbiter.observationIntent",
+      "type": "ObservationIntent"
+    },
+    {
+      "id": "INT-09",
+      "source": "BatteryEvidenceQualifier.batteryAssessment",
+      "destination": "SortieApplicabilityQualifier.batteryAssessment",
+      "type": "BatteryAssessment"
+    },
+    {
+      "id": "INT-10",
+      "source": "BatteryEvidenceQualifier.batteryAssessment",
+      "destination": "CoordinationOutcomePolicy.batteryAssessment",
+      "type": "BatteryAssessment"
+    },
+    {
+      "id": "INT-11",
+      "source": "SortieApplicabilityQualifier.sortieQualification",
+      "destination": "SessionProposalOwner.sortieQualification",
+      "type": "SortieQualification"
+    },
+    {
+      "id": "INT-12",
+      "source": "CameraEvidenceQualifier.cameraEvidence",
+      "destination": "SessionProposalOwner.cameraEvidence",
+      "type": "CameraEvidence"
+    },
+    {
+      "id": "INT-13",
+      "source": "RadioEvidenceQualifier.radioEvidence",
+      "destination": "SessionProposalOwner.radioEvidence",
+      "type": "RadioEvidence"
+    },
+    {
+      "id": "INT-14",
+      "source": "ObservationSessionController.sessionPhaseOutput",
+      "destination": "SessionProposalOwner.sessionPhaseInput",
+      "type": "ObservationSessionState"
+    },
+    {
+      "id": "INT-15",
+      "source": "SessionProposalOwner.sessionProposal",
+      "destination": "ObservationIntentArbiter.sessionProposal",
+      "type": "SessionProposal"
+    },
+    {
+      "id": "INT-16",
+      "source": "ObservationIntentArbiter.sessionDecision",
+      "destination": "ObservationSessionController.sessionDecision",
+      "type": "SessionDecision"
+    },
+    {
+      "id": "INT-17",
+      "source": "ObservationSessionController.sessionSnapshot",
+      "destination": "CoordinationOutcomePolicy.sessionSnapshot",
+      "type": "SessionSnapshot"
+    },
+    {
+      "id": "INT-18",
+      "source": "ObservationSessionController.cameraAcquisitionCommand",
+      "destination": "root.cameraAcquisitionCommand",
+      "type": "CameraAcquisitionCommand"
+    },
+    {
+      "id": "INT-19",
+      "source": "ObservationSessionController.radioDeliveryCommand",
+      "destination": "root.radioDeliveryCommand",
+      "type": "RadioDeliveryCommand"
+    },
+    {
+      "id": "INT-20",
+      "source": "CoordinationOutcomePolicy.operatorCoordinationStatus",
+      "destination": "root.operatorCoordinationStatus",
+      "type": "OperatorCoordinationStatus"
+    },
+    {
+      "id": "INT-21",
+      "source": "CoordinationOutcomePolicy.droneControlObservationNotice",
+      "destination": "root.droneControlObservationNotice",
+      "type": "DroneControlObservationNotice"
+    }
+  ],
+  "partition_counts": {
+    "batteryQualifier": {
+      "structurally_valid": 4,
+      "producer_reachable": 4,
+      "producer_unreachable": 0,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    },
+    "sortieQualifier": {
+      "structurally_valid": 6,
+      "producer_reachable": 6,
+      "producer_unreachable": 0,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    },
+    "cameraQualifier": {
+      "structurally_valid": 6,
+      "producer_reachable": 6,
+      "producer_unreachable": 0,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    },
+    "radioQualifier": {
+      "structurally_valid": 6,
+      "producer_reachable": 6,
+      "producer_unreachable": 0,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    },
+    "sessionProposal": {
+      "structurally_valid": 320,
+      "producer_reachable": 320,
+      "producer_unreachable": 0,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    },
+    "intentArbiter": {
+      "structurally_valid": 48,
+      "producer_reachable": 48,
+      "producer_unreachable": 0,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    },
+    "stateController": {
+      "structurally_valid": 85,
+      "producer_reachable": 38,
+      "producer_unreachable": 47,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    },
+    "outcomePolicy": {
+      "structurally_valid": 3675,
+      "producer_reachable": 52,
+      "producer_unreachable": 3623,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0
+    }
+  },
+  "end_to_end": {
+    "root_input_valuations": 864,
+    "pre_session_states": 5,
+    "evaluated": 4320,
+    "gaps": 0,
+    "overlaps": 0,
+    "mismatches": 0,
+    "required_output_mismatches": 0
+  },
+  "local_totals": {
+    "gaps": 0,
+    "overlaps": 0,
+    "mismatches": 0
+  },
+  "invariant_checks": {
+    "exhaustive_command_state_equivalence": {
+      "checked": 4320,
+      "violations": 0,
+      "passed": true
+    },
+    "cancellation_over_recovery_conflict": {
+      "proposal": "RECOVER_EVIDENCE",
+      "decision": "CANCEL_TO_IDLE",
+      "passed": true
+    },
+    "sole_state_owner": {
+      "owner": "ObservationSessionController",
+      "other_state_writers": [],
+      "passed": true
+    },
+    "record_members_are_attributes": {
+      "SessionSnapshot": [
+        "preSession",
+        "nextSession",
+        "disposition",
+        "reason"
+      ],
+      "OperatorCoordinationStatus": [
+        "nextSession",
+        "batteryAssessment",
+        "disposition",
+        "reason",
+        "advisory"
+      ],
+      "passed": true
+    },
+    "canonical_guard_crosscheck": {
+      "local_products": 4150,
+      "mismatches": 0,
+      "passed": true
+    }
+  },
+  "scenario_families": 8,
+  "scenario_mismatches": 0,
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "nominal acquisition and delivery",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "START_OBSERVATION"
+          },
+          "pre_session": "IDLE",
+          "expected_named_branch": "BEGIN_ACQUISITION",
+          "expected_contract_cases": [
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "STARTABLE",
+            "decision": "BEGIN_ACQUISITION",
+            "next_session": "ACQUIRING",
+            "camera_command": "ACQUIRE",
+            "radio_command": "HOLD",
+            "advisory": "NONE",
+            "drone_notice": "OBSERVATION_ACTIVE"
+          },
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "CAPTURED",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "ACQUIRING",
+          "expected_named_branch": "QUEUE_CAPTURE",
+          "expected_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "CAPTURE_COMPLETE",
+            "decision": "QUEUE_CAPTURE",
+            "next_session": "QUEUED",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "NONE",
+            "drone_notice": "OBSERVATION_ACTIVE"
+          },
+          "passed": true
+        },
+        {
+          "step": 3,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "QUEUED",
+          "expected_named_branch": "BEGIN_TRANSMISSION",
+          "expected_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "BEGIN_DELIVERY",
+            "decision": "BEGIN_TRANSMISSION",
+            "next_session": "SENDING",
+            "camera_command": "HOLD",
+            "radio_command": "SEND_OBSERVATION",
+            "advisory": "NONE",
+            "drone_notice": "OBSERVATION_ACTIVE"
+          },
+          "passed": true
+        },
+        {
+          "step": 4,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "ACCEPTED",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "SENDING",
+          "expected_named_branch": "COMPLETE_TO_IDLE",
+          "expected_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "DELIVERY_COMPLETE",
+            "decision": "COMPLETE_TO_IDLE",
+            "next_session": "IDLE",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "DELIVERY_COMPLETED",
+            "drone_notice": "DELIVERY_REPORTED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "invalid evidence rejection",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "INVALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "START_OBSERVATION"
+          },
+          "pre_session": "IDLE",
+          "expected_named_branch": "REJECT_EVIDENCE",
+          "expected_contract_cases": [
+            "CASE-13",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-13",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "BLOCK_EVIDENCE",
+            "decision": "REJECT_EVIDENCE",
+            "next_session": "IDLE",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "EVIDENCE_UNAVAILABLE",
+            "drone_notice": "OBSERVATION_BLOCKED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "low energy rejection",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "LOW",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "START_OBSERVATION"
+          },
+          "pre_session": "IDLE",
+          "expected_named_branch": "REJECT_ENERGY",
+          "expected_contract_cases": [
+            "CASE-13",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-13",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "BLOCK_ENERGY",
+            "decision": "REJECT_ENERGY",
+            "next_session": "IDLE",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "ENERGY_LOW",
+            "drone_notice": "OBSERVATION_BLOCKED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "cancellation priority conflict",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "INVALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "CANCEL_OBSERVATION"
+          },
+          "pre_session": "ACQUIRING",
+          "expected_named_branch": "CANCEL_TO_IDLE",
+          "expected_contract_cases": [
+            "CASE-13",
+            "CASE-16",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-13",
+            "CASE-16",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "RECOVER_EVIDENCE",
+            "decision": "CANCEL_TO_IDLE",
+            "next_session": "IDLE",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "EVIDENCE_UNAVAILABLE",
+            "drone_notice": "IDLE"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "camera loss recovery",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "UNAVAILABLE",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "ACQUIRING",
+          "expected_named_branch": "SUSPEND_CAMERA",
+          "expected_contract_cases": [
+            "CASE-13",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-13",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "RECOVER_CAMERA",
+            "decision": "SUSPEND_CAMERA",
+            "next_session": "SUSPENDED",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "CAMERA_UNUSABLE",
+            "drone_notice": "OBSERVATION_BLOCKED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "family": "context loss recovery",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "OUTSIDE_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "SENDING",
+          "expected_named_branch": "SUSPEND_CONTEXT",
+          "expected_contract_cases": [
+            "CASE-13",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-13",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "RECOVER_CONTEXT",
+            "decision": "SUSPEND_CONTEXT",
+            "next_session": "SUSPENDED",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "CONTEXT_INELIGIBLE",
+            "drone_notice": "OBSERVATION_BLOCKED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "family": "delivery retry",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "REJECTED",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "SENDING",
+          "expected_named_branch": "RETRY_QUEUE",
+          "expected_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "DELIVERY_REJECTED",
+            "decision": "RETRY_QUEUE",
+            "next_session": "QUEUED",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "NONE",
+            "drone_notice": "OBSERVATION_ACTIVE"
+          },
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "QUEUED",
+          "expected_named_branch": "BEGIN_TRANSMISSION",
+          "expected_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "BEGIN_DELIVERY",
+            "decision": "BEGIN_TRANSMISSION",
+            "next_session": "SENDING",
+            "camera_command": "HOLD",
+            "radio_command": "SEND_OBSERVATION",
+            "advisory": "NONE",
+            "drone_notice": "OBSERVATION_ACTIVE"
+          },
+          "passed": true
+        },
+        {
+          "step": 3,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "ACCEPTED",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "SENDING",
+          "expected_named_branch": "COMPLETE_TO_IDLE",
+          "expected_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-14",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "DELIVERY_COMPLETE",
+            "decision": "COMPLETE_TO_IDLE",
+            "next_session": "IDLE",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "DELIVERY_COMPLETED",
+            "drone_notice": "DELIVERY_REPORTED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-08",
+      "family": "recovery clear and fresh reentry",
+      "steps": [
+        {
+          "step": 1,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "UNAVAILABLE",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "ACQUIRING",
+          "expected_named_branch": "SUSPEND_CAMERA",
+          "expected_contract_cases": [
+            "CASE-13",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-13",
+            "CASE-17",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "RECOVER_CAMERA",
+            "decision": "SUSPEND_CAMERA",
+            "next_session": "SUSPENDED",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "CAMERA_UNUSABLE",
+            "drone_notice": "OBSERVATION_BLOCKED"
+          },
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "CAPTURED",
+            "radioCondition": "READY",
+            "deliveryResult": "ACCEPTED",
+            "observationIntent": "NO_REQUEST"
+          },
+          "pre_session": "SUSPENDED",
+          "expected_named_branch": "NO_CHANGE",
+          "expected_contract_cases": [
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "STARTABLE",
+            "decision": "NO_CHANGE",
+            "next_session": "SUSPENDED",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "NONE",
+            "drone_notice": "OBSERVATION_BLOCKED"
+          },
+          "passed": true
+        },
+        {
+          "step": 3,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "OUTSIDE_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "START_OBSERVATION"
+          },
+          "pre_session": "SUSPENDED",
+          "expected_named_branch": "REJECT_CONTEXT",
+          "expected_contract_cases": [
+            "CASE-13",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-13",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "BLOCK_CONTEXT",
+            "decision": "REJECT_CONTEXT",
+            "next_session": "SUSPENDED",
+            "camera_command": "HOLD",
+            "radio_command": "HOLD",
+            "advisory": "REQUEST_REJECTED",
+            "drone_notice": "OBSERVATION_BLOCKED"
+          },
+          "passed": true
+        },
+        {
+          "step": 4,
+          "inputs": {
+            "batteryCapacity": "USABLE",
+            "batteryCheck": "VALID",
+            "sortieContext": "AT_OBSERVATION_POSITION",
+            "cameraCondition": "READY",
+            "captureResult": "NONE",
+            "radioCondition": "READY",
+            "deliveryResult": "NONE",
+            "observationIntent": "START_OBSERVATION"
+          },
+          "pre_session": "SUSPENDED",
+          "expected_named_branch": "BEGIN_ACQUISITION",
+          "expected_contract_cases": [
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed_contract_cases": [
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "proposal": "STARTABLE",
+            "decision": "BEGIN_ACQUISITION",
+            "next_session": "ACQUIRING",
+            "camera_command": "ACQUIRE",
+            "radio_command": "HOLD",
+            "advisory": "NONE",
+            "drone_notice": "OBSERVATION_ACTIVE"
+          },
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "SortieApplicabilityQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "SortieApplicabilityQualifier.batteryAssessment",
+        "SortieApplicabilityQualifier.sortieContext"
+      ],
+      "owner_local_facts": [
+        "sortieQualification"
+      ],
+      "contract_cases": [
+        "CASE-04",
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "sortieQualifierCompletePartition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "SessionProposalOwner",
+      "claimed_roles": [
+        "proposal",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "SessionProposalOwner.sortieQualification",
+        "SessionProposalOwner.cameraEvidence",
+        "SessionProposalOwner.radioEvidence",
+        "SessionProposalOwner.sessionPhaseInput"
+      ],
+      "owner_local_facts": [
+        "sessionProposal"
+      ],
+      "contract_cases": [
+        "CASE-13",
+        "CASE-14",
+        "CASE-15"
+      ],
+      "analyzer_checks": [
+        "sessionProposalCompletePartition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "ObservationIntentArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "ObservationIntentArbiter.observationIntent",
+        "ObservationIntentArbiter.sessionProposal"
+      ],
+      "owner_local_facts": [
+        "sessionDecision"
+      ],
+      "contract_cases": [
+        "CASE-16",
+        "CASE-17",
+        "CASE-18"
+      ],
+      "analyzer_checks": [
+        "intentArbiterPriorityPartition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "ObservationSessionController",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "ObservationSessionController.sessionDecision",
+        "ObservationSessionController.committedSession"
+      ],
+      "owner_local_facts": [
+        "nextSession",
+        "cameraAcquisitionCommand",
+        "radioDeliveryCommand",
+        "sessionSnapshot"
+      ],
+      "contract_cases": [
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "stateControllerTotalRelation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "CoordinationOutcomePolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "CoordinationOutcomePolicy.sessionSnapshot",
+        "CoordinationOutcomePolicy.batteryAssessment"
+      ],
+      "owner_local_facts": [
+        "operatorAdvisory",
+        "droneControlObservationNotice"
+      ],
+      "contract_cases": [
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "outcomePolicyStructuralProduct"
+      ],
+      "passed": true
+    }
+  ]
+}

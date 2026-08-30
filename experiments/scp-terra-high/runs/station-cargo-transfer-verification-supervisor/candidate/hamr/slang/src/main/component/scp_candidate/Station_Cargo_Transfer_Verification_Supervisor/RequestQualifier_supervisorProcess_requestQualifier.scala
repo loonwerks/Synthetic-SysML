@@ -1,0 +1,32 @@
+// #Sireum
+
+package scp_candidate.Station_Cargo_Transfer_Verification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object RequestQualifier_supervisorProcess_requestQualifier {
+
+  def initialise(api: RequestQualifier_Initialization_Api): Unit = {
+    Contract(
+      Modifies(api),
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee REQUEST_INITIAL
+        api.qualifiedRequest == QualifiedRequest.NoNewRequest
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_qualifiedRequest(Station_Cargo_Transfer_Verification_Supervisor.QualifiedRequest.NoNewRequest)
+  }
+
+  def timeTriggered(api: RequestQualifier_Operational_Api): Unit = { }
+  def finalise(api: RequestQualifier_Operational_Api): Unit = { }
+}

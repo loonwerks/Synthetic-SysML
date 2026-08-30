@@ -1,0 +1,16 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_458462068435_4_Valid {
+  @pure def check(
+      healthdecision: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthDecision,
+      powerdisposition: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.ElectricalPowerDisposition.Type,
+      recoveryguidance: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryGuidance.Type,
+      recoveryproposal: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryProposal.Type,
+      vehiclehealthmode: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.VehicleHealthMode.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((((T) & (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_GumboX.compute_CEP_Post(healthdecision, recoveryproposal, powerdisposition, recoveryguidance, vehiclehealthmode))) ___>: (equiv_shared_0.Vehicle_Temperature_Health_Supervisor.BoundaryOutcomeDerivation_supervisionProcess_boundaryOutcomeDerivation_Candidate_GumboX.compute_CEP_Post(healthdecision, recoveryproposal, powerdisposition, recoveryguidance, vehiclehealthmode))) & T))
+  }
+}

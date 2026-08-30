@@ -1,0 +1,30 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_88e03f552b93_Oracle_Pointwise_Realizable {
+  @pure def check(
+      cameraevidence: equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.CameraEvidence.Type,
+      radioevidence: equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.RadioEvidence.Type,
+      sessionphaseinput: equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.ObservationSessionState.Type,
+      sortiequalification: equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SortieQualification.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.BLOCK_EVIDENCE)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.BLOCK_ENERGY)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.BLOCK_CONTEXT)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.BLOCK_CAMERA)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.BLOCK_RADIO)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.RECOVER_EVIDENCE)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.RECOVER_ENERGY)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.RECOVER_CONTEXT)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.RECOVER_CAMERA)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.RECOVER_RADIO)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.STARTABLE)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.HOLD)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.CAPTURE_COMPLETE)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.BEGIN_DELIVERY)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.DELIVERY_COMPLETE)) |
+        (equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposalOwner_coordinatorProcess_sessionProposalOwner_GumboX.compute_CEP_Post(cameraevidence, radioevidence, sessionphaseinput, sortiequalification, equiv_shared_0.Observation_Acquisition_Radio_Delivery_Coordinator.SessionProposal.DELIVERY_REJECTED)))))
+  }
+}

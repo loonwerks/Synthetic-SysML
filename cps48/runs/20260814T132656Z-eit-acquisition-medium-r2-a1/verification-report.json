@@ -1,0 +1,491 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132656Z-eit-acquisition-medium-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/EIT_Image_Review_Availability_Coordinator.sysml",
+  "source_sha256": "fd947b36c966b197720fd87889f0b35a7b3eedaea7af5a8a57ba1507e7d74b87",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 10,
+    "edgeCount": 17,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 186,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "OWNER-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "SCOPE-IN-01",
+      "TYPE-02",
+      "TYPE-05",
+      "TYPE-06",
+      "TYPE-07",
+      "TYPE-11",
+      "TYPE-12"
+    ],
+    "relativePath": "cps48/runs/20260814T132656Z-eit-acquisition-medium-r2-a1/system-abstract.md",
+    "taggedElementCount": 108,
+    "traceAssociationCount": 108,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a diversity-compliant medium EIT image-generation and Doctor-review availability coordinator with an exact 9/21/20/7 semantic inventory, two sole state owners, cooperating qualification and decision owners, a reachable Doctor-open versus newer-batch priority conflict, and closed fault/reset/fresh-event paths.",
+      "questions_for_model": [
+        "Can separate pre-state outputs and post-decision snapshots from the generation-slot and review-session state-owning Threads be realized in the trusted SysML-AADL/GUMBO subset without a combinational cycle, mirrored state, or central recomputation?",
+        "Can the flat decision and snapshot records use direct attributes and field-specific enum classifiers while retaining exactly 20 owner-local case anchors and constraining every field?",
+        "Can the deterministic analyzer exhaust exactly 2304 legal one-step evaluations plus every owner-local product and all seven multi-step scenarios while preserving evidence for distributed ownership?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "EIT image-generation and Doctor-review availability coordination, with acquisition represented only as an external upstream batch event",
+        "closest_baseline": "Accepted medium replicate-1 EIT Acquisition Session Coordinator (run 20260813T234357Z-eit-acquisition-medium-r1-a1)",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The design removes monitoring start, preparation qualification, acquisition command, impedance-frame admission, and acquisition-session state from the boundary. It instead owns an external-generator feedback loop and Doctor review exposure through generation-slot and review-session states; it could compose with replicate 1 only across a post-acquisition batch event, so it is a separate controlled purpose rather than a split or renamed acquisition pipeline."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The exact 9/21/20/7 allocation is realizable and contains no identity-wrapper owner.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit found a meaningful local relation for every credited usage: PART-01 has a 2/2 usability collapse; PART-02 classifies 24 feedback/state pairs as 6 no-result, 1 matched-A, 1 matched-B, and 16 faults; PART-03 has a 2/1 access collapse; PART-04 combines 48 feedback/state/reset tuples; PART-05 arbitrates a bounded 1152-tuple legal owner product; PART-06 and PART-07 apply state-dependent sole-writer transitions; PART-08 classifies six states to commands with 4/1/1 fibers; and PART-09 classifies eight legal state pairs to availability with 6/1/1 fibers plus notice precedence. Bijective enum mappings, record construction, and copied fields remain explicitly uncredited.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The current library supports System/Process/Thread/Data, typed DataPort, and directed PortConnection forms. The accepted medium replicate-1 EIT source uses the same state-output to arbiter to state-input feedback shape, publishes In(state) separately from post-state snapshots, and passed a fresh Sireum typecheck against library revision 9016cbcceefa92f0068e1811923704dd261d15f1 with Well-formed!.",
+          "requested_change": "Realize one root System, one uncredited behavior-free Process, nine sibling semantic Threads, 21 Process-local semantic connections, and eight uncredited root/Process delegations for 29 raw PortConnection declarations. Use attribute members for all GUMBO-inspected record fields and give field-specific bijective enum mappings no semantic or owner credit."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The exact bounded root space is 288 raw inputs across eight legal pre-state pairs, or 2304 evaluations. The current harness accepts a dependency-free analyzer only after source-hash agreement, status=passed, passed ownership records, matching metrics/analyzer evidence fields, zero reported gaps/overlaps/mismatches/violations, and all Boolean checks. The retained 10368-point medium EIT analyzer reran in 0.19 seconds under the same 180-second timeout, demonstrating ample capacity.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The selected boundary, typed INT-01..INT-21 inventory, two exclusive state writers, owner-local CASE-01..CASE-20 allocation, seven scenarios, eight legal state pairs, reset/fresh-event closure, trace obligations, and deferred clinical/physical/executable claim boundary are internally closed and require no silent policy addition.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings accepted with realization support kept uncredited; the unchanged 9/21/20/7 baseline is approved for generation.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical EIT image-review availability coordinator passed both retained Sireum gates and exhaustive bounded analysis.",
+      "canonical_source": "model/EIT_Image_Review_Availability_Coordinator.sysml",
+      "architecture_repairs": 2,
+      "contract_repairs": 2,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Localized retained-view repair produced a native-readable, current-revision-valid overview with zero connector crossings, zero route-object collisions, exact source binding, and complete relevant traceability.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "OWNER-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "SCOPE-IN-01",
+        "TYPE-02",
+        "TYPE-05",
+        "TYPE-06",
+        "TYPE-07",
+        "TYPE-11",
+        "TYPE-12"
+      ],
+      "reviewed_tagged_element_count": 108,
+      "reviewed_trace_association_count": 108,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound model preserves the approved design, passes non-padded bounded semantics and visualization review, with execution correctly not run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 9,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 7
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "batchQualificationOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "batchEvent"
+          ],
+          "owner_local_facts": [
+            "batchAssessment.usable",
+            "batchAssessment.batchCategory"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03"
+          ],
+          "analyzer_checks": [
+            "batch qualification totality and usability collapse"
+          ]
+        },
+        {
+          "usage": "generatorFeedbackQualificationOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "generatorFeedback",
+            "generationPreState"
+          ],
+          "owner_local_facts": [
+            "feedbackAssessment.condition",
+            "feedbackAssessment.matched"
+          ],
+          "contract_cases": [
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "feedback matching and fault classification"
+          ]
+        },
+        {
+          "usage": "reviewAccessQualificationOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "viewerObservation"
+          ],
+          "owner_local_facts": [
+            "viewerAssessment.accessible",
+            "viewerAssessment.condition"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08"
+          ],
+          "analyzer_checks": [
+            "viewer accessibility collapse"
+          ]
+        },
+        {
+          "usage": "generatorOutcomeRecoveryOwner",
+          "claimed_roles": [
+            "proposal",
+            "decision"
+          ],
+          "assigned_inputs": [
+            "feedbackAssessment",
+            "generationPreState",
+            "recoveryRequest"
+          ],
+          "owner_local_facts": [
+            "generatorProposal.proposal",
+            "generatorProposal.condition"
+          ],
+          "contract_cases": [
+            "CASE-09",
+            "CASE-10"
+          ],
+          "analyzer_checks": [
+            "feedback dominance and reset applicability"
+          ]
+        },
+        {
+          "usage": "availabilityWorkflowArbiter",
+          "claimed_roles": [
+            "applicability",
+            "decision"
+          ],
+          "assigned_inputs": [
+            "generatorProposal",
+            "doctorRequest",
+            "batchAssessment",
+            "viewerAssessment",
+            "generationPreState",
+            "reviewPreState"
+          ],
+          "owner_local_facts": [
+            "workflowDecision.selectedAction",
+            "workflowDecision.disposition",
+            "workflowDecision.notice"
+          ],
+          "contract_cases": [
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14"
+          ],
+          "analyzer_checks": [
+            "workflow priority and ordinary open-versus-batch conflict"
+          ]
+        },
+        {
+          "usage": "generationSlotStateGovernor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "workflowDecision",
+            "In(committedGenerationState)"
+          ],
+          "owner_local_facts": [
+            "committedGenerationState",
+            "generationDecision.nextState"
+          ],
+          "contract_cases": [
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "exclusive generation transition and retention"
+          ]
+        },
+        {
+          "usage": "reviewSessionStateGovernor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "workflowDecision",
+            "In(committedReviewState)"
+          ],
+          "owner_local_facts": [
+            "committedReviewState",
+            "reviewDecision.nextState"
+          ],
+          "contract_cases": [
+            "CASE-17",
+            "CASE-18"
+          ],
+          "analyzer_checks": [
+            "exclusive review transition and retention"
+          ]
+        },
+        {
+          "usage": "generationCommandPolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "generationDecision.nextState"
+          ],
+          "owner_local_facts": [
+            "generationCommand"
+          ],
+          "contract_cases": [
+            "CASE-19"
+          ],
+          "analyzer_checks": [
+            "committed-state command classification"
+          ]
+        },
+        {
+          "usage": "availabilityPublicationPolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "generationDecision.nextState",
+            "generationDecision.disposition",
+            "generationDecision.notice",
+            "reviewDecision.nextState"
+          ],
+          "owner_local_facts": [
+            "reviewAvailability",
+            "workflowStatus.notice"
+          ],
+          "contract_cases": [
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "matched availability and public notice precedence"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound model preserves the approved design, passes non-padded bounded semantics and visualization review, with execution correctly not run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

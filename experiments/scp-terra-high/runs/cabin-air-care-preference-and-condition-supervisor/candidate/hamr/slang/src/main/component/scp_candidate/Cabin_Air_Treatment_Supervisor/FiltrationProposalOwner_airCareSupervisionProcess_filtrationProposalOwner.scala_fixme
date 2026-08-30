@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.Cabin_Air_Treatment_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner {
+
+  def initialise(api: FiltrationProposalOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_AIR_PROPOSAL_SAFE
+        api.airProposal == AirProposal.None
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_airProposal(Cabin_Air_Treatment_Supervisor.AirProposal.None)
+  }
+
+  def finalise(api: FiltrationProposalOwner_Operational_Api): Unit = { }
+}

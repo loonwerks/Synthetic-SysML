@@ -1,0 +1,647 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132657Z-vehicle-mode-hard-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Vehicle_Controller_Operating_Mode_Coordinator.sysml",
+  "source_sha256": "8cb7491149f6756563a9e2d852e83e99f7695c054431f9f28d3ac029ad2dc5a3",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 14,
+    "edgeCount": 24,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 198,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28",
+      "CASE-29",
+      "CASE-30",
+      "CTRL-01",
+      "FAULT-01",
+      "FAULT-04",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "INT-34",
+      "INT-35",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "POL-01",
+      "POL-02",
+      "POL-06",
+      "POL-08",
+      "POL-09",
+      "POL-10",
+      "STATE-01",
+      "STATE-02",
+      "STATE-03",
+      "TYPE-02",
+      "TYPE-03",
+      "TYPE-07"
+    ],
+    "relativePath": "cps48/runs/20260814T132657Z-vehicle-mode-hard-r2-a1/system-abstract.md",
+    "taggedElementCount": 212,
+    "traceAssociationCount": 212,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a hard-tier controller operating-mode and parking-brake coordinator with exact 13/35/30/10 counts, closed finite policy partitions, explicit fault and recovery semantics, and five architectural differences from replicate 1.",
+      "questions_for_model": [
+        "Can four local indication-history owners and four higher-level state owners be realized with local GUMBO contracts without downstream raw-input recomputation?",
+        "Can recovery confirmation clear the degraded episode, restage demand, select Standby, and publish the post-state frame deterministically without a combinational-cycle or timing violation?",
+        "Can one explicit root realize exactly thirteen semantic usages and thirty-five end-to-end interaction meanings at depth 1..2 while keeping required delegation support uncredited?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "VehicleController operating-mode coordination with conservative parking-brake composition",
+        "closest_baseline": "replicate-1 start-readiness/protected-start baseline",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system replaces readiness evidence and authorization/power/status outcomes with lifecycle, maintenance, degraded, and return indications plus a mode/brake frame; it owns indication epochs, operating demand, maintenance session, degraded episode, and mode; it uses a conflict-priority-to-parallel-state topology; and it recovers by fresh return plus quiet confirmation into Standby, with no self-test, recovery-to-Off, or later fresh start. Combining it with the closest baseline would duplicate lifecycle, degradation, and recovery authority rather than elaborate one policy."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The exact 13/35/30/10 allocation is realizable; all claimed owners derive nonidentity local facts.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Extensionally, PART-01..04 make temporal classifications; PART-05, PART-06, PART-10, PART-11, and PART-12 make many-to-one multi-input classifications; and PART-07..09 make prior-state-dependent choices. PART-13 maps ten mode/brake-demand pairs to six frames and collapses both brake-demand values to Apply in every nonoperating mode. Its copied mode field and atomic bundling are uncredited coherence, while the non-bijective safing rule supplies substantive owner-local behavior.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The PART-09/PART-10 feedback can expose INT-22 from In(episodeMemory) independently of the returned decision, apply INT-23 only to PART-09 post-state, and feed PART-07/PART-11/PART-12 with the resulting decision or post-state facts. The retained vehicle-medium INT-14/INT-17 feedback uses this same pre-state-fact/post-state-directive pattern, and a fresh Sireum v4.20260630.386eac9f check against library revision 9016cbcceefa92f0068e1811923704dd261d15f1 exited 0 with Well-formed!.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "One root System usage, one uncredited behavior-free Process, thirteen semantic Threads at depth 2, 35 Process-local semantic connections, and five uncredited root/process delegation routes match checker-accepted SysML-AADL containment and typed DataPort/PortConnection forms. All four monitored objects and the single atomic frame have compatible closed finite types.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The complete current/history indication space is 729*729 = 531441 snapshots; the remaining owner-local spaces are factorable, including 120 demand, 1080 episode, 5832 recovery, 48 brake, and 10 frame tuples. Integer-coded owner tables plus reachable multi-step traversal can exhaust the required partitions and scenarios within the retained deterministic analyzer without central recomputation.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings accepted; unchanged 13/35/30/10 baseline approved for generation.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized the campaign-v1 ownership wire repair by mapping five classifier records to the supported proposal role in metrics and analyzer output; preserved canonical SysML semantics, hard counts, traces, and source hash. The allowlisted artifacts retained successful typecheck evidence but not the library-bound invocation, so context expanded narrowly to the harness command/configuration; a fresh library-bound SysML typecheck exited 0 with Well-formed! and no errors, and the regenerated bounded analyzer passed with all 13 ownership records explicitly passed.",
+      "canonical_source": "model/Vehicle_Controller_Operating_Mode_Coordinator.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Repaired system-overview in presentation state only: all INT-01..INT-35 directions are individually visible in a source-bound inventory, support01..support05 are explicitly uncredited, coordinationFrame is exposed as atomic mode/parkingBrake fields, and external Vehicle and Parking-Brake Actuation contexts are labeled without unsupported authority or achievement claims. The unchanged source revision validates, required geometry is zero-defect, native review passes, and all 212 trace associations are relevant and complete.",
+      "correction_cycles": 6,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "CASE-30",
+        "CTRL-01",
+        "FAULT-01",
+        "FAULT-04",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "INT-34",
+        "INT-35",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "POL-01",
+        "POL-02",
+        "POL-06",
+        "POL-08",
+        "POL-09",
+        "POL-10",
+        "STATE-01",
+        "STATE-02",
+        "STATE-03",
+        "TYPE-02",
+        "TYPE-03",
+        "TYPE-07"
+      ],
+      "reviewed_tagged_element_count": 212,
+      "reviewed_trace_association_count": 212,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and rendered-artifact fitness pass without silent drift or padding; the non-executable profile remains correctly not run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 13,
+        "semantic_interactions": 35,
+        "nontrivial_contract_cases": 30,
+        "scenario_families": 10
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "lifecycleEpochOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "lifecycleEpochOwner.lifecycleIndications",
+            "lifecycleEpochOwner.previousStart",
+            "lifecycleEpochOwner.previousOn",
+            "lifecycleEpochOwner.previousOff"
+          ],
+          "owner_local_facts": [
+            "fresh-start fresh-on off-active held-level and lifecycle-invalid facts"
+          ],
+          "contract_cases": [
+            "LIFECYCLE_EPOCH_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "complete lifecycle current/history epoch relation"
+          ]
+        },
+        {
+          "usage": "maintenanceEpochOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "maintenanceEpochOwner.maintenanceIndication",
+            "maintenanceEpochOwner.previousMaintenance"
+          ],
+          "owner_local_facts": [
+            "maintenance active fresh cleared held and invalid facts"
+          ],
+          "contract_cases": [
+            "MAINTENANCE_EPOCH_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "complete maintenance current/history epoch relation"
+          ]
+        },
+        {
+          "usage": "degradationEpochOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "degradationEpochOwner.degradedIndication",
+            "degradationEpochOwner.previousDegraded"
+          ],
+          "owner_local_facts": [
+            "degradation active fresh cleared held and invalid facts"
+          ],
+          "contract_cases": [
+            "DEGRADATION_EPOCH_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "complete degradation current/history epoch relation"
+          ]
+        },
+        {
+          "usage": "returnEpochOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "returnEpochOwner.returnIndication",
+            "returnEpochOwner.previousReturn"
+          ],
+          "owner_local_facts": [
+            "return fresh held clear and invalid facts"
+          ],
+          "contract_cases": [
+            "RETURN_EPOCH_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "complete return current/history epoch relation"
+          ]
+        },
+        {
+          "usage": "conflictClassificationOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "conflictClassificationOwner.lifecycleFacts",
+            "conflictClassificationOwner.maintenanceFacts",
+            "conflictClassificationOwner.degradationFacts",
+            "conflictClassificationOwner.returnFacts"
+          ],
+          "owner_local_facts": [
+            "invalid-dominant actionable-cardinality conflict class"
+          ],
+          "contract_cases": [
+            "CONFLICT_CARDINALITY_CLASSIFICATION"
+          ],
+          "analyzer_checks": [
+            "complete root epoch conflict classification"
+          ]
+        },
+        {
+          "usage": "indicationPriorityOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "indicationPriorityOwner.conflictClass",
+            "indicationPriorityOwner.lifecycleFacts",
+            "indicationPriorityOwner.maintenanceFacts",
+            "indicationPriorityOwner.degradationFacts",
+            "indicationPriorityOwner.returnFacts"
+          ],
+          "owner_local_facts": [
+            "unique priority-selected indication"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08"
+          ],
+          "analyzer_checks": [
+            "priority partition and ordered raw-input oracle comparison"
+          ]
+        },
+        {
+          "usage": "operatingDemandOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "operatingDemandOwner.selectedIndication",
+            "operatingDemandOwner.recoveryDecision",
+            "operatingDemandOwner.demandMemory"
+          ],
+          "owner_local_facts": [
+            "next operating demand"
+          ],
+          "contract_cases": [
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "operating demand partition"
+          ]
+        },
+        {
+          "usage": "maintenanceSessionOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "maintenanceSessionOwner.selectedIndication",
+            "maintenanceSessionOwner.maintenanceFacts",
+            "maintenanceSessionOwner.sessionMemory"
+          ],
+          "owner_local_facts": [
+            "next maintenance session"
+          ],
+          "contract_cases": [
+            "CASE-13",
+            "CASE-14",
+            "CASE-15"
+          ],
+          "analyzer_checks": [
+            "maintenance session partition"
+          ]
+        },
+        {
+          "usage": "degradedEpisodeOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "degradedEpisodeOwner.degradationFacts",
+            "degradedEpisodeOwner.recoveryDecision",
+            "degradedEpisodeOwner.selectedIndication",
+            "degradedEpisodeOwner.episodeMemory"
+          ],
+          "owner_local_facts": [
+            "next degraded episode"
+          ],
+          "contract_cases": [
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "degraded episode partition and same-evaluation fault latch"
+          ]
+        },
+        {
+          "usage": "recoveryEligibilityOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recoveryEligibilityOwner.conflictClass",
+            "recoveryEligibilityOwner.selectedIndication",
+            "recoveryEligibilityOwner.degradationFacts",
+            "recoveryEligibilityOwner.returnFacts",
+            "recoveryEligibilityOwner.episodeSnapshot.currentEpisode"
+          ],
+          "owner_local_facts": [
+            "phase-relative recovery decision"
+          ],
+          "contract_cases": [
+            "CASE-21",
+            "CASE-22",
+            "CASE-23",
+            "CASE-24",
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "recovery eligibility partition and freshness checks"
+          ]
+        },
+        {
+          "usage": "controllerModeTransitionOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "controllerModeTransitionOwner.demandSnapshot",
+            "controllerModeTransitionOwner.maintenanceSnapshot",
+            "controllerModeTransitionOwner.episodeSnapshot",
+            "controllerModeTransitionOwner.recoveryDecision",
+            "controllerModeTransitionOwner.modeMemory"
+          ],
+          "owner_local_facts": [
+            "next controller mode and transition reason"
+          ],
+          "contract_cases": [
+            "CASE-26",
+            "CASE-27",
+            "CASE-28",
+            "CASE-29",
+            "CASE-30"
+          ],
+          "analyzer_checks": [
+            "controller mode partition"
+          ]
+        },
+        {
+          "usage": "parkingBrakeDemandOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "parkingBrakeDemandOwner.maintenanceSnapshot",
+            "parkingBrakeDemandOwner.episodeSnapshot",
+            "parkingBrakeDemandOwner.selectedIndication"
+          ],
+          "owner_local_facts": [
+            "independent conservative brake demand"
+          ],
+          "contract_cases": [
+            "INDEPENDENT_BRAKE_DEMAND"
+          ],
+          "analyzer_checks": [
+            "all 48 brake-demand tuples"
+          ]
+        },
+        {
+          "usage": "outcomeCoherenceOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "outcomeCoherenceOwner.modeDecision",
+            "outcomeCoherenceOwner.brakeDemand"
+          ],
+          "owner_local_facts": [
+            "non-bijective atomic mode and parking-brake frame"
+          ],
+          "contract_cases": [
+            "CONSERVATIVE_TWO_INPUT_COMPOSITION"
+          ],
+          "analyzer_checks": [
+            "all 10 mode brake-demand compositions"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and rendered-artifact fitness pass without silent drift or padding; the non-executable profile remains correctly not run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

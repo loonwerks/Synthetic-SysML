@@ -1,0 +1,1563 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "91b0aea557ee8a98352af5638007ed5fc20f6f8e539299d297800e049d20878b",
+  "claim_boundary": "Exhaustive evidence over the approved finite logical input and prior-state domains only; not compositional proof, solver certification, generated-code correctness, execution, physical performance, safety, or certification.",
+  "analyzed_domains": {
+    "raw_boundary_and_prior_state": 256,
+    "direct_health_owner_tuples": 180,
+    "direct_boundary_outcome_pairs": 140
+  },
+  "named_local_relations": [
+    "qualifyTemperature",
+    "qualifyMaintenance",
+    "classifyRecovery",
+    "proposalConsistent",
+    "arbitrate",
+    "deriveOutcomes"
+  ],
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "from": "root.temperatureSample",
+      "to": "temperatureQualification.rawTemperature",
+      "value": "TemperatureSample"
+    },
+    {
+      "id": "INT-02",
+      "from": "root.maintenanceSample",
+      "to": "maintenanceQualification.rawMaintenance",
+      "value": "MaintenanceSample"
+    },
+    {
+      "id": "INT-03",
+      "from": "root.returnSample",
+      "to": "recoveryApplicability.rawReturn",
+      "value": "ReturnSample"
+    },
+    {
+      "id": "INT-04",
+      "from": "temperatureQualification.assessmentForRecovery",
+      "to": "recoveryApplicability.temperatureAssessment",
+      "value": "TemperatureAssessment"
+    },
+    {
+      "id": "INT-05",
+      "from": "maintenanceQualification.assessmentForRecovery",
+      "to": "recoveryApplicability.maintenanceAssessment",
+      "value": "MaintenanceAssessment"
+    },
+    {
+      "id": "INT-06",
+      "from": "temperatureQualification.assessmentForArbitration",
+      "to": "healthModeArbitration.temperatureAssessment",
+      "value": "TemperatureAssessment"
+    },
+    {
+      "id": "INT-07",
+      "from": "maintenanceQualification.assessmentForArbitration",
+      "to": "healthModeArbitration.maintenanceAssessment",
+      "value": "MaintenanceAssessment"
+    },
+    {
+      "id": "INT-08",
+      "from": "recoveryApplicability.proposalForArbitration",
+      "to": "healthModeArbitration.recoveryProposal",
+      "value": "RecoveryProposal"
+    },
+    {
+      "id": "INT-09",
+      "from": "recoveryApplicability.proposalForOutcomes",
+      "to": "boundaryOutcomeDerivation.recoveryProposal",
+      "value": "RecoveryProposal"
+    },
+    {
+      "id": "INT-10",
+      "from": "healthModeArbitration.healthDecision",
+      "to": "boundaryOutcomeDerivation.healthDecision",
+      "value": "HealthDecision"
+    },
+    {
+      "id": "INT-11",
+      "from": "boundaryOutcomeDerivation.vehicleHealthMode",
+      "to": "root.vehicleHealthMode",
+      "value": "VehicleHealthMode"
+    },
+    {
+      "id": "INT-12",
+      "from": "boundaryOutcomeDerivation.powerDisposition",
+      "to": "root.powerDisposition",
+      "value": "ElectricalPowerDisposition"
+    },
+    {
+      "id": "INT-13",
+      "from": "boundaryOutcomeDerivation.recoveryGuidance",
+      "to": "root.recoveryGuidance",
+      "value": "RecoveryGuidance"
+    }
+  ],
+  "canonical_guard_crosscheck": {
+    "status": "matched",
+    "source_cases": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11"
+    ],
+    "note": "The analyzer arbitrationGuards predicates mirror the canonical GUMBO assumptions term-for-term; output acceptance and fail-closed predicates mirror acceptedProducerPair and the selected output helpers."
+  },
+  "partition_counts": {
+    "raw_boundary": {
+      "CASE-01": 224,
+      "CASE-02": 16,
+      "CASE-03": 8,
+      "CASE-04": 1,
+      "CASE-05": 1,
+      "CASE-06": 1,
+      "CASE-07": 1,
+      "CASE-08": 1,
+      "CASE-09": 1,
+      "CASE-10": 1,
+      "CASE-11": 1
+    },
+    "direct_health_owner": {
+      "CASE-01": 148,
+      "CASE-02": 16,
+      "CASE-03": 8,
+      "CASE-04": 1,
+      "CASE-05": 1,
+      "CASE-06": 1,
+      "CASE-07": 1,
+      "CASE-08": 1,
+      "CASE-09": 1,
+      "CASE-10": 1,
+      "CASE-11": 1
+    },
+    "direct_boundary_outcomes": {
+      "FAIL_CLOSED": 125,
+      "NORMAL_RETAINED": 1,
+      "RECOVERY_NOT_REQUIRED": 1,
+      "RECOVERY_ACCEPTED": 1,
+      "TEMPERATURE_ACTIVE": 2,
+      "FRESH_RECOVERY_REQUIRED": 3,
+      "MAINTENANCE_ACTIVE": 2,
+      "INVALID_EVIDENCE": 5
+    }
+  },
+  "gaps": {
+    "raw_boundary": 0,
+    "direct_health_owner": 0,
+    "direct_boundary_outcomes": 0
+  },
+  "overlaps": {
+    "raw_boundary": 0,
+    "direct_health_owner": 0,
+    "direct_boundary_outcomes": 0
+  },
+  "required_output_mismatches": {
+    "raw_boundary": 0,
+    "direct_health_owner": 0,
+    "direct_boundary_outcomes": 0
+  },
+  "invariant_checks": {
+    "qualification_mismatches": 0,
+    "owner_state_invariant_violations": 0,
+    "malformed_owner_fail_closed_violations": 0,
+    "producer_inconsistent_pairs": 125,
+    "producer_inconsistent_fail_closed_violations": 0,
+    "interaction_resolution_violations": 0,
+    "missing_case_witnesses": [],
+    "missing_output_tuple_witnesses": [],
+    "missing_invalid_status_masks": []
+  },
+  "observations": {
+    "raw_partition_gaps": 0,
+    "raw_partition_overlaps": 0,
+    "raw_required_output_mismatches": 0,
+    "direct_owner_partition_gaps": 0,
+    "direct_owner_partition_overlaps": 0,
+    "direct_owner_decision_mismatches": 0,
+    "direct_output_gaps": 0,
+    "direct_output_overlaps": 0,
+    "direct_output_mismatches": 0,
+    "invariant_violations": 0
+  },
+  "qualification_checks": {
+    "temperature": {
+      "total": 4,
+      "mismatches": 0,
+      "fibers": {
+        "NominalTemperature": 1,
+        "InvalidTemperature": 2,
+        "OverTemperature": 1
+      }
+    },
+    "maintenance": {
+      "total": 4,
+      "mismatches": 0,
+      "fibers": {
+        "MaintenanceClear": 1,
+        "InvalidMaintenance": 2,
+        "MaintenanceDue": 1
+      }
+    },
+    "recovery": {
+      "total": 36,
+      "mismatches": 0,
+      "fibers": {
+        "InvalidRecoveryEvidence": 28,
+        "NotRequested": 4,
+        "EligibleRecovery": 1,
+        "BlockedByMaintenance": 2,
+        "BlockedByTemperature": 1
+      }
+    }
+  },
+  "invalid_status_coverage": {
+    "masks": {
+      "return": 32,
+      "maintenance": 32,
+      "maintenance+return": 32,
+      "temperature": 32,
+      "temperature+return": 32,
+      "temperature+maintenance": 32,
+      "temperature+maintenance+return": 32
+    },
+    "missing_masks": []
+  },
+  "output_tuple_witnesses": {
+    "Unavailable/Withhold/RepairInputEvidence": {
+      "decision": {
+        "nextMode": "Operational",
+        "reason": "InvalidEvidence"
+      },
+      "proposal": "InvalidRecoveryEvidence",
+      "branch": "FAIL_CLOSED"
+    },
+    "Operational/Enable/None": {
+      "decision": {
+        "nextMode": "Operational",
+        "reason": "NormalRetained"
+      },
+      "proposal": "NotRequested",
+      "branch": "NORMAL_RETAINED"
+    },
+    "TemperatureDegraded/Withhold/ClearActiveCondition": {
+      "decision": {
+        "nextMode": "TemperatureDegraded",
+        "reason": "TemperatureActive"
+      },
+      "proposal": "NotRequested",
+      "branch": "TEMPERATURE_ACTIVE"
+    },
+    "TemperatureDegraded/Withhold/SubmitFreshReturnRequest": {
+      "decision": {
+        "nextMode": "TemperatureDegraded",
+        "reason": "FreshRecoveryRequired"
+      },
+      "proposal": "NotRequested",
+      "branch": "FRESH_RECOVERY_REQUIRED"
+    },
+    "MaintenanceHold/Withhold/ClearActiveCondition": {
+      "decision": {
+        "nextMode": "MaintenanceHold",
+        "reason": "MaintenanceActive"
+      },
+      "proposal": "NotRequested",
+      "branch": "MAINTENANCE_ACTIVE"
+    },
+    "MaintenanceHold/Withhold/SubmitFreshReturnRequest": {
+      "decision": {
+        "nextMode": "MaintenanceHold",
+        "reason": "FreshRecoveryRequired"
+      },
+      "proposal": "NotRequested",
+      "branch": "FRESH_RECOVERY_REQUIRED"
+    },
+    "Unavailable/Withhold/SubmitFreshReturnRequest": {
+      "decision": {
+        "nextMode": "Unavailable",
+        "reason": "FreshRecoveryRequired"
+      },
+      "proposal": "NotRequested",
+      "branch": "FRESH_RECOVERY_REQUIRED"
+    }
+  },
+  "scenario_families": [
+    {
+      "id": "SCN-01",
+      "name": "nominal commissioning and retention",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Unavailable",
+          "expected_case": "CASE-06",
+          "observed_case": "CASE-06",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "Unavailable",
+              "reason": "FreshRecoveryRequired"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_next_state": "Unavailable",
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Unavailable",
+          "expected_case": "CASE-07",
+          "observed_case": "CASE-07",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "EligibleRecovery",
+            "healthDecision": {
+              "nextMode": "Operational",
+              "reason": "RecoveryAccepted"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_next_state": "Operational",
+          "passed": true
+        },
+        {
+          "step": 3,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-04",
+          "observed_case": "CASE-04",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "Operational",
+              "reason": "NormalRetained"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_next_state": "Operational",
+          "passed": true
+        },
+        {
+          "step": 4,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-05",
+          "observed_case": "CASE-05",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "EligibleRecovery",
+            "healthDecision": {
+              "nextMode": "Operational",
+              "reason": "RecoveryNotRequired"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_next_state": "Operational",
+          "passed": true
+        }
+      ],
+      "variants": []
+    },
+    {
+      "id": "SCN-02",
+      "name": "temperature equality boundary",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-04",
+          "observed_case": "CASE-04",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "Operational",
+              "reason": "NormalRetained"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_next_state": "Operational",
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "temperature": {
+              "relation": "AboveMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-03",
+          "observed_case": "CASE-03",
+          "owner_values": {
+            "temperatureAssessment": "OverTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "TemperatureDegraded",
+              "reason": "TemperatureActive"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_next_state": "TemperatureDegraded",
+          "passed": true
+        }
+      ],
+      "variants": []
+    },
+    {
+      "id": "SCN-03",
+      "name": "maintenance and conflict priority",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "inputs": {
+            "temperature": {
+              "relation": "AboveMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "Due",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-02",
+          "observed_case": "CASE-02",
+          "owner_values": {
+            "temperatureAssessment": "OverTemperature",
+            "maintenanceAssessment": "MaintenanceDue",
+            "recoveryProposal": "BlockedByMaintenance",
+            "healthDecision": {
+              "nextMode": "MaintenanceHold",
+              "reason": "MaintenanceActive"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "MaintenanceHold",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "MaintenanceHold",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_next_state": "MaintenanceHold",
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "MaintenanceHold",
+          "expected_case": "CASE-08",
+          "observed_case": "CASE-08",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "MaintenanceHold",
+              "reason": "FreshRecoveryRequired"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "MaintenanceHold",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "MaintenanceHold",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_next_state": "MaintenanceHold",
+          "passed": true
+        },
+        {
+          "step": 3,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "MaintenanceHold",
+          "expected_case": "CASE-09",
+          "observed_case": "CASE-09",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "EligibleRecovery",
+            "healthDecision": {
+              "nextMode": "Operational",
+              "reason": "RecoveryAccepted"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_next_state": "Operational",
+          "passed": true
+        },
+        {
+          "step": 4,
+          "inputs": {
+            "temperature": {
+              "relation": "AboveMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-03",
+          "observed_case": "CASE-03",
+          "owner_values": {
+            "temperatureAssessment": "OverTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "TemperatureDegraded",
+              "reason": "TemperatureActive"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_next_state": "TemperatureDegraded",
+          "passed": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "maintenance clears while temperature remains above maximum",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "inputs": {
+                "temperature": {
+                  "relation": "AboveMaximum",
+                  "status": "Valid"
+                },
+                "maintenance": {
+                  "timing": "Due",
+                  "status": "Valid"
+                },
+                "returnSample": {
+                  "indication": "FreshRequest",
+                  "status": "Valid"
+                }
+              },
+              "prior_state": "Operational",
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "owner_values": {
+                "temperatureAssessment": "OverTemperature",
+                "maintenanceAssessment": "MaintenanceDue",
+                "recoveryProposal": "BlockedByMaintenance",
+                "healthDecision": {
+                  "nextMode": "MaintenanceHold",
+                  "reason": "MaintenanceActive"
+                }
+              },
+              "expected_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_next_state": "MaintenanceHold",
+              "passed": true
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "temperature": {
+                  "relation": "AboveMaximum",
+                  "status": "Valid"
+                },
+                "maintenance": {
+                  "timing": "NotDue",
+                  "status": "Valid"
+                },
+                "returnSample": {
+                  "indication": "NoRequest",
+                  "status": "Valid"
+                }
+              },
+              "prior_state": "MaintenanceHold",
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "owner_values": {
+                "temperatureAssessment": "OverTemperature",
+                "maintenanceAssessment": "MaintenanceClear",
+                "recoveryProposal": "NotRequested",
+                "healthDecision": {
+                  "nextMode": "TemperatureDegraded",
+                  "reason": "TemperatureActive"
+                }
+              },
+              "expected_outputs": {
+                "vehicleHealthMode": "TemperatureDegraded",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_outputs": {
+                "vehicleHealthMode": "TemperatureDegraded",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_next_state": "TemperatureDegraded",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "name": "invalid evidence and recovery",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Invalid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-01",
+          "observed_case": "CASE-01",
+          "owner_values": {
+            "temperatureAssessment": "InvalidTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "InvalidRecoveryEvidence",
+            "healthDecision": {
+              "nextMode": "Unavailable",
+              "reason": "InvalidEvidence"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_next_state": "Unavailable",
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Invalid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Unavailable",
+          "expected_case": "CASE-01",
+          "observed_case": "CASE-01",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "InvalidMaintenance",
+            "recoveryProposal": "InvalidRecoveryEvidence",
+            "healthDecision": {
+              "nextMode": "Unavailable",
+              "reason": "InvalidEvidence"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_next_state": "Unavailable",
+          "passed": true
+        },
+        {
+          "step": 3,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Invalid"
+            }
+          },
+          "prior_state": "Unavailable",
+          "expected_case": "CASE-01",
+          "observed_case": "CASE-01",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "InvalidRecoveryEvidence",
+            "healthDecision": {
+              "nextMode": "Unavailable",
+              "reason": "InvalidEvidence"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_next_state": "Unavailable",
+          "passed": true
+        },
+        {
+          "step": 4,
+          "inputs": {
+            "temperature": {
+              "relation": "AboveMaximum",
+              "status": "Invalid"
+            },
+            "maintenance": {
+              "timing": "Due",
+              "status": "Invalid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Invalid"
+            }
+          },
+          "prior_state": "Unavailable",
+          "expected_case": "CASE-01",
+          "observed_case": "CASE-01",
+          "owner_values": {
+            "temperatureAssessment": "InvalidTemperature",
+            "maintenanceAssessment": "InvalidMaintenance",
+            "recoveryProposal": "InvalidRecoveryEvidence",
+            "healthDecision": {
+              "nextMode": "Unavailable",
+              "reason": "InvalidEvidence"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "RepairInputEvidence"
+          },
+          "observed_next_state": "Unavailable",
+          "passed": true
+        },
+        {
+          "step": 5,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Unavailable",
+          "expected_case": "CASE-06",
+          "observed_case": "CASE-06",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "Unavailable",
+              "reason": "FreshRecoveryRequired"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Unavailable",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_next_state": "Unavailable",
+          "passed": true
+        },
+        {
+          "step": 6,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Unavailable",
+          "expected_case": "CASE-07",
+          "observed_case": "CASE-07",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "EligibleRecovery",
+            "healthDecision": {
+              "nextMode": "Operational",
+              "reason": "RecoveryAccepted"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_next_state": "Operational",
+          "passed": true
+        }
+      ],
+      "variants": []
+    },
+    {
+      "id": "SCN-05",
+      "name": "blocked request and later fresh recovery",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "inputs": {
+            "temperature": {
+              "relation": "AboveMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "Operational",
+          "expected_case": "CASE-03",
+          "observed_case": "CASE-03",
+          "owner_values": {
+            "temperatureAssessment": "OverTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "TemperatureDegraded",
+              "reason": "TemperatureActive"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_next_state": "TemperatureDegraded",
+          "passed": true
+        },
+        {
+          "step": 2,
+          "inputs": {
+            "temperature": {
+              "relation": "AboveMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "TemperatureDegraded",
+          "expected_case": "CASE-03",
+          "observed_case": "CASE-03",
+          "owner_values": {
+            "temperatureAssessment": "OverTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "BlockedByTemperature",
+            "healthDecision": {
+              "nextMode": "TemperatureDegraded",
+              "reason": "TemperatureActive"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "ClearActiveCondition"
+          },
+          "observed_next_state": "TemperatureDegraded",
+          "passed": true
+        },
+        {
+          "step": 3,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "NoRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "TemperatureDegraded",
+          "expected_case": "CASE-10",
+          "observed_case": "CASE-10",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "NotRequested",
+            "healthDecision": {
+              "nextMode": "TemperatureDegraded",
+              "reason": "FreshRecoveryRequired"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "TemperatureDegraded",
+            "powerDisposition": "Withhold",
+            "recoveryGuidance": "SubmitFreshReturnRequest"
+          },
+          "observed_next_state": "TemperatureDegraded",
+          "passed": true
+        },
+        {
+          "step": 4,
+          "inputs": {
+            "temperature": {
+              "relation": "AtOrBelowMaximum",
+              "status": "Valid"
+            },
+            "maintenance": {
+              "timing": "NotDue",
+              "status": "Valid"
+            },
+            "returnSample": {
+              "indication": "FreshRequest",
+              "status": "Valid"
+            }
+          },
+          "prior_state": "TemperatureDegraded",
+          "expected_case": "CASE-11",
+          "observed_case": "CASE-11",
+          "owner_values": {
+            "temperatureAssessment": "NominalTemperature",
+            "maintenanceAssessment": "MaintenanceClear",
+            "recoveryProposal": "EligibleRecovery",
+            "healthDecision": {
+              "nextMode": "Operational",
+              "reason": "RecoveryAccepted"
+            }
+          },
+          "expected_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_outputs": {
+            "vehicleHealthMode": "Operational",
+            "powerDisposition": "Enable",
+            "recoveryGuidance": "None"
+          },
+          "observed_next_state": "Operational",
+          "passed": true
+        }
+      ],
+      "variants": [
+        {
+          "name": "maintenance-blocked event is not replayed",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "inputs": {
+                "temperature": {
+                  "relation": "AtOrBelowMaximum",
+                  "status": "Valid"
+                },
+                "maintenance": {
+                  "timing": "Due",
+                  "status": "Valid"
+                },
+                "returnSample": {
+                  "indication": "NoRequest",
+                  "status": "Valid"
+                }
+              },
+              "prior_state": "Operational",
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "owner_values": {
+                "temperatureAssessment": "NominalTemperature",
+                "maintenanceAssessment": "MaintenanceDue",
+                "recoveryProposal": "NotRequested",
+                "healthDecision": {
+                  "nextMode": "MaintenanceHold",
+                  "reason": "MaintenanceActive"
+                }
+              },
+              "expected_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_next_state": "MaintenanceHold",
+              "passed": true
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "temperature": {
+                  "relation": "AtOrBelowMaximum",
+                  "status": "Valid"
+                },
+                "maintenance": {
+                  "timing": "Due",
+                  "status": "Valid"
+                },
+                "returnSample": {
+                  "indication": "FreshRequest",
+                  "status": "Valid"
+                }
+              },
+              "prior_state": "MaintenanceHold",
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "owner_values": {
+                "temperatureAssessment": "NominalTemperature",
+                "maintenanceAssessment": "MaintenanceDue",
+                "recoveryProposal": "BlockedByMaintenance",
+                "healthDecision": {
+                  "nextMode": "MaintenanceHold",
+                  "reason": "MaintenanceActive"
+                }
+              },
+              "expected_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "ClearActiveCondition"
+              },
+              "observed_next_state": "MaintenanceHold",
+              "passed": true
+            },
+            {
+              "step": 3,
+              "inputs": {
+                "temperature": {
+                  "relation": "AtOrBelowMaximum",
+                  "status": "Valid"
+                },
+                "maintenance": {
+                  "timing": "NotDue",
+                  "status": "Valid"
+                },
+                "returnSample": {
+                  "indication": "NoRequest",
+                  "status": "Valid"
+                }
+              },
+              "prior_state": "MaintenanceHold",
+              "expected_case": "CASE-08",
+              "observed_case": "CASE-08",
+              "owner_values": {
+                "temperatureAssessment": "NominalTemperature",
+                "maintenanceAssessment": "MaintenanceClear",
+                "recoveryProposal": "NotRequested",
+                "healthDecision": {
+                  "nextMode": "MaintenanceHold",
+                  "reason": "FreshRecoveryRequired"
+                }
+              },
+              "expected_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "SubmitFreshReturnRequest"
+              },
+              "observed_outputs": {
+                "vehicleHealthMode": "MaintenanceHold",
+                "powerDisposition": "Withhold",
+                "recoveryGuidance": "SubmitFreshReturnRequest"
+              },
+              "observed_next_state": "MaintenanceHold",
+              "passed": true
+            },
+            {
+              "step": 4,
+              "inputs": {
+                "temperature": {
+                  "relation": "AtOrBelowMaximum",
+                  "status": "Valid"
+                },
+                "maintenance": {
+                  "timing": "NotDue",
+                  "status": "Valid"
+                },
+                "returnSample": {
+                  "indication": "FreshRequest",
+                  "status": "Valid"
+                }
+              },
+              "prior_state": "MaintenanceHold",
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "owner_values": {
+                "temperatureAssessment": "NominalTemperature",
+                "maintenanceAssessment": "MaintenanceClear",
+                "recoveryProposal": "EligibleRecovery",
+                "healthDecision": {
+                  "nextMode": "Operational",
+                  "reason": "RecoveryAccepted"
+                }
+              },
+              "expected_outputs": {
+                "vehicleHealthMode": "Operational",
+                "powerDisposition": "Enable",
+                "recoveryGuidance": "None"
+              },
+              "observed_outputs": {
+                "vehicleHealthMode": "Operational",
+                "powerDisposition": "Enable",
+                "recoveryGuidance": "None"
+              },
+              "observed_next_state": "Operational",
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "failed_scenarios": [],
+  "ownership_audit": [
+    {
+      "usage": "temperatureQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "temperatureQualification.rawTemperature"
+      ],
+      "owner_local_facts": [
+        "validity-aware TemperatureAssessment classification"
+      ],
+      "contract_cases": [
+        "TEMPERATURE_INVALID",
+        "TEMPERATURE_NOMINAL",
+        "TEMPERATURE_OVER"
+      ],
+      "analyzer_checks": [
+        "temperature qualification exhaustive 4-to-3 relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "maintenanceQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "maintenanceQualification.rawMaintenance"
+      ],
+      "owner_local_facts": [
+        "validity-aware MaintenanceAssessment classification"
+      ],
+      "contract_cases": [
+        "MAINTENANCE_INVALID",
+        "MAINTENANCE_CLEAR",
+        "MAINTENANCE_DUE"
+      ],
+      "analyzer_checks": [
+        "maintenance qualification exhaustive 4-to-3 relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recoveryApplicability",
+      "claimed_roles": [
+        "applicability",
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "recoveryApplicability.rawReturn",
+        "recoveryApplicability.temperatureAssessment",
+        "recoveryApplicability.maintenanceAssessment"
+      ],
+      "owner_local_facts": [
+        "priority-ordered RecoveryProposal classification"
+      ],
+      "contract_cases": [
+        "RECOVERY_INVALID",
+        "RECOVERY_NOT_REQUESTED",
+        "RECOVERY_BLOCKED_MAINTENANCE",
+        "RECOVERY_BLOCKED_TEMPERATURE",
+        "RECOVERY_ELIGIBLE"
+      ],
+      "analyzer_checks": [
+        "recovery applicability exhaustive 36-to-5 relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "healthModeArbitration",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "healthModeArbitration.temperatureAssessment",
+        "healthModeArbitration.maintenanceAssessment",
+        "healthModeArbitration.recoveryProposal",
+        "healthModeArbitration.healthState"
+      ],
+      "owner_local_facts": [
+        "ordered HealthDecision",
+        "next VehicleHealthMode",
+        "persistent healthState"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11"
+      ],
+      "analyzer_checks": [
+        "health arbitration exhaustive 180-tuple partition",
+        "decision nextMode equals committed healthState"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "boundaryOutcomeDerivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "boundaryOutcomeDerivation.healthDecision",
+        "boundaryOutcomeDerivation.recoveryProposal"
+      ],
+      "owner_local_facts": [
+        "defensive three-output classification",
+        "producer-inconsistent pair fail-closed response"
+      ],
+      "contract_cases": [
+        "DEFENSIVE_OUTCOME_CLASSIFICATION"
+      ],
+      "analyzer_checks": [
+        "boundary outcome exhaustive 140-pair classification",
+        "all producer-inconsistent pairs fail closed"
+      ],
+      "passed": true
+    }
+  ],
+  "checks": {
+    "semantic_connection_map_exact_13": true,
+    "temperature_owner_local_relation": true,
+    "maintenance_owner_local_relation": true,
+    "recovery_owner_local_relation": true,
+    "direct_owner_domain_exact_180": true,
+    "direct_owner_partition_total_exclusive": true,
+    "direct_output_domain_exact_140": true,
+    "direct_output_total_and_fail_closed": true,
+    "raw_domain_exact_256": true,
+    "raw_partition_total_exclusive": true,
+    "all_eleven_case_witnesses": true,
+    "all_seven_output_tuple_witnesses": true,
+    "all_invalid_status_masks": true,
+    "owner_state_invariant": true,
+    "explicit_interaction_fanouts_preserve_owner_values": true,
+    "five_scenario_traces": true,
+    "blocked_request_not_replayed": true,
+    "all_ownership_audits_executed": true
+  }
+}

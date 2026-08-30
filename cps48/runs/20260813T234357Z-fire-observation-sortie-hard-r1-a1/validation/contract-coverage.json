@@ -1,0 +1,2461 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "1880bb061208d72c11647c5b0be9bbfa45b99bccc25e9a8625111e8abf29bcbf",
+  "claim_boundary": "Finite exhaustive conformance of the declared pilot domains, owner relations, semantic connection map, and scenarios only; not compositional proof, solver certification, generated-code correctness, execution evidence, physical performance, operational safety, or certification.",
+  "finite_root_domain": {
+    "energy": 16,
+    "navigation": 256,
+    "communication": 16,
+    "observation": 16,
+    "obstacle": 16,
+    "propulsion": 2048,
+    "operator_event": 4
+  },
+  "semantic_interaction_count": 35,
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "source": "root.energyEvidence",
+      "destination": "energy_evidence_assessor.energy_evidence",
+      "payload": "EnergyEvidence"
+    },
+    {
+      "id": "INT-02",
+      "source": "root.navigationEvidence",
+      "destination": "navigation_evidence_assessor.navigation_evidence",
+      "payload": "NavigationEvidence"
+    },
+    {
+      "id": "INT-03",
+      "source": "root.communicationEvidence",
+      "destination": "communication_evidence_assessor.communication_evidence",
+      "payload": "EquipmentEvidence"
+    },
+    {
+      "id": "INT-04",
+      "source": "root.observationEvidence",
+      "destination": "observation_evidence_assessor.observation_evidence",
+      "payload": "EquipmentEvidence"
+    },
+    {
+      "id": "INT-05",
+      "source": "root.obstacleEvidence",
+      "destination": "obstacle_evidence_assessor.obstacle_evidence",
+      "payload": "EquipmentEvidence"
+    },
+    {
+      "id": "INT-06",
+      "source": "root.propulsionEvidence",
+      "destination": "propulsion_evidence_assessor.propulsion_evidence",
+      "payload": "PropulsionEvidence"
+    },
+    {
+      "id": "INT-07",
+      "source": "root.operatorEvent",
+      "destination": "request_lifecycle_owner.operator_event",
+      "payload": "OperatorEvent"
+    },
+    {
+      "id": "INT-08",
+      "source": "energy_evidence_assessor.energy_assessment",
+      "destination": "fault_registry.energy_assessment",
+      "payload": "EnergyAssessment"
+    },
+    {
+      "id": "INT-09",
+      "source": "navigation_evidence_assessor.navigation_assessment",
+      "destination": "fault_registry.navigation_assessment",
+      "payload": "NavigationAssessment"
+    },
+    {
+      "id": "INT-10",
+      "source": "communication_evidence_assessor.communication_assessment",
+      "destination": "fault_registry.communication_assessment",
+      "payload": "SingleEquipmentAssessment"
+    },
+    {
+      "id": "INT-11",
+      "source": "observation_evidence_assessor.observation_assessment",
+      "destination": "fault_registry.observation_assessment",
+      "payload": "SingleEquipmentAssessment"
+    },
+    {
+      "id": "INT-12",
+      "source": "obstacle_evidence_assessor.obstacle_assessment",
+      "destination": "fault_registry.obstacle_assessment",
+      "payload": "SingleEquipmentAssessment"
+    },
+    {
+      "id": "INT-13",
+      "source": "propulsion_evidence_assessor.propulsion_assessment",
+      "destination": "fault_registry.propulsion_assessment",
+      "payload": "PropulsionAssessment"
+    },
+    {
+      "id": "INT-14",
+      "source": "energy_evidence_assessor.energy_assessment",
+      "destination": "eligibility_decision_owner.energy_assessment",
+      "payload": "EnergyAssessment"
+    },
+    {
+      "id": "INT-15",
+      "source": "navigation_evidence_assessor.navigation_assessment",
+      "destination": "eligibility_decision_owner.navigation_assessment",
+      "payload": "NavigationAssessment"
+    },
+    {
+      "id": "INT-16",
+      "source": "communication_evidence_assessor.communication_assessment",
+      "destination": "eligibility_decision_owner.communication_assessment",
+      "payload": "SingleEquipmentAssessment"
+    },
+    {
+      "id": "INT-17",
+      "source": "observation_evidence_assessor.observation_assessment",
+      "destination": "eligibility_decision_owner.observation_assessment",
+      "payload": "SingleEquipmentAssessment"
+    },
+    {
+      "id": "INT-18",
+      "source": "obstacle_evidence_assessor.obstacle_assessment",
+      "destination": "eligibility_decision_owner.obstacle_assessment",
+      "payload": "SingleEquipmentAssessment"
+    },
+    {
+      "id": "INT-19",
+      "source": "propulsion_evidence_assessor.propulsion_assessment",
+      "destination": "eligibility_decision_owner.propulsion_assessment",
+      "payload": "PropulsionAssessment"
+    },
+    {
+      "id": "INT-20",
+      "source": "request_lifecycle_owner.candidate_event",
+      "destination": "priority_arbiter.candidate_event",
+      "payload": "OperatorEvent"
+    },
+    {
+      "id": "INT-21",
+      "source": "fault_registry.fault_summary",
+      "destination": "priority_arbiter.fault_summary",
+      "payload": "FaultSummary"
+    },
+    {
+      "id": "INT-22",
+      "source": "priority_arbiter.accepted_directive",
+      "destination": "request_lifecycle_owner.accepted_directive",
+      "payload": "PriorityDirective"
+    },
+    {
+      "id": "INT-23",
+      "source": "priority_arbiter.accepted_directive",
+      "destination": "recovery_qualification_owner.accepted_directive",
+      "payload": "PriorityDirective"
+    },
+    {
+      "id": "INT-24",
+      "source": "fault_registry.fault_summary",
+      "destination": "recovery_qualification_owner.fault_summary",
+      "payload": "FaultSummary"
+    },
+    {
+      "id": "INT-25",
+      "source": "recovery_qualification_owner.recovery_facts",
+      "destination": "eligibility_decision_owner.recovery_facts",
+      "payload": "RecoveryFacts"
+    },
+    {
+      "id": "INT-26",
+      "source": "request_lifecycle_owner.request_phase",
+      "destination": "eligibility_decision_owner.request_phase",
+      "payload": "RequestPhase"
+    },
+    {
+      "id": "INT-27",
+      "source": "eligibility_decision_owner.eligibility_decision",
+      "destination": "permission_release_ledger.eligibility_decision",
+      "payload": "EligibilityDecision"
+    },
+    {
+      "id": "INT-28",
+      "source": "permission_release_ledger.release_feedback",
+      "destination": "request_lifecycle_owner.release_feedback",
+      "payload": "ReleaseFeedback"
+    },
+    {
+      "id": "INT-29",
+      "source": "eligibility_decision_owner.eligibility_decision",
+      "destination": "status_composer.eligibility_decision",
+      "payload": "EligibilityDecision"
+    },
+    {
+      "id": "INT-30",
+      "source": "fault_registry.fault_summary",
+      "destination": "status_composer.fault_summary",
+      "payload": "FaultSummary"
+    },
+    {
+      "id": "INT-31",
+      "source": "recovery_qualification_owner.recovery_phase",
+      "destination": "status_composer.recovery_phase",
+      "payload": "RecoveryPhase"
+    },
+    {
+      "id": "INT-32",
+      "source": "request_lifecycle_owner.request_phase",
+      "destination": "status_composer.request_phase",
+      "payload": "RequestPhase"
+    },
+    {
+      "id": "INT-33",
+      "source": "permission_release_ledger.sortie_directive",
+      "destination": "root.sortieEligibilityDirective",
+      "payload": "SortieDirective"
+    },
+    {
+      "id": "INT-34",
+      "source": "status_composer.eligibility_status",
+      "destination": "root.eligibilityStatus",
+      "payload": "EligibilityStatus"
+    },
+    {
+      "id": "INT-35",
+      "source": "request_lifecycle_owner.request_phase",
+      "destination": "permission_release_ledger.request_phase",
+      "payload": "RequestPhase"
+    }
+  ],
+  "partition_reports": {
+    "energy_evidence_assessor": {
+      "product": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"ready\":true,\"localCause\":\"None\"}": 1,
+        "{\"ready\":false,\"localCause\":\"Stale\"}": 4,
+        "{\"ready\":false,\"localCause\":\"Invalid\"}": 8,
+        "{\"ready\":false,\"localCause\":\"Limited\"}": 1,
+        "{\"ready\":false,\"localCause\":\"UnavailableOrUnknown\"}": 2
+      },
+      "witnesses": {
+        "CASE-01": {
+          "input": {
+            "quality": "Nominal",
+            "validity": "Valid",
+            "freshness": "Current"
+          },
+          "output": {
+            "ready": true,
+            "localCause": "None"
+          }
+        },
+        "CASE-02": {
+          "input": {
+            "quality": "Nominal",
+            "validity": "Valid",
+            "freshness": "Stale"
+          },
+          "output": {
+            "ready": false,
+            "localCause": "Stale"
+          }
+        }
+      }
+    },
+    "navigation_evidence_assessor": {
+      "product": 256,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"ready\":true,\"localCause\":\"None\"}": 1,
+        "{\"ready\":false,\"localCause\":\"Stale\"}": 64,
+        "{\"ready\":false,\"localCause\":\"Invalid\"}": 128,
+        "{\"ready\":false,\"localCause\":\"Barometric\"}": 3,
+        "{\"ready\":false,\"localCause\":\"Inertial\"}": 12,
+        "{\"ready\":false,\"localCause\":\"Gps\"}": 48
+      },
+      "witnesses": {
+        "CASE-03": {
+          "input": {
+            "gpsCondition": "Nominal",
+            "inertial": "Nominal",
+            "barometric": "Nominal",
+            "validity": "Valid",
+            "freshness": "Current"
+          },
+          "output": {
+            "ready": true,
+            "localCause": "None"
+          }
+        },
+        "CASE-04": {
+          "input": {
+            "gpsCondition": "Nominal",
+            "inertial": "Nominal",
+            "barometric": "Nominal",
+            "validity": "Valid",
+            "freshness": "Stale"
+          },
+          "output": {
+            "ready": false,
+            "localCause": "Stale"
+          }
+        }
+      }
+    },
+    "communication_evidence_assessor": {
+      "product": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"ready\":true,\"localCause\":\"None\"}": 1,
+        "{\"ready\":false,\"localCause\":\"Stale\"}": 4,
+        "{\"ready\":false,\"localCause\":\"Invalid\"}": 8,
+        "{\"ready\":false,\"localCause\":\"Condition\"}": 3
+      },
+      "witnesses": {
+        "CASE-05": {
+          "input": {
+            "condition": "Nominal",
+            "validity": "Valid",
+            "freshness": "Current"
+          },
+          "output": {
+            "ready": true,
+            "localCause": "None"
+          }
+        },
+        "CASE-06": {
+          "input": {
+            "condition": "Nominal",
+            "validity": "Valid",
+            "freshness": "Stale"
+          },
+          "output": {
+            "ready": false,
+            "localCause": "Stale"
+          }
+        }
+      }
+    },
+    "observation_evidence_assessor": {
+      "product": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"ready\":true,\"localCause\":\"None\"}": 1,
+        "{\"ready\":false,\"localCause\":\"Stale\"}": 4,
+        "{\"ready\":false,\"localCause\":\"Invalid\"}": 8,
+        "{\"ready\":false,\"localCause\":\"Condition\"}": 3
+      },
+      "witnesses": {
+        "CASE-07": {
+          "input": {
+            "condition": "Nominal",
+            "validity": "Valid",
+            "freshness": "Current"
+          },
+          "output": {
+            "ready": true,
+            "localCause": "None"
+          }
+        },
+        "CASE-08": {
+          "input": {
+            "condition": "Nominal",
+            "validity": "Valid",
+            "freshness": "Stale"
+          },
+          "output": {
+            "ready": false,
+            "localCause": "Stale"
+          }
+        }
+      }
+    },
+    "obstacle_evidence_assessor": {
+      "product": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"ready\":true,\"localCause\":\"None\"}": 1,
+        "{\"ready\":false,\"localCause\":\"Stale\"}": 4,
+        "{\"ready\":false,\"localCause\":\"Invalid\"}": 8,
+        "{\"ready\":false,\"localCause\":\"Condition\"}": 3
+      },
+      "witnesses": {
+        "CASE-09": {
+          "input": {
+            "condition": "Nominal",
+            "validity": "Valid",
+            "freshness": "Current"
+          },
+          "output": {
+            "ready": true,
+            "localCause": "None"
+          }
+        },
+        "CASE-10": {
+          "input": {
+            "condition": "Nominal",
+            "validity": "Valid",
+            "freshness": "Stale"
+          },
+          "output": {
+            "ready": false,
+            "localCause": "Stale"
+          }
+        }
+      }
+    },
+    "propulsion_evidence_assessor": {
+      "product": 2048,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"ready\":true,\"localCause\":\"None\"}": 1,
+        "{\"ready\":false,\"localCause\":\"Configuration\"}": 256,
+        "{\"ready\":false,\"localCause\":\"Stale\"}": 512,
+        "{\"ready\":false,\"localCause\":\"Invalid\"}": 1024,
+        "{\"ready\":false,\"localCause\":\"Engine4\"}": 3,
+        "{\"ready\":false,\"localCause\":\"Engine3\"}": 12,
+        "{\"ready\":false,\"localCause\":\"Engine2\"}": 48,
+        "{\"ready\":false,\"localCause\":\"Engine1\"}": 192
+      },
+      "witnesses": {
+        "CASE-11": {
+          "input": {
+            "engine1": "Nominal",
+            "engine2": "Nominal",
+            "engine3": "Nominal",
+            "engine4": "Nominal",
+            "validity": "Valid",
+            "freshness": "Current",
+            "alternatingKindsConfirmed": "Confirmed"
+          },
+          "output": {
+            "ready": true,
+            "localCause": "None"
+          }
+        },
+        "CASE-12": {
+          "input": {
+            "engine1": "Nominal",
+            "engine2": "Nominal",
+            "engine3": "Nominal",
+            "engine4": "Nominal",
+            "validity": "Valid",
+            "freshness": "Current",
+            "alternatingKindsConfirmed": "NotConfirmed"
+          },
+          "output": {
+            "ready": false,
+            "localCause": "Configuration"
+          }
+        }
+      }
+    },
+    "request_lifecycle_owner": {
+      "product": 30,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"published\":\"Idle\",\"next\":\"Idle\"}": 8,
+        "{\"published\":\"Idle\",\"next\":\"Pending\"}": 2,
+        "{\"published\":\"Pending\",\"next\":\"Pending\"}": 4,
+        "{\"published\":\"Pending\",\"next\":\"Released\"}": 4,
+        "{\"published\":\"Pending\",\"next\":\"Idle\"}": 2,
+        "{\"published\":\"Released\",\"next\":\"Released\"}": 6,
+        "{\"published\":\"Released\",\"next\":\"Idle\"}": 4
+      },
+      "witnesses": {
+        "CASE-22": {
+          "input": {
+            "prior": "Idle",
+            "directive": "Inhibit",
+            "feedback": "NotReleased"
+          },
+          "output": {
+            "published": "Idle",
+            "next": "Idle"
+          }
+        },
+        "CASE-18": {
+          "input": {
+            "prior": "Idle",
+            "directive": "Cancel",
+            "feedback": "NotReleased"
+          },
+          "output": {
+            "published": "Idle",
+            "next": "Idle"
+          }
+        },
+        "CASE-19": {
+          "input": {
+            "prior": "Idle",
+            "directive": "Submit",
+            "feedback": "NotReleased"
+          },
+          "output": {
+            "published": "Idle",
+            "next": "Pending"
+          }
+        },
+        "CASE-21": {
+          "input": {
+            "prior": "Pending",
+            "directive": "Inhibit",
+            "feedback": "Released"
+          },
+          "output": {
+            "published": "Pending",
+            "next": "Released"
+          }
+        },
+        "CASE-20": {
+          "input": {
+            "prior": "Pending",
+            "directive": "Submit",
+            "feedback": "NotReleased"
+          },
+          "output": {
+            "published": "Pending",
+            "next": "Pending"
+          }
+        }
+      }
+    },
+    "fault_registry": {
+      "product": 15360,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"faultState\":\"Clear\",\"primaryCause\":\"None\"}": 1,
+        "{\"faultState\":\"Active\",\"primaryCause\":\"Propulsion\"}": 2688,
+        "{\"faultState\":\"Active\",\"primaryCause\":\"Obstacle\"}": 48,
+        "{\"faultState\":\"Active\",\"primaryCause\":\"Observation\"}": 12,
+        "{\"faultState\":\"Active\",\"primaryCause\":\"Communication\"}": 3,
+        "{\"faultState\":\"Active\",\"primaryCause\":\"Navigation\"}": 320,
+        "{\"faultState\":\"Active\",\"primaryCause\":\"Energy\"}": 12288
+      },
+      "witnesses": {
+        "CASE-24": {
+          "input": {
+            "energy": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "navigation": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "communication": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "observation": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "obstacle": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "propulsion": {
+              "ready": true,
+              "localCause": "None"
+            }
+          },
+          "output": {
+            "faultState": "Clear",
+            "primaryCause": "None"
+          }
+        },
+        "CASE-23": {
+          "input": {
+            "energy": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "navigation": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "communication": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "observation": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "obstacle": {
+              "ready": true,
+              "localCause": "None"
+            },
+            "propulsion": {
+              "ready": false,
+              "localCause": "Configuration"
+            }
+          },
+          "output": {
+            "faultState": "Active",
+            "primaryCause": "Propulsion"
+          }
+        }
+      }
+    },
+    "priority_arbiter": {
+      "product": 28,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "\"Hold\"": 1,
+        "\"Submit\"": 1,
+        "\"Cancel\"": 1,
+        "\"Recover\"": 1,
+        "\"Inhibit\"": 24
+      },
+      "witnesses": {
+        "CASE-17": {
+          "input": {
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "event": "None"
+          },
+          "output": "Hold"
+        },
+        "CASE-16": {
+          "input": {
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "event": "Submit"
+          },
+          "output": "Submit"
+        },
+        "CASE-14": {
+          "input": {
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "event": "Cancel"
+          },
+          "output": "Cancel"
+        },
+        "CASE-15": {
+          "input": {
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "event": "AcknowledgeRecovery"
+          },
+          "output": "Recover"
+        },
+        "CASE-13": {
+          "input": {
+            "fault": {
+              "faultState": "Active",
+              "primaryCause": "Propulsion"
+            },
+            "event": "None"
+          },
+          "output": "Inhibit"
+        }
+      }
+    },
+    "recovery_qualification_owner": {
+      "product": 105,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"phase\":\"Normal\",\"gate\":\"Open\",\"carriedPriority\":\"Inhibit\"}": 1,
+        "{\"phase\":\"Normal\",\"gate\":\"Open\",\"carriedPriority\":\"Cancel\"}": 1,
+        "{\"phase\":\"Normal\",\"gate\":\"Open\",\"carriedPriority\":\"Recover\"}": 3,
+        "{\"phase\":\"Normal\",\"gate\":\"Open\",\"carriedPriority\":\"Submit\"}": 1,
+        "{\"phase\":\"Normal\",\"gate\":\"Open\",\"carriedPriority\":\"Hold\"}": 1,
+        "{\"phase\":\"Quarantined\",\"gate\":\"Closed\",\"carriedPriority\":\"Inhibit\"}": 18,
+        "{\"phase\":\"Quarantined\",\"gate\":\"Closed\",\"carriedPriority\":\"Cancel\"}": 18,
+        "{\"phase\":\"Quarantined\",\"gate\":\"Closed\",\"carriedPriority\":\"Recover\"}": 18,
+        "{\"phase\":\"Quarantined\",\"gate\":\"Closed\",\"carriedPriority\":\"Submit\"}": 18,
+        "{\"phase\":\"Quarantined\",\"gate\":\"Closed\",\"carriedPriority\":\"Hold\"}": 18,
+        "{\"phase\":\"AwaitingAck\",\"gate\":\"Closed\",\"carriedPriority\":\"Inhibit\"}": 2,
+        "{\"phase\":\"AwaitingAck\",\"gate\":\"Closed\",\"carriedPriority\":\"Cancel\"}": 2,
+        "{\"phase\":\"AwaitingAck\",\"gate\":\"Closed\",\"carriedPriority\":\"Submit\"}": 2,
+        "{\"phase\":\"AwaitingAck\",\"gate\":\"Closed\",\"carriedPriority\":\"Hold\"}": 2
+      },
+      "witnesses": {
+        "CASE-26": {
+          "input": {
+            "prior": "Normal",
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "directive": "Inhibit"
+          },
+          "output": {
+            "phase": "Normal",
+            "gate": "Open",
+            "carriedPriority": "Inhibit"
+          }
+        },
+        "CASE-25": {
+          "input": {
+            "prior": "Normal",
+            "fault": {
+              "faultState": "Active",
+              "primaryCause": "Propulsion"
+            },
+            "directive": "Inhibit"
+          },
+          "output": {
+            "phase": "Quarantined",
+            "gate": "Closed",
+            "carriedPriority": "Inhibit"
+          }
+        },
+        "CASE-27": {
+          "input": {
+            "prior": "Quarantined",
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "directive": "Inhibit"
+          },
+          "output": {
+            "phase": "AwaitingAck",
+            "gate": "Closed",
+            "carriedPriority": "Inhibit"
+          }
+        }
+      }
+    },
+    "eligibility_decision_owner": {
+      "product": 460800,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"directive\":\"Withhold\",\"reason\":\"Equipment\"}": 460776,
+        "{\"directive\":\"Withhold\",\"reason\":\"NoRequest\"}": 9,
+        "{\"directive\":\"Withhold\",\"reason\":\"Recovery\"}": 12,
+        "{\"directive\":\"Permit\",\"reason\":\"None\"}": 3
+      },
+      "witnesses": {
+        "CASE-28": {
+          "input": {
+            "assessments": {
+              "energy": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "navigation": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "communication": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "observation": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "obstacle": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "propulsion": {
+                "ready": true,
+                "localCause": "None"
+              }
+            },
+            "request": "Idle",
+            "recovery": {
+              "gate": "Open",
+              "carriedPriority": "Inhibit"
+            }
+          },
+          "output": {
+            "directive": "Withhold",
+            "reason": "Equipment"
+          }
+        },
+        "CASE-30": {
+          "input": {
+            "assessments": {
+              "energy": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "navigation": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "communication": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "observation": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "obstacle": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "propulsion": {
+                "ready": true,
+                "localCause": "None"
+              }
+            },
+            "request": "Pending",
+            "recovery": {
+              "gate": "Open",
+              "carriedPriority": "Inhibit"
+            }
+          },
+          "output": {
+            "directive": "Withhold",
+            "reason": "Equipment"
+          }
+        },
+        "CASE-29": {
+          "input": {
+            "assessments": {
+              "energy": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "navigation": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "communication": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "observation": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "obstacle": {
+                "ready": true,
+                "localCause": "None"
+              },
+              "propulsion": {
+                "ready": true,
+                "localCause": "None"
+              }
+            },
+            "request": "Pending",
+            "recovery": {
+              "gate": "Open",
+              "carriedPriority": "Recover"
+            }
+          },
+          "output": {
+            "directive": "Permit",
+            "reason": "None"
+          }
+        }
+      }
+    },
+    "permission_release_ledger": {
+      "product": 24,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"sortieDirective\":\"Withhold\",\"releaseFeedback\":\"NotReleased\",\"next\":\"NotReleased\"}": 15,
+        "{\"sortieDirective\":\"Permit\",\"releaseFeedback\":\"Released\",\"next\":\"Released\"}": 1,
+        "{\"sortieDirective\":\"Withhold\",\"releaseFeedback\":\"NotReleased\",\"next\":\"Released\"}": 8
+      },
+      "witnesses": {
+        "BEH-01": {
+          "input": {
+            "prior": "NotReleased",
+            "request": "Idle",
+            "decision": {
+              "directive": "Permit",
+              "reason": "None"
+            }
+          },
+          "output": {
+            "sortieDirective": "Withhold",
+            "releaseFeedback": "NotReleased",
+            "next": "NotReleased"
+          }
+        }
+      }
+    },
+    "status_composer": {
+      "product": 252,
+      "producer_reachable": 25,
+      "producer_unreachable_count": 227,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "output_counts": {
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Clear\",\"recoveryPhase\":\"Normal\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"NoRequest\"}": 1,
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Clear\",\"recoveryPhase\":\"AwaitingAck\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Recovery\"}": 1,
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Propulsion\"}": 1,
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Obstacle\"}": 1,
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Observation\"}": 1,
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Communication\"}": 1,
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Navigation\"}": 1,
+        "{\"requestPhase\":\"Idle\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Energy\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Clear\",\"recoveryPhase\":\"Normal\",\"decisionDirective\":\"Permit\",\"limitingCause\":\"None\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Clear\",\"recoveryPhase\":\"Normal\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"NoRequest\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Clear\",\"recoveryPhase\":\"AwaitingAck\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Recovery\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Propulsion\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Obstacle\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Observation\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Communication\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Navigation\"}": 1,
+        "{\"requestPhase\":\"Pending\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Energy\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Clear\",\"recoveryPhase\":\"Normal\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"NoRequest\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Clear\",\"recoveryPhase\":\"AwaitingAck\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Recovery\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Propulsion\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Obstacle\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Observation\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Communication\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Navigation\"}": 1,
+        "{\"requestPhase\":\"Released\",\"faultState\":\"Active\",\"recoveryPhase\":\"Quarantined\",\"decisionDirective\":\"Withhold\",\"limitingCause\":\"Energy\"}": 1
+      },
+      "witnesses": {
+        "NoRequest": {
+          "input": {
+            "request": "Idle",
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "recovery": "Normal",
+            "decision": {
+              "directive": "Withhold",
+              "reason": "NoRequest"
+            }
+          },
+          "output": {
+            "requestPhase": "Idle",
+            "faultState": "Clear",
+            "recoveryPhase": "Normal",
+            "decisionDirective": "Withhold",
+            "limitingCause": "NoRequest"
+          }
+        },
+        "Recovery": {
+          "input": {
+            "request": "Idle",
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "recovery": "AwaitingAck",
+            "decision": {
+              "directive": "Withhold",
+              "reason": "Recovery"
+            }
+          },
+          "output": {
+            "requestPhase": "Idle",
+            "faultState": "Clear",
+            "recoveryPhase": "AwaitingAck",
+            "decisionDirective": "Withhold",
+            "limitingCause": "Recovery"
+          }
+        },
+        "Equipment": {
+          "input": {
+            "request": "Idle",
+            "fault": {
+              "faultState": "Active",
+              "primaryCause": "Propulsion"
+            },
+            "recovery": "Quarantined",
+            "decision": {
+              "directive": "Withhold",
+              "reason": "Equipment"
+            }
+          },
+          "output": {
+            "requestPhase": "Idle",
+            "faultState": "Active",
+            "recoveryPhase": "Quarantined",
+            "decisionDirective": "Withhold",
+            "limitingCause": "Propulsion"
+          }
+        },
+        "None": {
+          "input": {
+            "request": "Pending",
+            "fault": {
+              "faultState": "Clear",
+              "primaryCause": "None"
+            },
+            "recovery": "Normal",
+            "decision": {
+              "directive": "Permit",
+              "reason": "None"
+            }
+          },
+          "output": {
+            "requestPhase": "Pending",
+            "faultState": "Clear",
+            "recoveryPhase": "Normal",
+            "decisionDirective": "Permit",
+            "limitingCause": "None"
+          }
+        }
+      }
+    }
+  },
+  "partition_failures": 0,
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "raw_policy_reference_checks": 55,
+  "invariant_checks": {
+    "assessment_product_15360": true,
+    "request_product_30": true,
+    "priority_product_28": true,
+    "recovery_product_105": true,
+    "eligibility_product_460800": true,
+    "release_product_24": true,
+    "status_product_252": true,
+    "semantic_flow_count_35": true,
+    "case_count_30": true,
+    "scenario_count_10": true
+  },
+  "invariant_violations": 0,
+  "reached_contract_cases": [
+    "CASE-01",
+    "CASE-02",
+    "CASE-03",
+    "CASE-04",
+    "CASE-05",
+    "CASE-06",
+    "CASE-07",
+    "CASE-08",
+    "CASE-09",
+    "CASE-10",
+    "CASE-11",
+    "CASE-12",
+    "CASE-13",
+    "CASE-14",
+    "CASE-15",
+    "CASE-16",
+    "CASE-17",
+    "CASE-18",
+    "CASE-19",
+    "CASE-20",
+    "CASE-21",
+    "CASE-22",
+    "CASE-23",
+    "CASE-24",
+    "CASE-25",
+    "CASE-26",
+    "CASE-27",
+    "CASE-28",
+    "CASE-29",
+    "CASE-30"
+  ],
+  "missing_contract_cases": [],
+  "scenario_family_count": 10,
+  "scenario_families": [
+    {
+      "id": "SCN-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "event": "AcknowledgeRecovery",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-15",
+            "CASE-22",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Idle",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Idle",
+              "recovery": "Normal",
+              "ledger": "NotReleased"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-22",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Idle",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Idle",
+              "recovery": "Normal",
+              "ledger": "NotReleased"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "event": "Submit",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-16",
+            "CASE-19",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Idle",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Pending",
+              "recovery": "Normal",
+              "ledger": "NotReleased"
+            }
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-21",
+            "CASE-24",
+            "CASE-26",
+            "CASE-29",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Permit",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Permit",
+                "limitingCause": "None"
+              }
+            },
+            "nextState": {
+              "request": "Released",
+              "recovery": "Normal",
+              "ledger": "Released"
+            }
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-22",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Released",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Idle",
+              "recovery": "Normal",
+              "ledger": "Released"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-22",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Idle",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Idle",
+              "recovery": "Normal",
+              "ledger": "NotReleased"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-22",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Idle",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Idle",
+              "recovery": "Normal",
+              "ledger": "NotReleased"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-21",
+            "CASE-24",
+            "CASE-26",
+            "CASE-29",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Permit",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Permit",
+                "limitingCause": "None"
+              }
+            },
+            "nextState": {
+              "request": "Released",
+              "recovery": "Normal",
+              "ledger": "Released"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "event": "Submit",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-16",
+            "CASE-20",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Released",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Released",
+              "recovery": "Normal",
+              "ledger": "Released"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "event": "Submit",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-16",
+            "CASE-20",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Released",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Released",
+              "recovery": "Normal",
+              "ledger": "Released"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "event": "Cancel",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-14",
+            "CASE-18",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Idle",
+              "recovery": "Normal",
+              "ledger": "NotReleased"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-22",
+            "CASE-24",
+            "CASE-26",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Idle",
+                "faultState": "Clear",
+                "recoveryPhase": "Normal",
+                "decisionDirective": "Withhold",
+                "limitingCause": "NoRequest"
+              }
+            },
+            "nextState": {
+              "request": "Idle",
+              "recovery": "Normal",
+              "ledger": "NotReleased"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "event": "None",
+            "changedEvidence": "energy.quality=Limited"
+          },
+          "expected_named_branch": [
+            "CASE-02",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-22",
+            "CASE-23",
+            "CASE-25",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Active",
+                "recoveryPhase": "Quarantined",
+                "decisionDirective": "Withhold",
+                "limitingCause": "Energy"
+              }
+            },
+            "nextState": {
+              "request": "Pending",
+              "recovery": "Quarantined",
+              "ledger": "NotReleased"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-06",
+      "passed": true,
+      "variants": [
+        {
+          "id": "SCN-06-1",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "None",
+                "changedEvidence": "navigation.inertial=NonNominal"
+              },
+              "expected_named_branch": [
+                "CASE-01",
+                "CASE-04",
+                "CASE-05",
+                "CASE-07",
+                "CASE-09",
+                "CASE-11",
+                "CASE-13",
+                "CASE-22",
+                "CASE-23",
+                "CASE-25",
+                "CASE-28",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Withhold",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Active",
+                    "recoveryPhase": "Quarantined",
+                    "decisionDirective": "Withhold",
+                    "limitingCause": "Navigation"
+                  }
+                },
+                "nextState": {
+                  "request": "Pending",
+                  "recovery": "Quarantined",
+                  "ledger": "NotReleased"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "SCN-06-2",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "None",
+                "changedEvidence": "obstacle.condition=Unavailable"
+              },
+              "expected_named_branch": [
+                "CASE-01",
+                "CASE-03",
+                "CASE-05",
+                "CASE-07",
+                "CASE-10",
+                "CASE-11",
+                "CASE-13",
+                "CASE-22",
+                "CASE-23",
+                "CASE-25",
+                "CASE-28",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Withhold",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Active",
+                    "recoveryPhase": "Quarantined",
+                    "decisionDirective": "Withhold",
+                    "limitingCause": "Obstacle"
+                  }
+                },
+                "nextState": {
+                  "request": "Pending",
+                  "recovery": "Quarantined",
+                  "ledger": "NotReleased"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "SCN-06-3",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "None",
+                "changedEvidence": "propulsion.engine3=NonNominal"
+              },
+              "expected_named_branch": [
+                "CASE-01",
+                "CASE-03",
+                "CASE-05",
+                "CASE-07",
+                "CASE-09",
+                "CASE-12",
+                "CASE-13",
+                "CASE-22",
+                "CASE-23",
+                "CASE-25",
+                "CASE-28",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Withhold",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Active",
+                    "recoveryPhase": "Quarantined",
+                    "decisionDirective": "Withhold",
+                    "limitingCause": "Propulsion"
+                  }
+                },
+                "nextState": {
+                  "request": "Pending",
+                  "recovery": "Quarantined",
+                  "ledger": "NotReleased"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "SCN-06-4",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "None",
+                "changedEvidence": "propulsion.alternatingKindsConfirmed=NotConfirmed"
+              },
+              "expected_named_branch": [
+                "CASE-01",
+                "CASE-03",
+                "CASE-05",
+                "CASE-07",
+                "CASE-09",
+                "CASE-12",
+                "CASE-13",
+                "CASE-22",
+                "CASE-23",
+                "CASE-25",
+                "CASE-28",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Withhold",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Active",
+                    "recoveryPhase": "Quarantined",
+                    "decisionDirective": "Withhold",
+                    "limitingCause": "Propulsion"
+                  }
+                },
+                "nextState": {
+                  "request": "Pending",
+                  "recovery": "Quarantined",
+                  "ledger": "NotReleased"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-07",
+      "passed": true,
+      "variants": [
+        {
+          "id": "SCN-07-1",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "None",
+                "changedEvidence": "observation.condition=Unavailable"
+              },
+              "expected_named_branch": [
+                "CASE-01",
+                "CASE-03",
+                "CASE-05",
+                "CASE-08",
+                "CASE-09",
+                "CASE-11",
+                "CASE-13",
+                "CASE-22",
+                "CASE-23",
+                "CASE-25",
+                "CASE-28",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Withhold",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Active",
+                    "recoveryPhase": "Quarantined",
+                    "decisionDirective": "Withhold",
+                    "limitingCause": "Observation"
+                  }
+                },
+                "nextState": {
+                  "request": "Pending",
+                  "recovery": "Quarantined",
+                  "ledger": "NotReleased"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "SCN-07-2",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "None",
+                "changedEvidence": "communication.condition=Unavailable"
+              },
+              "expected_named_branch": [
+                "CASE-01",
+                "CASE-03",
+                "CASE-06",
+                "CASE-07",
+                "CASE-09",
+                "CASE-11",
+                "CASE-13",
+                "CASE-22",
+                "CASE-23",
+                "CASE-25",
+                "CASE-28",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Withhold",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Active",
+                    "recoveryPhase": "Quarantined",
+                    "decisionDirective": "Withhold",
+                    "limitingCause": "Communication"
+                  }
+                },
+                "nextState": {
+                  "request": "Pending",
+                  "recovery": "Quarantined",
+                  "ledger": "NotReleased"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-08",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "event": "None",
+            "changedEvidence": "energy+navigation+communication rejected"
+          },
+          "expected_named_branch": [
+            "CASE-02",
+            "CASE-04",
+            "CASE-06",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-22",
+            "CASE-23",
+            "CASE-25",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Active",
+                "recoveryPhase": "Quarantined",
+                "decisionDirective": "Withhold",
+                "limitingCause": "Energy"
+              }
+            },
+            "nextState": {
+              "request": "Pending",
+              "recovery": "Quarantined",
+              "ledger": "NotReleased"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-09",
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "event": "None",
+            "changedEvidence": "energy.quality=Limited"
+          },
+          "expected_named_branch": [
+            "CASE-02",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-13",
+            "CASE-22",
+            "CASE-23",
+            "CASE-25",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Active",
+                "recoveryPhase": "Quarantined",
+                "decisionDirective": "Withhold",
+                "limitingCause": "Energy"
+              }
+            },
+            "nextState": {
+              "request": "Pending",
+              "recovery": "Quarantined",
+              "ledger": "NotReleased"
+            }
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-22",
+            "CASE-24",
+            "CASE-27",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Clear",
+                "recoveryPhase": "AwaitingAck",
+                "decisionDirective": "Withhold",
+                "limitingCause": "Recovery"
+              }
+            },
+            "nextState": {
+              "request": "Pending",
+              "recovery": "AwaitingAck",
+              "ledger": "NotReleased"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "event": "None",
+            "changedEvidence": "all-ready"
+          },
+          "expected_named_branch": [
+            "CASE-01",
+            "CASE-03",
+            "CASE-05",
+            "CASE-07",
+            "CASE-09",
+            "CASE-11",
+            "CASE-17",
+            "CASE-22",
+            "CASE-24",
+            "CASE-27",
+            "CASE-28",
+            "BEH-01",
+            "BEH-02"
+          ],
+          "observed": {
+            "outputs": {
+              "sortieDirective": "Withhold",
+              "eligibilityStatus": {
+                "requestPhase": "Pending",
+                "faultState": "Clear",
+                "recoveryPhase": "AwaitingAck",
+                "decisionDirective": "Withhold",
+                "limitingCause": "Recovery"
+              }
+            },
+            "nextState": {
+              "request": "Pending",
+              "recovery": "AwaitingAck",
+              "ledger": "NotReleased"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-10",
+      "passed": true,
+      "variants": [
+        {
+          "id": "SCN-10-A",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "AcknowledgeRecovery",
+                "changedEvidence": "all-ready"
+              },
+              "expected_named_branch": [
+                "CASE-01",
+                "CASE-03",
+                "CASE-05",
+                "CASE-07",
+                "CASE-09",
+                "CASE-11",
+                "CASE-15",
+                "CASE-21",
+                "CASE-24",
+                "CASE-26",
+                "CASE-29",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Permit",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Clear",
+                    "recoveryPhase": "Normal",
+                    "decisionDirective": "Permit",
+                    "limitingCause": "None"
+                  }
+                },
+                "nextState": {
+                  "request": "Released",
+                  "recovery": "Normal",
+                  "ledger": "Released"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": "SCN-10-B",
+          "passed": true,
+          "trace": [
+            {
+              "step": 1,
+              "input": {
+                "event": "AcknowledgeRecovery",
+                "changedEvidence": "acknowledgment+energy fault"
+              },
+              "expected_named_branch": [
+                "CASE-02",
+                "CASE-03",
+                "CASE-05",
+                "CASE-07",
+                "CASE-09",
+                "CASE-11",
+                "CASE-13",
+                "CASE-22",
+                "CASE-23",
+                "CASE-25",
+                "CASE-28",
+                "BEH-01",
+                "BEH-02"
+              ],
+              "observed": {
+                "outputs": {
+                  "sortieDirective": "Withhold",
+                  "eligibilityStatus": {
+                    "requestPhase": "Pending",
+                    "faultState": "Active",
+                    "recoveryPhase": "Quarantined",
+                    "decisionDirective": "Withhold",
+                    "limitingCause": "Energy"
+                  }
+                },
+                "nextState": {
+                  "request": "Pending",
+                  "recovery": "Quarantined",
+                  "ledger": "NotReleased"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "scenario_failures": 0,
+  "ownership_audit": [
+    {
+      "usage": "energy_evidence_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "energy_evidence_assessor.energy_evidence"
+      ],
+      "owner_local_facts": [
+        "energy readiness with prioritized EnergyCause"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02"
+      ],
+      "analyzer_checks": [
+        "energy-assessment-16"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "navigation_evidence_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "navigation_evidence_assessor.navigation_evidence"
+      ],
+      "owner_local_facts": [
+        "joint three-member navigation readiness with prioritized NavigationCause"
+      ],
+      "contract_cases": [
+        "CASE-03",
+        "CASE-04"
+      ],
+      "analyzer_checks": [
+        "navigation-assessment-256"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "communication_evidence_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "communication_evidence_assessor.communication_evidence"
+      ],
+      "owner_local_facts": [
+        "communication availability readiness and local cause"
+      ],
+      "contract_cases": [
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "communication-assessment-16"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "observation_evidence_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "observation_evidence_assessor.observation_evidence"
+      ],
+      "owner_local_facts": [
+        "observation availability readiness and local cause"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-08"
+      ],
+      "analyzer_checks": [
+        "observation-assessment-16"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "obstacle_evidence_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "obstacle_evidence_assessor.obstacle_evidence"
+      ],
+      "owner_local_facts": [
+        "obstacle-evidence readiness and local cause"
+      ],
+      "contract_cases": [
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "obstacle-assessment-16"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "propulsion_evidence_assessor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "propulsion_evidence_assessor.propulsion_evidence"
+      ],
+      "owner_local_facts": [
+        "joint four-engine and configuration readiness with prioritized PropulsionCause"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "propulsion-assessment-2048"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "request_lifecycle_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "request_lifecycle_owner.operator_event",
+        "request_lifecycle_owner.accepted_directive",
+        "request_lifecycle_owner.release_feedback",
+        "In(request_lifecycle_owner.requestMemory)"
+      ],
+      "owner_local_facts": [
+        "fresh duplicate released and rearmed request phase"
+      ],
+      "contract_cases": [
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22"
+      ],
+      "analyzer_checks": [
+        "request-lifecycle-30"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "fault_registry",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "fault_registry.energy_assessment",
+        "fault_registry.navigation_assessment",
+        "fault_registry.communication_assessment",
+        "fault_registry.observation_assessment",
+        "fault_registry.obstacle_assessment",
+        "fault_registry.propulsion_assessment"
+      ],
+      "owner_local_facts": [
+        "current fault state and fixed-priority primary cause"
+      ],
+      "contract_cases": [
+        "CASE-23",
+        "CASE-24"
+      ],
+      "analyzer_checks": [
+        "fault-registry-15360"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "priority_arbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "priority_arbiter.candidate_event",
+        "priority_arbiter.fault_summary"
+      ],
+      "owner_local_facts": [
+        "fault-over-event accepted priority directive"
+      ],
+      "contract_cases": [
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17"
+      ],
+      "analyzer_checks": [
+        "priority-arbiter-28"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recovery_qualification_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "recovery_qualification_owner.accepted_directive",
+        "recovery_qualification_owner.fault_summary",
+        "In(recovery_qualification_owner.recoveryMemory)"
+      ],
+      "owner_local_facts": [
+        "history-sensitive recovery phase and gate"
+      ],
+      "contract_cases": [
+        "CASE-25",
+        "CASE-26",
+        "CASE-27"
+      ],
+      "analyzer_checks": [
+        "recovery-qualification-105"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "eligibility_decision_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "eligibility_decision_owner.energy_assessment",
+        "eligibility_decision_owner.navigation_assessment",
+        "eligibility_decision_owner.communication_assessment",
+        "eligibility_decision_owner.observation_assessment",
+        "eligibility_decision_owner.obstacle_assessment",
+        "eligibility_decision_owner.request_phase",
+        "eligibility_decision_owner.propulsion_assessment",
+        "eligibility_decision_owner.recovery_facts"
+      ],
+      "owner_local_facts": [
+        "generic permit or prioritized withhold reason"
+      ],
+      "contract_cases": [
+        "CASE-28",
+        "CASE-29",
+        "CASE-30"
+      ],
+      "analyzer_checks": [
+        "eligibility-decision-460800"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "permission_release_ledger",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "permission_release_ledger.eligibility_decision",
+        "permission_release_ledger.request_phase",
+        "In(permission_release_ledger.releaseMemory)"
+      ],
+      "owner_local_facts": [
+        "one-shot permission release and lifecycle rearm"
+      ],
+      "contract_cases": [
+        "BEH-01"
+      ],
+      "analyzer_checks": [
+        "permission-release-24"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "status_composer",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "status_composer.eligibility_decision",
+        "status_composer.fault_summary",
+        "status_composer.recovery_phase",
+        "status_composer.request_phase"
+      ],
+      "owner_local_facts": [
+        "generic-to-detailed limiting-cause refinement"
+      ],
+      "contract_cases": [
+        "BEH-02"
+      ],
+      "analyzer_checks": [
+        "status-refinement-252"
+      ],
+      "passed": true
+    }
+  ]
+}

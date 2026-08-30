@@ -1,0 +1,70 @@
+{
+  "completed_at": "2026-08-20T23:43:40.170148Z",
+  "dataset_id": "flight-guidance-and-autopilot-snapshot-coordination",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate:experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "FAA_FCS_Coordination::FAA_FCS_Coordination_Root",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/M-star.sysml\n  - [270, 4] Dispatch Protocol not specified for thread fci_command_intake, assuming Sporadic\n  - [271, 4] Dispatch Protocol not specified for thread attitude_condition_intake, assuming Sporadic\n  - [272, 4] Dispatch Protocol not specified for thread reference_state_intake, assuming Sporadic\n  - [273, 4] Dispatch Protocol not specified for thread ap_availability_intake, assuming Sporadic\n  - [274, 4] Dispatch Protocol not specified for thread flight_guidance_coordination, assuming Sporadic\n  - [275, 4] Dispatch Protocol not specified for thread autopilot_coordination, assuming Sporadic\n  - [276, 4] Dispatch Protocol not specified for thread fcs_snapshot_publication, assuming Sporadic\n  - [405, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"faa_fcs_coordination\", Attr(Some([/M-star.sysml, 405, 7])))), Attr(Some([/M-star.sysml, 405, 7])))), [TypingsSpecialization([Name([Id(\"FAA_FCS_Coordination_Root\", Attr(Some([/M-star.sysml, 405, 30])))], Attr(Some([/M-star.sysml, 405, 30])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 405, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/.slang/FAA_FCS_Coordination_Root_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/.tmp\nChecking initialise method of AP_Availability_Intake_i_fcs_coordination_process_ap_availability_intake.scala\n  Verification succeeded!\n\nChecking timeTriggered method of AP_Availability_Intake_i_fcs_coordination_process_ap_availability_intake.scala\n  Verification succeeded!\n\nChecking initialise method of Attitude_Condition_Intake_i_fcs_coordination_process_attitude_condition_intake.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Attitude_Condition_Intake_i_fcs_coordination_process_attitude_condition_intake.scala\n  Verification succeeded!\n\nChecking initialise method of Autopilot_Coordination_i_fcs_coordination_process_autopilot_coordination.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Autopilot_Coordination_i_fcs_coordination_process_autopilot_coordination.scala\n  Verification succeeded!\n\nChecking initialise method of FCI_Command_Intake_i_fcs_coordination_process_fci_command_intake.scala\n  Verification succeeded!\n\nChecking timeTriggered method of FCI_Command_Intake_i_fcs_coordination_process_fci_command_intake.scala\n  Verification succeeded!\n\nChecking initialise method of FCS_Snapshot_Publication_i_fcs_coordination_process_fcs_snapshot_publication.scala\n  Verification succeeded!\n\nChecking timeTriggered method of FCS_Snapshot_Publication_i_fcs_coordination_process_fcs_snapshot_publication.scala\n  Verification succeeded!\n\nChecking initialise method of Flight_Guidance_Coordination_i_fcs_coordination_process_flight_guidance_coordination.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Flight_Guidance_Coordination_i_fcs_coordination_process_flight_guidance_coordination.scala\n  Verification succeeded!\n\nChecking initialise method of Reference_State_Intake_i_fcs_coordination_process_reference_state_intake.scala\n  Verification succeeded!\n\nChecking timeTriggered method of Reference_State_Intake_i_fcs_coordination_process_reference_state_intake.scala\n  Verification succeeded!\n\nVerified 14 method(s) across 7 component(s).\n"
+    },
+    "integration_logika": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "logika",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate:experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/M-star.sysml\n  - [270, 4] Dispatch Protocol not specified for thread fci_command_intake, assuming Sporadic\n  - [271, 4] Dispatch Protocol not specified for thread attitude_condition_intake, assuming Sporadic\n  - [272, 4] Dispatch Protocol not specified for thread reference_state_intake, assuming Sporadic\n  - [273, 4] Dispatch Protocol not specified for thread ap_availability_intake, assuming Sporadic\n  - [274, 4] Dispatch Protocol not specified for thread flight_guidance_coordination, assuming Sporadic\n  - [275, 4] Dispatch Protocol not specified for thread autopilot_coordination, assuming Sporadic\n  - [276, 4] Dispatch Protocol not specified for thread fcs_snapshot_publication, assuming Sporadic\n  - [405, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"faa_fcs_coordination\", Attr(Some([/M-star.sysml, 405, 7])))), Attr(Some([/M-star.sysml, 405, 7])))), [TypingsSpecialization([Name([Id(\"FAA_FCS_Coordination_Root\", Attr(Some([/M-star.sysml, 405, 30])))], Attr(Some([/M-star.sysml, 405, 30])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 405, 2]), None(), None())))\n* file://experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/M-star.sysml\n  - [270, 4] Dispatch Protocol not specified for thread fci_command_intake, assuming Sporadic\n  - [271, 4] Dispatch Protocol not specified for thread attitude_condition_intake, assuming Sporadic\n  - [272, 4] Dispatch Protocol not specified for thread reference_state_intake, assuming Sporadic\n  - [273, 4] Dispatch Protocol not specified for thread ap_availability_intake, assuming Sporadic\n  - [274, 4] Dispatch Protocol not specified for thread flight_guidance_coordination, assuming Sporadic\n  - [275, 4] Dispatch Protocol not specified for thread autopilot_coordination, assuming Sporadic\n  - [276, 4] Dispatch Protocol not specified for thread fcs_snapshot_publication, assuming Sporadic\n  - [405, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"faa_fcs_coordination\", Attr(Some([/M-star.sysml, 405, 7])))), Attr(Some([/M-star.sysml, 405, 7])))), [TypingsSpecialization([Name([Id(\"FAA_FCS_Coordination_Root\", Attr(Some([/M-star.sysml, 405, 30])))], Attr(Some([/M-star.sysml, 405, 30])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 405, 2]), None(), None())))\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate:experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/flight-guidance-and-autopilot-snapshot-coordination/candidate/M-star.sysml\n  - [270, 4] Dispatch Protocol not specified for thread fci_command_intake, assuming Sporadic\n  - [271, 4] Dispatch Protocol not specified for thread attitude_condition_intake, assuming Sporadic\n  - [272, 4] Dispatch Protocol not specified for thread reference_state_intake, assuming Sporadic\n  - [273, 4] Dispatch Protocol not specified for thread ap_availability_intake, assuming Sporadic\n  - [274, 4] Dispatch Protocol not specified for thread flight_guidance_coordination, assuming Sporadic\n  - [275, 4] Dispatch Protocol not specified for thread autopilot_coordination, assuming Sporadic\n  - [276, 4] Dispatch Protocol not specified for thread fcs_snapshot_publication, assuming Sporadic\n  - [405, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"faa_fcs_coordination\", Attr(Some([/M-star.sysml, 405, 7])))), Attr(Some([/M-star.sysml, 405, 7])))), [TypingsSpecialization([Name([Id(\"FAA_FCS_Coordination_Root\", Attr(Some([/M-star.sysml, 405, 30])))], Attr(Some([/M-star.sysml, 405, 30])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 405, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-20T23:41:44.068279Z",
+  "status": "passed"
+}

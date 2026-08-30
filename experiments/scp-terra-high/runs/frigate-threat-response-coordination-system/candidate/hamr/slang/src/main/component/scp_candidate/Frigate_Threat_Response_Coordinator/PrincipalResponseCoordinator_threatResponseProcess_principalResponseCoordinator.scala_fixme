@@ -1,0 +1,43 @@
+// #Sireum
+
+package scp_candidate.Frigate_Threat_Response_Coordinator
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator {
+
+  // BEGIN STATE VARS
+  var responseCommitment: Frigate_Threat_Response_Coordinator.ResponseCommitment.Type = Frigate_Threat_Response_Coordinator.ResponseCommitment.OPEN
+
+  var retreatRequestArmed: Base_Types.Boolean = Base_Types.Boolean_example()
+  // END STATE VARS
+
+  def initialise(api: PrincipalResponseCoordinator_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee initial
+        responseCommitment == ResponseCommitment.OPEN &
+          retreatRequestArmed &
+          api.defenseActivation == DefenseActivation.STAND_DOWN &
+          api.retreatNavigationCommand == RetreatNavigationCommand.HOLD &
+          api.responseRecord.qualifiedThreat == QualifiedThreat.UNKNOWN &
+          api.responseRecord.disposition == ResponseDisposition.INPUT_FAULT
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_defenseActivation(Frigate_Threat_Response_Coordinator.DefenseActivation.STAND_DOWN)
+    api.put_retreatNavigationCommand(Frigate_Threat_Response_Coordinator.RetreatNavigationCommand.HOLD)
+    api.put_responseRecord(Frigate_Threat_Response_Coordinator.ResponseRecord.example())
+  }
+
+  def finalise(api: PrincipalResponseCoordinator_Operational_Api): Unit = { }
+}

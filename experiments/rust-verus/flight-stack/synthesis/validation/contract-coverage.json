@@ -1,0 +1,2332 @@
+{
+  "status": "passed",
+  "source_sha256": "21424fafbfd58b33998929b314423608434264eee9b94f2327f51b06074ba657",
+  "canonical_source_sha256": "21424fafbfd58b33998929b314423608434264eee9b94f2327f51b06074ba657",
+  "ownership_audit": [
+    {
+      "usage": "crewCommandQualifier",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-BND-01"
+      ],
+      "owner_local_facts": [
+        "multi-field validity, conflict, and command-priority disposition"
+      ],
+      "contract_cases": [
+        "CASE-CMD-01",
+        "CASE-CMD-02"
+      ],
+      "analyzer_checks": [
+        "crew_owner_cases_execute"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "attitudeSafetyQualifier",
+      "claimed_roles": [
+        "applicability",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-BND-02"
+      ],
+      "owner_local_facts": [
+        "Invalid/Unsafe/Safe classification from two statuses and two axes"
+      ],
+      "contract_cases": [
+        "CASE-ATT-01",
+        "CASE-ATT-02"
+      ],
+      "analyzer_checks": [
+        "attitude_owner_cases_execute"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "referenceManager",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-FCS-01",
+        "INT-FGS-01",
+        "INT-CROSS-02A",
+        "INT-CROSS-02B"
+      ],
+      "owner_local_facts": [
+        "next Reference Attitude validity/value and FD requested state under priority"
+      ],
+      "contract_cases": [
+        "CASE-REF-01",
+        "CASE-REF-02",
+        "CASE-REF-03"
+      ],
+      "analyzer_checks": [
+        "reference_owner_cases_execute"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "fdGuidanceHealthGenerator",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-FGS-02",
+        "INT-FGS-03"
+      ],
+      "owner_local_facts": [
+        "saturated paired FD errors, paired visibility, failure, and unsafe annunciation"
+      ],
+      "contract_cases": [
+        "CASE-FD-01",
+        "CASE-FD-02"
+      ],
+      "analyzer_checks": [
+        "fd_health_owner_cases_execute"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "apGuidanceGenerator",
+      "claimed_roles": [
+        "applicability",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-FGS-04",
+        "INT-FGS-05"
+      ],
+      "owner_local_facts": [
+        "multi-input AP-guidance applicability and desired-attitude guidance"
+      ],
+      "contract_cases": [
+        "CASE-APG-01",
+        "CASE-APG-02"
+      ],
+      "analyzer_checks": [
+        "ap_guidance_owner_cases_execute"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "apEngagementManager",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-FCS-02",
+        "INT-FCS-03",
+        "INT-CROSS-01"
+      ],
+      "owner_local_facts": [
+        "six-mode next state, paired status, synchronization request, clear inhibition, and authority"
+      ],
+      "contract_cases": [
+        "CASE-AP-01",
+        "CASE-AP-02",
+        "CASE-AP-03",
+        "CASE-AP-04",
+        "CASE-AP-05",
+        "CASE-AP-06"
+      ],
+      "analyzer_checks": [
+        "ap_transition_owner_cases_execute"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "actuatorRateProposer",
+      "claimed_roles": [
+        "proposal",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-CROSS-03",
+        "INT-APS-01"
+      ],
+      "owner_local_facts": [
+        "independent three-level roll and pitch rate proposals from guidance error"
+      ],
+      "contract_cases": [
+        "CASE-PROP-01"
+      ],
+      "analyzer_checks": [
+        "actuator_proposal_owner_case_executes"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "actuatorSafetyGate",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-APS-02",
+        "INT-APS-03"
+      ],
+      "owner_local_facts": [
+        "complementary final publish/inhibit authority decision"
+      ],
+      "contract_cases": [
+        "CASE-GATE-01",
+        "CASE-GATE-02"
+      ],
+      "analyzer_checks": [
+        "actuator_gate_owner_cases_execute"
+      ],
+      "passed": true
+    }
+  ],
+  "checks": {
+    "source_hash_matches": true,
+    "canonical_relations_passed": true,
+    "canonical_owner_bindings_passed": true,
+    "canonical_state_bindings_passed": true,
+    "canonical_connections_passed": true,
+    "ownership_records_passed": true,
+    "nonvacuity_checks_passed": true,
+    "analyzer_equivalence_checks_passed": true
+  },
+  "canonical_relation_audit": [
+    {
+      "case_id": "CASE-CMD-01",
+      "expected_sha256": "de8caf4fd8c570d8317fdafc0c3cd1c42e83194c318d375cc82c012f01729574",
+      "observed_sha256": "de8caf4fd8c570d8317fdafc0c3cd1c42e83194c318d375cc82c012f01729574",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-CMD-02",
+      "expected_sha256": "1eddb042e98ec063911dc3dd1e4a88bb501847ccc1a202179446d1037f65c71f",
+      "observed_sha256": "1eddb042e98ec063911dc3dd1e4a88bb501847ccc1a202179446d1037f65c71f",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-ATT-01",
+      "expected_sha256": "1efa5231a9d88c239d6b86a77cb862f2d1e21a48af99a70fd8e0bcc0bf2479e5",
+      "observed_sha256": "1efa5231a9d88c239d6b86a77cb862f2d1e21a48af99a70fd8e0bcc0bf2479e5",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-ATT-02",
+      "expected_sha256": "0b4dacd5b912bb242abc8496af47c26f0a59ca2c53f78df9ab2eebf5ec5b1e9c",
+      "observed_sha256": "0b4dacd5b912bb242abc8496af47c26f0a59ca2c53f78df9ab2eebf5ec5b1e9c",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-REF-01",
+      "expected_sha256": "6d6d46f45a75be90db8d78b1d8b2f50a6dda3877a4c6b67babfb5d2705994f8d",
+      "observed_sha256": "6d6d46f45a75be90db8d78b1d8b2f50a6dda3877a4c6b67babfb5d2705994f8d",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-REF-02",
+      "expected_sha256": "87f57b8ec676be8815af0501883008dfdf8c3738ba260c0cd8b6dc6fae7261ea",
+      "observed_sha256": "87f57b8ec676be8815af0501883008dfdf8c3738ba260c0cd8b6dc6fae7261ea",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-REF-03",
+      "expected_sha256": "f25c4543988732bb6f1cd5dc2499f9e27e6f75f219312ef7ef063aa3923289e7",
+      "observed_sha256": "f25c4543988732bb6f1cd5dc2499f9e27e6f75f219312ef7ef063aa3923289e7",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-FD-01",
+      "expected_sha256": "bc8b4c35290bc274dda4857dcb7b0c3997ef3d71764207c55a5458d41e6c368d",
+      "observed_sha256": "bc8b4c35290bc274dda4857dcb7b0c3997ef3d71764207c55a5458d41e6c368d",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-FD-02",
+      "expected_sha256": "854ae15ba758bb5549ffd525488bd8a59a9e02cbf220ae2185d1577ceee2847c",
+      "observed_sha256": "854ae15ba758bb5549ffd525488bd8a59a9e02cbf220ae2185d1577ceee2847c",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-APG-01",
+      "expected_sha256": "4a00d7f0a9f170a52094c33383ed224f077d5bb9b4ef2975c782921371c3704f",
+      "observed_sha256": "4a00d7f0a9f170a52094c33383ed224f077d5bb9b4ef2975c782921371c3704f",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-APG-02",
+      "expected_sha256": "17779bfd8e6ec392635062a4aa7a70c184aedf3960d7d557b4eecd641a91371d",
+      "observed_sha256": "17779bfd8e6ec392635062a4aa7a70c184aedf3960d7d557b4eecd641a91371d",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-AP-01",
+      "expected_sha256": "1d1a3bd7995fb2a239cb7ff2b88d8f4f57b5800b1750beca06d3f7a45a01de8c",
+      "observed_sha256": "1d1a3bd7995fb2a239cb7ff2b88d8f4f57b5800b1750beca06d3f7a45a01de8c",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-AP-02",
+      "expected_sha256": "b796039928b7ae20f9132bb94a2383f86bad483e7b7d9cf9defbc32662042f2b",
+      "observed_sha256": "b796039928b7ae20f9132bb94a2383f86bad483e7b7d9cf9defbc32662042f2b",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-AP-03",
+      "expected_sha256": "112377c0236baa8e6079874e1a143fbf28e7830f7c2dae59b277a04c12660094",
+      "observed_sha256": "112377c0236baa8e6079874e1a143fbf28e7830f7c2dae59b277a04c12660094",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-AP-04",
+      "expected_sha256": "6544b4bc011e1756711fd8da79738ac187a6a0148c258291bfb5f85903d2f98e",
+      "observed_sha256": "6544b4bc011e1756711fd8da79738ac187a6a0148c258291bfb5f85903d2f98e",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-AP-05",
+      "expected_sha256": "b91f55acb5960d797a6d626dc913a0ca03c27ad19cb7234fd406824f3e8bf5c5",
+      "observed_sha256": "b91f55acb5960d797a6d626dc913a0ca03c27ad19cb7234fd406824f3e8bf5c5",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-AP-06",
+      "expected_sha256": "9662f1b3c9c353fef931c25f51f81c87d10f8ad06ef135989aa77a45332ceb32",
+      "observed_sha256": "9662f1b3c9c353fef931c25f51f81c87d10f8ad06ef135989aa77a45332ceb32",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-PROP-01",
+      "expected_sha256": "30a4cbaf5ea2fff877693d057c096e592848b1f2c69aabdbfbcd890009adf48d",
+      "observed_sha256": "30a4cbaf5ea2fff877693d057c096e592848b1f2c69aabdbfbcd890009adf48d",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-GATE-01",
+      "expected_sha256": "f51184b7e3c2a620c1228fdc42a1f71c28f8de62a017b0020bde12cfdef864a8",
+      "observed_sha256": "f51184b7e3c2a620c1228fdc42a1f71c28f8de62a017b0020bde12cfdef864a8",
+      "passed": true
+    },
+    {
+      "case_id": "CASE-GATE-02",
+      "expected_sha256": "418d16e259de55792f85ab0334c131090d62a30cce4d91c81be27bd53508ec61",
+      "observed_sha256": "418d16e259de55792f85ab0334c131090d62a30cce4d91c81be27bd53508ec61",
+      "passed": true
+    }
+  ],
+  "canonical_owner_binding_audit": [
+    {
+      "usage": "crewCommandQualifier",
+      "owner_definition": "CrewCommandQualifier",
+      "contract_cases": [
+        "CASE-CMD-01",
+        "CASE-CMD-02"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "attitudeSafetyQualifier",
+      "owner_definition": "AttitudeSafetyQualifier",
+      "contract_cases": [
+        "CASE-ATT-01",
+        "CASE-ATT-02"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "referenceManager",
+      "owner_definition": "ReferenceManager",
+      "contract_cases": [
+        "CASE-REF-01",
+        "CASE-REF-02",
+        "CASE-REF-03"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "fdGuidanceHealthGenerator",
+      "owner_definition": "FdGuidanceHealthGenerator",
+      "contract_cases": [
+        "CASE-FD-01",
+        "CASE-FD-02"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "apGuidanceGenerator",
+      "owner_definition": "ApGuidanceGenerator",
+      "contract_cases": [
+        "CASE-APG-01",
+        "CASE-APG-02"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "apEngagementManager",
+      "owner_definition": "ApEngagementManager",
+      "contract_cases": [
+        "CASE-AP-01",
+        "CASE-AP-02",
+        "CASE-AP-03",
+        "CASE-AP-04",
+        "CASE-AP-05",
+        "CASE-AP-06"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "actuatorRateProposer",
+      "owner_definition": "ActuatorRateProposer",
+      "contract_cases": [
+        "CASE-PROP-01"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "actuatorSafetyGate",
+      "owner_definition": "ActuatorSafetyGate",
+      "contract_cases": [
+        "CASE-GATE-01",
+        "CASE-GATE-02"
+      ],
+      "passed": true
+    }
+  ],
+  "canonical_state_binding_audit": [
+    {
+      "usage": "referenceManager",
+      "checks": [
+        "single_owner_initializing",
+        "single_owner_prior_state",
+        "shared_next_output",
+        "all_cases_share_state",
+        "initialization_guards",
+        "conflict_consumed"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "apEngagementManager",
+      "checks": [
+        "single_owner_initializing",
+        "single_owner_prior_mode",
+        "shared_next_mode",
+        "all_cases_share_state",
+        "initialization_guards",
+        "conflict_consumed"
+      ],
+      "passed": true
+    }
+  ],
+  "canonical_connection_audit": [
+    {
+      "interaction_id": "INT-FCS-01",
+      "source": "crewCommandQualifier.fdDisposition",
+      "destination": "referenceManager.fdDisposition",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-FCS-02",
+      "source": "crewCommandQualifier.apDisposition",
+      "destination": "apEngagementManager.apDisposition",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-FCS-03",
+      "source": "attitudeSafetyQualifier.qualifiedAttitude",
+      "destination": "apEngagementManager.qualifiedAttitude",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-FGS-01",
+      "source": "attitudeSafetyQualifier.qualifiedAttitude",
+      "destination": "referenceManager.qualifiedAttitude",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-FGS-02",
+      "source": "attitudeSafetyQualifier.qualifiedAttitude",
+      "destination": "fdGuidanceHealthGenerator.qualifiedAttitude",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-FGS-03",
+      "source": "referenceManager.referenceAndFdState",
+      "destination": "fdGuidanceHealthGenerator.referenceAndFdState",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-FGS-04",
+      "source": "attitudeSafetyQualifier.qualifiedAttitude",
+      "destination": "apGuidanceGenerator.qualifiedAttitude",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-FGS-05",
+      "source": "referenceManager.referenceAndFdState",
+      "destination": "apGuidanceGenerator.referenceAndFdState",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-CROSS-01",
+      "source": "apGuidanceGenerator.apGuidance",
+      "destination": "apEngagementManager.apGuidance",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-CROSS-02A",
+      "source": "apEngagementManager.apGuidanceRequest",
+      "destination": "referenceManager.apGuidanceRequest",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-CROSS-02B",
+      "source": "apEngagementManager.apActiveClearInhibit",
+      "destination": "referenceManager.apActiveClearInhibit",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-CROSS-03",
+      "source": "apGuidanceGenerator.apGuidance",
+      "destination": "actuatorRateProposer.apGuidance",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-APS-01",
+      "source": "attitudeSafetyQualifier.qualifiedAttitude",
+      "destination": "actuatorRateProposer.qualifiedAttitude",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-APS-02",
+      "source": "apEngagementManager.actuationAuthority",
+      "destination": "actuatorSafetyGate.actuationAuthority",
+      "passed": true
+    },
+    {
+      "interaction_id": "INT-APS-03",
+      "source": "actuatorRateProposer.proposedRates",
+      "destination": "actuatorSafetyGate.proposedRates",
+      "passed": true
+    }
+  ],
+  "semantic_connection_map": {
+    "INT-FCS-01": [
+      "CrewCommandQualifier.fdDisposition",
+      "ReferenceManager.fdDisposition"
+    ],
+    "INT-FCS-02": [
+      "CrewCommandQualifier.apDisposition",
+      "ApEngagementManager.apDisposition"
+    ],
+    "INT-FCS-03": [
+      "AttitudeSafetyQualifier.qualifiedAttitude",
+      "ApEngagementManager.qualifiedAttitude"
+    ],
+    "INT-FGS-01": [
+      "AttitudeSafetyQualifier.qualifiedAttitude",
+      "ReferenceManager.qualifiedAttitude"
+    ],
+    "INT-FGS-02": [
+      "AttitudeSafetyQualifier.qualifiedAttitude",
+      "FdGuidanceHealthGenerator.qualifiedAttitude"
+    ],
+    "INT-FGS-03": [
+      "ReferenceManager.referenceAndFdState",
+      "FdGuidanceHealthGenerator.referenceAndFdState"
+    ],
+    "INT-FGS-04": [
+      "AttitudeSafetyQualifier.qualifiedAttitude",
+      "ApGuidanceGenerator.qualifiedAttitude"
+    ],
+    "INT-FGS-05": [
+      "ReferenceManager.referenceAndFdState",
+      "ApGuidanceGenerator.referenceAndFdState"
+    ],
+    "INT-CROSS-01": [
+      "ApGuidanceGenerator.apGuidance",
+      "ApEngagementManager.apGuidance"
+    ],
+    "INT-CROSS-02A": [
+      "ApEngagementManager.apGuidanceRequest",
+      "ReferenceManager.apGuidanceRequest"
+    ],
+    "INT-CROSS-02B": [
+      "ApEngagementManager.apActiveClearInhibit",
+      "ReferenceManager.apActiveClearInhibit"
+    ],
+    "INT-CROSS-03": [
+      "ApGuidanceGenerator.apGuidance",
+      "ActuatorRateProposer.apGuidance"
+    ],
+    "INT-APS-01": [
+      "AttitudeSafetyQualifier.qualifiedAttitude",
+      "ActuatorRateProposer.qualifiedAttitude"
+    ],
+    "INT-APS-02": [
+      "ApEngagementManager.actuationAuthority",
+      "ActuatorSafetyGate.actuationAuthority"
+    ],
+    "INT-APS-03": [
+      "ActuatorRateProposer.proposedRates",
+      "ActuatorSafetyGate.proposedRates"
+    ]
+  },
+  "partition_counts": {
+    "crew": {
+      "total": 256,
+      "CASE-CMD-01": 16,
+      "CASE-CMD-02": 240,
+      "command_conflict": 37,
+      "gaps": 0,
+      "overlaps": 0,
+      "output_mismatches": 0
+    },
+    "reference_and_fd_state": {
+      "total": 648,
+      "gaps": 0,
+      "output_mismatches": 0,
+      "initialization_mismatches": 0,
+      "command_conflict_observations": 216,
+      "command_conflict_effect_mismatches": 0
+    },
+    "ap_observables": {
+      "total": 12,
+      "gaps": 0,
+      "post_initial_invalid_requests": 0,
+      "output_mismatches": 0,
+      "initialization_mismatches": 0
+    },
+    "attitude_axis": {
+      "total": 7200,
+      "invalid": 3600,
+      "safe": 901,
+      "unsafe": 2699
+    },
+    "attitude_pair": {
+      "total": 51840000,
+      "Invalid": 38880000,
+      "Safe": 811801,
+      "Unsafe": 12148199,
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "ap_transition": {
+      "total": 1152,
+      "case_activation_counts": {
+        "CASE-AP-01": 192,
+        "CASE-AP-02": 192,
+        "CASE-AP-03": 2,
+        "CASE-AP-04": 384,
+        "CASE-AP-05": 190,
+        "CASE-AP-06": 192
+      },
+      "branch_activation_counts": {
+        "CASE-AP-01:fault": 120,
+        "CASE-AP-01:unsafe": 12,
+        "CASE-AP-01:disengage": 48,
+        "CASE-AP-01:retention": 9,
+        "CASE-AP-01:engage": 3,
+        "CASE-AP-02:fault": 138,
+        "CASE-AP-02:unsafe": 12,
+        "CASE-AP-02:disengage": 36,
+        "CASE-AP-02:complete": 6,
+        "CASE-AP-05:fault": 138,
+        "CASE-AP-05:unsafe": 12,
+        "CASE-AP-05:disengage": 36,
+        "CASE-AP-05:retention": 4,
+        "CASE-AP-03:cws_entry": 2,
+        "CASE-AP-04:fault": 276,
+        "CASE-AP-04:unsafe_not_held": 16,
+        "CASE-AP-04:disengage": 72,
+        "CASE-AP-04:cws_retention": 4,
+        "CASE-AP-04:unsafe_hold": 8,
+        "CASE-AP-04:cws_release": 2,
+        "CASE-AP-04:suspended_retention": 4,
+        "CASE-AP-04:suspended_release": 2,
+        "CASE-AP-06:latched": 177,
+        "CASE-AP-06:recovery": 15
+      },
+      "result_counts": {
+        "Off": 270,
+        "SyncPending": 3,
+        "On": 12,
+        "CWS": 6,
+        "CwsSuspended": 12,
+        "Failed": 849
+      },
+      "gaps": 0,
+      "overlaps": 0,
+      "contradictions": 0,
+      "case_partition_errors": 0,
+      "implementation_mismatches": 0
+    },
+    "composed_representative_observations": 2076672,
+    "incomplete_owner_observations": 0
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "actuation_without_authority": 0,
+    "actuator_out_of_range": 0,
+    "paired_pfd_disagreement": 0,
+    "failed_to_on": 0,
+    "invalid_input_engagement": 0,
+    "attitude_guidance_disagreement": 0
+  },
+  "nonvacuity_checks": {
+    "qualified_command_conflict_executes": true,
+    "command_conflict_affects_downstream_partition": true,
+    "mixed_status_disengagement_priority_executes": true,
+    "all_ap_cases_execute": true,
+    "all_scenario_owner_cases_execute": true
+  },
+  "analyzer_equivalence_checks": {
+    "crew_relation_matches": true,
+    "reference_relation_matches": true,
+    "ap_relation_matches": true,
+    "initialization_relations_match": true,
+    "canonical_state_bindings_match": true
+  },
+  "mixed_status_priority_audit": [
+    {
+      "oracle": "valid_disengage_with_valid_sync_and_invalid_display",
+      "expected": "explicit disengage dominates; reference is retained; FD is cleared",
+      "observed": {
+        "fdDisposition": {
+          "fdAction": "None",
+          "syncRequested": true,
+          "commandConflict": true
+        },
+        "apDisposition": {
+          "apAction": "Disengage",
+          "cwsAction": "Release",
+          "commandConflict": true
+        },
+        "apMode": "Off",
+        "referenceAndFdState": {
+          "referenceRoll": 100,
+          "referencePitch": -50,
+          "referenceValid": true,
+          "fdState": "Cleared"
+        },
+        "pairedFdGuidance": {
+          "leftRollGuidance": -20,
+          "rightRollGuidance": -20,
+          "leftPitchGuidance": -10,
+          "rightPitchGuidance": -10,
+          "leftFdOn": false,
+          "rightFdOn": false
+        }
+      },
+      "passed": true
+    },
+    {
+      "oracle": "valid_disengage_with_valid_display_and_invalid_sync",
+      "expected": "explicit disengage dominates; reference is retained; FD is cleared",
+      "observed": {
+        "fdDisposition": {
+          "fdAction": "Display",
+          "syncRequested": false,
+          "commandConflict": true
+        },
+        "apDisposition": {
+          "apAction": "Disengage",
+          "cwsAction": "Release",
+          "commandConflict": true
+        },
+        "apMode": "Off",
+        "referenceAndFdState": {
+          "referenceRoll": 100,
+          "referencePitch": -50,
+          "referenceValid": true,
+          "fdState": "Cleared"
+        },
+        "pairedFdGuidance": {
+          "leftRollGuidance": -20,
+          "rightRollGuidance": -20,
+          "leftPitchGuidance": -10,
+          "rightPitchGuidance": -10,
+          "leftFdOn": false,
+          "rightFdOn": false
+        }
+      },
+      "passed": true
+    },
+    {
+      "oracle": "valid_disengage_with_valid_held_cws_and_invalid_sync",
+      "expected": "explicit disengage dominates; reference is retained; FD is cleared",
+      "observed": {
+        "fdDisposition": {
+          "fdAction": "Clear",
+          "syncRequested": false,
+          "commandConflict": true
+        },
+        "apDisposition": {
+          "apAction": "Disengage",
+          "cwsAction": "Hold",
+          "commandConflict": true
+        },
+        "apMode": "Off",
+        "referenceAndFdState": {
+          "referenceRoll": 100,
+          "referencePitch": -50,
+          "referenceValid": true,
+          "fdState": "Cleared"
+        },
+        "pairedFdGuidance": {
+          "leftRollGuidance": -20,
+          "rightRollGuidance": -20,
+          "leftPitchGuidance": -10,
+          "rightPitchGuidance": -10,
+          "leftFdOn": false,
+          "rightFdOn": false
+        }
+      },
+      "passed": true
+    }
+  ],
+  "canonical_guard_crosscheck": {
+    "status_encoding": {
+      "Invalid": false,
+      "Valid": true
+    },
+    "ap_status_encoding": {
+      "Failed": 0,
+      "Off": 1,
+      "On": 2
+    },
+    "safe_inclusive": [
+      -450,
+      450
+    ],
+    "fd_saturation_inclusive": [
+      -450,
+      450
+    ],
+    "proposal_deadband_inclusive": [
+      -1,
+      1
+    ],
+    "proposal_levels": [
+      -50,
+      0,
+      50
+    ],
+    "raw_axis_endpoints": [
+      -1800,
+      1799
+    ],
+    "sampled_required_axis_values": [
+      -1800,
+      -451,
+      -450,
+      -449,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      449,
+      450,
+      451,
+      1799
+    ],
+    "owner_case_ids": [
+      "CASE-CMD-01",
+      "CASE-CMD-02",
+      "CASE-ATT-01",
+      "CASE-ATT-02",
+      "CASE-REF-01",
+      "CASE-REF-02",
+      "CASE-REF-03",
+      "CASE-FD-01",
+      "CASE-FD-02",
+      "CASE-APG-01",
+      "CASE-APG-02",
+      "CASE-AP-01",
+      "CASE-AP-02",
+      "CASE-AP-03",
+      "CASE-AP-04",
+      "CASE-AP-05",
+      "CASE-AP-06",
+      "CASE-PROP-01",
+      "CASE-GATE-01",
+      "CASE-GATE-02"
+    ]
+  },
+  "scenario_trace_counts": {
+    "SCN-FD-01": 3,
+    "SCN-FD-02": 3,
+    "SCN-AP-01": 2,
+    "SCN-CWS-01": 2,
+    "SCN-OFF-01": 1,
+    "SCN-SAFE-01": 2,
+    "SCN-INV-01": 3,
+    "SCN-FAIL-01": 4
+  },
+  "scenario_oracle_mismatches": [],
+  "scenario_traces": {
+    "SCN-FD-01": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-REF-02",
+          "CASE-FD-01"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-02",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-01",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": false,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 120,
+            "rollStatus": true,
+            "pitchTenthDeg": -40,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-REF-03",
+          "CASE-FD-01"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": -20,
+              "rightRollGuidance": -20,
+              "leftPitchGuidance": -10,
+              "rightPitchGuidance": -10,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-02",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-01",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": false,
+            "syncFd": true,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 120,
+            "rollStatus": true,
+            "pitchTenthDeg": -40,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-REF-03",
+          "CASE-FD-01"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Cleared"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": -20,
+              "rightRollGuidance": -20,
+              "leftPitchGuidance": -10,
+              "rightPitchGuidance": -10,
+              "leftFdOn": false,
+              "rightFdOn": false
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-02",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-02",
+            "ap": "CASE-AP-01",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      }
+    ],
+    "SCN-FD-02": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": false,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-REF-03",
+          "CASE-AP-05"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "On"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 2,
+              "rightStatus": 2
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": true,
+              "case": "CASE-GATE-01"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-05",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-01"
+          }
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "crew": {
+            "displayFdWanted": false,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-05",
+          "CASE-GATE-02"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Cleared"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": false,
+              "rightFdOn": false
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-02",
+            "ap": "CASE-AP-05",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "crew": {
+            "displayFdWanted": false,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-REF-03",
+          "CASE-FD-01"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Cleared"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": false,
+              "rightFdOn": false
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-02",
+            "ap": "CASE-AP-01",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      }
+    ],
+    "SCN-AP-01": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-01",
+          "SyncPending"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "SyncPending"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-02",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-01",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": false,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-02",
+          "On"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "On"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 2,
+              "rightStatus": 2
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": true,
+              "case": "CASE-GATE-01"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-02",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-02",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-01"
+          }
+        }
+      }
+    ],
+    "SCN-CWS-01": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": true,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 110,
+            "rollStatus": true,
+            "pitchTenthDeg": -40,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-03",
+          "CWS"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 110,
+              "referencePitch": -40,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "CWS"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 2,
+              "rightStatus": 2
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-02",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-03",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 110,
+            "rollStatus": true,
+            "pitchTenthDeg": -40,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-04",
+          "On"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 110,
+              "referencePitch": -40,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "On"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 2,
+              "rightStatus": 2
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": true,
+              "case": "CASE-GATE-01"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-02",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-04",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-01"
+          }
+        }
+      }
+    ],
+    "SCN-OFF-01": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-05",
+          "Off",
+          "CASE-GATE-02"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Cleared"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": false,
+              "rightFdOn": false
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-02",
+            "ap": "CASE-AP-05",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      }
+    ],
+    "SCN-SAFE-01": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 451,
+            "rollStatus": true,
+            "pitchTenthDeg": 0,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-ATT-02",
+          "CASE-AP-05",
+          "Off"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": false,
+              "rightFdOn": false
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": true,
+              "rightUnsafeAttitude": true
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-02",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-02",
+            "guidance": "CASE-APG-02",
+            "ap": "CASE-AP-05",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 450,
+            "rollStatus": true,
+            "pitchTenthDeg": 0,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-ATT-01",
+          "Off"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Cleared"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": -350,
+              "rightRollGuidance": -350,
+              "leftPitchGuidance": -50,
+              "rightPitchGuidance": -50,
+              "leftFdOn": false,
+              "rightFdOn": false
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-02",
+            "ap": "CASE-AP-01",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      }
+    ],
+    "SCN-INV-01": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": false,
+            "pitchTenthDeg": -50,
+            "pitchStatus": false
+          }
+        },
+        "expected_case": [
+          "CASE-ATT-02",
+          "Failed",
+          "CASE-FD-02",
+          "CASE-GATE-02"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": false,
+              "fdState": "Cleared"
+            },
+            "apMode": "Failed"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": false,
+              "rightFdOn": false
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": true,
+              "rightFcsFailed": true,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 0,
+              "rightStatus": 0
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-02",
+            "reference": "CASE-REF-01",
+            "fdHealth": "CASE-FD-02",
+            "guidance": "CASE-APG-02",
+            "ap": "CASE-AP-05",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-REF-02",
+          "CASE-AP-06",
+          "Failed"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "Failed"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 0,
+              "rightStatus": 0
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-02",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-06",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": false,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-06",
+          "Off"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-02",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-06",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      }
+    ],
+    "SCN-FAIL-01": [
+      {
+        "step": 1,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": false,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-CMD-02",
+          "Failed"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "Failed"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 0,
+              "rightStatus": 0
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-02",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-02",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-05",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 2,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": false,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": false,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-06",
+          "Off"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "Off"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-02",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-06",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 3,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": true,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-01",
+          "SyncPending"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "SyncPending"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 1,
+              "rightStatus": 1
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": false,
+              "case": "CASE-GATE-02"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-01",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-02",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-01",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-02"
+          }
+        }
+      },
+      {
+        "step": 4,
+        "input": {
+          "crew": {
+            "displayFdWanted": true,
+            "displayFdStatus": false,
+            "syncFd": false,
+            "syncFdStatus": true,
+            "engageApWanted": true,
+            "engageApStatus": true,
+            "cwsHeld": false,
+            "cwsStatus": true
+          },
+          "attitude": {
+            "rollTenthDeg": 100,
+            "rollStatus": true,
+            "pitchTenthDeg": -50,
+            "pitchStatus": true
+          }
+        },
+        "expected_case": [
+          "CASE-AP-02",
+          "On"
+        ],
+        "observed": {
+          "state": {
+            "reference": {
+              "referenceRoll": 100,
+              "referencePitch": -50,
+              "referenceValid": true,
+              "fdState": "Displayed"
+            },
+            "apMode": "On"
+          },
+          "outputs": {
+            "pairedFdGuidance": {
+              "leftRollGuidance": 0,
+              "rightRollGuidance": 0,
+              "leftPitchGuidance": 0,
+              "rightPitchGuidance": 0,
+              "leftFdOn": true,
+              "rightFdOn": true
+            },
+            "pairedFcsIndications": {
+              "leftFcsFailed": false,
+              "rightFcsFailed": false,
+              "leftUnsafeAttitude": false,
+              "rightUnsafeAttitude": false
+            },
+            "pairedApStatus": {
+              "leftStatus": 2,
+              "rightStatus": 2
+            },
+            "actuatorCommand": {
+              "rollRateTenthDegPerSec": 0,
+              "pitchRateTenthDegPerSec": 0,
+              "apOn": true,
+              "case": "CASE-GATE-01"
+            }
+          },
+          "owner_cases": {
+            "crewQualified": "CASE-CMD-02",
+            "attitude": "CASE-ATT-01",
+            "reference": "CASE-REF-03",
+            "fdHealth": "CASE-FD-01",
+            "guidance": "CASE-APG-01",
+            "ap": "CASE-AP-02",
+            "proposal": "CASE-PROP-01",
+            "actuator": "CASE-GATE-01"
+          }
+        }
+      }
+    ]
+  },
+  "bounded_analysis_claim_boundary": "Deterministic finite logical-observation analysis only. Before finite execution, the analyzer verifies the canonical source hash, all 20 canonical relation-body fingerprints and owner-local bindings, the shared Reference/AP state and initialization bindings, and the exact 15 owner-to-owner connection endpoints. Crew Boolean/status space is enumerated exhaustively. The 51,840,000 two-axis attitude/status inputs are exhausted by exact Cartesian factoring of independently enumerated 7,200-element axis domains; all numeric policy breakpoints are then composed with every crew class, all six AP modes, both reference-valid classes, and both FD states on retained representatives. Qualified command-conflict, initialization, nonvacuity, and analyzer-equivalence checks execute explicitly. This is not compositional proof, solver certification, generated-code evidence, execution evidence, a timing or physical-performance claim, or safety certification."
+}

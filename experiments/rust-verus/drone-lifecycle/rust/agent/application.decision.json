@@ -1,0 +1,23 @@
+{
+  "status": "success",
+  "summary": "All five preserved Rust application entrypoints are implemented. After a source-level Boolean spelling repair and unchanged-model HAMR regeneration, all five generated Verus targets pass with 46 application obligations verified and 0 errors.",
+  "implemented_components": [
+    "request_qualification_process_request_qualification",
+    "battery_evidence_assessment_process_battery_evidence_assessment",
+    "lifecycle_governor_process_lifecycle_governor",
+    "enablement_derivation_process_enablement_derivation",
+    "pilot_notice_derivation_process_pilot_notice_derivation"
+  ],
+  "verification_results": [
+    {"component": "request_qualification_process_request_qualification", "command": "make verus", "status": "passed", "exit_code": 0, "result": "8 verified, 0 errors"},
+    {"component": "battery_evidence_assessment_process_battery_evidence_assessment", "command": "make verus", "status": "passed", "exit_code": 0, "result": "9 verified, 0 errors"},
+    {"component": "lifecycle_governor_process_lifecycle_governor", "command": "make verus", "status": "passed", "exit_code": 0, "result": "12 verified, 0 errors"},
+    {"component": "enablement_derivation_process_enablement_derivation", "command": "make verus", "status": "passed", "exit_code": 0, "result": "8 verified, 0 errors"},
+    {"component": "pilot_notice_derivation_process_pilot_notice_derivation", "command": "make verus", "status": "passed", "exit_code": 0, "result": "9 verified, 0 errors"}
+  ],
+  "regeneration_preservation": "passed: SHA-256 checks for all preserved application files were unchanged across final HAMR regeneration",
+  "deferred_items": [
+    "Microkit provisioning, image build, and runtime execution were not performed.",
+    "Timing, physical behavior, safety, certification, and production readiness remain outside this proof boundary."
+  ]
+}

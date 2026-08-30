@@ -1,0 +1,336 @@
+{
+  "schema_version": "model-metrics-v2",
+  "canonical_source": "model/Drone_Lifecycle_Energy_Governor.sysml",
+  "source_sha256": "8edeec3db2159e274d34896167ee7793432c46c738fcc08e56f1d3b87e36067a",
+  "root_system_usages": 1,
+  "non_root_architecture_nodes": 14,
+  "generated_support_usages": 1,
+  "semantic_usages": 13,
+  "semantic_interactions": 35,
+  "generated_support_routes": 11,
+  "source_port_connection_declarations": 46,
+  "containment_depth_beneath_root": 2,
+  "weakly_connected_regions": 1,
+  "average_total_vertex_degree": 3.3333333333333335,
+  "unique_ordered_semantic_component_pairs": 35,
+  "semantic_pair_density": 0.08333333333333333,
+  "nontrivial_contract_cases": 30,
+  "scenario_families": 11,
+  "state_owners": 2,
+  "counting_boundary": "Semantic usages count PART-01 through PART-13 only and exclude the root and behavior-free GovernorProcess. Semantic interactions count INT-01 through INT-35 only and exclude eleven root/Process delegations. Nontrivial cases count CASE-A-01..04 and CASE-L-01..26 only; initialization, qualification, proposal, preservation, fault, and composition clauses are mandatory but uncounted. Scenario families count SCN-01 through SCN-11, each with concrete analyzer traces.",
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 13,
+    "semantic_interactions": 35,
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 11,
+    "ownership_audit": [
+      {
+        "usage": "requestApplicabilityOwner",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-01 requestIn"
+        ],
+        "owner_local_facts": [
+          "five-valued request family classification"
+        ],
+        "contract_cases": [
+          "REQUEST_FAMILY_CLASSIFICATION"
+        ],
+        "analyzer_checks": [
+          "request_family_many_to_one"
+        ]
+      },
+      {
+        "usage": "batteryEvidenceQualifier",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-02 reportIn"
+        ],
+        "owner_local_facts": [
+          "valid-band suppression"
+        ],
+        "contract_cases": [
+          "VALID_BAND_SUPPRESSION"
+        ],
+        "analyzer_checks": [
+          "invalid_band_suppression"
+        ]
+      },
+      {
+        "usage": "chargerEvidenceQualifier",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-03 reportIn"
+        ],
+        "owner_local_facts": [
+          "connected healthy and fault classification"
+        ],
+        "contract_cases": [
+          "CHARGER_POLICY_CLASSIFICATION"
+        ],
+        "analyzer_checks": [
+          "charger_three_way_classification"
+        ]
+      },
+      {
+        "usage": "chargeEligibilityOwner",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-12 batteryIn",
+          "INT-16 chargerIn"
+        ],
+        "owner_local_facts": [
+          "entry retention and exit eligibility"
+        ],
+        "contract_cases": [
+          "CHARGE_ELIGIBILITY_COMBINATION"
+        ],
+        "analyzer_checks": [
+          "charge_eligibility_combination"
+        ]
+      },
+      {
+        "usage": "flightReadinessOwner",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-04 navigationIn",
+          "INT-05 flightControlIn",
+          "INT-13 batteryIn"
+        ],
+        "owner_local_facts": [
+          "combined activation and launch readiness"
+        ],
+        "contract_cases": [
+          "COMBINED_FLIGHT_READINESS"
+        ],
+        "analyzer_checks": [
+          "flight_readiness_combination"
+        ]
+      },
+      {
+        "usage": "homeEvidenceQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-06 reportIn"
+        ],
+        "owner_local_facts": [
+          "qualified arrival and home evidence fault"
+        ],
+        "contract_cases": [
+          "QUALIFIED_HOME_COMPLETION"
+        ],
+        "analyzer_checks": [
+          "home_four_pair_qualification"
+        ]
+      },
+      {
+        "usage": "touchdownEvidenceQualifier",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-07 reportIn"
+        ],
+        "owner_local_facts": [
+          "qualified touchdown and touchdown evidence fault"
+        ],
+        "contract_cases": [
+          "QUALIFIED_TOUCHDOWN_COMPLETION"
+        ],
+        "analyzer_checks": [
+          "touchdown_four_pair_qualification"
+        ]
+      },
+      {
+        "usage": "batteryConfidenceOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-11 evidenceIn",
+          "owned prior confidenceState"
+        ],
+        "owner_local_facts": [
+          "three-valued confidence next state",
+          "same-step battery usability"
+        ],
+        "contract_cases": [
+          "CASE-A-01",
+          "CASE-A-02",
+          "CASE-A-03",
+          "CASE-A-04"
+        ],
+        "analyzer_checks": [
+          "confidence_partition",
+          "two_valid_step_recovery"
+        ]
+      },
+      {
+        "usage": "airborneHazardProposalOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "INT-08 navigationIn",
+          "INT-19 flightControlIn",
+          "INT-21 batteryIn"
+        ],
+        "owner_local_facts": [
+          "emergency-land proposal",
+          "forced-return proposal"
+        ],
+        "contract_cases": [
+          "AIRBORNE_HAZARD_PROPOSALS"
+        ],
+        "analyzer_checks": [
+          "airborne_hazard_proposals"
+        ]
+      },
+      {
+        "usage": "airborneRequestProposalOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "INT-09 semanticsIn"
+        ],
+        "owner_local_facts": [
+          "three-valued airborne request classification"
+        ],
+        "contract_cases": [
+          "AIRBORNE_REQUEST_CLASSIFICATION"
+        ],
+        "analyzer_checks": [
+          "airborne_request_many_to_one"
+        ]
+      },
+      {
+        "usage": "faultAggregationOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-14 confidenceIn",
+          "INT-17 chargerFaultIn",
+          "INT-18 navigationIn",
+          "INT-20 flightControlIn",
+          "INT-25 homeFaultIn",
+          "INT-27 touchdownFaultIn"
+        ],
+        "owner_local_facts": [
+          "confidence-derived battery fault",
+          "six-way exact aggregate disjunction"
+        ],
+        "contract_cases": [
+          "CURRENT_FAULT_VECTOR_AND_DISJUNCTION"
+        ],
+        "analyzer_checks": [
+          "battery_fault_classification",
+          "aggregate_fault_disjunction"
+        ]
+      },
+      {
+        "usage": "lifecyclePriorityOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-10 semanticsIn",
+          "INT-22 chargeEligibilityIn",
+          "INT-23 readinessIn",
+          "INT-24 homeFactsIn",
+          "INT-26 touchdownFactsIn",
+          "INT-28 hazardProposalIn",
+          "INT-29 airborneRequestIn",
+          "owned prior phaseState"
+        ],
+        "owner_local_facts": [
+          "first-match lifecycle case",
+          "next lifecycle phase",
+          "primitive request-effect evidence"
+        ],
+        "contract_cases": [
+          "CASE-L-01",
+          "CASE-L-02",
+          "CASE-L-03",
+          "CASE-L-04",
+          "CASE-L-05",
+          "CASE-L-06",
+          "CASE-L-07",
+          "CASE-L-08",
+          "CASE-L-09",
+          "CASE-L-10",
+          "CASE-L-11",
+          "CASE-L-12",
+          "CASE-L-13",
+          "CASE-L-14",
+          "CASE-L-15",
+          "CASE-L-16",
+          "CASE-L-17",
+          "CASE-L-18",
+          "CASE-L-19",
+          "CASE-L-20",
+          "CASE-L-21",
+          "CASE-L-22",
+          "CASE-L-23",
+          "CASE-L-24",
+          "CASE-L-25",
+          "CASE-L-26"
+        ],
+        "analyzer_checks": [
+          "lifecycle_partition",
+          "first_match_priority",
+          "request_effect_evidence"
+        ]
+      },
+      {
+        "usage": "outcomeCompositionOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-15 batteryIn",
+          "INT-30 faultsIn",
+          "INT-31 resolutionIn"
+        ],
+        "owner_local_facts": [
+          "request result",
+          "battery notice",
+          "flight intent",
+          "charge launch and propulsion permissions"
+        ],
+        "contract_cases": [
+          "REQUEST_RESULT_DERIVATION",
+          "BATTERY_NOTICE_DERIVATION",
+          "FLIGHT_INTENT_DERIVATION",
+          "PERMISSION_DERIVATION"
+        ],
+        "analyzer_checks": [
+          "atomic_public_tuple",
+          "composition_oracle_equality"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

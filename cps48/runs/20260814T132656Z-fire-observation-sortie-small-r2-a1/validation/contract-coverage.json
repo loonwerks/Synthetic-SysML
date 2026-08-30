@@ -1,0 +1,1841 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source": "model/Battery_Status_Assessment_Service.sysml",
+  "source_sha256": "d162d7c6c0fa280297054760631e52729960bc0b350a6b5245a506a263a78ec4",
+  "bounded_analysis_claim_boundary": "Exact finite conformance of the retained owner-local SysML/GUMBO relations, explicit semantic connection map, admitted logical states, and Designer scenarios only; not compositional proof, solver certification, code execution, generated-code correctness, physical performance, or safety certification.",
+  "root_input_domain": {
+    "requests": 8,
+    "reports": 180,
+    "feedback_values": 12,
+    "snapshots": 17280
+  },
+  "owner_factored_domains": {
+    "lifecycle": 3360,
+    "acquisition": 7200,
+    "qualification": 180,
+    "decision": 54,
+    "custody": 63000,
+    "admitted_state_register_combinations": 1225
+  },
+  "semantic_connection_map": {
+    "INT-01": "root.check_request -> check_lifecycle.check_request",
+    "INT-02": "root.battery_report -> report_acquisition.battery_report",
+    "INT-03": "root.control_use_feedback -> result_custody.control_use_feedback",
+    "INT-04": "check_lifecycle.acquisition_directive -> report_acquisition.acquisition_directive",
+    "INT-05": "check_lifecycle.assessment_context -> assessment_decision.assessment_context",
+    "INT-06": "check_lifecycle.publication_directive -> result_custody.publication_directive",
+    "INT-07": "report_acquisition.captured_report -> report_qualification.captured_report",
+    "INT-08": "report_acquisition.In(committedAcquisitionOutcome) -> check_lifecycle.acquisition_outcome",
+    "INT-09": "report_qualification.qualified_evidence -> assessment_decision.qualified_evidence",
+    "INT-10": "assessment_decision.decision_assessment -> result_custody.decision_assessment",
+    "INT-11": "result_custody.In(committedPublicationOutcome) -> check_lifecycle.publication_outcome",
+    "INT-12": "report_acquisition.status_read_request -> root.status_read_request",
+    "INT-13": "result_custody.battery_assessment -> root.battery_assessment",
+    "INT-14": "check_lifecycle.check_status -> root.check_status"
+  },
+  "partition_counts": {
+    "lifecycle": {
+      "ORDINARY_NONHOLD": 832,
+      "PRIOR_CONSUMPTION_COMPLETES": 288,
+      "PRIOR_PUBLICATION_FAULT": 360,
+      "PRIOR_ACQUISITION_FAULT": 432,
+      "FRESH_TOKEN_A_START": 40,
+      "FRESH_TOKEN_B_START": 40,
+      "IDLE_DUPLICATE_TOKEN_A": 20,
+      "IDLE_DUPLICATE_TOKEN_B": 20,
+      "ACTIVE_START_BUSY": 240,
+      "ACTIVE_CANCEL": 240,
+      "CHECK_BECOMES_AVAILABLE": 8,
+      "RECOVERY_BLOCKS_NONRESET": 612,
+      "RESET_CONFIRMATIONS": 24,
+      "RESET_IN_RECOVERY": 204
+    },
+    "acquisition": {
+      "ACQUISITION_INACTIVE": 900,
+      "REQUESTED_ACQUISITION_FAULT": 1600,
+      "CAPTURE_TOKEN_A": 100,
+      "CAPTURE_TOKEN_B": 100,
+      "ACQUISITION_RESET": 1800,
+      "ACQUISITION_HELD": 2700
+    },
+    "qualification": {
+      "QUALIFICATION_INACTIVE": 60,
+      "QUALIFY_UNTRUSTED_PRESENT": 112,
+      "QUALIFY_CURRENT_HIGH": 2,
+      "QUALIFY_CURRENT_MODERATE": 2,
+      "QUALIFY_CURRENT_LOW": 2,
+      "QUALIFY_CURRENT_CRITICAL": 2
+    },
+    "decision": {
+      "DECISION_INAPPLICABLE": 44,
+      "DECIDE_HIGH": 2,
+      "DECIDE_MODERATE": 2,
+      "DECIDE_LOW_OR_CRITICAL": 4,
+      "DECIDE_UNTRUSTED": 2
+    },
+    "custody": {
+      "CUSTODY_INACTIVE": 364,
+      "FEEDBACK_FAULT": 34860,
+      "OPEN_TOKEN_A": 28,
+      "OPEN_TOKEN_B": 28,
+      "PUBLICATION_RESET": 12600,
+      "PUBLICATION_HELD": 5040,
+      "PRESERVE_TOKEN_A": 840,
+      "CONSUME_TOKEN_A": 1680,
+      "UNEXPECTED_OPEN_WHILE_OFFERED": 3360,
+      "WITHDRAW_COHERENT_OFFER": 1680,
+      "PRESERVE_TOKEN_B": 840,
+      "CONSUME_TOKEN_B": 1680
+    }
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "initialization_safe": true,
+    "offered_iff_meaningful_retained_result": true,
+    "offered_token_matches_last_admitted_token": true,
+    "holds_fail_closed": true,
+    "trusted_provenance": true,
+    "prior_commit_registers_are_consumed_through_INT_08_and_INT_11": true
+  },
+  "observations": {
+    "raw_boundary_snapshots": 17280,
+    "lifecycle_owner_valuations": 3360,
+    "acquisition_owner_valuations": 7200,
+    "qualification_owner_valuations": 180,
+    "decision_owner_valuations": 54,
+    "custody_owner_valuations": 63000,
+    "admitted_state_register_combinations": 1225,
+    "local_guard_gaps": 0,
+    "local_guard_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_mismatches": 0,
+    "semantic_connection_mismatches": 0,
+    "trusted_provenance_mismatches": 0
+  },
+  "checks": {
+    "raw_boundary_product_exact": true,
+    "lifecycle_owner_total_and_exclusive": true,
+    "acquisition_owner_exhausted": true,
+    "qualification_owner_exhausted": true,
+    "decision_owner_exhausted": true,
+    "custody_owner_exhausted": true,
+    "all_local_relations_total_and_exclusive": true,
+    "explicit_semantic_connection_map_complete": true,
+    "required_outputs_exact": true,
+    "state_and_retained_result_invariants": true,
+    "trusted_results_only_from_decision_owner": true,
+    "one_principal_decision_owner": true,
+    "all_twelve_case_witnesses": true,
+    "all_five_scenario_families": true,
+    "consumption_clears_before_completion": true,
+    "simultaneous_fault_and_publication_priority": true,
+    "reset_same_token_reject_alternate_token_reopen": true,
+    "source_guard_cross_check": true
+  },
+  "case_witnesses": {
+    "CASE-01": true,
+    "CASE-02": true,
+    "CASE-03": true,
+    "CASE-04": true,
+    "CASE-05": true,
+    "CASE-06": true,
+    "CASE-07": true,
+    "CASE-08": true,
+    "CASE-09": true,
+    "CASE-10": true,
+    "CASE-11": true,
+    "CASE-12": true
+  },
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "partition": "nominal-offer-pending-consumption-delayed-completion",
+      "traces": [
+        {
+          "trace_id": "SCN-01-NOMINAL-CONSUMPTION",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-01 / OPEN_TOKEN_A",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "CAPTURE_TOKEN_A",
+                "qualification": "QUALIFY_CURRENT_HIGH",
+                "decision": "DECIDE_HIGH",
+                "custody": "OPEN_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "NormalUse"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenA",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "NormalUse",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            },
+            {
+              "step": 2,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenA",
+                  "disposition": "Pending"
+                }
+              },
+              "expected_named_branch": "CASE-09 pending preservation",
+              "observed_branches": {
+                "lifecycle": "CHECK_BECOMES_AVAILABLE",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "PRESERVE_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "NormalUse"
+                },
+                "check_status": "Available"
+              },
+              "observed_next_state": {
+                "lifecycle": "AwaitingUse",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "NormalUse",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            },
+            {
+              "step": 3,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenA",
+                  "disposition": "Consumed"
+                }
+              },
+              "expected_named_branch": "CASE-09 immediate custody clearing",
+              "observed_branches": {
+                "lifecycle": "ORDINARY_NONHOLD",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CONSUME_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Available"
+              },
+              "observed_next_state": {
+                "lifecycle": "AwaitingUse",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "Consumed"
+              }
+            },
+            {
+              "step": 4,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-09 delayed Completed",
+              "observed_branches": {
+                "lifecycle": "PRIOR_CONSUMPTION_COMPLETES",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Completed"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Idle",
+            "last": "TokenA",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+            "publication": "Empty",
+            "retainedAssessment": "NoAssessment",
+            "committedPublicationOutcome": "NoPublicationOutcome"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "partition": "moderate-low-critical-capacity-boundaries",
+      "traces": [
+        {
+          "trace_id": "SCN-02-ALTERNATING-CAPACITY-BOUNDARIES",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "Moderate",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-02",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "CAPTURE_TOKEN_A",
+                "qualification": "QUALIFY_CURRENT_MODERATE",
+                "decision": "DECIDE_MODERATE",
+                "custody": "OPEN_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "CautionUse"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenA",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "CautionUse",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            },
+            {
+              "step": 2,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenA",
+                  "disposition": "Consumed"
+                }
+              },
+              "expected_named_branch": "CASE-09 consume",
+              "observed_branches": {
+                "lifecycle": "CHECK_BECOMES_AVAILABLE",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CONSUME_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Available"
+              },
+              "observed_next_state": {
+                "lifecycle": "AwaitingUse",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "Consumed"
+              }
+            },
+            {
+              "step": 3,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-09 complete",
+              "observed_branches": {
+                "lifecycle": "PRIOR_CONSUMPTION_COMPLETES",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Completed"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            },
+            {
+              "step": 4,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "TokenB",
+                  "availability": "Present",
+                  "level": "Low",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-03",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_B_START",
+                "acquisition": "CAPTURE_TOKEN_B",
+                "qualification": "QUALIFY_CURRENT_LOW",
+                "decision": "DECIDE_LOW_OR_CRITICAL",
+                "custody": "OPEN_TOKEN_B"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenB",
+                "battery_assessment": {
+                  "ticket": "TokenB",
+                  "result": "RestrictUse"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenB",
+                "publication": "OfferedTokenB",
+                "retainedAssessment": "RestrictUse",
+                "committedPublicationOutcome": "OfferedTokenB"
+              }
+            },
+            {
+              "step": 5,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenB",
+                  "disposition": "Consumed"
+                }
+              },
+              "expected_named_branch": "CASE-09 consume",
+              "observed_branches": {
+                "lifecycle": "CHECK_BECOMES_AVAILABLE",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CONSUME_TOKEN_B"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Available"
+              },
+              "observed_next_state": {
+                "lifecycle": "AwaitingUse",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "Consumed"
+              }
+            },
+            {
+              "step": 6,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-09 complete",
+              "observed_branches": {
+                "lifecycle": "PRIOR_CONSUMPTION_COMPLETES",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Completed"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            },
+            {
+              "step": 7,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "Critical",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-03",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "CAPTURE_TOKEN_A",
+                "qualification": "QUALIFY_CURRENT_CRITICAL",
+                "decision": "DECIDE_LOW_OR_CRITICAL",
+                "custody": "OPEN_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "RestrictUse"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenA",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "RestrictUse",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            },
+            {
+              "step": 8,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenA",
+                  "disposition": "Consumed"
+                }
+              },
+              "expected_named_branch": "CASE-09 consume",
+              "observed_branches": {
+                "lifecycle": "CHECK_BECOMES_AVAILABLE",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CONSUME_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Available"
+              },
+              "observed_next_state": {
+                "lifecycle": "AwaitingUse",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "Consumed"
+              }
+            },
+            {
+              "step": 9,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-09 complete",
+              "observed_branches": {
+                "lifecycle": "PRIOR_CONSUMPTION_COMPLETES",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Completed"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Idle",
+            "last": "TokenA",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+            "publication": "Empty",
+            "retainedAssessment": "NoAssessment",
+            "committedPublicationOutcome": "NoPublicationOutcome"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "partition": "replay-busy-cancel-request-boundaries",
+      "traces": [
+        {
+          "trace_id": "SCN-03-REPLAY-BUSY-CANCEL",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-06 duplicate",
+              "observed_branches": {
+                "lifecycle": "IDLE_DUPLICATE_TOKEN_A",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "DuplicateIgnored"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            },
+            {
+              "step": 2,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "TokenB",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-12 alternate fresh start",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_B_START",
+                "acquisition": "CAPTURE_TOKEN_B",
+                "qualification": "QUALIFY_CURRENT_HIGH",
+                "decision": "DECIDE_HIGH",
+                "custody": "OPEN_TOKEN_B"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenB",
+                "battery_assessment": {
+                  "ticket": "TokenB",
+                  "result": "NormalUse"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenB",
+                "publication": "OfferedTokenB",
+                "retainedAssessment": "NormalUse",
+                "committedPublicationOutcome": "OfferedTokenB"
+              }
+            },
+            {
+              "step": 3,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-07 busy",
+              "observed_branches": {
+                "lifecycle": "ACTIVE_START_BUSY",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "PRESERVE_TOKEN_B"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "TokenB",
+                  "result": "NormalUse"
+                },
+                "check_status": "Busy"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "OfferedTokenB",
+                "retainedAssessment": "NormalUse",
+                "committedPublicationOutcome": "OfferedTokenB"
+              }
+            },
+            {
+              "step": 4,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Cancel",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-08 cancel and withdraw",
+              "observed_branches": {
+                "lifecycle": "ACTIVE_CANCEL",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "WITHDRAW_COHERENT_OFFER"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Cancelled"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "Cancelled"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Idle",
+            "last": "TokenB",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+            "publication": "Empty",
+            "retainedAssessment": "NoAssessment",
+            "committedPublicationOutcome": "Cancelled"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "partition": "untrusted-content-independent-and-simultaneous-faults",
+      "traces": [
+        {
+          "trace_id": "SCN-04-STALE",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Stale"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-04 untrusted content",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "CAPTURE_TOKEN_A",
+                "qualification": "QUALIFY_UNTRUSTED_PRESENT",
+                "decision": "DECIDE_UNTRUSTED",
+                "custody": "OPEN_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "Untrusted"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenA",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "Untrusted",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Checking",
+            "last": "TokenA",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "CapturedTokenA",
+            "publication": "OfferedTokenA",
+            "retainedAssessment": "Untrusted",
+            "committedPublicationOutcome": "OfferedTokenA"
+          }
+        },
+        {
+          "trace_id": "SCN-04-INVALID",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Invalid"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-04 untrusted content",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "CAPTURE_TOKEN_A",
+                "qualification": "QUALIFY_UNTRUSTED_PRESENT",
+                "decision": "DECIDE_UNTRUSTED",
+                "custody": "OPEN_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "Untrusted"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenA",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "Untrusted",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Checking",
+            "last": "TokenA",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "CapturedTokenA",
+            "publication": "OfferedTokenA",
+            "retainedAssessment": "Untrusted",
+            "committedPublicationOutcome": "OfferedTokenA"
+          }
+        },
+        {
+          "trace_id": "SCN-04-NO-QUALITY",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-04 untrusted content",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "CAPTURE_TOKEN_A",
+                "qualification": "QUALIFY_UNTRUSTED_PRESENT",
+                "decision": "DECIDE_UNTRUSTED",
+                "custody": "OPEN_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "Untrusted"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenA",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "Untrusted",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Checking",
+            "last": "TokenA",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "CapturedTokenA",
+            "publication": "OfferedTokenA",
+            "retainedAssessment": "Untrusted",
+            "committedPublicationOutcome": "OfferedTokenA"
+          }
+        },
+        {
+          "trace_id": "SCN-04-NO-LEVEL",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "NoLevel",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-04 untrusted content",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "CAPTURE_TOKEN_A",
+                "qualification": "QUALIFY_UNTRUSTED_PRESENT",
+                "decision": "DECIDE_UNTRUSTED",
+                "custody": "OPEN_TOKEN_A"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "TokenA",
+                  "result": "Untrusted"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenA",
+                "publication": "OfferedTokenA",
+                "retainedAssessment": "Untrusted",
+                "committedPublicationOutcome": "OfferedTokenA"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Checking",
+            "last": "TokenA",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "CapturedTokenA",
+            "publication": "OfferedTokenA",
+            "retainedAssessment": "Untrusted",
+            "committedPublicationOutcome": "OfferedTokenA"
+          }
+        },
+        {
+          "trace_id": "SCN-04-SIMULTANEOUS-FAULT",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenB",
+                  "disposition": "Pending"
+                }
+              },
+              "expected_named_branch": "CASE-05 plus CASE-10 simultaneous entry",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "REQUESTED_ACQUISITION_FAULT",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "FEEDBACK_FAULT"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "FailureHold",
+                "committedAcquisitionOutcome": "AcquisitionFault",
+                "publication": "FaultHold",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "PublicationFault"
+              }
+            },
+            {
+              "step": 2,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-10 publication-fault priority",
+              "observed_branches": {
+                "lifecycle": "PRIOR_PUBLICATION_FAULT",
+                "acquisition": "ACQUISITION_HELD",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "PUBLICATION_HELD"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "PublicationFailed"
+              },
+              "observed_next_state": {
+                "lifecycle": "RecoveryHold",
+                "last": "TokenA",
+                "acquisition": "FailureHold",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "FaultHold",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "RecoveryHold",
+            "last": "TokenA",
+            "acquisition": "FailureHold",
+            "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+            "publication": "FaultHold",
+            "retainedAssessment": "NoAssessment",
+            "committedPublicationOutcome": "NoPublicationOutcome"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "partition": "combined-hold-reset-confirmation-replay-and-alternate-recovery",
+      "traces": [
+        {
+          "trace_id": "SCN-05-COMBINED-RECOVERY",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenB",
+                  "disposition": "Pending"
+                }
+              },
+              "expected_named_branch": "combined fault entry",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_A_START",
+                "acquisition": "REQUESTED_ACQUISITION_FAULT",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "FEEDBACK_FAULT"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenA",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenA",
+                "acquisition": "FailureHold",
+                "committedAcquisitionOutcome": "AcquisitionFault",
+                "publication": "FaultHold",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "PublicationFault"
+              }
+            },
+            {
+              "step": 2,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "combined recovery hold",
+              "observed_branches": {
+                "lifecycle": "PRIOR_PUBLICATION_FAULT",
+                "acquisition": "ACQUISITION_HELD",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "PUBLICATION_HELD"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "PublicationFailed"
+              },
+              "observed_next_state": {
+                "lifecycle": "RecoveryHold",
+                "last": "TokenA",
+                "acquisition": "FailureHold",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "FaultHold",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            },
+            {
+              "step": 3,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "TokenB",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-12 favorable start blocked",
+              "observed_branches": {
+                "lifecycle": "RECOVERY_BLOCKS_NONRESET",
+                "acquisition": "ACQUISITION_HELD",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "PUBLICATION_HELD"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "RecoveryRequired"
+              },
+              "observed_next_state": {
+                "lifecycle": "RecoveryHold",
+                "last": "TokenA",
+                "acquisition": "FailureHold",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "FaultHold",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            },
+            {
+              "step": 4,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Reset",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-11 one reset clears both latches",
+              "observed_branches": {
+                "lifecycle": "RESET_IN_RECOVERY",
+                "acquisition": "ACQUISITION_RESET",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "PUBLICATION_RESET"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "RecoveryRequired"
+              },
+              "observed_next_state": {
+                "lifecycle": "RecoveryHold",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "AcquisitionReset",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "PublicationReset"
+              }
+            },
+            {
+              "step": 5,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-11 reset confirmations",
+              "observed_branches": {
+                "lifecycle": "RESET_CONFIRMATIONS",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "ResetCompleted"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            },
+            {
+              "step": 6,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenA"
+                },
+                "battery_report": {
+                  "ticket": "TokenA",
+                  "availability": "Present",
+                  "level": "High",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-12 same-token rejection",
+              "observed_branches": {
+                "lifecycle": "IDLE_DUPLICATE_TOKEN_A",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "DuplicateIgnored"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenA",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            },
+            {
+              "step": 7,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "Start",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "TokenB",
+                  "availability": "Present",
+                  "level": "Moderate",
+                  "quality": "Current"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-12 alternate-token recovery",
+              "observed_branches": {
+                "lifecycle": "FRESH_TOKEN_B_START",
+                "acquisition": "CAPTURE_TOKEN_B",
+                "qualification": "QUALIFY_CURRENT_MODERATE",
+                "decision": "DECIDE_MODERATE",
+                "custody": "OPEN_TOKEN_B"
+              },
+              "observed_outputs": {
+                "status_read_request": "ReadTokenB",
+                "battery_assessment": {
+                  "ticket": "TokenB",
+                  "result": "CautionUse"
+                },
+                "check_status": "Checking"
+              },
+              "observed_next_state": {
+                "lifecycle": "Checking",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "CapturedTokenB",
+                "publication": "OfferedTokenB",
+                "retainedAssessment": "CautionUse",
+                "committedPublicationOutcome": "OfferedTokenB"
+              }
+            },
+            {
+              "step": 8,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "TokenB",
+                  "disposition": "Consumed"
+                }
+              },
+              "expected_named_branch": "CASE-09 recovered consumption",
+              "observed_branches": {
+                "lifecycle": "CHECK_BECOMES_AVAILABLE",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CONSUME_TOKEN_B"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Available"
+              },
+              "observed_next_state": {
+                "lifecycle": "AwaitingUse",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "Consumed"
+              }
+            },
+            {
+              "step": 9,
+              "boundary_inputs": {
+                "check_request": {
+                  "command": "NoCommand",
+                  "token": "TokenB"
+                },
+                "battery_report": {
+                  "ticket": "NoTicket",
+                  "availability": "Absent",
+                  "level": "NoLevel",
+                  "quality": "NoQuality"
+                },
+                "control_use_feedback": {
+                  "ticket": "NoTicket",
+                  "disposition": "NoFeedback"
+                }
+              },
+              "expected_named_branch": "CASE-09 recovered completion",
+              "observed_branches": {
+                "lifecycle": "PRIOR_CONSUMPTION_COMPLETES",
+                "acquisition": "ACQUISITION_INACTIVE",
+                "qualification": "QUALIFICATION_INACTIVE",
+                "decision": "DECISION_INAPPLICABLE",
+                "custody": "CUSTODY_INACTIVE"
+              },
+              "observed_outputs": {
+                "status_read_request": "NoRead",
+                "battery_assessment": {
+                  "ticket": "NoTicket",
+                  "result": "NoAssessment"
+                },
+                "check_status": "Completed"
+              },
+              "observed_next_state": {
+                "lifecycle": "Idle",
+                "last": "TokenB",
+                "acquisition": "Ready",
+                "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+                "publication": "Empty",
+                "retainedAssessment": "NoAssessment",
+                "committedPublicationOutcome": "NoPublicationOutcome"
+              }
+            }
+          ],
+          "final_state": {
+            "lifecycle": "Idle",
+            "last": "TokenB",
+            "acquisition": "Ready",
+            "committedAcquisitionOutcome": "NoAcquisitionOutcome",
+            "publication": "Empty",
+            "retainedAssessment": "NoAssessment",
+            "committedPublicationOutcome": "NoPublicationOutcome"
+          }
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "check_lifecycle",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "check_lifecycle.check_request",
+        "check_lifecycle.acquisition_outcome",
+        "check_lifecycle.publication_outcome",
+        "state.lifecycleState",
+        "state.lastAdmittedToken"
+      ],
+      "owner_local_facts": [
+        "freshAlternateTokenAdmission",
+        "singleCheckApplicability",
+        "resetApplicability",
+        "lifecyclePriorityAndStatus"
+      ],
+      "contract_cases": [
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "lifecycle-owner-total-exclusive-3360",
+        "lifecycle-owner-freshness-and-priority"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "report_acquisition",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "report_acquisition.acquisition_directive",
+        "report_acquisition.battery_report",
+        "state.acquisitionState"
+      ],
+      "owner_local_facts": [
+        "tokenRelativeCaptureApplicability",
+        "acquisitionFaultLatch",
+        "tokenSpecificReadRequest"
+      ],
+      "contract_cases": [
+        "CASE-05",
+        "CASE-11"
+      ],
+      "analyzer_checks": [
+        "acquisition-owner-total-exclusive-7200",
+        "acquisition-owner-fault-latch-and-reset"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "assessment_decision",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "assessment_decision.assessment_context",
+        "assessment_decision.qualified_evidence"
+      ],
+      "owner_local_facts": [
+        "exactTokenAssessmentApplicability",
+        "nonBijectiveBatteryAssessment"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04"
+      ],
+      "analyzer_checks": [
+        "decision-owner-total-exclusive-54",
+        "decision-owner-five-to-four-mapping"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "result_custody",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "result_custody.publication_directive",
+        "result_custody.decision_assessment",
+        "result_custody.control_use_feedback",
+        "state.publicationState",
+        "state.retainedAssessment"
+      ],
+      "owner_local_facts": [
+        "offerApplicability",
+        "feedbackConsistency",
+        "exactRetainedResultCustody",
+        "publicationFaultLatch"
+      ],
+      "contract_cases": [
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11"
+      ],
+      "analyzer_checks": [
+        "custody-owner-total-exclusive-63000",
+        "custody-owner-clear-before-completion",
+        "custody-owner-fault-and-reset"
+      ],
+      "passed": true
+    }
+  ]
+}

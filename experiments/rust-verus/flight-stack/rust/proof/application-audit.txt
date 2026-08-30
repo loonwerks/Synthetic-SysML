@@ -1,0 +1,23 @@
+FINAL APPLICATION AUDIT
+
+application_crates=8
+application_files=8
+application_placeholder_files=0
+stateful_application_files=2
+stateless_application_files=6
+application_requires_clauses=0
+application_assume_or_admit_statements=0
+distinct_generated_case_spec_mappings=20
+final_owner_verified=78
+final_owner_errors=0
+final_crate_exit_failures=0
+
+Accepted persistent state:
+- referenceManager_behavior: referenceRoll, referencePitch, referenceValid, fdState
+- apEngagementManager_behavior: apMode
+
+All other behavior owners are stateless. Every semantic initialize/timeTriggered
+body is under #[verus_verify], performs real generated API input/output work, and
+retains its generated CASE_*_spec postconditions. The only external_body
+functions in application files are non-semantic logging wrappers; generated API
+bridges remain generator-owned and supply their ghost I/O contracts.

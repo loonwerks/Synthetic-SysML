@@ -1,0 +1,144 @@
+{
+  "schema_version": 2,
+  "source_sha256": "9204d58f7d5658dbb797c8506a2b3278a503e909c93d15825e29605422e92149",
+  "root_definition": "Cabin_Air_Care_Supervisor::CabinAirCareSupervisor",
+  "root_usage": "cabinAirCareSupervisor",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 5,
+    "generated_support_processes": 1,
+    "physical_non_root_aadl_usages": 6,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 14,
+    "boundary_semantic_interactions": 8,
+    "internal_semantic_interactions": 6,
+    "generated_support_delegations": 16,
+    "raw_port_connection_declarations": 22,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2,
+      "INT-02": 2,
+      "INT-03": 2,
+      "INT-04": 2,
+      "INT-05": 2,
+      "INT-06": 2,
+      "INT-07": 1,
+      "INT-08": 1,
+      "INT-09": 1,
+      "INT-10": 1,
+      "INT-11": 1,
+      "INT-12": 1,
+      "INT-13": 2,
+      "INT-14": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "safe_initialization_guarantees": 2,
+    "state_variables": 1,
+    "identity_forwarding_cases_counted": 0,
+    "datatype_invariants_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "owner_local_valuations": {
+      "preferenceInterpreter": 4,
+      "airQualityAssessor": 4,
+      "humidityAssessor": 6,
+      "observationConfidenceGuardian": 24,
+      "airCarePolicySupervisor": 108
+    },
+    "boundary_valuations": 96,
+    "confidence_pre_states": 2,
+    "composed_root_snapshots": 192,
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_mismatches": 0,
+    "scenario_families": 6,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    }
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 14,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 6,
+    "ownership_audit": [
+      {
+        "usage": "preferenceInterpreter",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["preferenceInterpreter.airCarePreference", "preferenceInterpreter.preferenceValidity"],
+        "owner_local_facts": ["airCareIntent"],
+        "contract_cases": ["CC-01", "CC-02"],
+        "analyzer_checks": ["preference applicability partition 4"],
+        "passed": true
+      },
+      {
+        "usage": "airQualityAssessor",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["airQualityAssessor.cabinAirQuality", "airQualityAssessor.airQualityValidity"],
+        "owner_local_facts": ["airAssessment"],
+        "contract_cases": ["CC-03"],
+        "analyzer_checks": ["air assessment partition 4"],
+        "passed": true
+      },
+      {
+        "usage": "humidityAssessor",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["humidityAssessor.cabinHumidityBand", "humidityAssessor.humidityValidity"],
+        "owner_local_facts": ["humidityAssessment"],
+        "contract_cases": ["CC-04"],
+        "analyzer_checks": ["humidity assessment partition 6"],
+        "passed": true
+      },
+      {
+        "usage": "observationConfidenceGuardian",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["observationConfidenceGuardian.airAssessment", "observationConfidenceGuardian.humidityAssessment", "observationConfidenceGuardian.confidenceMode.pre"],
+        "owner_local_facts": ["measurementConfidence", "confidenceMode.next"],
+        "contract_cases": ["CC-05", "CC-06", "CC-07"],
+        "analyzer_checks": ["confidence transition partition 24"],
+        "passed": true
+      },
+      {
+        "usage": "airCarePolicySupervisor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["airCarePolicySupervisor.airCareIntent", "airCarePolicySupervisor.airAssessment", "airCarePolicySupervisor.humidityAssessment", "airCarePolicySupervisor.measurementConfidence"],
+        "owner_local_facts": ["airTreatmentDirective", "airCareStatus"],
+        "contract_cases": ["CC-08", "CC-09", "CC-10", "CC-11", "CC-12"],
+        "analyzer_checks": ["principal policy partition 108"],
+        "passed": true
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-05 only. Interactions count INT-01 through INT-14 once and exclude sixteen generated-support delegations. Nontrivial cases count CC-01 through CC-12 only. Scenario families count SCN-01 through SCN-06. Root, behavior-free Process support, initialization, enum types, delegation routes, and analyzer fixtures receive no semantic credit. Composition denotes executable finite-relation composition through the explicit interaction map, not compositional proof."
+}

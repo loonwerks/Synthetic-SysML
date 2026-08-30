@@ -1,0 +1,179 @@
+{
+  "schema_version": 1,
+  "campaign_id": "cps-48-v1",
+  "target_accepted": 48,
+  "model": "gpt-5.6-sol",
+  "reasoning_effort": "high",
+  "max_workers": 3,
+  "stage_watchdogs": {
+    "small": 0,
+    "medium": 0,
+    "hard": 0
+  },
+  "counting_rules": "campaign-v1",
+  "families": {
+    "drone-governor": {
+      "rank": 1,
+      "seed_source": "seeds/sources/drone-governor-v1.md",
+      "seed": "seeds/drone-logical-domain-v1.md",
+      "seed_sha256": "3da17d30e15020153a47a71fb824930f03154acca2e0fb31d94699ec5039889e",
+      "diversity_cards": {
+        "2": "diversity-cards/drone-governor-r2.md"
+      }
+    },
+    "mining-threat-retreat": {
+      "rank": 2,
+      "seed_source": "seeds/sources/mining-threat-retreat-v1.md",
+      "seed": "seeds/mining-threat-retreat-v1.md",
+      "seed_sha256": "e6d9a4b5e0099634313f6c5d1dd2b4526c45b87be2cb3b1424e63d8f197dfb19",
+      "diversity_cards": {
+        "2": "diversity-cards/mining-threat-retreat-r2.md"
+      }
+    },
+    "factory-dispatch": {
+      "rank": 3,
+      "seed_source": "seeds/sources/factory-dispatch-v1.md",
+      "seed": "seeds/factory-dispatch-v1.md",
+      "seed_sha256": "8e1f539e8411354a0c420537e59308e2231035865f3df6bb7c062c4f66c400ab",
+      "diversity_cards": {
+        "2": "diversity-cards/factory-dispatch-r2.md"
+      }
+    },
+    "vehicle-mode": {
+      "rank": 4,
+      "seed_source": "seeds/sources/vehicle-mode-v1.md",
+      "seed": "seeds/vehicle-mode-v1.md",
+      "seed_sha256": "4d8821aa63d253ede37ceef8644fc12a05e3c416e195ee52c80c4020bd2ee510",
+      "diversity_cards": {
+        "2": "diversity-cards/vehicle-mode-r2.md"
+      }
+    },
+    "eit-acquisition": {
+      "rank": 5,
+      "seed_source": "seeds/sources/eit-acquisition-v1.md",
+      "seed": "seeds/eit-acquisition-v1.md",
+      "seed_sha256": "479c4b2e2a321df1f7cf6a8d01f729a7916be51ea12f2b8bd395a5c25804daac",
+      "diversity_cards": {
+        "2": "diversity-cards/eit-acquisition-r2.md"
+      }
+    },
+    "fire-observation-sortie": {
+      "rank": 6,
+      "seed_source": "seeds/sources/fire-observation-sortie-v1.md",
+      "seed": "seeds/fire-observation-sortie-v1.md",
+      "seed_sha256": "a1506414b5b8338aadc8d806fa8fd3470e12fb521e174d5d8fa8ed0a8a788b2c",
+      "diversity_cards": {
+        "2": "diversity-cards/fire-observation-sortie-r2.md"
+      }
+    },
+    "mining-cargo-docking": {
+      "rank": 7,
+      "seed_source": "seeds/sources/mining-cargo-docking-v1.md",
+      "seed": "seeds/mining-cargo-docking-v1.md",
+      "seed_sha256": "7da019dc4a0a5610f69a9f08a633f4fc9cee86454eaa97fa04ff230c086c4278",
+      "diversity_cards": {
+        "2": "diversity-cards/mining-cargo-docking-r2.md"
+      }
+    },
+    "hvac-supervisor": {
+      "rank": 8,
+      "seed_source": "seeds/sources/hvac-campaign-v1.md",
+      "seed": "seeds/hvac-supervisor-v1.md",
+      "seed_sha256": "6ef0737d2a58425376abf51d90d0f05d2f84f4353eba956476e71b9e640b6606",
+      "diversity_cards": {
+        "2": "diversity-cards/hvac-supervisor-r2.md"
+      }
+    }
+  },
+  "batches": [
+    {
+      "batch_id": "batch-00-drone-review",
+      "family_id": "drone-governor",
+      "complexities": [
+        "small",
+        "medium",
+        "hard"
+      ],
+      "replicates": [
+        1
+      ],
+      "base_port": 4882
+    },
+    {
+      "batch_id": "batch-01-drone-replicate-2",
+      "family_id": "drone-governor",
+      "complexities": [
+        "small",
+        "medium",
+        "hard"
+      ],
+      "replicates": [
+        2
+      ],
+      "base_port": 4882
+    },
+    {
+      "batch_id": "batch-02-mining-threat-retreat",
+      "family_id": "mining-threat-retreat",
+      "replicates": [
+        1,
+        2
+      ],
+      "base_port": 4882
+    },
+    {
+      "batch_id": "batch-03-factory-dispatch",
+      "family_id": "factory-dispatch",
+      "replicates": [
+        1,
+        2
+      ],
+      "base_port": 4982
+    },
+    {
+      "batch_id": "batch-04-vehicle-mode",
+      "family_id": "vehicle-mode",
+      "replicates": [
+        1,
+        2
+      ],
+      "base_port": 5082
+    },
+    {
+      "batch_id": "batch-05-eit-acquisition",
+      "family_id": "eit-acquisition",
+      "replicates": [
+        1,
+        2
+      ],
+      "base_port": 5182
+    },
+    {
+      "batch_id": "batch-06-fire-observation-sortie",
+      "family_id": "fire-observation-sortie",
+      "replicates": [
+        1,
+        2
+      ],
+      "base_port": 5282
+    },
+    {
+      "batch_id": "batch-07-mining-cargo-docking",
+      "family_id": "mining-cargo-docking",
+      "replicates": [
+        1,
+        2
+      ],
+      "base_port": 5382
+    },
+    {
+      "batch_id": "batch-08-hvac-supervisor",
+      "family_id": "hvac-supervisor",
+      "replicates": [
+        1,
+        2
+      ],
+      "base_port": 5482
+    }
+  ]
+}

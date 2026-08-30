@@ -1,0 +1,794 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "53cf4c62581c7091131f798da66d5ba55af272d5bbe6f2f12036d86670aa3067",
+  "claim_boundary": "Exhaustive bounded conformance over the frozen finite abstract and owner relations only; not physical-transfer proof, formal or unbounded temporal proof, execution evidence, safety certification, game fidelity, or production assurance.",
+  "finite_domain": {
+    "root_snapshots": 19200,
+    "expression": "8 * 3 * 5 * 5 * 4 * 8",
+    "owner_direct_products": {
+      "RequestQualifier": {
+        "valuations": 24,
+        "expected_valuations": 24,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "ServiceReadinessQualifier": {
+        "valuations": 5,
+        "expected_valuations": 5,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "PriorityArbiter": {
+        "valuations": 192,
+        "expected_valuations": 192,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "SessionController": {
+        "valuations": 360,
+        "expected_valuations": 360,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "ShipEvidenceQualifier": {
+        "valuations": 15,
+        "expected_valuations": 15,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "WarehouseEvidenceQualifier": {
+        "valuations": 12,
+        "expected_valuations": 12,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "CompletionReconciler": {
+        "valuations": 25,
+        "expected_valuations": 25,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "CommandSafetyGate": {
+        "valuations": 16,
+        "expected_valuations": 16,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      },
+      "OutcomeReporter": {
+        "valuations": 64,
+        "expected_valuations": 64,
+        "gaps": 0,
+        "overlaps": 0,
+        "mismatches": 0
+      }
+    }
+  },
+  "partition_counts": {
+    "CASE-01": 40,
+    "CASE-02": 1,
+    "CASE-03": 1,
+    "CASE-04": 12,
+    "CASE-05": 8000,
+    "CASE-06": 2240,
+    "CASE-07": 896,
+    "CASE-08": 672,
+    "CASE-09": 6384,
+    "CASE-10": 168,
+    "CASE-11": 336,
+    "CASE-12": 24,
+    "CASE-13": 2,
+    "CASE-14": 24,
+    "CASE-15": 96,
+    "CASE-16": 24,
+    "CASE-17": 264,
+    "CASE-18": 6,
+    "CASE-19": 2,
+    "CASE-20": 8
+  },
+  "expected_partition_vector": [
+    40,
+    1,
+    1,
+    12,
+    8000,
+    2240,
+    896,
+    672,
+    6384,
+    168,
+    336,
+    24,
+    2,
+    24,
+    96,
+    24,
+    264,
+    6,
+    2,
+    8
+  ],
+  "producer_reachability": {
+    "CompletionReconciler": {
+      "structurally_valid_pairs": 25,
+      "producer_reachable_pairs": 15,
+      "producer_unreachable_cross_expectation_pairs": 10
+    },
+    "OutcomeReporter": {
+      "structurally_valid_snapshots": 64,
+      "producer_reachable_snapshots": 16,
+      "producer_unreachable_snapshots": 48
+    }
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "case_population_mismatches": 0,
+    "owner_relation_mismatches": 0,
+    "composition_mismatches": 0,
+    "required_output_mismatches": 0,
+    "priority_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_mismatches": 0
+  },
+  "checks": {
+    "exact_19200_snapshot_exhaustion": true,
+    "exact_case_population_vector": true,
+    "owner_products_complete": true,
+    "semantic_connection_composition_matches_raw_oracle": true,
+    "next_state_and_four_outputs_match": true,
+    "explicit_priority_conflicts_hold": true,
+    "all_cases_reachable": true,
+    "all_scenario_families_have_state_carrying_traces": true,
+    "begin_is_case_02_only": true,
+    "verified_is_case_16_only": true,
+    "recovery_requires_later_fresh_start": true
+  },
+  "semantic_connection_map": [
+    "INT-01 Pilot.transferRequest -> RequestQualifier.transferRequest",
+    "INT-02 FrigateCargo.cargoState -> RequestQualifier.cargoState",
+    "INT-03 DockService.serviceCondition -> ServiceReadinessQualifier.serviceCondition",
+    "INT-04 ShipTransferInterface.transferEvidence -> ShipEvidenceQualifier.transferEvidence",
+    "INT-05 WarehouseInterface.receiptEvidence -> WarehouseEvidenceQualifier.receiptEvidence",
+    "INT-06 RequestQualifier.qualifiedRequest -> PriorityArbiter.qualifiedRequest",
+    "INT-07 ServiceReadinessQualifier.serviceEligibility -> PriorityArbiter.serviceEligibility",
+    "INT-08 SessionController.sessionPrestate -> PriorityArbiter.sessionPrestate",
+    "INT-09 PriorityArbiter.admittedDirective -> SessionController.admittedDirective",
+    "INT-10 SessionController.shipExpectation -> ShipEvidenceQualifier.sessionExpectation",
+    "INT-11 SessionController.warehouseExpectation -> WarehouseEvidenceQualifier.sessionExpectation",
+    "INT-12 ShipEvidenceQualifier.shipFinding -> CompletionReconciler.shipFinding",
+    "INT-13 WarehouseEvidenceQualifier.warehouseFinding -> CompletionReconciler.warehouseFinding",
+    "INT-14 CompletionReconciler.verificationDisposition -> SessionController.verificationDisposition",
+    "INT-15 SessionController.commandProposal -> CommandSafetyGate.commandProposal",
+    "INT-16 ServiceReadinessQualifier.gateEligibility -> CommandSafetyGate.serviceEligibility",
+    "INT-17 SessionController.sessionSnapshot -> OutcomeReporter.sessionSnapshot",
+    "INT-18 CommandSafetyGate.shipCommand -> ShipTransferInterface.shipCommand",
+    "INT-19 CommandSafetyGate.receiptQuery -> WarehouseInterface.receiptQuery",
+    "INT-20 OutcomeReporter.pilotReport -> Pilot.transferReport",
+    "INT-21 OutcomeReporter.stationReport -> DockService.transferReport"
+  ],
+  "ownership_audit": [
+    {
+      "usage": "RequestQualifier",
+      "assigned_inputs": [
+        "RequestQualifier.transferRequest",
+        "RequestQualifier.cargoState"
+      ],
+      "owner_local_facts": [
+        "QualifiedRequest validity, freshness, and cargo applicability classification"
+      ],
+      "contract_cases": [
+        "REQUEST_INPUT_FAULT",
+        "REQUEST_START_CANDIDATE",
+        "REQUEST_EMPTY_REJECTION"
+      ],
+      "analyzer_checks": [
+        "RequestQualifier 24-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "ServiceReadinessQualifier",
+      "assigned_inputs": [
+        "ServiceReadinessQualifier.serviceCondition"
+      ],
+      "owner_local_facts": [
+        "ServiceEligibility readiness, preemption, ineligibility, and fault classification"
+      ],
+      "contract_cases": [
+        "SERVICE_READY",
+        "SERVICE_UNDOCK_PREEMPTION",
+        "SERVICE_INELIGIBLE",
+        "SERVICE_FAULT"
+      ],
+      "analyzer_checks": [
+        "ServiceReadinessQualifier 5-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "PriorityArbiter",
+      "assigned_inputs": [
+        "PriorityArbiter.qualifiedRequest",
+        "PriorityArbiter.serviceEligibility",
+        "PriorityArbiter.sessionPrestate"
+      ],
+      "owner_local_facts": [
+        "AdmittedDirective ordered admission, preemption, cancellation, and reset decision"
+      ],
+      "contract_cases": [
+        "ARBITER_FAULT",
+        "ARBITER_ACTIVE_UNDOCK",
+        "ARBITER_ACTIVE_CANCEL",
+        "ARBITER_IDLE_BEGIN",
+        "ARBITER_LATCH_RESET"
+      ],
+      "analyzer_checks": [
+        "PriorityArbiter 192-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "SessionController",
+      "assigned_inputs": [
+        "SessionController.admittedDirective",
+        "SessionController.verificationDisposition",
+        "SessionController.sessionState pre-state"
+      ],
+      "owner_local_facts": [
+        "SessionState transition, SessionExpectation, CommandProposal, and SessionSnapshot decision"
+      ],
+      "contract_cases": [
+        "ACTIVE_FAULT_TRANSITION",
+        "ACTIVE_UNDOCK_STOP",
+        "ACTIVE_CANCEL_STOP",
+        "ACTIVE_VERIFIED",
+        "ACTIVE_PROGRESS",
+        "RECOVERY_CLEAR",
+        "TERMINAL_RESET",
+        "IDLE_BEGIN"
+      ],
+      "analyzer_checks": [
+        "SessionController 360-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "ShipEvidenceQualifier",
+      "assigned_inputs": [
+        "ShipEvidenceQualifier.transferEvidence",
+        "ShipEvidenceQualifier.sessionExpectation"
+      ],
+      "owner_local_facts": [
+        "ShipFinding expectation-sensitive evidence qualification"
+      ],
+      "contract_cases": [
+        "SHIP_ACTIVE_FAULT",
+        "SHIP_ACTIVE_NOT_COMPLETE",
+        "SHIP_ACTIVE_COMPLETE",
+        "SHIP_RECOVERY_NEUTRAL"
+      ],
+      "analyzer_checks": [
+        "ShipEvidenceQualifier 15-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "WarehouseEvidenceQualifier",
+      "assigned_inputs": [
+        "WarehouseEvidenceQualifier.receiptEvidence",
+        "WarehouseEvidenceQualifier.sessionExpectation"
+      ],
+      "owner_local_facts": [
+        "WarehouseFinding expectation-sensitive receipt qualification"
+      ],
+      "contract_cases": [
+        "WAREHOUSE_ACTIVE_FAULT",
+        "WAREHOUSE_ACTIVE_MISSING",
+        "WAREHOUSE_ACTIVE_MATCH",
+        "WAREHOUSE_RECOVERY_NEUTRAL"
+      ],
+      "analyzer_checks": [
+        "WarehouseEvidenceQualifier 12-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "CompletionReconciler",
+      "assigned_inputs": [
+        "CompletionReconciler.shipFinding",
+        "CompletionReconciler.warehouseFinding"
+      ],
+      "owner_local_facts": [
+        "VerificationDisposition two-source verification, waiting, recovery, and clearance decision"
+      ],
+      "contract_cases": [
+        "RECONCILE_FAULT",
+        "RECONCILE_RECOVERY_CLEARABLE",
+        "RECONCILE_VERIFIED",
+        "RECONCILE_MISSING",
+        "RECONCILE_OTHER_PARTIAL"
+      ],
+      "analyzer_checks": [
+        "CompletionReconciler 25-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "CommandSafetyGate",
+      "assigned_inputs": [
+        "CommandSafetyGate.commandProposal",
+        "CommandSafetyGate.serviceEligibility"
+      ],
+      "owner_local_facts": [
+        "Joint ShipCommand and WarehouseQuery safety-gating decision"
+      ],
+      "contract_cases": [
+        "COMMAND_STOP_PRESERVED",
+        "COMMAND_BEGIN_READY",
+        "COMMAND_QUERY_READY",
+        "COMMAND_SUPPRESSED"
+      ],
+      "analyzer_checks": [
+        "CommandSafetyGate 16-value direct-product relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "OutcomeReporter",
+      "assigned_inputs": [
+        "OutcomeReporter.sessionSnapshot.next_state",
+        "OutcomeReporter.sessionSnapshot.session_result"
+      ],
+      "owner_local_facts": [
+        "Recipient-specific PilotTransferReport and StationTransferReport decision"
+      ],
+      "contract_cases": [
+        "REPORT_RESET_COMPLETE",
+        "REPORT_IDLE_CANCELLED",
+        "REPORT_IDLE_INHIBITED",
+        "REPORT_STARTED",
+        "REPORT_AWAITING",
+        "REPORT_VERIFIED",
+        "REPORT_RECOVERY"
+      ],
+      "analyzer_checks": [
+        "OutcomeReporter 64-value direct-product relation"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "passed": true,
+      "trace": [
+        {
+          "input": {
+            "request": "FRESH_START",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "IDLE",
+          "expected_case": "CASE-02",
+          "observed_case": "CASE-02",
+          "observed_outputs": {
+            "next_state": "COMMANDING",
+            "ship_command": "BEGIN_OFFLOAD",
+            "receipt_query": "REQUEST_RECEIPT",
+            "pilot_report": "STARTED",
+            "station_report": "OFFLOAD_ACTIVE"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "ACTIVE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "COMMANDING",
+          "expected_case": "CASE-14",
+          "observed_case": "CASE-14",
+          "observed_outputs": {
+            "next_state": "AWAITING_EVIDENCE",
+            "ship_command": "HOLD",
+            "receipt_query": "REQUEST_RECEIPT",
+            "pilot_report": "IN_PROGRESS",
+            "station_report": "VERIFICATION_PENDING"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "COMPLETE",
+            "warehouse": "MATCHING_RECEIPT"
+          },
+          "pre_state": "AWAITING_EVIDENCE",
+          "expected_case": "CASE-16",
+          "observed_case": "CASE-16",
+          "observed_outputs": {
+            "next_state": "VERIFIED",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "VERIFIED",
+            "station_report": "VERIFIED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "passed": true,
+      "trace": [
+        {
+          "input": {
+            "request": "FRESH_START",
+            "cargo": "EMPTY",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "IDLE",
+          "expected_case": "CASE-03",
+          "observed_case": "CASE-03",
+          "observed_outputs": {
+            "next_state": "IDLE",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "INHIBITED",
+            "station_report": "IDLE"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "REPEATED_START",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "IDLE",
+          "expected_case": "CASE-01",
+          "observed_case": "CASE-01",
+          "observed_outputs": {
+            "next_state": "IDLE",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "IDLE",
+            "station_report": "IDLE"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "FRESH_START",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "IDLE",
+          "expected_case": "CASE-02",
+          "observed_case": "CASE-02",
+          "observed_outputs": {
+            "next_state": "COMMANDING",
+            "ship_command": "BEGIN_OFFLOAD",
+            "receipt_query": "REQUEST_RECEIPT",
+            "pilot_report": "STARTED",
+            "station_report": "OFFLOAD_ACTIVE"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "passed": true,
+      "trace": [
+        {
+          "input": {
+            "request": "FRESH_START",
+            "cargo": "PRESENT",
+            "service": "UNDOCK_PRIORITY",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "IDLE",
+          "expected_case": "CASE-04",
+          "observed_case": "CASE-04",
+          "observed_outputs": {
+            "next_state": "IDLE",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "INHIBITED",
+            "station_report": "IDLE"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "UNDOCK_PRIORITY",
+            "ship": "COMPLETE",
+            "warehouse": "MATCHING_RECEIPT"
+          },
+          "pre_state": "COMMANDING",
+          "expected_case": "CASE-10",
+          "observed_case": "CASE-10",
+          "observed_outputs": {
+            "next_state": "STOPPED_BY_UNDOCK",
+            "ship_command": "STOP_OFFLOAD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "INHIBITED",
+            "station_report": "STOPPED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "passed": true,
+      "trace": [
+        {
+          "input": {
+            "request": "FRESH_CANCEL",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "COMPLETE",
+            "warehouse": "MATCHING_RECEIPT"
+          },
+          "pre_state": "COMMANDING",
+          "expected_case": "CASE-12",
+          "observed_case": "CASE-12",
+          "observed_outputs": {
+            "next_state": "STOPPED_BY_CANCEL",
+            "ship_command": "STOP_OFFLOAD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "CANCELLED",
+            "station_report": "STOPPED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "REPEATED_CANCEL",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "STOPPED_BY_CANCEL",
+          "expected_case": "CASE-17",
+          "observed_case": "CASE-17",
+          "observed_outputs": {
+            "next_state": "STOPPED_BY_CANCEL",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "CANCELLED",
+            "station_report": "STOPPED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "passed": true,
+      "trace": [
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "COMPLETE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "COMMANDING",
+          "expected_case": "CASE-15",
+          "observed_case": "CASE-15",
+          "observed_outputs": {
+            "next_state": "AWAITING_EVIDENCE",
+            "ship_command": "HOLD",
+            "receipt_query": "REQUEST_RECEIPT",
+            "pilot_report": "IN_PROGRESS",
+            "station_report": "VERIFICATION_PENDING"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "ACTIVE",
+            "warehouse": "MATCHING_RECEIPT"
+          },
+          "pre_state": "AWAITING_EVIDENCE",
+          "expected_case": "CASE-15",
+          "observed_case": "CASE-15",
+          "observed_outputs": {
+            "next_state": "AWAITING_EVIDENCE",
+            "ship_command": "HOLD",
+            "receipt_query": "REQUEST_RECEIPT",
+            "pilot_report": "IN_PROGRESS",
+            "station_report": "VERIFICATION_PENDING"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "passed": true,
+      "trace": [
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "INVALID",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "COMMANDING",
+          "expected_case": "CASE-07",
+          "observed_case": "CASE-07",
+          "observed_outputs": {
+            "next_state": "RECOVERY_REQUIRED",
+            "ship_command": "STOP_OFFLOAD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "RECOVERY_REQUIRED",
+            "station_report": "RECOVERY_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "CONFLICTING_RECEIPT"
+          },
+          "pre_state": "COMMANDING",
+          "expected_case": "CASE-08",
+          "observed_case": "CASE-08",
+          "observed_outputs": {
+            "next_state": "RECOVERY_REQUIRED",
+            "ship_command": "STOP_OFFLOAD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "RECOVERY_REQUIRED",
+            "station_report": "RECOVERY_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "NONE",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "COMPLETE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "IDLE",
+          "expected_case": "CASE-09",
+          "observed_case": "CASE-09",
+          "observed_outputs": {
+            "next_state": "RECOVERY_REQUIRED",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "RECOVERY_REQUIRED",
+            "station_report": "RECOVERY_REQUIRED"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "passed": true,
+      "trace": [
+        {
+          "input": {
+            "request": "REPEATED_RESET",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "RECOVERY_REQUIRED",
+          "expected_case": "CASE-17",
+          "observed_case": "CASE-17",
+          "observed_outputs": {
+            "next_state": "RECOVERY_REQUIRED",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "RECOVERY_REQUIRED",
+            "station_report": "RECOVERY_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "FRESH_RESET",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "ACTIVE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "RECOVERY_REQUIRED",
+          "expected_case": "CASE-09",
+          "observed_case": "CASE-09",
+          "observed_outputs": {
+            "next_state": "RECOVERY_REQUIRED",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "RECOVERY_REQUIRED",
+            "station_report": "RECOVERY_REQUIRED"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "FRESH_RESET",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "RECOVERY_REQUIRED",
+          "expected_case": "CASE-19",
+          "observed_case": "CASE-19",
+          "observed_outputs": {
+            "next_state": "IDLE",
+            "ship_command": "HOLD",
+            "receipt_query": "NO_QUERY",
+            "pilot_report": "RESET_COMPLETE",
+            "station_report": "RESET_COMPLETE"
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "request": "FRESH_START",
+            "cargo": "PRESENT",
+            "service": "TRANSFER_AVAILABLE",
+            "ship": "IDLE",
+            "warehouse": "NO_RECEIPT"
+          },
+          "pre_state": "IDLE",
+          "expected_case": "CASE-02",
+          "observed_case": "CASE-02",
+          "observed_outputs": {
+            "next_state": "COMMANDING",
+            "ship_command": "BEGIN_OFFLOAD",
+            "receipt_query": "REQUEST_RECEIPT",
+            "pilot_report": "STARTED",
+            "station_report": "OFFLOAD_ACTIVE"
+          },
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

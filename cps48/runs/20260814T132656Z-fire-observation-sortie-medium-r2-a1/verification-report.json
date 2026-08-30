@@ -1,0 +1,492 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132656Z-fire-observation-sortie-medium-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Navigation_Obstacle_Awareness_Use_Supervisor.sysml",
+  "source_sha256": "0378021a553d8861748f3ca3dae1b52fde0fcba8b6caaee8d06fd29ed7100601",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 11,
+    "edgeCount": 24,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 151,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "STATE-01"
+    ],
+    "relativePath": "cps48/runs/20260814T132656Z-fire-observation-sortie-medium-r2-a1/system-abstract.md",
+    "taggedElementCount": 109,
+    "traceAssociationCount": 109,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a complete medium-tier navigation and obstacle-awareness use supervisor with exact 10/21/20/8 bounds, distributed qualification and decision ownership, one recovery latch, and explicit hold/reset priority.",
+      "questions_for_model": [
+        "Can trusted SysML-AADL/GUMBO forms realize INT-14 as committed pre-evaluation RecoveryPhase feedback and INT-17 as post-evaluation RecoveryPhase output without same-evaluation combinational ambiguity; if support is required, what is the smallest uncredited traceable realization?",
+        "Can all ten owner-local finite relations be contracted while preserving exactly 21 semantic interactions and excluding routing, enum conversion, and record projection from semantic ownership credit?",
+        "Can a source-hash-bound analyzer independently enumerate the 40,000 one-evaluation valuations and eight scenario sequences while reporting producer-unreachable state/action and outcome tuples separately?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "navigation-and-obstacle-awareness supervisor controlling logical evidence use by drone control",
+        "closest_baseline": "replicate-1 Medium Observation Acquisition and Radio-Delivery Coordinator",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system excludes battery, sortie, camera, capture, radio, delivery, and observation-session flows. Four navigation/awareness qualifiers converge through basis and condition owners into a hold/reset arbiter and a fresh-reset recovery latch; its outputs govern logical navigation-evidence use rather than acquisition or delivery."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "All ten owners are substantive; direct pre/post state publication, exact containment support, and exhaustive analysis are realizable without allocation changes.",
+      "findings": [
+        {
+          "classification": "localized-mapping",
+          "evidence": "PART-09 can publish INT-14 from In(committedRecoveryPhase), update its sole local state from INT-15, and publish INT-17 from the post-update state. The current library supports the required AADL forms, trusted Isolette sources demonstrate state/initialize/compute_cases/In(state), and current Sireum v4.20260630 freshly reports Well-formed for an accepted model with an analogous pre-state feedback cycle and separate post-state publication.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01 through PART-04 are 5-to-3 many-to-one classifications with fibers 1/1/3; PART-05 maps 27 tuples to four bases; PART-06 maps 12 tuples to five conditions; PART-07 maps 20 tuples to five precedence proposals; PART-08 resolves 80 priority/state tuples; PART-09 owns state-dependent recovery; and PART-10 derives a joint output relation from 24 reachable multi-input triples. No owner is a bijective enum/code rename, copy, bundle, or route.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "One root System with one behavior-free Process containing ten semantic Threads realizes depth two. Keeping 21 semantic Process-local connections and adding transparent delegations for six inputs and three outputs yields exactly 11 non-root usages, 9 support delegations, and 30 raw PortConnection declarations without changing semantic counts.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The bounded domains are finite and tractable: 40000 end-to-end valuations plus the owner-local products. Arbiter composition makes 27 of 32 pre-state/action pairs reachable, and outcome composition makes 24 of 128 accepted-action/post-phase/basis triples reachable; the remaining 5 and 104 structural valuations can be reported separately and losslessly.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The analyzer can keep generated-relation functions separate from independently authored oracle tables, compare every intermediate fact through all 21 interactions, bind its result to the canonical source SHA-256, and exercise all eight stateful scenario families. Current harness behavior independently checks the source hash, ownership-audit records, zero gap/overlap/mismatch fields, trace completeness, and Sireum well-formedness.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Accepted all Model findings and authorized generation with exact support, ownership, reachability, and analyzer constraints.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical SysML passes both retained type gates and the source-bound exhaustive analyzer with the approved 10/21/20/8 allocation intact.",
+      "canonical_source": "model/Navigation_Obstacle_Awareness_Use_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated 24-edge overview passes native review, zero-crossing and zero-route-collision gates, and the complete 109-association trace audit.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "STATE-01"
+      ],
+      "reviewed_tagged_element_count": 109,
+      "reviewed_trace_association_count": 109,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound model preserves the approved 10/21/20/8 design with substantive owner-local behavior and a fit rendered overview.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 10,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 8
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "gpsEvidenceQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "gpsEvidenceQualifier.gpsEvidence"
+          ],
+          "owner_local_facts": [
+            "gpsAssessment"
+          ],
+          "contract_cases": [
+            "CASE-01"
+          ],
+          "analyzer_checks": [
+            "gps-qualifier-five-values"
+          ]
+        },
+        {
+          "usage": "inertialEvidenceQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "inertialEvidenceQualifier.inertialEvidence"
+          ],
+          "owner_local_facts": [
+            "inertialAssessment"
+          ],
+          "contract_cases": [
+            "CASE-02"
+          ],
+          "analyzer_checks": [
+            "inertial-qualifier-five-values"
+          ]
+        },
+        {
+          "usage": "barometricEvidenceQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "barometricEvidenceQualifier.barometricEvidence"
+          ],
+          "owner_local_facts": [
+            "barometricAssessment"
+          ],
+          "contract_cases": [
+            "CASE-03"
+          ],
+          "analyzer_checks": [
+            "barometric-qualifier-five-values"
+          ]
+        },
+        {
+          "usage": "obstacleEvidenceQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "obstacleEvidenceQualifier.obstacleEvidence"
+          ],
+          "owner_local_facts": [
+            "obstacleAssessment"
+          ],
+          "contract_cases": [
+            "CASE-04"
+          ],
+          "analyzer_checks": [
+            "obstacle-qualifier-five-values"
+          ]
+        },
+        {
+          "usage": "navigationBasisOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "navigationBasisOwner.gpsAssessment",
+            "navigationBasisOwner.inertialAssessment",
+            "navigationBasisOwner.barometricAssessment"
+          ],
+          "owner_local_facts": [
+            "navigationBasis"
+          ],
+          "contract_cases": [
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08"
+          ],
+          "analyzer_checks": [
+            "navigation-basis-27-tuples"
+          ]
+        },
+        {
+          "usage": "awarenessConditionOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "awarenessConditionOwner.obstacleAssessment",
+            "awarenessConditionOwner.motionContext"
+          ],
+          "owner_local_facts": [
+            "awarenessCondition"
+          ],
+          "contract_cases": [
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13"
+          ],
+          "analyzer_checks": [
+            "awareness-condition-12-tuples"
+          ]
+        },
+        {
+          "usage": "constraintProposalOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "constraintProposalOwner.navigationBasis",
+            "constraintProposalOwner.awarenessCondition"
+          ],
+          "owner_local_facts": [
+            "constraintProposal"
+          ],
+          "contract_cases": [
+            "CASE-14"
+          ],
+          "analyzer_checks": [
+            "constraint-proposal-20-tuples"
+          ]
+        },
+        {
+          "usage": "eventPriorityArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "eventPriorityArbiter.constraintProposal",
+            "eventPriorityArbiter.supervisionEvent",
+            "eventPriorityArbiter.preRecoveryPhase"
+          ],
+          "owner_local_facts": [
+            "acceptedAction"
+          ],
+          "contract_cases": [
+            "CASE-15",
+            "CASE-16",
+            "CASE-17"
+          ],
+          "analyzer_checks": [
+            "event-priority-80-tuples"
+          ]
+        },
+        {
+          "usage": "recoveryLatchOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recoveryLatchOwner.acceptedAction",
+            "state.committedRecoveryPhase"
+          ],
+          "owner_local_facts": [
+            "postRecoveryPhase"
+          ],
+          "contract_cases": [
+            "CASE-18",
+            "CASE-19"
+          ],
+          "analyzer_checks": [
+            "recovery-reachable-27-pairs"
+          ]
+        },
+        {
+          "usage": "supervisionOutcomeOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "supervisionOutcomeOwner.acceptedAction",
+            "supervisionOutcomeOwner.postRecoveryPhase",
+            "supervisionOutcomeOwner.navigationBasis"
+          ],
+          "owner_local_facts": [
+            "navigationUseDirective",
+            "obstacleAwarenessNotice",
+            "supervisionStatus"
+          ],
+          "contract_cases": [
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "outcome-reachable-24-triples"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound model preserves the approved 10/21/20/8 design with substantive owner-local behavior and a fit rendered overview.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

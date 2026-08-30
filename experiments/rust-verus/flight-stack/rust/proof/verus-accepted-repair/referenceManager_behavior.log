@@ -1,0 +1,22 @@
+RUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none
+   Compiling referenceManager_behavior v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/referenceManager_behavior)
+error: postcondition not satisfied
+   --> src/component/referenceManager_behavior_app.rs:115:7
+    |
+115 | /       FlightStack_Spec::CASE_REF_02_spec(
+116 | |         false,
+117 | |         old(api).fdDisposition, old(api).qualifiedAttitude,
+118 | |         old(api).apGuidanceRequest, old(api).apActiveClearInhibit,
+...   |
+123 | |           fdState: old(self).fdState,
+124 | |         }, api.referenceAndFdState),
+    | |___________________________________^ failed this postcondition
+...
+136 | /   pub fn timeTriggered<API: referenceManager_behavior_Full_Api> (
+137 | |     &mut self,
+138 | |     api: &mut referenceManager_behavior_Application_Api<API>)
+    | |_____________________________________________________________- at the end of the function body
+
+verification results:: 10 verified, 1 errors
+error: could not compile `referenceManager_behavior` (lib) due to 1 previous error
+make: *** [Makefile:32: verus] Error 101

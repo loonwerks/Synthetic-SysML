@@ -1,0 +1,275 @@
+{
+  "status": "passed",
+  "source": "model/Frigate_Threat_Response_Coordinator.sysml",
+  "source_sha256": "afc7840bd2fd464b3c053acfcc523be9f4b463e09e81daa04eb2fcdbb96921a8",
+  "campaign": "generated-seed",
+  "root_system_usages": 1,
+  "semantic_usages": 15,
+  "generated_support_usages": 1,
+  "all_usages_including_root": 17,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 32,
+  "source_port_connection_declarations": 44,
+  "nontrivial_contract_cases": 29,
+  "scenario_families": 12,
+  "state_owners": 3,
+  "architecture_repairs": 4,
+  "contract_repairs": 6,
+  "analyzer_repairs": 1,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 15,
+    "semantic_interactions": 32,
+    "nontrivial_contract_cases": 29,
+    "scenario_families": 12,
+    "ownership_audit": [
+      {
+        "usage": "threatQualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "threatQualification.threatEvidenceIn"
+        ],
+        "owner_local_facts": [
+          "qualified threat band and many-to-one threat validity"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04"
+        ],
+        "analyzer_checks": [
+          "threat qualification partition"
+        ]
+      },
+      {
+        "usage": "alertMemory",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "alertMemory.qualifiedThreatIn",
+          "alertMemory.clearAcknowledgmentIn",
+          "alertMemory.retainedAlert"
+        ],
+        "owner_local_facts": [
+          "actual next alert and threat report"
+        ],
+        "contract_cases": [
+          "CASE-05",
+          "CASE-06",
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10"
+        ],
+        "analyzer_checks": [
+          "alert transition partition",
+          "two-step acknowledged de-escalation"
+        ]
+      },
+      {
+        "usage": "defenseChannelRecovery",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "defenseChannelRecovery.threatValidityIn",
+          "defenseChannelRecovery.defenseAuthorityIn",
+          "defenseChannelRecovery.defenseOutcomeIn",
+          "defenseChannelRecovery.defenseRecoveryState"
+        ],
+        "owner_local_facts": [
+          "actual next defense channel state and confirmation-evaluation gate"
+        ],
+        "contract_cases": [
+          "CASE-11",
+          "CASE-12",
+          "CASE-13",
+          "CASE-14"
+        ],
+        "analyzer_checks": [
+          "defense recovery partition",
+          "defense trigger dominance",
+          "defense fresh-enable recovery"
+        ]
+      },
+      {
+        "usage": "escapeChannelRecovery",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "escapeChannelRecovery.threatValidityIn",
+          "escapeChannelRecovery.escapeAuthorityIn",
+          "escapeChannelRecovery.escapeOutcomeIn",
+          "escapeChannelRecovery.escapeRecoveryState"
+        ],
+        "owner_local_facts": [
+          "actual next escape channel state and confirmation-evaluation gate"
+        ],
+        "contract_cases": [
+          "CASE-15",
+          "CASE-16",
+          "CASE-17",
+          "CASE-18"
+        ],
+        "analyzer_checks": [
+          "escape recovery partition",
+          "escape trigger dominance",
+          "escape fresh-enable recovery"
+        ]
+      },
+      {
+        "usage": "defenseReadiness",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "defenseReadiness.readinessContextIn",
+          "defenseReadiness.defenseGateIn"
+        ],
+        "owner_local_facts": [
+          "defense readiness conjunction"
+        ],
+        "contract_cases": [
+          "DEFENSE_READINESS_EQUATION"
+        ],
+        "analyzer_checks": [
+          "defense readiness equation"
+        ]
+      },
+      {
+        "usage": "departureReadiness",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "departureReadiness.navigationAvailableIn",
+          "departureReadiness.routeStatusIn",
+          "departureReadiness.miningInterlockIn",
+          "departureReadiness.escapeGateIn"
+        ],
+        "owner_local_facts": [
+          "departure readiness conjunction"
+        ],
+        "contract_cases": [
+          "ESCAPE_READINESS_EQUATION"
+        ],
+        "analyzer_checks": [
+          "departure readiness equation"
+        ]
+      },
+      {
+        "usage": "defenseActivationDecision",
+        "claimed_roles": [
+          "proposal",
+          "decision"
+        ],
+        "assigned_inputs": [
+          "defenseActivationDecision.alertStateIn",
+          "defenseActivationDecision.defenseReadyIn",
+          "defenseActivationDecision.defenseAuthorityIn"
+        ],
+        "owner_local_facts": [
+          "defense proposal"
+        ],
+        "contract_cases": [
+          "CASE-19",
+          "CASE-20"
+        ],
+        "analyzer_checks": [
+          "defense proposal partition"
+        ]
+      },
+      {
+        "usage": "departureInitiationDecision",
+        "claimed_roles": [
+          "proposal",
+          "decision"
+        ],
+        "assigned_inputs": [
+          "departureInitiationDecision.alertStateIn",
+          "departureInitiationDecision.escapeReadyIn",
+          "departureInitiationDecision.escapeAuthorityIn"
+        ],
+        "owner_local_facts": [
+          "escape proposal"
+        ],
+        "contract_cases": [
+          "CASE-21",
+          "CASE-22"
+        ],
+        "analyzer_checks": [
+          "escape proposal partition"
+        ]
+      },
+      {
+        "usage": "responseCoordination",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "responseCoordination.defenseProposalIn",
+          "responseCoordination.escapeProposalIn"
+        ],
+        "owner_local_facts": [
+          "departure-priority response pattern"
+        ],
+        "contract_cases": [
+          "CASE-23",
+          "CASE-24",
+          "CASE-25"
+        ],
+        "analyzer_checks": [
+          "response pattern priority partition"
+        ]
+      },
+      {
+        "usage": "reportFrameComposition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "reportFrameComposition.responsePatternIn",
+          "reportFrameComposition.defenseProposalIn",
+          "reportFrameComposition.escapeProposalIn",
+          "reportFrameComposition.alertStateIn",
+          "reportFrameComposition.threatReportIn",
+          "reportFrameComposition.defenseChannelStateIn",
+          "reportFrameComposition.escapeChannelStateIn"
+        ],
+        "owner_local_facts": [
+          "four-way response stage classification"
+        ],
+        "contract_cases": [
+          "CASE-26",
+          "CASE-27",
+          "CASE-28",
+          "CASE-29"
+        ],
+        "analyzer_checks": [
+          "response stage partition",
+          "atomic frame composition"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "PART-01..PART-15 only; root and behavior-free support Process excluded.",
+    "semantic_interactions": "INT-01..INT-32 semantic dependencies only; transparent containment delegation and INT-27's second physical field route add no semantic interaction.",
+    "nontrivial_contract_cases": "CASE-01..CASE-29 only; initialization, readiness equations, preservation, enum mappings, construction, and routing excluded.",
+    "scenario_families": "SCN-01..SCN-12 each has a distinct passing concrete trace; recovery and de-escalation families contain successive steps.",
+    "claim_boundary": "Structural and bounded finite logical evidence only; not execution, proof, physical performance, safety, or certification."
+  }
+}

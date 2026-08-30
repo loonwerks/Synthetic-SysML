@@ -1,0 +1,13 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_5af5136c63e5_2_Complement {
+  @pure def check(
+      power_observation: equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerObservation.Type,
+      power_to_authorization: equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerFacts,
+      power_to_lifecycle: equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerFacts): Unit = {
+    Contract(Requires(!((((T) & (T)) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_GumboX.compute_CEP_Post(power_observation, power_to_authorization, power_to_lifecycle))) & T)))
+  }
+}

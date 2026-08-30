@@ -1,0 +1,366 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234355Z-vehicle-mode-small-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Vehicle_Temperature_Health_Supervisor.sysml",
+  "source_sha256": "91b0aea557ee8a98352af5638007ed5fc20f6f8e539299d297800e049d20878b",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 19,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 119,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CONSIST-01",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "LOCAL-CONTRACT-01",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "OUT-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "QUAL-MAINT-01",
+      "QUAL-REC-01",
+      "QUAL-TEMP-01",
+      "STATE-01",
+      "STATE-AUDIT-01"
+    ],
+    "relativePath": "cps48/runs/20260813T234355Z-vehicle-mode-small-r1-a1/system-abstract.md",
+    "taggedElementCount": 89,
+    "traceAssociationCount": 89,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a finite small vehicle temperature-and-health supervisor with a complete 5/13/11/5 design, one principal state/decision owner, and closed invalid and fresh-recovery behavior.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset express PART-04's four-valued pre/post owner state, explicit initialization, and eleven ordered atomic state/decision cases without duplicating arbitration in PART-05?",
+        "Can PART-03's total 36-value recovery-applicability mapping and PART-04's defensive proposal-consistency relation be expressed as owner-local finite contracts while keeping qualification equations distinct from the eleven counted policy cases?",
+        "What legal containment and delegation topology realizes exactly thirteen end-to-end semantic interactions at depth 1..2, and how will any tool-required routing hops be reported without semantic-usage or interaction credit?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "vehicle temperature and health supervision",
+        "closest_baseline": "none; no diversity card was supplied",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [],
+        "why_not_extension_or_rename": "No frozen baseline applies to this run; the selected scope was independently chosen from the reusable seed and no diversity comparison is claimed."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Add direct 140-pair PART-05 analysis; allocation, counts, and behavior otherwise remain unchanged and realizable.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "OUT-01 requires fail-closed behavior and bounded-analysis reporting for every producer-inconsistent HealthDecision/RecoveryProposal pair, but ANALYSIS-01 and ANALYSIS-02 require only 256 raw-boundary/pre-state evaluations and 180 direct PART-04 tuples. Correct composition cannot reach most malformed PART-05 pairs, so those checks do not establish PART-05 defensive totality.",
+          "requested_change": "Extend ANALYSIS-01 and ANALYSIS-02 with direct enumeration of all 28 HealthDecision values times 5 RecoveryProposal values (140 pairs), requiring one output tuple per pair, correct fail-closed handling of inconsistent pairs, and witnesses for every OUT-01 class. Change no PART, INT, campaign metric, claim boundary, or domain behavior."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional owner audit finds PART-01 and PART-02 are 4-to-3 status-dependent classifications with fibers 2/1/1; PART-03 is a prioritized 36-to-5 three-input classification with fibers 28/4/2/1/1; PART-04 performs consistency, priority, and state-dependent choice; and PART-05 derives power/guidance classes plus a two-input fail-closed consistency result despite copying nextMode to CTRL-01. None is solely a copy, bundle, rename, reroute, or bijective code translation.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The trusted Isolette patterns and a current accepted small-tier repository model support System-to-generated-Process-to-Thread containment, typed ports and connections, attribute-based Data fields, GUMBO state with In(...) pre-state access, initialization, finite helper functions, and compute cases. Six boundary interactions at two raw hops plus seven direct internal interactions yield 19 raw declarations for the selected 13 semantic interactions at physical depth two.",
+          "requested_change": "Realize one behavior-free support Process beneath the sole System root, place PART-01 through PART-05 as Threads beneath it, tag twelve boundary delegation declarations as generated support, and retain semantic credit only for INT-01 through INT-13."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The seed explicitly declares executable_profile false, the finite owner domains are bounded, and the trusted/current checker precedents cover the required enum comparisons, record attributes, multi-field guarantees, four-valued state initialization, pre-state guards, and owner-local cases. Totality and exclusivity remain analyzer obligations rather than unsupported GUMBO proof claims.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved unchanged 5/13/11/5 design after adding exhaustive 140-pair PART-05 defensive analysis.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Operational BrokenPipeError required no semantic change; the retained source passed fresh SysML typechecking and bounded analysis, and source, analyzer, metrics, and traceability artifacts were confirmed mutually consistent.",
+      "canonical_source": "model/Vehicle_Temperature_Health_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Accepted the repaired validated system overview after widening only the healthModeArbitration card so the full sole-owner title and A/G/R badge have disjoint bounds while preserving zero crossings, zero route-object collisions, exact source binding, and complete traceability.",
+      "correction_cycles": 11,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CONSIST-01",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "LOCAL-CONTRACT-01",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "OUT-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "QUAL-MAINT-01",
+        "QUAL-REC-01",
+        "QUAL-TEMP-01",
+        "STATE-01",
+        "STATE-AUDIT-01"
+      ],
+      "reviewed_tagged_element_count": 89,
+      "reviewed_trace_association_count": 89,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and repaired visualization pass without silent drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 13,
+        "nontrivial_contract_cases": 11,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "temperatureQualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "temperatureQualification.rawTemperature"
+          ],
+          "owner_local_facts": [
+            "validity-aware TemperatureAssessment classification"
+          ],
+          "contract_cases": [
+            "TEMPERATURE_INVALID",
+            "TEMPERATURE_NOMINAL",
+            "TEMPERATURE_OVER"
+          ],
+          "analyzer_checks": [
+            "temperature qualification exhaustive 4-to-3 relation"
+          ]
+        },
+        {
+          "usage": "maintenanceQualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "maintenanceQualification.rawMaintenance"
+          ],
+          "owner_local_facts": [
+            "validity-aware MaintenanceAssessment classification"
+          ],
+          "contract_cases": [
+            "MAINTENANCE_INVALID",
+            "MAINTENANCE_CLEAR",
+            "MAINTENANCE_DUE"
+          ],
+          "analyzer_checks": [
+            "maintenance qualification exhaustive 4-to-3 relation"
+          ]
+        },
+        {
+          "usage": "recoveryApplicability",
+          "claimed_roles": [
+            "applicability",
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "recoveryApplicability.rawReturn",
+            "recoveryApplicability.temperatureAssessment",
+            "recoveryApplicability.maintenanceAssessment"
+          ],
+          "owner_local_facts": [
+            "priority-ordered RecoveryProposal classification"
+          ],
+          "contract_cases": [
+            "RECOVERY_INVALID",
+            "RECOVERY_NOT_REQUESTED",
+            "RECOVERY_BLOCKED_MAINTENANCE",
+            "RECOVERY_BLOCKED_TEMPERATURE",
+            "RECOVERY_ELIGIBLE"
+          ],
+          "analyzer_checks": [
+            "recovery applicability exhaustive 36-to-5 relation"
+          ]
+        },
+        {
+          "usage": "healthModeArbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "healthModeArbitration.temperatureAssessment",
+            "healthModeArbitration.maintenanceAssessment",
+            "healthModeArbitration.recoveryProposal",
+            "healthModeArbitration.healthState"
+          ],
+          "owner_local_facts": [
+            "ordered HealthDecision",
+            "next VehicleHealthMode",
+            "persistent healthState"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11"
+          ],
+          "analyzer_checks": [
+            "health arbitration exhaustive 180-tuple partition",
+            "decision nextMode equals committed healthState"
+          ]
+        },
+        {
+          "usage": "boundaryOutcomeDerivation",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "boundaryOutcomeDerivation.healthDecision",
+            "boundaryOutcomeDerivation.recoveryProposal"
+          ],
+          "owner_local_facts": [
+            "defensive three-output classification",
+            "producer-inconsistent pair fail-closed response"
+          ],
+          "contract_cases": [
+            "DEFENSIVE_OUTCOME_CLASSIFICATION"
+          ],
+          "analyzer_checks": [
+            "boundary outcome exhaustive 140-pair classification",
+            "all producer-inconsistent pairs fail closed"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and repaired visualization pass without silent drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

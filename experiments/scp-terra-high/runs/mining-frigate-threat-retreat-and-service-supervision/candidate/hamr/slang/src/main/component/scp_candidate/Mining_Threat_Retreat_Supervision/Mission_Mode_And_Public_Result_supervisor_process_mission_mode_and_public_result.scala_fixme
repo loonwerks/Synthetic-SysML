@@ -1,0 +1,33 @@
+// #Sireum
+
+package scp_candidate.Mining_Threat_Retreat_Supervision
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object Mission_Mode_And_Public_Result_supervisor_process_mission_mode_and_public_result {
+
+  def initialise(api: Mission_Mode_And_Public_Result_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee healthy_hold
+        api.public_result.selected_action == 0 &
+          api.public_result.selected_cause == 5 &
+          api.public_result.mode == 0 &
+          api.public_result.recovery_state == 0
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_public_result(Mining_Threat_Retreat_Supervision.PublicResultValue.example())
+  }
+
+  def finalise(api: Mission_Mode_And_Public_Result_Operational_Api): Unit = { }
+}

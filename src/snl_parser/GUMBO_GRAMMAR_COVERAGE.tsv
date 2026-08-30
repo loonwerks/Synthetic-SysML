@@ -1,0 +1,55 @@
+status	GUMBO family	resolved shape	meaning / executable evidence
+RESOLVED_IMPLEMENTED	component annex	GclSubclause	Owners, source positions, and phase boundaries; all four dataset oracles
+RESOLVED_IMPLEMENTED	GUMBO library	GclLib via GclAnnexLibInfo	Library traversal; ExpressionAndFunctionCoverage.sysml and pinned TempControl
+FRONTEND_RESOLUTION_GAP	empty component annex	no resolved GclSubclause	Grammar accepts it, but pinned SysMLAstBuilder.visitGumboSubclause/toPosOpt throws before resolution
+FRONTEND_RESOLUTION_GAP	empty library	no resolved GclLib	Grammar accepts it, but pinned SysMLAstBuilder.visitAnnotatingElement throws before resolution
+RESOLVED_IMPLEMENTED	state declaration	GclStateVar	State name and resolved classifier; CompositionCoverage.sysml and pinned TempControl
+RESOLVED_IMPLEMENTED	@spec, @pure, explicit @strictpure, and expression-body functions	GclSpecMethod / GclBodyMethod	Signature, purity, contract, and body; ExpressionAndFunctionCoverage.sysml and pinned TempControl
+RESOLVED_IMPLEMENTED	function reads / requires / ensures	AST.MethodContract.Simple	Separate logical sections; ExpressionAndFunctionCoverage.sysml
+FRONTEND_RESOLUTION_GAP	non-Boolean function reads reference	no resolved method	Pinned resolver typechecks reads entries as Boolean expressions; Boolean reads succeeds in ExpressionAndFunctionCoverage.sysml, while an Integer reads probe is rejected
+FRONTEND_RESOLUTION_GAP	generic function type parameters	no resolved method	Pinned FrontEnd cannot resolve the authored type parameter; GclResolver also asserts typeParams.isEmpty
+FRONTEND_REJECTED	function modifies	no resolved method	Pinned FrontEnd reports Cannot modify variable for the probed function reference
+FRONTEND_REJECTED	function result spelling Res	no resolved method	Pinned FrontEnd cannot resolve Res in a method guarantee
+FRONTEND_RESOLUTION_GAP	by-name and multiplicity parameter flags	resolved signature omits authored flags	Grammar accepts the flags but the pinned builder does not retain them
+RESOLVED_IMPLEMENTED	invariant / integration / initialize / compute named clauses	GclInvariant / GclIntegration / GclInitialize / GclCompute	Explicit invariant, phase, assumption, guarantee, case, and modifies sections; four oracles plus local fixtures
+RESOLVED_IMPLEMENTED	explicit empty initialize / compute phases	GclInitialize / GclCompute with no clauses	EmptyPhaseCoverage.sysml renders NO CONTRACT CLAUSES rather than omitting or rejecting the phase
+RESOLVED_IMPLEMENTED	handle clauses	GclHandle	Handler scope and dispatch port; pinned TempControl proves modifies/guarantees, HandlerCoverage.sysml proves nested named assumes plus guarded and unguarded cases
+RESOLVED_IMPLEMENTED	explicit empty handler	GclHandle with no nested clauses	HandlerCoverage.sysml retains the handler scope and endpoint
+FRONTEND_RESOLUTION_GAP	outgoing-port modifies in initialize, compute, and handlers	target absent from resolved modifies	Shared GclResolver processModifiesClause constructs apiIdent but only appends state-variable expressions
+FRONTEND_RESOLUTION_GAP	infoflow in initialize / compute	no resolved InfoFlowClause	Grammar accepts the spelling, then pinned SysMLAstBuilder.visitInfoFlowClause crashes on an unhandled terminal before FrontEnd resolution; renderFlow is defensive only
+RESOLVED_IMPLEMENTED	composition aliases, schema sequences, split/join, labels, occurrences, properties, inheritance, all schema points	GclComposition and GclComposition*/GclSchema*/GclPoint* families	CompositionCoverage.sysml exercises every listed shape, multiple parents, and both specializes and :> spellings normalized to parents
+RESOLVED_IMPLEMENTED	composition property with zero local bindings	GclCompositionProperty with empty bindings	CompositionCoverage.sysml renders an explicit empty_property block
+FRONTEND_RESOLUTION_GAP	composition inherited-binding source provenance	GclPropertyBinding formula is flattened but later contributor metadata is lost	GclResolver conjoins inherited same-point formulas while retaining only the first binding descriptor/position
+RESOLVED_IMPLEMENTED	Boolean and/or/xor groups, implication, equality, relations, + / - / * / / / %, unary + / - / ~ / not	AST.Exp.Binary / AST.Exp.Unary	ExpressionAndFunctionCoverage.sysml explicitly covers the sparse operators; four oracles, pinned TempControl, and pinned Data_Invariants cover both short-circuit forms and relations
+RESOLVED_IMPLEMENTED	Boolean and value conditional	AST.Exp.If	Boolean IF/THEN/OTHERWISE and typed value branches; ExpressionAndFunctionCoverage.sysml
+RESOLVED_IMPLEMENTED	feature reference / chain	AST.Exp.Ident / AST.Exp.Select	Resolved path; only provenance-checked resolver-injected api receiver is hidden
+RESOLVED_IMPLEMENTED	simple and qualified names	AST.Id / AST.Exp.Ident / AST.Exp.Select	Qualified type and feature paths in all retained fixtures
+FRONTEND_RESOLUTION_GAP	global qualification $::	resolved identifier without global marker	ExpressionAndFunctionCoverage.sysml proves pinned visitQualifiedName silently drops the global marker before rendering
+RESOLVED_IMPLEMENTED	unrestricted-name source spelling	resolved identifier text	HandlerCoverage.sysml proves the unrestricted feature name is preserved exactly
+RESOLVED_IMPLEMENTED	positional function invocation, including Boolean and quantifier arguments	AST.Exp.Invoke	Typed arguments recursively rendered; ExpressionAndFunctionCoverage.sysml
+RESOLVED_IMPLEMENTED	hash index spelling #(...)	AST.Exp.Invoke resolved to org::sireum::IS Select	ExpressionAndFunctionCoverage.sysml; provenance-checked rendering strips only the array-owned index coercion and emits element at index
+FRONTEND_RESOLUTION_GAP	square index spelling [...]	unresolved SysmlUnitExpression	Pinned probes a[0] and a[0+0] both fail resolution rather than reaching the renderer
+RESOLVED_IMPLEMENTED	typed cast as	AST.Exp.Select(asInstanceOf, one type argument)	True supertype-to-subtype cast; ExpressionAndFunctionCoverage.sysml
+RESOLVED_IMPLEMENTED	inclusive range forall / exists	AST.Exp.QuantRange with hiExact=true	Bound, inclusive upper limit, variable, predicate; ExpressionAndFunctionCoverage.sysml
+DEFENSIVE_ONLY	exclusive-upper-bound QuantRange	AST.Exp.QuantRange with hiExact=false	Renderer distinguishes it, but the pinned builder always emits hiExact=true for accepted GUMBO range quantifiers
+FRONTEND_RESOLUTION_GAP	standalone range expression	no resolved expression	Pinned GclResolver reports Could not resolve RangeExpression; range succeeds only as QuantRange input
+RESOLVED_IMPLEMENTED	input-state wrapper	AST.Exp.Input	CompositionCoverage.sysml and pinned TempControl
+DEFENSIVE_ONLY	old-state / result / this wrappers	AST.Exp.Old / AST.Exp.Result / AST.Exp.This	Explicit fail-closed renderer rules exist, but no accepted pinned GUMBO fixture was found that emits these shapes directly
+RESOLVED_IMPLEMENTED	retained HasEvent / one-argument MustSend Option semantics	resolved Option.nonEmpty selections	HandlerCoverage.sysml proves both authored operations and the identical retained non-empty shape
+RESOLVED_IMPLEMENTED	retained expected-value MustSend / NoSend Option semantics	resolved nonEmpty plus get equality / isEmpty	Pinned TempControl; renderer states the retained Option formula without reconstructing modality
+FRONTEND_RESOLUTION_GAP	port-operation modality provenance	resolved AST conflates authored operations	One-argument HasEvent and MustSend both lower to Option.nonEmpty; expected-value MustSend lowers to nonEmpty plus get equality
+FRONTEND_RESOLUTION_GAP	MaySend	no resolved expression	Pinned GclResolver reaches Infeasible uif
+DEFENSIVE_ONLY	unresolved uif__* staging invocation	AST.Exp.Invoke without receiver/resolution/type metadata	Provenance-guarded rule; valid resolved port operations are normally rewritten to Option selections
+RESOLVED_IMPLEMENTED	Boolean, character, string, integer, floating-point, and real literals	AST.Exp.Lit* / AST.Exp.StringInterpolate	Pinned Data_Invariants.sysml
+RESOLVED_IMPLEMENTED	S8/S16/S32/S64 bit-vectors; bounded Z8/Z16/Z32/Z64; N and bounded N8/N16/N32/N64; U1 through U64 bit-vectors	AST.Exp.StringInterpolate	Every family, including all 64 unsigned widths, in pinned Data_Invariants.sysml; output preserves bit-vector versus bounded-mathematical semantics and type names
+FRONTEND_REJECTED	null coalescing ??	no accepted resolved node	Pinned SysMLAstBuilder reports unsupported
+FRONTEND_REJECTED	identity === / !==	no accepted resolved node	Pinned SysMLAstBuilder sketches an AST then reports an error
+FRONTEND_REJECTED	classification hastype / istype / @ / @@	no accepted resolved node	Pinned SysMLAstBuilder reports unsupported
+FRONTEND_REJECTED	meta cast and self-reference cast classification branches	no accepted resolved node	Pinned SysMLAstBuilder reports MetaCast unsupported and Need example of ruleClassification4
+FRONTEND_REJECTED	exponentiation ** / ^ and extent all Type	no accepted resolved node	Pinned SysMLAstBuilder reports unsupported
+FRONTEND_REJECTED	primary body, function reference, named arguments, constructor, lambda/body, comma-separated or trailing-comma sequence, metadata access	no accepted resolved node	Pinned SysMLAstBuilder reports unsupported; a singleton parenthesized expression is accepted and transparent
+FRONTEND_REJECTED	non-quantified -> body, function-reference, and argument-list branches	no accepted resolved node	Pinned SysMLAstBuilder reports unsupported; only range -> forAll/exists lowering is accepted
+FRONTEND_REJECTED	owned-feature-chain invocation target alternative	no accepted resolved node	Pinned visitInvocationExpression reports the branch unsupported
+FRONTEND_REJECTED	null, empty () null-expression spelling, real-exponent spelling, infinity	no accepted resolved node	Pinned SysMLAstBuilder reports unsupported
+UNREACHABLE_GRAMMAR	ruleDataElement and ruleSlangInvariant	no FrontEnd path	The productions are not referenced by a reachable pinned GUMBO parser rule
+DEFENSIVE_ONLY	generic Slang Tuple, InvokeNamed, QuantType, QuantEach, Fun, and other catch-all shapes	other AST.Exp subtypes	Not demonstrated as pinned GUMBO outputs; unknown nodes stop without writing output, exercised by --audit-fail-closed

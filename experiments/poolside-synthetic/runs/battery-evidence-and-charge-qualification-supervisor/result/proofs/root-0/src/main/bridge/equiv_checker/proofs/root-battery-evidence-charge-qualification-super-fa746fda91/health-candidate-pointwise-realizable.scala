@@ -1,0 +1,21 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_fa746fda9140_Candidate_Pointwise_Realizable {
+  @pure def check(
+      chargeeligibilityenvelope: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeEligibilityEnvelope.Type,
+      chargerequest: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeRequest.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.NO_CHANGE)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.AUTHORIZE)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.TERMINATE)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.RECOVER_EVIDENCE)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.RECOVER_CHARGER)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.RECOVER_CONTEXT)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.REJECT_EVIDENCE)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.REJECT_CHARGER)) |
+        (equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter_Candidate_GumboX.compute_CEP_Post(chargeeligibilityenvelope, chargerequest, equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.REJECT_CONTEXT)))))
+  }
+}

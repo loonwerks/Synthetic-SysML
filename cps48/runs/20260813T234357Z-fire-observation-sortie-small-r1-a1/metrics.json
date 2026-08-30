@@ -1,0 +1,129 @@
+{
+  "schema_version": 2,
+  "source_sha256": "b82ea4965527d7d5f3119e27cfd3a69128353f1cf6cd127d96a986dc3dc9e510",
+  "root_definition": "Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor",
+  "root_usage": "forestObservationEligibilitySupervisor",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 5,
+    "generated_support_processes": 1,
+    "physical_non_root_aadl_usages": 6,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 2,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 14,
+    "boundary_semantic_interactions": 7,
+    "internal_semantic_interactions": 7,
+    "generated_support_delegations": 14,
+    "raw_port_connection_declarations": 21,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2, "INT-02": 2, "INT-03": 2, "INT-04": 2, "INT-05": 2,
+      "INT-06": 1, "INT-07": 1, "INT-08": 1, "INT-09": 1, "INT-10": 1,
+      "INT-11": 1, "INT-12": 1, "INT-13": 2, "INT-14": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "safe_initialization_guarantees": 5,
+    "state_variables": 3,
+    "identity_forwarding_cases_counted": 0,
+    "datatype_invariants_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "owner_local_valuations": {
+      "requestLifecycle": 648,
+      "energyAssessor": 15,
+      "observationSupportAssessor": 75,
+      "eligibilityArbiter": 576,
+      "authorizationGate": 80
+    },
+    "admissible_committed_pre_states": 12,
+    "request_state_gate_phase_pairs_checked": 16,
+    "non_admissible_pre_state_pairs_rejected": 11,
+    "raw_gate_guard_valuations": 80,
+    "completion_priority_over_denial_valuations": 4,
+    "raw_gate_guard_gaps": 0,
+    "raw_gate_guard_overlaps": 0,
+    "raw_gate_conflicting_guarantees": 0,
+    "composed_root_snapshots": 36000,
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_mismatches": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 1},
+    "final": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 7}
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 14,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "requestLifecycle",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["requestLifecycle.requestInput", "requestLifecycle.gateOutcome", "requestLifecycle.requestState", "requestLifecycle.lastAcceptedToken"],
+        "owner_local_facts": ["requestAdmissionAndFreshness"],
+        "contract_cases": ["CASE-06", "CASE-07", "CASE-12"],
+        "analyzer_checks": ["request-lifecycle-totality"],
+        "passed": true
+      },
+      {
+        "usage": "energyAssessor",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["energyAssessor.energyEvidence", "energyAssessor.evaluationTicket"],
+        "owner_local_facts": ["ticketScopedEnergyVerdict"],
+        "contract_cases": ["CASE-02", "CASE-03"],
+        "analyzer_checks": ["energy-qualification-fibers"],
+        "passed": true
+      },
+      {
+        "usage": "observationSupportAssessor",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["observationSupportAssessor.cameraEvidence", "observationSupportAssessor.radioEvidence", "observationSupportAssessor.evaluationTicket"],
+        "owner_local_facts": ["jointTicketScopedSupportVerdict"],
+        "contract_cases": ["CASE-04", "CASE-05"],
+        "analyzer_checks": ["support-qualification-fibers"],
+        "passed": true
+      },
+      {
+        "usage": "eligibilityArbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["eligibilityArbiter.requestContext", "eligibilityArbiter.energyVerdictIn", "eligibilityArbiter.supportVerdictIn"],
+        "owner_local_facts": ["matchedEligibilityDecision"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-08"],
+        "analyzer_checks": ["arbiter-ticket-priority"],
+        "passed": true
+      },
+      {
+        "usage": "authorizationGate",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["authorizationGate.eligibilityDecision", "authorizationGate.observationProgress", "authorizationGate.gatePhase"],
+        "owner_local_facts": ["failClosedAuthorizationApplication"],
+        "contract_cases": ["CASE-01", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["gate-priority-and-recovery"],
+        "passed": true
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-05 only. Interactions count INT-01 through INT-14 once and exclude fourteen generated-support delegation hops. Cases count CASE-01 through CASE-12 only. Scenario families count SCN-01 through SCN-05. Root, Process support, TaggedTicket representation, initialization, datatype structure, sentinel totality, identity routes, and analyzer fixtures receive no semantic credit. Composition means finite executable relation composition, not compositional proof."
+}

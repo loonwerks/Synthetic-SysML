@@ -1,0 +1,109 @@
+{
+  "source": "model/Battery_Evidence_Charge_Qualification_Supervisor.sysml",
+  "source_sha256": "07723356d02d38bb1427b17b8c2a228f92e1f9fd3010976449925dc089ceb87f",
+  "root_system_usages": 1,
+  "semantic_usages": 8,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 9,
+  "all_usages_including_root": 10,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 21,
+  "generated_support_routes": 10,
+  "source_port_connection_declarations": 31,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 7,
+  "gumbo_inspected_data_fields": 9,
+  "gumbo_inspected_fields_declared_as_attributes": 9,
+  "architecture_repairs": 0,
+  "contract_repairs": 0,
+  "analyzer_repairs": 4,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "batteryEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["batteryCapacity", "batteryCheck"],
+        "owner_local_facts": ["batteryAssessment"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03"],
+        "analyzer_checks": ["battery-owner-partition"]
+      },
+      {
+        "usage": "chargeContextQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["batteryAssessment", "lifecycleContext"],
+        "owner_local_facts": ["chargeContextQualification", "batteryReadinessAdvice"],
+        "contract_cases": ["CASE-07", "CASE-08", "CASE-09"],
+        "analyzer_checks": ["context-owner-partition"]
+      },
+      {
+        "usage": "chargerPathQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["chargerConnection", "chargeActivity"],
+        "owner_local_facts": ["chargerPathQualification"],
+        "contract_cases": ["CASE-04", "CASE-05", "CASE-06"],
+        "analyzer_checks": ["charger-owner-partition"]
+      },
+      {
+        "usage": "chargeEligibilityRecoveryOwner",
+        "claimed_roles": ["proposal", "decision"],
+        "assigned_inputs": ["chargeContextQualification", "chargerPathQualification", "currentChargeSession"],
+        "owner_local_facts": ["chargeEligibilityEnvelope"],
+        "contract_cases": ["CASE-10", "CASE-11", "CASE-12", "CASE-13"],
+        "analyzer_checks": ["eligibility-owner-partition"]
+      },
+      {
+        "usage": "chargeIntentArbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["chargeRequest", "chargeEligibilityEnvelope"],
+        "owner_local_facts": ["chargeDecision"],
+        "contract_cases": ["CASE-14", "CASE-15", "CASE-16"],
+        "analyzer_checks": ["arbiter-priority-partition"]
+      },
+      {
+        "usage": "chargeSessionController",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["chargeDecision", "committedChargeSession"],
+        "owner_local_facts": ["nextChargeSession", "chargePermission", "chargeSessionSnapshot"],
+        "contract_cases": ["CASE-17", "CASE-18"],
+        "analyzer_checks": ["session-owner-partition", "recovery-reason-invariant"]
+      },
+      {
+        "usage": "flightControlBatteryNoticePolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["batteryAssessment", "lifecycleContext"],
+        "owner_local_facts": ["flightControlBatteryNotice"],
+        "contract_cases": ["CASE-19"],
+        "analyzer_checks": ["notice-owner-totality"]
+      },
+      {
+        "usage": "pilotBatteryStatusPolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["batteryAssessment", "chargerPathQualification", "chargeSessionSnapshot"],
+        "owner_local_facts": ["pilotAdvisory"],
+        "contract_cases": ["CASE-20"],
+        "analyzer_checks": ["status-owner-totality", "status-fallthrough-totality"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "Eight responsibility-bearing Threads; root and behavior-free support Process excluded.",
+    "semantic_interactions": "INT-01 through INT-21; ten root/Process delegations excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-20; initialization, projections, feedback publication, and producer invariant excluded.",
+    "scenario_families": "SCN-01 through SCN-07, each with a concrete bounded trace.",
+    "composition": "Means the bounded analyzer composes named local relations through INT-01..INT-21; it is not a compositional-proof claim."
+  }
+}

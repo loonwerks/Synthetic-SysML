@@ -1,0 +1,332 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234357Z-hvac-supervisor-small-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Windshield_Defrost_Request_Supervisor.sysml",
+  "source_sha256": "627919ff5c7c8e431bb07c9a14fb08aa72edcf76e3035da444ae113bcfe38a40",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 21,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 106,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CC-01",
+      "CC-02",
+      "CC-03",
+      "CC-04",
+      "CC-05",
+      "CC-06",
+      "CC-07",
+      "CC-08",
+      "CC-09",
+      "CC-10",
+      "CC-11",
+      "CC-12",
+      "CTRL-01",
+      "CTRL-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "STATE-01"
+    ],
+    "relativePath": "cps48/runs/20260813T234357Z-hvac-supervisor-small-r1-a1/system-abstract.md",
+    "taggedElementCount": 78,
+    "traceAssociationCount": 78,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and fully partitioned a small windshield-defrost request supervisor with 5 semantic usages, 13 interactions, 12 contract cases, and 5 scenario families.",
+      "questions_for_model": [
+        "Can the retained model express and analyze the Request Intent Tracker pre-state/next-state contract over Released, AcceptedActive, and RearmRequired so CC-01 through CC-05 and the four-step SCN-05 recovery trace remain explicit without an untraced timer, mode, or second state owner?",
+        "Can the bounded analyzer enumerate the complete principal policy product in the declared priority order and show CC-08 through CC-11 are total and mutually consistent while retaining exactly the thirteen directed semantic interactions?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Distinguish one semantic layer from physical AADL depth two; the five-owner allocation otherwise remains realizable.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "The baseline declares containment_depth_below_root = 1 in frontmatter, CONSTR-01, and PASS-01. Trusted Isolette uses System -> Process -> Thread containment; run 20260812T035741Z-mining-threat-retreat-hard-r1-a5 records HAMR rejecting Threads directly beneath System; and accepted run 20260813T142826Z-factory-dispatch-small-r2-a1 passed both retained type gates with one semantic responsibility layer but physical depth two through a behavior-free Process.",
+          "requested_change": "Change only the containment metric and matching CONSTR-01/PASS-01 claims to one semantic responsibility layer and physical depth two via exactly one behavior-free generated-support Process; relabel node_count = 5 as semantic_node_count = 5 and report six physical non-root usages including support. Preserve PART-01..PART-05, INT-01..INT-13, all 12 cases, all 5 scenarios, both outputs, state/recovery behavior, and the seed claim boundary."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "With the required Process shell, the unchanged 13 semantic interactions map to 21 raw PortConnection declarations: eight boundary flows require two delegations each and five inter-Thread flows require one declaration each. The extra sixteen declarations only reroute values and cannot receive semantic-interaction, owner, or usage credit.",
+          "requested_change": "Record the 13-to-21 semantic/raw connection mapping and tag the sixteen System/Process boundary delegations as generated support."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit finds PART-01 state-dependent fresh/held/rearm derivation; PART-02 a 4-to-3 validity classification; PART-03 a 4-to-3 eligibility classification with reason precedence; PART-04 a prioritized 5 x 3 x 3 authorization relation; and PART-05 a two-input status relation that distinguishes Inactive/None from Inactive/Blocked intents and collapses multiple fault reasons. None is a copy, bundle, reroute, or bijective enum/code rename, and INT-12 is necessary on admissible states.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Current trusted and accepted sources support local GUMBO state, initialize, In(...) pre-state access, enum functions, multi-output guarantees, and compute cases. Exhaustive analysis requires only 192 root snapshots plus owner-local products of 12, 4, 4, 45, and 25 valuations, so CC-01..CC-12 and all five multi-step scenarios are bounded and directly checkable without central owner recomputation.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved after a containment-only revision preserving the five-owner semantic design.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical small-tier SysML/GUMBO source passed both retained type gates and exhaustive bounded analysis.",
+      "canonical_source": "model/Windshield_Defrost_Request_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Revalidated the retained source-bound system-overview after the operational checkpoint; native rendering, zero-crossing and zero-route-collision health gates, deterministic export, and the complete traceability audit passed.",
+      "correction_cycles": 6,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CC-01",
+        "CC-02",
+        "CC-03",
+        "CC-04",
+        "CC-05",
+        "CC-06",
+        "CC-07",
+        "CC-08",
+        "CC-09",
+        "CC-10",
+        "CC-11",
+        "CC-12",
+        "CTRL-01",
+        "CTRL-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "STATE-01"
+      ],
+      "reviewed_tagged_element_count": 78,
+      "reviewed_trace_association_count": 78,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound small-tier model matches the Designer resolution and passes bounded semantic and visualization review; execution was not run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 13,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "requestIntentTracker",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "requestIntentTracker.defrostSelection",
+            "requestIntentTracker.requestValidity",
+            "requestIntentTracker.requestMemory"
+          ],
+          "owner_local_facts": [
+            "fresh-held-blocked request intent and next request memory"
+          ],
+          "contract_cases": [
+            "CC-01",
+            "CC-02",
+            "CC-03",
+            "CC-04",
+            "CC-05"
+          ],
+          "analyzer_checks": [
+            "request tracker 12-valuation total exclusive relation"
+          ]
+        },
+        {
+          "usage": "glazingConditionAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "glazingConditionAssessor.glazingCondition",
+            "glazingConditionAssessor.glazingValidity"
+          ],
+          "owner_local_facts": [
+            "validity-aware three-way visibility assessment"
+          ],
+          "contract_cases": [
+            "CC-06"
+          ],
+          "analyzer_checks": [
+            "glazing assessor 4-valuation total exclusive relation"
+          ]
+        },
+        {
+          "usage": "electricalEligibilityAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "electricalEligibilityAssessor.electricalInterfaceStatus",
+            "electricalEligibilityAssessor.defrostLoadAllowance"
+          ],
+          "owner_local_facts": [
+            "reason-preserving three-way electrical eligibility"
+          ],
+          "contract_cases": [
+            "CC-07"
+          ],
+          "analyzer_checks": [
+            "electrical assessor 4-valuation total exclusive relation"
+          ]
+        },
+        {
+          "usage": "defrostPolicySupervisor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "defrostPolicySupervisor.requestIntent",
+            "defrostPolicySupervisor.visibilityAssessment",
+            "defrostPolicySupervisor.defrostEligibility"
+          ],
+          "owner_local_facts": [
+            "priority-selected enable command and policy disposition"
+          ],
+          "contract_cases": [
+            "CC-08",
+            "CC-09",
+            "CC-10",
+            "CC-11"
+          ],
+          "analyzer_checks": [
+            "policy supervisor 45-valuation total exclusive priority relation"
+          ]
+        },
+        {
+          "usage": "driverFeedbackReporter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "driverFeedbackReporter.policyDisposition",
+            "driverFeedbackReporter.requestIntent"
+          ],
+          "owner_local_facts": [
+            "audience-oriented four-way driver status"
+          ],
+          "contract_cases": [
+            "CC-12"
+          ],
+          "analyzer_checks": [
+            "driver reporter 25-valuation total exclusive relation"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound small-tier model matches the Designer resolution and passes bounded semantic and visualization review; execution was not run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

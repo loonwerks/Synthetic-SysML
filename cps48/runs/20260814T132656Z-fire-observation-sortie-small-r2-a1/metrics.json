@@ -1,0 +1,75 @@
+{
+  "source": "model/Battery_Status_Assessment_Service.sysml",
+  "source_sha256": "d162d7c6c0fa280297054760631e52729960bc0b350a6b5245a506a263a78ec4",
+  "root_system_usages": 1,
+  "semantic_usages": 5,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 6,
+  "all_usages_including_root": 7,
+  "raw_containment_depth_beneath_root": 2,
+  "semantic_containment_depth": 1,
+  "semantic_interactions": 14,
+  "internal_semantic_interactions": 8,
+  "generated_support_routes": 6,
+  "source_port_connection_declarations": 20,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 12,
+  "scenario_families": 5,
+  "state_owners": 3,
+  "principal_decision_owners": 1,
+  "gumbo_inspected_data_fields": 16,
+  "gumbo_inspected_fields_declared_as_attributes": 16,
+  "architecture_repairs": 0,
+  "contract_repairs": 1,
+  "analyzer_repairs": 0,
+  "trace_annotation_repairs": 0,
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 14,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "check_lifecycle",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["check_lifecycle.check_request", "check_lifecycle.acquisition_outcome", "check_lifecycle.publication_outcome", "state.lifecycleState", "state.lastAdmittedToken"],
+        "owner_local_facts": ["freshAlternateTokenAdmission", "singleCheckApplicability", "resetApplicability", "lifecyclePriorityAndStatus"],
+        "contract_cases": ["CASE-06", "CASE-07", "CASE-08", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["lifecycle-owner-total-exclusive-3360", "lifecycle-owner-freshness-and-priority"]
+      },
+      {
+        "usage": "report_acquisition",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["report_acquisition.acquisition_directive", "report_acquisition.battery_report", "state.acquisitionState"],
+        "owner_local_facts": ["tokenRelativeCaptureApplicability", "acquisitionFaultLatch", "tokenSpecificReadRequest"],
+        "contract_cases": ["CASE-05", "CASE-11"],
+        "analyzer_checks": ["acquisition-owner-total-exclusive-7200", "acquisition-owner-fault-latch-and-reset"]
+      },
+      {
+        "usage": "assessment_decision",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["assessment_decision.assessment_context", "assessment_decision.qualified_evidence"],
+        "owner_local_facts": ["exactTokenAssessmentApplicability", "nonBijectiveBatteryAssessment"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04"],
+        "analyzer_checks": ["decision-owner-total-exclusive-54", "decision-owner-five-to-four-mapping"]
+      },
+      {
+        "usage": "result_custody",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["result_custody.publication_directive", "result_custody.decision_assessment", "result_custody.control_use_feedback", "state.publicationState", "state.retainedAssessment"],
+        "owner_local_facts": ["offerApplicability", "feedbackConsistency", "exactRetainedResultCustody", "publicationFaultLatch"],
+        "contract_cases": ["CASE-08", "CASE-09", "CASE-10", "CASE-11"],
+        "analyzer_checks": ["custody-owner-total-exclusive-63000", "custody-owner-clear-before-completion", "custody-owner-fault-and-reset"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

@@ -1,0 +1,40 @@
+// #Sireum
+
+package scp_candidate.Drone_Battery_Charge_Qualification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner {
+
+  def initialise(api: LifecycleContextApplicabilityOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_LIFECYCLE_FACTS
+        api.factsToEligibility.chargeContextAllowed == F &&
+          api.factsToEligibility.airborneContext == F &&
+          api.factsToEligibility.contextValid == F &&
+          api.factsToEligibility.contextFault == T &&
+          api.factsToAdvisory.chargeContextAllowed == F &&
+          api.factsToAdvisory.airborneContext == F &&
+          api.factsToAdvisory.contextValid == F &&
+          api.factsToAdvisory.contextFault == T &&
+          api.faultToAggregation == T
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_factsToEligibility(Drone_Battery_Charge_Qualification_Supervisor.LifecycleFacts.example())
+    api.put_factsToAdvisory(Drone_Battery_Charge_Qualification_Supervisor.LifecycleFacts.example())
+    api.put_faultToAggregation(Base_Types.Boolean_example())
+  }
+
+  def finalise(api: LifecycleContextApplicabilityOwner_Operational_Api): Unit = { }
+}

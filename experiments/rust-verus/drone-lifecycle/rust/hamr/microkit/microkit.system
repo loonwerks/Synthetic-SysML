@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Content between markers will be preserved if codegen is rerun -->
+
+  <xi:include href="microkit.schedule.xml" />
+
+  <protection_domain name="request_qualification_process_request_qualification_MON" domain="domain_2">
+    <program_image path="request_qualification_process_request_qualification_MON.elf" />
+    <protection_domain name="request_qualification_process_request_qualification" domain="domain_2" id="1">
+      <program_image path="request_qualification_process_request_qualification.elf" />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_request_qualification_process_request_qualification_qualified_request_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="qualified_request_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_request_qualification_process_request_qualification_request_sample_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="request_sample_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER request_qualification_process_request_qualification -->
+      <!-- END CONTENT MARKER request_qualification_process_request_qualification -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER request_qualification_process_request_qualification_MON -->
+    <!-- END CONTENT MARKER request_qualification_process_request_qualification_MON -->
+  </protection_domain>
+
+  <protection_domain name="battery_evidence_assessment_process_battery_evidence_assessment_MON" domain="domain_3">
+    <program_image path="battery_evidence_assessment_process_battery_evidence_assessment_MON.elf" />
+    <protection_domain name="battery_evidence_assessment_process_battery_evidence_assessment" domain="domain_3" id="1">
+      <program_image path="battery_evidence_assessment_process_battery_evidence_assessment.elf" />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_evidence_for_governor_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="battery_evidence_for_governor_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_evidence_for_notice_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="rw"
+           setvar_vaddr="battery_evidence_for_notice_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_sample_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="r"
+           setvar_vaddr="battery_sample_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER battery_evidence_assessment_process_battery_evidence_assessment -->
+      <!-- END CONTENT MARKER battery_evidence_assessment_process_battery_evidence_assessment -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER battery_evidence_assessment_process_battery_evidence_assessment_MON -->
+    <!-- END CONTENT MARKER battery_evidence_assessment_process_battery_evidence_assessment_MON -->
+  </protection_domain>
+
+  <protection_domain name="lifecycle_governor_process_lifecycle_governor_MON" domain="domain_4">
+    <program_image path="lifecycle_governor_process_lifecycle_governor_MON.elf" />
+    <protection_domain name="lifecycle_governor_process_lifecycle_governor" domain="domain_4" id="1">
+      <program_image path="lifecycle_governor_process_lifecycle_governor.elf" />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_request_qualification_process_request_qualification_qualified_request_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="qualified_request_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_evidence_for_governor_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="battery_evidence_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_selected_phase_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="selected_phase_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_decision_disposition_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="rw"
+           setvar_vaddr="decision_disposition_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_charge_sample_1_Memory_Region"
+           vaddr="0x10_004_000"
+           perms="r"
+           setvar_vaddr="charge_sample_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_commanded_phase_report_1_Memory_Region"
+           vaddr="0x10_005_000"
+           perms="rw"
+           setvar_vaddr="commanded_phase_report_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER lifecycle_governor_process_lifecycle_governor -->
+      <!-- END CONTENT MARKER lifecycle_governor_process_lifecycle_governor -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER lifecycle_governor_process_lifecycle_governor_MON -->
+    <!-- END CONTENT MARKER lifecycle_governor_process_lifecycle_governor_MON -->
+  </protection_domain>
+
+  <protection_domain name="enablement_derivation_process_enablement_derivation_MON" domain="domain_5">
+    <program_image path="enablement_derivation_process_enablement_derivation_MON.elf" />
+    <protection_domain name="enablement_derivation_process_enablement_derivation" domain="domain_5" id="1">
+      <program_image path="enablement_derivation_process_enablement_derivation.elf" />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_selected_phase_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="selected_phase_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_enablement_derivation_process_enablement_derivation_lifecycle_enablement_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="rw"
+           setvar_vaddr="lifecycle_enablement_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER enablement_derivation_process_enablement_derivation -->
+      <!-- END CONTENT MARKER enablement_derivation_process_enablement_derivation -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER enablement_derivation_process_enablement_derivation_MON -->
+    <!-- END CONTENT MARKER enablement_derivation_process_enablement_derivation_MON -->
+  </protection_domain>
+
+  <protection_domain name="pilot_notice_derivation_process_pilot_notice_derivation_MON" domain="domain_6">
+    <program_image path="pilot_notice_derivation_process_pilot_notice_derivation_MON.elf" />
+    <protection_domain name="pilot_notice_derivation_process_pilot_notice_derivation" domain="domain_6" id="1">
+      <program_image path="pilot_notice_derivation_process_pilot_notice_derivation.elf" />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_evidence_for_notice_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="battery_evidence_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_decision_disposition_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="decision_disposition_queue_1"
+      />
+      <map mr="Drone_Lifecycle_Governor_System_Instance_pilot_notice_derivation_process_pilot_notice_derivation_pilot_notice_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="pilot_notice_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER pilot_notice_derivation_process_pilot_notice_derivation -->
+      <!-- END CONTENT MARKER pilot_notice_derivation_process_pilot_notice_derivation -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER pilot_notice_derivation_process_pilot_notice_derivation_MON -->
+    <!-- END CONTENT MARKER pilot_notice_derivation_process_pilot_notice_derivation_MON -->
+  </protection_domain>
+
+  <protection_domain name="pacer" domain="domain_1">
+    <program_image path="pacer.elf" />
+
+    <!-- BEGIN CONTENT MARKER pacer -->
+    <!-- END CONTENT MARKER pacer -->
+  </protection_domain>
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_request_qualification_process_request_qualification_qualified_request_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_request_qualification_process_request_qualification_request_sample_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_evidence_for_governor_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_evidence_for_notice_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_battery_evidence_assessment_process_battery_evidence_assessment_battery_sample_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_selected_phase_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_decision_disposition_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_charge_sample_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_lifecycle_governor_process_lifecycle_governor_commanded_phase_report_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_enablement_derivation_process_enablement_derivation_lifecycle_enablement_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Drone_Lifecycle_Governor_System_Instance_pilot_notice_derivation_process_pilot_notice_derivation_pilot_notice_1_Memory_Region"
+                 size="0x1_000" />
+
+  <channel>
+    <end pd="pacer" id="61" />
+    <end pd="request_qualification_process_request_qualification_MON" id="61" />
+  </channel>
+
+  <channel>
+    <end pd="request_qualification_process_request_qualification_MON" id="60" />
+    <end pd="request_qualification_process_request_qualification" id="60" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="59" />
+    <end pd="battery_evidence_assessment_process_battery_evidence_assessment_MON" id="59" />
+  </channel>
+
+  <channel>
+    <end pd="battery_evidence_assessment_process_battery_evidence_assessment_MON" id="58" />
+    <end pd="battery_evidence_assessment_process_battery_evidence_assessment" id="58" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="57" />
+    <end pd="lifecycle_governor_process_lifecycle_governor_MON" id="57" />
+  </channel>
+
+  <channel>
+    <end pd="lifecycle_governor_process_lifecycle_governor_MON" id="56" />
+    <end pd="lifecycle_governor_process_lifecycle_governor" id="56" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="55" />
+    <end pd="enablement_derivation_process_enablement_derivation_MON" id="55" />
+  </channel>
+
+  <channel>
+    <end pd="enablement_derivation_process_enablement_derivation_MON" id="54" />
+    <end pd="enablement_derivation_process_enablement_derivation" id="54" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="53" />
+    <end pd="pilot_notice_derivation_process_pilot_notice_derivation_MON" id="53" />
+  </channel>
+
+  <channel>
+    <end pd="pilot_notice_derivation_process_pilot_notice_derivation_MON" id="52" />
+    <end pd="pilot_notice_derivation_process_pilot_notice_derivation" id="52" />
+  </channel>
+
+  <!-- BEGIN MSD CONTENT MARKER -->
+  <!-- END MSD CONTENT MARKER -->
+</system>

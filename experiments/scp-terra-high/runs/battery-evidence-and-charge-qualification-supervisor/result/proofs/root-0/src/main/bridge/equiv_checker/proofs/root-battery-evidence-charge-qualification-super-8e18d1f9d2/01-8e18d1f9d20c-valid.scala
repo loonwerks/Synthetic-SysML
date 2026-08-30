@@ -1,0 +1,15 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_8e18d1f9d20c_1_Valid {
+  @pure def check(
+      batteryassessment: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.BatteryAssessment.Type,
+      chargesessionsnapshot: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargeSessionSnapshot,
+      chargerpathqualification: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.ChargerPathQualification.Type,
+      pilotbatterystatus: equiv_shared_0.Battery_Evidence_Charge_Qualification_Supervisor.PilotBatteryStatus): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: (T)))
+  }
+}

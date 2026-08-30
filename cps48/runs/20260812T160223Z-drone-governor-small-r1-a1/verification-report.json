@@ -1,0 +1,273 @@
+{
+  "schema_version": 2,
+  "run_id": "20260812T160223Z-drone-governor-small-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Drone_Lifecycle_Governor.sysml",
+  "source_sha256": "a61a14aae9f46abc046d9caf39a54596be651abab11fc215fa10f5e21fa8bc24",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 15,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 99,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ADVISORY-01",
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INVAR-01",
+      "MON-01",
+      "MON-02",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "QUAL-BATT-01",
+      "QUAL-REQ-01"
+    ],
+    "relativePath": "cps48/runs/20260812T160223Z-drone-governor-small-r1-a1/system-abstract.md",
+    "taggedElementCount": 79,
+    "traceAssociationCount": 79,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a five-usage lifecycle governor with 10 typed interactions, 12 total ordered cases, five scenario families, one principal state/decision owner, and explicit fault and fresh-request recovery.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset express the Lifecycle Decision Owner's currentPhase and recoveryRequired state, explicit initialization, and same-evaluation post-state outputs without duplicating decision ownership or leaving outputs unconstrained?",
+        "Can the ten end-to-end semantic interactions be realized with compatible AADL-oriented ports while any tool-required delegation connections are reported separately as generated support rather than changing the semantic inventory?",
+        "Can owner-local contracts and the bounded analyzer distinguish pre-state from post-state recoveryRequired strongly enough to verify the invalid, recovery-hold, neutral-clear, and later fresh-request sequence?"
+      ],
+      "repair_actions": []
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The selected 5/10/12/5 allocation is realizable without revision and all five semantic usages own nonidentity local behavior.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Trusted and retained current-checker-passing sources support Thread-local GUMBO state, initialization, In(state) pre-state references, post-state guarantees, record attributes, and multi-output case constraints; PART-03 can therefore own both state variables and all twelve complete cases without duplicated decision logic.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The current checker returns Well-formed for the run-policy System-to-Process-to-Thread pattern. One behavior-free Process plus ten boundary delegation routes and five direct inter-Thread connections realizes INT-01 through INT-10 while preserving semantic depth 1..2 and excluding support from usage and interaction credit.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensionally, PART-01 maps 18 raw request pairs to 10 qualified values by collapsing all 9 invalid-status pairs; PART-02 maps 4 battery pairs to 3 assessments by collapsing both invalid-status pairs; neither relation is a one-to-one enum rename.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-04 derives a three-field permission combination whose individual fields classify phases, and PART-05 combines disposition and battery facts under a four-level priority. PART-03 performs state-dependent twelve-case selection. These are meaningful local relations, not preservation, bundling, rerouting, or outputCode == inputCode wrappers.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "INT-10 is a necessary fan-out of PART-03's selected LifecyclePhase to the pilot boundary, not a separate owner; using the same LifecyclePhase payload avoids a one-to-one report-code translation. Data-record attributes and explicitly disjoint priority guards preserve GUMBO locality and total case semantics.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The declared finite space is exactly 5 * 2 * 2 * 9 * 2 * 2 = 720 snapshots, so a dependency-free retained analyzer can exhaust all snapshots, witness CASE-01 through CASE-12, and execute SCN-01 through SCN-05 within the bounded-conformance claim boundary.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "All six Model findings are accepted; the final 5/10/12/5 baseline is approved unchanged and generation is authorized.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "The approved 5/10/12/5 lifecycle-governor model passes both retained Sireum gates, association-level trace audit, and exhaustive 720-snapshot bounded analysis.",
+      "canonical_source": "model/Drone_Lifecycle_Governor.sysml",
+      "architecture_repairs": 1,
+      "contract_repairs": 1,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated system overview passed native, geometry, provenance, and complete traceability review.",
+      "correction_cycles": 4,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ADVISORY-01",
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INVAR-01",
+        "MON-01",
+        "MON-02",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "QUAL-BATT-01",
+        "QUAL-REQ-01"
+      ],
+      "reviewed_tagged_element_count": 79,
+      "reviewed_trace_association_count": 79,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and rendered overview pass without drift or padding; executable evidence is not required for this logical profile.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 10,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "lifecycle_decision_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "lifecycle_decision_owner.qualified_request",
+            "lifecycle_decision_owner.battery_assessment",
+            "lifecycle_decision_owner.current_phase",
+            "lifecycle_decision_owner.recovery_required"
+          ],
+          "owner_local_facts": [
+            "selected_phase",
+            "decision_disposition.input_fault_detected",
+            "decision_disposition.recovery_pending",
+            "current_phase",
+            "recovery_required"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "owner_case_partition_complete",
+            "owner_case_partition_exclusive",
+            "owner_case_outputs_match",
+            "owner_post_state_invariant"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and rendered overview pass without drift or padding; executable evidence is not required for this logical profile.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

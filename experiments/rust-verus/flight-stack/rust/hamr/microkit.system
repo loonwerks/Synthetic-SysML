@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Content between markers will be preserved if codegen is rerun -->
+
+  <xi:include href="microkit.schedule.xml" />
+
+  <protection_domain name="crewCommandQualifier_behavior_MON" domain="domain_2">
+    <program_image path="crewCommandQualifier_behavior_MON.elf" />
+    <protection_domain name="crewCommandQualifier_behavior" domain="domain_2" id="1">
+      <program_image path="crewCommandQualifier_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_crewCommandQualifier_behavior_fdDisposition_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="fdDisposition_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_crewCommandQualifier_behavior_apDisposition_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="rw"
+           setvar_vaddr="apDisposition_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_crewCommandQualifier_behavior_crewRequests_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="r"
+           setvar_vaddr="crewRequests_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER crewCommandQualifier_behavior -->
+      <!-- END CONTENT MARKER crewCommandQualifier_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER crewCommandQualifier_behavior_MON -->
+    <!-- END CONTENT MARKER crewCommandQualifier_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="attitudeSafetyQualifier_behavior_MON" domain="domain_3">
+    <program_image path="attitudeSafetyQualifier_behavior_MON.elf" />
+    <protection_domain name="attitudeSafetyQualifier_behavior" domain="domain_3" id="1">
+      <program_image path="attitudeSafetyQualifier_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_qualifiedAttitude_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="qualifiedAttitude_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_aircraftAttitude_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="aircraftAttitude_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER attitudeSafetyQualifier_behavior -->
+      <!-- END CONTENT MARKER attitudeSafetyQualifier_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER attitudeSafetyQualifier_behavior_MON -->
+    <!-- END CONTENT MARKER attitudeSafetyQualifier_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="referenceManager_behavior_MON" domain="domain_4">
+    <program_image path="referenceManager_behavior_MON.elf" />
+    <protection_domain name="referenceManager_behavior" domain="domain_4" id="1">
+      <program_image path="referenceManager_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_crewCommandQualifier_behavior_fdDisposition_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="fdDisposition_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_qualifiedAttitude_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="qualifiedAttitude_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_referenceManager_behavior_referenceAndFdState_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="referenceAndFdState_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apEngagementManager_behavior_apGuidanceRequest_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="r"
+           setvar_vaddr="apGuidanceRequest_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apEngagementManager_behavior_apActiveClearInhibit_1_Memory_Region"
+           vaddr="0x10_004_000"
+           perms="r"
+           setvar_vaddr="apActiveClearInhibit_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER referenceManager_behavior -->
+      <!-- END CONTENT MARKER referenceManager_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER referenceManager_behavior_MON -->
+    <!-- END CONTENT MARKER referenceManager_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="fdGuidanceHealthGenerator_behavior_MON" domain="domain_5">
+    <program_image path="fdGuidanceHealthGenerator_behavior_MON.elf" />
+    <protection_domain name="fdGuidanceHealthGenerator_behavior" domain="domain_5" id="1">
+      <program_image path="fdGuidanceHealthGenerator_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_qualifiedAttitude_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="qualifiedAttitude_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_referenceManager_behavior_referenceAndFdState_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="referenceAndFdState_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_fdGuidanceHealthGenerator_behavior_pairedFdGuidance_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="pairedFdGuidance_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_fdGuidanceHealthGenerator_behavior_pairedFcsIndications_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="rw"
+           setvar_vaddr="pairedFcsIndications_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER fdGuidanceHealthGenerator_behavior -->
+      <!-- END CONTENT MARKER fdGuidanceHealthGenerator_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER fdGuidanceHealthGenerator_behavior_MON -->
+    <!-- END CONTENT MARKER fdGuidanceHealthGenerator_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="apGuidanceGenerator_behavior_MON" domain="domain_6">
+    <program_image path="apGuidanceGenerator_behavior_MON.elf" />
+    <protection_domain name="apGuidanceGenerator_behavior" domain="domain_6" id="1">
+      <program_image path="apGuidanceGenerator_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_qualifiedAttitude_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="qualifiedAttitude_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_referenceManager_behavior_referenceAndFdState_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="referenceAndFdState_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apGuidanceGenerator_behavior_apGuidance_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="apGuidance_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER apGuidanceGenerator_behavior -->
+      <!-- END CONTENT MARKER apGuidanceGenerator_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER apGuidanceGenerator_behavior_MON -->
+    <!-- END CONTENT MARKER apGuidanceGenerator_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="apEngagementManager_behavior_MON" domain="domain_7">
+    <program_image path="apEngagementManager_behavior_MON.elf" />
+    <protection_domain name="apEngagementManager_behavior" domain="domain_7" id="1">
+      <program_image path="apEngagementManager_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_crewCommandQualifier_behavior_apDisposition_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="apDisposition_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_qualifiedAttitude_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="qualifiedAttitude_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apGuidanceGenerator_behavior_apGuidance_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="r"
+           setvar_vaddr="apGuidance_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apEngagementManager_behavior_apGuidanceRequest_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="rw"
+           setvar_vaddr="apGuidanceRequest_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apEngagementManager_behavior_apActiveClearInhibit_1_Memory_Region"
+           vaddr="0x10_004_000"
+           perms="rw"
+           setvar_vaddr="apActiveClearInhibit_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apEngagementManager_behavior_actuationAuthority_1_Memory_Region"
+           vaddr="0x10_005_000"
+           perms="rw"
+           setvar_vaddr="actuationAuthority_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apEngagementManager_behavior_pairedApStatus_1_Memory_Region"
+           vaddr="0x10_006_000"
+           perms="rw"
+           setvar_vaddr="pairedApStatus_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER apEngagementManager_behavior -->
+      <!-- END CONTENT MARKER apEngagementManager_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER apEngagementManager_behavior_MON -->
+    <!-- END CONTENT MARKER apEngagementManager_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="actuatorRateProposer_behavior_MON" domain="domain_8">
+    <program_image path="actuatorRateProposer_behavior_MON.elf" />
+    <protection_domain name="actuatorRateProposer_behavior" domain="domain_8" id="1">
+      <program_image path="actuatorRateProposer_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_qualifiedAttitude_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="qualifiedAttitude_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_apGuidanceGenerator_behavior_apGuidance_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="apGuidance_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_actuatorRateProposer_behavior_proposedRates_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="proposedRates_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER actuatorRateProposer_behavior -->
+      <!-- END CONTENT MARKER actuatorRateProposer_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER actuatorRateProposer_behavior_MON -->
+    <!-- END CONTENT MARKER actuatorRateProposer_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="actuatorSafetyGate_behavior_MON" domain="domain_9">
+    <program_image path="actuatorSafetyGate_behavior_MON.elf" />
+    <protection_domain name="actuatorSafetyGate_behavior" domain="domain_9" id="1">
+      <program_image path="actuatorSafetyGate_behavior.elf" />
+      <map mr="FlightControlSystem_Instance_apEngagementManager_behavior_actuationAuthority_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="actuationAuthority_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_actuatorRateProposer_behavior_proposedRates_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="proposedRates_queue_1"
+      />
+      <map mr="FlightControlSystem_Instance_actuatorSafetyGate_behavior_actuatorCommand_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="actuatorCommand_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER actuatorSafetyGate_behavior -->
+      <!-- END CONTENT MARKER actuatorSafetyGate_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER actuatorSafetyGate_behavior_MON -->
+    <!-- END CONTENT MARKER actuatorSafetyGate_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="pacer" domain="domain_1">
+    <program_image path="pacer.elf" />
+
+    <!-- BEGIN CONTENT MARKER pacer -->
+    <!-- END CONTENT MARKER pacer -->
+  </protection_domain>
+
+  <memory_region name="FlightControlSystem_Instance_crewCommandQualifier_behavior_fdDisposition_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_crewCommandQualifier_behavior_apDisposition_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_crewCommandQualifier_behavior_crewRequests_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_qualifiedAttitude_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_attitudeSafetyQualifier_behavior_aircraftAttitude_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_referenceManager_behavior_referenceAndFdState_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_fdGuidanceHealthGenerator_behavior_pairedFdGuidance_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_fdGuidanceHealthGenerator_behavior_pairedFcsIndications_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_apGuidanceGenerator_behavior_apGuidance_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_apEngagementManager_behavior_apGuidanceRequest_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_apEngagementManager_behavior_apActiveClearInhibit_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_apEngagementManager_behavior_actuationAuthority_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_apEngagementManager_behavior_pairedApStatus_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_actuatorRateProposer_behavior_proposedRates_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="FlightControlSystem_Instance_actuatorSafetyGate_behavior_actuatorCommand_1_Memory_Region"
+                 size="0x1_000" />
+
+  <channel>
+    <end pd="pacer" id="61" />
+    <end pd="crewCommandQualifier_behavior_MON" id="61" />
+  </channel>
+
+  <channel>
+    <end pd="crewCommandQualifier_behavior_MON" id="60" />
+    <end pd="crewCommandQualifier_behavior" id="60" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="59" />
+    <end pd="attitudeSafetyQualifier_behavior_MON" id="59" />
+  </channel>
+
+  <channel>
+    <end pd="attitudeSafetyQualifier_behavior_MON" id="58" />
+    <end pd="attitudeSafetyQualifier_behavior" id="58" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="57" />
+    <end pd="referenceManager_behavior_MON" id="57" />
+  </channel>
+
+  <channel>
+    <end pd="referenceManager_behavior_MON" id="56" />
+    <end pd="referenceManager_behavior" id="56" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="55" />
+    <end pd="fdGuidanceHealthGenerator_behavior_MON" id="55" />
+  </channel>
+
+  <channel>
+    <end pd="fdGuidanceHealthGenerator_behavior_MON" id="54" />
+    <end pd="fdGuidanceHealthGenerator_behavior" id="54" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="53" />
+    <end pd="apGuidanceGenerator_behavior_MON" id="53" />
+  </channel>
+
+  <channel>
+    <end pd="apGuidanceGenerator_behavior_MON" id="52" />
+    <end pd="apGuidanceGenerator_behavior" id="52" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="51" />
+    <end pd="apEngagementManager_behavior_MON" id="51" />
+  </channel>
+
+  <channel>
+    <end pd="apEngagementManager_behavior_MON" id="50" />
+    <end pd="apEngagementManager_behavior" id="50" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="49" />
+    <end pd="actuatorRateProposer_behavior_MON" id="49" />
+  </channel>
+
+  <channel>
+    <end pd="actuatorRateProposer_behavior_MON" id="48" />
+    <end pd="actuatorRateProposer_behavior" id="48" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="47" />
+    <end pd="actuatorSafetyGate_behavior_MON" id="47" />
+  </channel>
+
+  <channel>
+    <end pd="actuatorSafetyGate_behavior_MON" id="46" />
+    <end pd="actuatorSafetyGate_behavior" id="46" />
+  </channel>
+
+  <!-- BEGIN MSD CONTENT MARKER -->
+  <!-- END MSD CONTENT MARKER -->
+</system>

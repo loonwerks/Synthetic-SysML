@@ -1,0 +1,61 @@
+// #Sireum
+
+package scp_candidate.Navigation_Obstacle_Awareness_Use_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ConstraintProposalOwner_supervisorProcess_constraintProposalOwner {
+
+  def initialise(api: ConstraintProposalOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_CONSTRAINT_PROPOSAL_obstacle
+        api.awarenessCondition == AwarenessCondition.ACTIVE_OBSTACLE_CONFLICT |
+          api.awarenessCondition == AwarenessCondition.STATIONARY_OBSTACLE_PRESENT ___>:
+          api.constraintProposal == ConstraintProposal.HOLD_OBSTACLE,
+        // guarantee INITIAL_CONSTRAINT_PROPOSAL_awareness
+        api.awarenessCondition == AwarenessCondition.ACTIVE_AWARENESS_LOSS |
+          api.awarenessCondition == AwarenessCondition.STATIONARY_AWARENESS_UNAVAILABLE ___>:
+          api.constraintProposal == ConstraintProposal.HOLD_AWARENESS,
+        // guarantee INITIAL_CONSTRAINT_PROPOSAL_navigation
+        api.awarenessCondition == AwarenessCondition.AWARENESS_CLEAR &
+          api.navigationBasis == NavigationBasis.UNUSABLE_BASIS ___>:
+          api.constraintProposal == ConstraintProposal.HOLD_NAVIGATION,
+        // guarantee INITIAL_CONSTRAINT_PROPOSAL_restricted
+        api.awarenessCondition == AwarenessCondition.AWARENESS_CLEAR &
+          (api.navigationBasis == NavigationBasis.RELATIVE_BASIS |
+            api.navigationBasis == NavigationBasis.LIMITED_BASIS) ___>:
+          api.constraintProposal == ConstraintProposal.RESTRICT_NAVIGATION,
+        // guarantee INITIAL_CONSTRAINT_PROPOSAL_full
+        api.awarenessCondition == AwarenessCondition.AWARENESS_CLEAR &
+          api.navigationBasis == NavigationBasis.FULL_BASIS ___>:
+          api.constraintProposal == ConstraintProposal.ALLOW_FULL
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_constraintProposal(Navigation_Obstacle_Awareness_Use_Supervisor.ConstraintProposal.HOLD_OBSTACLE)
+  }
+
+  def finalise(api: ConstraintProposalOwner_Operational_Api): Unit = { }
+
+  def timeTriggered(api: ConstraintProposalOwner_Operational_Api): Unit = {
+    val a: AwarenessCondition.Type = api.get_awarenessCondition().get
+    val b: NavigationBasis.Type = api.get_navigationBasis().get
+    val proposal: ConstraintProposal.Type =
+      if (a == AwarenessCondition.ACTIVE_OBSTACLE_CONFLICT | a == AwarenessCondition.STATIONARY_OBSTACLE_PRESENT) ConstraintProposal.HOLD_OBSTACLE
+      else if (a == AwarenessCondition.ACTIVE_AWARENESS_LOSS | a == AwarenessCondition.STATIONARY_AWARENESS_UNAVAILABLE) ConstraintProposal.HOLD_AWARENESS
+      else if (b == NavigationBasis.UNUSABLE_BASIS) ConstraintProposal.HOLD_NAVIGATION
+      else if (b == NavigationBasis.FULL_BASIS) ConstraintProposal.ALLOW_FULL
+      else ConstraintProposal.RESTRICT_NAVIGATION
+    api.put_constraintProposal(proposal)
+  }
+}

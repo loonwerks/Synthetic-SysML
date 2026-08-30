@@ -1,0 +1,346 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/poolside-synthetic/runs/flight-guidance-and-autopilot-snapshot-coordination/input/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/flight-guidance-and-autopilot-snapshot-coordination/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/flight-guidance-and-autopilot-snapshot-coordination/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/flight-guidance-and-autopilot-snapshot-coordination/agent/M-star.sysml",
+    "oracle": "experiments/poolside-synthetic/runs/flight-guidance-and-autopilot-snapshot-coordination/input/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-42d348d23d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.AP_Availability_Intake_i_fcs_coordination_process_ap_availability_intake_Candidate_GumboX.compute_CEP_Post(ap_availability_in, ap_availability_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.AP_Availability_Intake_i_fcs_coordination_process_ap_availability_intake_GumboX.compute_CEP_Post(ap_availability_in, ap_availability_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-42d348d23d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-42d348d23d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.AP_Availability_Intake_i_fcs_coordination_process_ap_availability_intake_GumboX.compute_CEP_Post(ap_availability_in, ap_availability_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.AP_Availability_Intake_i_fcs_coordination_process_ap_availability_intake_Candidate_GumboX.compute_CEP_Post(ap_availability_in, ap_availability_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-42d348d23d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_FCS_Coordination::FAA_FCS_Coordination_Root/root-instance::FAA_FCS_Coordination_Root_Instance/component::FAA_FCS_Coordination_Root_Instance::fcs_coordination_process::ap_availability_intake::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-b6fe40df1f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Attitude_Condition_Intake_i_fcs_coordination_process_attitude_condition_intake_Candidate_GumboX.compute_CEP_Post(attitude_acceptable_in, attitude_data_in, attitude_acceptable_out, attitude_data_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Attitude_Condition_Intake_i_fcs_coordination_process_attitude_condition_intake_GumboX.compute_CEP_Post(attitude_acceptable_in, attitude_data_in, attitude_acceptable_out, attitude_data_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-b6fe40df1f:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-b6fe40df1f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Attitude_Condition_Intake_i_fcs_coordination_process_attitude_condition_intake_GumboX.compute_CEP_Post(attitude_acceptable_in, attitude_data_in, attitude_acceptable_out, attitude_data_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Attitude_Condition_Intake_i_fcs_coordination_process_attitude_condition_intake_Candidate_GumboX.compute_CEP_Post(attitude_acceptable_in, attitude_data_in, attitude_acceptable_out, attitude_data_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-b6fe40df1f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_FCS_Coordination::FAA_FCS_Coordination_Root/root-instance::FAA_FCS_Coordination_Root_Instance/component::FAA_FCS_Coordination_Root_Instance::fcs_coordination_process::attitude_condition_intake::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5e0394a257:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Autopilot_Coordination_i_fcs_coordination_process_autopilot_coordination_Candidate_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, attitude_data, fd_on, qualified_engage_request, reference_state, ap_guidance_request, ap_on, ap_status, reference_sync_trigger))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Autopilot_Coordination_i_fcs_coordination_process_autopilot_coordination_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, attitude_data, fd_on, qualified_engage_request, reference_state, ap_guidance_request, ap_on, ap_status, reference_sync_trigger))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5e0394a257:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5e0394a257:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Autopilot_Coordination_i_fcs_coordination_process_autopilot_coordination_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, attitude_data, fd_on, qualified_engage_request, reference_state, ap_guidance_request, ap_on, ap_status, reference_sync_trigger))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Autopilot_Coordination_i_fcs_coordination_process_autopilot_coordination_Candidate_GumboX.compute_CEP_Post(ap_availability, attitude_acceptable, attitude_data, fd_on, qualified_engage_request, reference_state, ap_guidance_request, ap_on, ap_status, reference_sync_trigger))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5e0394a257:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_FCS_Coordination::FAA_FCS_Coordination_Root/root-instance::FAA_FCS_Coordination_Root_Instance/component::FAA_FCS_Coordination_Root_Instance::fcs_coordination_process::autopilot_coordination::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-f9628290f0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.FCI_Command_Intake_i_fcs_coordination_process_fci_command_intake_Candidate_GumboX.compute_CEP_Post(display_fd_request_in, display_fd_validity_in, engage_ap_request_in, engage_ap_validity_in, sync_fd_request_in, sync_fd_validity_in, qualified_display_request, qualified_engage_request, qualified_sync_request))) ___>: (equiv_shared_0.FAA_FCS_Coordination.FCI_Command_Intake_i_fcs_coordination_process_fci_command_intake_GumboX.compute_CEP_Post(display_fd_request_in, display_fd_validity_in, engage_ap_request_in, engage_ap_validity_in, sync_fd_request_in, sync_fd_validity_in, qualified_display_request, qualified_engage_request, qualified_sync_request))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-f9628290f0:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-f9628290f0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.FCI_Command_Intake_i_fcs_coordination_process_fci_command_intake_GumboX.compute_CEP_Post(display_fd_request_in, display_fd_validity_in, engage_ap_request_in, engage_ap_validity_in, sync_fd_request_in, sync_fd_validity_in, qualified_display_request, qualified_engage_request, qualified_sync_request))) ___>: (equiv_shared_0.FAA_FCS_Coordination.FCI_Command_Intake_i_fcs_coordination_process_fci_command_intake_Candidate_GumboX.compute_CEP_Post(display_fd_request_in, display_fd_validity_in, engage_ap_request_in, engage_ap_validity_in, sync_fd_request_in, sync_fd_validity_in, qualified_display_request, qualified_engage_request, qualified_sync_request))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-f9628290f0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_FCS_Coordination::FAA_FCS_Coordination_Root/root-instance::FAA_FCS_Coordination_Root_Instance/component::FAA_FCS_Coordination_Root_Instance::fcs_coordination_process::fci_command_intake::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-56c201090c:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.FCS_Snapshot_Publication_i_fcs_coordination_process_fcs_snapshot_publication_Candidate_GumboX.compute_CEP_Post(ap_guidance_request_in, ap_on_in, ap_status_in, fcs_failed_in, fd_on_in, reference_sync_request_in, ap_guidance_request_out, ap_on_out, ap_status_out, fcs_failed_out, fd_on_out, reference_sync_request_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.FCS_Snapshot_Publication_i_fcs_coordination_process_fcs_snapshot_publication_GumboX.compute_CEP_Post(ap_guidance_request_in, ap_on_in, ap_status_in, fcs_failed_in, fd_on_in, reference_sync_request_in, ap_guidance_request_out, ap_on_out, ap_status_out, fcs_failed_out, fd_on_out, reference_sync_request_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-56c201090c:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-56c201090c:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.FCS_Snapshot_Publication_i_fcs_coordination_process_fcs_snapshot_publication_GumboX.compute_CEP_Post(ap_guidance_request_in, ap_on_in, ap_status_in, fcs_failed_in, fd_on_in, reference_sync_request_in, ap_guidance_request_out, ap_on_out, ap_status_out, fcs_failed_out, fd_on_out, reference_sync_request_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.FCS_Snapshot_Publication_i_fcs_coordination_process_fcs_snapshot_publication_Candidate_GumboX.compute_CEP_Post(ap_guidance_request_in, ap_on_in, ap_status_in, fcs_failed_in, fd_on_in, reference_sync_request_in, ap_guidance_request_out, ap_on_out, ap_status_out, fcs_failed_out, fd_on_out, reference_sync_request_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-56c201090c:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_FCS_Coordination::FAA_FCS_Coordination_Root/root-instance::FAA_FCS_Coordination_Root_Instance/component::FAA_FCS_Coordination_Root_Instance::fcs_coordination_process::fcs_snapshot_publication::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5348d022e7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Flight_Guidance_Coordination_i_fcs_coordination_process_flight_guidance_coordination_Candidate_GumboX.compute_CEP_Post(attitude_acceptable, attitude_data, qualified_display_request, qualified_sync_request, reference_state, reference_sync_trigger, fcs_failed, fd_on, reference_sync_request))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Flight_Guidance_Coordination_i_fcs_coordination_process_flight_guidance_coordination_GumboX.compute_CEP_Post(attitude_acceptable, attitude_data, qualified_display_request, qualified_sync_request, reference_state, reference_sync_trigger, fcs_failed, fd_on, reference_sync_request))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5348d022e7:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5348d022e7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Flight_Guidance_Coordination_i_fcs_coordination_process_flight_guidance_coordination_GumboX.compute_CEP_Post(attitude_acceptable, attitude_data, qualified_display_request, qualified_sync_request, reference_state, reference_sync_trigger, fcs_failed, fd_on, reference_sync_request))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Flight_Guidance_Coordination_i_fcs_coordination_process_flight_guidance_coordination_Candidate_GumboX.compute_CEP_Post(attitude_acceptable, attitude_data, qualified_display_request, qualified_sync_request, reference_state, reference_sync_trigger, fcs_failed, fd_on, reference_sync_request))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-5348d022e7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_FCS_Coordination::FAA_FCS_Coordination_Root/root-instance::FAA_FCS_Coordination_Root_Instance/component::FAA_FCS_Coordination_Root_Instance::fcs_coordination_process::flight_guidance_coordination::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-441367dccd:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Reference_State_Intake_i_fcs_coordination_process_reference_state_intake_Candidate_GumboX.compute_CEP_Post(reference_state_in, reference_state_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Reference_State_Intake_i_fcs_coordination_process_reference_state_intake_GumboX.compute_CEP_Post(reference_state_in, reference_state_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-441367dccd:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-441367dccd:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.FAA_FCS_Coordination.Reference_State_Intake_i_fcs_coordination_process_reference_state_intake_GumboX.compute_CEP_Post(reference_state_in, reference_state_out))) ___>: (equiv_shared_0.FAA_FCS_Coordination.Reference_State_Intake_i_fcs_coordination_process_reference_state_intake_Candidate_GumboX.compute_CEP_Post(reference_state_in, reference_state_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-faa-fcs-coordination-faa-fcs-coordination-r-441367dccd:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::FAA_FCS_Coordination::FAA_FCS_Coordination_Root/root-instance::FAA_FCS_Coordination_Root_Instance/component::FAA_FCS_Coordination_Root_Instance::fcs_coordination_process::reference_state_intake::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

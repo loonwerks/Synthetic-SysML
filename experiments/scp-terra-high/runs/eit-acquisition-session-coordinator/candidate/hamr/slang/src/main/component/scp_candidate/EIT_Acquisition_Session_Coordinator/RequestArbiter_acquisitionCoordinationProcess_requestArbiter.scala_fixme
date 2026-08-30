@@ -1,0 +1,37 @@
+// #Sireum
+
+package scp_candidate.EIT_Acquisition_Session_Coordinator
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object RequestArbiter_acquisitionCoordinationProcess_requestArbiter {
+
+  def initialise(api: RequestArbiter_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_ARBITRATION
+        (api.doctorRequest == DoctorRequest.STOP_MONITORING ___>:
+           api.arbitrationDecision.effectiveIntent == ArbitrationDecisionEffectiveIntent.STOP_INTENT) &&
+          (api.doctorRequest != DoctorRequest.STOP_MONITORING &&
+            api.eligibilityEnvelope.recovery == EligibilityEnvelopeRecovery.RESET_PREPARATION_RECOVERY ___>:
+            api.arbitrationDecision.effectiveIntent == ArbitrationDecisionEffectiveIntent.RESET_PREPARATION_INTENT) &&
+          (api.doctorRequest != DoctorRequest.STOP_MONITORING &&
+            api.eligibilityEnvelope.recovery == EligibilityEnvelopeRecovery.HOLD_MONITORING_RECOVERY ___>:
+            api.arbitrationDecision.effectiveIntent == ArbitrationDecisionEffectiveIntent.HOLD_MONITORING_INTENT)
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_arbitrationDecision(EIT_Acquisition_Session_Coordinator.ArbitrationDecision.example())
+  }
+
+  def finalise(api: RequestArbiter_Operational_Api): Unit = { }
+}

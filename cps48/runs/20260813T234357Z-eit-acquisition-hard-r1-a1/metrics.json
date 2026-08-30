@@ -1,0 +1,374 @@
+{
+  "schema_version": 1,
+  "source": "model/EIT_Acquisition_Supervisor.sysml",
+  "source_sha256": "0564e91f916c2401cdbc96441994bbf22b5364579ca13d3da394d9de63cbfd15",
+  "architecture": {
+    "root_system_usages": 1,
+    "support_process_usages": 1,
+    "semantic_thread_usages": 15,
+    "semantic_connections": 33,
+    "support_connections": 16,
+    "weakly_connected_semantic_regions": 1,
+    "semantic_containment_depth": 2
+  },
+  "contracts": {
+    "ordered_partitions": 5,
+    "nontrivial_cases": 30,
+    "initialization_guarantees": 15,
+    "retained_state_owners": 4
+  },
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 15,
+    "semantic_interactions": 33,
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "doctor_request_qualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "doctor_request_qualification.doctor_signal"
+        ],
+        "owner_local_facts": [
+          "total many-to-one request classification and request-input fault"
+        ],
+        "contract_cases": [
+          "TOTAL_REQUEST_QUALIFICATION"
+        ],
+        "analyzer_checks": [
+          "doctor qualification total mapping"
+        ]
+      },
+      {
+        "usage": "preparation_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "preparation_assessment.preparation_observation"
+        ],
+        "owner_local_facts": [
+          "ready, not-ready, failure, and invalid preparation classification"
+        ],
+        "contract_cases": [
+          "TOTAL_PREPARATION_ASSESSMENT"
+        ],
+        "analyzer_checks": [
+          "preparation assessment total mapping"
+        ]
+      },
+      {
+        "usage": "equipment_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "equipment_assessment.equipment_observation"
+        ],
+        "owner_local_facts": [
+          "ready, unavailable, busy, failed, and invalid equipment classification"
+        ],
+        "contract_cases": [
+          "TOTAL_EQUIPMENT_ASSESSMENT"
+        ],
+        "analyzer_checks": [
+          "equipment assessment total mapping"
+        ]
+      },
+      {
+        "usage": "batch_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "batch_assessment.batch_signal"
+        ],
+        "owner_local_facts": [
+          "no-batch, usable, incomplete, failed, and invalid batch classification"
+        ],
+        "contract_cases": [
+          "TOTAL_BATCH_ASSESSMENT"
+        ],
+        "analyzer_checks": [
+          "batch assessment total mapping"
+        ]
+      },
+      {
+        "usage": "image_result_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "image_result_assessment.image_feedback"
+        ],
+        "owner_local_facts": [
+          "no-result, available, failed, and invalid image-result classification"
+        ],
+        "contract_cases": [
+          "TOTAL_IMAGE_RESULT_ASSESSMENT"
+        ],
+        "analyzer_checks": [
+          "image-result assessment total mapping"
+        ]
+      },
+      {
+        "usage": "fault_composition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "fault_composition.request_facts",
+          "fault_composition.preparation_facts",
+          "fault_composition.equipment_facts",
+          "fault_composition.batch_facts",
+          "fault_composition.image_result_facts"
+        ],
+        "owner_local_facts": [
+          "local fault presence, multiplicity, and dominant-source priority"
+        ],
+        "contract_cases": [
+          "LOCAL_FAULT_PRESENCE",
+          "LOCAL_FAULT_MULTIPLICITY",
+          "LOCAL_DOMINANT_FAULT_PRIORITY"
+        ],
+        "analyzer_checks": [
+          "fault composition source and multiplicity exhaustive check"
+        ]
+      },
+      {
+        "usage": "session_control",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "session_control.request_facts",
+          "session_control.recovery_frame",
+          "session_control.start_feasibility",
+          "session_control.sessionMemory"
+        ],
+        "owner_local_facts": [
+          "next session state and admitted start or stop transition"
+        ],
+        "contract_cases": [
+          "CASE-06",
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10",
+          "CASE-11"
+        ],
+        "analyzer_checks": [
+          "session partition exclusivity and completeness"
+        ]
+      },
+      {
+        "usage": "acquisition_cycle_control",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "acquisition_cycle_control.equipment_facts",
+          "acquisition_cycle_control.batch_facts",
+          "acquisition_cycle_control.recovery_frame",
+          "acquisition_cycle_control.cycleMemory"
+        ],
+        "owner_local_facts": [
+          "next acquisition-cycle phase and usable-batch readiness"
+        ],
+        "contract_cases": [
+          "CASE-12",
+          "CASE-13",
+          "CASE-14",
+          "CASE-15",
+          "CASE-16",
+          "CASE-17"
+        ],
+        "analyzer_checks": [
+          "cycle partition exclusivity and completeness"
+        ]
+      },
+      {
+        "usage": "image_availability_control",
+        "claimed_roles": [
+          "proposal",
+          "decision"
+        ],
+        "assigned_inputs": [
+          "image_availability_control.request_facts",
+          "image_availability_control.batch_facts",
+          "image_availability_control.image_result_facts",
+          "image_availability_control.recovery_frame",
+          "image_availability_control.imageMemory"
+        ],
+        "owner_local_facts": [
+          "next image state and persistent generation proposal"
+        ],
+        "contract_cases": [
+          "CASE-18",
+          "CASE-19",
+          "CASE-20",
+          "CASE-21",
+          "CASE-22",
+          "CASE-23"
+        ],
+        "analyzer_checks": [
+          "image partition exclusivity and completeness"
+        ]
+      },
+      {
+        "usage": "recovery_control",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "recovery_control.recovery_event",
+          "recovery_control.fault_summary",
+          "recovery_control.recoveryMemory"
+        ],
+        "owner_local_facts": [
+          "latched recovery transition, effective fault cause, multiplicity, and gate"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04",
+          "CASE-05"
+        ],
+        "analyzer_checks": [
+          "recovery partition and effective-fault exhaustive check"
+        ]
+      },
+      {
+        "usage": "start_feasibility",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "start_feasibility.request_facts",
+          "start_feasibility.preparation_facts",
+          "start_feasibility.equipment_facts",
+          "start_feasibility.recovery_frame"
+        ],
+        "owner_local_facts": [
+          "four-input start feasibility"
+        ],
+        "contract_cases": [
+          "START_FEASIBILITY_RELATION"
+        ],
+        "analyzer_checks": [
+          "start feasibility conjunction check"
+        ]
+      },
+      {
+        "usage": "collection_feasibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "collection_feasibility.recovery_frame",
+          "collection_feasibility.session_frame",
+          "collection_feasibility.cycle_frame"
+        ],
+        "owner_local_facts": [
+          "collection proposal from received derived states and gate"
+        ],
+        "contract_cases": [
+          "COLLECTION_FEASIBILITY_RELATION"
+        ],
+        "analyzer_checks": [
+          "collection proposal conjunction check"
+        ]
+      },
+      {
+        "usage": "image_release_feasibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "image_release_feasibility.recovery_frame",
+          "image_release_feasibility.session_frame",
+          "image_release_feasibility.image_frame"
+        ],
+        "owner_local_facts": [
+          "release proposal from received derived states and gate"
+        ],
+        "contract_cases": [
+          "IMAGE_RELEASE_FEASIBILITY_RELATION"
+        ],
+        "analyzer_checks": [
+          "image release proposal conjunction check"
+        ]
+      },
+      {
+        "usage": "supervisory_arbitration",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "supervisory_arbitration.recovery_frame",
+          "supervisory_arbitration.session_frame",
+          "supervisory_arbitration.cycle_frame",
+          "supervisory_arbitration.image_frame",
+          "supervisory_arbitration.collection_proposal",
+          "supervisory_arbitration.release_proposal"
+        ],
+        "owner_local_facts": [
+          "strict-priority selected action and cause"
+        ],
+        "contract_cases": [
+          "CASE-24",
+          "CASE-25",
+          "CASE-26",
+          "CASE-27",
+          "CASE-28",
+          "CASE-29",
+          "CASE-30"
+        ],
+        "analyzer_checks": [
+          "arbitration partition and lower-priority suppression check"
+        ]
+      },
+      {
+        "usage": "publication_composition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "publication_composition.decision_frame"
+        ],
+        "owner_local_facts": [
+          "coordinated total control/status publication relation"
+        ],
+        "contract_cases": [
+          "COMPLETE_COMMAND_MAPPING",
+          "COMPLETE_STATUS_MAPPING"
+        ],
+        "analyzer_checks": [
+          "eleven-field publication composition check"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "excluded_from_counts": [
+    "root System usage",
+    "behavior-free support Process",
+    "16 boundary-delegation support connections",
+    "initialization guarantees",
+    "record invariants and tuple-preservation clauses",
+    "qualification/feasibility equations outside the 30 ordered cases",
+    "bounded analyzer implementation"
+  ]
+}
+

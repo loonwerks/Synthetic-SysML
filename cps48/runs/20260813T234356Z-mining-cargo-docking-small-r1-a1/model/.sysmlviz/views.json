@@ -1,0 +1,1612 @@
+{
+  "schemaVersion": 2,
+  "viewRevision": 95,
+  "activeViewId": "system-overview",
+  "views": [
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "rootId": "def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem",
+      "positions": {},
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [],
+      "aliases": {},
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": true,
+      "showTypes": true,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-14T01:56:23.906Z"
+    },
+    {
+      "id": "system-overview",
+      "name": "System Overview",
+      "rootId": "def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem",
+      "positions": {
+        "boundary:boundary/port/dockingStatus": {
+          "x": 60,
+          "y": 310,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/offloadRequest": {
+          "x": 60,
+          "y": 200,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/shipProgress": {
+          "x": 60,
+          "y": 420,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/warehouseReceipt": {
+          "x": 60,
+          "y": 530,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess": {
+          "x": 390,
+          "y": 120,
+          "width": 1000,
+          "height": 600,
+          "pinned": true
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/warehouseEvidenceQualification": {
+          "x": 430,
+          "y": 530,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/shipProgressQualification": {
+          "x": 430,
+          "y": 420,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/requestQualification": {
+          "x": 430,
+          "y": 200,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/dockingAssessmentOwner": {
+          "x": 430,
+          "y": 310,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/transferVerificationFinding": {
+          "x": 1700,
+          "y": 600,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/transferSupervisorStatus": {
+          "x": 1700,
+          "y": 440,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/cargoTransferCommand": {
+          "x": 1700,
+          "y": 260,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferDecisionOwner": {
+          "x": 760,
+          "y": 340,
+          "pinned": true,
+          "width": 248,
+          "height": 138
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferReportDerivation": {
+          "x": 1080,
+          "y": 480,
+          "pinned": true,
+          "width": 248,
+          "height": 98
+        },
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferCommandDerivation": {
+          "x": 1080,
+          "y": 260,
+          "pinned": true,
+          "width": 248,
+          "height": 78
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [
+        "part:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::supervisionProcess"
+      ],
+      "aliases": {
+        "part:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::supervisionProcess": "Generated support · containment/routing only",
+        "part:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::requestQualification": "PART-01 · Request",
+        "part:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::dockingAssessmentOwner": "PART-02 · Docking",
+        "part:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::shipProgressQualification": "PART-03 · Ship progress",
+        "part:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::warehouseEvidenceQualification": "PART-04 · Warehouse",
+        "part:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::transferDecisionOwner": "PART-05 · Decision/state",
+        "part:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::transferCommandDerivation": "PART-06 · Command",
+        "part:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::transferReportDerivation": "PART-07 · Status/finding",
+        "port:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::offloadRequest": "CTX-01 · Request",
+        "port:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::dockingStatus": "CTX-02 · Docking",
+        "port:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::shipProgress": "CTX-03 · Progress",
+        "port:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::warehouseReceipt": "CTX-04 · Receipt",
+        "port:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::cargoTransferCommand": "CTX-03 · Command",
+        "port:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::transferSupervisorStatus": "CTX-05 · Status",
+        "port:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::transferVerificationFinding": "CTX-05 · Finding",
+        "port:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::requestSample": "·",
+        "port:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::dockingSample": "·",
+        "port:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::shipSample": "·",
+        "port:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::warehouseSample": "·",
+        "port:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::command": "·",
+        "port:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::supervisorStatus": "·",
+        "port:Mining_Cargo_Transfer_Supervisor::CargoTransferSupervisionProcess::verificationFinding": "·",
+        "port:Mining_Cargo_Transfer_Supervisor::RequestQualification::requestSample": "INT-01",
+        "port:Mining_Cargo_Transfer_Supervisor::RequestQualification::qualifiedRequest": "INT-02",
+        "port:Mining_Cargo_Transfer_Supervisor::DockingAssessmentOwner::dockingSample": "INT-03",
+        "port:Mining_Cargo_Transfer_Supervisor::DockingAssessmentOwner::dockingAssessment": "INT-04",
+        "port:Mining_Cargo_Transfer_Supervisor::ShipProgressQualification::shipSample": "INT-05",
+        "port:Mining_Cargo_Transfer_Supervisor::ShipProgressQualification::qualifiedShipProgress": "INT-06",
+        "port:Mining_Cargo_Transfer_Supervisor::WarehouseEvidenceQualification::warehouseSample": "INT-07",
+        "port:Mining_Cargo_Transfer_Supervisor::WarehouseEvidenceQualification::qualifiedWarehouseEvidence": "INT-08",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferDecisionOwner::qualifiedRequest": "INT-02",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferDecisionOwner::dockingAssessment": "INT-04",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferDecisionOwner::qualifiedShipProgress": "INT-06",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferDecisionOwner::qualifiedWarehouseEvidence": "INT-08",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferDecisionOwner::commandResolution": "INT-09",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferDecisionOwner::reportResolution": "INT-10",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferCommandDerivation::resolution": "INT-09",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferCommandDerivation::command": "INT-11",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferReportDerivation::resolution": "INT-10",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferReportDerivation::supervisorStatus": "INT-12",
+        "port:Mining_Cargo_Transfer_Supervisor::TransferReportDerivation::verificationFinding": "INT-13"
+      },
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": false,
+      "showTypes": false,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-14T02:16:44.498Z"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "8d8113dc-f788-4ee7-9534-f6b77d817a54",
+      "at": "2026-08-14T01:56:23.907Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.create",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 1,
+      "targetIds": [],
+      "changedFields": [
+        "name",
+        "rootId"
+      ]
+    },
+    {
+      "id": "a16aba1d-bc20-4aa6-9c3d-6521a874e0c1",
+      "at": "2026-08-14T01:56:24.018Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.activate",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 2,
+      "targetIds": [
+        "system-overview"
+      ],
+      "changedFields": [
+        "activeViewId"
+      ]
+    },
+    {
+      "id": "5b394743-c86a-42b0-b61f-0d355c821d67",
+      "at": "2026-08-14T01:56:32.254Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.expand",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 3,
+      "targetIds": [
+        "part:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem::supervisionProcess"
+      ],
+      "changedFields": [
+        "expanded"
+      ]
+    },
+    {
+      "id": "8c8e5d1a-d7a3-4d2e-b752-f5cb097c563b",
+      "at": "2026-08-14T01:57:47.418Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 4,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "6e7117cc-4c56-435f-9b2a-4f1950b49c42",
+      "at": "2026-08-14T01:57:50.093Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 5,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "a69b2459-4fe6-4c47-acf7-495df85759b4",
+      "at": "2026-08-14T01:57:52.589Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 6,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "80a4aa03-1e8b-4c59-8ce7-b84b5418777b",
+      "at": "2026-08-14T01:57:55.321Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 7,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "e17a5fe2-7b59-45c9-92c1-7ab99aea42b0",
+      "at": "2026-08-14T01:57:57.929Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 8,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "57b72b13-4410-4670-9b93-4e623280d721",
+      "at": "2026-08-14T01:58:02.456Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 9,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "e8a69753-b8b6-4c1a-87c9-65508e937b2f",
+      "at": "2026-08-14T01:58:05.672Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 10,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "f86721a7-ad1a-441a-976d-ca5d6f14052c",
+      "at": "2026-08-14T01:58:09.644Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 11,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "f120b841-9bf7-4814-9a16-8ec820f377d1",
+      "at": "2026-08-14T01:58:13.714Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 12,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "021ebe82-b30c-4512-86cd-4d629f6decc5",
+      "at": "2026-08-14T01:58:17.003Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 13,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "c50ff9b5-150b-4704-9169-30ac8463aba9",
+      "at": "2026-08-14T01:58:19.847Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 14,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "81564f32-39f6-4f34-b96e-ee883fe65e16",
+      "at": "2026-08-14T01:58:23.483Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 15,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "96912482-e3dd-48c9-ad3b-c0f250fcd519",
+      "at": "2026-08-14T01:58:28.251Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 16,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "1ba1f5ef-3a7a-489a-9ea5-f3aac78a6629",
+      "at": "2026-08-14T01:58:31.460Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 17,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "0ac80834-69ab-4bf2-9a66-5489346cba7f",
+      "at": "2026-08-14T01:58:35.757Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 18,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "0bd1c025-4f31-4d6e-9d16-942e348df9cd",
+      "at": "2026-08-14T01:58:41.039Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 19,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "50b312f7-7b2d-4e6f-9f5c-3bbf9661ae20",
+      "at": "2026-08-14T01:58:45.458Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.reset",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 20,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/dockingAssessmentOwner",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/requestQualification",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/shipProgressQualification",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferCommandDerivation",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferDecisionOwner",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferReportDerivation",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/warehouseEvidenceQualification"
+      ],
+      "changedFields": [
+        "edgeRoutes",
+        "positions"
+      ]
+    },
+    {
+      "id": "7b0f4310-381e-4bc4-bf0f-aacfca65a22c",
+      "at": "2026-08-14T01:58:51.603Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.apply",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 21,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/dockingAssessmentOwner",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/requestQualification",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/shipProgressQualification",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferCommandDerivation",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferDecisionOwner",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferReportDerivation",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/warehouseEvidenceQualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "aa1fc1d8-fe83-4575-91e1-d92ed79cce98",
+      "at": "2026-08-14T02:00:08.409Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 22,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "e84d8978-3c83-4d9e-b744-f322de72e495",
+      "at": "2026-08-14T02:00:11.737Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 23,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "9434ed6b-46b7-4127-a9d2-c53406e758f4",
+      "at": "2026-08-14T02:00:14.732Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 24,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "c9e0d9a0-d0bf-4db5-a007-587db7b0e09e",
+      "at": "2026-08-14T02:00:17.581Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 25,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "f17a02f4-19f3-4cc8-937d-1f52fba35757",
+      "at": "2026-08-14T02:00:20.385Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 26,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "0d37f506-8811-4e11-8558-05cc80ddb173",
+      "at": "2026-08-14T02:00:23.807Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 27,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/dockingAssessmentOwner",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/requestQualification",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/shipProgressQualification",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferCommandDerivation",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferDecisionOwner",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferReportDerivation",
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/warehouseEvidenceQualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "db0b5c32-493d-4cf1-b0de-76a32035d726",
+      "at": "2026-08-14T02:01:09.424Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 28,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "94636985-404f-4fbf-9129-8ceb20eb88df",
+      "at": "2026-08-14T02:02:10.339Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 29,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/requestQualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "3dbb6a48-e040-48c8-986e-d161573b18ff",
+      "at": "2026-08-14T02:02:13.891Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 30,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/dockingAssessmentOwner"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "f7663fb6-77a8-4d1b-bb09-1c5a5b1fc4ea",
+      "at": "2026-08-14T02:02:19.412Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 31,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/shipProgressQualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "d56d9503-f79c-4aab-b901-069097c53928",
+      "at": "2026-08-14T02:02:23.321Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 32,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/warehouseEvidenceQualification"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "2ad5b1aa-d696-47f3-9770-ef316cff3269",
+      "at": "2026-08-14T02:02:26.448Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 33,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferDecisionOwner"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "da169236-30fc-4c1c-8d89-7419f89c5a49",
+      "at": "2026-08-14T02:02:29.955Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 34,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferCommandDerivation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "0e693ae4-3ffe-49e4-9e0f-483744d154e1",
+      "at": "2026-08-14T02:02:33.162Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 35,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess/transferReportDerivation"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "9b0341b4-7b0d-4206-aa19-04dd7311f974",
+      "at": "2026-08-14T02:02:36.036Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.resize",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 36,
+      "targetIds": [
+        "node:def:Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/supervisionProcess"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "b39834c5-73cd-40b9-a167-1cd6f110f63d",
+      "at": "2026-08-14T02:02:38.855Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 37,
+      "targetIds": [
+        "boundary:boundary/port/offloadRequest"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "22d521cf-c1e2-46ed-b4ad-db657355111e",
+      "at": "2026-08-14T02:02:42.381Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 38,
+      "targetIds": [
+        "boundary:boundary/port/dockingStatus"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "f8b86c04-a01c-40fb-9300-4ed29c7996cc",
+      "at": "2026-08-14T02:02:46.001Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 39,
+      "targetIds": [
+        "boundary:boundary/port/shipProgress"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "9ab9adb8-1b2d-4bda-a7a7-68eb9ad1615e",
+      "at": "2026-08-14T02:02:49.054Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 40,
+      "targetIds": [
+        "boundary:boundary/port/warehouseReceipt"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "b03b2de0-4e74-4dc8-a032-7f9ecfd6cc3c",
+      "at": "2026-08-14T02:02:52.446Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 41,
+      "targetIds": [
+        "boundary:boundary/port/cargoTransferCommand"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "6152825c-4e9a-4b58-9e9f-e576bf936b72",
+      "at": "2026-08-14T02:02:55.368Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 42,
+      "targetIds": [
+        "boundary:boundary/port/transferSupervisorStatus"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "302f7f0b-c05c-4096-b67f-28a5e947234c",
+      "at": "2026-08-14T02:02:58.163Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 43,
+      "targetIds": [
+        "boundary:boundary/port/transferVerificationFinding"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "12bbe0d5-a7b9-4ed0-a1d2-507a3d897179",
+      "at": "2026-08-14T02:03:33.811Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 44,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "5cc182b3-6e95-4733-abdc-2b7096719854",
+      "at": "2026-08-14T02:05:26.252Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.update",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 45,
+      "targetIds": [],
+      "changedFields": [
+        "showEdgeLabels",
+        "showPorts",
+        "showTypes"
+      ]
+    },
+    {
+      "id": "36fd8085-49ea-46d0-8450-a46e7d1945c8",
+      "at": "2026-08-14T02:06:35.047Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 46,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "1dc2afc9-d2ce-4d23-b4d0-756ee7f4fb51",
+      "at": "2026-08-14T02:06:39.068Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 47,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "6a87516b-4b07-4e2b-a81f-a25061bcb88d",
+      "at": "2026-08-14T02:06:41.832Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 48,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "b49e81f0-5799-467e-8ab8-b29e58469315",
+      "at": "2026-08-14T02:06:46.343Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 49,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "f3bdb9e9-004c-4455-882f-320e3fc42b94",
+      "at": "2026-08-14T02:06:50.145Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 50,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "60c94f44-d43c-4099-82ac-5a0a41408fb9",
+      "at": "2026-08-14T02:06:53.231Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 51,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "75feae52-a4bb-4802-8873-036e89368475",
+      "at": "2026-08-14T02:06:56.376Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 52,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "246ffc76-21aa-4d40-b868-97205ff0786b",
+      "at": "2026-08-14T02:07:00.321Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 53,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "055e5907-5f49-4fd4-9cec-3d40915fa2ce",
+      "at": "2026-08-14T02:07:07.902Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 54,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "7c73ae05-1a51-4f16-82cb-bb1af89d9e64",
+      "at": "2026-08-14T02:07:11.950Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 55,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "e8666d86-b110-432b-ad47-ef067fa1c6e1",
+      "at": "2026-08-14T02:07:14.825Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 56,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "2f1b3c56-74ba-4e10-bc13-ee11cc2cef30",
+      "at": "2026-08-14T02:07:19.263Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 57,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "370904e2-ba90-4f6b-9e33-f85ced118890",
+      "at": "2026-08-14T02:07:23.011Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 58,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "05a6c4cd-ef6b-4619-9e34-24105e24fd34",
+      "at": "2026-08-14T02:07:30.365Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 59,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "e0357ea6-0a85-4bca-bac0-eb575cc7c239",
+      "at": "2026-08-14T02:07:34.238Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 60,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "1e1b0288-eb94-46b2-900a-0ddfc0e2c607",
+      "at": "2026-08-14T02:07:54.824Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 61,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "9858baeb-f312-48c6-97a6-5622f726512f",
+      "at": "2026-08-14T02:08:00.011Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 62,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "135ff528-1214-4fbf-b392-e22b31365e7e",
+      "at": "2026-08-14T02:08:04.390Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 63,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "906615f9-7dcb-4cd4-9ea0-dd54878e5a60",
+      "at": "2026-08-14T02:08:08.177Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 64,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "ed91bdc4-25b3-46cb-bc0d-a28c4cfac6ab",
+      "at": "2026-08-14T02:08:12.244Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 65,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "67696cab-bf8b-4cb3-9372-a9958a345a37",
+      "at": "2026-08-14T02:08:15.532Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 66,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "d5909ce5-fa71-4c15-9a96-8e44fe8d1295",
+      "at": "2026-08-14T02:08:19.331Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 67,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "829ff318-2cbb-4542-9285-aa1f5ce568f9",
+      "at": "2026-08-14T02:08:23.237Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 68,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "3b2b71b8-41c4-48dc-b591-e3c26e0776bb",
+      "at": "2026-08-14T02:08:27.319Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 69,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "cdd02e89-a6d6-4ddb-95b2-4754370f6b7c",
+      "at": "2026-08-14T02:08:31.563Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 70,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "6ec71a2e-4406-4be9-84c9-879904d824dd",
+      "at": "2026-08-14T02:08:35.078Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 71,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "3c78062c-0d2f-4c81-9f0f-90f2260bf168",
+      "at": "2026-08-14T02:09:37.359Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 72,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "1f87cc4d-dabc-42a0-8c3d-b472ab5a2de8",
+      "at": "2026-08-14T02:09:41.140Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 73,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "b94b3eff-b6f1-4f19-898b-fa2feff2820a",
+      "at": "2026-08-14T02:09:46.372Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 74,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "aa296cda-6f54-43e5-9ea2-e68c81e36412",
+      "at": "2026-08-14T02:09:50.393Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 75,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "5a96e703-05fb-4f5e-ad78-3778966b12f6",
+      "at": "2026-08-14T02:09:53.462Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 76,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "57ead3fd-cdb8-4b39-9856-99f2102c1905",
+      "at": "2026-08-14T02:09:57.772Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 77,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "ee0d1331-7295-43d1-bbe2-53ba122ba4ac",
+      "at": "2026-08-14T02:10:01.264Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 78,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "5d0807f0-a5cf-462c-85f3-00ca2008badf",
+      "at": "2026-08-14T02:10:05.690Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 79,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "90068487-d607-4602-9893-1d017dec02ea",
+      "at": "2026-08-14T02:10:09.475Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 80,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "b9c48dbe-1cf3-4df3-b6ca-320c797ce849",
+      "at": "2026-08-14T02:10:13.120Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 81,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "1883d413-949b-42ba-bdac-79b5605bef4e",
+      "at": "2026-08-14T02:10:16.603Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 82,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "cd27933a-151b-46d6-9d19-556d10c119b8",
+      "at": "2026-08-14T02:10:20.038Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 83,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "4f7f4d31-479c-4b4b-83c1-eae415cf1a3b",
+      "at": "2026-08-14T02:10:23.536Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 84,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "f7abf235-c385-483d-b71e-b0deb95d5ad7",
+      "at": "2026-08-14T02:10:27.315Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 85,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "45e0db6e-3041-463c-bfe7-7d7abd037119",
+      "at": "2026-08-14T02:15:23.132Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 86,
+      "targetIds": [
+        "boundary:boundary/port/cargoTransferCommand"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "68175c34-ac4a-4458-a3cb-d471ead08244",
+      "at": "2026-08-14T02:15:27.966Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 87,
+      "targetIds": [
+        "boundary:boundary/port/transferSupervisorStatus"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "2f517bda-9e58-45a3-94cd-dd870ecb3e1e",
+      "at": "2026-08-14T02:15:32.188Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "layout.move",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 88,
+      "targetIds": [
+        "boundary:boundary/port/transferVerificationFinding"
+      ],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "260a63bf-994c-4915-bf9d-b927e0ed2bc2",
+      "at": "2026-08-14T02:16:22.422Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 89,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "5bc901e2-2856-41d2-9c6d-356462d6b644",
+      "at": "2026-08-14T02:16:26.417Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 90,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "af92a3df-b15a-4bba-a25c-fded668c91e8",
+      "at": "2026-08-14T02:16:29.914Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 91,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "9e3a3852-64b6-42c8-bb46-0fd04ad9f4db",
+      "at": "2026-08-14T02:16:33.753Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 92,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "6e2a9431-804a-4a10-85fc-baad4a45208e",
+      "at": "2026-08-14T02:16:37.384Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 93,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "65b68b8d-c21f-4b49-9b27-7944af7bc697",
+      "at": "2026-08-14T02:16:41.069Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 94,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    },
+    {
+      "id": "dfafe079-7fd6-4314-9261-14dfec4a21e7",
+      "at": "2026-08-14T02:16:44.498Z",
+      "actor": "visualization-agent",
+      "client": "cli",
+      "operation": "view.alias",
+      "viewId": "system-overview",
+      "modelRevision": 1,
+      "viewRevision": 95,
+      "targetIds": [],
+      "changedFields": [
+        "aliases"
+      ]
+    }
+  ]
+}

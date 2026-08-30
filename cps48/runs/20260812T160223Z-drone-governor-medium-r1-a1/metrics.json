@@ -1,0 +1,70 @@
+{
+  "schema_version": "model-metrics-v2",
+  "canonical_source": "model/Drone_Lifecycle_Governor.sysml",
+  "source_sha256": "361b07a781b30345e58c494eeabc8153669914ca72a014a3627b4b1e5e482a19",
+  "root_system_usages": 1,
+  "non_root_architecture_nodes": 9,
+  "generated_support_usages": 1,
+  "semantic_usages": 8,
+  "semantic_interactions": 21,
+  "generated_support_routes": 10,
+  "source_port_connection_declarations": 31,
+  "containment_depth_beneath_root": 2,
+  "weakly_connected_regions": 1,
+  "average_total_vertex_degree": 4.666666666666667,
+  "unique_ordered_semantic_component_pairs": 17,
+  "semantic_pair_density": 0.2361111111111111,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 7,
+  "state_owners": 1,
+  "counting_boundary": "Semantic usages exclude the root and behavior-free GovernorProcess. Semantic interactions count INT-01 through INT-21 and exclude ten root/Process support delegations. Contract cases count CASE-01 through CASE-20 only; initialization and preservation mappings are excluded. Scenario families count SCN-01 through SCN-07 and each has a concrete retained analyzer trace.",
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "requestArbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["requestArbiter.pilotRequest", "requestArbiter.chargerState", "requestArbiter.recoveryProposal"],
+        "owner_local_facts": ["priority-selected effective intent", "fresh-request preemption", "disconnected-charge rejection"],
+        "contract_cases": ["CASE-11", "CASE-12", "CASE-13"],
+        "analyzer_checks": ["request-arbiter-total-priority-check"]
+      },
+      {
+        "usage": "operationalEligibilityOwner",
+        "claimed_roles": ["applicability", "proposal"],
+        "assigned_inputs": ["operationalEligibilityOwner.batteryQualification", "operationalEligibilityOwner.flightQualification", "operationalEligibilityOwner.chargerState", "operationalEligibilityOwner.currentLifecycleState"],
+        "owner_local_facts": ["flight eligibility", "charge eligibility", "state-dependent recovery proposal", "eligibility reason precedence"],
+        "contract_cases": ["CASE-07", "CASE-08", "CASE-09", "CASE-10"],
+        "analyzer_checks": ["operational-eligibility-total-recovery-check"]
+      },
+      {
+        "usage": "lifecycleStateGovernor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["lifecycleStateGovernor.arbitratedIntent", "lifecycleStateGovernor.eligibilityEnvelope", "lifecycleStateGovernor.committedLifecycleState"],
+        "owner_local_facts": ["next lifecycle state", "transition result", "decision reason"],
+        "contract_cases": ["CASE-14", "CASE-15", "CASE-16", "CASE-17"],
+        "analyzer_checks": ["lifecycle-governor-total-transition-check"]
+      },
+      {
+        "usage": "flightAuthorizationPolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["flightAuthorizationPolicy.decisionSnapshot.nextState"],
+        "owner_local_facts": ["flight permission classification"],
+        "contract_cases": ["CASE-19"],
+        "analyzer_checks": ["flight-authorization-five-state-check"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schema_version": 2,
+  "source_sha256": "91b0aea557ee8a98352af5638007ed5fc20f6f8e539299d297800e049d20878b",
+  "root_definition": "Vehicle_Temperature_Health_Supervisor::VehicleTemperatureHealthSupervisorSystem",
+  "root_usage": "vehicleTemperatureHealthSupervisor",
+  "explicit_root_usages": 1,
+  "architecture_nodes": {
+    "generated_support": ["supervisionProcess"],
+    "semantic": [
+      "supervisionProcess.temperatureQualification",
+      "supervisionProcess.maintenanceQualification",
+      "supervisionProcess.recoveryApplicability",
+      "supervisionProcess.healthModeArbitration",
+      "supervisionProcess.boundaryOutcomeDerivation"
+    ],
+    "semantic_count": 5,
+    "principal_decision_owners": 1
+  },
+  "semantic_domain_graph": {
+    "nodes": 5,
+    "end_to_end_directed_interactions": 13,
+    "semantic_usage_to_usage_connections": 7,
+    "unique_ordered_semantic_usage_pairs": 7,
+    "average_total_degree_internal": 2.8,
+    "weakly_connected_regions": 1
+  },
+  "connections": {
+    "semantic_interactions": 13,
+    "boundary_semantic_interactions": 6,
+    "internal_semantic_connections": 7,
+    "process_thread_support_routes": 6,
+    "root_process_support_routes": 6,
+    "support_routes_total": 12,
+    "declarations_total": 19
+  },
+  "containment_depth_beneath_root": 2,
+  "ports": {
+    "root_boundary": 6,
+    "process_boundary": 6,
+    "semantic_thread_ports": 20,
+    "total": 32
+  },
+  "data_model": {
+    "record_types": 4,
+    "inspected_attribute_members": 8,
+    "inspected_nested_part_members": 0
+  },
+  "contracts": {
+    "owner_state_variables": 1,
+    "explicit_safe_initialization_guarantees": 5,
+    "qualification_and_proposal_cases": 11,
+    "nontrivial_owner_policy_cases": 11,
+    "boundary_output_classifications": 1,
+    "fanout_preservation_guarantees": 3,
+    "post_state_invariants": 1,
+    "identity_owner_contracts": 0,
+    "principal_case_owner": "healthModeArbitration"
+  },
+  "bounded_analysis": {
+    "raw_boundary_and_prior_state": 256,
+    "direct_health_owner_tuples": 180,
+    "direct_boundary_outcome_pairs": 140,
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "producer_inconsistent_output_pairs": 125,
+    "producer_inconsistent_fail_closed_violations": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0},
+    "final": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0}
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 13,
+    "nontrivial_contract_cases": 11,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "temperatureQualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["temperatureQualification.rawTemperature"],
+        "owner_local_facts": ["validity-aware TemperatureAssessment classification"],
+        "contract_cases": ["TEMPERATURE_INVALID", "TEMPERATURE_NOMINAL", "TEMPERATURE_OVER"],
+        "analyzer_checks": ["temperature qualification exhaustive 4-to-3 relation"]
+      },
+      {
+        "usage": "maintenanceQualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["maintenanceQualification.rawMaintenance"],
+        "owner_local_facts": ["validity-aware MaintenanceAssessment classification"],
+        "contract_cases": ["MAINTENANCE_INVALID", "MAINTENANCE_CLEAR", "MAINTENANCE_DUE"],
+        "analyzer_checks": ["maintenance qualification exhaustive 4-to-3 relation"]
+      },
+      {
+        "usage": "recoveryApplicability",
+        "claimed_roles": ["applicability", "proposal"],
+        "assigned_inputs": ["recoveryApplicability.rawReturn", "recoveryApplicability.temperatureAssessment", "recoveryApplicability.maintenanceAssessment"],
+        "owner_local_facts": ["priority-ordered RecoveryProposal classification"],
+        "contract_cases": ["RECOVERY_INVALID", "RECOVERY_NOT_REQUESTED", "RECOVERY_BLOCKED_MAINTENANCE", "RECOVERY_BLOCKED_TEMPERATURE", "RECOVERY_ELIGIBLE"],
+        "analyzer_checks": ["recovery applicability exhaustive 36-to-5 relation"]
+      },
+      {
+        "usage": "healthModeArbitration",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["healthModeArbitration.temperatureAssessment", "healthModeArbitration.maintenanceAssessment", "healthModeArbitration.recoveryProposal", "healthModeArbitration.healthState"],
+        "owner_local_facts": ["ordered HealthDecision", "next VehicleHealthMode", "persistent healthState"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11"],
+        "analyzer_checks": ["health arbitration exhaustive 180-tuple partition", "decision nextMode equals committed healthState"]
+      },
+      {
+        "usage": "boundaryOutcomeDerivation",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["boundaryOutcomeDerivation.healthDecision", "boundaryOutcomeDerivation.recoveryProposal"],
+        "owner_local_facts": ["defensive three-output classification", "producer-inconsistent pair fail-closed response"],
+        "contract_cases": ["DEFENSIVE_OUTCOME_CLASSIFICATION"],
+        "analyzer_checks": ["boundary outcome exhaustive 140-pair classification", "all producer-inconsistent pairs fail closed"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-05 only and exclude the root and behavior-free Process. Semantic interactions count INT-01 through INT-13 once each and exclude twelve delegation routes. Nontrivial cases count only PART-04 CASE-01 through CASE-11; initialization, qualifications, consistency, invariants, output derivation, and scenario witnesses are excluded. Scenario families count SCN-01 through SCN-05. Composition denotes deterministic finite local-relation and connection-map composition only, not compositional proof."
+}

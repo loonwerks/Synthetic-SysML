@@ -1,0 +1,42 @@
+// #Sireum
+
+package scp_candidate.Frigate_Threat_Response_Coordinator
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object EscapeChannelRecovery_threatResponseProcess_escapeChannelRecovery {
+
+  // BEGIN STATE VARS
+  var escapeRecoveryState: Frigate_Threat_Response_Coordinator.ChannelState.Type = Frigate_Threat_Response_Coordinator.ChannelState.AVAILABLE
+  // END STATE VARS
+
+  def initialise(api: EscapeChannelRecovery_Initialization_Api): Unit = {
+    Contract(
+      Modifies(
+        // BEGIN INITIALIZES MODIFIES
+        escapeRecoveryState
+        // END INITIALIZES MODIFIES
+      ),
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_ESCAPE_CHANNEL
+        escapeRecoveryState == ChannelState.AVAILABLE &
+          api.escapeChannelStateOut == ChannelState.AVAILABLE &
+          api.escapeGateOut == ChannelGate.OPEN
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_escapeGateOut(Frigate_Threat_Response_Coordinator.ChannelGate.OPEN)
+    api.put_escapeChannelStateOut(Frigate_Threat_Response_Coordinator.ChannelState.AVAILABLE)
+  }
+
+  def finalise(api: EscapeChannelRecovery_Operational_Api): Unit = { }
+}

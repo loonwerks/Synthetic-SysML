@@ -1,0 +1,14 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_421751b18706_2_Complement {
+  @pure def check(
+      accepted: equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.AcceptedPreference,
+      capability: equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.BlowerCapabilityFact,
+      path: equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Type,
+      proposal: equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.RoutineProposalReport): Unit = {
+    Contract(Requires(!((((T) & (T)) ___>: (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.RoutineAirflowProposalOwner_cabin_air_supervision_process_routine_airflow_proposal_owner_GumboX.compute_CEP_Post(accepted, capability, path, proposal))) & T)))
+  }
+}

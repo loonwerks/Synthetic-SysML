@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "source_sha256": "fd947b36c966b197720fd87889f0b35a7b3eedaea7af5a8a57ba1507e7d74b87",
+  "root_system_usages": 1,
+  "behavior_free_support_processes": 1,
+  "reachable_non_root_usages": 10,
+  "semantic_usages": 9,
+  "semantic_interactions": 21,
+  "raw_directed_connections": 29,
+  "physical_containment_depth_below_root": 2,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 7,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 9,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "batchQualificationOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["batchEvent"],
+        "owner_local_facts": ["batchAssessment.usable", "batchAssessment.batchCategory"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03"],
+        "analyzer_checks": ["batch qualification totality and usability collapse"]
+      },
+      {
+        "usage": "generatorFeedbackQualificationOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["generatorFeedback", "generationPreState"],
+        "owner_local_facts": ["feedbackAssessment.condition", "feedbackAssessment.matched"],
+        "contract_cases": ["CASE-04", "CASE-05", "CASE-06"],
+        "analyzer_checks": ["feedback matching and fault classification"]
+      },
+      {
+        "usage": "reviewAccessQualificationOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["viewerObservation"],
+        "owner_local_facts": ["viewerAssessment.accessible", "viewerAssessment.condition"],
+        "contract_cases": ["CASE-07", "CASE-08"],
+        "analyzer_checks": ["viewer accessibility collapse"]
+      },
+      {
+        "usage": "generatorOutcomeRecoveryOwner",
+        "claimed_roles": ["proposal", "decision"],
+        "assigned_inputs": ["feedbackAssessment", "generationPreState", "recoveryRequest"],
+        "owner_local_facts": ["generatorProposal.proposal", "generatorProposal.condition"],
+        "contract_cases": ["CASE-09", "CASE-10"],
+        "analyzer_checks": ["feedback dominance and reset applicability"]
+      },
+      {
+        "usage": "availabilityWorkflowArbiter",
+        "claimed_roles": ["applicability", "decision"],
+        "assigned_inputs": ["generatorProposal", "doctorRequest", "batchAssessment", "viewerAssessment", "generationPreState", "reviewPreState"],
+        "owner_local_facts": ["workflowDecision.selectedAction", "workflowDecision.disposition", "workflowDecision.notice"],
+        "contract_cases": ["CASE-11", "CASE-12", "CASE-13", "CASE-14"],
+        "analyzer_checks": ["workflow priority and ordinary open-versus-batch conflict"]
+      },
+      {
+        "usage": "generationSlotStateGovernor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["workflowDecision", "In(committedGenerationState)"],
+        "owner_local_facts": ["committedGenerationState", "generationDecision.nextState"],
+        "contract_cases": ["CASE-15", "CASE-16"],
+        "analyzer_checks": ["exclusive generation transition and retention"]
+      },
+      {
+        "usage": "reviewSessionStateGovernor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["workflowDecision", "In(committedReviewState)"],
+        "owner_local_facts": ["committedReviewState", "reviewDecision.nextState"],
+        "contract_cases": ["CASE-17", "CASE-18"],
+        "analyzer_checks": ["exclusive review transition and retention"]
+      },
+      {
+        "usage": "generationCommandPolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["generationDecision.nextState"],
+        "owner_local_facts": ["generationCommand"],
+        "contract_cases": ["CASE-19"],
+        "analyzer_checks": ["committed-state command classification"]
+      },
+      {
+        "usage": "availabilityPublicationPolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["generationDecision.nextState", "generationDecision.disposition", "generationDecision.notice", "reviewDecision.nextState"],
+        "owner_local_facts": ["reviewAvailability", "workflowStatus.notice"],
+        "contract_cases": ["CASE-20"],
+        "analyzer_checks": ["matched availability and public notice precedence"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

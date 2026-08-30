@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.Battery_Evidence_Charge_Qualification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ChargeEligibilityRecoveryOwner_supervisorProcess_chargeEligibilityRecoveryOwner {
+
+  def initialise(api: ChargeEligibilityRecoveryOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee initial_envelope
+        api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.BLOCKED_EVIDENCE
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_chargeEligibilityEnvelope(Battery_Evidence_Charge_Qualification_Supervisor.ChargeEligibilityEnvelope.ELIGIBLE)
+  }
+
+  def finalise(api: ChargeEligibilityRecoveryOwner_Operational_Api): Unit = { }
+}

@@ -1,0 +1,463 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T155231Z-drone-governor-medium-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Battery_Evidence_Charge_Qualification_Supervisor.sysml",
+  "source_sha256": "07723356d02d38bb1427b17b8c2a228f92e1f9fd3010976449925dc089ceb87f",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 6,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 162,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "CTRL-04",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "SCOPE-IN-01",
+      "TYPE-06",
+      "TYPE-08"
+    ],
+    "relativePath": "cps48/runs/20260813T155231Z-drone-governor-medium-r2-a1/system-abstract.md",
+    "taggedElementCount": 99,
+    "traceAssociationCount": 99,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a distinct medium battery-evidence and charge-qualification supervisor with exact 8/21/20/7 semantics, closed finite partitions, one charge-session state owner, and explicit cancel-over-recovery priority.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL forms contain all eight behavioral semantic usages directly beneath one root System, or is exactly one behavior-free Process plus separately counted delegation routing required while preserving the semantic 8/21 allocation?",
+        "Can GUMBO express the pre-state ChargeSessionState feedback, fully assigned finite ChargeSessionSnapshot and PilotBatteryStatus records, and the exact 20 owner-local cases without weakening or merging their partitions?",
+        "Can the retained bounded analyzer exhaust all 720 raw boundary/pre-state combinations and the declared owner-local products, including 1,620 type-valid PilotBatteryStatusPolicy combinations, with reachability reported separately?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "Battery evidence and charge qualification supervision with logical charge-permission session control",
+        "closest_baseline": "Accepted replicate-1 Medium Drone Lifecycle Governor organized around Off/Standby/Charging/Ready/Flying transition governance",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected boundary has no lifecycle request, lifecycle transition output, general power command, or flight authorization; lifecycle is read-only context. Its sole state is an IDLE/ENABLED/SUSPENDED charge-permission session, its evidence branches converge on charge eligibility and status, cancellation outranks charge revocation and request, and recovery suspends only charge permission until a fresh eligible request. Those choices remain a recognizable battery/charging purpose even without lifecycle ownership."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "The 8/21/20/7 allocation is realizable and has no identity-wrapper usage, but containment, repeated record classifiers, and CASE-20 totality need local resolution before generation.",
+      "findings": [
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted Isolette and retained well-formed campaign sources use System-to-Process-to-Thread containment, and a retained current-tool report records rejection of Threads directly beneath System. With six distinct root inputs, four root outputs, and 21 Process-local INT connections, the supported mapping is one uncredited Process, ten root/Process routes, depth two, nine non-root nodes, and 31 raw PortConnection declarations.",
+          "requested_change": "Select architecture_node_count 9, generated_support_usage_count 1, generated_support_route_count 10, source_port_connection_declaration_count 31, and containment depth 2; tag all support elements and preserve PART-01..08, INT-01..21, and the semantic 8/21/20/7 tuple unchanged."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Current GUMBO repair evidence reports GclResolver feature-redeclaration failures when enum classifiers are reused across Data attributes. TYPE-08 repeats ChargeSessionState and CTRL-04 repeats session/disposition classifiers across records; retained accepted sources avoid this with field-specific enum classifiers.",
+          "requested_change": "Revise only TYPE-08/CTRL-04 representation to distinct snapshot-pre, snapshot-next, pilot-session, snapshot-disposition, and pilot-disposition enum classifiers with extensionally identical literals; keep fields as attributes and give all one-to-one projection clauses zero owner, semantic, or case credit."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "Literal enumeration of BEH-STATUS-01 leaves 108 of 1,620 structural inputs undefined when assessment is LOW/ADEQUATE, disposition is RECOVERY_APPLIED, and reason is NONE/CANCELLED; PilotAdvisory has no corresponding recovery value for those reasons.",
+          "requested_change": "Clarify PRI-03 and CASE-20 so only the three explicit recovery reasons take the recovery branch and NONE/CANCELLED fall through the existing remaining priorities; retain one CASE-20, check the producer invariant, enumerate all 1,620 inputs, and preserve all 720 end-to-end and scenario results."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit finds substantive local relations for all eight PARTs: 4-to-3 battery classification, 15-input contextual applicability, 4-to-3 charger classification, 27-to-7 state-dependent eligibility/recovery, 21-to-9 priority arbitration, 27 state/decision transitions, 15-to-4 notice classification, and multi-input advisory precedence. Readiness renaming, snapshot projections, and copied pilot-status fields are explicitly excluded from credit.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Retained well-formed sources demonstrate Data attributes, local state, initialization, compute cases, multi-output guarantees, In(state) pre-state publication, and the same state-broken feedback topology as INT-14. The current harness has a 180-second analyzer watchdog; retained analysis handles larger 3,240 end-to-end and 24,750 local products than the planned 720 and 1,620 products.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved after containment, field-classifier, CASE-20 totality, and exact case-anchor revisions.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Replaced unsupported safety wording with bounded disabled-permission initialization, refreshed source-bound Model and visualization evidence, and passed architecture/final typechecking plus bounded analysis.",
+      "canonical_source": "model/Battery_Evidence_Charge_Qualification_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated and re-exported a six-edge overview with generated support shown only as containment and routing.",
+      "correction_cycles": 1,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "CTRL-04",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "SCOPE-IN-01",
+        "TYPE-06",
+        "TYPE-08"
+      ],
+      "reviewed_tagged_element_count": 99,
+      "reviewed_trace_association_count": 99,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and visualization pass without silent drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 7
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "batteryEvidenceQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "batteryCapacity",
+            "batteryCheck"
+          ],
+          "owner_local_facts": [
+            "batteryAssessment"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03"
+          ],
+          "analyzer_checks": [
+            "battery-owner-partition"
+          ]
+        },
+        {
+          "usage": "chargeContextQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "batteryAssessment",
+            "lifecycleContext"
+          ],
+          "owner_local_facts": [
+            "chargeContextQualification",
+            "batteryReadinessAdvice"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08",
+            "CASE-09"
+          ],
+          "analyzer_checks": [
+            "context-owner-partition"
+          ]
+        },
+        {
+          "usage": "chargerPathQualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "chargerConnection",
+            "chargeActivity"
+          ],
+          "owner_local_facts": [
+            "chargerPathQualification"
+          ],
+          "contract_cases": [
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "charger-owner-partition"
+          ]
+        },
+        {
+          "usage": "chargeEligibilityRecoveryOwner",
+          "claimed_roles": [
+            "proposal",
+            "decision"
+          ],
+          "assigned_inputs": [
+            "chargeContextQualification",
+            "chargerPathQualification",
+            "currentChargeSession"
+          ],
+          "owner_local_facts": [
+            "chargeEligibilityEnvelope"
+          ],
+          "contract_cases": [
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13"
+          ],
+          "analyzer_checks": [
+            "eligibility-owner-partition"
+          ]
+        },
+        {
+          "usage": "chargeIntentArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "chargeRequest",
+            "chargeEligibilityEnvelope"
+          ],
+          "owner_local_facts": [
+            "chargeDecision"
+          ],
+          "contract_cases": [
+            "CASE-14",
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "arbiter-priority-partition"
+          ]
+        },
+        {
+          "usage": "chargeSessionController",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "chargeDecision",
+            "committedChargeSession"
+          ],
+          "owner_local_facts": [
+            "nextChargeSession",
+            "chargePermission",
+            "chargeSessionSnapshot"
+          ],
+          "contract_cases": [
+            "CASE-17",
+            "CASE-18"
+          ],
+          "analyzer_checks": [
+            "session-owner-partition",
+            "recovery-reason-invariant"
+          ]
+        },
+        {
+          "usage": "flightControlBatteryNoticePolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "batteryAssessment",
+            "lifecycleContext"
+          ],
+          "owner_local_facts": [
+            "flightControlBatteryNotice"
+          ],
+          "contract_cases": [
+            "CASE-19"
+          ],
+          "analyzer_checks": [
+            "notice-owner-totality"
+          ]
+        },
+        {
+          "usage": "pilotBatteryStatusPolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "batteryAssessment",
+            "chargerPathQualification",
+            "chargeSessionSnapshot"
+          ],
+          "owner_local_facts": [
+            "pilotAdvisory"
+          ],
+          "contract_cases": [
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "status-owner-totality",
+            "status-fallthrough-totality"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and visualization pass without silent drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

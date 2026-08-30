@@ -1,0 +1,363 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132656Z-hvac-supervisor-small-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Cabin_Air_Care_Supervisor.sysml",
+  "source_sha256": "9204d58f7d5658dbb797c8506a2b3278a503e909c93d15825e29605422e92149",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 13,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 116,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CC-01",
+      "CC-02",
+      "CC-03",
+      "CC-04",
+      "CC-05",
+      "CC-06",
+      "CC-07",
+      "CC-08",
+      "CC-09",
+      "CC-10",
+      "CC-11",
+      "CC-12",
+      "CTRL-01",
+      "CTRL-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "STATE-01"
+    ],
+    "relativePath": "cps48/runs/20260814T132656Z-hvac-supervisor-small-r2-a1/system-abstract.md",
+    "taggedElementCount": 80,
+    "traceAssociationCount": 80,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a five-owner cabin air-quality and humidity supervisor with 14 typed interactions, 12 total cases, six scenarios, one policy owner, and clean-confirmation recovery.",
+      "questions_for_model": [
+        "Can PART-04 own and contract the ConfidenceMode pre/post-state transition locally for the invalid-confirming-trusted sequence without PART-05 or the analyzer recomputing raw validity history?",
+        "Can CC-08 through CC-12 form a total ordered PART-05 contract partition, including the defensive Trusted-plus-Unknown combinations, while preserving every exact directive/status pair?",
+        "Can one root, one behavior-free Process, and five semantic Threads realize exactly 14 semantic interactions as 22 raw port connections while all 16 boundary delegations remain explicitly uncredited generated support?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "cabin air-quality and humidity supervision",
+        "closest_baseline": "visibility-priority whole-cabin HVAC control",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system excludes temperature, glazing, defrost, heating/cooling, electrical eligibility, energy restriction, and whole-cabin service arbitration; it instead qualifies air-quality and humidity observations through a dedicated confidence-state owner and makes one air-treatment decision using humidity-over-filtration priority plus clean-confirmation recovery."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "All five owners are nonidentity, all three realizability questions are resolved, and the exact 5/14/12/6 allocation can proceed unchanged.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01 has output fibers 2/1/1 over four preference/value-validity pairs; PART-02 has fibers 2/1/1 over four air/value-validity pairs; PART-03 has fibers 3/1/1/1 over six humidity/value-validity pairs. Each combines independent validity with a domain value and is not extensionally a one-to-one enum or code rename.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-04 maps 24 assessment/pre-state valuations with unknown-input collapse and a state-dependent Confirming versus Trusted distinction; PART-05 maps 108 intent/assessment/confidence valuations through preference, fault, recovery, inconsistency, humidity, and air-quality priority to atomic directive/status pairs. Neither owner preserves, bundles, reroutes, or renames assigned inputs.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted Isolette forms and a fresh current Sireum check support Thread-local state, initialize, compute_cases, In(pre-state), typed DataPort/PortConnection flows, and System-to-Process-to-Thread containment; the check exited 0 with Well-formed against library revision 9016cbcceefa92f0068e1811923704dd261d15f1.",
+          "requested_change": "No Designer allocation change; generate PART-04 with one local confidence state, use In(confidenceMode) in CC-06/CC-07, and constrain confidence output plus post-state locally in CC-05..CC-07 without downstream history reconstruction."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Eight boundary interactions each require two behavior-free delegation declarations and six internal interactions each require one sibling-Thread declaration, giving exactly 16 + 6 = 22 raw PortConnection declarations, one support Process, five semantic Threads, physical depth two, six non-root usages, and fourteen semantic interactions.",
+          "requested_change": "No Designer allocation change; mark the Process and sixteen boundary delegations generated-support, give them no owner or semantic credit, and preserve all PART-01..PART-05 and INT-01..INT-14 identities."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The analyzer can directly enumerate owner-local spaces of 4, 4, 6, 24, and 108 valuations plus exactly 192 composed boundary/pre-state snapshots and six short scenario families. The selected trace paths are closed, and the non-executable/physical claim boundary remains explicit.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings accepted as compatible with the unchanged 5/14/12/6 baseline; generation authorized.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized JSON protocol-only repair: normalized assessor and confidence-guardian ownership roles to campaign-v1 applicability in metrics and the retained analyzer; reran the ownership validator, bounded analyzer, independent SysML typecheck, and cross-artifact consistency checks with source semantics, small counts, trace associations, and contracts unchanged. Context expanded only to the harness validator and generation prompt because the listed repair context did not define the allowed campaign-v1 role vocabulary.",
+      "canonical_source": "model/Cabin_Air_Care_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": [
+        "Normalize unsupported ownership-audit claimed_roles to campaign-v1 applicability in metrics.json and validation/bounded-analysis.mjs"
+      ]
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated system overview accepted with readable canonical boundary labels, generated support shown as containment, and zero crossings or route-object collisions.",
+      "correction_cycles": 9,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CC-01",
+        "CC-02",
+        "CC-03",
+        "CC-04",
+        "CC-05",
+        "CC-06",
+        "CC-07",
+        "CC-08",
+        "CC-09",
+        "CC-10",
+        "CC-11",
+        "CC-12",
+        "CTRL-01",
+        "CTRL-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "STATE-01"
+      ],
+      "reviewed_tagged_element_count": 80,
+      "reviewed_trace_association_count": 80,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and rendered artifact are fit; the non-executable profile remains not-run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 14,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 6
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "preferenceInterpreter",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "preferenceInterpreter.airCarePreference",
+            "preferenceInterpreter.preferenceValidity"
+          ],
+          "owner_local_facts": [
+            "airCareIntent"
+          ],
+          "contract_cases": [
+            "CC-01",
+            "CC-02"
+          ],
+          "analyzer_checks": [
+            "preference applicability partition 4"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "airQualityAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "airQualityAssessor.cabinAirQuality",
+            "airQualityAssessor.airQualityValidity"
+          ],
+          "owner_local_facts": [
+            "airAssessment"
+          ],
+          "contract_cases": [
+            "CC-03"
+          ],
+          "analyzer_checks": [
+            "air assessment partition 4"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "humidityAssessor",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "humidityAssessor.cabinHumidityBand",
+            "humidityAssessor.humidityValidity"
+          ],
+          "owner_local_facts": [
+            "humidityAssessment"
+          ],
+          "contract_cases": [
+            "CC-04"
+          ],
+          "analyzer_checks": [
+            "humidity assessment partition 6"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "observationConfidenceGuardian",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "observationConfidenceGuardian.airAssessment",
+            "observationConfidenceGuardian.humidityAssessment",
+            "observationConfidenceGuardian.confidenceMode.pre"
+          ],
+          "owner_local_facts": [
+            "measurementConfidence",
+            "confidenceMode.next"
+          ],
+          "contract_cases": [
+            "CC-05",
+            "CC-06",
+            "CC-07"
+          ],
+          "analyzer_checks": [
+            "confidence transition partition 24"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "airCarePolicySupervisor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "airCarePolicySupervisor.airCareIntent",
+            "airCarePolicySupervisor.airAssessment",
+            "airCarePolicySupervisor.humidityAssessment",
+            "airCarePolicySupervisor.measurementConfidence"
+          ],
+          "owner_local_facts": [
+            "airTreatmentDirective",
+            "airCareStatus"
+          ],
+          "contract_cases": [
+            "CC-08",
+            "CC-09",
+            "CC-10",
+            "CC-11",
+            "CC-12"
+          ],
+          "analyzer_checks": [
+            "principal policy partition 108"
+          ],
+          "passed": true
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and rendered artifact are fit; the non-executable profile remains not-run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

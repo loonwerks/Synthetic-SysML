@@ -1,0 +1,1731 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "636d1a08dbe9bfd0a2a831901c1107194cf018ef435e780b8f0e2a42c75fce37",
+  "claim_boundary": "Finite logical relation checking over the declared root-input and prior-state domains only; not compositional proof, solver certification, generated-code correctness, execution evidence, physical performance, or safety certification.",
+  "partition_counts": {
+    "root_input_snapshots": 9600,
+    "prior_state_tuples": 504,
+    "exhaustive_one_step_evaluations": 4838400,
+    "contract_cases_reached": 28,
+    "scenario_families_executed": 11
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "state_mismatches": 0,
+    "required_output_mismatches": 0,
+    "interaction_value_mismatches": 0,
+    "priority_violations": 0,
+    "composition_violations": 0,
+    "fault_propagation_violations": 0,
+    "invariant_violations": 0
+  },
+  "invariant_checks": {
+    "consistent_prior_preserves_idle_clear_evidence": true,
+    "all_35_semantic_interactions_composed": true,
+    "all_28_cases_witnessed": true,
+    "all_11_scenarios_traced": true
+  },
+  "missing_case_ids": [],
+  "missing_interaction_ids": [],
+  "checks": {
+    "exact_domain_exhausted": true,
+    "reference_pipeline_equivalent": true,
+    "semantic_connection_map_complete": true,
+    "priority_passed": true,
+    "fault_propagation_passed": true,
+    "recovery_sequences_passed": true,
+    "composition_passed": true,
+    "scenario_evidence_complete": true,
+    "ownership_cases_executed": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "request_admission",
+      "assigned_inputs": [
+        "request_facts",
+        "dock_facts",
+        "prior_session_view",
+        "coordination_guard",
+        "In(requestLedger)"
+      ],
+      "owner_local_facts": [
+        "request disposition and next ledger"
+      ],
+      "contract_cases": [
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "exhaustive request admission partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "evidence_coherence",
+      "assigned_inputs": [
+        "ship_report_facts",
+        "warehouse_report_facts",
+        "control_event",
+        "prior_recovery_state",
+        "prior_session_view",
+        "prior_ship_evidence",
+        "prior_warehouse_evidence"
+      ],
+      "owner_local_facts": [
+        "fault trigger, recovery intent, qualified progress, and priority directive"
+      ],
+      "contract_cases": [
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24"
+      ],
+      "analyzer_checks": [
+        "exhaustive coherence and fault partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "transfer_session",
+      "assigned_inputs": [
+        "admission_decision",
+        "coordination_frame",
+        "In(sessionState)"
+      ],
+      "owner_local_facts": [
+        "next session phase and prior active-session view"
+      ],
+      "contract_cases": [
+        "CASE-25"
+      ],
+      "analyzer_checks": [
+        "exhaustive session transition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "ship_evidence_lifecycle",
+      "assigned_inputs": [
+        "ship_update",
+        "admission_decision",
+        "In(shipEvidenceState)"
+      ],
+      "owner_local_facts": [
+        "next ship evidence stage"
+      ],
+      "contract_cases": [
+        "CASE-25"
+      ],
+      "analyzer_checks": [
+        "exhaustive ship evidence transition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "warehouse_evidence_lifecycle",
+      "assigned_inputs": [
+        "warehouse_update",
+        "admission_decision",
+        "In(warehouseEvidenceState)"
+      ],
+      "owner_local_facts": [
+        "next warehouse evidence stage"
+      ],
+      "contract_cases": [
+        "CASE-25"
+      ],
+      "analyzer_checks": [
+        "exhaustive warehouse evidence transition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recovery_supervisor",
+      "assigned_inputs": [
+        "recovery_transition",
+        "In(recoveryState)"
+      ],
+      "owner_local_facts": [
+        "next recovery state"
+      ],
+      "contract_cases": [
+        "CASE-22"
+      ],
+      "analyzer_checks": [
+        "exhaustive recovery transition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "request_action_eligibility",
+      "assigned_inputs": [
+        "admission_decision"
+      ],
+      "owner_local_facts": [
+        "correlated start or cancellation proposal"
+      ],
+      "contract_cases": [
+        "CASE-26"
+      ],
+      "analyzer_checks": [
+        "request proposal ownership check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "ship_progress_eligibility",
+      "assigned_inputs": [
+        "prior_session_view",
+        "prior_ship_evidence"
+      ],
+      "owner_local_facts": [
+        "phase-consistent ship continuation proposal"
+      ],
+      "contract_cases": [
+        "CASE-26"
+      ],
+      "analyzer_checks": [
+        "ship proposal ownership check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "warehouse_verification_eligibility",
+      "assigned_inputs": [
+        "prior_session_view",
+        "prior_ship_evidence",
+        "prior_warehouse_evidence"
+      ],
+      "owner_local_facts": [
+        "phase-consistent warehouse verification proposal"
+      ],
+      "contract_cases": [
+        "CASE-26"
+      ],
+      "analyzer_checks": [
+        "warehouse proposal ownership check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "transfer_action_arbitration",
+      "assigned_inputs": [
+        "priority_directive",
+        "request_proposal",
+        "ship_proposal",
+        "warehouse_proposal"
+      ],
+      "owner_local_facts": [
+        "single strict-priority transfer decision"
+      ],
+      "contract_cases": [
+        "CASE-27"
+      ],
+      "analyzer_checks": [
+        "strict priority conflict check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "result_composition",
+      "assigned_inputs": [
+        "transfer_decision",
+        "request_disposition"
+      ],
+      "owner_local_facts": [
+        "atomic public mode, disposition, correlation, and outcome"
+      ],
+      "contract_cases": [
+        "CASE-28"
+      ],
+      "analyzer_checks": [
+        "atomic composition check"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "expected_named_branch": "nominal start, ship progress, warehouse completion",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-15/CASE-27 new transfer",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "ACCEPTED_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-23 ship accepted",
+          "observed_result": {
+            "action": "CONTINUE_TRANSFER",
+            "cause": "SHIP_PROGRESS",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "TRANSFERRING_A",
+            "shipEvidence": "ACKNOWLEDGED",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "MOVING_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "TRANSFERRING_A",
+            "shipEvidence": "ACKNOWLEDGED",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-23 ship moving",
+          "observed_result": {
+            "action": "CONTINUE_TRANSFER",
+            "cause": "SHIP_PROGRESS",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "TRANSFERRING_A",
+            "shipEvidence": "MOVING",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "COMPLETE_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "TRANSFERRING_A",
+            "shipEvidence": "MOVING",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-23 ship complete",
+          "observed_result": {
+            "action": "CONTINUE_TRANSFER",
+            "cause": "SHIP_PROGRESS",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_WAREHOUSE_A",
+            "shipEvidence": "COMPLETE",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "PENDING_A",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_WAREHOUSE_A",
+            "shipEvidence": "COMPLETE",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-24 warehouse pending",
+          "observed_result": {
+            "action": "REQUEST_WAREHOUSE_VERIFY",
+            "cause": "WAREHOUSE_CONFIRMATION",
+            "mode": "VERIFYING_WAREHOUSE",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_WAREHOUSE_A",
+            "shipEvidence": "COMPLETE",
+            "warehouseEvidence": "PENDING",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "STORED_A",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_WAREHOUSE_A",
+            "shipEvidence": "COMPLETE",
+            "warehouseEvidence": "PENDING",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-24/CASE-27 completion",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "WAREHOUSE_CONFIRMATION",
+            "mode": "HOLDING",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "COMPLETED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "expected_named_branch": "dock-readiness rejection partitions",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "INVALID",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-17 invalid dock rejection",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "NO_ELIGIBLE_ACTION",
+            "mode": "HOLDING",
+            "correlation": "NONE",
+            "requestDisposition": "REJECTED",
+            "outcome": "NONE"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "IN_GRID",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-17 in-grid rejection",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "NO_ELIGIBLE_ACTION",
+            "mode": "HOLDING",
+            "correlation": "NONE",
+            "requestDisposition": "REJECTED",
+            "outcome": "NONE"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "ON_WARP",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-17 on-warp rejection",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "NO_ELIGIBLE_ACTION",
+            "mode": "HOLDING",
+            "correlation": "NONE",
+            "requestDisposition": "REJECTED",
+            "outcome": "NONE"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_WITHHELD",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-17 permission-withheld rejection",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "NO_ELIGIBLE_ACTION",
+            "mode": "HOLDING",
+            "correlation": "NONE",
+            "requestDisposition": "REJECTED",
+            "outcome": "NONE"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "expected_named_branch": "duplicate, busy defer, alternate freshness",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-15 accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-16 duplicate A",
+          "observed_result": {
+            "action": "CONTINUE_TRANSFER",
+            "cause": "SHIP_PROGRESS",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "DUPLICATE",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_B",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-18 busy B defer",
+          "observed_result": {
+            "action": "CONTINUE_TRANSFER",
+            "cause": "SHIP_PROGRESS",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "DEFERRED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "CANCEL_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-19 cancel A",
+          "observed_result": {
+            "action": "CANCEL_TRANSFER",
+            "cause": "CANCEL_REQUEST",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "CANCEL_ACCEPTED",
+            "outcome": "CANCELLED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_B",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-15 alternate B accepted",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "B",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "B_LAST",
+            "session": "AWAIT_SHIP_B",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "expected_named_branch": "matching cancellation dominates nonterminal progress",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "CANCEL_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "ACCEPTED_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-27 cancellation over ship progress",
+          "observed_result": {
+            "action": "CANCEL_TRANSFER",
+            "cause": "CANCEL_REQUEST",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "CANCEL_ACCEPTED",
+            "outcome": "CANCELLED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "expected_named_branch": "emergency same-evaluation propagation",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "EMERGENCY_STOP"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-21 emergency fault",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "NONE",
+            "requestDisposition": "DEFERRED",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "expected_named_branch": "ship failure latch-freeze-hold",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "FAILED_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-21 failed ship evidence",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "expected_named_branch": "warehouse rejection latch-freeze-hold",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "COMPLETE_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "ship complete",
+          "observed_result": {
+            "action": "CONTINUE_TRANSFER",
+            "cause": "SHIP_PROGRESS",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_WAREHOUSE_A",
+            "shipEvidence": "COMPLETE",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "REJECTED_A",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_WAREHOUSE_A",
+            "shipEvidence": "COMPLETE",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-21 rejected warehouse evidence",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_WAREHOUSE_A",
+            "shipEvidence": "COMPLETE",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-08",
+      "expected_named_branch": "correlation, phase, and simultaneous-report faults",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "MOVING_B",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "wrong token fault",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "COMPLETE_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "ship completion in idle fault",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "NONE",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "PENDING_A",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "warehouse evidence before phase fault",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "ACCEPTED_A",
+            "warehouseReport": "PENDING_A",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "simultaneous reports fault",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-09",
+      "expected_named_branch": "incomplete and out-of-order recovery controls remain inhibited",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "VERIFY_OK"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          },
+          "expected_named_branch": "CASE-22 early verify",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "NONE",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "RESET"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-22 reset while healthy",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "NONE",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          },
+          "expected_named_branch": "CASE-22 no control while latched",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "NONE",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-10",
+      "expected_named_branch": "fault, later reset, later verify, separate resume",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "INVALID",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "fault latch",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "RESET"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          },
+          "expected_named_branch": "CASE-22 begin recovery",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "RECOVERING"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "VERIFY_OK"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "RECOVERING"
+          },
+          "expected_named_branch": "CASE-22 open recovery",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "ACCEPTED_A",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "CASE-23 post-recovery resume",
+          "observed_result": {
+            "action": "CONTINUE_TRANSFER",
+            "cause": "SHIP_PROGRESS",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "TRANSFERRING_A",
+            "shipEvidence": "ACKNOWLEDGED",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-11",
+      "expected_named_branch": "requests during recovery defer and alternate resubmission later accepts",
+      "trace": [
+        {
+          "input": {
+            "transferRequest": "START_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "NO_HISTORY",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "accepted A",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "NONE",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "INVALID",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "fault latch",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "NO_REQUEST",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_B",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "RESET"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "LATCHED"
+          },
+          "expected_named_branch": "CASE-18 request during reset deferred",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "DEFERRED",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "RECOVERING"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_B",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "VERIFY_OK"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "RECOVERING"
+          },
+          "expected_named_branch": "CASE-18 request during verify deferred",
+          "observed_result": {
+            "action": "HOLD",
+            "cause": "FAULT_OR_RECOVERY",
+            "mode": "FAULT",
+            "correlation": "A",
+            "requestDisposition": "DEFERRED",
+            "outcome": "RECOVERY_REQUIRED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "CANCEL_A",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "AWAIT_SHIP_A",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "cancel frozen A after recovery",
+          "observed_result": {
+            "action": "CANCEL_TRANSFER",
+            "cause": "CANCEL_REQUEST",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "A",
+            "requestDisposition": "CANCEL_ACCEPTED",
+            "outcome": "CANCELLED"
+          },
+          "observed_next_state": {
+            "requestLedger": "A_LAST",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        },
+        {
+          "input": {
+            "transferRequest": "START_B",
+            "dockContext": "DOCKED_READY",
+            "shipReport": "NONE",
+            "warehouseReport": "NONE",
+            "controlEvent": "NONE"
+          },
+          "prior_state": {
+            "requestLedger": "A_LAST",
+            "session": "IDLE",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          },
+          "expected_named_branch": "alternate B resubmission accepted",
+          "observed_result": {
+            "action": "BEGIN_TRANSFER",
+            "cause": "NEW_TRANSFER",
+            "mode": "COMMANDING_SHIP",
+            "correlation": "B",
+            "requestDisposition": "ACCEPTED",
+            "outcome": "ACTIVE"
+          },
+          "observed_next_state": {
+            "requestLedger": "B_LAST",
+            "session": "AWAIT_SHIP_B",
+            "shipEvidence": "CLEAR",
+            "warehouseEvidence": "CLEAR",
+            "recovery": "HEALTHY"
+          }
+        }
+      ]
+    }
+  ]
+}

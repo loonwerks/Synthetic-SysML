@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "task": "isolette-rust-verus-projection",
+  "decision": "pass",
+  "fail_closed": true,
+  "network_used": false,
+  "placeholder_sel4_packages_used": false,
+  "canonical_source": {
+    "path": "runs/20260817T021418Z-faa-isolette-appendix-a/model/Isolette_Thermostat.sysml",
+    "sha256": "fcde62c3e4a2a466b35740378aff3c3f14f82de195809e39cabaa55ab8d344d0",
+    "shared_current_temperature_sample": true,
+    "current_temperature_tenths_f": [680, 1050],
+    "display_temperature_f": [68, 105]
+  },
+  "model": {
+    "path": "rust/model/Isolette_Thermostat_Rust.sysml",
+    "well_formed": true,
+    "sha256": "00ca2630f753e4d0c946e8c7f560c0dbbdee37ebcd8b0d7c1432a1931d3d411b",
+    "process_count": 8,
+    "thread_count": 8
+  },
+  "generation": {
+    "platform": "Microkit",
+    "exit_code": 0,
+    "unchanged_model_hash_preserved": true,
+    "all_application_hashes_preserved": true,
+    "invalid_as_instance_of_tokens": 0,
+    "generated_files_hand_edited": false
+  },
+  "verification": {
+    "tool": "cargo-verus",
+    "offline": true,
+    "cargo_git_cache": "CARGO_HOME/git",
+    "invocation_config": "profile.dev.panic=\"abort\"",
+    "application_crates_total": 8,
+    "application_crates_passed": 8,
+    "application_crates_failed": 0,
+    "application_obligations_verified": 78,
+    "application_obligation_errors": 0,
+    "post_regeneration_rerun": true
+  },
+  "trusted_boundaries": [
+    "generated C and FFI bodies",
+    "ghost-to-external-port API assumptions",
+    "logging bodies",
+    "runtime GUMBOX helper bodies",
+    "seL4 kernel and deployment platform"
+  ],
+  "deferred_claims": [
+    "physical timing and deadline satisfaction",
+    "WCET and scheduler analysis",
+    "sensor and plant behavior",
+    "fault and reliability probabilities"
+  ],
+  "evidence": {
+    "verification_report": "rust/proof/verification.md",
+    "contract_audit": "rust/contract-source-audit.md",
+    "application_report": "rust/application-report.md",
+    "final_proof_log_glob": "rust/proof/final-*.log",
+    "final_codegen_log": "rust/proof/codegen-unchanged-regeneration.log"
+  }
+}

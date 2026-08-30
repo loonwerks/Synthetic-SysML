@@ -1,0 +1,95 @@
+{
+  "status": "passed",
+  "summary": "All eight Rust behavior owners are implemented and passed offline Verus verification before and after unchanged repaired-model HAMR Microkit regeneration. Final owner total: 78 verified, 0 errors; regeneration preserved all eight application files byte-for-byte.",
+  "offline": {
+    "network_enabled": false,
+    "cargo_net_offline": true,
+    "command_per_crate": "CARGO_NET_OFFLINE=true make verus"
+  },
+  "accepted_contract_rebase": {
+    "status": "passed",
+    "scope": "all 20 CASE definitions, including repaired CMD, REF, and AP contracts",
+    "canonical_source": "runs/20260817T021406Z-faa-flight-stack-appendices-b-c-d/model/flight_stack.sysml",
+    "canonical_source_sha256": "21424fafbfd58b33998929b314423608434264eee9b94f2327f51b06074ba657",
+    "projected_source": "rust/model/flight_stack_rust.sysml",
+    "projected_source_sha256": "2e5a607eb917bd9345eff9417ab09b6486ca7a6e532e89ae7923711b2c872923",
+    "canonical_gumbo_sha256": "14e62f277854641ea1e997fadf4e6763a7c3805ad61c3fac40bf2dcf8a5214c2",
+    "projected_gumbo_sha256": "14e62f277854641ea1e997fadf4e6763a7c3805ad61c3fac40bf2dcf8a5214c2",
+    "typechecks_passed": true,
+    "evidence": [
+      "rust/proof/accepted-source-tipe.final.log",
+      "rust/proof/projected-source-tipe.final.log",
+      "rust/proof/codegen-accepted-final.log"
+    ]
+  },
+  "components": [
+    {"owner": "PART-FCS-01", "crate": "crewCommandQualifier_behavior", "implemented": true, "state": [], "verified": 9, "errors": 0},
+    {"owner": "PART-FCS-02", "crate": "attitudeSafetyQualifier_behavior", "implemented": true, "state": [], "verified": 8, "errors": 0},
+    {"owner": "PART-FGS-01", "crate": "referenceManager_behavior", "implemented": true, "state": ["referenceRoll", "referencePitch", "referenceValid", "fdState"], "verified": 11, "errors": 0},
+    {"owner": "PART-FGS-02", "crate": "fdGuidanceHealthGenerator_behavior", "implemented": true, "state": [], "verified": 10, "errors": 0},
+    {"owner": "PART-FGS-03", "crate": "apGuidanceGenerator_behavior", "implemented": true, "state": [], "verified": 9, "errors": 0},
+    {"owner": "PART-APS-01", "crate": "apEngagementManager_behavior", "implemented": true, "state": ["apMode"], "verified": 13, "errors": 0},
+    {"owner": "PART-APS-02", "crate": "actuatorRateProposer_behavior", "implemented": true, "state": [], "verified": 9, "errors": 0},
+    {"owner": "PART-APS-03", "crate": "actuatorSafetyGate_behavior", "implemented": true, "state": [], "verified": 9, "errors": 0}
+  ],
+  "case_mappings": [
+    {"case": "CASE-CMD-01", "owner": "PART-FCS-01", "crate": "crewCommandQualifier_behavior"},
+    {"case": "CASE-CMD-02", "owner": "PART-FCS-01", "crate": "crewCommandQualifier_behavior"},
+    {"case": "CASE-ATT-01", "owner": "PART-FCS-02", "crate": "attitudeSafetyQualifier_behavior"},
+    {"case": "CASE-ATT-02", "owner": "PART-FCS-02", "crate": "attitudeSafetyQualifier_behavior"},
+    {"case": "CASE-REF-01", "owner": "PART-FGS-01", "crate": "referenceManager_behavior"},
+    {"case": "CASE-REF-02", "owner": "PART-FGS-01", "crate": "referenceManager_behavior"},
+    {"case": "CASE-REF-03", "owner": "PART-FGS-01", "crate": "referenceManager_behavior"},
+    {"case": "CASE-FD-01", "owner": "PART-FGS-02", "crate": "fdGuidanceHealthGenerator_behavior"},
+    {"case": "CASE-FD-02", "owner": "PART-FGS-02", "crate": "fdGuidanceHealthGenerator_behavior"},
+    {"case": "CASE-APG-01", "owner": "PART-FGS-03", "crate": "apGuidanceGenerator_behavior"},
+    {"case": "CASE-APG-02", "owner": "PART-FGS-03", "crate": "apGuidanceGenerator_behavior"},
+    {"case": "CASE-AP-01", "owner": "PART-APS-01", "crate": "apEngagementManager_behavior"},
+    {"case": "CASE-AP-02", "owner": "PART-APS-01", "crate": "apEngagementManager_behavior"},
+    {"case": "CASE-AP-03", "owner": "PART-APS-01", "crate": "apEngagementManager_behavior"},
+    {"case": "CASE-AP-04", "owner": "PART-APS-01", "crate": "apEngagementManager_behavior"},
+    {"case": "CASE-AP-05", "owner": "PART-APS-01", "crate": "apEngagementManager_behavior"},
+    {"case": "CASE-AP-06", "owner": "PART-APS-01", "crate": "apEngagementManager_behavior"},
+    {"case": "CASE-PROP-01", "owner": "PART-APS-02", "crate": "actuatorRateProposer_behavior"},
+    {"case": "CASE-GATE-01", "owner": "PART-APS-03", "crate": "actuatorSafetyGate_behavior"},
+    {"case": "CASE-GATE-02", "owner": "PART-APS-03", "crate": "actuatorSafetyGate_behavior"}
+  ],
+  "application_audit": {
+    "application_crates": 8,
+    "application_files": 8,
+    "placeholder_files": 0,
+    "requires_clauses": 0,
+    "assume_or_admit_statements": 0,
+    "distinct_case_spec_mappings": 20,
+    "generated_files_hand_edited": 0
+  },
+  "regeneration": {
+    "status": "passed",
+    "exit_code": 0,
+    "application_files_compared": 8,
+    "byte_differences": 0,
+    "hash_manifest_sha256": "263074211986f9c56f69b8fb137c59fdb355acc13b0f3a748c91d5bec822dc73",
+    "log": "rust/proof/regeneration-accepted-final.log",
+    "preservation": "rust/proof/application-hashes.accepted.after-regeneration.txt"
+  },
+  "final_verification": {
+    "status": "passed",
+    "owner_verified": 78,
+    "owner_errors": 0,
+    "crate_exit_failures": 0,
+    "repeated_generated_data_verified": 304,
+    "aggregate_reported_verified": 382,
+    "aggregate_reported_errors": 0,
+    "log": "rust/proof/verus-accepted-final-pass2/aggregate.log",
+    "log_sha256": "825c70d6d11dc1b923f2a23f7352e3257ccdda8d1512d0b9dfe25158880ccc9d"
+  },
+  "proof_exclusions": [
+    "HAMR Microkit did not lower the five datatype invariants for AircraftAttitude, PairedFdGuidance, PairedApStatus, ActuatorCommand, and ProposedActuatorRates; they are not included in the Verus proof claim."
+  ],
+  "forbidden_outputs": {
+    "rust_manifest_json": 0,
+    "rust_run_summary_md": 0,
+    "scala_jvm_slang_application_outputs": 0
+  },
+  "blockers": []
+}

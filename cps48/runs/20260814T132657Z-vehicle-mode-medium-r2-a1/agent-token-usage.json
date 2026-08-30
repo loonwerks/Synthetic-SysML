@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "run_id": "20260814T132657Z-vehicle-mode-medium-r2-a1",
+  "recorded_at": "2026-08-14T15:18:02Z",
+  "scope": "Usage reported by the run's stateless Codex stage invocations.",
+  "cache_semantics": "Cache attribution applies to input only; reasoning output is a subset of output.",
+  "agents": [
+    {
+      "role": "designer",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "designer-initial",
+        "designer-resolution",
+        "designer-final"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 3261824,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 255790,
+          "output": 60460
+        },
+        "totals": {
+          "input": 3517614,
+          "output": 60460,
+          "overall": 3578074
+        }
+      },
+      "reasoning_output_tokens": 16981,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 1431.565
+    },
+    {
+      "role": "model",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "model-review",
+        "model-generate",
+        "model-generate@retry-1"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 18063104,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 540442,
+          "output": 92853
+        },
+        "totals": {
+          "input": 18603546,
+          "output": 92853,
+          "overall": 18696399
+        }
+      },
+      "reasoning_output_tokens": 31072,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 2882.634
+    },
+    {
+      "role": "visualization",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "visualize"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 8241920,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 463238,
+          "output": 31543
+        },
+        "totals": {
+          "input": 8705158,
+          "output": 31543,
+          "overall": 8736701
+        }
+      },
+      "reasoning_output_tokens": 11034,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 900.067
+    }
+  ],
+  "aggregate": {
+    "agent_count": 3,
+    "token_matrix": {
+      "cached": {
+        "input": 29566848,
+        "output": 0
+      },
+      "non_cached": {
+        "input": 1259470,
+        "output": 184856
+      },
+      "totals": {
+        "input": 30826318,
+        "output": 184856,
+        "overall": 31011174
+      }
+    },
+    "reasoning_output_tokens": 59087,
+    "cache_write_input_tokens": 0
+  },
+  "timing": {
+    "started_at": "2026-08-14T13:26:57Z",
+    "completed_at": "2026-08-14T15:18:02Z",
+    "run_elapsed_seconds": 6665.0,
+    "summed_agent_stage_seconds": 5214.266,
+    "stages": [
+      {
+        "stage": "designer-initial",
+        "role": "designer",
+        "completed_at": "2026-08-14T13:38:06Z",
+        "duration_seconds": 668.548
+      },
+      {
+        "stage": "model-review",
+        "role": "model",
+        "completed_at": "2026-08-14T13:44:09Z",
+        "duration_seconds": 363.763
+      },
+      {
+        "stage": "designer-resolution",
+        "role": "designer",
+        "completed_at": "2026-08-14T13:51:54Z",
+        "duration_seconds": 464.39
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-14T14:53:38Z",
+        "duration_seconds": 2320.387
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-14T14:57:52Z",
+        "duration_seconds": 198.484
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-14T15:13:03Z",
+        "duration_seconds": 900.067
+      },
+      {
+        "stage": "designer-final",
+        "role": "designer",
+        "completed_at": "2026-08-14T15:18:02Z",
+        "duration_seconds": 298.627
+      }
+    ],
+    "semantics": "run_elapsed_seconds is real elapsed time from run creation through acceptance; summed_agent_stage_seconds excludes harness-only checks and inter-stage gaps."
+  }
+}

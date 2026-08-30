@@ -1,0 +1,1192 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "93b4a01942241129e5345e9e7517009fb9b922e25641a9e78949b2fa9adce875",
+  "claim_boundary": "Exhaustive only over the approved finite one-evaluation domains and explicit scenario traces; no compositional proof, solver certification, generated-code correctness, execution, physical-performance, retreat-success, threat-defeat, or safety-certification claim is made.",
+  "semantic_connection_map": {
+    "INT-01": [
+      "root.threatObservation",
+      "threatEvidenceQualifier.threatObservation"
+    ],
+    "INT-02": [
+      "root.pilotDisposition",
+      "threatEpisodeTracker.pilotDisposition"
+    ],
+    "INT-03": [
+      "root.defenseSupport",
+      "defenseReadinessQualifier.defenseSupport"
+    ],
+    "INT-04": [
+      "root.egressRoute",
+      "egressReadinessQualifier.egressRoute"
+    ],
+    "INT-05": [
+      "root.egressProgress",
+      "responseStateController.egressProgress"
+    ],
+    "INT-06": [
+      "root.responseAuthorization",
+      "threatResponseArbiter.responseAuthorization"
+    ],
+    "INT-07": [
+      "threatEvidenceQualifier.evidenceAssessment",
+      "threatEpisodeTracker.evidenceAssessment"
+    ],
+    "INT-08": [
+      "threatEpisodeTracker.episodeSnapshot",
+      "threatReportPolicy.episodeSnapshot"
+    ],
+    "INT-09": [
+      "threatEvidenceQualifier.evidenceAssessment",
+      "defenseReadinessQualifier.evidenceAssessment"
+    ],
+    "INT-10": [
+      "defenseReadinessQualifier.defenseQualification",
+      "threatResponseArbiter.defenseQualification"
+    ],
+    "INT-11": [
+      "threatEvidenceQualifier.evidenceAssessment",
+      "egressReadinessQualifier.evidenceAssessment"
+    ],
+    "INT-12": [
+      "egressReadinessQualifier.egressQualification",
+      "threatResponseArbiter.egressQualification"
+    ],
+    "INT-13": [
+      "threatEpisodeTracker.episodeSnapshot",
+      "threatResponseArbiter.episodeSnapshot"
+    ],
+    "INT-14": [
+      "threatResponseArbiter.responseDirective",
+      "responseStateController.responseDirective"
+    ],
+    "INT-15": [
+      "responseStateController.responseSnapshot",
+      "responseStatusAssessor.responseSnapshot"
+    ],
+    "INT-16": [
+      "threatEpisodeTracker.episodeSnapshot",
+      "responseStatusAssessor.episodeSnapshot"
+    ],
+    "INT-17": [
+      "threatReportPolicy.threatReport",
+      "root.threatReport"
+    ],
+    "INT-18": [
+      "responseStateController.defenseCommand",
+      "root.defenseCommand"
+    ],
+    "INT-19": [
+      "responseStateController.egressCommand",
+      "root.egressCommand"
+    ],
+    "INT-20": [
+      "responseStatusAssessor.responseStatus",
+      "root.responseStatus"
+    ]
+  },
+  "partition_counts": {
+    "evidence": {
+      "combinations": 6,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-01": 3,
+        "CASE-02": 1,
+        "CASE-03": 2
+      }
+    },
+    "episode": {
+      "combinations": 48,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-04": 12,
+        "CASE-06": 12,
+        "CASE-05": 24
+      }
+    },
+    "defense": {
+      "combinations": 16,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-07": 12,
+        "CASE-08": 2,
+        "CASE-09": 1,
+        "CASE-10": 1
+      }
+    },
+    "egress": {
+      "combinations": 12,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-11": 9,
+        "CASE-12": 1,
+        "CASE-13": 1,
+        "CASE-14": 1
+      }
+    },
+    "report": {
+      "combinations": 192,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-15": 192
+      },
+      "branch_counts": {
+        "EVIDENCE_FAULT": 48,
+        "NO_REPORT": 33,
+        "WATCH": 33,
+        "HOSTILE_ALERT": 32,
+        "HOSTILE_ACKNOWLEDGED": 16,
+        "CLEAR_PENDING": 24,
+        "CLEAR_CONFIRMED": 6
+      }
+    },
+    "arbiter": {
+      "combinations": 9216,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-16": 5760,
+        "CASE-18": 1728,
+        "CASE-17": 1728
+      },
+      "branch_counts": {
+        "RESET": 2304,
+        "CONTAIN": 1728,
+        "MONITOR": 1296,
+        "HOLD_BLOCKED": 972,
+        "CANCEL_EGRESS": 1728,
+        "START_EGRESS": 432,
+        "DEFEND": 432,
+        "REQUEST_DEFEND": 324
+      }
+    },
+    "controller": {
+      "combinations": 140,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-19": 140
+      },
+      "branch_counts": {
+        "RESET": 20,
+        "IDLE_HOLD": 12,
+        "CANCEL": 18,
+        "IDLE_START": 4,
+        "IDLE_DEFEND": 4,
+        "ORDERED_NOT_STARTED": 5,
+        "ORDERED_EN_ROUTE": 5,
+        "ARRIVAL": 12,
+        "FAILURE": 10,
+        "MOVING_CONTINUE": 10,
+        "BLOCKED_HOLD": 16,
+        "BLOCKED_RETRY": 4,
+        "ARRIVED_HOLD": 20
+      }
+    },
+    "status": {
+      "combinations": 336000,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_counts": {
+        "CASE-20": 336000
+      },
+      "branch_counts": {
+        "EVIDENCE_UNAVAILABLE": 84000,
+        "QUIET": 6300,
+        "DEFENDING": 25200,
+        "EGRESS_ORDERED": 50400,
+        "EGRESS_MOVING": 50400,
+        "EGRESS_BLOCKED": 50400,
+        "ARRIVAL_OBSERVED": 50400,
+        "WATCHING": 6300,
+        "THREAT_DECLARED": 6300,
+        "CLEAR_PENDING": 6300
+      }
+    }
+  },
+  "reachability": {
+    "episode_snapshots": {
+      "structurally_valid": 192,
+      "producer_reachable": 48,
+      "structurally_valid_but_unreachable": 144
+    },
+    "response_snapshots": {
+      "structurally_valid": 1750,
+      "producer_reachable": 62,
+      "structurally_valid_but_unreachable": 1688
+    },
+    "status_snapshot_pairs": {
+      "structurally_valid": 336000,
+      "producer_reachable": 2976,
+      "structurally_valid_but_unreachable": 333024
+    }
+  },
+  "observations": {
+    "root_combinations": 51840,
+    "local_partition_gaps": 0,
+    "local_partition_overlaps": 0,
+    "local_relation_mismatches": 0,
+    "composed_local_fact_mismatches": 0,
+    "required_output_mismatches": 0,
+    "snapshot_preservation_mismatches": 0,
+    "invariant_violations": 0
+  },
+  "invariant_checks": {
+    "invalid_evidence_retention_violations": 0,
+    "egress_over_defense_conflict_violations": 0,
+    "blocked_retry_violations": 0,
+    "cancellation_arrival_violations": 0
+  },
+  "checks": {
+    "semantic-connection-map-exact": true,
+    "evidence-owner-partition": true,
+    "episode-owner-partition": true,
+    "clear-confirmation-recovery": true,
+    "report-owner-totality": true,
+    "report-precedence": true,
+    "defense-owner-partition": true,
+    "egress-owner-partition": true,
+    "arbiter-priority-partition": true,
+    "controller-owner-totality": true,
+    "status-owner-totality": true,
+    "status-precedence": true,
+    "root-domain-exhausted": true,
+    "composed-local-facts-match-reference": true,
+    "required-outputs-match-reference": true,
+    "snapshot-preservation": true,
+    "invalid-evidence-retention": true,
+    "egress-over-defense-conflict": true,
+    "fresh-retry-only": true,
+    "arrival-over-cancellation": true,
+    "scenario-transition-linkage": true,
+    "all-scenario-traces": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "threatEvidenceQualifier",
+      "assigned_inputs": [
+        "threatObservation.evidenceBand",
+        "threatObservation.validity"
+      ],
+      "owner_local_facts": [
+        "evidenceAssessment"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03"
+      ],
+      "analyzer_checks": [
+        "evidence-owner-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "threatEpisodeTracker",
+      "assigned_inputs": [
+        "evidenceAssessment",
+        "pilotDisposition",
+        "committedEpisode"
+      ],
+      "owner_local_facts": [
+        "nextThreatEpisode",
+        "episodeSnapshot"
+      ],
+      "contract_cases": [
+        "CASE-04",
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "episode-owner-partition",
+        "invalid-evidence-retention",
+        "clear-confirmation-recovery"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "threatReportPolicy",
+      "assigned_inputs": [
+        "episodeSnapshot.assessment",
+        "episodeSnapshot.preEpisode",
+        "episodeSnapshot.nextEpisode",
+        "episodeSnapshot.pilotDisposition"
+      ],
+      "owner_local_facts": [
+        "threatReport"
+      ],
+      "contract_cases": [
+        "CASE-15"
+      ],
+      "analyzer_checks": [
+        "report-owner-totality",
+        "report-precedence"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "defenseReadinessQualifier",
+      "assigned_inputs": [
+        "evidenceAssessment",
+        "defenseSupport.defenseAvailability",
+        "defenseSupport.capacitorSupport"
+      ],
+      "owner_local_facts": [
+        "defenseQualification"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "defense-owner-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "egressReadinessQualifier",
+      "assigned_inputs": [
+        "evidenceAssessment",
+        "egressRoute"
+      ],
+      "owner_local_facts": [
+        "egressQualification"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14"
+      ],
+      "analyzer_checks": [
+        "egress-owner-partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "threatResponseArbiter",
+      "assigned_inputs": [
+        "episodeSnapshot.nextEpisode",
+        "episodeSnapshot.assessment",
+        "defenseQualification",
+        "egressQualification",
+        "responseAuthorization"
+      ],
+      "owner_local_facts": [
+        "responseDirective"
+      ],
+      "contract_cases": [
+        "CASE-16",
+        "CASE-17",
+        "CASE-18"
+      ],
+      "analyzer_checks": [
+        "arbiter-priority-partition",
+        "egress-over-defense-conflict"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "responseStateController",
+      "assigned_inputs": [
+        "responseDirective",
+        "egressProgress",
+        "committedEgress"
+      ],
+      "owner_local_facts": [
+        "nextEgressSession",
+        "defenseCommand",
+        "egressCommand",
+        "responseSnapshot"
+      ],
+      "contract_cases": [
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "controller-owner-totality",
+        "fresh-retry-only",
+        "arrival-over-cancellation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "responseStatusAssessor",
+      "assigned_inputs": [
+        "episodeSnapshot.assessment",
+        "episodeSnapshot.nextEpisode",
+        "responseSnapshot.nextEgress",
+        "responseSnapshot.defenseCommand"
+      ],
+      "owner_local_facts": [
+        "responseStatus"
+      ],
+      "contract_cases": [
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "status-owner-totality",
+        "status-precedence"
+      ],
+      "passed": true
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "SCN-01",
+      "name": "suspicious-evidence-watch",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "SUSPICIOUS",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "QUIET",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-03",
+            "CASE-05",
+            "CASE-15",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "evidenceAssessment": "SUSPECT",
+            "nextThreatEpisode": "WATCH",
+            "defenseQualification": "INAPPLICABLE",
+            "egressQualification": "INAPPLICABLE",
+            "responseDirective": "MONITOR",
+            "nextEgressSession": "IDLE",
+            "threatReport": "WATCH_REPORT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "WATCHING"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "name": "hostile-defense",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "AVAILABLE",
+              "capacitorSupport": "SUFFICIENT"
+            },
+            "egressRoute": "BLOCKED",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "QUIET",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-03",
+            "CASE-05",
+            "CASE-10",
+            "CASE-13",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "READY",
+            "egressQualification": "ROUTE_BLOCKED",
+            "responseDirective": "DEFEND",
+            "nextEgressSession": "IDLE",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "ACTIVATE",
+            "egressCommand": "NONE",
+            "responseStatus": "DEFENDING"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "name": "egress-over-defense-conflict",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "AVAILABLE",
+              "capacitorSupport": "SUFFICIENT"
+            },
+            "egressRoute": "AVAILABLE",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "EGRESS_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "QUIET",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-10",
+            "CASE-14",
+            "CASE-17:START_EGRESS",
+            "CASE-19:IDLE_START",
+            "CASE-20:EGRESS_ORDERED"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "READY",
+            "egressQualification": "READY",
+            "responseDirective": "START_EGRESS",
+            "nextEgressSession": "ORDERED",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "INITIATE",
+            "responseStatus": "EGRESS_ORDERED"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "name": "egress-continuation-and-arrival",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "AVAILABLE",
+            "egressProgress": "EN_ROUTE",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "ORDERED"
+          },
+          "expected_branch_cases": [
+            "CASE-19:ORDERED_EN_ROUTE",
+            "CASE-20:EGRESS_MOVING"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "READY",
+            "responseDirective": "MONITOR",
+            "nextEgressSession": "MOVING",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "CONTINUE",
+            "responseStatus": "EGRESS_MOVING"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "AVAILABLE",
+            "egressProgress": "SAFE_DESTINATION_OBSERVED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "MOVING"
+          },
+          "expected_branch_cases": [
+            "CASE-19:ARRIVAL",
+            "CASE-20:ARRIVAL_OBSERVED"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "READY",
+            "responseDirective": "MONITOR",
+            "nextEgressSession": "ARRIVED",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "HOLD",
+            "responseStatus": "ARRIVAL_OBSERVED"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "name": "route-block-and-fresh-retry",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "BLOCKED",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "EGRESS_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-13",
+            "CASE-17:HOLD_BLOCKED"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "ROUTE_BLOCKED",
+            "responseDirective": "HOLD_BLOCKED",
+            "nextEgressSession": "IDLE",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "THREAT_DECLARED"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "AVAILABLE",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "EGRESS_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-14",
+            "CASE-17:START_EGRESS",
+            "CASE-19:IDLE_START"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "READY",
+            "responseDirective": "START_EGRESS",
+            "nextEgressSession": "ORDERED",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "INITIATE",
+            "responseStatus": "EGRESS_ORDERED"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "BLOCKED",
+            "egressProgress": "FAILED",
+            "responseAuthorization": "EGRESS_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "ORDERED"
+          },
+          "expected_branch_cases": [
+            "CASE-17:HOLD_BLOCKED",
+            "CASE-19:FAILURE"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "ROUTE_BLOCKED",
+            "responseDirective": "HOLD_BLOCKED",
+            "nextEgressSession": "BLOCKED",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "HOLD",
+            "responseStatus": "EGRESS_BLOCKED"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "AVAILABLE",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "BLOCKED"
+          },
+          "expected_branch_cases": [
+            "CASE-18:MONITOR",
+            "CASE-19:BLOCKED_HOLD"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "READY",
+            "responseDirective": "MONITOR",
+            "nextEgressSession": "BLOCKED",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "HOLD",
+            "responseStatus": "EGRESS_BLOCKED"
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "AVAILABLE",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "EGRESS_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "BLOCKED"
+          },
+          "expected_branch_cases": [
+            "CASE-17:START_EGRESS",
+            "CASE-19:BLOCKED_RETRY"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "READY",
+            "responseDirective": "START_EGRESS",
+            "nextEgressSession": "ORDERED",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "INITIATE",
+            "responseStatus": "EGRESS_ORDERED"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-06",
+      "name": "invalid-evidence-containment",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "CLEAR",
+              "validity": "INVALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "QUIET",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-01",
+            "CASE-04",
+            "CASE-15:EVIDENCE_FAULT",
+            "CASE-16:CONTAIN"
+          ],
+          "observed": {
+            "evidenceAssessment": "UNAVAILABLE",
+            "nextThreatEpisode": "WATCH",
+            "defenseQualification": "INAPPLICABLE",
+            "egressQualification": "INAPPLICABLE",
+            "responseDirective": "CONTAIN",
+            "nextEgressSession": "IDLE",
+            "threatReport": "EVIDENCE_FAULT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "EVIDENCE_UNAVAILABLE"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "WATCH",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-03",
+            "CASE-05:HOSTILE",
+            "CASE-15:HOSTILE_ALERT"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "ROUTE_UNKNOWN",
+            "responseDirective": "MONITOR",
+            "nextEgressSession": "IDLE",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "THREAT_DECLARED"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "CLEAR",
+              "validity": "INVALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "CANCEL_EGRESS"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-04",
+            "CASE-16:CONTAIN",
+            "CASE-20:EVIDENCE_UNAVAILABLE"
+          ],
+          "observed": {
+            "evidenceAssessment": "UNAVAILABLE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "INAPPLICABLE",
+            "egressQualification": "INAPPLICABLE",
+            "responseDirective": "CONTAIN",
+            "nextEgressSession": "IDLE",
+            "threatReport": "EVIDENCE_FAULT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "EVIDENCE_UNAVAILABLE"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-07",
+      "name": "threat-clear-recovery",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "CLEAR",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-06:CLEAR_PENDING",
+            "CASE-15:CLEAR_PENDING"
+          ],
+          "observed": {
+            "evidenceAssessment": "CLEAR",
+            "nextThreatEpisode": "CLEAR_PENDING",
+            "defenseQualification": "INAPPLICABLE",
+            "egressQualification": "INAPPLICABLE",
+            "responseDirective": "MONITOR",
+            "nextEgressSession": "IDLE",
+            "threatReport": "CLEAR_PENDING_REPORT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "CLEAR_PENDING"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "CLEAR",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "CLEAR_PENDING",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-06:CLEAR_PENDING",
+            "CASE-15:CLEAR_PENDING"
+          ],
+          "observed": {
+            "evidenceAssessment": "CLEAR",
+            "nextThreatEpisode": "CLEAR_PENDING",
+            "defenseQualification": "INAPPLICABLE",
+            "egressQualification": "INAPPLICABLE",
+            "responseDirective": "MONITOR",
+            "nextEgressSession": "IDLE",
+            "threatReport": "CLEAR_PENDING_REPORT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "CLEAR_PENDING"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "CLEAR",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "CONFIRM_CLEAR",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "NOT_STARTED",
+            "responseAuthorization": "NO_REQUEST"
+          },
+          "pre_state": {
+            "threatEpisode": "CLEAR_PENDING",
+            "egressSession": "IDLE"
+          },
+          "expected_branch_cases": [
+            "CASE-06:CONFIRM_CLEAR",
+            "CASE-15:CLEAR_CONFIRMED",
+            "CASE-16:RESET"
+          ],
+          "observed": {
+            "evidenceAssessment": "CLEAR",
+            "nextThreatEpisode": "QUIET",
+            "defenseQualification": "INAPPLICABLE",
+            "egressQualification": "INAPPLICABLE",
+            "responseDirective": "RESET",
+            "nextEgressSession": "IDLE",
+            "threatReport": "CLEAR_CONFIRMED_REPORT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "NONE",
+            "responseStatus": "QUIET"
+          }
+        }
+      ]
+    },
+    {
+      "id": "SCN-08",
+      "name": "cancellation-versus-arrival-priority",
+      "traces": [
+        {
+          "step": 1,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "EN_ROUTE",
+            "responseAuthorization": "CANCEL_EGRESS"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "ORDERED"
+          },
+          "expected_branch_cases": [
+            "CASE-16:CANCEL_EGRESS",
+            "CASE-19:CANCEL"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "ROUTE_UNKNOWN",
+            "responseDirective": "CANCEL_EGRESS",
+            "nextEgressSession": "IDLE",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "CANCEL",
+            "responseStatus": "THREAT_DECLARED"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "threatObservation": {
+              "evidenceBand": "HOSTILE",
+              "validity": "VALID"
+            },
+            "pilotDisposition": "NO_RESPONSE",
+            "defenseSupport": {
+              "defenseAvailability": "UNAVAILABLE",
+              "capacitorSupport": "INSUFFICIENT"
+            },
+            "egressRoute": "UNKNOWN",
+            "egressProgress": "SAFE_DESTINATION_OBSERVED",
+            "responseAuthorization": "CANCEL_EGRESS"
+          },
+          "pre_state": {
+            "threatEpisode": "DECLARED",
+            "egressSession": "ORDERED"
+          },
+          "expected_branch_cases": [
+            "CASE-16:CANCEL_EGRESS",
+            "CASE-19:ARRIVAL"
+          ],
+          "observed": {
+            "evidenceAssessment": "HOSTILE",
+            "nextThreatEpisode": "DECLARED",
+            "defenseQualification": "BLOCKED_AVAILABILITY",
+            "egressQualification": "ROUTE_UNKNOWN",
+            "responseDirective": "CANCEL_EGRESS",
+            "nextEgressSession": "ARRIVED",
+            "threatReport": "HOSTILE_ALERT",
+            "defenseCommand": "STANDBY",
+            "egressCommand": "HOLD",
+            "responseStatus": "ARRIVAL_OBSERVED"
+          }
+        }
+      ]
+    }
+  ],
+  "scenario_checks": {
+    "SCN-01": true,
+    "SCN-02": true,
+    "SCN-03": true,
+    "SCN-04": true,
+    "SCN-05": true,
+    "SCN-06": true,
+    "SCN-07": true,
+    "SCN-08": true
+  }
+}

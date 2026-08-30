@@ -1,0 +1,34 @@
+// #Sireum
+
+package scp_candidate.Power_Propulsion_Availability_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object FaultActionPriorityResolver_supervisor_process_fault_action_priority_resolver {
+
+  def initialise(api: FaultActionPriorityResolver_Initialization_Api): Unit = {
+    Contract(Modifies(api), Ensures(
+      // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_PRIORITY_INHIBIT
+        api.accepted_directive == PriorityDirective.INHIBIT &&
+          api.fault_action_summary.fault == FaultStatus.ACTIVE &&
+          api.fault_action_summary.cause == FaultCause.CHARGER &&
+          api.fault_action_summary.directive == SummaryDirective.INHIBIT
+        // END INITIALIZES ENSURES
+    ))
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_accepted_directive(Power_Propulsion_Availability_Supervisor.PriorityDirective.INHIBIT)
+    api.put_fault_action_summary(Power_Propulsion_Availability_Supervisor.FaultActionSummary(
+      FaultStatus.ACTIVE, FaultCause.CHARGER, SummaryDirective.INHIBIT))
+  }
+
+  def timeTriggered(api: FaultActionPriorityResolver_Operational_Api): Unit = { }
+  def finalise(api: FaultActionPriorityResolver_Operational_Api): Unit = { }
+}

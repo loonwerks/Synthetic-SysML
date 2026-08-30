@@ -1,0 +1,42 @@
+{
+  "source": "model/factory_flow_supervisor.sysml",
+  "source_sha256": "6021ecad6d6ae12651dea1ecb72ea594b762e6c00d20b60f1e96d0fd08a5de63",
+  "root_system_usages": 1,
+  "support_process_usages": 1,
+  "semantic_thread_usages": 9,
+  "raw_non_root_usages": 10,
+  "containment_depth": 2,
+  "weak_semantic_regions": 1,
+  "semantic_connections": 21,
+  "support_delegations": 7,
+  "raw_port_connections": 28,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 8,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 9,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {"usage":"workRequestQualifier","claimed_roles":["applicability"],"assigned_inputs":["presentedWork"],"owner_local_facts":["AdmissionAssessment and eligible work identity"],"contract_cases":["RequestAbsent","RequestEligible","RequestMalformed"],"analyzer_checks":["request_classification_product"]},
+      {"usage":"materialCorrelationQualifier","claimed_roles":["applicability"],"assigned_inputs":["admission","materialObservation"],"owner_local_facts":["MaterialAssessment with identifier correlation"],"contract_cases":["MaterialReadyCorrelated","MaterialUnavailableCorrelated","MaterialUnknownOrInapplicable"],"analyzer_checks":["material_correlation_product"]},
+      {"usage":"targetStepReadinessQualifier","claimed_roles":["applicability"],"assigned_inputs":["readinessObservation","flowContext"],"owner_local_facts":["state-derived target and TargetQualification"],"contract_cases":["TargetReadyCorrelated","TargetBlockedCorrelated","TargetUnknownOrMismatched"],"analyzer_checks":["target_readiness_product"]},
+      {"usage":"processOutcomeCorrelator","claimed_roles":["applicability"],"assigned_inputs":["processResult","flowContext"],"owner_local_facts":["five-way CorrelatedOutcomePlan"],"contract_cases":["IntermediateCompletion","FinalCompletion","FirstAttemptFailure","RetryAttemptFailure","PreserveUncorrelated"],"analyzer_checks":["process_outcome_product"]},
+      {"usage":"protectedWorkPriorityResolver","claimed_roles":["decision"],"assigned_inputs":["admission","protectionContext"],"owner_local_facts":["protected FlowIntent and competitor classification"],"contract_cases":["IdleWithoutEligibleWork","FreshWorkIntent","ActiveWorkProtected","TransferWorkProtected","RecoveryWorkProtected","TerminalResetIntent"],"analyzer_checks":["priority_intent_product","retry_over_fresh_conflict"]},
+      {"usage":"flowAuthorizationOwner","claimed_roles":["decision"],"assigned_inputs":["materialFact","targetFact","outcomeFact","intentFact"],"owner_local_facts":["complete FlowDecision and DecisionReason partition"],"contract_cases":["CASE-01","CASE-02","CASE-03","CASE-04","CASE-05","CASE-06","CASE-07","CASE-08","CASE-09","CASE-10","CASE-11","CASE-12","CASE-13","CASE-14","CASE-15","CASE-16","CASE-17","CASE-18","CASE-19","CASE-20"],"analyzer_checks":["authorization_partition_product"]},
+      {"usage":"flowLedger","claimed_roles":["decision"],"assigned_inputs":["authorization","pre-state phase","pre-state work","pre-state step","pre-state attempt"],"owner_local_facts":["persistent transition and LineFlowCommand"],"contract_cases":["CASE-01","CASE-02","CASE-03","CASE-04","CASE-05","CASE-06","CASE-07","CASE-08","CASE-09","CASE-10","CASE-11","CASE-12","CASE-13","CASE-14","CASE-15","CASE-16","CASE-17","CASE-18","CASE-19","CASE-20"],"analyzer_checks":["ledger_transition_partition"]},
+      {"usage":"productionOutcomeDeterminer","claimed_roles":["decision"],"assigned_inputs":["outcomeFact","appliedSnapshot"],"owner_local_facts":["entry-only ProductionOutcome"],"contract_cases":["CompletionEntry","FailureEntry","SuppressNonterminalAndReset"],"analyzer_checks":["entry_outcome_product"]},
+      {"usage":"flowStatusDeterminer","claimed_roles":["decision"],"assigned_inputs":["decisionReason","appliedSnapshot"],"owner_local_facts":["lifecycle-precedence ProductionFlowStatus"],"contract_cases":["TerminalCompleteStatus","TerminalFailedStatus","RecoveryPendingStatus","RetryReleasedStatus","TransferPendingStatus","RejectedStatus","MaterialWaitStatus","HeatingWaitStatus","StartedStatus","AdvancedStatus","BusyStatus","ProcessingStatus","IdleStatus"],"analyzer_checks":["status_precedence_product"]}
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_exclusions": ["root System usage", "behavior-free support Process", "seven root/Process delegations", "flat Data records and enums", "initialization-only guarantees", "identity payload preservation", "context publication", "datatype support", "scenario fixtures"]
+}

@@ -1,0 +1,89 @@
+{
+  "source": "model/Ore_Hold_Mining_Guard_Supervisor.sysml",
+  "source_sha256": "f6e3daabbf5e160614f1b24a70aa7650b3d3bb5fbb5f2f1860b728f7b587bfd2",
+  "root_system_usages": 1,
+  "semantic_usages": 6,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 7,
+  "all_usages_including_root": 8,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 11,
+  "generated_support_routes": 6,
+  "source_port_connection_declarations": 17,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 11,
+  "scenario_families": 5,
+  "state_owners": 2,
+  "principal_decision_owners": 1,
+  "gumbo_inspected_data_fields": 15,
+  "gumbo_inspected_fields_declared_as_attributes": 15,
+  "architecture_repairs": 0,
+  "contract_repairs": 0,
+  "analyzer_repairs": 2,
+  "trace_annotation_repairs": 0,
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 6,
+    "semantic_interactions": 11,
+    "nontrivial_contract_cases": 11,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "request_freshness_priority_owner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["request_freshness_priority_owner.pilot_request", "state.previousStart", "state.previousHalt", "state.previousResume"],
+        "owner_local_facts": ["requestValidity", "freshStart", "freshResume", "haltPriority", "requestConflict", "requestDisposition"],
+        "contract_cases": ["REQUEST_QUALIFICATION_PRIORITY_AND_FRESHNESS"],
+        "analyzer_checks": ["request-owner-128-transitions"]
+      },
+      {
+        "usage": "hold_guard_qualification_owner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["hold_guard_qualification_owner.hold_sample"],
+        "owner_local_facts": ["threeWayHoldAssessment"],
+        "contract_cases": ["HOLD_GUARD_QUALIFICATION"],
+        "analyzer_checks": ["hold-owner-four-samples"]
+      },
+      {
+        "usage": "mining_support_qualification_owner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["mining_support_qualification_owner.mining_support"],
+        "owner_local_facts": ["threeWaySupportAssessment", "allPositiveSupportApplicability"],
+        "contract_cases": ["MINING_SUPPORT_QUALIFICATION"],
+        "analyzer_checks": ["support-owner-sixteen-samples"]
+      },
+      {
+        "usage": "ore_hold_decision_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["ore_hold_decision_owner.request_assessment", "ore_hold_decision_owner.hold_assessment", "ore_hold_decision_owner.support_assessment", "state.guardMode"],
+        "owner_local_facts": ["orderedGuardResolution", "nextGuardMode", "resolutionReason", "preservedRequestConflict"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11"],
+        "analyzer_checks": ["decision-owner-total-exclusive-40960"]
+      },
+      {
+        "usage": "mining_command_derivation_owner",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["mining_command_derivation_owner.guard_resolution"],
+        "owner_local_facts": ["miningCommandFromNextMode"],
+        "contract_cases": ["OUTPUT-01"],
+        "analyzer_checks": ["command-owner-five-mode-equivalence"]
+      },
+      {
+        "usage": "guard_reporting_derivation_owner",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["guard_reporting_derivation_owner.guard_resolution"],
+        "owner_local_facts": ["guardStatusFromReasonAndConflict", "offloadReadinessFromNextMode"],
+        "contract_cases": ["OUTPUT-02", "OUTPUT-03"],
+        "analyzer_checks": ["report-owner-eleven-reason-classification", "readiness-owner-five-mode-equivalence"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

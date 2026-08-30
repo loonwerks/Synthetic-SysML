@@ -1,0 +1,2122 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "284194129f5244e49b6259c4236f18b707873c3d265762c50b0ea82ea292e522",
+  "bounded_analysis_claim_boundary": "Exhaustive only for the declared finite logical root-input and owner-state domains and their one-step/local scenario composition; it is not temporal proof, compositional proof, solver certification, execution evidence, physical-performance evidence, generated-code correctness, or safety certification.",
+  "domains": {
+    "qualified_owner_snapshots": 288,
+    "raw_root_input_tuples": 384,
+    "raw_root_and_owner_state_snapshots": 2304,
+    "reachable_owner_states": [
+      {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      {
+        "authorizationState": "PermitCharge",
+        "recoveryPhase": "Normal"
+      },
+      {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitFreshIntent"
+      }
+    ]
+  },
+  "connection_map": [
+    {
+      "id": "INT-01",
+      "from": "root.battery_sample",
+      "to": "battery_evidence_qualification.battery_sample",
+      "type": "BatterySample"
+    },
+    {
+      "id": "INT-02",
+      "from": "root.charger_sample",
+      "to": "charge_context_qualification.charger_sample",
+      "type": "ChargerSample"
+    },
+    {
+      "id": "INT-03",
+      "from": "root.flight_sample",
+      "to": "charge_context_qualification.flight_sample",
+      "type": "FlightActivitySample"
+    },
+    {
+      "id": "INT-04",
+      "from": "root.intent_sample",
+      "to": "charge_intent_qualification.intent_sample",
+      "type": "ChargeIntentSample"
+    },
+    {
+      "id": "INT-05",
+      "from": "battery_evidence_qualification.evidence_to_owner",
+      "to": "charge_qualification_owner.battery_evidence",
+      "type": "BatteryEvidence"
+    },
+    {
+      "id": "INT-06",
+      "from": "charge_context_qualification.charge_context",
+      "to": "charge_qualification_owner.charge_context",
+      "type": "ChargeContext"
+    },
+    {
+      "id": "INT-07",
+      "from": "charge_intent_qualification.qualified_intent",
+      "to": "charge_qualification_owner.qualified_intent",
+      "type": "QualifiedChargeIntent"
+    },
+    {
+      "id": "INT-08",
+      "from": "charge_qualification_owner.authorization",
+      "to": "root.charge_authorization",
+      "type": "ChargeAuthorization"
+    },
+    {
+      "id": "INT-09",
+      "from": "charge_qualification_owner.decision_to_attention",
+      "to": "pilot_attention_derivation.charge_decision",
+      "type": "ChargeDecision"
+    },
+    {
+      "id": "INT-10",
+      "from": "battery_evidence_qualification.evidence_to_attention",
+      "to": "pilot_attention_derivation.battery_evidence",
+      "type": "BatteryEvidence"
+    },
+    {
+      "id": "INT-11",
+      "from": "pilot_attention_derivation.battery_attention",
+      "to": "root.battery_attention",
+      "type": "BatteryAttention"
+    },
+    {
+      "id": "INT-12",
+      "from": "charge_qualification_owner.decision_to_readiness",
+      "to": "readiness_evidence_derivation.charge_decision",
+      "type": "ChargeDecision"
+    },
+    {
+      "id": "INT-13",
+      "from": "battery_evidence_qualification.evidence_to_readiness",
+      "to": "readiness_evidence_derivation.battery_evidence",
+      "type": "BatteryEvidence"
+    },
+    {
+      "id": "INT-14",
+      "from": "readiness_evidence_derivation.readiness_evidence",
+      "to": "root.battery_readiness_evidence",
+      "type": "BatteryReadinessEvidence"
+    }
+  ],
+  "qualification_fibers": {
+    "battery": {
+      "InvalidBattery": 2,
+      "LowBatteryEvidence": 1,
+      "AdequateBatteryEvidence": 1
+    },
+    "context": {
+      "InvalidChargeContext": 12,
+      "FlightActiveContext": 2,
+      "AvailableInactiveContext": 1,
+      "UnavailableInactiveContext": 1
+    },
+    "intent": {
+      "InvalidChargeIntent": 3,
+      "NoIntent": 1,
+      "BeginCharge": 1,
+      "EndCharge": 1
+    }
+  },
+  "partition_counts": {
+    "CASE-01": 180,
+    "CASE-02": 24,
+    "CASE-03": 12,
+    "CASE-04": 12,
+    "CASE-05": 12,
+    "CASE-06": 2,
+    "CASE-07": 10,
+    "CASE-08": 12,
+    "CASE-09": 2,
+    "CASE-10": 10,
+    "CASE-11": 1,
+    "CASE-12": 11
+  },
+  "case_witnesses": {
+    "CASE-01": {
+      "qualified": {
+        "battery": "InvalidBattery",
+        "context": "InvalidChargeContext",
+        "intent": "InvalidChargeIntent"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      "disposition": "InputFault"
+    },
+    "CASE-12": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "NoIntent"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "Inactive"
+    },
+    "CASE-03": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "NoIntent"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitFreshIntent"
+      },
+      "disposition": "RecoveryPending"
+    },
+    "CASE-04": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "NoIntent"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitFreshIntent"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitFreshIntent"
+      },
+      "disposition": "RecoveryPending"
+    },
+    "CASE-10": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "BeginCharge"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "BeginDenied"
+    },
+    "CASE-02": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "BeginCharge"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitNeutral"
+      },
+      "disposition": "RecoveryPending"
+    },
+    "CASE-07": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "BeginCharge"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitFreshIntent"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "BeginDenied"
+    },
+    "CASE-08": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "EndCharge"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "Inactive"
+    },
+    "CASE-05": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "FlightActiveContext",
+        "intent": "EndCharge"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitFreshIntent"
+      },
+      "nextState": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "Inactive"
+    },
+    "CASE-11": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "AvailableInactiveContext",
+        "intent": "NoIntent"
+      },
+      "pre": {
+        "authorizationState": "PermitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "nextState": {
+        "authorizationState": "PermitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "Continued"
+    },
+    "CASE-09": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "AvailableInactiveContext",
+        "intent": "BeginCharge"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "nextState": {
+        "authorizationState": "PermitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "BeginAccepted"
+    },
+    "CASE-06": {
+      "qualified": {
+        "battery": "LowBatteryEvidence",
+        "context": "AvailableInactiveContext",
+        "intent": "BeginCharge"
+      },
+      "pre": {
+        "authorizationState": "InhibitCharge",
+        "recoveryPhase": "AwaitFreshIntent"
+      },
+      "nextState": {
+        "authorizationState": "PermitCharge",
+        "recoveryPhase": "Normal"
+      },
+      "disposition": "BeginAccepted"
+    }
+  },
+  "raw_guard_overlap_report": {
+    "count": 0,
+    "note": "Canonical guards include explicit higher-priority exclusions, so raw and effective guards are both exclusive."
+  },
+  "observations": {
+    "qualified_snapshots": 288,
+    "raw_root_input_tuples": 384,
+    "raw_root_state_snapshots": 2304,
+    "raw_guard_overlaps": 0,
+    "effective_selection_overlaps": 0,
+    "partition_gaps": 0,
+    "guard_mismatches": 0,
+    "next_state_mismatches": 0,
+    "decision_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "qualification_mismatches": 0,
+    "interaction_resolution_violations": 0,
+    "producer_admissibility_violations": 0,
+    "scenario_mismatches": 0
+  },
+  "invariant_checks": {
+    "initialization": {
+      "authorizationState": "InhibitCharge",
+      "recoveryPhase": "Normal",
+      "charge_authorization": "InhibitCharge",
+      "battery_attention": "None",
+      "battery_readiness_evidence": "EvidenceUnavailable",
+      "passed": true
+    },
+    "recovery_implies_inhibition": {
+      "passed": true,
+      "reachable_states_checked": 4
+    },
+    "fresh_intent": {
+      "passed": true
+    }
+  },
+  "scenarios": [
+    {
+      "id": "SCN-01",
+      "family": "nominal start-retain-end",
+      "traces": [
+        {
+          "name": "nominal_begin_no_intent_end",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "charge_authorization": "PermitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "charge_authorization": "PermitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-08",
+              "observed_case": "CASE-08",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "family": "eligibility boundaries and revocation",
+      "traces": [
+        {
+          "name": "deny_adequate_battery",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Adequate",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-10",
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "None",
+                "battery_readiness_evidence": "BatteryReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "revoke_adequate_battery",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "charge_authorization": "PermitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "battery": {
+                  "indication": "Adequate",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "None",
+                "battery_readiness_evidence": "BatteryReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "deny_unavailable_charger",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Unavailable",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-10",
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "revoke_unavailable_charger",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "charge_authorization": "PermitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Unavailable",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "deny_active_flight",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Active",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-10",
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "revoke_active_flight",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "charge_authorization": "PermitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Active",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "family": "individual and combined invalid input",
+      "traces": [
+        {
+          "name": "invalid_battery",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_charger",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_battery_charger",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_flight",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_battery_flight",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_charger_flight",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_battery_charger_flight",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_battery_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_charger_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_battery_charger_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_flight_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_battery_flight_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_charger_flight_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        },
+        {
+          "name": "invalid_battery_charger_flight_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Invalid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Invalid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Invalid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "family": "qualifying neutral-then-fresh recovery",
+      "traces": [
+        {
+          "name": "fault_retained_begin_neutral_wait_fresh_begin",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "RecoveryPending",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "RecoveryPending",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "RecoveryPending",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              }
+            },
+            {
+              "step": 5,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "charge_authorization": "PermitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "PermitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "family": "nonauthorizing recovery outcomes",
+      "traces": [
+        {
+          "name": "fresh_end_completes_without_permission",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "RecoveryPending",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "EndCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              },
+              "expected_case": "CASE-05",
+              "observed_case": "CASE-05",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "fresh_ineligible_begin_completes_without_permission",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Invalid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "InputFault",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitNeutral"
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "RecoveryPending",
+                "battery_readiness_evidence": "EvidenceUnavailable"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "battery": {
+                  "indication": "Adequate",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "BeginCharge",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "AwaitFreshIntent"
+              },
+              "expected_case": "CASE-07",
+              "observed_case": "CASE-07",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "None",
+                "battery_readiness_evidence": "BatteryReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        },
+        {
+          "name": "normal_inhibited_no_intent",
+          "steps": [
+            {
+              "step": 1,
+              "input": {
+                "battery": {
+                  "indication": "Low",
+                  "status": "Valid"
+                },
+                "charger": {
+                  "availability": "Available",
+                  "status": "Valid"
+                },
+                "flight": {
+                  "activity": "Inactive",
+                  "status": "Valid"
+                },
+                "intent": {
+                  "intent": "NoIntent",
+                  "status": "Valid"
+                }
+              },
+              "pre_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "charge_authorization": "InhibitCharge",
+                "battery_attention": "LowBattery",
+                "battery_readiness_evidence": "BatteryNotReady"
+              },
+              "observed_next_state": {
+                "authorizationState": "InhibitCharge",
+                "recoveryPhase": "Normal"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "battery_evidence_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "battery_evidence_qualification.battery_sample"
+      ],
+      "owner_local_facts": [
+        "validity-aware 4-to-3 battery evidence classification"
+      ],
+      "contract_cases": [
+        "BATTERY_INVALID",
+        "BATTERY_LOW",
+        "BATTERY_ADEQUATE"
+      ],
+      "analyzer_checks": [
+        "battery qualification total 4-to-3 relation",
+        "battery invalid-status collapse"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "charge_context_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "charge_context_qualification.charger_sample",
+        "charge_context_qualification.flight_sample"
+      ],
+      "owner_local_facts": [
+        "joint validity-activity-availability charge context classification"
+      ],
+      "contract_cases": [
+        "CONTEXT_INVALID",
+        "CONTEXT_FLIGHT_ACTIVE",
+        "CONTEXT_AVAILABLE_INACTIVE",
+        "CONTEXT_UNAVAILABLE_INACTIVE"
+      ],
+      "analyzer_checks": [
+        "charge context total 16-to-4 relation",
+        "charge context 12-2-1-1 fibers"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "charge_intent_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "charge_intent_qualification.intent_sample"
+      ],
+      "owner_local_facts": [
+        "validity-aware 6-to-4 qualified intent classification"
+      ],
+      "contract_cases": [
+        "INTENT_INVALID",
+        "INTENT_NEUTRAL",
+        "INTENT_BEGIN",
+        "INTENT_END"
+      ],
+      "analyzer_checks": [
+        "intent qualification total 6-to-4 relation",
+        "intent invalid-status collapse"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "charge_qualification_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "charge_qualification_owner.battery_evidence",
+        "charge_qualification_owner.charge_context",
+        "charge_qualification_owner.qualified_intent",
+        "charge_qualification_owner.authorizationState",
+        "charge_qualification_owner.recoveryPhase"
+      ],
+      "owner_local_facts": [
+        "ordered charge decision",
+        "next authorization state",
+        "next recovery phase"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "owner twelve-case partition over 288 snapshots",
+        "owner complete next-state and decision publications"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "pilot_attention_derivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "pilot_attention_derivation.charge_decision",
+        "pilot_attention_derivation.battery_evidence"
+      ],
+      "owner_local_facts": [
+        "priority-ordered fault-recovery-low pilot attention classification"
+      ],
+      "contract_cases": [
+        "ATTENTION_INPUT_FAULT",
+        "ATTENTION_RECOVERY_PENDING",
+        "ATTENTION_LOW_BATTERY",
+        "ATTENTION_NONE"
+      ],
+      "analyzer_checks": [
+        "pilot attention total producer-composed relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "readiness_evidence_derivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "readiness_evidence_derivation.charge_decision",
+        "readiness_evidence_derivation.battery_evidence"
+      ],
+      "owner_local_facts": [
+        "producer-admissible fault-recovery-low-adequate readiness classification"
+      ],
+      "contract_cases": [
+        "READINESS_UNAVAILABLE",
+        "READINESS_LOW",
+        "READINESS_ADEQUATE"
+      ],
+      "analyzer_checks": [
+        "readiness producer-admissible partition",
+        "invalid-battery nonfault combination unreachable"
+      ],
+      "passed": true
+    }
+  ],
+  "checks": {
+    "qualified_domain_exactly_288": true,
+    "root_input_domain_exhausted": true,
+    "ordered_partition_total_and_exclusive": true,
+    "every_case_has_witness": true,
+    "canonical_guard_signatures_match": true,
+    "owner_relation_matches_independent_oracle": true,
+    "initialization_safe": true,
+    "recovery_invariant_preserved": true,
+    "fresh_intent_path_executed": true,
+    "qualification_fibers_exact": true,
+    "all_invalid_status_combinations_enumerated": true,
+    "explicit_connection_map_complete": true,
+    "owner_outputs_consumed_through_declared_flows": true,
+    "attention_local_cases_executed": true,
+    "readiness_admissible_cases_executed": true,
+    "invalid_battery_nonfault_unreachable": true,
+    "five_scenario_families_executed": true,
+    "scenario_oracles_match": true,
+    "all_local_ownership_cases_executed": true
+  }
+}

@@ -1,0 +1,13 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_4e1f7b88f49b_Candidate_Pointwise_Realizable {
+  @pure def check(
+      ap_on_in: equiv_shared_0.FAA_Autopilot_Engagement.AP_On_Indication.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.FAA_Autopilot_Engagement.CSA_Enable_Delivery_Thread_control_process_csa_enable_delivery_Candidate_GumboX.compute_CEP_Post(ap_on_in, equiv_shared_0.FAA_Autopilot_Engagement.AP_On_Indication.Enabled)) |
+        (equiv_shared_0.FAA_Autopilot_Engagement.CSA_Enable_Delivery_Thread_control_process_csa_enable_delivery_Candidate_GumboX.compute_CEP_Post(ap_on_in, equiv_shared_0.FAA_Autopilot_Engagement.AP_On_Indication.Disabled)))))
+  }
+}

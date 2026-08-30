@@ -1,0 +1,461 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132656Z-hvac-supervisor-medium-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Cabin_Air_Treatment_Supervisor.sysml",
+  "source_sha256": "cb0615bda26e1dcc432ad8459bc0338c416267374c0257e1b08ca838f1059b3d",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 20,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 128,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-AIR-01",
+      "CASE-AIR-02",
+      "CASE-ARB-01",
+      "CASE-ARB-02",
+      "CASE-ARB-03",
+      "CASE-ARB-04",
+      "CASE-EQP-01",
+      "CASE-EQP-02",
+      "CASE-HUM-01",
+      "CASE-HUM-02",
+      "CASE-REC-01",
+      "CASE-REC-02",
+      "CASE-REC-03",
+      "CASE-REC-04",
+      "CASE-REC-05",
+      "CASE-RQ-01",
+      "CASE-RQ-02",
+      "CASE-RQ-03",
+      "CASE-RQ-04",
+      "CASE-RQ-05",
+      "CTRL-01",
+      "CTRL-02",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "MON-07",
+      "OWNER-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "STATE-01",
+      "STATE-02"
+    ],
+    "relativePath": "cps48/runs/20260814T132656Z-hvac-supervisor-medium-r2-a1/system-abstract.md",
+    "taggedElementCount": 109,
+    "traceAssociationCount": 109,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a medium cabin air-care preference and condition supervisor with 8 usages, 21 interactions, 20 closed contract cases, and 7 scenario families.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset represent the flat finite TreatmentEquipmentStatus and AirCareSupervisorStatus records while preserving exactly 30 raw directed connections and all eight local ownership boundaries?",
+        "Can GUMBO contracts and the deterministic bounded analyzer express the two independent request and recovery pre-state/next-state owners across the six-step recovery witness without implying executable scheduling or merging ownership?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "cabin air-quality and excess-humidity supervision with preference-qualified filtration or drying",
+        "closest_baseline": "visibility-priority whole-cabin HVAC supervisor",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The retained system excludes visibility, defrost, thermal service, electrical budgeting, waste heat, and whole-cabin plan composition. Two air-treatment proposal branches converge directly on an air-care arbiter, filtration outranks drying, and unknown treatment readiness recovers through valid Off then a fresh active air-care preference without an acknowledgment input; these are different boundary, topology, priority, and recovery decisions rather than a renamed baseline branch."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "All eight owner relations, the depth-two 30-connection realization, local GUMBO state/record contracts, and bounded evidence plan are realizable without allocation revision.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit of PART-01 through PART-08 found state-dependent choice, validity collapse, many-to-one or cross-product classification, multi-input applicability, recovery transition, or ordered arbitration in every complete owner relation; no usage only copies, bundles, reroutes, or bijectively renames its assigned inputs.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The current AADL library defines the required System, Process, Thread, Data, DataPort, and PortConnection forms. Nine boundary values require 18 two-hop boundary declarations and twelve internal exchanges require twelve declarations, yielding the selected 30 raw connections while preserving 21 semantic interactions and containment depth two.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Trusted Isolette syntax exercises Thread-local GUMBO state, initialize, compute_cases, In(pre-state), typed ports, and connections; retained accepted HVAC models additionally show flat attribute-based records and the same local-state and 30-raw/21-semantic architecture pattern passing current Sireum and harness gates.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The harness checks ownership-audit structure and exact metrics/analyzer agreement without guessing semantics. CONSTR-04 and AUDIT-04 already require source-local facts plus executed bounded owner relations and witnesses, and the non-executable claim boundary correctly avoids scheduling, execution, and physical-effect claims.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "All Model findings are accepted; the unchanged eight-owner medium baseline is explicit and generation is authorized with mandatory local and bounded evidence.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Restored the missing Model decision after preserving the retained canonical source and harness evidence; fresh SysML typechecking, bounded analysis, metrics, and traceability consistency checks passed.",
+      "canonical_source": "model/Cabin_Air_Treatment_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Accepted a freshly recomposed compact system overview bound to validated revision 1 with zero crossings, zero route-object collisions, passed native review, and complete traceability coverage.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-AIR-01",
+        "CASE-AIR-02",
+        "CASE-ARB-01",
+        "CASE-ARB-02",
+        "CASE-ARB-03",
+        "CASE-ARB-04",
+        "CASE-EQP-01",
+        "CASE-EQP-02",
+        "CASE-HUM-01",
+        "CASE-HUM-02",
+        "CASE-REC-01",
+        "CASE-REC-02",
+        "CASE-REC-03",
+        "CASE-REC-04",
+        "CASE-REC-05",
+        "CASE-RQ-01",
+        "CASE-RQ-02",
+        "CASE-RQ-03",
+        "CASE-RQ-04",
+        "CASE-RQ-05",
+        "CTRL-01",
+        "CTRL-02",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "MON-07",
+        "OWNER-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "STATE-01",
+        "STATE-02"
+      ],
+      "reviewed_tagged_element_count": 109,
+      "reviewed_trace_association_count": 109,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Accepted: source-bound, trace-complete medium candidate passes owner-local bounded semantics and rendered-artifact review without drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 7
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "requestLifecycleOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "airCareSelection",
+            "requestValidity",
+            "In(requestMemory)"
+          ],
+          "owner_local_facts": [
+            "requestIntent",
+            "nextRequestMemory"
+          ],
+          "contract_cases": [
+            "CASE-RQ-01",
+            "CASE-RQ-02",
+            "CASE-RQ-03",
+            "CASE-RQ-04",
+            "CASE-RQ-05"
+          ],
+          "analyzer_checks": [
+            "request lifecycle totality and freshness"
+          ]
+        },
+        {
+          "usage": "airQualityOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "cabinAirQuality",
+            "airQualityValidity"
+          ],
+          "owner_local_facts": [
+            "airAssessment"
+          ],
+          "contract_cases": [
+            "CASE-AIR-01"
+          ],
+          "analyzer_checks": [
+            "air qualification validity dominance"
+          ]
+        },
+        {
+          "usage": "humidityOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "cabinHumidity",
+            "humidityValidity"
+          ],
+          "owner_local_facts": [
+            "humidityAssessment"
+          ],
+          "contract_cases": [
+            "CASE-HUM-01"
+          ],
+          "analyzer_checks": [
+            "humidity qualification collapse"
+          ]
+        },
+        {
+          "usage": "readinessOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "treatmentEquipmentStatus.statusValidity",
+            "treatmentEquipmentStatus.filtrationChannel",
+            "treatmentEquipmentStatus.dryingChannel"
+          ],
+          "owner_local_facts": [
+            "treatmentReadiness",
+            "readinessContext"
+          ],
+          "contract_cases": [
+            "CASE-EQP-01",
+            "CASE-EQP-02"
+          ],
+          "analyzer_checks": [
+            "readiness cross-product and invalid dominance"
+          ]
+        },
+        {
+          "usage": "filtrationProposalOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "requestIntent",
+            "airAssessment",
+            "treatmentReadiness"
+          ],
+          "owner_local_facts": [
+            "airProposal"
+          ],
+          "contract_cases": [
+            "CASE-AIR-02"
+          ],
+          "analyzer_checks": [
+            "filtration applicability totality"
+          ]
+        },
+        {
+          "usage": "humidityProposalOwner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "requestIntent",
+            "humidityAssessment",
+            "treatmentReadiness"
+          ],
+          "owner_local_facts": [
+            "humidityProposal"
+          ],
+          "contract_cases": [
+            "CASE-HUM-02"
+          ],
+          "analyzer_checks": [
+            "drying applicability totality"
+          ]
+        },
+        {
+          "usage": "recoveryOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "readinessContext",
+            "requestIntent",
+            "In(recoveryMemory)"
+          ],
+          "owner_local_facts": [
+            "recoveryGate",
+            "nextRecoveryMemory"
+          ],
+          "contract_cases": [
+            "CASE-REC-01",
+            "CASE-REC-02",
+            "CASE-REC-03",
+            "CASE-REC-04",
+            "CASE-REC-05"
+          ],
+          "analyzer_checks": [
+            "fault hold and fresh reauthorization"
+          ]
+        },
+        {
+          "usage": "resultArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "requestIntent",
+            "airProposal",
+            "humidityProposal",
+            "recoveryGate"
+          ],
+          "owner_local_facts": [
+            "airTreatmentCommand",
+            "airCareSupervisorStatus"
+          ],
+          "contract_cases": [
+            "CASE-ARB-01",
+            "CASE-ARB-02",
+            "CASE-ARB-03",
+            "CASE-ARB-04"
+          ],
+          "analyzer_checks": [
+            "priority and diagnostic precedence"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Accepted: source-bound, trace-complete medium candidate passes owner-local bounded semantics and rendered-artifact review without drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

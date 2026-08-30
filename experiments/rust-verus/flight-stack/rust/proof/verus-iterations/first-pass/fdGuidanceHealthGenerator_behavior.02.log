@@ -1,0 +1,28 @@
+RUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none
+   Compiling fdGuidanceHealthGenerator_behavior v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/fdGuidanceHealthGenerator_behavior)
+error: cannot use function `data::FlightStack::impl&%95::eq` which is ignored because it is either declared outside the verus! macro or it is marked as `external`.
+   --> src/component/fdGuidanceHealthGenerator_behavior_app.rs:116:19
+    |
+116 |       let fd_on = reference.fdState == FlightStack::FdStateValue::Displayed;
+    |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    |
+    = help: The following declaration may resolve this error:
+            pub assume_specification [<data::FlightStack::FdStateValue as core::cmp::PartialEq>::eq] (_0: &data::FlightStack::FdStateValue, _1: &data::FlightStack::FdStateValue) -> bool;
+
+error: cannot use function `data::FlightStack::impl&%109::eq` which is ignored because it is either declared outside the verus! macro or it is marked as `external`.
+   --> src/component/fdGuidanceHealthGenerator_behavior_app.rs:98:7
+    |
+ 98 |       attitude.classification == FlightStack::AttitudeClass::Safe;
+    |       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+...
+133 |         attitude.classification == FlightStack::AttitudeClass::Invalid;
+    |         --------------------------------------------------------------
+134 |       let unsafe_attitude =
+135 |         attitude.classification == FlightStack::AttitudeClass::Unsafe;
+    |         -------------------------------------------------------------
+    |
+    = help: The following declaration may resolve this error:
+            pub assume_specification [<data::FlightStack::AttitudeClass as core::cmp::PartialEq>::eq] (_0: &data::FlightStack::AttitudeClass, _1: &data::FlightStack::AttitudeClass) -> bool;
+
+error: could not compile `fdGuidanceHealthGenerator_behavior` (lib) due to 2 previous errors
+make: *** [Makefile:32: verus] Error 101

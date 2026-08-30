@@ -1,0 +1,12 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_6b2c9afa3d4d_2_Complement {
+  @pure def check(
+      guard_resolution: equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.GuardResolution,
+      mining_command: equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommand.Type): Unit = {
+    Contract(Requires(!((((T) & (T)) ___>: (equiv_shared_0.Ore_Hold_Mining_Guard_Supervisor.MiningCommandDerivationOwner_mining_guard_process_mining_command_derivation_owner_GumboX.inititialize_IEP_Post(mining_command))) & T)))
+  }
+}

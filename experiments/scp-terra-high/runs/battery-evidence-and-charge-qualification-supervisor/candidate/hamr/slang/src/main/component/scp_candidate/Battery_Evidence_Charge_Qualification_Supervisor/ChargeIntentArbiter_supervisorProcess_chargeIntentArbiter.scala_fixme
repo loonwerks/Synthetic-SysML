@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.Battery_Evidence_Charge_Qualification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter {
+
+  def initialise(api: ChargeIntentArbiter_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee initial_decision
+        api.chargeDecision == ChargeDecision.NO_CHANGE
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_chargeDecision(Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.NO_CHANGE)
+  }
+
+  def finalise(api: ChargeIntentArbiter_Operational_Api): Unit = { }
+}

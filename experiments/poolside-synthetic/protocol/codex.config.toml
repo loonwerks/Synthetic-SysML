@@ -1,0 +1,65 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+model = "gpt-5.6-terra"
+model_reasoning_effort = "high"
+approval_policy = "never"
+allow_login_shell = false
+web_search = "disabled"
+default_permissions = "poolside_model_phase"
+
+[history]
+persistence = "none"
+
+[agents]
+enabled = false
+
+[apps._default]
+enabled = false
+open_world_enabled = false
+
+[feedback]
+enabled = false
+
+[memories]
+generate_memories = false
+
+[features]
+skill_mcp_dependency_install = false
+
+[shell_environment_policy]
+inherit = "none"
+ignore_default_excludes = false
+experimental_use_profile = false
+
+[shell_environment_policy.set]
+HOME = "/workspace/.home"
+TMPDIR = "/workspace/.tmp"
+SIREUM_HOME = "/opt/sireum"
+PATH = "/opt/sireum/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+LANG = "C.UTF-8"
+LC_ALL = "C.UTF-8"
+
+[permissions.poolside_model_phase]
+description = "Poolside-equivalent synthetic model phase: read frozen inputs and edit only M-star.sysml."
+
+[permissions.poolside_model_phase.filesystem]
+":root" = "deny"
+":minimal" = "read"
+":slash_tmp" = "deny"
+":tmpdir" = "deny"
+"/proc" = "deny"
+"/opt/sireum" = "read"
+"/opt/sysml-aadl-libraries" = "read"
+
+[permissions.poolside_model_phase.filesystem.":workspace_roots"]
+"." = "write"
+".codex" = "read"
+".git" = "read"
+"Gumbo_FSE_agent_Plan.txt" = "read"
+"N.md" = "read"
+"model-phase-prompt.txt" = "read"
+"settings.local.yaml" = "read"
+"sireum_verification_plan.txt" = "read"
+
+[permissions.poolside_model_phase.network]
+enabled = false

@@ -1,0 +1,13 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_acfe481439b7_4_Valid {
+  @pure def check(
+      qualificationout: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryQualification,
+      reportin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryReportValue): Unit = {
+    Contract(Requires(T),
+      Ensures((((T) & (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_GumboX.inititialize_IEP_Post(qualificationout))) ___>: (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_Candidate_GumboX.inititialize_IEP_Post(qualificationout))) & T))
+  }
+}

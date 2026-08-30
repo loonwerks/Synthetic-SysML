@@ -1,0 +1,645 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T155228Z-factory-dispatch-hard-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Factory_Material_Continuity_Coordinator.sysml",
+  "source_sha256": "a0d536bd69898122aacee8b6d8c03d08385de2a118a5475becdbb1d95ca05c71",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 15,
+    "edgeCount": 21,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 186,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ASM-INIT-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28",
+      "CASE-29",
+      "CTRL-RES-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "INT-34",
+      "INT-35",
+      "MON-DEM-01",
+      "MON-EVT-01",
+      "MON-INV-01",
+      "MON-PROD-01",
+      "MON-REC-01",
+      "MON-SUP-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "PART-14",
+      "REL-COMP-01",
+      "REL-DEM-01",
+      "REL-DISP-01",
+      "REL-EVT-01",
+      "REL-INV-01",
+      "REL-STATE-01",
+      "TYPE-DEC-01",
+      "TYPE-FACT-01"
+    ],
+    "relativePath": "cps48/runs/20260813T155228Z-factory-dispatch-hard-r2-a1/system-abstract.md",
+    "taggedElementCount": 199,
+    "traceAssociationCount": 199,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a hard-tier factory material-continuity coordinator with an exact 14/35/29/10 specification, three state owners, strict priority, same-evaluation fault propagation, two-event recovery, and atomic composition.",
+      "questions_for_model": [
+        "Can both lifecycle owners expose prior state constrained to In(state) for event qualification and post-transition current state for downstream consumers without unsupported same-evaluation dependency semantics?",
+        "Can all seven logical boundary interactions lower through exactly seven transparent root-to-Process delegations while preserving the exact 35-semantic and 42-raw-connection inventories?",
+        "Can the bounded analyzer compare independent reference behavior with all owner-local transmitted values without duplicating production decision predicates or becoming an untraced centralized oracle?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "procurement and production-material availability coordination",
+        "closest_baseline": "accepted replicate-2 Small stateful request registry plus dispatch arbiter for finished-product shipment release and retry",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system controls raw-material release and Supplier replenishment from production demand and inventory evidence; it excludes shipment and dispatch commands, splits retained state among demand, Supplier-order, and recovery owners, arbitrates urgent release versus reserve replenishment versus routine release, and recovers material-lifecycle faults through reset then verification rather than retrying shipments."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The 14/35/29/10 material-continuity allocation is realizable and all fourteen owner claims are behaviorally substantive.",
+      "findings": [
+        {
+          "classification": "localized-mapping",
+          "evidence": "The supported System-to-Process-to-Thread form realizes seven boundary INTs with seven additional root/Process delegations and 28 direct internal flows: 7*2+28 gives exactly 42 raw PortConnection declarations while semantic interactions remain 35. The same containment/delegation form is accepted in the current factory-medium source, whose fresh current Sireum check exited 0 with Well-formed!.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-07 and PART-08 can publish prior state from In(local_state) to PART-06 and separately publish unwrapped post-transition state to eligibility/composition. Trusted Isolette demonstrates local state, initialization, compute cases, and In(state); the accepted factory-medium source demonstrates simultaneous pre-state context and post-state publication, so the feedback paths are state-broken without another owner or interaction.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit found nonidentity facts at every claimed usage: PART-01..03 have many-to-one presence/usability/event classifications; PART-04..05 add multi-field qualification/readiness; PART-06..09 make state-dependent coherence and lifecycle/recovery transitions; PART-10..12 combine multiple inputs into proposals; PART-13 applies strict priority; and PART-14 derives a recovery-dominant mode that collapses both release actions. Copied tags, fields, states, decisions, and dispositions are explicitly uncredited.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The bounded product is exactly 3,240 root snapshots times 30 prior-state tuples, or 97,200 evaluations. Separate PART-01..14 candidate evaluators can exchange only INT values and be compared with an uncredited independently written abstract reference relation, including intermediate-value, 29-case, priority, composition, and ten-scenario checks. The harness independently typechecks, binds the source hash, rejects analyzer gaps/overlaps/mismatches or failed checks, and requires matching passed ownership records.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "All Model findings are accepted without semantic revision; generation is authorized for the exact 14/35/29/10 baseline.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical hard-tier SysML, both retained type gates, exact trace audit, and exhaustive bounded analysis passed.",
+      "canonical_source": "model/Factory_Material_Continuity_Coordinator.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated single-view overview passed native, traceability, crossing, and route-collision review.",
+      "correction_cycles": 6,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ASM-INIT-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "CTRL-RES-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "INT-34",
+        "INT-35",
+        "MON-DEM-01",
+        "MON-EVT-01",
+        "MON-INV-01",
+        "MON-PROD-01",
+        "MON-REC-01",
+        "MON-SUP-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "PART-14",
+        "REL-COMP-01",
+        "REL-DEM-01",
+        "REL-DISP-01",
+        "REL-EVT-01",
+        "REL-INV-01",
+        "REL-STATE-01",
+        "TYPE-DEC-01",
+        "TYPE-FACT-01"
+      ],
+      "reviewed_tagged_element_count": 199,
+      "reviewed_trace_association_count": 199,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound hard-tier design passed owner-local bounded semantics and rendered-artifact review without drift or padding.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 14,
+        "semantic_interactions": 35,
+        "nontrivial_contract_cases": 29,
+        "scenario_families": 10
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "demand_acquisition",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "demand_acquisition.demand_signal"
+          ],
+          "owner_local_facts": [
+            "demand presence classification"
+          ],
+          "contract_cases": [
+            "REL-DEM-01"
+          ],
+          "analyzer_checks": [
+            "demand acquisition classification"
+          ]
+        },
+        {
+          "usage": "inventory_acquisition",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "inventory_acquisition.inventory_band"
+          ],
+          "owner_local_facts": [
+            "inventory usability classification"
+          ],
+          "contract_cases": [
+            "REL-INV-01"
+          ],
+          "analyzer_checks": [
+            "inventory acquisition classification"
+          ]
+        },
+        {
+          "usage": "event_acquisition",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "event_acquisition.material_event"
+          ],
+          "owner_local_facts": [
+            "event class classification"
+          ],
+          "contract_cases": [
+            "REL-EVT-01"
+          ],
+          "analyzer_checks": [
+            "event acquisition classification"
+          ]
+        },
+        {
+          "usage": "demand_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "demand_qualification.demand_boundary_facts"
+          ],
+          "owner_local_facts": [
+            "validity urgency and material class"
+          ],
+          "contract_cases": [
+            "REL-DEM-01"
+          ],
+          "analyzer_checks": [
+            "demand qualification derivation"
+          ]
+        },
+        {
+          "usage": "material_readiness_assessment",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "material_readiness_assessment.inventory_boundary_facts",
+            "material_readiness_assessment.production_availability"
+          ],
+          "owner_local_facts": [
+            "material availability reserve and acceptance facts"
+          ],
+          "contract_cases": [
+            "REL-INV-01"
+          ],
+          "analyzer_checks": [
+            "readiness derivation"
+          ]
+        },
+        {
+          "usage": "event_coherence",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "event_coherence.event_boundary_facts",
+            "event_coherence.prior_demand_state",
+            "event_coherence.prior_supply_state"
+          ],
+          "owner_local_facts": [
+            "qualified event and fault trigger"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "event coherence partition"
+          ]
+        },
+        {
+          "usage": "demand_registry",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "demand_registry.demand_facts",
+            "demand_registry.qualified_event",
+            "demand_registry.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "next demand phase update and disposition"
+          ],
+          "contract_cases": [
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "demand transition partition",
+            "demand disposition relation"
+          ]
+        },
+        {
+          "usage": "supply_lifecycle",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "supply_lifecycle.qualified_event",
+            "supply_lifecycle.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "next supply phase"
+          ],
+          "contract_cases": [
+            "CASE-17",
+            "CASE-18"
+          ],
+          "analyzer_checks": [
+            "supply transition partition"
+          ]
+        },
+        {
+          "usage": "recovery_supervisor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recovery_supervisor.recovery_event",
+            "recovery_supervisor.fault_trigger"
+          ],
+          "owner_local_facts": [
+            "next recovery phase gate and emergency"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "recovery transition partition",
+            "two event recovery sequence"
+          ]
+        },
+        {
+          "usage": "urgent_release_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "urgent_release_eligibility.demand_state",
+            "urgent_release_eligibility.material_readiness_facts",
+            "urgent_release_eligibility.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "urgent release proposal"
+          ],
+          "contract_cases": [
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "urgent proposal partition"
+          ]
+        },
+        {
+          "usage": "routine_release_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "routine_release_eligibility.demand_state",
+            "routine_release_eligibility.material_readiness_facts",
+            "routine_release_eligibility.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "routine release proposal"
+          ],
+          "contract_cases": [
+            "CASE-21",
+            "CASE-22"
+          ],
+          "analyzer_checks": [
+            "routine proposal partition"
+          ]
+        },
+        {
+          "usage": "replenishment_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "replenishment_eligibility.material_readiness_facts",
+            "replenishment_eligibility.supply_state",
+            "replenishment_eligibility.supplier_availability",
+            "replenishment_eligibility.recovery_gate"
+          ],
+          "owner_local_facts": [
+            "replenishment proposal"
+          ],
+          "contract_cases": [
+            "CASE-23",
+            "CASE-24"
+          ],
+          "analyzer_checks": [
+            "replenishment proposal partition"
+          ]
+        },
+        {
+          "usage": "material_action_arbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "material_action_arbitration.emergency_state",
+            "material_action_arbitration.urgent_proposal",
+            "material_action_arbitration.replenishment_proposal",
+            "material_action_arbitration.routine_proposal"
+          ],
+          "owner_local_facts": [
+            "strict priority action and cause"
+          ],
+          "contract_cases": [
+            "CASE-25",
+            "CASE-26",
+            "CASE-27",
+            "CASE-28",
+            "CASE-29"
+          ],
+          "analyzer_checks": [
+            "arbitration priority partition"
+          ]
+        },
+        {
+          "usage": "result_composition",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "result_composition.demand_transition",
+            "result_composition.supply_state",
+            "result_composition.recovery_state",
+            "result_composition.decision"
+          ],
+          "owner_local_facts": [
+            "atomic public mode and flat result"
+          ],
+          "contract_cases": [
+            "REL-COMP-01"
+          ],
+          "analyzer_checks": [
+            "atomic composition mapping"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound hard-tier design passed owner-local bounded semantics and rendered-artifact review without drift or padding.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

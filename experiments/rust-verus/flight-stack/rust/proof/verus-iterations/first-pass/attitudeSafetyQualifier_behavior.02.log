@@ -1,0 +1,13 @@
+RUSTC_BOOTSTRAP=1 cargo-verus verify -Z build-std=core,alloc,compiler_builtins -Z build-std-features=compiler-builtins-mem --target aarch64-unknown-none
+   Compiling attitudeSafetyQualifier_behavior v0.1.0 (experiments/rust-verus/flight-stack/rust/hamr/crates/attitudeSafetyQualifier_behavior)
+error: cannot use function `data::FlightStack::impl&%109::eq` which is ignored because it is either declared outside the verus! macro or it is marked as `external`.
+  --> src/component/attitudeSafetyQualifier_behavior_app.rs:69:24
+   |
+69 |     let qualified = if classification == FlightStack::AttitudeClass::Invalid {
+   |                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = help: The following declaration may resolve this error:
+           pub assume_specification [<data::FlightStack::AttitudeClass as core::cmp::PartialEq>::eq] (_0: &data::FlightStack::AttitudeClass, _1: &data::FlightStack::AttitudeClass) -> bool;
+
+error: could not compile `attitudeSafetyQualifier_behavior` (lib) due to 1 previous error
+make: *** [Makefile:32: verus] Error 101

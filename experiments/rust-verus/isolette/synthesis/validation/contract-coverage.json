@@ -1,0 +1,2549 @@
+{
+  "status": "passed",
+  "schema_version": 1,
+  "source_sha256": "fcde62c3e4a2a466b35740378aff3c3f14f82de195809e39cabaa55ab8d344d0",
+  "analysis_strategy": "exact finite enumeration with regulator/monitor Cartesian factorization",
+  "claim_boundary": "Checks exact finite logical contracts, connection composition, and scenario oracles only; it does not establish physical timing, plant performance, diagnostic coverage, generated-code correctness, execution, proof, or safety certification.",
+  "finite_domain": {
+    "current_temperature_tenths": {
+      "minimum": 680,
+      "maximum": 1050,
+      "cardinality": 371
+    },
+    "display_temperature": {
+      "minimum": 68,
+      "maximum": 105,
+      "cardinality": 38,
+      "non_normal": "unconstrained within canonical type"
+    },
+    "current_validity_cardinality": 2,
+    "desired_bound_pairs": 6,
+    "alarm_bound_pairs": 30,
+    "supervision_records_per_path": 8,
+    "admissible_setting_pairs_under_ASM_04": 2801,
+    "exhausted_root_inputs": 133013888,
+    "factorization_basis": "Every root input projects to one exhaustively checked regulator local tuple and one exhaustively checked monitor local tuple; CASE-20 checks the absence of cross-path dependence."
+  },
+  "semantic_connection_map": {
+    "INT-01": "CTX-01 -> PART-01 : CurrentTemperature",
+    "INT-02": "CTX-02 -> PART-01 : DesiredTemperatureSettings",
+    "INT-03": "CTX-07 -> PART-02 : RegulatorSupervision",
+    "INT-04": "PART-01 -> PART-03 : RegulatorInterfaceFacts",
+    "INT-05": "PART-02 -> PART-03 : RegulatorDiagnosticFacts",
+    "INT-06": "PART-03 -> PART-01 : RegulatorMode",
+    "INT-07": "PART-01 -> CTX-02 : RegulatorFeedback",
+    "INT-08": "PART-01 -> PART-04 : RegulatorControlBasis",
+    "INT-09": "PART-03 -> PART-04 : RegulatorMode",
+    "INT-10": "PART-04 -> CTX-03 : HeatControl",
+    "INT-11": "CTX-01 -> PART-05 : CurrentTemperature",
+    "INT-12": "CTX-02 -> PART-05 : AlarmTemperatureSettings",
+    "INT-13": "CTX-07 -> PART-06 : MonitorSupervision",
+    "INT-14": "PART-05 -> PART-07 : MonitorInterfaceFacts",
+    "INT-15": "PART-06 -> PART-07 : MonitorDiagnosticFacts",
+    "INT-16": "PART-07 -> PART-05 : MonitorMode",
+    "INT-17": "PART-05 -> CTX-02 : MonitorStatus",
+    "INT-18": "PART-05 -> PART-08 : MonitorControlBasis",
+    "INT-19": "PART-07 -> PART-08 : MonitorMode",
+    "INT-20": "PART-08 -> CTX-02 : AlarmControl"
+  },
+  "generated_support": {
+    "process_containers": 1,
+    "boundary_delegations_traversed": 10,
+    "semantic_credit": 0,
+    "behavioral_owners": []
+  },
+  "partition_counts": {
+    "desired_status": {
+      "valid_both": 6,
+      "any_invalid": 18
+    },
+    "alarm_status": {
+      "valid_both": 30,
+      "any_invalid": 90
+    },
+    "regulator_diagnostic": {
+      "epoch_reset": 8,
+      "retain_or_set": 8
+    },
+    "monitor_diagnostic": {
+      "epoch_reset": 8,
+      "retain_or_set": 8
+    },
+    "regulator_mode": {
+      "init_unhealthy_wait": 7,
+      "init_unhealthy_timeout": 7,
+      "reset": 48,
+      "init_healthy": 2,
+      "normal_unhealthy": 14,
+      "normal_healthy": 2,
+      "failed_latch": 16
+    },
+    "monitor_mode": {
+      "init_unhealthy_wait": 7,
+      "init_unhealthy_timeout": 7,
+      "reset": 48,
+      "init_healthy": 2,
+      "normal_unhealthy": 14,
+      "normal_healthy": 2,
+      "failed_latch": 16
+    },
+    "heat": {
+      "non_normal": 8904,
+      "below_desired": 3560,
+      "desired_band_retain": 212,
+      "above_desired": 680
+    },
+    "alarm": {
+      "init_off": 22260,
+      "low_outside": 16500,
+      "low_band_retain": 300,
+      "central_inner_off": 2760,
+      "high_band_retain": 300,
+      "high_outside": 2400,
+      "failed_on": 22260
+    },
+    "display": {
+      "normal_rounded": 371,
+      "non_normal_unconstrained": 28196
+    }
+  },
+  "observations": {
+    "guard_gaps": 0,
+    "guard_overlaps": 0,
+    "required_output_mismatches": 0,
+    "next_state_mismatches": 0,
+    "invariant_violations": 0,
+    "semantic_interactions": 20,
+    "resolved_connections": 30,
+    "scenario_families": 8
+  },
+  "checks": {
+    "canonical_temperature_bounds_present": true,
+    "canonical_single_sample_fanout_present": true,
+    "exact_root_domain_exhausted": true,
+    "all_local_partitions_complete_and_disjoint": true,
+    "all_required_outputs_match": true,
+    "all_next_states_match": true,
+    "all_invariants_hold": true,
+    "semantic_map_complete": true,
+    "regulator_monitor_independence": true,
+    "all_scenario_families_executed": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "manage_regulator_interface",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-01 CurrentTemperature",
+        "INT-02 DesiredTemperatureSettings",
+        "INT-06 RegulatorMode"
+      ],
+      "owner_local_facts": [
+        "two-status RegulatorInterfaceFailure",
+        "round-half-up DisplayTemperature"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03"
+      ],
+      "analyzer_checks": [
+        "desired_status_partition",
+        "display_rounding_domain"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "detect_regulator_failure",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-03 RegulatorSupervision",
+        "prior regulator failure latch"
+      ],
+      "owner_local_facts": [
+        "resettable regulator internal-failure latch"
+      ],
+      "contract_cases": [
+        "CASE-04",
+        "CASE-05"
+      ],
+      "analyzer_checks": [
+        "regulator_diagnostic_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "manage_regulator_mode",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-04 RegulatorInterfaceFacts",
+        "INT-05 RegulatorDiagnosticFacts",
+        "prior RegulatorMode"
+      ],
+      "owner_local_facts": [
+        "regulator health conjunction",
+        "complete RegulatorMode next-state decision"
+      ],
+      "contract_cases": [
+        "CASE-06",
+        "CASE-07"
+      ],
+      "analyzer_checks": [
+        "regulator_mode_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "manage_heat_source",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-08 RegulatorControlBasis",
+        "INT-09 RegulatorMode",
+        "prior HeatControl"
+      ],
+      "owner_local_facts": [
+        "safe-off priority and three-region heat decision"
+      ],
+      "contract_cases": [
+        "CASE-08",
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "heat_policy_partition",
+        "regulator_priority_trace"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "manage_monitor_interface",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-11 CurrentTemperature",
+        "INT-12 AlarmTemperatureSettings",
+        "INT-16 MonitorMode"
+      ],
+      "owner_local_facts": [
+        "two-status MonitorInterfaceFailure and AlarmRange applicability"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12",
+        "CASE-13"
+      ],
+      "analyzer_checks": [
+        "alarm_status_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "detect_monitor_failure",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-13 MonitorSupervision",
+        "prior monitor failure latch"
+      ],
+      "owner_local_facts": [
+        "resettable monitor internal-failure latch"
+      ],
+      "contract_cases": [
+        "CASE-14",
+        "CASE-15"
+      ],
+      "analyzer_checks": [
+        "monitor_diagnostic_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "manage_monitor_mode",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-14 MonitorInterfaceFacts",
+        "INT-15 MonitorDiagnosticFacts",
+        "prior MonitorMode"
+      ],
+      "owner_local_facts": [
+        "monitor health conjunction",
+        "complete MonitorMode next-state decision"
+      ],
+      "contract_cases": [
+        "CASE-16",
+        "CASE-17"
+      ],
+      "analyzer_checks": [
+        "monitor_mode_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "manage_alarm",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-18 MonitorControlBasis",
+        "INT-19 MonitorMode",
+        "prior AlarmControl"
+      ],
+      "owner_local_facts": [
+        "failed-on priority and five-region hysteretic alarm decision"
+      ],
+      "contract_cases": [
+        "CASE-18",
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "alarm_policy_partition",
+        "monitor_priority_trace",
+        "CASE-20 cross_failure_noninterference"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "healthy_startup",
+      "variants": [
+        "healthy"
+      ],
+      "steps": [
+        {
+          "label": "healthy initialization",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-01 valid_both",
+            "CASE-06 init_healthy",
+            "CASE-16 init_healthy",
+            "CASE-03 rounded"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "init_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "init_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "heating_and_desired_hold",
+      "variants": [
+        "below_then_band"
+      ],
+      "steps": [
+        {
+          "label": "below desired",
+          "input": {
+            "current": {
+              "valueDF": 960,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-09 below_desired"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "below_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 96,
+            "heatControl": "On",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "On",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "enter desired band",
+          "input": {
+            "current": {
+              "valueDF": 975,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-09 desired_band_retain"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "On",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "On",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "cooling_and_desired_hold",
+      "variants": [
+        "above_then_band"
+      ],
+      "steps": [
+        {
+          "label": "above desired",
+          "input": {
+            "current": {
+              "valueDF": 1005,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 100,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-09 above_desired"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "above_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 101,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "return to desired band",
+          "input": {
+            "current": {
+              "valueDF": 995,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 100,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-09 desired_band_retain"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 100,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "alarm_activation_and_hysteretic_recovery",
+      "variants": [
+        "low_outside",
+        "low_band",
+        "central_inner",
+        "high_band",
+        "high_outside"
+      ],
+      "steps": [
+        {
+          "label": "low outside",
+          "input": {
+            "current": {
+              "valueDF": 920,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-19 low_outside"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "below_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "low_outside"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 92,
+            "heatControl": "On",
+            "monitorStatus": "On",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "On",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "low band retain",
+          "input": {
+            "current": {
+              "valueDF": 932,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-19 low_band_retain"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "below_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "low_band_retain"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 93,
+            "heatControl": "On",
+            "monitorStatus": "On",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "On",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "central inner low",
+          "input": {
+            "current": {
+              "valueDF": 935,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-19 central_inner_off"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "below_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 94,
+            "heatControl": "On",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "On",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "high outside",
+          "input": {
+            "current": {
+              "valueDF": 1040,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-19 high_outside"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "above_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "high_outside"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 104,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "high band retain",
+          "input": {
+            "current": {
+              "valueDF": 1028,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-19 high_band_retain"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "above_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "high_band_retain"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 103,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "central inner high",
+          "input": {
+            "current": {
+              "valueDF": 1025,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-19 central_inner_off"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "above_desired",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 103,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "desired_invalidity_and_fresh_request",
+      "variants": [
+        "invalid",
+        "fresh_valid_no_recovery",
+        "power_epoch_recovery"
+      ],
+      "steps": [
+        {
+          "label": "invalidate desired setting",
+          "input": {
+            "current": {
+              "valueDF": 960,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": false,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-01 any_invalid",
+            "CASE-07 normal_unhealthy",
+            "CASE-08 non_normal"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": true,
+            "regulatorRangeAvailable": false,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": false,
+            "regulatorModeBranch": "normal_unhealthy",
+            "heatBranch": "non_normal",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "Failed",
+            "displayTemperature": 68,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "FAILED",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "fresh desired setting without power epoch",
+          "input": {
+            "current": {
+              "valueDF": 960,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-07 failed_latch"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "failed_latch",
+            "heatBranch": "non_normal",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "Failed",
+            "displayTemperature": 68,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "FAILED",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "regulator power epoch",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": true,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-04 epoch_reset",
+            "CASE-07 reset"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "reset",
+            "heatBranch": "non_normal",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "Init",
+            "displayTemperature": 68,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "INIT",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "healthy regulator restart",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-06 init_healthy"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "init_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "family": "alarm_invalidity_and_fresh_request",
+      "variants": [
+        "invalid",
+        "fresh_valid_no_recovery",
+        "power_epoch_recovery"
+      ],
+      "steps": [
+        {
+          "label": "invalidate alarm setting",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": false
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-11 any_invalid",
+            "CASE-17 normal_unhealthy",
+            "CASE-18 failed_on"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": true,
+            "monitorRangeAvailable": false,
+            "monitorFailureLatched": false,
+            "monitorHealth": false,
+            "monitorModeBranch": "normal_unhealthy",
+            "alarmBranch": "failed_on"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "Failed",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "FAILED",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "fresh alarm setting without power epoch",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-17 failed_latch"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "failed_latch",
+            "alarmBranch": "failed_on"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "Failed",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "FAILED",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "monitor power epoch",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": true,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-14 epoch_reset",
+            "CASE-17 reset"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "reset",
+            "alarmBranch": "init_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "Init",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "INIT",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "healthy monitor restart",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-16 init_healthy"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "init_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "family": "invalid_current_temperature",
+      "variants": [
+        "common_invalid",
+        "fresh_valid_no_recovery"
+      ],
+      "steps": [
+        {
+          "label": "invalid shared current temperature",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": false
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-07 normal_unhealthy",
+            "CASE-17 normal_unhealthy",
+            "CASE-08 non_normal",
+            "CASE-18 failed_on"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": false,
+            "regulatorModeBranch": "normal_unhealthy",
+            "heatBranch": "non_normal",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": false,
+            "monitorModeBranch": "normal_unhealthy",
+            "alarmBranch": "failed_on"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "Failed",
+            "displayTemperature": 68,
+            "heatControl": "Off",
+            "monitorStatus": "Failed",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "FAILED",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "FAILED",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "fresh valid temperature without power epoch",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-07 failed_latch",
+            "CASE-17 failed_latch"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "failed_latch",
+            "heatBranch": "non_normal",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "failed_latch",
+            "alarmBranch": "failed_on"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "Failed",
+            "displayTemperature": 68,
+            "heatControl": "Off",
+            "monitorStatus": "Failed",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "FAILED",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "FAILED",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-08",
+      "family": "independent_failures_and_timeouts",
+      "variants": [
+        "regulator_only_failure",
+        "monitor_only_failure",
+        "regulator_timeout",
+        "monitor_timeout"
+      ],
+      "steps": [
+        {
+          "label": "regulator-only internal failure at low temperature",
+          "input": {
+            "current": {
+              "valueDF": 960,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": true
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-05 regulator latch",
+            "CASE-07 normal_unhealthy",
+            "CASE-08 safe_off_priority",
+            "CASE-20 regulator_only"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": true,
+            "regulatorHealth": false,
+            "regulatorModeBranch": "normal_unhealthy",
+            "heatBranch": "non_normal",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "normal_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "Failed",
+            "displayTemperature": 68,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": true,
+            "regulatorMode": "FAILED",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "monitor-only internal failure at safe temperature",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": true
+            }
+          },
+          "expected_named_branches": [
+            "CASE-15 monitor latch",
+            "CASE-17 normal_unhealthy",
+            "CASE-18 failed_on_priority",
+            "CASE-20 monitor_only"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "normal_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": true,
+            "monitorHealth": false,
+            "monitorModeBranch": "normal_unhealthy",
+            "alarmBranch": "failed_on"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "Failed",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": true,
+            "monitorMode": "FAILED",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "regulator initialization timeout",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": false,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": true,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-07 init_unhealthy_timeout"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": true,
+            "regulatorRangeAvailable": false,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": false,
+            "regulatorModeBranch": "init_unhealthy_timeout",
+            "heatBranch": "non_normal",
+            "monitorInterfaceFailure": false,
+            "monitorRangeAvailable": true,
+            "monitorFailureLatched": false,
+            "monitorHealth": true,
+            "monitorModeBranch": "init_healthy",
+            "alarmBranch": "central_inner_off"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "Failed",
+            "displayTemperature": 68,
+            "heatControl": "Off",
+            "monitorStatus": "On",
+            "alarmControl": "Off"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "FAILED",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "NORMAL",
+            "alarmControl": "Off"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        },
+        {
+          "label": "monitor initialization timeout",
+          "input": {
+            "current": {
+              "valueDF": 980,
+              "valid": true
+            },
+            "desired": {
+              "lower": 97,
+              "upper": 99,
+              "lowerValid": true,
+              "upperValid": true
+            },
+            "alarm": {
+              "lower": 93,
+              "upper": 103,
+              "lowerValid": false,
+              "upperValid": true
+            },
+            "regulatorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": false,
+              "internalFailureDetected": false
+            },
+            "monitorSupervision": {
+              "powerEpochChanged": false,
+              "initTimeoutExpired": true,
+              "internalFailureDetected": false
+            }
+          },
+          "expected_named_branches": [
+            "CASE-17 init_unhealthy_timeout"
+          ],
+          "observed_owner_facts": {
+            "regulatorInterfaceFailure": false,
+            "regulatorRangeAvailable": true,
+            "regulatorFailureLatched": false,
+            "regulatorHealth": true,
+            "regulatorModeBranch": "init_healthy",
+            "heatBranch": "desired_band_retain",
+            "monitorInterfaceFailure": true,
+            "monitorRangeAvailable": false,
+            "monitorFailureLatched": false,
+            "monitorHealth": false,
+            "monitorModeBranch": "init_unhealthy_timeout",
+            "alarmBranch": "failed_on"
+          },
+          "observed_outputs": {
+            "regulatorStatus": "On",
+            "displayTemperature": 98,
+            "heatControl": "Off",
+            "monitorStatus": "Failed",
+            "alarmControl": "On"
+          },
+          "observed_next_state": {
+            "regulatorFailureLatched": false,
+            "regulatorMode": "NORMAL",
+            "heatControl": "Off",
+            "monitorFailureLatched": false,
+            "monitorMode": "FAILED",
+            "alarmControl": "On"
+          },
+          "semantic_interactions_consumed": [
+            "INT-01",
+            "INT-02",
+            "INT-03",
+            "INT-04",
+            "INT-05",
+            "INT-06",
+            "INT-07",
+            "INT-08",
+            "INT-09",
+            "INT-10",
+            "INT-11",
+            "INT-12",
+            "INT-13",
+            "INT-14",
+            "INT-15",
+            "INT-16",
+            "INT-17",
+            "INT-18",
+            "INT-19",
+            "INT-20"
+          ]
+        }
+      ]
+    }
+  ],
+  "failures": []
+}

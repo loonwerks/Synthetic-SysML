@@ -1,0 +1,1360 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/visibility-priority-whole-cabin-hvac-supervisor/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/visibility-priority-whole-cabin-hvac-supervisor/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/visibility-priority-whole-cabin-hvac-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INCONCLUSIVE",
+  "diagnostics": [
+    "proof tool failure: root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::equipmentFaultAssessor::compute"
+  ],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/visibility-priority-whole-cabin-hvac-supervisor/agent/M-star.sysml",
+    "oracle": "datasets/visibility-priority-whole-cabin-hvac-supervisor/evaluator/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": null,
+  "run_status": "ERROR",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0615d71ad0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AirQualityNeedAssessor_supervision_airQualityNeedAssessor_GumboX.inititialize_IEP_Post(airneed))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0615d71ad0:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0615d71ad0:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0615d71ad0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AirQualityNeedAssessor_supervision_airQualityNeedAssessor_GumboX.inititialize_IEP_Post(airneed))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0615d71ad0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::airQualityNeedAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e22d103878:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AirQualityNeedAssessor_supervision_airQualityNeedAssessor_GumboX.compute_CEP_Post(airobservation, airneed))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e22d103878:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e22d103878:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e22d103878:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AirQualityNeedAssessor_supervision_airQualityNeedAssessor_GumboX.compute_CEP_Post(airobservation, airneed))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e22d103878:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::airQualityNeedAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-49ee2dc6f5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AtomicResultPublisher_supervision_atomicResultPublisher_GumboX.inititialize_IEP_Post(actuationplan, supervisorstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-49ee2dc6f5:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-49ee2dc6f5:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-49ee2dc6f5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AtomicResultPublisher_supervision_atomicResultPublisher_GumboX.inititialize_IEP_Post(actuationplan, supervisorstatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-49ee2dc6f5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::atomicResultPublisher::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8e366054dc:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AtomicResultPublisher_supervision_atomicResultPublisher_GumboX.compute_CEP_Post(arbitrationstatus, candidateplan, recoveryreport, actuationplan, supervisorstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8e366054dc:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8e366054dc:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8e366054dc:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.AtomicResultPublisher_supervision_atomicResultPublisher_GumboX.compute_CEP_Post(arbitrationstatus, candidateplan, recoveryreport, actuationplan, supervisorstatus))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8e366054dc:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::atomicResultPublisher::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6690235f45:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CabinAirServiceProposer_supervision_cabinAirServiceProposer_GumboX.inititialize_IEP_Post(cabinairproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6690235f45:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6690235f45:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6690235f45:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CabinAirServiceProposer_supervision_cabinAirServiceProposer_GumboX.inititialize_IEP_Post(cabinairproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6690235f45:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::cabinAirServiceProposer::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2940102bd3:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CabinAirServiceProposer_supervision_cabinAirServiceProposer_GumboX.compute_CEP_Post(airneed, airpath, humidityneed, cabinairproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2940102bd3:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2940102bd3:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2940102bd3:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CabinAirServiceProposer_supervision_cabinAirServiceProposer_GumboX.compute_CEP_Post(airneed, airpath, humidityneed, cabinairproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2940102bd3:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::cabinAirServiceProposer::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c9c79700a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CriticalFaultRecoveryOwner_supervision_criticalFaultRecoveryOwner_GumboX.inititialize_IEP_Post(recovery, recoveryreport))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c9c79700a:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c9c79700a:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c9c79700a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CriticalFaultRecoveryOwner_supervision_criticalFaultRecoveryOwner_GumboX.inititialize_IEP_Post(recovery, recoveryreport))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c9c79700a:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::criticalFaultRecoveryOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4152f48f83:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CriticalFaultRecoveryOwner_supervision_criticalFaultRecoveryOwner_GumboX.compute_CEP_Post(in_recovery, recovery, criticalelectrical, criticalequipment, recoveryacknowledgment, visibilityfault, recoveryreport))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4152f48f83:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4152f48f83:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4152f48f83:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.CriticalFaultRecoveryOwner_supervision_criticalFaultRecoveryOwner_GumboX.compute_CEP_Post(in_recovery, recovery, criticalelectrical, criticalequipment, recoveryacknowledgment, visibilityfault, recoveryreport))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4152f48f83:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::criticalFaultRecoveryOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0bc77557b8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ElectricalEligibilityOwner_supervision_electricalEligibilityOwner_GumboX.inititialize_IEP_Post(criticalelectrical, electricaleligibility))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0bc77557b8:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0bc77557b8:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0bc77557b8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ElectricalEligibilityOwner_supervision_electricalEligibilityOwner_GumboX.inititialize_IEP_Post(criticalelectrical, electricaleligibility))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0bc77557b8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::electricalEligibilityOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0cd50ce3d4:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ElectricalEligibilityOwner_supervision_electricalEligibilityOwner_GumboX.compute_CEP_Post(electricalavailability, criticalelectrical, electricaleligibility))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0cd50ce3d4:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0cd50ce3d4:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0cd50ce3d4:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ElectricalEligibilityOwner_supervision_electricalEligibilityOwner_GumboX.compute_CEP_Post(electricalavailability, criticalelectrical, electricaleligibility))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0cd50ce3d4:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::electricalEligibilityOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2d04d63b79:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EnergySafePlanComposer_supervision_energySafePlanComposer_GumboX.inititialize_IEP_Post(candidateplan))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2d04d63b79:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2d04d63b79:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2d04d63b79:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EnergySafePlanComposer_supervision_energySafePlanComposer_GumboX.inititialize_IEP_Post(candidateplan))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-2d04d63b79:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::energySafePlanComposer::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8f6f87a03e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EnergySafePlanComposer_supervision_energySafePlanComposer_GumboX.compute_CEP_Post(electricaleligibility, selectedintent, candidateplan))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8f6f87a03e:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8f6f87a03e:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8f6f87a03e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EnergySafePlanComposer_supervision_energySafePlanComposer_GumboX.compute_CEP_Post(electricaleligibility, selectedintent, candidateplan))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-8f6f87a03e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::energySafePlanComposer::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-aabdfd65eb:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EquipmentFaultAssessor_supervision_equipmentFaultAssessor_GumboX.inititialize_IEP_Post(airpath, criticalequipment, thermalpath, visibilitypath))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-aabdfd65eb:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-aabdfd65eb:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-aabdfd65eb:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EquipmentFaultAssessor_supervision_equipmentFaultAssessor_GumboX.inititialize_IEP_Post(airpath, criticalequipment, thermalpath, visibilitypath))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-aabdfd65eb:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::equipmentFaultAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-a6f3d66458:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EquipmentFaultAssessor_supervision_equipmentFaultAssessor_GumboX.compute_CEP_Post(equipmentreadiness, airpath, criticalequipment, thermalpath, visibilitypath))) & T",
+          "name": "A* & G -> G*",
+          "status": "TOOL_ERROR",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-a6f3d66458:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-a6f3d66458:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-a6f3d66458:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.EquipmentFaultAssessor_supervision_equipmentFaultAssessor_GumboX.compute_CEP_Post(equipmentreadiness, airpath, criticalequipment, thermalpath, visibilitypath))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "TOOL_ERROR",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-a6f3d66458:atomic:04-a---g-----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-a6f3d66458:atomic:04-a---g-----g-complement"
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::equipmentFaultAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0ced2f9304:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.HumidityNeedAssessor_supervision_humidityNeedAssessor_GumboX.inititialize_IEP_Post(humidityneed))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0ced2f9304:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0ced2f9304:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0ced2f9304:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.HumidityNeedAssessor_supervision_humidityNeedAssessor_GumboX.inititialize_IEP_Post(humidityneed))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-0ced2f9304:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::humidityNeedAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-5dcf75db68:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.HumidityNeedAssessor_supervision_humidityNeedAssessor_GumboX.compute_CEP_Post(humidityobservation, humidityneed))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-5dcf75db68:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-5dcf75db68:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-5dcf75db68:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.HumidityNeedAssessor_supervision_humidityNeedAssessor_GumboX.compute_CEP_Post(humidityobservation, humidityneed))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-5dcf75db68:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::humidityNeedAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-32cfa4b5c3:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.PriorityAuthorizationArbiter_supervision_priorityAuthorizationArbiter_GumboX.inititialize_IEP_Post(authorization, arbitrationstatus, selectedintent))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-32cfa4b5c3:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-32cfa4b5c3:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-32cfa4b5c3:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.PriorityAuthorizationArbiter_supervision_priorityAuthorizationArbiter_GumboX.inititialize_IEP_Post(authorization, arbitrationstatus, selectedintent))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-32cfa4b5c3:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::priorityAuthorizationArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e10361c699:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.PriorityAuthorizationArbiter_supervision_priorityAuthorizationArbiter_GumboX.compute_CEP_Post(in_authorization, authorization, cabinairproposal, qualifiedrequest, recoveryreport, thermalproposal, visibilityproposal, arbitrationstatus, selectedintent))) & T",
+          "name": "A* & G -> G*",
+          "status": "TIMEOUT",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e10361c699:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e10361c699:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.PriorityAuthorizationArbiter_supervision_priorityAuthorizationArbiter_GumboX.compute_CEP_Post(in_authorization, authorization, cabinairproposal, qualifiedrequest, recoveryreport, thermalproposal, visibilityproposal, arbitrationstatus, selectedintent))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-e10361c699:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::priorityAuthorizationArbiter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-61a8b69f66:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.RequestQualifier_supervision_requestQualifier_GumboX.inititialize_IEP_Post(qualifiedrequest, qualifiedtarget))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-61a8b69f66:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-61a8b69f66:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-61a8b69f66:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.RequestQualifier_supervision_requestQualifier_GumboX.inititialize_IEP_Post(qualifiedrequest, qualifiedtarget))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-61a8b69f66:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::requestQualifier::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c0b9747d11:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.RequestQualifier_supervision_requestQualifier_GumboX.compute_CEP_Post(userrequest, qualifiedrequest, qualifiedtarget))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c0b9747d11:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c0b9747d11:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c0b9747d11:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.RequestQualifier_supervision_requestQualifier_GumboX.compute_CEP_Post(userrequest, qualifiedrequest, qualifiedtarget))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c0b9747d11:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::requestQualifier::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c97319ad2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalNeedAssessor_supervision_thermalNeedAssessor_GumboX.inititialize_IEP_Post(thermalassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c97319ad2:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c97319ad2:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c97319ad2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalNeedAssessor_supervision_thermalNeedAssessor_GumboX.inititialize_IEP_Post(thermalassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-4c97319ad2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::thermalNeedAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-1380831503:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalNeedAssessor_supervision_thermalNeedAssessor_GumboX.compute_CEP_Post(cabinobservation, qualifiedtarget, thermalassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-1380831503:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-1380831503:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-1380831503:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalNeedAssessor_supervision_thermalNeedAssessor_GumboX.compute_CEP_Post(cabinobservation, qualifiedtarget, thermalassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-1380831503:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::thermalNeedAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-589858c5ab:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalServiceProposer_supervision_thermalServiceProposer_GumboX.inititialize_IEP_Post(thermalproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-589858c5ab:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-589858c5ab:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-589858c5ab:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalServiceProposer_supervision_thermalServiceProposer_GumboX.inititialize_IEP_Post(thermalproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-589858c5ab:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::thermalServiceProposer::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c8c69b924a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalServiceProposer_supervision_thermalServiceProposer_GumboX.compute_CEP_Post(thermalassessment, thermalpath, wasteheateligibility, thermalproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c8c69b924a:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c8c69b924a:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c8c69b924a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ThermalServiceProposer_supervision_thermalServiceProposer_GumboX.compute_CEP_Post(thermalassessment, thermalpath, wasteheateligibility, thermalproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-c8c69b924a:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::thermalServiceProposer::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed0fddbfb8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityNeedAssessor_supervision_visibilityNeedAssessor_GumboX.inititialize_IEP_Post(visibilityfault, visibilityneed))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed0fddbfb8:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed0fddbfb8:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed0fddbfb8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityNeedAssessor_supervision_visibilityNeedAssessor_GumboX.inititialize_IEP_Post(visibilityfault, visibilityneed))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed0fddbfb8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::visibilityNeedAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-d06d11213d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityNeedAssessor_supervision_visibilityNeedAssessor_GumboX.compute_CEP_Post(glazingobservation, visibilityfault, visibilityneed))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-d06d11213d:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-d06d11213d:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-d06d11213d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityNeedAssessor_supervision_visibilityNeedAssessor_GumboX.compute_CEP_Post(glazingobservation, visibilityfault, visibilityneed))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-d06d11213d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::visibilityNeedAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6002ac0ae8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(visibilityproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6002ac0ae8:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6002ac0ae8:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6002ac0ae8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(visibilityproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-6002ac0ae8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::visibilityServiceProposer::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed4c8ab09f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.compute_CEP_Post(visibilityneed, visibilitypath, visibilityproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed4c8ab09f:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed4c8ab09f:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed4c8ab09f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.compute_CEP_Post(visibilityneed, visibilitypath, visibilityproposal))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-ed4c8ab09f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::visibilityServiceProposer::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-28a97f71e9:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.WasteHeatEligibilityOwner_supervision_wasteHeatEligibilityOwner_GumboX.inititialize_IEP_Post(wasteheateligibility))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-28a97f71e9:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-28a97f71e9:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-28a97f71e9:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.WasteHeatEligibilityOwner_supervision_wasteHeatEligibilityOwner_GumboX.inititialize_IEP_Post(wasteheateligibility))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-28a97f71e9:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::wasteHeatEligibilityOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-fde6e683d8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.WasteHeatEligibilityOwner_supervision_wasteHeatEligibilityOwner_GumboX.compute_CEP_Post(wasteheatavailability, wasteheateligibility))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-fde6e683d8:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-fde6e683d8:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-fde6e683d8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.WasteHeatEligibilityOwner_supervision_wasteHeatEligibilityOwner_GumboX.compute_CEP_Post(wasteheatavailability, wasteheateligibility))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-hvac-visibility-priority-supervisor-hvacsup-fde6e683d8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::HVAC_Visibility_Priority_Supervisor::HVACSupervisor/root-instance::HVACSupervisor_Instance/component::HVACSupervisor_Instance::supervision::wasteHeatEligibilityOwner::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

@@ -1,0 +1,377 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132656Z-fire-observation-sortie-small-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Battery_Status_Assessment_Service.sysml",
+  "source_sha256": "d162d7c6c0fa280297054760631e52729960bc0b350a6b5245a506a263a78ec4",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 10,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 127,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "LOCAL-01",
+      "LOCAL-02",
+      "LOCAL-03",
+      "LOCAL-04",
+      "LOCAL-05",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "STATE-01",
+      "STATE-02",
+      "STATE-03",
+      "TYPE-01",
+      "TYPE-02",
+      "TYPE-04",
+      "TYPE-05"
+    ],
+    "relativePath": "cps48/runs/20260814T132656Z-fire-observation-sortie-small-r2-a1/system-abstract.md",
+    "taggedElementCount": 118,
+    "traceAssociationCount": 118,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a five-owner battery-status assessment service with 14 typed interactions, 12 complete cases, five scenario families, one assessment decision owner, and reset-plus-fresh-token recovery.",
+      "questions_for_model": [
+        "Can INT-08 and INT-11 be represented as prior committed feedback in the accepted GUMBO state semantics without centralizing ReportAcquisition or ResultCustody policy in CheckLifecycle?",
+        "Can the bounded model and analyzer cover all 180 BatteryReport values and all 12 ControlUseFeedback values, including malformed combinations, while preserving exact inactive sentinel coherence?",
+        "Can one root realize exactly five semantic owners and fourteen end-to-end interaction meanings at semantic depth one while process containment, boundary delegation, and committed-feedback storage remain explicit uncredited generated support?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "battery-status assessment for drone-control use",
+        "closest_baseline": "accepted replicate-1 Small Forest Observation Eligibility Supervisor",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system removes observation authorization, camera/radio evidence, and observation-progress gating. It actively requests one battery report, qualifies its content, derives a qualitative assessment, and owns result-consumption custody; its serial topology and reset-plus-alternate-token recovery cannot be obtained by renaming or repartitioning the baseline's parallel sortie-evidence permit/deny governor."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Close prior-feedback state shapes and retain the offered assessment without changing the 5/14/12/5 allocation.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "Under ASM-04, PART-05 clears CTRL-02 when Consumed is evaluated but PART-01 receives INT-11=Consumed only on the next logical evaluation, necessarily producing the omitted one-step tuple (AwaitingUse, Ready, Empty). Independently, a requested unavailable/mismatched report and unexpected meaningful feedback can set PART-02=FailureHold and PART-05=FaultHold together, producing (Checking, FailureHold, FaultHold) and then (RecoveryHold, FailureHold, FaultHold), although CONSIST-01 declares every omitted tuple unreachable.",
+          "requested_change": "Extend CONSIST-01 with exactly the consumption-recognition and two combined-fault families; retain PublicationFailed-over-AcquisitionFailed priority and one reset clearing both latches. Clarify TYPE-06/MODE-01/CASE-09/SCN-01 that CTRL-02 clears on consumption and CTRL-03=Completed follows when committed INT-11 is evaluated, and add bounded witnesses. Change no PART, INT, metric, boundary type, assessment rule, recovery rule, or claim boundary."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "STATE-03 stores only Empty, OfferedTokenA, OfferedTokenB, or FaultHold. Once the opening evaluation ends, INT-10 is inactive, so those token-only values cannot preserve which of NormalUse, CautionUse, RestrictUse, or Untrusted must remain on CTRL-02 during Pending or coherent inactive feedback as required by POL-05 and CASE-09.",
+          "requested_change": "Add a PART-05-local retained AssessmentResult initialized to NoAssessment; set it only from a matching meaningful open assessment, preserve it only while offered, clear it on consume/withdraw/fault/reset, and constrain CTRL-02 from publication token plus retained result. Refine STATE-03/INIT-01/LOCAL-05 and invariants only; add no owner, usage, interaction, case, scenario, metric, or domain claim."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "INT-08 and INT-11 are declared prior-committed feedback on cycles PART-01->PART-02->PART-01 and PART-01->PART-05->PART-01. The trusted/current accepted subset supports state, initialize, compute_cases, and In(state); Sireum v4.20260630.386eac9f freshly checked the accepted state-broken-feedback vehicle source against library commit 9016cbcceefa92f0068e1811923704dd261d15f1 and exited 0 with Well-formed!.",
+          "requested_change": "Use explicitly initialized committedAcquisitionOutcome and committedPublicationOutcome registers authorized by GEN-SUP-02; drive INT-08/INT-11 from In(register) and update each post-state register only from its owning current local relation. Keep INT-07/09/10 feed-forward and give commit storage no semantic or owner credit."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01 makes temporal admission/recovery choices; PART-02 classifies ignore/capture/fault and latches failure; PART-03 maps each ticket's 20 present level/quality values into four singleton trusted fibers plus one 16-value Untrusted fiber; PART-04 has meaningful fibers 1/1/2/1 because Low and Critical merge to RestrictUse; and PART-05 combines state, directive, assessment, and feedback. Successful raw-field preservation and ticket relabeling are uncredited. No claimed owner is a copy, bundle, route, or one-to-one code rename.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The library supplies System, Process, Thread, Data, DataPort, and connection forms; flat attribute records can represent all 180 BatteryReport and 12 ControlUseFeedback values. The raw boundary product is 17280 snapshots before state. One root, one support Process, five sibling semantic Threads, fourteen Process-local semantic connections, and six root delegations realize the selected topology with twenty raw PortConnection declarations.",
+          "requested_change": "Use flat attribute records and owner-factored exhaustive analysis; retain exactly 5 semantic usages, 14 semantic interactions including 8 internal meanings, 12 cases, 5 scenarios, 1 root, semantic depth 1, 1 weak region, and 1 principal owner. Give the support Process, six delegations, sentinels, and storage zero semantic credit."
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved after closing consumption and combined-fault states, retaining offered assessments, and fixing prior-feedback realization.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical battery-status assessment source, both retained Sireum gates, exact small-tier metrics, trace associations, and bounded owner-local scenarios passed after one localized custody-totality repair.",
+      "canonical_source": "model/Battery_Status_Assessment_Service.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 1,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated ten-edge system overview passed native, routing, export-binding, and complete traceability review.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "LOCAL-01",
+        "LOCAL-02",
+        "LOCAL-03",
+        "LOCAL-04",
+        "LOCAL-05",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "STATE-01",
+        "STATE-02",
+        "STATE-03",
+        "TYPE-01",
+        "TYPE-02",
+        "TYPE-04",
+        "TYPE-05"
+      ],
+      "reviewed_tagged_element_count": 118,
+      "reviewed_trace_association_count": 118,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound design, owner-local bounded semantics, traceability, and rendered overview passed without silent drift; execution was not required.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 14,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "check_lifecycle",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "check_lifecycle.check_request",
+            "check_lifecycle.acquisition_outcome",
+            "check_lifecycle.publication_outcome",
+            "state.lifecycleState",
+            "state.lastAdmittedToken"
+          ],
+          "owner_local_facts": [
+            "freshAlternateTokenAdmission",
+            "singleCheckApplicability",
+            "resetApplicability",
+            "lifecyclePriorityAndStatus"
+          ],
+          "contract_cases": [
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "lifecycle-owner-total-exclusive-3360",
+            "lifecycle-owner-freshness-and-priority"
+          ]
+        },
+        {
+          "usage": "report_acquisition",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "report_acquisition.acquisition_directive",
+            "report_acquisition.battery_report",
+            "state.acquisitionState"
+          ],
+          "owner_local_facts": [
+            "tokenRelativeCaptureApplicability",
+            "acquisitionFaultLatch",
+            "tokenSpecificReadRequest"
+          ],
+          "contract_cases": [
+            "CASE-05",
+            "CASE-11"
+          ],
+          "analyzer_checks": [
+            "acquisition-owner-total-exclusive-7200",
+            "acquisition-owner-fault-latch-and-reset"
+          ]
+        },
+        {
+          "usage": "assessment_decision",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "assessment_decision.assessment_context",
+            "assessment_decision.qualified_evidence"
+          ],
+          "owner_local_facts": [
+            "exactTokenAssessmentApplicability",
+            "nonBijectiveBatteryAssessment"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04"
+          ],
+          "analyzer_checks": [
+            "decision-owner-total-exclusive-54",
+            "decision-owner-five-to-four-mapping"
+          ]
+        },
+        {
+          "usage": "result_custody",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "result_custody.publication_directive",
+            "result_custody.decision_assessment",
+            "result_custody.control_use_feedback",
+            "state.publicationState",
+            "state.retainedAssessment"
+          ],
+          "owner_local_facts": [
+            "offerApplicability",
+            "feedbackConsistency",
+            "exactRetainedResultCustody",
+            "publicationFaultLatch"
+          ],
+          "contract_cases": [
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11"
+          ],
+          "analyzer_checks": [
+            "custody-owner-total-exclusive-63000",
+            "custody-owner-clear-before-completion",
+            "custody-owner-fault-and-reset"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound design, owner-local bounded semantics, traceability, and rendered overview passed without silent drift; execution was not required.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

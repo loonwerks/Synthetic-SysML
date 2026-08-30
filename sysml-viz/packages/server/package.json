@@ -1,0 +1,32 @@
+{
+  "name": "@sysml-viz/server",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx watch src/dev.ts",
+    "test": "tsc -p tsconfig.test.json && node dist-test/test/api.integration.test.js && node --test --test-concurrency=1 dist-test/test/layout.test.js dist-test/test/migration.test.js dist-test/test/paths.test.js dist-test/test/presets.test.js dist-test/test/search.test.js dist-test/test/sireum.test.js dist-test/test/traceability.test.js dist-test/test/view-store.test.js",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "clean": "node -e \"for(const p of ['dist','dist-test'])require('node:fs').rmSync(p,{recursive:true,force:true})\""
+  },
+  "dependencies": {
+    "@sysml-viz/core": "0.1.0",
+    "chokidar": "^4.0.0",
+    "express": "^5.0.0",
+    "sharp": "0.33.5",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/ws": "^8.5.0"
+  }
+}

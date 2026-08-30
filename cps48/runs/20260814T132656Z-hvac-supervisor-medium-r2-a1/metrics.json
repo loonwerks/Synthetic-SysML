@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "source_sha256": "cb0615bda26e1dcc432ad8459bc0338c416267374c0257e1b08ca838f1059b3d",
+  "root_system_usages": 1,
+  "behavior_free_support_processes": 1,
+  "semantic_usages": 8,
+  "semantic_interactions": 21,
+  "raw_directed_connections": 30,
+  "physical_containment_depth_below_root": 2,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 7,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "requestLifecycleOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "airCareSelection",
+          "requestValidity",
+          "In(requestMemory)"
+        ],
+        "owner_local_facts": [
+          "requestIntent",
+          "nextRequestMemory"
+        ],
+        "contract_cases": [
+          "CASE-RQ-01",
+          "CASE-RQ-02",
+          "CASE-RQ-03",
+          "CASE-RQ-04",
+          "CASE-RQ-05"
+        ],
+        "analyzer_checks": [
+          "request lifecycle totality and freshness"
+        ]
+      },
+      {
+        "usage": "airQualityOwner",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "cabinAirQuality",
+          "airQualityValidity"
+        ],
+        "owner_local_facts": [
+          "airAssessment"
+        ],
+        "contract_cases": [
+          "CASE-AIR-01"
+        ],
+        "analyzer_checks": [
+          "air qualification validity dominance"
+        ]
+      },
+      {
+        "usage": "humidityOwner",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "cabinHumidity",
+          "humidityValidity"
+        ],
+        "owner_local_facts": [
+          "humidityAssessment"
+        ],
+        "contract_cases": [
+          "CASE-HUM-01"
+        ],
+        "analyzer_checks": [
+          "humidity qualification collapse"
+        ]
+      },
+      {
+        "usage": "readinessOwner",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "treatmentEquipmentStatus.statusValidity",
+          "treatmentEquipmentStatus.filtrationChannel",
+          "treatmentEquipmentStatus.dryingChannel"
+        ],
+        "owner_local_facts": [
+          "treatmentReadiness",
+          "readinessContext"
+        ],
+        "contract_cases": [
+          "CASE-EQP-01",
+          "CASE-EQP-02"
+        ],
+        "analyzer_checks": [
+          "readiness cross-product and invalid dominance"
+        ]
+      },
+      {
+        "usage": "filtrationProposalOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "requestIntent",
+          "airAssessment",
+          "treatmentReadiness"
+        ],
+        "owner_local_facts": [
+          "airProposal"
+        ],
+        "contract_cases": [
+          "CASE-AIR-02"
+        ],
+        "analyzer_checks": [
+          "filtration applicability totality"
+        ]
+      },
+      {
+        "usage": "humidityProposalOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "requestIntent",
+          "humidityAssessment",
+          "treatmentReadiness"
+        ],
+        "owner_local_facts": [
+          "humidityProposal"
+        ],
+        "contract_cases": [
+          "CASE-HUM-02"
+        ],
+        "analyzer_checks": [
+          "drying applicability totality"
+        ]
+      },
+      {
+        "usage": "recoveryOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "readinessContext",
+          "requestIntent",
+          "In(recoveryMemory)"
+        ],
+        "owner_local_facts": [
+          "recoveryGate",
+          "nextRecoveryMemory"
+        ],
+        "contract_cases": [
+          "CASE-REC-01",
+          "CASE-REC-02",
+          "CASE-REC-03",
+          "CASE-REC-04",
+          "CASE-REC-05"
+        ],
+        "analyzer_checks": [
+          "fault hold and fresh reauthorization"
+        ]
+      },
+      {
+        "usage": "resultArbiter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "requestIntent",
+          "airProposal",
+          "humidityProposal",
+          "recoveryGate"
+        ],
+        "owner_local_facts": [
+          "airTreatmentCommand",
+          "airCareSupervisorStatus"
+        ],
+        "contract_cases": [
+          "CASE-ARB-01",
+          "CASE-ARB-02",
+          "CASE-ARB-03",
+          "CASE-ARB-04"
+        ],
+        "analyzer_checks": [
+          "priority and diagnostic precedence"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

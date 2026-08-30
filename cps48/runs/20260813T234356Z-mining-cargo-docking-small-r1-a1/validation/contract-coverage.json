@@ -1,0 +1,2813 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "9644e38a4e8771374232945758e5e1b80bdcdd6478e14d923fa12908058fe0d6",
+  "claim_boundary": "Deterministic exhaustive evidence over the seed's 3,072 finite admissible snapshots and named scenario traces only; not formal, compositional, unbounded, executable, physical-performance, safety, certification, or generated-code evidence.",
+  "semantic_connection_map": {
+    "INT-01": "root.offloadRequest -> requestQualification.requestSample",
+    "INT-02": "requestQualification.qualifiedRequest -> transferDecisionOwner.qualifiedRequest",
+    "INT-03": "root.dockingStatus -> dockingAssessmentOwner.dockingSample",
+    "INT-04": "dockingAssessmentOwner.dockingAssessment -> transferDecisionOwner.dockingAssessment",
+    "INT-05": "root.shipProgress -> shipProgressQualification.shipSample",
+    "INT-06": "shipProgressQualification.qualifiedShipProgress -> transferDecisionOwner.qualifiedShipProgress",
+    "INT-07": "root.warehouseReceipt -> warehouseEvidenceQualification.warehouseSample",
+    "INT-08": "warehouseEvidenceQualification.qualifiedWarehouseEvidence -> transferDecisionOwner.qualifiedWarehouseEvidence",
+    "INT-09": "transferDecisionOwner.commandResolution -> transferCommandDerivation.resolution",
+    "INT-10": "transferDecisionOwner.reportResolution -> transferReportDerivation.resolution",
+    "INT-11": "transferCommandDerivation.command -> root.cargoTransferCommand",
+    "INT-12": "transferReportDerivation.supervisorStatus -> root.transferSupervisorStatus",
+    "INT-13": "transferReportDerivation.verificationFinding -> root.transferVerificationFinding"
+  },
+  "domain": {
+    "invariant_satisfying_pre_states": 4,
+    "request_pairs": 4,
+    "docking_pairs": 4,
+    "ship_pairs": 8,
+    "warehouse_pairs": 6,
+    "expected_snapshots": 3072,
+    "enumerated_snapshots": 3072
+  },
+  "partition_counts": {
+    "CASE-01": 2880,
+    "CASE-02": 46,
+    "CASE-03": 2,
+    "CASE-04": 80,
+    "CASE-05": 44,
+    "CASE-06": 1,
+    "CASE-07": 1,
+    "CASE-08": 2,
+    "CASE-09": 2,
+    "CASE-10": 4,
+    "CASE-11": 8,
+    "CASE-12": 2
+  },
+  "partition_gaps": 0,
+  "effective_partition_overlaps": 0,
+  "raw_guard_overlap_snapshots": 3070,
+  "qualification_mismatches": 0,
+  "state_mismatches": 0,
+  "required_output_mismatches": 0,
+  "invariant_violations": 0,
+  "case_witnesses": {
+    "CASE-01": {
+      "state": {
+        "phase": "Idle",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "NotDocked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Invalid"
+        }
+      }
+    },
+    "CASE-02": {
+      "state": {
+        "phase": "Idle",
+        "rearm": true
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "NotDocked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "ReceiptConfirmed",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-03": {
+      "state": {
+        "phase": "Idle",
+        "rearm": true
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "NotDocked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-04": {
+      "state": {
+        "phase": "TransferOutstanding",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "NotDocked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-05": {
+      "state": {
+        "phase": "Idle",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "NotDocked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "ReceiptConfirmed",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-06": {
+      "state": {
+        "phase": "Idle",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "OffloadRequested",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "Docked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-07": {
+      "state": {
+        "phase": "Idle",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "OffloadRequested",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "NotDocked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-08": {
+      "state": {
+        "phase": "TransferOutstanding",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "Docked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Complete",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "ReceiptConfirmed",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-09": {
+      "state": {
+        "phase": "TransferOutstanding",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "Docked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Complete",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-10": {
+      "state": {
+        "phase": "AwaitingReceipt",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "Docked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "ReceiptConfirmed",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-11": {
+      "state": {
+        "phase": "TransferOutstanding",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "Docked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Valid"
+        }
+      }
+    },
+    "CASE-12": {
+      "state": {
+        "phase": "Idle",
+        "rearm": false
+      },
+      "raw": {
+        "request": {
+          "requestEvent": "NoRequest",
+          "status": "Valid"
+        },
+        "docking": {
+          "docking": "NotDocked",
+          "status": "Valid"
+        },
+        "ship": {
+          "progress": "Idle",
+          "status": "Valid"
+        },
+        "warehouse": {
+          "receipt": "NoReceipt",
+          "status": "Valid"
+        }
+      }
+    }
+  },
+  "canonical_guard_crosscheck": [
+    {
+      "case_id": "CASE-01",
+      "canonical_predecessor_exclusions": 0,
+      "analyzer_predecessor_exclusions": 0,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-02",
+      "canonical_predecessor_exclusions": 1,
+      "analyzer_predecessor_exclusions": 1,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-03",
+      "canonical_predecessor_exclusions": 2,
+      "analyzer_predecessor_exclusions": 2,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-04",
+      "canonical_predecessor_exclusions": 3,
+      "analyzer_predecessor_exclusions": 3,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-05",
+      "canonical_predecessor_exclusions": 4,
+      "analyzer_predecessor_exclusions": 4,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-06",
+      "canonical_predecessor_exclusions": 5,
+      "analyzer_predecessor_exclusions": 5,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-07",
+      "canonical_predecessor_exclusions": 6,
+      "analyzer_predecessor_exclusions": 6,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-08",
+      "canonical_predecessor_exclusions": 7,
+      "analyzer_predecessor_exclusions": 7,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-09",
+      "canonical_predecessor_exclusions": 8,
+      "analyzer_predecessor_exclusions": 8,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-10",
+      "canonical_predecessor_exclusions": 9,
+      "analyzer_predecessor_exclusions": 9,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-11",
+      "canonical_predecessor_exclusions": 10,
+      "analyzer_predecessor_exclusions": 10,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    },
+    {
+      "case_id": "CASE-12",
+      "canonical_predecessor_exclusions": 11,
+      "analyzer_predecessor_exclusions": 11,
+      "finite_domain_mismatches": 0,
+      "matched": true
+    }
+  ],
+  "invariant_checks": {
+    "INVAR-01": true,
+    "NEUTRAL-01": true,
+    "FRESH-01": true,
+    "PRIORITY-01": true,
+    "OUTPUT-01": true
+  },
+  "scenario_family_count": 5,
+  "scenario_failures": 0,
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "nominal delayed verification",
+      "traces": [
+        {
+          "trace_id": "SCN-01-delayed-verification",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "Ready",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "InProgress",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "TransferActive",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 4,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "AwaitingReceipt",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 5,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-11",
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "AwaitingReceipt",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 6,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-10",
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "TransferVerified",
+                "finding": "Verified"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "docking boundary and immediate verification",
+      "traces": [
+        {
+          "trace_id": "SCN-02-docking-boundary-immediate",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "NotDocked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-07",
+              "observed_case": "CASE-07",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "NotDocked",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "AwaitingNeutral",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "Ready",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 4,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 5,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-08",
+              "observed_case": "CASE-08",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "TransferVerified",
+                "finding": "Verified"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "evidence applicability and priority",
+      "traces": [
+        {
+          "trace_id": "SCN-03-idle-evidence-then-docking-loss",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-05",
+              "observed_case": "CASE-05",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "UnexpectedEvidence",
+                "finding": "Rejected"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "Ready",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 4,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "NotDocked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "InProgress",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "EvidenceFault",
+                "finding": "Rejected"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-ship-failure",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Failed",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "EvidenceFault",
+                "finding": "Rejected"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-warehouse-rejection",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "InProgress",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptRejected",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "EvidenceFault",
+                "finding": "Rejected"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-premature-confirmation",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "InProgress",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "EvidenceFault",
+                "finding": "Rejected"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-progress-regression",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-09",
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "AwaitingReceipt",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "InProgress",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "EvidenceFault",
+                "finding": "Rejected"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "invalid and fault entry",
+      "traces": [
+        {
+          "trace_id": "SCN-04-idle-request",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-idle-docking",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-idle-ship",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-idle-warehouse",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-idle-request-docking-pair",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-idle-ship-warehouse-pair",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-idle-all-four",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-outstanding-request",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-outstanding-docking",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-outstanding-ship",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-outstanding-warehouse",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-outstanding-request-docking-pair",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-outstanding-ship-warehouse-pair",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-outstanding-all-four",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-awaiting-request",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-awaiting-docking",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-awaiting-ship",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-awaiting-warehouse",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-awaiting-request-docking-pair",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-awaiting-ship-warehouse-pair",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-awaiting-all-four",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "AwaitingReceipt",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Invalid"
+                },
+                "ship": {
+                  "progress": "Complete",
+                  "status": "Invalid"
+                },
+                "warehouse": {
+                  "receipt": "ReceiptConfirmed",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "recovery and fresh-request behavior",
+      "traces": [
+        {
+          "trace_id": "SCN-05-retained-request-then-fresh-accepted",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Invalid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "InputFault",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "AwaitingNeutral",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "Ready",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 4,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-12",
+              "observed_case": "CASE-12",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "Ready",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 5,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "command": "BeginOffload",
+                "status": "TransferStarted",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-05-retained-evidence-then-fresh-denied",
+          "status": "passed",
+          "steps": [
+            {
+              "step": 1,
+              "pre_state": {
+                "phase": "TransferOutstanding",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "NotDocked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Failed",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "EvidenceFault",
+                "finding": "Rejected"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            },
+            {
+              "step": 2,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "InProgress",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-02",
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "AwaitingNeutral",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            },
+            {
+              "step": 3,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "NoRequest",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "Docked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-03",
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "Ready",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "passed": true
+            },
+            {
+              "step": 4,
+              "pre_state": {
+                "phase": "Idle",
+                "rearm": false
+              },
+              "input": {
+                "request": {
+                  "requestEvent": "OffloadRequested",
+                  "status": "Valid"
+                },
+                "docking": {
+                  "docking": "NotDocked",
+                  "status": "Valid"
+                },
+                "ship": {
+                  "progress": "Idle",
+                  "status": "Valid"
+                },
+                "warehouse": {
+                  "receipt": "NoReceipt",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-07",
+              "observed_case": "CASE-07",
+              "observed_outputs": {
+                "command": "Hold",
+                "status": "NotDocked",
+                "finding": "NotEstablished"
+              },
+              "observed_next_state": {
+                "phase": "Idle",
+                "rearm": true
+              },
+              "passed": true
+            }
+          ]
+        }
+      ],
+      "status": "passed"
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "requestQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "requestQualification.requestSample"
+      ],
+      "owner_local_facts": [
+        "validity-aware three-valued request qualification"
+      ],
+      "contract_cases": [
+        "QUAL_REQ_TOTAL"
+      ],
+      "analyzer_checks": [
+        "request qualification four-pair total relation"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "dockingAssessmentOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "dockingAssessmentOwner.dockingSample"
+      ],
+      "owner_local_facts": [
+        "validity-aware three-valued docking assessment"
+      ],
+      "contract_cases": [
+        "QUAL_DOCK_TOTAL"
+      ],
+      "analyzer_checks": [
+        "docking assessment four-pair total relation"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "shipProgressQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "shipProgressQualification.shipSample"
+      ],
+      "owner_local_facts": [
+        "validity-aware five-valued ship-progress qualification"
+      ],
+      "contract_cases": [
+        "QUAL_SHIP_TOTAL"
+      ],
+      "analyzer_checks": [
+        "ship qualification eight-pair total relation"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "warehouseEvidenceQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "warehouseEvidenceQualification.warehouseSample"
+      ],
+      "owner_local_facts": [
+        "validity-aware four-valued warehouse-evidence qualification"
+      ],
+      "contract_cases": [
+        "QUAL_WAREHOUSE_TOTAL"
+      ],
+      "analyzer_checks": [
+        "warehouse qualification six-pair total relation"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "transferDecisionOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "transferDecisionOwner.qualifiedRequest",
+        "transferDecisionOwner.dockingAssessment",
+        "transferDecisionOwner.qualifiedShipProgress",
+        "transferDecisionOwner.qualifiedWarehouseEvidence",
+        "transferDecisionOwner.In(transferPhase)",
+        "transferDecisionOwner.In(rearmRequired)"
+      ],
+      "owner_local_facts": [
+        "ordered twelve-way disposition",
+        "next transfer phase",
+        "next rearm obligation"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "decision twelve-case effective partition",
+        "decision next-state and invariant preservation"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "transferCommandDerivation",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "transferCommandDerivation.resolution"
+      ],
+      "owner_local_facts": [
+        "twelve-to-two transfer-command classification"
+      ],
+      "contract_cases": [
+        "COMMAND_TOTAL"
+      ],
+      "analyzer_checks": [
+        "command derivation total relation through INT-09"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "transferReportDerivation",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "transferReportDerivation.resolution"
+      ],
+      "owner_local_facts": [
+        "disposition-and-phase status classification",
+        "three-valued finding classification"
+      ],
+      "contract_cases": [
+        "REPORT_TOTAL"
+      ],
+      "analyzer_checks": [
+        "status and finding total relation through INT-10"
+      ],
+      "mismatches": 0,
+      "passed": true
+    }
+  ]
+}

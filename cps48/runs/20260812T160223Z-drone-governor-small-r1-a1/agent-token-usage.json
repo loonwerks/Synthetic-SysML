@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "run_id": "20260812T160223Z-drone-governor-small-r1-a1",
+  "recorded_at": "2026-08-12T18:05:35Z",
+  "scope": "Usage reported by the run's stateless Codex stage invocations.",
+  "cache_semantics": "Cache attribution applies to input only; reasoning output is a subset of output.",
+  "agents": [
+    {
+      "role": "designer",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "designer-initial",
+        "designer-resolution",
+        "designer-final"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 3559296,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 275510,
+          "output": 45645
+        },
+        "totals": {
+          "input": 3834806,
+          "output": 45645,
+          "overall": 3880451
+        }
+      },
+      "reasoning_output_tokens": 18534,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 961.026
+    },
+    {
+      "role": "model",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "model-review",
+        "model-generate"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 6204416,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 271110,
+          "output": 56464
+        },
+        "totals": {
+          "input": 6475526,
+          "output": 56464,
+          "overall": 6531990
+        }
+      },
+      "reasoning_output_tokens": 13384,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 1207.92
+    },
+    {
+      "role": "visualization",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "visualize"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 10032128,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 250939,
+          "output": 29306
+        },
+        "totals": {
+          "input": 10283067,
+          "output": 29306,
+          "overall": 10312373
+        }
+      },
+      "reasoning_output_tokens": 11354,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 877.008
+    }
+  ],
+  "aggregate": {
+    "agent_count": 3,
+    "token_matrix": {
+      "cached": {
+        "input": 19795840,
+        "output": 0
+      },
+      "non_cached": {
+        "input": 797559,
+        "output": 131415
+      },
+      "totals": {
+        "input": 20593399,
+        "output": 131415,
+        "overall": 20724814
+      }
+    },
+    "reasoning_output_tokens": 43272,
+    "cache_write_input_tokens": 0
+  },
+  "timing": {
+    "started_at": "2026-08-12T16:02:23Z",
+    "completed_at": "2026-08-12T18:05:35Z",
+    "run_elapsed_seconds": 7392.0,
+    "summed_agent_stage_seconds": 3045.954,
+    "stages": [
+      {
+        "stage": "designer-initial",
+        "role": "designer",
+        "completed_at": "2026-08-12T16:02:23Z",
+        "duration_seconds": 0.107
+      },
+      {
+        "stage": "designer-initial",
+        "role": "designer",
+        "completed_at": "2026-08-12T16:02:24Z",
+        "duration_seconds": 0.106
+      },
+      {
+        "stage": "designer-initial",
+        "role": "designer",
+        "completed_at": "2026-08-12T17:21:57Z",
+        "duration_seconds": 437.009
+      },
+      {
+        "stage": "model-review",
+        "role": "model",
+        "completed_at": "2026-08-12T17:25:54Z",
+        "duration_seconds": 237.522
+      },
+      {
+        "stage": "designer-resolution",
+        "role": "designer",
+        "completed_at": "2026-08-12T17:29:26Z",
+        "duration_seconds": 212.087
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-12T17:45:37Z",
+        "duration_seconds": 970.398
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-12T18:00:23Z",
+        "duration_seconds": 877.008
+      },
+      {
+        "stage": "designer-final",
+        "role": "designer",
+        "completed_at": "2026-08-12T18:05:35Z",
+        "duration_seconds": 311.717
+      }
+    ],
+    "semantics": "run_elapsed_seconds is real elapsed time from run creation through acceptance; summed_agent_stage_seconds excludes harness-only checks and inter-stage gaps."
+  }
+}

@@ -1,0 +1,362 @@
+{
+  "source": "model/Observation_Sortie_Eligibility_Supervisor.sysml",
+  "source_sha256": "1880bb061208d72c11647c5b0be9bbfa45b99bccc25e9a8625111e8abf29bcbf",
+  "structural": {
+    "root_system_usages": 1,
+    "generated_support_process_usages": 1,
+    "semantic_thread_usages": 13,
+    "reachable_non_root_usages": 14,
+    "containment_depth_beneath_root": 2,
+    "semantic_interactions": 35,
+    "generated_support_boundary_delegations": 18,
+    "raw_port_connection_declarations": 53,
+    "semantic_responsibility_layers": 1,
+    "weakly_connected_regions": 1
+  },
+  "behavior": {
+    "retained_state_owners": [
+      "request_lifecycle_owner",
+      "recovery_qualification_owner",
+      "permission_release_ledger"
+    ],
+    "stateless_decision_owners": [
+      "energy_evidence_assessor",
+      "navigation_evidence_assessor",
+      "communication_evidence_assessor",
+      "observation_evidence_assessor",
+      "obstacle_evidence_assessor",
+      "propulsion_evidence_assessor",
+      "fault_registry",
+      "priority_arbiter",
+      "eligibility_decision_owner",
+      "status_composer"
+    ],
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 10
+  },
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 13,
+    "semantic_interactions": 35,
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "energy_evidence_assessor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "energy_evidence_assessor.energy_evidence"
+        ],
+        "owner_local_facts": [
+          "energy readiness with prioritized EnergyCause"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02"
+        ],
+        "analyzer_checks": [
+          "energy-assessment-16"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "navigation_evidence_assessor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "navigation_evidence_assessor.navigation_evidence"
+        ],
+        "owner_local_facts": [
+          "joint three-member navigation readiness with prioritized NavigationCause"
+        ],
+        "contract_cases": [
+          "CASE-03",
+          "CASE-04"
+        ],
+        "analyzer_checks": [
+          "navigation-assessment-256"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "communication_evidence_assessor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "communication_evidence_assessor.communication_evidence"
+        ],
+        "owner_local_facts": [
+          "communication availability readiness and local cause"
+        ],
+        "contract_cases": [
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "communication-assessment-16"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "observation_evidence_assessor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "observation_evidence_assessor.observation_evidence"
+        ],
+        "owner_local_facts": [
+          "observation availability readiness and local cause"
+        ],
+        "contract_cases": [
+          "CASE-07",
+          "CASE-08"
+        ],
+        "analyzer_checks": [
+          "observation-assessment-16"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "obstacle_evidence_assessor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "obstacle_evidence_assessor.obstacle_evidence"
+        ],
+        "owner_local_facts": [
+          "obstacle-evidence readiness and local cause"
+        ],
+        "contract_cases": [
+          "CASE-09",
+          "CASE-10"
+        ],
+        "analyzer_checks": [
+          "obstacle-assessment-16"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "propulsion_evidence_assessor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "propulsion_evidence_assessor.propulsion_evidence"
+        ],
+        "owner_local_facts": [
+          "joint four-engine and configuration readiness with prioritized PropulsionCause"
+        ],
+        "contract_cases": [
+          "CASE-11",
+          "CASE-12"
+        ],
+        "analyzer_checks": [
+          "propulsion-assessment-2048"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "request_lifecycle_owner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "request_lifecycle_owner.operator_event",
+          "request_lifecycle_owner.accepted_directive",
+          "request_lifecycle_owner.release_feedback",
+          "In(request_lifecycle_owner.requestMemory)"
+        ],
+        "owner_local_facts": [
+          "fresh duplicate released and rearmed request phase"
+        ],
+        "contract_cases": [
+          "CASE-18",
+          "CASE-19",
+          "CASE-20",
+          "CASE-21",
+          "CASE-22"
+        ],
+        "analyzer_checks": [
+          "request-lifecycle-30"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "fault_registry",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "fault_registry.energy_assessment",
+          "fault_registry.navigation_assessment",
+          "fault_registry.communication_assessment",
+          "fault_registry.observation_assessment",
+          "fault_registry.obstacle_assessment",
+          "fault_registry.propulsion_assessment"
+        ],
+        "owner_local_facts": [
+          "current fault state and fixed-priority primary cause"
+        ],
+        "contract_cases": [
+          "CASE-23",
+          "CASE-24"
+        ],
+        "analyzer_checks": [
+          "fault-registry-15360"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "priority_arbiter",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "priority_arbiter.candidate_event",
+          "priority_arbiter.fault_summary"
+        ],
+        "owner_local_facts": [
+          "fault-over-event accepted priority directive"
+        ],
+        "contract_cases": [
+          "CASE-13",
+          "CASE-14",
+          "CASE-15",
+          "CASE-16",
+          "CASE-17"
+        ],
+        "analyzer_checks": [
+          "priority-arbiter-28"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "recovery_qualification_owner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "recovery_qualification_owner.accepted_directive",
+          "recovery_qualification_owner.fault_summary",
+          "In(recovery_qualification_owner.recoveryMemory)"
+        ],
+        "owner_local_facts": [
+          "history-sensitive recovery phase and gate"
+        ],
+        "contract_cases": [
+          "CASE-25",
+          "CASE-26",
+          "CASE-27"
+        ],
+        "analyzer_checks": [
+          "recovery-qualification-105"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "eligibility_decision_owner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "eligibility_decision_owner.energy_assessment",
+          "eligibility_decision_owner.navigation_assessment",
+          "eligibility_decision_owner.communication_assessment",
+          "eligibility_decision_owner.observation_assessment",
+          "eligibility_decision_owner.obstacle_assessment",
+          "eligibility_decision_owner.request_phase",
+          "eligibility_decision_owner.propulsion_assessment",
+          "eligibility_decision_owner.recovery_facts"
+        ],
+        "owner_local_facts": [
+          "generic permit or prioritized withhold reason"
+        ],
+        "contract_cases": [
+          "CASE-28",
+          "CASE-29",
+          "CASE-30"
+        ],
+        "analyzer_checks": [
+          "eligibility-decision-460800"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "permission_release_ledger",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "permission_release_ledger.eligibility_decision",
+          "permission_release_ledger.request_phase",
+          "In(permission_release_ledger.releaseMemory)"
+        ],
+        "owner_local_facts": [
+          "one-shot permission release and lifecycle rearm"
+        ],
+        "contract_cases": [
+          "BEH-01"
+        ],
+        "analyzer_checks": [
+          "permission-release-24"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "status_composer",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "status_composer.eligibility_decision",
+          "status_composer.fault_summary",
+          "status_composer.recovery_phase",
+          "status_composer.request_phase"
+        ],
+        "owner_local_facts": [
+          "generic-to-detailed limiting-cause refinement"
+        ],
+        "contract_cases": [
+          "BEH-02"
+        ],
+        "analyzer_checks": [
+          "status-refinement-252"
+        ],
+        "passed": true
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "exclusions": {
+    "semantic_usage_credit": [
+      "root System",
+      "generated-support Process"
+    ],
+    "semantic_interaction_credit": [
+      "18 root/Process paired delegations"
+    ],
+    "contract_case_credit": [
+      "initialization guarantees",
+      "datatype invariants",
+      "BEH-01 release invariant",
+      "BEH-02 status refinement",
+      "identity preservation clauses"
+    ],
+    "scenario_credit": [
+      "variant witnesses within SCN-06, SCN-07, and SCN-10"
+    ]
+  }
+}

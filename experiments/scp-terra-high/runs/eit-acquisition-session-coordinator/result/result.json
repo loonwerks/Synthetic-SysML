@@ -1,0 +1,796 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/eit-acquisition-session-coordinator/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/eit-acquisition-session-coordinator/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/eit-acquisition-session-coordinator/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INCONCLUSIVE",
+  "diagnostics": [
+    "proof tool failure: root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionEligibilityOwner::compute"
+  ],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/eit-acquisition-session-coordinator/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/eit-acquisition-session-coordinator/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": null,
+  "retry_attempts": [
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:02-a----g----g-validity",
+      "replacement_status": "TIMEOUT"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:04-a---g-----g-validity",
+      "replacement_status": "TIMEOUT"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-be9c1c359d:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-f56b98a1a8:atomic:02-a----g----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-f56b98a1a8:atomic:04-a---g-----g-validity",
+      "replacement_status": "TIMEOUT"
+    },
+    {
+      "attempt": "1800s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:02-a----g----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "1800s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "1800s",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-f56b98a1a8:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "300s-tool",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:02-a----g----g-complement",
+      "replacement_status": "TOOL_ERROR"
+    },
+    {
+      "attempt": "300s-tool",
+      "evidence_id": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:04-a---g-----g-complement",
+      "replacement_status": "TOOL_ERROR"
+    }
+  ],
+  "run_status": "ERROR",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-6cbb5fb3e2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.inititialize_IEP_Post(acquisitioncommand))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.inititialize_IEP_Post(acquisitioncommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-6cbb5fb3e2:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-6cbb5fb3e2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.inititialize_IEP_Post(acquisitioncommand))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.inititialize_IEP_Post(acquisitioncommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-6cbb5fb3e2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionCommandPolicy::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-665c262787:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.compute_CEP_Post(monitoringdecision, acquisitioncommand))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.compute_CEP_Post(monitoringdecision, acquisitioncommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-665c262787:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-665c262787:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.compute_CEP_Post(monitoringdecision, acquisitioncommand))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.compute_CEP_Post(monitoringdecision, acquisitioncommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-665c262787:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionCommandPolicy::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-8d88c93cfb:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.inititialize_IEP_Post(acquisitionobservation, beltassessment, calibrationqualification, preparationstate, eligibilityenvelope))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-8d88c93cfb:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-8d88c93cfb:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-8d88c93cfb:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.inititialize_IEP_Post(acquisitionobservation, beltassessment, calibrationqualification, preparationstate, eligibilityenvelope))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-8d88c93cfb:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionEligibilityOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_Candidate_GumboX.compute_CEP_Post(acquisitionobservation, beltassessment, calibrationqualification, monitoringstate, preparationstate, eligibilityenvelope))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.compute_CEP_Post(acquisitionobservation, beltassessment, calibrationqualification, monitoringstate, preparationstate, eligibilityenvelope))) & T",
+          "name": "A* & G -> G*",
+          "status": "TOOL_ERROR",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:02-a----g----g-complement:retry-300s-tool-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.compute_CEP_Post(acquisitionobservation, beltassessment, calibrationqualification, monitoringstate, preparationstate, eligibilityenvelope))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_Candidate_GumboX.compute_CEP_Post(acquisitionobservation, beltassessment, calibrationqualification, monitoringstate, preparationstate, eligibilityenvelope))) & T",
+          "name": "A & G* -> G",
+          "status": "TOOL_ERROR",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:04-a---g-----g-validity",
+          "witness_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-361c4e09b9:atomic:04-a---g-----g-complement:retry-300s-tool-complement"
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "INCONCLUSIVE",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionEligibilityOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-69381cda2e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.inititialize_IEP_Post(beltobservation, beltassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-69381cda2e:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-69381cda2e:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-69381cda2e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.inititialize_IEP_Post(beltobservation, beltassessment))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-69381cda2e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::beltQualificationOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-751f3f33df:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_Candidate_GumboX.compute_CEP_Post(beltobservation, beltassessment))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.compute_CEP_Post(beltobservation, beltassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-751f3f33df:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-751f3f33df:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.compute_CEP_Post(beltobservation, beltassessment))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_Candidate_GumboX.compute_CEP_Post(beltobservation, beltassessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-751f3f33df:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::beltQualificationOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5c6b7dd299:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.inititialize_IEP_Post(beltassessment, calibrationobservation, calibrationqualification))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5c6b7dd299:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5c6b7dd299:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5c6b7dd299:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.inititialize_IEP_Post(beltassessment, calibrationobservation, calibrationqualification))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5c6b7dd299:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::calibrationQualificationOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5b907fdfe2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_Candidate_GumboX.compute_CEP_Post(beltassessment, calibrationobservation, calibrationqualification))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.compute_CEP_Post(beltassessment, calibrationobservation, calibrationqualification))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5b907fdfe2:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5b907fdfe2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.compute_CEP_Post(beltassessment, calibrationobservation, calibrationqualification))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_Candidate_GumboX.compute_CEP_Post(beltassessment, calibrationobservation, calibrationqualification))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-5b907fdfe2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::calibrationQualificationOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-2e2326bbe7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.inititialize_IEP_Post(committedmonitoringstate, monitoringdecision, monitoringstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.inititialize_IEP_Post(committedmonitoringstate, monitoringdecision, monitoringstate))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-2e2326bbe7:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-2e2326bbe7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.inititialize_IEP_Post(committedmonitoringstate, monitoringdecision, monitoringstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.inititialize_IEP_Post(committedmonitoringstate, monitoringdecision, monitoringstate))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-2e2326bbe7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::monitoringStateGovernor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-f56b98a1a8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.compute_CEP_Post(in_committedmonitoringstate, committedmonitoringstate, arbitrationdecision, eligibilityenvelope, preparationdecision, monitoringdecision, monitoringstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.compute_CEP_Post(in_committedmonitoringstate, committedmonitoringstate, arbitrationdecision, eligibilityenvelope, preparationdecision, monitoringdecision, monitoringstate))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-f56b98a1a8:atomic:02-a----g----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-f56b98a1a8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.compute_CEP_Post(in_committedmonitoringstate, committedmonitoringstate, arbitrationdecision, eligibilityenvelope, preparationdecision, monitoringdecision, monitoringstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.compute_CEP_Post(in_committedmonitoringstate, committedmonitoringstate, arbitrationdecision, eligibilityenvelope, preparationdecision, monitoringdecision, monitoringstate))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-f56b98a1a8:atomic:04-a---g-----g-validity:retry-1800s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::monitoringStateGovernor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-0628616dfa:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.inititialize_IEP_Post(committedpreparationstate, preparationdecision, preparationstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.inititialize_IEP_Post(committedpreparationstate, preparationdecision, preparationstate))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-0628616dfa:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-0628616dfa:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.inititialize_IEP_Post(committedpreparationstate, preparationdecision, preparationstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.inititialize_IEP_Post(committedpreparationstate, preparationdecision, preparationstate))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-0628616dfa:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::preparationStateGovernor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.compute_CEP_Post(in_committedpreparationstate, committedpreparationstate, arbitrationdecision, preparationdecision, preparationstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.compute_CEP_Post(in_committedpreparationstate, committedpreparationstate, arbitrationdecision, preparationdecision, preparationstate))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:02-a----g----g-validity:retry-1800s-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.compute_CEP_Post(in_committedpreparationstate, committedpreparationstate, arbitrationdecision, preparationdecision, preparationstate))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.compute_CEP_Post(in_committedpreparationstate, committedpreparationstate, arbitrationdecision, preparationdecision, preparationstate))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-992862f9cf:atomic:04-a---g-----g-validity:retry-1800s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::preparationStateGovernor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-1c80653bf8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (T)) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.inititialize_IEP_Post(doctorrequest, eligibilityenvelope, arbitrationdecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-1c80653bf8:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-1c80653bf8:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-1c80653bf8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.inititialize_IEP_Post(doctorrequest, eligibilityenvelope, arbitrationdecision))) ___>: (T)) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-1c80653bf8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::requestArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-c562c1fb89:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_Candidate_GumboX.compute_CEP_Post(doctorrequest, eligibilityenvelope, technicianrequest, arbitrationdecision))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.compute_CEP_Post(doctorrequest, eligibilityenvelope, technicianrequest, arbitrationdecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-c562c1fb89:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-c562c1fb89:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.compute_CEP_Post(doctorrequest, eligibilityenvelope, technicianrequest, arbitrationdecision))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_Candidate_GumboX.compute_CEP_Post(doctorrequest, eligibilityenvelope, technicianrequest, arbitrationdecision))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-c562c1fb89:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::requestArbiter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-397f6e58e9:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.inititialize_IEP_Post(framedelivery, sessionstatus))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.inititialize_IEP_Post(framedelivery, sessionstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-397f6e58e9:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-397f6e58e9:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.inititialize_IEP_Post(framedelivery, sessionstatus))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.inititialize_IEP_Post(framedelivery, sessionstatus))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-397f6e58e9:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::sessionPublicationPolicy::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-be9c1c359d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.compute_CEP_Post(impedanceframe, monitoringdecision, framedelivery, sessionstatus))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.compute_CEP_Post(impedanceframe, monitoringdecision, framedelivery, sessionstatus))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-be9c1c359d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-be9c1c359d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.compute_CEP_Post(impedanceframe, monitoringdecision, framedelivery, sessionstatus))) ___>: (equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.compute_CEP_Post(impedanceframe, monitoringdecision, framedelivery, sessionstatus))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-eit-acquisition-session-coordinator-eitacqu-be9c1c359d:atomic:04-a---g-----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::sessionPublicationPolicy::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "source": "model/Vehicle_Mode_Coordinator.sysml",
+  "source_sha256": "de3cf758be9de558de457a1dca22c7ecdb1c2687bb1984cb23a4a371361e3c44",
+  "root_system_usages": 1,
+  "behavior_free_support_processes": 1,
+  "semantic_usages": 8,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 9,
+  "all_usages_including_root": 10,
+  "semantic_interactions": 16,
+  "generated_support_routes": 5,
+  "raw_directed_connections": 21,
+  "containment_depth_below_root": 2,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 8,
+  "state_owners": 4,
+  "gumbo_inspected_data_fields": 21,
+  "gumbo_inspected_fields_declared_as_attributes": 21,
+  "architecture_repairs": 1,
+  "contract_repairs": 2,
+  "analyzer_repairs": 0,
+  "trace_annotation_repairs": 0,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 16,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {
+        "usage": "lifecycleEventOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["lifecycleLevels", "In(previousStart)", "In(previousOn)", "In(previousOff)"],
+        "owner_local_facts": ["freshStart", "freshOn", "offActive", "lifecycleConflict"],
+        "contract_cases": ["LIFECYCLE_RISING_EDGES", "LIFECYCLE_CONFLICT", "STORE_LIFECYCLE_LEVELS"],
+        "analyzer_checks": ["lifecycle-owner-64-tuples"]
+      },
+      {
+        "usage": "serviceEventOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["serviceLevels", "In(previousMaintenance)", "In(previousReturn)"],
+        "owner_local_facts": ["freshMaintenance", "freshReturn", "serviceConflict"],
+        "contract_cases": ["SERVICE_RISING_EDGES", "SERVICE_CONFLICT", "STORE_SERVICE_LEVELS"],
+        "analyzer_checks": ["service-owner-16-tuples"]
+      },
+      {
+        "usage": "conditionAssessmentOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["conditionEvidence.reportedCondition", "conditionEvidence.reportCurrency"],
+        "owner_local_facts": ["conditionAssessment"],
+        "contract_cases": ["CONDITION_QUALIFICATION"],
+        "analyzer_checks": ["condition-owner-six-values-and-fibers"]
+      },
+      {
+        "usage": "intentArbitrationOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["lifecycleFacts", "serviceFacts", "conditionAssessment"],
+        "owner_local_facts": ["selectedIntent", "priorityConflict"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08"],
+        "analyzer_checks": ["intent-arbitration-totality-priority-conflict"]
+      },
+      {
+        "usage": "recoveryTargetOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["currentMode", "appliedResolution", "In(recoveryTarget)"],
+        "owner_local_facts": ["storedRecoveryTarget", "nextRecoveryTarget"],
+        "contract_cases": ["PUBLISH_PRE_UPDATE_TARGET", "UPDATE_RECOVERY_TARGET"],
+        "analyzer_checks": ["recovery-target-capture-preserve-reset-75-tuples"]
+      },
+      {
+        "usage": "transitionQualificationOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["arbitrationResult.selectedIntent", "currentMode"],
+        "owner_local_facts": ["qualifiedTransition"],
+        "contract_cases": ["CASE-09", "CASE-10", "CASE-11", "CASE-12", "CASE-13", "CASE-14", "CASE-15", "CASE-16", "CASE-17", "CASE-18", "CASE-19", "CASE-20"],
+        "analyzer_checks": ["transition-qualification-40-pairs"]
+      },
+      {
+        "usage": "modeTransitionApplicationOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["In(controllerMode)", "qualifiedTransition", "storedRecoveryTarget"],
+        "owner_local_facts": ["transitionResolution", "nextControllerMode"],
+        "contract_cases": ["APPLY_STAY_OR_REJECT", "APPLY_GO_DIRECTIVES", "APPLY_STORED_RESUME", "COMMIT_AND_DELIVER_MODE"],
+        "analyzer_checks": ["transition-application-120-tuples"]
+      },
+      {
+        "usage": "coordinationPublicationOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["arbitrationResult", "appliedResolution"],
+        "owner_local_facts": ["parkingBrake", "coordinationStatus"],
+        "contract_cases": ["PARKING_BRAKE_COHERENCE", "STATUS_PRECEDENCE"],
+        "analyzer_checks": ["publication-precedence-and-brake-equivalence"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "PART-01 through PART-08 only; the root and behavior-free Process are excluded.",
+    "semantic_interactions": "INT-01 through INT-16 only; the five transparent System/Process delegations are excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-20 only; initialization, equations, application mappings, state updates, invariants, and output mapping are excluded.",
+    "scenario_families": "SCN-01 through SCN-08, each supported by a concrete bounded state/input trace.",
+    "composition": "The analyzer composes named owner relations through INT-01 through INT-16; this is not a compositional-proof claim."
+  }
+}

@@ -1,0 +1,14 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_c6ef7a1323b5_2_Complement {
+  @pure def check(
+      episodesnapshot: equiv_shared_0.Frigate_Threat_Egress_Supervisor.EpisodeSnapshot,
+      evidenceassessment: equiv_shared_0.Frigate_Threat_Egress_Supervisor.EvidenceAssessment.Type,
+      pilotdisposition: equiv_shared_0.Frigate_Threat_Egress_Supervisor.PilotDisposition.Type,
+      committedepisode: equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEpisodeState.Type): Unit = {
+    Contract(Requires(!((((T) & (T)) ___>: (equiv_shared_0.Frigate_Threat_Egress_Supervisor.ThreatEpisodeTracker_threatResponseProcess_threatEpisodeTracker_GumboX.inititialize_IEP_Post(committedepisode, evidenceassessment, pilotdisposition, episodesnapshot))) & T)))
+  }
+}

@@ -1,0 +1,2884 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source": "model/Cabin_Air_Quality_Humidity_Supervisor.sysml",
+  "source_sha256": "75dc9066af8a1e82e9bd8897e51befcbf6cddb430c0e2eb1e47d2326e945ba5b",
+  "claim_boundary": "Exact finite-domain conformance of the retained logical contracts only; no execution, scheduling, generated-code, physical-performance, safety-certification, compositional-proof, solver-certification, or unbounded-proof claim.",
+  "semantic_connection_map": {
+    "INT-01": "root.preference -> preference_request_qualifier.preference",
+    "INT-02": "root.air_observation -> air_quality_need_assessor.observation",
+    "INT-03": "root.humidity_observation -> humidity_need_assessor.observation",
+    "INT-04": "root.authority -> shared_path_authority_assessor.authority",
+    "INT-05": "root.readiness -> treatment_capability_assessor.readiness",
+    "INT-06": "preference_request_qualifier.candidate -> preference_session_owner.candidate",
+    "INT-07": "air_quality_need_assessor.evidence -> air_evidence_recovery_owner.evidence",
+    "INT-08": "humidity_need_assessor.evidence -> humidity_evidence_recovery_owner.evidence",
+    "INT-09": "treatment_capability_assessor.filter_facts -> filtration_proposal_owner.capabilities",
+    "INT-10": "treatment_capability_assessor.humidity_facts -> humidity_proposal_owner.capabilities",
+    "INT-11": "treatment_capability_assessor.blower_fact -> routine_airflow_proposal_owner.capability",
+    "INT-12": "treatment_capability_assessor.capability_set -> authority_safe_plan_composer.capabilities",
+    "INT-13": "shared_path_authority_assessor.disposition_to_routine -> routine_airflow_proposal_owner.path",
+    "INT-14": "shared_path_authority_assessor.disposition_to_composer -> authority_safe_plan_composer.path",
+    "INT-15": "air_evidence_recovery_owner.report_to_filter -> filtration_proposal_owner.air_report",
+    "INT-16": "humidity_evidence_recovery_owner.report_to_humidity -> humidity_proposal_owner.humidity_report",
+    "INT-17": "preference_session_owner.accepted_to_filter -> filtration_proposal_owner.accepted",
+    "INT-18": "preference_session_owner.accepted_to_humidity -> humidity_proposal_owner.accepted",
+    "INT-19": "preference_session_owner.accepted_to_routine -> routine_airflow_proposal_owner.accepted",
+    "INT-20": "preference_session_owner.accepted_to_arbiter -> cabin_air_priority_arbiter.accepted",
+    "INT-21": "filtration_proposal_owner.proposal -> cabin_air_priority_arbiter.filter_proposal",
+    "INT-22": "humidity_proposal_owner.proposal -> cabin_air_priority_arbiter.humidity_proposal",
+    "INT-23": "routine_airflow_proposal_owner.proposal -> cabin_air_priority_arbiter.routine_proposal",
+    "INT-24": "cabin_air_priority_arbiter.selection_to_composer -> authority_safe_plan_composer.selection",
+    "INT-25": "authority_safe_plan_composer.composition_to_status -> status_outcome_reconciler.composed_result",
+    "INT-26": "cabin_air_priority_arbiter.selection_to_status -> status_outcome_reconciler.selection",
+    "INT-27": "air_evidence_recovery_owner.report_to_status -> status_outcome_reconciler.air_report",
+    "INT-28": "humidity_evidence_recovery_owner.report_to_status -> status_outcome_reconciler.humidity_report",
+    "INT-29": "preference_session_owner.accepted_to_status -> status_outcome_reconciler.accepted",
+    "INT-30": "authority_safe_plan_composer.treatment_plan -> root.treatment_plan",
+    "INT-31": "status_outcome_reconciler.supervisor_status -> root.supervisor_status"
+  },
+  "partition_counts": {
+    "preference_qualification": 96,
+    "air_qualification": 4,
+    "humidity_qualification": 6,
+    "authority_qualification": 4,
+    "capability_qualification": 162,
+    "preference_session": 96,
+    "air_recovery": 9,
+    "humidity_recovery": 12,
+    "filter_proposal": 384,
+    "humidity_proposal": 2048,
+    "routine_proposal": 72,
+    "priority_arbiter": 300,
+    "composition": 7680,
+    "root_input_domain": 1492992,
+    "combined_recovery_prestate_pairs": 9
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "ownership_violations": 0,
+    "stale_channel_outputs": 0,
+    "unexplained_connections": 0,
+    "scenario_mismatches": 0,
+    "payload_mismatches": 0
+  },
+  "checks": {
+    "source_bound_to_canonical_sha256": true,
+    "explicit_semantic_connection_map_complete": true,
+    "root_input_domain_exhausted": true,
+    "all_29_named_cases_witnessed": true,
+    "all_10_scenario_traces_passed": true,
+    "all_9_combined_recovery_pre_states_checked": true,
+    "owner_partitions_total_and_disjoint": true,
+    "owner_payloads_consumed_through_connections": true,
+    "same_evaluation_fault_suppression": true,
+    "required_outputs_and_invariants_hold": true
+  },
+  "case_witnesses": {
+    "CASE-01": {
+      "pre": {
+        "enable": "On",
+        "filterPolicy": "Automatic",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "Off"
+      },
+      "candidate": {
+        "candidateClass": "Invalid",
+        "enable": "On",
+        "filterPolicy": "Continuous",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "High"
+      },
+      "result": {
+        "enable": "On",
+        "filterPolicy": "Automatic",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "Off",
+        "event": "RejectedInvalid",
+        "caseId": "CASE-01"
+      }
+    },
+    "CASE-02": {
+      "pre": {
+        "enable": "On",
+        "filterPolicy": "Automatic",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "Off"
+      },
+      "candidate": {
+        "candidateClass": "Held",
+        "enable": "On",
+        "filterPolicy": "Continuous",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "High"
+      },
+      "result": {
+        "enable": "On",
+        "filterPolicy": "Automatic",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "Off",
+        "event": "NoNewPreference",
+        "caseId": "CASE-02"
+      }
+    },
+    "CASE-03": {
+      "pre": {
+        "enable": "On",
+        "filterPolicy": "Automatic",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "Off"
+      },
+      "candidate": {
+        "candidateClass": "FreshDisabled",
+        "enable": "Off",
+        "filterPolicy": "Continuous",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "High"
+      },
+      "result": {
+        "enable": "Off",
+        "filterPolicy": "Continuous",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "High",
+        "event": "AcceptedDisabled",
+        "caseId": "CASE-03"
+      }
+    },
+    "CASE-04": {
+      "pre": {
+        "enable": "On",
+        "filterPolicy": "Automatic",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "Off"
+      },
+      "candidate": {
+        "candidateClass": "FreshEnabled",
+        "enable": "On",
+        "filterPolicy": "Continuous",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "High"
+      },
+      "result": {
+        "enable": "On",
+        "filterPolicy": "Continuous",
+        "humidityPolicy": "Automatic",
+        "routineAirflow": "High",
+        "event": "AcceptedEnabled",
+        "caseId": "CASE-04"
+      }
+    },
+    "CASE-05": {
+      "pre": "Trusted",
+      "evidence": "Invalid",
+      "result": {
+        "trust": "Quarantined",
+        "gateOpen": false,
+        "evidence": "Invalid",
+        "event": "AirFaultEntered",
+        "caseId": "CASE-05"
+      }
+    },
+    "CASE-06": {
+      "pre": "Trusted",
+      "evidence": "Clean",
+      "result": {
+        "trust": "Trusted",
+        "gateOpen": true,
+        "evidence": "Clean",
+        "event": "AirStable",
+        "caseId": "CASE-06"
+      }
+    },
+    "CASE-07": {
+      "pre": "Quarantined",
+      "evidence": "Invalid",
+      "result": {
+        "trust": "Quarantined",
+        "gateOpen": false,
+        "evidence": "Invalid",
+        "event": "AirFaultPersists",
+        "caseId": "CASE-07"
+      }
+    },
+    "CASE-08": {
+      "pre": "Quarantined",
+      "evidence": "Clean",
+      "result": {
+        "trust": "Confirming",
+        "gateOpen": false,
+        "evidence": "Clean",
+        "event": "AirRecoveryStarted",
+        "caseId": "CASE-08"
+      }
+    },
+    "CASE-09": {
+      "pre": "Confirming",
+      "evidence": "Invalid",
+      "result": {
+        "trust": "Quarantined",
+        "gateOpen": false,
+        "evidence": "Invalid",
+        "event": "AirFaultRecurred",
+        "caseId": "CASE-09"
+      }
+    },
+    "CASE-10": {
+      "pre": "Confirming",
+      "evidence": "Clean",
+      "result": {
+        "trust": "Trusted",
+        "gateOpen": true,
+        "evidence": "Clean",
+        "event": "AirRecovered",
+        "caseId": "CASE-10"
+      }
+    },
+    "CASE-11": {
+      "pre": "Trusted",
+      "evidence": "Invalid",
+      "result": {
+        "trust": "Quarantined",
+        "gateOpen": false,
+        "evidence": "Invalid",
+        "event": "HumidityFaultEntered",
+        "caseId": "CASE-11"
+      }
+    },
+    "CASE-12": {
+      "pre": "Trusted",
+      "evidence": "Dry",
+      "result": {
+        "trust": "Trusted",
+        "gateOpen": true,
+        "evidence": "Dry",
+        "event": "HumidityStable",
+        "caseId": "CASE-12"
+      }
+    },
+    "CASE-13": {
+      "pre": "Quarantined",
+      "evidence": "Invalid",
+      "result": {
+        "trust": "Quarantined",
+        "gateOpen": false,
+        "evidence": "Invalid",
+        "event": "HumidityFaultPersists",
+        "caseId": "CASE-13"
+      }
+    },
+    "CASE-14": {
+      "pre": "Quarantined",
+      "evidence": "Dry",
+      "result": {
+        "trust": "Confirming",
+        "gateOpen": false,
+        "evidence": "Dry",
+        "event": "HumidityRecoveryStarted",
+        "caseId": "CASE-14"
+      }
+    },
+    "CASE-15": {
+      "pre": "Confirming",
+      "evidence": "Invalid",
+      "result": {
+        "trust": "Quarantined",
+        "gateOpen": false,
+        "evidence": "Invalid",
+        "event": "HumidityFaultRecurred",
+        "caseId": "CASE-15"
+      }
+    },
+    "CASE-16": {
+      "pre": "Confirming",
+      "evidence": "Dry",
+      "result": {
+        "trust": "Trusted",
+        "gateOpen": true,
+        "evidence": "Dry",
+        "event": "HumidityRecovered",
+        "caseId": "CASE-16"
+      }
+    },
+    "CASE-22": {
+      "enable": "On",
+      "filter": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "humidity": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "routine": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "result": {
+        "intent": "None",
+        "flowClass": "Off",
+        "cause": "None",
+        "caseId": "CASE-22"
+      }
+    },
+    "CASE-21": {
+      "enable": "On",
+      "filter": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "humidity": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "routine": {
+        "proposal": "Low",
+        "cause": "None"
+      },
+      "result": {
+        "intent": "ExchangeAir",
+        "flowClass": "Routine",
+        "cause": "None",
+        "caseId": "CASE-21"
+      }
+    },
+    "CASE-20": {
+      "enable": "On",
+      "filter": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "humidity": {
+        "proposal": "Increase",
+        "cause": "None"
+      },
+      "routine": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "result": {
+        "intent": "Increase",
+        "flowClass": "Treatment",
+        "cause": "HumidityTreatmentPriority",
+        "caseId": "CASE-20"
+      }
+    },
+    "CASE-19": {
+      "enable": "On",
+      "filter": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "humidity": {
+        "proposal": "Reduce",
+        "cause": "None"
+      },
+      "routine": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "result": {
+        "intent": "Reduce",
+        "flowClass": "Treatment",
+        "cause": "HumidityTreatmentPriority",
+        "caseId": "CASE-19"
+      }
+    },
+    "CASE-18": {
+      "enable": "On",
+      "filter": {
+        "proposal": "Environmental",
+        "cause": "None"
+      },
+      "humidity": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "routine": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "result": {
+        "intent": "Filter",
+        "flowClass": "Treatment",
+        "cause": "AirTreatmentPriority",
+        "caseId": "CASE-18"
+      }
+    },
+    "CASE-17": {
+      "enable": "Off",
+      "filter": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "humidity": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "routine": {
+        "proposal": "None",
+        "cause": "None"
+      },
+      "result": {
+        "intent": "None",
+        "flowClass": "Off",
+        "cause": "PreferenceDisabled",
+        "caseId": "CASE-17"
+      }
+    },
+    "CASE-23": {
+      "selection": {
+        "intent": "None",
+        "flowClass": "Off",
+        "cause": "None"
+      },
+      "path": "Usable",
+      "cap": {
+        "blower": "Ready",
+        "filter": "Ready",
+        "humidifier": "Ready",
+        "dehumidifier": "Ready"
+      },
+      "result": {
+        "action": "None",
+        "flowClass": "Off",
+        "authorityUse": "None",
+        "cause": "None",
+        "caseId": "CASE-23"
+      }
+    },
+    "CASE-27": {
+      "selection": {
+        "intent": "Filter",
+        "flowClass": "Treatment",
+        "cause": "AirTreatmentPriority"
+      },
+      "path": "Usable",
+      "cap": {
+        "blower": "Ready",
+        "filter": "Ready",
+        "humidifier": "Ready",
+        "dehumidifier": "Ready"
+      },
+      "result": {
+        "action": "FilterAir",
+        "flowClass": "Treatment",
+        "authorityUse": "SharedAirPath",
+        "cause": "AirTreatmentPriority",
+        "caseId": "CASE-27"
+      }
+    },
+    "CASE-26": {
+      "selection": {
+        "intent": "Filter",
+        "flowClass": "Treatment",
+        "cause": "AirTreatmentPriority"
+      },
+      "path": "Usable",
+      "cap": {
+        "blower": "Failed",
+        "filter": "Ready",
+        "humidifier": "Ready",
+        "dehumidifier": "Ready"
+      },
+      "result": {
+        "action": "None",
+        "flowClass": "Off",
+        "authorityUse": "None",
+        "cause": "EquipmentUnavailable",
+        "caseId": "CASE-26"
+      }
+    },
+    "CASE-25": {
+      "selection": {
+        "intent": "Filter",
+        "flowClass": "Treatment",
+        "cause": "AirTreatmentPriority"
+      },
+      "path": "Reserved",
+      "cap": {
+        "blower": "Ready",
+        "filter": "Ready",
+        "humidifier": "Ready",
+        "dehumidifier": "Ready"
+      },
+      "result": {
+        "action": "None",
+        "flowClass": "Off",
+        "authorityUse": "None",
+        "cause": "AirPathReserved",
+        "caseId": "CASE-25"
+      }
+    },
+    "CASE-24": {
+      "selection": {
+        "intent": "Filter",
+        "flowClass": "Treatment",
+        "cause": "AirTreatmentPriority"
+      },
+      "path": "Untrusted",
+      "cap": {
+        "blower": "Ready",
+        "filter": "Ready",
+        "humidifier": "Ready",
+        "dehumidifier": "Ready"
+      },
+      "result": {
+        "action": "None",
+        "flowClass": "Off",
+        "authorityUse": "None",
+        "cause": "AuthorityInvalid",
+        "caseId": "CASE-24"
+      }
+    },
+    "CASE-28": {
+      "selection": {
+        "intent": "Increase",
+        "flowClass": "Treatment",
+        "cause": "HumidityTreatmentPriority"
+      },
+      "path": "Usable",
+      "cap": {
+        "blower": "Ready",
+        "filter": "Ready",
+        "humidifier": "Ready",
+        "dehumidifier": "Ready"
+      },
+      "result": {
+        "action": "IncreaseHumidity",
+        "flowClass": "Treatment",
+        "authorityUse": "SharedAirPath",
+        "cause": "HumidityTreatmentPriority",
+        "caseId": "CASE-28"
+      }
+    },
+    "CASE-29": {
+      "selection": {
+        "intent": "ExchangeAir",
+        "flowClass": "Routine",
+        "cause": "None"
+      },
+      "path": "Usable",
+      "cap": {
+        "blower": "Ready",
+        "filter": "Ready",
+        "humidifier": "Ready",
+        "dehumidifier": "Ready"
+      },
+      "result": {
+        "action": "ExchangeAir",
+        "flowClass": "Routine",
+        "authorityUse": "SharedAirPath",
+        "cause": "None",
+        "caseId": "CASE-29"
+      }
+    }
+  },
+  "scenario_traces": [
+    {
+      "id": "SCN-01",
+      "name": "fresh preference acceptance",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "High"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-02 preserves retained preference",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "None"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Invalid",
+              "arrival": "New",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "High"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-01 rejects invalid fresh request",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "PreferenceRejected"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-01",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "New",
+              "enable": "Off",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Disabled",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-03 accepts complete disabled preference",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "PreferenceDisabled"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "Off",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Disabled",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-03",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-17",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "New",
+              "enable": "On",
+              "filterPolicy": "Continuous",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "High"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-04 accepts complete enabled preference",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Continuous",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-04",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-02",
+      "name": "nominal automatic filtration",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-18 then CASE-27 FilterAir",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-03",
+      "name": "nominal damp-air correction",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Damp"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-19 then CASE-28 ReduceHumidity",
+          "observed": {
+            "plan": {
+              "action": "ReduceHumidity",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "HumidityTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-19",
+              "composer": "CASE-28"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-04",
+      "name": "nominal dry-air correction",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Dry"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-20 then CASE-28 IncreaseHumidity",
+          "observed": {
+            "plan": {
+              "action": "IncreaseHumidity",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "HumidityTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-20",
+              "composer": "CASE-28"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-05",
+      "name": "concurrent treatment priority",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "High"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Damp"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-18 filter wins all concurrent demands",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "High"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Damp"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-19 humidity wins before routine",
+          "observed": {
+            "plan": {
+              "action": "ReduceHumidity",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "HumidityTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-19",
+              "composer": "CASE-28"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-06",
+      "name": "routine exchange no-demand and disabled",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Low"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-21 routine Low",
+          "observed": {
+            "plan": {
+              "action": "ExchangeAir",
+              "flowClass": "Routine",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "None"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Low"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-21",
+              "composer": "CASE-29"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "New",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-22 no demand",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "None"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-04",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "New",
+              "enable": "Off",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "High"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-17 disabled suppresses all proposals",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "PreferenceDisabled"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "Off",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-03",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-17",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-07",
+      "name": "shared-path authority composition",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-27 granted composes FilterAir",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Reserved"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-25 reserved authority all-off",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Inhibited",
+              "cause": "AirPathReserved"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-25"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Invalid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-24 invalid authority all-off",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Inhibited",
+              "cause": "AuthorityInvalid"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-24"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-27 granted resumes immediately",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-08",
+      "name": "equipment fault propagation and isolation",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Failed",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-22 blower proposal loss",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "EquipmentUnavailable"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Failed",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-22 selected filter path loss",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "SelectedPathUnavailable"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Dry"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Failed",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "signed humidifier loss is isolated",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "SelectedPathUnavailable"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Damp"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Unknown",
+              "humidifier": "Ready",
+              "dehumidifier": "Failed"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "concurrent unused filter and demanded dehumidifier loss",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "Idle",
+              "cause": "SelectedPathUnavailable"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-09",
+      "name": "air-evidence quarantine and recovery",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-06 active filtration",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-06",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Invalid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Damp"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-05 immediate air quarantine with humidity service",
+          "observed": {
+            "plan": {
+              "action": "ReduceHumidity",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Degraded",
+              "cause": "AirObservationInvalid"
+            },
+            "nextState": {
+              "airTrust": "Quarantined",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-05",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-19",
+              "composer": "CASE-28"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "New",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "High"
+            },
+            "air": {
+              "validity": "Invalid",
+              "condition": "Clean"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-07 plus CASE-04 fresh preference during quarantine",
+          "observed": {
+            "plan": {
+              "action": "ExchangeAir",
+              "flowClass": "Routine",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Degraded",
+              "cause": "AirObservationInvalid"
+            },
+            "nextState": {
+              "airTrust": "Quarantined",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-04",
+              "airRecovery": "CASE-07",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-21",
+              "composer": "CASE-29"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-08 first valid remains blocked",
+          "observed": {
+            "plan": {
+              "action": "ExchangeAir",
+              "flowClass": "Routine",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Degraded",
+              "cause": "AirRecovering"
+            },
+            "nextState": {
+              "airTrust": "Confirming",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-08",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-21",
+              "composer": "CASE-29"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Invalid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-09 recurrence restarts quarantine",
+          "observed": {
+            "plan": {
+              "action": "ExchangeAir",
+              "flowClass": "Routine",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Degraded",
+              "cause": "AirObservationInvalid"
+            },
+            "nextState": {
+              "airTrust": "Quarantined",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-09",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-21",
+              "composer": "CASE-29"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-08 confirmation restarts",
+          "observed": {
+            "plan": {
+              "action": "ExchangeAir",
+              "flowClass": "Routine",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Degraded",
+              "cause": "AirRecovering"
+            },
+            "nextState": {
+              "airTrust": "Confirming",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-08",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-21",
+              "composer": "CASE-29"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-10 second valid reuses retained preference",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "High"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-10",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    {
+      "id": "SCN-10",
+      "name": "humidity and concurrent-channel recovery",
+      "trace": [
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Invalid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Invalid",
+              "condition": "Damp"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-05 and CASE-11 concurrent quarantine",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "ObservationHold",
+              "cause": "AirObservationInvalid"
+            },
+            "nextState": {
+              "airTrust": "Quarantined",
+              "humidityTrust": "Quarantined",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-05",
+              "humidityRecovery": "CASE-11",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Invalid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Dry"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-07 and CASE-14 independent humidity confirmation",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "ObservationHold",
+              "cause": "AirObservationInvalid"
+            },
+            "nextState": {
+              "airTrust": "Quarantined",
+              "humidityTrust": "Confirming",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-07",
+              "humidityRecovery": "CASE-14",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Invalid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Dry"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-07 and CASE-16 humidity recovers first",
+          "observed": {
+            "plan": {
+              "action": "IncreaseHumidity",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Degraded",
+              "cause": "AirObservationInvalid"
+            },
+            "nextState": {
+              "airTrust": "Quarantined",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-07",
+              "humidityRecovery": "CASE-16",
+              "arbiter": "CASE-20",
+              "composer": "CASE-28"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-08 air confirmation without clearing humidity",
+          "observed": {
+            "plan": {
+              "action": "None",
+              "flowClass": "Off",
+              "authorityUse": "None"
+            },
+            "status": {
+              "mode": "ObservationHold",
+              "cause": "AirRecovering"
+            },
+            "nextState": {
+              "airTrust": "Confirming",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-08",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-22",
+              "composer": "CASE-23"
+            }
+          },
+          "passed": true
+        },
+        {
+          "input": {
+            "preference": {
+              "validity": "Valid",
+              "arrival": "Held",
+              "enable": "On",
+              "filterPolicy": "Automatic",
+              "humidityPolicy": "Automatic",
+              "routineAirflow": "Off"
+            },
+            "air": {
+              "validity": "Valid",
+              "condition": "Loaded"
+            },
+            "humidity": {
+              "validity": "Valid",
+              "condition": "Acceptable"
+            },
+            "readiness": {
+              "validity": "Valid",
+              "blower": "Ready",
+              "filter": "Ready",
+              "humidifier": "Ready",
+              "dehumidifier": "Ready"
+            },
+            "authority": {
+              "validity": "Valid",
+              "grant": "Granted"
+            }
+          },
+          "expected_named_branch_or_case": "CASE-10 air recovers second",
+          "observed": {
+            "plan": {
+              "action": "FilterAir",
+              "flowClass": "Treatment",
+              "authorityUse": "SharedAirPath"
+            },
+            "status": {
+              "mode": "Active",
+              "cause": "AirTreatmentPriority"
+            },
+            "nextState": {
+              "airTrust": "Trusted",
+              "humidityTrust": "Trusted",
+              "preference": {
+                "enable": "On",
+                "filterPolicy": "Automatic",
+                "humidityPolicy": "Automatic",
+                "routineAirflow": "Off"
+              }
+            },
+            "cases": {
+              "preference": "CASE-02",
+              "airRecovery": "CASE-10",
+              "humidityRecovery": "CASE-12",
+              "arbiter": "CASE-18",
+              "composer": "CASE-27"
+            }
+          },
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "preference_request_qualifier",
+      "assigned_inputs": [
+        "INT-01 preference.validity",
+        "INT-01 preference.arrival",
+        "INT-01 preference.enable",
+        "INT-01 preference.filterPolicy",
+        "INT-01 preference.humidityPolicy",
+        "INT-01 preference.routineAirflow"
+      ],
+      "owner_local_facts": [
+        "qualified candidateClass and exposed candidate policies"
+      ],
+      "contract_cases": [
+        "PART-01"
+      ],
+      "analyzer_checks": [
+        "preference qualification 96-value partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "air_quality_need_assessor",
+      "assigned_inputs": [
+        "INT-02 observation.validity",
+        "INT-02 observation.condition"
+      ],
+      "owner_local_facts": [
+        "airEvidence validity and demand classification"
+      ],
+      "contract_cases": [
+        "PART-02"
+      ],
+      "analyzer_checks": [
+        "air evidence 4-value partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "humidity_need_assessor",
+      "assigned_inputs": [
+        "INT-03 observation.validity",
+        "INT-03 observation.condition"
+      ],
+      "owner_local_facts": [
+        "signed humidityEvidence classification"
+      ],
+      "contract_cases": [
+        "PART-03"
+      ],
+      "analyzer_checks": [
+        "humidity evidence 6-value partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "shared_path_authority_assessor",
+      "assigned_inputs": [
+        "INT-04 authority.validity",
+        "INT-04 authority.grant"
+      ],
+      "owner_local_facts": [
+        "pathDisposition with invalidity precedence"
+      ],
+      "contract_cases": [
+        "PART-04"
+      ],
+      "analyzer_checks": [
+        "authority disposition 4-value partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "treatment_capability_assessor",
+      "assigned_inputs": [
+        "INT-05 readiness.validity",
+        "INT-05 readiness.blowerReadiness",
+        "INT-05 readiness.filterUnit",
+        "INT-05 readiness.humidifier",
+        "INT-05 readiness.dehumidifier"
+      ],
+      "owner_local_facts": [
+        "four field-local capability dispositions and coherent projections"
+      ],
+      "contract_cases": [
+        "CAP-REL-01"
+      ],
+      "analyzer_checks": [
+        "capability 162-value field-local partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "air_evidence_recovery_owner",
+      "assigned_inputs": [
+        "INT-07 airEvidence",
+        "In(airTrustMemory)"
+      ],
+      "owner_local_facts": [
+        "next airTrust, air gate, evidence, and transition event"
+      ],
+      "contract_cases": [
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "air recovery totality and two-valid transition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "humidity_evidence_recovery_owner",
+      "assigned_inputs": [
+        "INT-08 humidityEvidence",
+        "In(humidityTrustMemory)"
+      ],
+      "owner_local_facts": [
+        "next humidityTrust, humidity gate, evidence, and transition event"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16"
+      ],
+      "analyzer_checks": [
+        "humidity recovery totality and two-valid transition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "preference_session_owner",
+      "assigned_inputs": [
+        "INT-06 candidate",
+        "accepted preference pre-state"
+      ],
+      "owner_local_facts": [
+        "accepted preference next state and acceptance event"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04"
+      ],
+      "analyzer_checks": [
+        "preference preservation and fresh replacement"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "filtration_proposal_owner",
+      "assigned_inputs": [
+        "INT-15 air recovery report",
+        "INT-17 accepted filter preference",
+        "INT-09 blower and filter dispositions"
+      ],
+      "owner_local_facts": [
+        "filterProposal and proposal-local cause"
+      ],
+      "contract_cases": [
+        "PROP-FILTER-01"
+      ],
+      "analyzer_checks": [
+        "filtration demand-before-unavailability partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "humidity_proposal_owner",
+      "assigned_inputs": [
+        "INT-16 humidity recovery report",
+        "INT-18 accepted humidity preference",
+        "INT-10 blower and signed-path dispositions"
+      ],
+      "owner_local_facts": [
+        "signed humidityProposal and proposal-local cause"
+      ],
+      "contract_cases": [
+        "PROP-HUMID-01"
+      ],
+      "analyzer_checks": [
+        "humidity demand-before-unavailability partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "routine_airflow_proposal_owner",
+      "assigned_inputs": [
+        "INT-19 accepted routine preference",
+        "INT-13 pathDisposition",
+        "INT-11 blower disposition"
+      ],
+      "owner_local_facts": [
+        "routineProposal and authority/equipment cause"
+      ],
+      "contract_cases": [
+        "PROP-ROUTINE-01"
+      ],
+      "analyzer_checks": [
+        "routine authority-before-equipment partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "cabin_air_priority_arbiter",
+      "assigned_inputs": [
+        "INT-20 accepted enable",
+        "INT-21 filter proposal",
+        "INT-22 humidity proposal",
+        "INT-23 routine proposal"
+      ],
+      "owner_local_facts": [
+        "selected intent, flow class, and winning policy cause"
+      ],
+      "contract_cases": [
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22"
+      ],
+      "analyzer_checks": [
+        "action and no-selection cause precedence"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "authority_safe_plan_composer",
+      "assigned_inputs": [
+        "INT-24 selection report",
+        "INT-14 pathDisposition",
+        "INT-12 four capability dispositions"
+      ],
+      "owner_local_facts": [
+        "coherent treatment plan and realization cause"
+      ],
+      "contract_cases": [
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29"
+      ],
+      "analyzer_checks": [
+        "fail-closed composition and selected-path checks"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "status_outcome_reconciler",
+      "assigned_inputs": [
+        "INT-25 composition report",
+        "INT-26 selection report",
+        "INT-27 air recovery report",
+        "INT-28 humidity recovery report",
+        "INT-29 accepted preference and event"
+      ],
+      "owner_local_facts": [
+        "single ordered supervisor mode and cause"
+      ],
+      "contract_cases": [
+        "CAUSE-01",
+        "STATUS-01"
+      ],
+      "analyzer_checks": [
+        "cause and disjoint status precedence"
+      ],
+      "passed": true
+    }
+  ]
+}

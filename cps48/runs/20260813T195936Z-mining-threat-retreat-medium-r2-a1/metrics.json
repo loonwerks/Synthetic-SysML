@@ -1,0 +1,109 @@
+{
+  "source": "model/Frigate_Threat_Egress_Supervisor.sysml",
+  "source_sha256": "93b4a01942241129e5345e9e7517009fb9b922e25641a9e78949b2fa9adce875",
+  "root_system_usages": 1,
+  "semantic_usages": 8,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 9,
+  "all_usages_including_root": 10,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 20,
+  "generated_support_routes": 10,
+  "source_port_connection_declarations": 30,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 8,
+  "gumbo_inspected_data_fields": 13,
+  "gumbo_inspected_fields_declared_as_attributes": 13,
+  "architecture_repairs": 2,
+  "contract_repairs": 2,
+  "analyzer_repairs": 1,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 20,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {
+        "usage": "threatEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["threatObservation.evidenceBand", "threatObservation.validity"],
+        "owner_local_facts": ["evidenceAssessment"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03"],
+        "analyzer_checks": ["evidence-owner-partition"]
+      },
+      {
+        "usage": "threatEpisodeTracker",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["evidenceAssessment", "pilotDisposition", "committedEpisode"],
+        "owner_local_facts": ["nextThreatEpisode", "episodeSnapshot"],
+        "contract_cases": ["CASE-04", "CASE-05", "CASE-06"],
+        "analyzer_checks": ["episode-owner-partition", "invalid-evidence-retention", "clear-confirmation-recovery"]
+      },
+      {
+        "usage": "threatReportPolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["episodeSnapshot.assessment", "episodeSnapshot.preEpisode", "episodeSnapshot.nextEpisode", "episodeSnapshot.pilotDisposition"],
+        "owner_local_facts": ["threatReport"],
+        "contract_cases": ["CASE-15"],
+        "analyzer_checks": ["report-owner-totality", "report-precedence"]
+      },
+      {
+        "usage": "defenseReadinessQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["evidenceAssessment", "defenseSupport.defenseAvailability", "defenseSupport.capacitorSupport"],
+        "owner_local_facts": ["defenseQualification"],
+        "contract_cases": ["CASE-07", "CASE-08", "CASE-09", "CASE-10"],
+        "analyzer_checks": ["defense-owner-partition"]
+      },
+      {
+        "usage": "egressReadinessQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["evidenceAssessment", "egressRoute"],
+        "owner_local_facts": ["egressQualification"],
+        "contract_cases": ["CASE-11", "CASE-12", "CASE-13", "CASE-14"],
+        "analyzer_checks": ["egress-owner-partition"]
+      },
+      {
+        "usage": "threatResponseArbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["episodeSnapshot.nextEpisode", "episodeSnapshot.assessment", "defenseQualification", "egressQualification", "responseAuthorization"],
+        "owner_local_facts": ["responseDirective"],
+        "contract_cases": ["CASE-16", "CASE-17", "CASE-18"],
+        "analyzer_checks": ["arbiter-priority-partition", "egress-over-defense-conflict"]
+      },
+      {
+        "usage": "responseStateController",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["responseDirective", "egressProgress", "committedEgress"],
+        "owner_local_facts": ["nextEgressSession", "defenseCommand", "egressCommand", "responseSnapshot"],
+        "contract_cases": ["CASE-19"],
+        "analyzer_checks": ["controller-owner-totality", "fresh-retry-only", "arrival-over-cancellation"]
+      },
+      {
+        "usage": "responseStatusAssessor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["episodeSnapshot.assessment", "episodeSnapshot.nextEpisode", "responseSnapshot.nextEgress", "responseSnapshot.defenseCommand"],
+        "owner_local_facts": ["responseStatus"],
+        "contract_cases": ["CASE-20"],
+        "analyzer_checks": ["status-owner-totality", "status-precedence"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "Eight responsibility-bearing Threads; the root and behavior-free support Process are excluded.",
+    "semantic_interactions": "INT-01 through INT-20; ten root/Process delegations are generated support and excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-20; initialization and snapshot projection guarantees are excluded.",
+    "scenario_families": "SCN-01 through SCN-08, each supported by at least one concrete bounded trace.",
+    "composition": "The bounded analyzer composes named local relations through INT-01 through INT-20; this is not a compositional-proof claim."
+  }
+}

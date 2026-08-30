@@ -1,0 +1,338 @@
+{
+  "source": "model/Vehicle_Controller_Operating_Mode_Coordinator.sysml",
+  "source_sha256": "8cb7491149f6756563a9e2d852e83e99f7695c054431f9f28d3ac029ad2dc5a3",
+  "root_system_usages": 1,
+  "semantic_usages": 13,
+  "generated_support_usages": 1,
+  "all_usages_including_root": 15,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 35,
+  "generated_support_routes": 5,
+  "source_port_connection_declarations": 40,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 30,
+  "specified_scenario_families": 10,
+  "scenario_families": 10,
+  "state_owners": 8,
+  "decision_or_classification_owners": 13,
+  "gumbo_inspected_record_attributes": 34,
+  "architecture_repairs": 0,
+  "architecture_diagnostic_cycles": 1,
+  "contract_repairs": 0,
+  "contract_diagnostic_cycles": 1,
+  "analyzer_repairs": 1,
+  "analyzer_diagnostic_cycles": 3,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 13,
+    "semantic_interactions": 35,
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "lifecycleEpochOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "lifecycleEpochOwner.lifecycleIndications",
+          "lifecycleEpochOwner.previousStart",
+          "lifecycleEpochOwner.previousOn",
+          "lifecycleEpochOwner.previousOff"
+        ],
+        "owner_local_facts": [
+          "fresh-start fresh-on off-active held-level and lifecycle-invalid facts"
+        ],
+        "contract_cases": [
+          "LIFECYCLE_EPOCH_DERIVATION"
+        ],
+        "analyzer_checks": [
+          "complete lifecycle current/history epoch relation"
+        ]
+      },
+      {
+        "usage": "maintenanceEpochOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "maintenanceEpochOwner.maintenanceIndication",
+          "maintenanceEpochOwner.previousMaintenance"
+        ],
+        "owner_local_facts": [
+          "maintenance active fresh cleared held and invalid facts"
+        ],
+        "contract_cases": [
+          "MAINTENANCE_EPOCH_DERIVATION"
+        ],
+        "analyzer_checks": [
+          "complete maintenance current/history epoch relation"
+        ]
+      },
+      {
+        "usage": "degradationEpochOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "degradationEpochOwner.degradedIndication",
+          "degradationEpochOwner.previousDegraded"
+        ],
+        "owner_local_facts": [
+          "degradation active fresh cleared held and invalid facts"
+        ],
+        "contract_cases": [
+          "DEGRADATION_EPOCH_DERIVATION"
+        ],
+        "analyzer_checks": [
+          "complete degradation current/history epoch relation"
+        ]
+      },
+      {
+        "usage": "returnEpochOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "returnEpochOwner.returnIndication",
+          "returnEpochOwner.previousReturn"
+        ],
+        "owner_local_facts": [
+          "return fresh held clear and invalid facts"
+        ],
+        "contract_cases": [
+          "RETURN_EPOCH_DERIVATION"
+        ],
+        "analyzer_checks": [
+          "complete return current/history epoch relation"
+        ]
+      },
+      {
+        "usage": "conflictClassificationOwner",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "conflictClassificationOwner.lifecycleFacts",
+          "conflictClassificationOwner.maintenanceFacts",
+          "conflictClassificationOwner.degradationFacts",
+          "conflictClassificationOwner.returnFacts"
+        ],
+        "owner_local_facts": [
+          "invalid-dominant actionable-cardinality conflict class"
+        ],
+        "contract_cases": [
+          "CONFLICT_CARDINALITY_CLASSIFICATION"
+        ],
+        "analyzer_checks": [
+          "complete root epoch conflict classification"
+        ]
+      },
+      {
+        "usage": "indicationPriorityOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "indicationPriorityOwner.conflictClass",
+          "indicationPriorityOwner.lifecycleFacts",
+          "indicationPriorityOwner.maintenanceFacts",
+          "indicationPriorityOwner.degradationFacts",
+          "indicationPriorityOwner.returnFacts"
+        ],
+        "owner_local_facts": [
+          "unique priority-selected indication"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04",
+          "CASE-05",
+          "CASE-06",
+          "CASE-07",
+          "CASE-08"
+        ],
+        "analyzer_checks": [
+          "priority partition and ordered raw-input oracle comparison"
+        ]
+      },
+      {
+        "usage": "operatingDemandOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "operatingDemandOwner.selectedIndication",
+          "operatingDemandOwner.recoveryDecision",
+          "operatingDemandOwner.demandMemory"
+        ],
+        "owner_local_facts": [
+          "next operating demand"
+        ],
+        "contract_cases": [
+          "CASE-09",
+          "CASE-10",
+          "CASE-11",
+          "CASE-12"
+        ],
+        "analyzer_checks": [
+          "operating demand partition"
+        ]
+      },
+      {
+        "usage": "maintenanceSessionOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "maintenanceSessionOwner.selectedIndication",
+          "maintenanceSessionOwner.maintenanceFacts",
+          "maintenanceSessionOwner.sessionMemory"
+        ],
+        "owner_local_facts": [
+          "next maintenance session"
+        ],
+        "contract_cases": [
+          "CASE-13",
+          "CASE-14",
+          "CASE-15"
+        ],
+        "analyzer_checks": [
+          "maintenance session partition"
+        ]
+      },
+      {
+        "usage": "degradedEpisodeOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "degradedEpisodeOwner.degradationFacts",
+          "degradedEpisodeOwner.recoveryDecision",
+          "degradedEpisodeOwner.selectedIndication",
+          "degradedEpisodeOwner.episodeMemory"
+        ],
+        "owner_local_facts": [
+          "next degraded episode"
+        ],
+        "contract_cases": [
+          "CASE-16",
+          "CASE-17",
+          "CASE-18",
+          "CASE-19",
+          "CASE-20"
+        ],
+        "analyzer_checks": [
+          "degraded episode partition and same-evaluation fault latch"
+        ]
+      },
+      {
+        "usage": "recoveryEligibilityOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "recoveryEligibilityOwner.conflictClass",
+          "recoveryEligibilityOwner.selectedIndication",
+          "recoveryEligibilityOwner.degradationFacts",
+          "recoveryEligibilityOwner.returnFacts",
+          "recoveryEligibilityOwner.episodeSnapshot.currentEpisode"
+        ],
+        "owner_local_facts": [
+          "phase-relative recovery decision"
+        ],
+        "contract_cases": [
+          "CASE-21",
+          "CASE-22",
+          "CASE-23",
+          "CASE-24",
+          "CASE-25"
+        ],
+        "analyzer_checks": [
+          "recovery eligibility partition and freshness checks"
+        ]
+      },
+      {
+        "usage": "controllerModeTransitionOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "controllerModeTransitionOwner.demandSnapshot",
+          "controllerModeTransitionOwner.maintenanceSnapshot",
+          "controllerModeTransitionOwner.episodeSnapshot",
+          "controllerModeTransitionOwner.recoveryDecision",
+          "controllerModeTransitionOwner.modeMemory"
+        ],
+        "owner_local_facts": [
+          "next controller mode and transition reason"
+        ],
+        "contract_cases": [
+          "CASE-26",
+          "CASE-27",
+          "CASE-28",
+          "CASE-29",
+          "CASE-30"
+        ],
+        "analyzer_checks": [
+          "controller mode partition"
+        ]
+      },
+      {
+        "usage": "parkingBrakeDemandOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "parkingBrakeDemandOwner.maintenanceSnapshot",
+          "parkingBrakeDemandOwner.episodeSnapshot",
+          "parkingBrakeDemandOwner.selectedIndication"
+        ],
+        "owner_local_facts": [
+          "independent conservative brake demand"
+        ],
+        "contract_cases": [
+          "INDEPENDENT_BRAKE_DEMAND"
+        ],
+        "analyzer_checks": [
+          "all 48 brake-demand tuples"
+        ]
+      },
+      {
+        "usage": "outcomeCoherenceOwner",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "outcomeCoherenceOwner.modeDecision",
+          "outcomeCoherenceOwner.brakeDemand"
+        ],
+        "owner_local_facts": [
+          "non-bijective atomic mode and parking-brake frame"
+        ],
+        "contract_cases": [
+          "CONSERVATIVE_TWO_INPUT_COMPOSITION"
+        ],
+        "analyzer_checks": [
+          "all 10 mode brake-demand compositions"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "PART-01 through PART-13 only; root and behavior-free Process support are excluded. Every credited usage derives the owner-local fact recorded in ownership_audit.",
+    "semantic_interactions": "INT-01 through INT-35 only; the five transparent root/Process routes refine boundary meanings and are excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-30 only. Initialization, epoch equations, conflict cardinality, fan-out coherence, brake mapping, frame mapping, invariants, and analyzer branches are excluded.",
+    "scenario_families": "SCN-01 through SCN-10 each execute at least one distinct concrete root-input/state trace; examples within a family add no family credit.",
+    "claim_boundary": "Counts describe canonical source structure and bounded finite behavior only; they do not claim compositional proof, solver certification, generated-code correctness, execution, physical performance, safety, or certification."
+  }
+}

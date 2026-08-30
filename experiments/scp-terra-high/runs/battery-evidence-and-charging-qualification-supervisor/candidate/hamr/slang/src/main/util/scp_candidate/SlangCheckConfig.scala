@@ -1,0 +1,499 @@
+// #Sireum
+
+package scp_candidate
+
+import org.sireum._
+import org.sireum.Random.Gen64
+
+/*
+GENERATED FROM
+
+ServiceRequest.scala
+
+PilotAdvisory.scala
+
+SourceChargeSession.scala
+
+ChargeSession.scala
+
+SessionCase.scala
+
+RequestResult.scala
+
+BatteryBand.scala
+
+Validity.scala
+
+QualifiedBand.scala
+
+ChargerReport.scala
+
+ChargeInterfaceReport.scala
+
+LifecyclePhase.scala
+
+BatteryConfidence.scala
+
+ConfidenceCase.scala
+
+ChargeEligibility.scala
+
+AttentionState.scala
+
+AttentionCause.scala
+
+AttentionCase.scala
+
+PilotNotice.scala
+
+FlightControlNotice.scala
+
+ChargeAuthorization.scala
+
+ChargerFacts.scala
+
+InterfaceFacts.scala
+
+LifecycleFacts.scala
+
+FaultVector.scala
+
+AdvisoryFacts.scala
+
+PublishedSession.scala
+
+PublishedRequestResult.scala
+
+BatteryReportValue.scala
+
+BatteryQualification.scala
+
+LifecycleReportValue.scala
+
+BatteryStateFacts.scala
+
+AttentionResolution.scala
+
+FaultFacts.scala
+
+SessionResolution.scala
+
+PublicDecisionFacts.scala
+
+PilotStatus.scala
+
+Base_Types.scala
+
+CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_Containers.scala
+
+BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_Containers.scala
+
+ChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_Containers.scala
+
+ChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_Containers.scala
+
+LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_Containers.scala
+
+BatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_Containers.scala
+
+ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_Containers.scala
+
+AttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_Containers.scala
+
+BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_Containers.scala
+
+FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_Containers.scala
+
+ChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_Containers.scala
+
+NotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_Containers.scala
+
+AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_Containers.scala
+
+ObservationKind.scala
+
+Container.scala
+
+DataContent.scala
+
+Aux_Types.scala
+
+*/
+@datatype class Config_String(minSize: Z, maxSize: Z, attempts: Z, verbose: B, filter: String => B) {}
+@datatype class Config_Z(low: Option[Z], high: Option[Z], attempts: Z, verbose: B, filter: Z => B) {}
+
+@datatype class Config_B(attempts: Z, verbose: B, filter: B => B) {}
+
+@datatype class Config_C(low: Option[C], high: Option[C], attempts: Z, verbose: B, filter: C => B) {}
+
+@datatype class Config_R(low: Option[R], high: Option[R], attempts: Z, verbose: B, filter: R => B) {}
+
+@datatype class Config_F32(low: Option[F32], high: Option[F32], attempts: Z, verbose: B, filter: F32 => B) {}
+
+@datatype class Config_F64(low: Option[F64], high: Option[F64], attempts: Z, verbose: B, filter: F64 => B) {}
+
+@datatype class Config_S8(low: Option[S8], high: Option[S8], attempts: Z, verbose: B, filter: S8 => B) {}
+
+@datatype class Config_S16(low: Option[S16], high: Option[S16], attempts: Z, verbose: B, filter: S16 => B) {}
+
+@datatype class Config_S32(low: Option[S32], high: Option[S32], attempts: Z, verbose: B, filter: S32 => B) {}
+
+@datatype class Config_S64(low: Option[S64], high: Option[S64], attempts: Z, verbose: B, filter: S64 => B) {}
+
+@datatype class Config_U8(low: Option[U8], high: Option[U8], attempts: Z, verbose: B, filter: U8 => B) {}
+
+@datatype class Config_U16(low: Option[U16], high: Option[U16], attempts: Z, verbose: B, filter: U16 => B) {}
+
+@datatype class Config_U32(low: Option[U32], high: Option[U32], attempts: Z, verbose: B, filter: U32 => B) {}
+
+@datatype class Config_U64(low: Option[U64], high: Option[U64], attempts: Z, verbose: B, filter: U64 => B) {}
+
+@datatype class Config__artDataContent(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[_artDataContent_DataTypeId.Type], filter: art.DataContent => B) {}
+
+@datatype class Config__artEmpty(attempts: Z, verbose: B, filter: art.Empty => B) {}
+
+@datatype class Config_Base_TypesBoolean_Payload(attempts: Z, verbose: B, filter: Base_Types.Boolean_Payload => B) {}
+
+@datatype class Config_Base_TypesInteger_Payload(attempts: Z, verbose: B, filter: Base_Types.Integer_Payload => B) {}
+
+@datatype class Config_Base_TypesInteger_8_Payload(attempts: Z, verbose: B, filter: Base_Types.Integer_8_Payload => B) {}
+
+@datatype class Config_Base_TypesInteger_16_Payload(attempts: Z, verbose: B, filter: Base_Types.Integer_16_Payload => B) {}
+
+@datatype class Config_Base_TypesInteger_32_Payload(attempts: Z, verbose: B, filter: Base_Types.Integer_32_Payload => B) {}
+
+@datatype class Config_Base_TypesInteger_64_Payload(attempts: Z, verbose: B, filter: Base_Types.Integer_64_Payload => B) {}
+
+@datatype class Config_Base_TypesUnsigned_8_Payload(attempts: Z, verbose: B, filter: Base_Types.Unsigned_8_Payload => B) {}
+
+@datatype class Config_Base_TypesUnsigned_16_Payload(attempts: Z, verbose: B, filter: Base_Types.Unsigned_16_Payload => B) {}
+
+@datatype class Config_Base_TypesUnsigned_32_Payload(attempts: Z, verbose: B, filter: Base_Types.Unsigned_32_Payload => B) {}
+
+@datatype class Config_Base_TypesUnsigned_64_Payload(attempts: Z, verbose: B, filter: Base_Types.Unsigned_64_Payload => B) {}
+
+@datatype class Config_Base_TypesFloat_Payload(attempts: Z, verbose: B, filter: Base_Types.Float_Payload => B) {}
+
+@datatype class Config_Base_TypesFloat_32_Payload(attempts: Z, verbose: B, filter: Base_Types.Float_32_Payload => B) {}
+
+@datatype class Config_Base_TypesFloat_64_Payload(attempts: Z, verbose: B, filter: Base_Types.Float_64_Payload => B) {}
+
+@datatype class Config_Base_TypesCharacter_Payload(attempts: Z, verbose: B, filter: Base_Types.Character_Payload => B) {}
+
+@datatype class Config_Base_TypesString_Payload(attempts: Z, verbose: B, filter: Base_Types.String_Payload => B) {}
+
+@datatype class Config_ISZB(minSize: Z, maxSize: Z, attempts: Z, verbose: B, filter: ISZ[B] => B) {}
+
+@datatype class Config_Base_TypesBits_Payload(attempts: Z, verbose: B, filter: Base_Types.Bits_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAdvisoryFacts(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAdvisoryFacts_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionCaseType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionCase.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionCase_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionCase_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionCauseType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionCause.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionCause_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionCause_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionLatchStateOwner_chargeQualificationProcess_attentionLatchStateOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionResolution(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionResolution => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionResolution_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionResolution_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionStateType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionState.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAttentionState_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AttentionState_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorAuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryBandType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryBand.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryBand_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryBand_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidence.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidence_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidence_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryConfidenceStateOwner_chargeQualificationProcess_batteryConfidenceStateOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryEvidenceQualifier_chargeQualificationProcess_batteryEvidenceQualifier_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryQualification(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryQualification => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryQualification_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryQualification_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryReportValue(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryReportValue => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryReportValue_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryReportValue_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryStateFacts(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryStateFacts => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorBatteryStateFacts_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.BatteryStateFacts_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeAuthorizationType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeAuthorization.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeAuthorization_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeAuthorization_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibility_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibilityDecisionOwner_chargeQualificationProcess_chargeEligibilityDecisionOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeInterfaceReportType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeInterfaceReport.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeInterfaceReport_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeInterfaceReport_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSessionType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSession.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSession_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSession_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargeSessionPriorityStateOwner_chargeQualificationProcess_chargeSessionPriorityStateOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerEvidenceQualifier_chargeQualificationProcess_chargerEvidenceQualifier_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerFacts(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerFacts => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerFacts_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerFacts_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerReportType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerReport.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargerReport_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargerReport_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.ChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ChargingInterfaceEvidenceQualifier_chargeQualificationProcess_chargingInterfaceEvidenceQualifier_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorConfidenceCaseType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ConfidenceCase.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorConfidenceCase_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ConfidenceCase_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorCurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultFacts(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultFacts => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultFacts_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultFacts_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultVector(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultVector => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFaultVector_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FaultVector_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFlightControlNoticeType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FlightControlNotice.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorFlightControlNotice_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.FlightControlNotice_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorInterfaceFacts(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.InterfaceFacts => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorInterfaceFacts_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.InterfaceFacts_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleContextApplicabilityOwner_chargeQualificationProcess_lifecycleContextApplicabilityOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleFacts(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleFacts => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleFacts_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleFacts_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecyclePhaseType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecyclePhase.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecyclePhase_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecyclePhase_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleReportValue(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleReportValue => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorLifecycleReportValue_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.LifecycleReportValue_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PreState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PreState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.NotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PreState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PreState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.NotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PreState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PreState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.NotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PreState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PostState_Container(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PostState_Container_DataTypeId.Type], filter: Drone_Battery_Charge_Qualification_Supervisor.NotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PostState_Container => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PostState_Container_P(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.NotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PostState_Container_P => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorNotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PostState_Container_PS(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.NotificationCompositionOwner_chargeQualificationProcess_notificationCompositionOwner_PostState_Container_PS => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPilotAdvisoryType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PilotAdvisory.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPilotAdvisory_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PilotAdvisory_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPilotNoticeType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PilotNotice.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPilotNotice_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PilotNotice_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPilotStatus(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PilotStatus => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPilotStatus_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PilotStatus_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPublicDecisionFacts(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PublicDecisionFacts => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPublicDecisionFacts_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PublicDecisionFacts_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPublishedRequestResult(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PublishedRequestResult => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPublishedRequestResult_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PublishedRequestResult_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPublishedSession(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PublishedSession => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorPublishedSession_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.PublishedSession_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorQualifiedBandType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.QualifiedBand.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorQualifiedBand_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.QualifiedBand_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorRequestResultType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.RequestResult.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorRequestResult_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.RequestResult_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorServiceRequestType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ServiceRequest.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorServiceRequest_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.ServiceRequest_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorSessionCaseType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.SessionCase.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorSessionCase_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.SessionCase_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorSessionResolution(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.SessionResolution => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorSessionResolution_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.SessionResolution_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorSourceChargeSessionType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.SourceChargeSession.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorSourceChargeSession_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.SourceChargeSession_Payload => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorValidityType(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.Validity.Type => B) {}
+
+@datatype class Config_Drone_Battery_Charge_Qualification_SupervisorValidity_Payload(attempts: Z, verbose: B, filter: Drone_Battery_Charge_Qualification_Supervisor.Validity_Payload => B) {}
+
+@datatype class Config_utilContainer(attempts: Z, verbose: B, additiveTypeFiltering: B, typeFilter: ISZ[utilContainer_DataTypeId.Type], filter: util.Container => B) {}
+
+@datatype class Config_utilEmptyContainer(attempts: Z, verbose: B, filter: util.EmptyContainer => B) {}
+
+@datatype class Config_runtimemonitorObservationKindType(attempts: Z, verbose: B, filter: runtimemonitor.ObservationKind.Type => B) {}
+
+

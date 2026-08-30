@@ -1,0 +1,24 @@
+{
+  "status": "success",
+  "summary": "The candidate typechecks as Well-formed and HAMR successfully generated a runtime-monitored Microkit Rust projection with Verus attribute contracts for all five behavior Threads. Lifecycle semantics, contract ownership, eleven semantic interactions, and all accepted trace IDs are preserved; deployment support and a Boolean-literal compatibility normalization were added.",
+  "candidate_model": "experiments/rust-verus/drone-lifecycle/rust/model/Drone_Lifecycle_Governor.sysml",
+  "generated_application_crates": [
+    "experiments/rust-verus/drone-lifecycle/rust/hamr/microkit/crates/request_qualification_process_request_qualification",
+    "experiments/rust-verus/drone-lifecycle/rust/hamr/microkit/crates/battery_evidence_assessment_process_battery_evidence_assessment",
+    "experiments/rust-verus/drone-lifecycle/rust/hamr/microkit/crates/lifecycle_governor_process_lifecycle_governor",
+    "experiments/rust-verus/drone-lifecycle/rust/hamr/microkit/crates/enablement_derivation_process_enablement_derivation",
+    "experiments/rust-verus/drone-lifecycle/rust/hamr/microkit/crates/pilot_notice_derivation_process_pilot_notice_derivation"
+  ],
+  "contract_changes": [
+    {
+      "scope": "GUMBO Boolean literals",
+      "change": "38 equivalent spelling normalizations: T to true (5), F to false (33)",
+      "evidence": "This source-boundary repair prevents unresolved bare identifiers in runtime GUMBOX output. No operator, guard, case, helper, state or output relation changed; HAMR generated two Verus attribute entrypoint contracts per application crate and eleven governor case markers."
+    }
+  ],
+  "deferred_items": [
+    "Application implementation and Verus proof are recorded by the subsequent application stage.",
+    "Microkit provisioning/building and image execution were not run.",
+    "Current HAMR Microkit requires one Thread per Process, so the executable projection uses five behavior-free Process wrappers and 27 physical PortConnection declarations instead of the accepted abstract deployment's one wrapper and 17 declarations; this deployment-only difference is not claimed to satisfy that abstract structural metric."
+  ]
+}

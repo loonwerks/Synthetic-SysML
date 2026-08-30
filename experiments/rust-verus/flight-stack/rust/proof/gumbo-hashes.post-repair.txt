@@ -1,0 +1,22 @@
+POST-REPAIR CANONICAL/PROJECTED GUMBO HASH AUDIT
+
+Extraction: concatenate, in source order, each complete block beginning with
+`language "GUMBO" /*{` and ending with its matching `}*/`, including those
+delimiters. Both sources contain six blocks and 31,248 concatenated bytes.
+
+canonical_path=runs/20260817T021406Z-faa-flight-stack-appendices-b-c-d/model/flight_stack.sysml
+canonical_source_sha256=c050e9438f50dc734c044d31ba5ef2bd46575df0df5b97c2efefd7d5f2556ccd
+canonical_gumbo_sha256=1a5c8a9fafa5bf91cf623812e7e68a0ae8a6f66972c9f7050e1995d6142457ea
+canonical_gumbo_blocks=6
+canonical_gumbo_bytes=31248
+
+projected_path=rust/model/flight_stack_rust.sysml
+projected_source_sha256=c988d14a10646a50a9342ca22ca60ef1651d640d07aacb45bb2d3c03a2b7e278
+projected_gumbo_sha256=1a5c8a9fafa5bf91cf623812e7e68a0ae8a6f66972c9f7050e1995d6142457ea
+projected_gumbo_blocks=6
+projected_gumbo_bytes=31248
+
+result=PASS_BYTE_IDENTICAL
+
+The older 51bd4eed... hash in read-only-audit.txt describes the pre-repair
+contract snapshot and is retained as historical evidence, not final status.

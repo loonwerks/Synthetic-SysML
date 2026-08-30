@@ -1,0 +1,132 @@
+{
+  "schema_version": 2,
+  "source_sha256": "c843b555f4601df7b706eb1bee8619349d98928143c2590fc50e3763aa634a7d",
+  "root_definition": "Factory_Dispatch_Coordinator::Finished_Product_Dispatch_Coordinator_System",
+  "root_usage": "finished_product_dispatch_coordinator",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 5,
+    "generated_support_processes": 1,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 13,
+    "boundary_semantic_interactions": 6,
+    "internal_semantic_interactions": 7,
+    "generated_support_delegations": 12,
+    "raw_port_connection_declarations": 19,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2,
+      "INT-02": 1,
+      "INT-03": 2,
+      "INT-04": 1,
+      "INT-05": 2,
+      "INT-06": 1,
+      "INT-07": 1,
+      "INT-08": 2,
+      "INT-09": 1,
+      "INT-10": 2,
+      "INT-11": 1,
+      "INT-12": 1,
+      "INT-13": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "registry_event_cases": 9,
+    "arbiter_dispatch_cases": 3,
+    "safe_initialization_guarantees": 5,
+    "state_invariant_guarantees": 1,
+    "identity_forwarding_cases_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "owner_states": 89,
+    "boundary_combinations": 11016,
+    "snapshots": 980424,
+    "partition_gaps": 0,
+    "effective_partition_overlaps": 0,
+    "state_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "coherence_violations": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    }
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 13,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "request_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["request_qualification.request_arrival"],
+        "owner_local_facts": ["17-value arrival qualification"],
+        "contract_cases": ["QUAL_NO_ARRIVAL", "QUAL_INVALID_ARRIVAL", "QUAL_VALID_ARRIVAL"],
+        "analyzer_checks": ["qualification 17-to-10 total relation"]
+      },
+      {
+        "usage": "request_registry",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["request_registry.arrival_fact", "request_registry.shipment_result", "request_registry.registry_instruction", "request_registry.active", "request_registry.last_completed"],
+        "owner_local_facts": ["ordered event classification", "provisional registry transition", "event and recovery blockers"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09"],
+        "analyzer_checks": ["registry nine-case effective partition", "registry commit and invariant"]
+      },
+      {
+        "usage": "inventory_assessment",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["inventory_assessment.pending_request", "inventory_assessment.inventory_evidence"],
+        "owner_local_facts": ["product-and-amount stock threshold classification"],
+        "contract_cases": ["STOCK_NO_DEMAND", "STOCK_INVALID", "STOCK_SUFFICIENT", "STOCK_INSUFFICIENT"],
+        "analyzer_checks": ["inventory four-class total relation", "both-product two-amount threshold matrix"]
+      },
+      {
+        "usage": "dispatch_arbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["dispatch_arbiter.dispatch_candidate", "dispatch_arbiter.inventory_finding", "dispatch_arbiter.readiness_sample"],
+        "owner_local_facts": ["prioritized release authorization", "matching submission instruction"],
+        "contract_cases": ["CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["arbiter three-case effective partition", "release instruction coherence"]
+      },
+      {
+        "usage": "customer_notice_synthesis",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["customer_notice_synthesis.registry_outcome", "customer_notice_synthesis.dispatch_disposition"],
+        "owner_local_facts": ["ordered competing-fact notice resolution"],
+        "contract_cases": ["NOTICE_PRIORITY_RESOLUTION"],
+        "analyzer_checks": ["notice priority total relation"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-05 only. Interactions count INT-01 through INT-13 once each and exclude twelve support delegations. Nontrivial cases count CASE-01 through CASE-12 only. Scenario families count SCN-01 through SCN-05. Root, Process support, types, initialization, invariants, local classification subcases, identity routes, and analyzer fixtures receive no semantic credit. Composition means finite relation and explicit connection-map composition, not compositional proof."
+}

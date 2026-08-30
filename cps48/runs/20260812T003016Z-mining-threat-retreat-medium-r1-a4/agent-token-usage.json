@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "run_id": "20260812T003016Z-mining-threat-retreat-medium-r1-a4",
+  "recorded_at": "2026-08-12T04:18:54Z",
+  "scope": "Usage reported by the run's stateless Codex stage invocations.",
+  "cache_semantics": "Cache attribution applies to input only; reasoning output is a subset of output.",
+  "agents": [
+    {
+      "role": "seed",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "seed-generate"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 2385408,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 93589,
+          "output": 30274
+        },
+        "totals": {
+          "input": 2478997,
+          "output": 30274,
+          "overall": 2509271
+        }
+      },
+      "reasoning_output_tokens": 9160,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 673.046
+    },
+    {
+      "role": "designer",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "designer-initial",
+        "designer-resolution",
+        "designer-resolution@retry-1",
+        "designer-final",
+        "designer-final@retry-1",
+        "designer-final@retry-2"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 14261760,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 869546,
+          "output": 101528
+        },
+        "totals": {
+          "input": 15131306,
+          "output": 101528,
+          "overall": 15232834
+        }
+      },
+      "reasoning_output_tokens": 33301,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 2492.0
+    },
+    {
+      "role": "model",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "model-review",
+        "model-generate",
+        "model-generate@retry-1"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 18017536,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 630102,
+          "output": 130291
+        },
+        "totals": {
+          "input": 18647638,
+          "output": 130291,
+          "overall": 18777929
+        }
+      },
+      "reasoning_output_tokens": 42236,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 3402.04
+    },
+    {
+      "role": "visualization",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "visualize",
+        "visualize@retry-1",
+        "visualize@retry-2",
+        "visualize@retry-3"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 30564096,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 885584,
+          "output": 108130
+        },
+        "totals": {
+          "input": 31449680,
+          "output": 108130,
+          "overall": 31557810
+        }
+      },
+      "reasoning_output_tokens": 41943,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 3564.024
+    }
+  ],
+  "aggregate": {
+    "agent_count": 4,
+    "token_matrix": {
+      "cached": {
+        "input": 65228800,
+        "output": 0
+      },
+      "non_cached": {
+        "input": 2478821,
+        "output": 370223
+      },
+      "totals": {
+        "input": 67707621,
+        "output": 370223,
+        "overall": 68077844
+      }
+    },
+    "reasoning_output_tokens": 126640,
+    "cache_write_input_tokens": 0
+  },
+  "timing": {
+    "started_at": "2026-08-12T00:30:16Z",
+    "completed_at": "2026-08-12T04:18:54Z",
+    "run_elapsed_seconds": 13718.0,
+    "summed_agent_stage_seconds": 10131.11,
+    "stages": [
+      {
+        "stage": "seed-generate",
+        "role": "seed",
+        "completed_at": "2026-08-12T00:41:29Z",
+        "duration_seconds": 673.046
+      },
+      {
+        "stage": "designer-initial",
+        "role": "designer",
+        "completed_at": "2026-08-12T00:49:00Z",
+        "duration_seconds": 450.693
+      },
+      {
+        "stage": "model-review",
+        "role": "model",
+        "completed_at": "2026-08-12T00:56:29Z",
+        "duration_seconds": 449.369
+      },
+      {
+        "stage": "designer-resolution",
+        "role": "designer",
+        "completed_at": "2026-08-12T01:04:12Z",
+        "duration_seconds": 463.197
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-12T02:28:15Z",
+        "duration_seconds": 1946.188
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-12T02:55:26Z",
+        "duration_seconds": 1610.911
+      },
+      {
+        "stage": "designer-resolution",
+        "role": "designer",
+        "completed_at": "2026-08-12T02:58:35Z",
+        "duration_seconds": 189.339
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-12T03:15:22Z",
+        "duration_seconds": 1006.483
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-12T03:23:21Z",
+        "duration_seconds": 467.193
+      },
+      {
+        "stage": "designer-final",
+        "role": "designer",
+        "completed_at": "2026-08-12T03:32:36Z",
+        "duration_seconds": 554.352
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-12T03:39:27Z",
+        "duration_seconds": 411.484
+      },
+      {
+        "stage": "designer-final",
+        "role": "designer",
+        "completed_at": "2026-08-12T03:47:49Z",
+        "duration_seconds": 501.18
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-12T04:13:21Z",
+        "duration_seconds": 1074.436
+      },
+      {
+        "stage": "designer-final",
+        "role": "designer",
+        "completed_at": "2026-08-12T04:18:54Z",
+        "duration_seconds": 333.239
+      }
+    ],
+    "semantics": "run_elapsed_seconds is real elapsed time from run creation through acceptance; summed_agent_stage_seconds excludes harness-only checks and inter-stage gaps."
+  }
+}

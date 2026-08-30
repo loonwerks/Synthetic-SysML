@@ -1,0 +1,785 @@
+{
+  "schema": "windshield-defrost-request-supervisor-bounded-analysis-v1",
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "627919ff5c7c8e431bb07c9a14fb08aa72edcf76e3035da444ae113bcfe38a40",
+  "canonical_guard_crosscheck": {
+    "status": "matched",
+    "case_ids": [
+      "CC-01",
+      "CC-02",
+      "CC-03",
+      "CC-04",
+      "CC-05",
+      "CC-06",
+      "CC-07",
+      "CC-08",
+      "CC-09",
+      "CC-10",
+      "CC-11",
+      "CC-12"
+    ],
+    "method": "The retained GUMBO assumptions and implication branches were statically compared with the analyzer's independently structured contract guards before source-hash binding."
+  },
+  "semantic_connection_map": {
+    "INT-01": "root.defrostSelection -> requestIntentTracker.defrostSelection",
+    "INT-02": "root.requestValidity -> requestIntentTracker.requestValidity",
+    "INT-03": "root.glazingCondition -> glazingConditionAssessor.glazingCondition",
+    "INT-04": "root.glazingValidity -> glazingConditionAssessor.glazingValidity",
+    "INT-05": "root.electricalInterfaceStatus -> electricalEligibilityAssessor.electricalInterfaceStatus",
+    "INT-06": "root.defrostLoadAllowance -> electricalEligibilityAssessor.defrostLoadAllowance",
+    "INT-07": "requestIntentTracker.requestIntent -> defrostPolicySupervisor.requestIntent",
+    "INT-08": "glazingConditionAssessor.visibilityAssessment -> defrostPolicySupervisor.visibilityAssessment",
+    "INT-09": "electricalEligibilityAssessor.defrostEligibility -> defrostPolicySupervisor.defrostEligibility",
+    "INT-10": "defrostPolicySupervisor.defrostEnableCommand -> root.defrostEnableCommand",
+    "INT-11": "defrostPolicySupervisor.policyDisposition -> driverFeedbackReporter.policyDisposition",
+    "INT-12": "requestIntentTracker.requestIntent -> driverFeedbackReporter.requestIntent",
+    "INT-13": "driverFeedbackReporter.driverDefrostStatus -> root.driverDefrostStatus"
+  },
+  "partition_counts": {
+    "owner_local": {
+      "requestIntentTracker": 12,
+      "glazingConditionAssessor": 4,
+      "electricalEligibilityAssessor": 4,
+      "defrostPolicySupervisor": 45,
+      "driverFeedbackReporter": 25
+    },
+    "boundary_valuations": 64,
+    "request_pre_states": 3,
+    "composed_root_snapshots": 192,
+    "scenario_families": 5
+  },
+  "owner_local_relations": {
+    "requestIntentTracker": {
+      "valuations": 12,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_hits": {
+        "CC-01": 1,
+        "CC-02": 1,
+        "CC-03": 3,
+        "CC-04": 6,
+        "CC-05": 1
+      }
+    },
+    "glazingConditionAssessor": {
+      "valuations": 4,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_hits": {
+        "CC-06": 4
+      },
+      "branch_hits": {
+        "unknown": 2,
+        "clear": 1,
+        "needs-defrost": 1
+      }
+    },
+    "electricalEligibilityAssessor": {
+      "valuations": 4,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_hits": {
+        "CC-07": 4
+      },
+      "branch_hits": {
+        "unavailable": 2,
+        "restricted": 1,
+        "eligible": 1
+      }
+    },
+    "defrostPolicySupervisor": {
+      "valuations": 45,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_hits": {
+        "CC-08": 27,
+        "CC-09": 6,
+        "CC-10": 8,
+        "CC-11": 4
+      }
+    },
+    "driverFeedbackReporter": {
+      "valuations": 25,
+      "gaps": 0,
+      "overlaps": 0,
+      "mismatches": 0,
+      "case_hits": {
+        "CC-12": 25
+      },
+      "branch_hits": {
+        "attention": 14,
+        "defrosting": 2,
+        "complete": 2,
+        "idle": 7
+      }
+    }
+  },
+  "ownership_audit": [
+    {
+      "usage": "requestIntentTracker",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "requestIntentTracker.defrostSelection",
+        "requestIntentTracker.requestValidity",
+        "requestIntentTracker.requestMemory"
+      ],
+      "owner_local_facts": [
+        "fresh-held-blocked request intent and next request memory"
+      ],
+      "contract_cases": [
+        "CC-01",
+        "CC-02",
+        "CC-03",
+        "CC-04",
+        "CC-05"
+      ],
+      "analyzer_checks": [
+        "request tracker 12-valuation total exclusive relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "glazingConditionAssessor",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "glazingConditionAssessor.glazingCondition",
+        "glazingConditionAssessor.glazingValidity"
+      ],
+      "owner_local_facts": [
+        "validity-aware three-way visibility assessment"
+      ],
+      "contract_cases": [
+        "CC-06"
+      ],
+      "analyzer_checks": [
+        "glazing assessor 4-valuation total exclusive relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "electricalEligibilityAssessor",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "electricalEligibilityAssessor.electricalInterfaceStatus",
+        "electricalEligibilityAssessor.defrostLoadAllowance"
+      ],
+      "owner_local_facts": [
+        "reason-preserving three-way electrical eligibility"
+      ],
+      "contract_cases": [
+        "CC-07"
+      ],
+      "analyzer_checks": [
+        "electrical assessor 4-valuation total exclusive relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "defrostPolicySupervisor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "defrostPolicySupervisor.requestIntent",
+        "defrostPolicySupervisor.visibilityAssessment",
+        "defrostPolicySupervisor.defrostEligibility"
+      ],
+      "owner_local_facts": [
+        "priority-selected enable command and policy disposition"
+      ],
+      "contract_cases": [
+        "CC-08",
+        "CC-09",
+        "CC-10",
+        "CC-11"
+      ],
+      "analyzer_checks": [
+        "policy supervisor 45-valuation total exclusive priority relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "driverFeedbackReporter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "driverFeedbackReporter.policyDisposition",
+        "driverFeedbackReporter.requestIntent"
+      ],
+      "owner_local_facts": [
+        "audience-oriented four-way driver status"
+      ],
+      "contract_cases": [
+        "CC-12"
+      ],
+      "analyzer_checks": [
+        "driver reporter 25-valuation total exclusive relation"
+      ],
+      "passed": true
+    }
+  ],
+  "composed_analysis": {
+    "boundary_valuations": 64,
+    "pre_states": 3,
+    "snapshots": 192,
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "next_state_mismatches": 0,
+    "intermediate_fact_mismatches": 0
+  },
+  "partition_gaps": 0,
+  "partition_overlaps": 0,
+  "required_output_mismatches": 0,
+  "next_state_mismatches": 0,
+  "intermediate_fact_mismatches": 0,
+  "invariant_checks": {
+    "safe_initialization": true,
+    "fail_off_for_invalid_or_blocked_inputs": true,
+    "release_required_before_restart": true,
+    "observation_fault_precedes_electrical_block": true,
+    "explicit_connection_map_has_all_thirteen_interactions": true,
+    "source_bound_to_canonical_sha256": true
+  },
+  "invariant_violations": 0,
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "initial_state": "Released",
+      "steps": [
+        {
+          "step": 1,
+          "pre_state": "Released",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-01",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-01",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Fresh",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Fresh",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        },
+        {
+          "step": 2,
+          "pre_state": "AcceptedActive",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        }
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-02",
+      "initial_state": "Released",
+      "steps": [
+        {
+          "step": 1,
+          "pre_state": "Released",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Clear",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-01",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-01",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Fresh",
+            "visibilityAssessment": "Clear",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Complete",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "Complete",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Fresh",
+            "visibilityAssessment": "Clear",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Complete",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "Complete",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        },
+        {
+          "step": 2,
+          "pre_state": "AcceptedActive",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        }
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-03",
+      "initial_state": "AcceptedActive",
+      "steps": [
+        {
+          "step": 1,
+          "pre_state": "AcceptedActive",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Invalid",
+            "electricalInterfaceStatus": "Unavailable",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-09",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-09",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "Unknown",
+            "defrostEligibility": "BlockedUnavailable",
+            "policyDisposition": "ObservationFault",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "Unknown",
+            "defrostEligibility": "BlockedUnavailable",
+            "policyDisposition": "ObservationFault",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        }
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-04",
+      "initial_state": "AcceptedActive",
+      "steps": [
+        {
+          "step": 1,
+          "pre_state": "AcceptedActive",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Restricted"
+          },
+          "expected_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-10",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-10",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "BlockedRestricted",
+            "policyDisposition": "ElectricalBlocked",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "BlockedRestricted",
+            "policyDisposition": "ElectricalBlocked",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        },
+        {
+          "step": 2,
+          "pre_state": "AcceptedActive",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-02",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Held",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        }
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "scenario_id": "SCN-05",
+      "initial_state": "AcceptedActive",
+      "steps": [
+        {
+          "step": 1,
+          "pre_state": "AcceptedActive",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Invalid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-04",
+            "CC-06",
+            "CC-07",
+            "CC-08",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-04",
+            "CC-06",
+            "CC-07",
+            "CC-08",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "BlockedInvalid",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Inactive",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "RearmRequired"
+          },
+          "observed": {
+            "requestIntent": "BlockedInvalid",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Inactive",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "RearmRequired"
+          }
+        },
+        {
+          "step": 2,
+          "pre_state": "RearmRequired",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-05",
+            "CC-06",
+            "CC-07",
+            "CC-08",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-05",
+            "CC-06",
+            "CC-07",
+            "CC-08",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "BlockedRearm",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Inactive",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "RearmRequired"
+          },
+          "observed": {
+            "requestIntent": "BlockedRearm",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Inactive",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "AttentionRequired",
+            "nextRequestMemory": "RearmRequired"
+          }
+        },
+        {
+          "step": 3,
+          "pre_state": "RearmRequired",
+          "boundary_input": {
+            "defrostSelection": "Released",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-03",
+            "CC-06",
+            "CC-07",
+            "CC-08",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-03",
+            "CC-06",
+            "CC-07",
+            "CC-08",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "None",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Inactive",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "Idle",
+            "nextRequestMemory": "Released"
+          },
+          "observed": {
+            "requestIntent": "None",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Inactive",
+            "defrostEnableCommand": "Off",
+            "driverDefrostStatus": "Idle",
+            "nextRequestMemory": "Released"
+          }
+        },
+        {
+          "step": 4,
+          "pre_state": "Released",
+          "boundary_input": {
+            "defrostSelection": "Active",
+            "requestValidity": "Valid",
+            "glazingCondition": "Obscured",
+            "glazingValidity": "Valid",
+            "electricalInterfaceStatus": "Available",
+            "defrostLoadAllowance": "Permitted"
+          },
+          "expected_named_branch_cases": [
+            "CC-01",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "observed_named_branch_cases": [
+            "CC-01",
+            "CC-06",
+            "CC-07",
+            "CC-11",
+            "CC-12"
+          ],
+          "expected": {
+            "requestIntent": "Fresh",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          },
+          "observed": {
+            "requestIntent": "Fresh",
+            "visibilityAssessment": "NeedsDefrost",
+            "defrostEligibility": "Eligible",
+            "policyDisposition": "Defrosting",
+            "defrostEnableCommand": "On",
+            "driverDefrostStatus": "Defrosting",
+            "nextRequestMemory": "AcceptedActive"
+          }
+        }
+      ],
+      "mismatches": 0,
+      "passed": true
+    }
+  ],
+  "scenario_mismatches": 0,
+  "bounded_analysis_claim_boundary": "Exhaustive evidence is limited to the finite abstract domains, owner-local relations, explicit semantic connection map, 192 one-observation snapshots, and five named traces. It is not execution, solver certification, compositional proof, physical-performance evidence, generated-code correctness, or safety certification."
+}

@@ -1,0 +1,24 @@
+Continue Phase B using the original `/workspace/Gumbo_FSE_agent_Plan.txt` and
+`/workspace/sireum_verification_plan.txt`. Keep working autonomously until the
+exact fixed gate prints `APPLICATION_LOGIKA_PASSED`.
+
+Apply these generated-HAMR facts consistently:
+
+1. A method that calls any `api.put_*` mutates the API object. Its method
+   contract must use `Modifies(api)`, not individual API fields, local aliases,
+   getter expressions, or no modifies clause.
+2. The executable projection intentionally removed input-dependent initialize
+   contracts because generated `Initialization_Api` objects expose output puts
+   but no input gets. Implement `initialise` by publishing suitable default
+   output values only; do not read input ports or recreate removed initialize
+   ensures. Preserve and prove the generated compute ensures in
+   `timeTriggered`.
+3. Remove generated example logging and example behavior when replacing a
+   method. Read inputs via the operational API, compute explicitly typed Slang
+   values, and publish through generated `put_*` methods.
+4. Do not use git, an evaluator, an oracle, the network, or files outside the
+   confined workspace. The current generated files are the baseline. Do not
+   search for a hidden prior implementation.
+5. Diagnose the first failing method, edit that component coherently, and use
+   the exact fixed `run-logika.sh` gate. Do not weaken or edit the gate or any
+   protected/generated support file.

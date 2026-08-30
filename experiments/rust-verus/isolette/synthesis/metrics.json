@@ -1,0 +1,380 @@
+{
+  "schema_version": 1,
+  "source_sha256": "fcde62c3e4a2a466b35740378aff3c3f14f82de195809e39cabaa55ab8d344d0",
+  "root_definition": "Isolette_Thermostat::IsoletteThermostatSystem",
+  "root_usage": "isolette_thermostat",
+  "explicit_root_usages": 1,
+  "architecture_nodes": {
+    "count": 10,
+    "generated_support": [
+      "isolette_thermostat.thermostat_process"
+    ],
+    "semantic": [
+      "manage_regulator_interface",
+      "detect_regulator_failure",
+      "manage_regulator_mode",
+      "manage_heat_source",
+      "manage_monitor_interface",
+      "detect_monitor_failure",
+      "manage_monitor_mode",
+      "manage_alarm"
+    ],
+    "excluded_root": [
+      "isolette_thermostat"
+    ]
+  },
+  "semantic_domain_graph": {
+    "nodes": 8,
+    "directed_edges": 10,
+    "unique_ordered_component_pairs": 10,
+    "average_total_degree": 2.5,
+    "density_by_unique_ordered_pairs": 0.17857142857142858,
+    "weakly_connected_components": [
+      [
+        "manage_regulator_interface",
+        "detect_regulator_failure",
+        "manage_regulator_mode",
+        "manage_heat_source"
+      ],
+      [
+        "manage_monitor_interface",
+        "detect_monitor_failure",
+        "manage_monitor_mode",
+        "manage_alarm"
+      ]
+    ]
+  },
+  "connections": {
+    "semantic_owner_to_owner": 10,
+    "semantic_boundary_process_thread_legs": 10,
+    "semantic_interaction_obligations": 20,
+    "root_process_support_routes": 10,
+    "resolved_declarations_total": 30,
+    "generated_support_semantic_credit": 0
+  },
+  "containment_depth": 2,
+  "ports": {
+    "root_boundary_ports": 9,
+    "root_input_quantities": 5,
+    "root_output_quantities": 5,
+    "process_boundary_ports": 10,
+    "semantic_thread_ports": 30,
+    "total": 49
+  },
+  "contracts": {
+    "data_invariants": 4,
+    "safe_initialization_guarantees": 8,
+    "owner_local_gumbo_obligations": 19,
+    "composed_structural_analysis_obligations": 1,
+    "nontrivial_contract_obligations": 20,
+    "owned_state_variables": 6,
+    "externally_distinguishable_path_modes": 6,
+    "priority_conflicts": 2
+  },
+  "scenarios": {
+    "families": 8,
+    "mandatory_variants_executed": 20,
+    "concrete_steps": 25
+  },
+  "bounded_external_analysis": {
+    "status": "passed",
+    "canonical_current_temperature_bounds": {
+      "minimum_tenths_f": 680,
+      "maximum_tenths_f": 1050
+    },
+    "canonical_display_temperature_bounds": {
+      "minimum_f": 68,
+      "maximum_f": 105,
+      "non_normal": "unconstrained within type"
+    },
+    "single_root_current_temperature_sample": true,
+    "exhausted_root_inputs": 133013888,
+    "partition_counts": {
+      "desired_status": {
+        "valid_both": 6,
+        "any_invalid": 18
+      },
+      "alarm_status": {
+        "valid_both": 30,
+        "any_invalid": 90
+      },
+      "regulator_diagnostic": {
+        "epoch_reset": 8,
+        "retain_or_set": 8
+      },
+      "monitor_diagnostic": {
+        "epoch_reset": 8,
+        "retain_or_set": 8
+      },
+      "regulator_mode": {
+        "init_unhealthy_wait": 7,
+        "init_unhealthy_timeout": 7,
+        "reset": 48,
+        "init_healthy": 2,
+        "normal_unhealthy": 14,
+        "normal_healthy": 2,
+        "failed_latch": 16
+      },
+      "monitor_mode": {
+        "init_unhealthy_wait": 7,
+        "init_unhealthy_timeout": 7,
+        "reset": 48,
+        "init_healthy": 2,
+        "normal_unhealthy": 14,
+        "normal_healthy": 2,
+        "failed_latch": 16
+      },
+      "heat": {
+        "non_normal": 8904,
+        "below_desired": 3560,
+        "desired_band_retain": 212,
+        "above_desired": 680
+      },
+      "alarm": {
+        "init_off": 22260,
+        "low_outside": 16500,
+        "low_band_retain": 300,
+        "central_inner_off": 2760,
+        "high_band_retain": 300,
+        "high_outside": 2400,
+        "failed_on": 22260
+      },
+      "display": {
+        "normal_rounded": 371,
+        "non_normal_unconstrained": 28196
+      }
+    },
+    "guard_gaps": 0,
+    "guard_overlaps": 0,
+    "required_output_mismatches": 0,
+    "next_state_mismatches": 0,
+    "invariant_violations": 0,
+    "source_sha256": "fcde62c3e4a2a466b35740378aff3c3f14f82de195809e39cabaa55ab8d344d0"
+  },
+  "campaign_complexity": {
+    "tier": "medium",
+    "semantic_usages": 8,
+    "semantic_interactions": 20,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "independent_fault_paths": true,
+      "recovery": true,
+      "composition": true
+    },
+    "counting_rules": "campaign-v1",
+    "ownership_audit": [
+      {
+        "usage": "manage_regulator_interface",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-01 CurrentTemperature",
+          "INT-02 DesiredTemperatureSettings",
+          "INT-06 RegulatorMode"
+        ],
+        "owner_local_facts": [
+          "two-status RegulatorInterfaceFailure",
+          "round-half-up DisplayTemperature"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03"
+        ],
+        "analyzer_checks": [
+          "desired_status_partition",
+          "display_rounding_domain"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "detect_regulator_failure",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-03 RegulatorSupervision",
+          "prior regulator failure latch"
+        ],
+        "owner_local_facts": [
+          "resettable regulator internal-failure latch"
+        ],
+        "contract_cases": [
+          "CASE-04",
+          "CASE-05"
+        ],
+        "analyzer_checks": [
+          "regulator_diagnostic_partition"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "manage_regulator_mode",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-04 RegulatorInterfaceFacts",
+          "INT-05 RegulatorDiagnosticFacts",
+          "prior RegulatorMode"
+        ],
+        "owner_local_facts": [
+          "regulator health conjunction",
+          "complete RegulatorMode next-state decision"
+        ],
+        "contract_cases": [
+          "CASE-06",
+          "CASE-07"
+        ],
+        "analyzer_checks": [
+          "regulator_mode_partition"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "manage_heat_source",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-08 RegulatorControlBasis",
+          "INT-09 RegulatorMode",
+          "prior HeatControl"
+        ],
+        "owner_local_facts": [
+          "safe-off priority and three-region heat decision"
+        ],
+        "contract_cases": [
+          "CASE-08",
+          "CASE-09",
+          "CASE-10"
+        ],
+        "analyzer_checks": [
+          "heat_policy_partition",
+          "regulator_priority_trace"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "manage_monitor_interface",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-11 CurrentTemperature",
+          "INT-12 AlarmTemperatureSettings",
+          "INT-16 MonitorMode"
+        ],
+        "owner_local_facts": [
+          "two-status MonitorInterfaceFailure and AlarmRange applicability"
+        ],
+        "contract_cases": [
+          "CASE-11",
+          "CASE-12",
+          "CASE-13"
+        ],
+        "analyzer_checks": [
+          "alarm_status_partition"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "detect_monitor_failure",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "INT-13 MonitorSupervision",
+          "prior monitor failure latch"
+        ],
+        "owner_local_facts": [
+          "resettable monitor internal-failure latch"
+        ],
+        "contract_cases": [
+          "CASE-14",
+          "CASE-15"
+        ],
+        "analyzer_checks": [
+          "monitor_diagnostic_partition"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "manage_monitor_mode",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-14 MonitorInterfaceFacts",
+          "INT-15 MonitorDiagnosticFacts",
+          "prior MonitorMode"
+        ],
+        "owner_local_facts": [
+          "monitor health conjunction",
+          "complete MonitorMode next-state decision"
+        ],
+        "contract_cases": [
+          "CASE-16",
+          "CASE-17"
+        ],
+        "analyzer_checks": [
+          "monitor_mode_partition"
+        ],
+        "passed": true
+      },
+      {
+        "usage": "manage_alarm",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "INT-18 MonitorControlBasis",
+          "INT-19 MonitorMode",
+          "prior AlarmControl"
+        ],
+        "owner_local_facts": [
+          "failed-on priority and five-region hysteretic alarm decision"
+        ],
+        "contract_cases": [
+          "CASE-18",
+          "CASE-19"
+        ],
+        "analyzer_checks": [
+          "alarm_policy_partition",
+          "monitor_priority_trace",
+          "CASE-20 cross_failure_noninterference"
+        ],
+        "passed": true
+      }
+    ]
+  },
+  "prohibited_elements": {
+    "shared_decision_arbiter": 0,
+    "output_aggregator": 0,
+    "pass_through_adapter": 0,
+    "clock_thread": 0,
+    "extra_sensor": 0,
+    "actuator_feedback": 0,
+    "alarm_acknowledgement": 0,
+    "plant_model": 0
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 6
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 3
+    }
+  },
+  "counting_boundary": "Counts exclude the root, behavior-free Process, ten transparent delegations, datatype invariants, generated initialization support, identity status/range carriage, and duplicate end-to-end restatements."
+}

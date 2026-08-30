@@ -1,0 +1,666 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/small-station-cargo-transfer-verification-supervisor/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/small-station-cargo-transfer-verification-supervisor/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/small-station-cargo-transfer-verification-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/small-station-cargo-transfer-verification-supervisor/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/small-station-cargo-transfer-verification-supervisor/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "retry_attempts": [
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-266720a57b:atomic:02-a----g----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-266720a57b:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    }
+  ],
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-ba9f564035:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_Candidate_GumboX.inititialize_IEP_Post(dockingassessment))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_GumboX.inititialize_IEP_Post(dockingassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-ba9f564035:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-ba9f564035:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_GumboX.inititialize_IEP_Post(dockingassessment))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_Candidate_GumboX.inititialize_IEP_Post(dockingassessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-ba9f564035:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::dockingAssessmentOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7da1b8ebee:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_Candidate_GumboX.compute_CEP_Post(dockingsample, dockingassessment))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_GumboX.compute_CEP_Post(dockingsample, dockingassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7da1b8ebee:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7da1b8ebee:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_GumboX.compute_CEP_Post(dockingsample, dockingassessment))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.DockingAssessmentOwner_supervisionProcess_dockingAssessmentOwner_Candidate_GumboX.compute_CEP_Post(dockingsample, dockingassessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7da1b8ebee:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::dockingAssessmentOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-badbb1e027:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_Candidate_GumboX.inititialize_IEP_Post(qualifiedrequest))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_GumboX.inititialize_IEP_Post(qualifiedrequest))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-badbb1e027:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-badbb1e027:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_GumboX.inititialize_IEP_Post(qualifiedrequest))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_Candidate_GumboX.inititialize_IEP_Post(qualifiedrequest))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-badbb1e027:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::requestQualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-3868a6f0e1:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_Candidate_GumboX.compute_CEP_Post(requestsample, qualifiedrequest))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_GumboX.compute_CEP_Post(requestsample, qualifiedrequest))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-3868a6f0e1:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-3868a6f0e1:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_GumboX.compute_CEP_Post(requestsample, qualifiedrequest))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.RequestQualification_supervisionProcess_requestQualification_Candidate_GumboX.compute_CEP_Post(requestsample, qualifiedrequest))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-3868a6f0e1:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::requestQualification::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7773836a5e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_Candidate_GumboX.inititialize_IEP_Post(qualifiedshipprogress))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_GumboX.inititialize_IEP_Post(qualifiedshipprogress))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7773836a5e:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7773836a5e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_GumboX.inititialize_IEP_Post(qualifiedshipprogress))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_Candidate_GumboX.inititialize_IEP_Post(qualifiedshipprogress))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-7773836a5e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::shipProgressQualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-394c1c8dee:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_Candidate_GumboX.compute_CEP_Post(shipsample, qualifiedshipprogress))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_GumboX.compute_CEP_Post(shipsample, qualifiedshipprogress))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-394c1c8dee:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-394c1c8dee:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_GumboX.compute_CEP_Post(shipsample, qualifiedshipprogress))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.ShipProgressQualification_supervisionProcess_shipProgressQualification_Candidate_GumboX.compute_CEP_Post(shipsample, qualifiedshipprogress))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-394c1c8dee:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::shipProgressQualification::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-1123a9afa4:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_Candidate_GumboX.inititialize_IEP_Post(command))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_GumboX.inititialize_IEP_Post(command))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-1123a9afa4:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-1123a9afa4:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_GumboX.inititialize_IEP_Post(command))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_Candidate_GumboX.inititialize_IEP_Post(command))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-1123a9afa4:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::transferCommandDerivation::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b89a68a64:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_Candidate_GumboX.compute_CEP_Post(resolution, command))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_GumboX.compute_CEP_Post(resolution, command))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b89a68a64:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b89a68a64:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_GumboX.compute_CEP_Post(resolution, command))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferCommandDerivation_supervisionProcess_transferCommandDerivation_Candidate_GumboX.compute_CEP_Post(resolution, command))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b89a68a64:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::transferCommandDerivation::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-0842113f1d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_Candidate_GumboX.inititialize_IEP_Post(rearmrequired, transferphase, commandresolution, reportresolution))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_GumboX.inititialize_IEP_Post(rearmrequired, transferphase, commandresolution, reportresolution))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-0842113f1d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-0842113f1d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_GumboX.inititialize_IEP_Post(rearmrequired, transferphase, commandresolution, reportresolution))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_Candidate_GumboX.inititialize_IEP_Post(rearmrequired, transferphase, commandresolution, reportresolution))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-0842113f1d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::transferDecisionOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-266720a57b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_Candidate_GumboX.compute_CEP_Post(in_rearmrequired, in_transferphase, rearmrequired, transferphase, dockingassessment, qualifiedrequest, qualifiedshipprogress, qualifiedwarehouseevidence, commandresolution, reportresolution))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_GumboX.compute_CEP_Post(in_rearmrequired, in_transferphase, rearmrequired, transferphase, dockingassessment, qualifiedrequest, qualifiedshipprogress, qualifiedwarehouseevidence, commandresolution, reportresolution))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-266720a57b:atomic:02-a----g----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-266720a57b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_GumboX.compute_CEP_Post(in_rearmrequired, in_transferphase, rearmrequired, transferphase, dockingassessment, qualifiedrequest, qualifiedshipprogress, qualifiedwarehouseevidence, commandresolution, reportresolution))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferDecisionOwner_supervisionProcess_transferDecisionOwner_Candidate_GumboX.compute_CEP_Post(in_rearmrequired, in_transferphase, rearmrequired, transferphase, dockingassessment, qualifiedrequest, qualifiedshipprogress, qualifiedwarehouseevidence, commandresolution, reportresolution))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-266720a57b:atomic:04-a---g-----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::transferDecisionOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-a80e1c6649:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_Candidate_GumboX.inititialize_IEP_Post(supervisorstatus, verificationfinding))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_GumboX.inititialize_IEP_Post(supervisorstatus, verificationfinding))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-a80e1c6649:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-a80e1c6649:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_GumboX.inititialize_IEP_Post(supervisorstatus, verificationfinding))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_Candidate_GumboX.inititialize_IEP_Post(supervisorstatus, verificationfinding))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-a80e1c6649:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::transferReportDerivation::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b58bc48c0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_Candidate_GumboX.compute_CEP_Post(resolution, supervisorstatus, verificationfinding))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_GumboX.compute_CEP_Post(resolution, supervisorstatus, verificationfinding))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b58bc48c0:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b58bc48c0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_GumboX.compute_CEP_Post(resolution, supervisorstatus, verificationfinding))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.TransferReportDerivation_supervisionProcess_transferReportDerivation_Candidate_GumboX.compute_CEP_Post(resolution, supervisorstatus, verificationfinding))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b58bc48c0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::transferReportDerivation::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b42476ea7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_Candidate_GumboX.inititialize_IEP_Post(qualifiedwarehouseevidence))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_GumboX.inititialize_IEP_Post(qualifiedwarehouseevidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b42476ea7:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b42476ea7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_GumboX.inititialize_IEP_Post(qualifiedwarehouseevidence))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_Candidate_GumboX.inititialize_IEP_Post(qualifiedwarehouseevidence))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-4b42476ea7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::warehouseEvidenceQualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-fc2c0c466a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_Candidate_GumboX.compute_CEP_Post(warehousesample, qualifiedwarehouseevidence))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_GumboX.compute_CEP_Post(warehousesample, qualifiedwarehouseevidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-fc2c0c466a:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-fc2c0c466a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_GumboX.compute_CEP_Post(warehousesample, qualifiedwarehouseevidence))) ___>: (equiv_shared_0.Mining_Cargo_Transfer_Supervisor.WarehouseEvidenceQualification_supervisionProcess_warehouseEvidenceQualification_Candidate_GumboX.compute_CEP_Post(warehousesample, qualifiedwarehouseevidence))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-mining-cargo-transfer-supervisor-miningcarg-fc2c0c466a:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem/root-instance::MiningCargoTransferSupervisorSystem_Instance/component::MiningCargoTransferSupervisorSystem_Instance::supervisionProcess::warehouseEvidenceQualification::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

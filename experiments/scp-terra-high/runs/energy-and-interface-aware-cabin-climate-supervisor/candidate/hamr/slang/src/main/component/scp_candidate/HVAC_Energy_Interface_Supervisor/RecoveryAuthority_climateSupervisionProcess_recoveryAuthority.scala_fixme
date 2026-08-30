@@ -1,0 +1,36 @@
+// #Sireum
+
+package scp_candidate.HVAC_Energy_Interface_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object RecoveryAuthority_climateSupervisionProcess_recoveryAuthority {
+
+  // BEGIN STATE VARS
+  var recoveryState: HVAC_Energy_Interface_Supervisor.RecoveryState.Type = HVAC_Energy_Interface_Supervisor.RecoveryState.Armed
+  // END STATE VARS
+
+  def initialise(api: RecoveryAuthority_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_RECOVERY_STATE
+        recoveryState == RecoveryState.Inhibited,
+        // guarantee INIT_RECOVERY_INHIBITED
+        api.recoveryDecision == RecoveryDecision.BlockAwaitFresh
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_recoveryDecision(HVAC_Energy_Interface_Supervisor.RecoveryDecision.Permit)
+  }
+
+  def finalise(api: RecoveryAuthority_Operational_Api): Unit = { }
+}

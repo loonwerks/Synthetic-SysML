@@ -1,0 +1,39 @@
+{
+  "affected_units": [],
+  "breakdown_complete": false,
+  "candidate_health": "UNKNOWN",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/eit-acquisition-session-coordinator/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/eit-acquisition-session-coordinator/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/eit-acquisition-session-coordinator/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "INVALID_INPUT",
+  "diagnostics": [
+    "InventoryInvalidInput: Wrote /tmp/equiv-inventory-batch-zm26yqz1/inventory-0.json\n* file:///tmp/equiv-result-staging-kfag3v8j/bundle/inputs/candidate.sysml\n  - [610, 420] extraneous input ';' expecting ')'\n  - [789, 2] extraneous input '}*/' expecting {'dependency', 'comment', 'locale', 'doc', 'rep', 'language', 'library', 'metadata', 'abstract', 'ref', 'redefines', 'standard', 'package', 'filter', 'alias', 'ordered', 'nonunique', 'defined', 'subsets', 'references', 'crosses', 'variation', 'derived', 'constant', 'end', 'attribute', 'enum', 'occurrence', 'individual', 'event', 'item', 'part', 'port', 'binding', 'bind', 'succession', 'first', 'connection', 'connect', 'interface', 'allocation', 'allocate', 'flow', 'message', 'action', 'perform', 'in', 'state', 'exhibit', 'calc', 'constraint', 'assert', 'not', 'requirement', 'satisfy', 'concern', 'case', 'analysis', 'verification', 'use', 'include', 'view', 'rendering', 'viewpoint', 'public', 'private', 'protected', 'out', 'inout', 'snapshot', 'timeslice', '<', '}', '[', '@', '#', ':>>', ':>', ':', '::>', '=>', RULE_ID, RULE_UNRESTRICTED_NAME, RULE_REGULAR_COMMENT}\n  - [789, 10] extraneous input 'EIT_Acquisition_Session_Coordinator' expecting {'default', '{', ';', '=', ':='}\n  - [1398, 420] extraneous input ';' expecting ')'\n  - [1577, 3] extraneous input '<EOF>' expecting {'dependency', 'comment', 'locale', 'doc', 'rep', 'language', 'library', 'metadata', 'abstract', 'ref', 'redefines', 'standard', 'package', 'alias', 'ordered', 'nonunique', 'defined', 'subsets', 'references', 'crosses', 'variation', 'variant', 'derived', 'constant', 'end', 'attribute', 'enum', 'occurrence', 'individual', 'event', 'then', 'item', 'part', 'port', 'binding', 'bind', 'succession', 'first', 'connection', 'connect', 'interface', 'allocation', 'allocate', 'flow', 'message', 'action', 'perform', 'in', 'state', 'exhibit', 'calc', 'constraint', 'assert', 'not', 'requirement', 'satisfy', 'concern', 'case', 'analysis', 'verification', 'use', 'include', 'view', 'rendering', 'viewpoint', 'public', 'private', 'protected', 'out', 'inout', 'snapshot', 'timeslice', '<', '}', '[', '@', '#', ':>>', ':>', ':', '::>', '=>', RULE_ID, RULE_UNRESTRICTED_NAME, RULE_REGULAR_COMMENT}\nGUMBO_INVENTORY_RESULT=INVALID_INPUT"
+  ],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/eit-acquisition-session-coordinator/agent/M-star.sysml",
+    "oracle": "datasets/eit-acquisition-session-coordinator/evaluator/oracle.sysml"
+  },
+  "oracle_health": "UNKNOWN",
+  "result": null,
+  "run_status": "INCONCLUSIVE",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [],
+  "verification": "verification.json"
+}

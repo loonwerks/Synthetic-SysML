@@ -1,0 +1,434 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/poolside-synthetic/runs/dual-zone-greenhouse-ventilation-arbiter/input/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/dual-zone-greenhouse-ventilation-arbiter/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/dual-zone-greenhouse-ventilation-arbiter/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/dual-zone-greenhouse-ventilation-arbiter/agent/M-star.sysml",
+    "oracle": "experiments/poolside-synthetic/runs/dual-zone-greenhouse-ventilation-arbiter/input/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-temperature-celsiu-f5204151d9:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Temperature_Celsius_Candidate.D_Inv_Temperature_Celsius_Candidate(value))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Temperature_Celsius.D_Inv_Temperature_Celsius(value))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-temperature-celsiu-f5204151d9:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-temperature-celsiu-f5204151d9:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Temperature_Celsius.D_Inv_Temperature_Celsius(value))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Temperature_Celsius_Candidate.D_Inv_Temperature_Celsius_Candidate(value))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-temperature-celsiu-f5204151d9:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "datatype::Dual_Zone_Greenhouse::Temperature_Celsius::invariant",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-upper-temperature--699c17443e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Upper_Temperature_Limit_Candidate.D_Inv_Upper_Temperature_Limit_Candidate(value))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Upper_Temperature_Limit.D_Inv_Upper_Temperature_Limit(value))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-upper-temperature--699c17443e:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-upper-temperature--699c17443e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Upper_Temperature_Limit.D_Inv_Upper_Temperature_Limit(value))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Upper_Temperature_Limit_Candidate.D_Inv_Upper_Temperature_Limit_Candidate(value))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:datatype-dual-zone-greenhouse-upper-temperature--699c17443e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "datatype::Dual_Zone_Greenhouse::Upper_Temperature_Limit::invariant",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-d15252ea83:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Boundary_Output_Delivery_i_control_process_boundary_output_delivery_Candidate_GumboX.compute_CEP_Post(zone_a_fan_command_in, zone_a_sensor_fault_in, zone_b_fan_command_in, zone_b_sensor_fault_in, zone_a_fan_command_out, zone_a_sensor_fault_out, zone_b_fan_command_out, zone_b_sensor_fault_out))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Boundary_Output_Delivery_i_control_process_boundary_output_delivery_GumboX.compute_CEP_Post(zone_a_fan_command_in, zone_a_sensor_fault_in, zone_b_fan_command_in, zone_b_sensor_fault_in, zone_a_fan_command_out, zone_a_sensor_fault_out, zone_b_fan_command_out, zone_b_sensor_fault_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-d15252ea83:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-d15252ea83:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Boundary_Output_Delivery_i_control_process_boundary_output_delivery_GumboX.compute_CEP_Post(zone_a_fan_command_in, zone_a_sensor_fault_in, zone_b_fan_command_in, zone_b_sensor_fault_in, zone_a_fan_command_out, zone_a_sensor_fault_out, zone_b_fan_command_out, zone_b_sensor_fault_out))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Boundary_Output_Delivery_i_control_process_boundary_output_delivery_Candidate_GumboX.compute_CEP_Post(zone_a_fan_command_in, zone_a_sensor_fault_in, zone_b_fan_command_in, zone_b_sensor_fault_in, zone_a_fan_command_out, zone_a_sensor_fault_out, zone_b_fan_command_out, zone_b_sensor_fault_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-d15252ea83:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Dual_Zone_Greenhouse::Dual_Zone_Greenhouse_Root/root-instance::Dual_Zone_Greenhouse_Root_Instance/component::Dual_Zone_Greenhouse_Root_Instance::control_process::boundary_output_delivery::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_GumboX.compute_CEP_Pre(preference_in, upper_limit_in)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_Candidate_GumboX.compute_CEP_Pre(preference_in, upper_limit_in))",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-dbb93c969d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_GumboX.compute_CEP_Pre(preference_in, upper_limit_in)) & (equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_Candidate_GumboX.compute_CEP_Post(preference_in, upper_limit_in, preference_out, upper_limit_for_a, upper_limit_for_b))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_GumboX.compute_CEP_Post(preference_in, upper_limit_in, preference_out, upper_limit_for_a, upper_limit_for_b))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-dbb93c969d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_Candidate_GumboX.compute_CEP_Pre(preference_in, upper_limit_in)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_GumboX.compute_CEP_Pre(preference_in, upper_limit_in))",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-dbb93c969d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_Candidate_GumboX.compute_CEP_Pre(preference_in, upper_limit_in)) & (equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_GumboX.compute_CEP_Post(preference_in, upper_limit_in, preference_out, upper_limit_for_a, upper_limit_for_b))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Operator_Configuration_Intake_i_control_process_operator_configuration_intake_Candidate_GumboX.compute_CEP_Post(preference_in, upper_limit_in, preference_out, upper_limit_for_a, upper_limit_for_b))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-dbb93c969d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Dual_Zone_Greenhouse::Dual_Zone_Greenhouse_Root/root-instance::Dual_Zone_Greenhouse_Root_Instance/component::Dual_Zone_Greenhouse_Root_Instance::control_process::operator_configuration_intake::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-11badf8332:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Shared_Capacity_Arbiter_i_control_process_shared_capacity_arbiter_Candidate_GumboX.compute_CEP_Post(preference, zone_a_eligibility, zone_b_eligibility, zone_a_fan_command, zone_b_fan_command))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Shared_Capacity_Arbiter_i_control_process_shared_capacity_arbiter_GumboX.compute_CEP_Post(preference, zone_a_eligibility, zone_b_eligibility, zone_a_fan_command, zone_b_fan_command))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-11badf8332:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-11badf8332:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Dual_Zone_Greenhouse.Shared_Capacity_Arbiter_i_control_process_shared_capacity_arbiter_GumboX.compute_CEP_Post(preference, zone_a_eligibility, zone_b_eligibility, zone_a_fan_command, zone_b_fan_command))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Shared_Capacity_Arbiter_i_control_process_shared_capacity_arbiter_Candidate_GumboX.compute_CEP_Post(preference, zone_a_eligibility, zone_b_eligibility, zone_a_fan_command, zone_b_fan_command))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-11badf8332:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Dual_Zone_Greenhouse::Dual_Zone_Greenhouse_Root/root-instance::Dual_Zone_Greenhouse_Root_Instance/component::Dual_Zone_Greenhouse_Root_Instance::control_process::shared_capacity_arbiter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_Candidate_GumboX.compute_CEP_Pre(temperature, upper_limit, validity))",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-54c06b80ad:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_Candidate_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-54c06b80ad:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_Candidate_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity))",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-54c06b80ad:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_Candidate_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Local_Decision_i_control_process_zone_a_local_decision_Candidate_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-54c06b80ad:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Dual_Zone_Greenhouse::Dual_Zone_Greenhouse_Root/root-instance::Dual_Zone_Greenhouse_Root_Instance/component::Dual_Zone_Greenhouse_Root_Instance::control_process::zone_a_local_decision::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_GumboX.compute_CEP_Pre(temperature_in, validity_in)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_Candidate_GumboX.compute_CEP_Pre(temperature_in, validity_in))",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-913d9f17f6:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_GumboX.compute_CEP_Pre(temperature_in, validity_in)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_Candidate_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-913d9f17f6:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_Candidate_GumboX.compute_CEP_Pre(temperature_in, validity_in)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_GumboX.compute_CEP_Pre(temperature_in, validity_in))",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-913d9f17f6:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_Candidate_GumboX.compute_CEP_Pre(temperature_in, validity_in)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_A_Sensor_Intake_i_control_process_zone_a_sensor_intake_Candidate_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-913d9f17f6:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Dual_Zone_Greenhouse::Dual_Zone_Greenhouse_Root/root-instance::Dual_Zone_Greenhouse_Root_Instance/component::Dual_Zone_Greenhouse_Root_Instance::control_process::zone_a_sensor_intake::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_Candidate_GumboX.compute_CEP_Pre(temperature, upper_limit, validity))",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-1b774150ca:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_Candidate_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-1b774150ca:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_Candidate_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_GumboX.compute_CEP_Pre(temperature, upper_limit, validity))",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-1b774150ca:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_Candidate_GumboX.compute_CEP_Pre(temperature, upper_limit, validity)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Local_Decision_i_control_process_zone_b_local_decision_Candidate_GumboX.compute_CEP_Post(temperature, upper_limit, validity, eligibility, sensor_fault))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-1b774150ca:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Dual_Zone_Greenhouse::Dual_Zone_Greenhouse_Root/root-instance::Dual_Zone_Greenhouse_Root_Instance/component::Dual_Zone_Greenhouse_Root_Instance::control_process::zone_b_local_decision::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_GumboX.compute_CEP_Pre(temperature_in, validity_in)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_Candidate_GumboX.compute_CEP_Pre(temperature_in, validity_in))",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-b7c9b231b5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_GumboX.compute_CEP_Pre(temperature_in, validity_in)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_Candidate_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-b7c9b231b5:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_Candidate_GumboX.compute_CEP_Pre(temperature_in, validity_in)) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_GumboX.compute_CEP_Pre(temperature_in, validity_in))",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-b7c9b231b5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_Candidate_GumboX.compute_CEP_Pre(temperature_in, validity_in)) & (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) ___>: (equiv_shared_0.Dual_Zone_Greenhouse.Zone_B_Sensor_Intake_i_control_process_zone_b_sensor_intake_Candidate_GumboX.compute_CEP_Post(temperature_in, validity_in, temperature_out, validity_out))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-dual-zone-greenhouse-dual-zone-greenhouse-r-b7c9b231b5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Dual_Zone_Greenhouse::Dual_Zone_Greenhouse_Root/root-instance::Dual_Zone_Greenhouse_Root_Instance/component::Dual_Zone_Greenhouse_Root_Instance::control_process::zone_b_sensor_intake::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

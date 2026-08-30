@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.HVAC_Energy_Interface_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ComfortDemandQualifier_climateSupervisionProcess_comfortDemandQualifier {
+
+  def initialise(api: ComfortDemandQualifier_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INIT_COMFORT_SAFE
+        api.comfortDemand == ComfortDemand.None
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_comfortDemand(HVAC_Energy_Interface_Supervisor.ComfortDemand.None)
+  }
+
+  def finalise(api: ComfortDemandQualifier_Operational_Api): Unit = { }
+}

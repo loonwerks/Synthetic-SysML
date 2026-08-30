@@ -1,0 +1,172 @@
+{
+  "schema_version": 2,
+  "source_sha256": "6d8d844e0170631c0cdaf6a477034cb8a870b3675428cf72fde6906c5877e510",
+  "root_definition": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+  "root_usage": "eitAcquisitionSessionCoordinator",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 8,
+    "generated_support_processes": 1,
+    "reachable_non_root_usages": 9,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 2,
+    "cooperating_qualification_or_decision_owners": 8
+  },
+  "connections": {
+    "semantic_interactions": 21,
+    "boundary_semantic_interactions": 9,
+    "internal_semantic_interactions": 12,
+    "generated_support_routes": 9,
+    "raw_port_connection_declarations": 30,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 1, "INT-02": 1, "INT-03": 1, "INT-04": 1, "INT-05": 1, "INT-06": 1,
+      "INT-07": 1, "INT-08": 1, "INT-09": 1, "INT-10": 1, "INT-11": 1, "INT-12": 1,
+      "INT-13": 1, "INT-14": 1, "INT-15": 1, "INT-16": 1, "INT-17": 1, "INT-18": 1,
+      "INT-19": 1, "INT-20": 1, "INT-21": 1
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 20,
+    "owner_case_allocation": {
+      "beltQualificationOwner": 3,
+      "calibrationQualificationOwner": 3,
+      "acquisitionEligibilityOwner": 5,
+      "requestArbiter": 4,
+      "preparationStateGovernor": 2,
+      "monitoringStateGovernor": 1,
+      "acquisitionCommandPolicy": 1,
+      "sessionPublicationPolicy": 1
+    },
+    "safe_initialization_guarantees": 8,
+    "state_variables": 2,
+    "identity_forwarding_cases_counted": 0,
+    "datatype_invariants_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "owner_local_and_reachable_products": {
+      "beltQualificationOwner": 3,
+      "calibrationQualificationOwner": 12,
+      "acquisitionEligibilityOwner": 162,
+      "requestArbiter": 684,
+      "preparationStateGovernor": 48,
+      "monitoringStateGovernor": 213,
+      "acquisitionCommandPolicy": 93,
+      "sessionPublicationPolicy": 372
+    },
+    "composed_root_snapshots": 10368,
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_mismatches": 0,
+    "scenario_families": 7,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 1
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    }
+  },
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 7,
+    "ownership_audit": [
+      {
+        "usage": "beltQualificationOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["beltQualificationOwner.beltObservation"],
+        "owner_local_facts": ["many-to-one belt qualified Boolean with retained unavailable-versus-absent reason"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03"],
+        "analyzer_checks": ["belt assessment three-input total relation"],
+        "passed": true
+      },
+      {
+        "usage": "calibrationQualificationOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["calibrationQualificationOwner.beltAssessment.qualified", "calibrationQualificationOwner.calibrationObservation"],
+        "owner_local_facts": ["belt-dependent calibration blocking and passed-observation qualification"],
+        "contract_cases": ["CASE-04", "CASE-05", "CASE-06"],
+        "analyzer_checks": ["calibration qualification twelve-pair reachable relation"],
+        "passed": true
+      },
+      {
+        "usage": "acquisitionEligibilityOwner",
+        "claimed_roles": ["decision", "proposal"],
+        "assigned_inputs": ["acquisitionEligibilityOwner.beltAssessment", "acquisitionEligibilityOwner.calibrationQualification", "acquisitionEligibilityOwner.acquisitionObservation", "acquisitionEligibilityOwner.preparationState", "acquisitionEligibilityOwner.monitoringState"],
+        "owner_local_facts": ["five-way eligibility condition", "reset-before-hold recovery proposal"],
+        "contract_cases": ["CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["eligibility 162-tuple producer-reachable partition", "eligibility field legality and recovery precedence"],
+        "passed": true
+      },
+      {
+        "usage": "requestArbiter",
+        "claimed_roles": ["decision", "applicability"],
+        "assigned_inputs": ["requestArbiter.doctorRequest", "requestArbiter.technicianRequest", "requestArbiter.eligibilityEnvelope"],
+        "owner_local_facts": ["stop-over-recovery-over-technician-over-start priority", "request applicability and preemption disposition"],
+        "contract_cases": ["CASE-13", "CASE-14", "CASE-15", "CASE-16"],
+        "analyzer_checks": ["arbiter four-case priority partition", "fresh-request conflict and applicability checks"],
+        "passed": true
+      },
+      {
+        "usage": "preparationStateGovernor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["preparationStateGovernor.arbitrationDecision", "preparationStateGovernor.In(committedPreparationState)"],
+        "owner_local_facts": ["sole next preparation state"],
+        "contract_cases": ["CASE-07", "CASE-17"],
+        "analyzer_checks": ["preparation two-case transition partition", "preparation sole-writer check"],
+        "passed": true
+      },
+      {
+        "usage": "monitoringStateGovernor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["monitoringStateGovernor.preparationDecision", "monitoringStateGovernor.arbitrationDecision", "monitoringStateGovernor.eligibilityEnvelope", "monitoringStateGovernor.In(committedMonitoringState)"],
+        "owner_local_facts": ["sole next monitoring state", "transition disposition and monitoring notice"],
+        "contract_cases": ["CASE-18"],
+        "analyzer_checks": ["monitoring transition total relation", "fresh-start and recovery notice checks"],
+        "passed": true
+      },
+      {
+        "usage": "acquisitionCommandPolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["acquisitionCommandPolicy.monitoringDecision"],
+        "owner_local_facts": ["active-versus-nonactive collection classification"],
+        "contract_cases": ["CASE-19"],
+        "analyzer_checks": ["collection command total relation through INT-17"],
+        "passed": true
+      },
+      {
+        "usage": "sessionPublicationPolicy",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["sessionPublicationPolicy.monitoringDecision", "sessionPublicationPolicy.impedanceFrame"],
+        "owner_local_facts": ["active valid-frame admission", "monitoring-before-frame notice precedence"],
+        "contract_cases": ["CASE-20"],
+        "analyzer_checks": ["publication twelve-class frame relation", "session notice precedence check"],
+        "passed": true
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-08 only. Interactions count INT-01 through INT-21 once. Nontrivial cases count CASE-01 through CASE-20 only. Scenario families count SCN-01 through SCN-07. The root, the behavior-free Process, nine support routes, initialization, datatype structure, state/status copying, field projections, and identity-preserving mappings receive no semantic credit. Composition means finite relation composition through the explicit connection map, not compositional proof."
+}

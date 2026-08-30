@@ -1,0 +1,667 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132655Z-mining-cargo-docking-hard-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Docking_Access_Supervisor.sysml",
+  "source_sha256": "40dedb7eb24da921442e95118238d83ae41e6002fb60cfa6a1ac5dc56c0b87ae",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 16,
+    "edgeCount": 23,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 186,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ASM-INIT-01",
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28",
+      "CASE-29",
+      "CTRL-RES-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "INT-34",
+      "INT-35",
+      "MON-CTL-01",
+      "MON-REQ-01",
+      "MON-STA-01",
+      "MON-SVC-01",
+      "MON-VES-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "PART-14",
+      "PART-15",
+      "TYPE-DEC-01",
+      "TYPE-FACT-01",
+      "TYPE-STATE-01",
+      "TYPE-STATE-02"
+    ],
+    "relativePath": "cps48/runs/20260814T132655Z-mining-cargo-docking-hard-r2-a1/system-abstract.md",
+    "taggedElementCount": 251,
+    "traceAssociationCount": 251,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a hard-tier docking and service-access supervisor with exact 15/35/29/11 scope, distributed owners, strict priority, same-evaluation revocation, and two-anchor token-abandoning recovery.",
+      "questions_for_model": [
+        "Can the supported SysML-AADL/GUMBO subset expose prior lifecycle, berth, gate, and recovery views from their sole state owners to coherence while constraining owner-local post-state without a combinational cycle, mirror state, or use of post-state as prior evidence?",
+        "Can exactly 35 typed semantic interactions carry the same-evaluation fault directive and independent owner updates without an extra router, untraced support flow, or centralized recomputation?",
+        "Can the bounded analyzer exhaustively compare 12,852,000 one-step tuples, or prove an equivalent partition-preserving reduction, while retaining witnesses for all 29 cases and 11 scenarios without calling production predicates as an oracle?",
+        "Can owner-local contracts express both docking-evidence orders, token abandonment, both recovery anchors, and a required later evaluation between access closure and release request with total and exclusive guards?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "docking and undocking service-access supervision",
+        "closest_baseline": "replicate-1 Hard Station Cargo-Transfer Evidence Coordinator",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected boundary has no cargo request, ship-transfer report, warehouse report, evidence reconciliation, or transfer outcome. Its organizing lifecycle controls docking clearance, a stateful docked-service access gate, quiescence-before-release, and departure authorization. Fault recovery abandons the active token and rebases to a verified clear or docked anchor instead of freezing and resuming an offload transaction."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Move the berth transition choice from PART-06's directive into PART-08's prior-state-dependent local relation; all counts and domain behavior remain unchanged.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-08 is claimed as a state and decision owner, but PART-06/INT-20 already selects availability, reservation, secure, release, unknown, or retention. Mapping those values to AVAILABLE, RESERVED, SECURED, RELEASED, UNKNOWN, or In(berthState) is extensionally a one-to-one code rename plus retention, so PART-08 has no credited classification, combination, or state-dependent policy choice under the current claim boundary.",
+          "requested_change": "Keep PART-08, INT-20, and the 15/35/29/11 counts. Change PART-06/TYPE-DEC-01/INT-20 to transmit qualified fault, recovery-anchor, station-progress, departure-completion, or no-event evidence without a nextBerthState surrogate. Change PART-08/CASE-25 to combine that evidence with In(berthState) and locally select UNKNOWN, AVAILABLE, RESERVED, SECURED, RELEASED, or retention under the existing precedence. Update OWN-AUD-01/02, CASE-AUD-01, LOCAL-01, and later ownership metrics. Preserve all phase/token qualification, resulting berth states, fault propagation, recovery anchors, priority, scenarios, external outputs, and exclusions."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The extensional audit finds a nonbijective classification, multi-input combination, prior-state-dependent transition, proposal selection, strict-priority choice, or public composition at every other PART. Exact tokens and copied record fields are necessary coherence only and must remain uncredited.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted Isolette GUMBO uses local state, initialization, compute_cases, and In(state). With SysML-AADL library commit 9016cbcceefa92f0068e1811923704dd261d15f1 and Sireum v4.20260630.386eac9f, a fresh check of a retained hard model containing prior_state == In(retained_state) and separately constrained current state exited 0 with Well-formed!, supporting state-delayed feedback and flat attribute-record ports.",
+          "requested_change": "Publish INT-13 through INT-16 from In(owner state), constrain post-state separately, declare every GUMBO-inspected record field as an attribute, and do not substitute current/post-state values for prior views."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "All 35 semantic flows remain realizable after refining only INT-20's payload semantics; existing flows provide the four state-broken prior views, independent owner update evidence, admission fan-out, three proposals, priority directive, and composition inputs without an extra router or mirror state.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The exact bounded product is 12,852,000 one-step evaluations. The current host completed an existing 4,838,400-evaluation independent-reference versus owner-pipeline analyzer in about four seconds, while the harness mechanical watchdog is 180 seconds and fails on source-hash mismatch, non-passed ownership records, nonzero violation/gap/overlap/mismatch counters, or any false boolean check.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Both recovery anchors, token abandonment, both docked-evidence orders, and access-close-before-release can be represented with finite compute cases over received frames and In(localState); the later release evaluation consumes the prior gate/lifecycle view, so no execution timing claim or combinational post-state feedback is needed.",
+          "requested_change": "Keep the recovery and ordering clauses owner-local and use the retained next state only as the following evaluation's In(...) value."
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Accepted and resolved the berth-owner finding without changing the 15/35/29/11 architecture; Model generation is authorized.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized campaign-v1 JSON protocol repair removed unsupported state/composition ownership-audit labels while preserving separate retained-state ownership and all source semantics. The allowlisted artifacts omitted the role vocabulary and typecheck library invocation, so context expanded only to those two harness definitions. Independent SysML typechecking reported Well-formed, and bounded analysis passed all 12,852,000 evaluations, 29 contract cases, 11 scenarios, invariants, and 15 ownership records with passed=true.",
+      "canonical_source": "model/Docking_Access_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Accepted one validated system-overview with 23 representative routes, clean connector geometry, native review passed, and complete traceability audited.",
+      "correction_cycles": 9,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ASM-INIT-01",
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CASE-21",
+        "CASE-22",
+        "CASE-23",
+        "CASE-24",
+        "CASE-25",
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29",
+        "CTRL-RES-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "INT-34",
+        "INT-35",
+        "MON-CTL-01",
+        "MON-REQ-01",
+        "MON-STA-01",
+        "MON-SVC-01",
+        "MON-VES-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "PART-14",
+        "PART-15",
+        "TYPE-DEC-01",
+        "TYPE-FACT-01",
+        "TYPE-STATE-01",
+        "TYPE-STATE-02"
+      ],
+      "reviewed_tagged_element_count": 251,
+      "reviewed_trace_association_count": 251,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, owner-local responsibility, resolution fidelity, traceability, and rendered visualization passed; no executable profile was declared.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 15,
+        "semantic_interactions": 35,
+        "nontrivial_contract_cases": 29,
+        "scenario_families": 11
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "request_classification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "request_classification.access_request"
+          ],
+          "owner_local_facts": [
+            "request presence, operation, token, and authorization-start classification"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03"
+          ],
+          "analyzer_checks": [
+            "request classification partition"
+          ]
+        },
+        {
+          "usage": "vessel_status_assessment",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "vessel_status_assessment.vessel_status"
+          ],
+          "owner_local_facts": [
+            "vessel usability, lifecycle class, readiness, and token"
+          ],
+          "contract_cases": [
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "vessel classification partition"
+          ]
+        },
+        {
+          "usage": "station_report_assessment",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "station_report_assessment.station_report"
+          ],
+          "owner_local_facts": [
+            "station availability, progress class, denial, and token"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10"
+          ],
+          "analyzer_checks": [
+            "station classification partition"
+          ]
+        },
+        {
+          "usage": "service_activity_assessment",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "service_activity_assessment.service_activity"
+          ],
+          "owner_local_facts": [
+            "service usability, quiescence, activity, and request permission"
+          ],
+          "contract_cases": [
+            "CASE-11",
+            "CASE-12",
+            "CASE-13"
+          ],
+          "analyzer_checks": [
+            "service applicability partition"
+          ]
+        },
+        {
+          "usage": "request_admission",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "request_admission.request_facts",
+            "request_admission.vessel_readiness",
+            "request_admission.service_readiness",
+            "request_admission.admission_guard",
+            "request_admission.In(requestLedger)"
+          ],
+          "owner_local_facts": [
+            "request disposition, admitted operation, freshness, and next request ledger"
+          ],
+          "contract_cases": [
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20",
+            "CASE-21"
+          ],
+          "analyzer_checks": [
+            "admission partition and ledger transition"
+          ]
+        },
+        {
+          "usage": "access_coherence",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "access_coherence.control_event",
+            "access_coherence.vessel_facts",
+            "access_coherence.station_facts",
+            "access_coherence.service_facts",
+            "access_coherence.prior_lifecycle_view",
+            "access_coherence.prior_berth_state",
+            "access_coherence.prior_gate_state",
+            "access_coherence.prior_recovery_state"
+          ],
+          "owner_local_facts": [
+            "fault trigger, recovery intent, qualified progress, admission guard, and dominant directive"
+          ],
+          "contract_cases": [
+            "CASE-22",
+            "CASE-23",
+            "CASE-24"
+          ],
+          "analyzer_checks": [
+            "coherence, fault, and recovery partition"
+          ]
+        },
+        {
+          "usage": "docking_lifecycle",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "docking_lifecycle.lifecycle_frame",
+            "docking_lifecycle.admission_decision",
+            "docking_lifecycle.In(lifecycleState)"
+          ],
+          "owner_local_facts": [
+            "next lifecycle and prior active-session view"
+          ],
+          "contract_cases": [
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "lifecycle owner transition"
+          ]
+        },
+        {
+          "usage": "berth_commitment",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "berth_commitment.berth_transition_evidence",
+            "berth_commitment.In(berthState)"
+          ],
+          "owner_local_facts": [
+            "prior-state-dependent berth transition"
+          ],
+          "contract_cases": [
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "berth owner transition"
+          ]
+        },
+        {
+          "usage": "service_access_gate",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "service_access_gate.gate_safety_frame",
+            "service_access_gate.admission_decision",
+            "service_access_gate.In(gateState)"
+          ],
+          "owner_local_facts": [
+            "gate open, ordered close, forced close, or retention"
+          ],
+          "contract_cases": [
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "gate owner transition"
+          ]
+        },
+        {
+          "usage": "recovery_supervisor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "recovery_supervisor.recovery_transition",
+            "recovery_supervisor.In(recoveryState)"
+          ],
+          "owner_local_facts": [
+            "recovery latch, reconcile, verified reopen, or retention"
+          ],
+          "contract_cases": [
+            "CASE-25"
+          ],
+          "analyzer_checks": [
+            "recovery owner transition"
+          ]
+        },
+        {
+          "usage": "docking_action_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "docking_action_eligibility.admission_decision",
+            "docking_action_eligibility.docking_frame"
+          ],
+          "owner_local_facts": [
+            "dock-clearance or approach proposal"
+          ],
+          "contract_cases": [
+            "CASE-26"
+          ],
+          "analyzer_checks": [
+            "docking proposal partition"
+          ]
+        },
+        {
+          "usage": "access_action_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "access_action_eligibility.admission_decision",
+            "access_action_eligibility.access_frame"
+          ],
+          "owner_local_facts": [
+            "access-open or ordered access-close proposal"
+          ],
+          "contract_cases": [
+            "CASE-27"
+          ],
+          "analyzer_checks": [
+            "access proposal partition"
+          ]
+        },
+        {
+          "usage": "undocking_action_eligibility",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "undocking_action_eligibility.admission_decision",
+            "undocking_action_eligibility.undocking_frame"
+          ],
+          "owner_local_facts": [
+            "release-request or departure-authorization proposal"
+          ],
+          "contract_cases": [
+            "CASE-27"
+          ],
+          "analyzer_checks": [
+            "undocking proposal partition"
+          ]
+        },
+        {
+          "usage": "docking_action_arbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "docking_action_arbitration.priority_directive",
+            "docking_action_arbitration.docking_proposal",
+            "docking_action_arbitration.access_proposal",
+            "docking_action_arbitration.undocking_proposal"
+          ],
+          "owner_local_facts": [
+            "strict-priority docking decision"
+          ],
+          "contract_cases": [
+            "CASE-28"
+          ],
+          "analyzer_checks": [
+            "strict priority selection"
+          ]
+        },
+        {
+          "usage": "result_composition",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "result_composition.docking_decision",
+            "result_composition.request_disposition"
+          ],
+          "owner_local_facts": [
+            "atomic public action, cause, mode, correlation, disposition, status, and outcome"
+          ],
+          "contract_cases": [
+            "CASE-29"
+          ],
+          "analyzer_checks": [
+            "public composition mapping"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, owner-local responsibility, resolution fidelity, traceability, and rendered visualization passed; no executable profile was declared.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

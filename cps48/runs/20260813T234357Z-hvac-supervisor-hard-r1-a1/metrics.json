@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source": "model/HVAC_Visibility_Priority_Supervisor.sysml",
+  "source_sha256": "9b5f6232373b02d747440a994c6fbf03aa376cf3530699f519fbd6d26e89f50e",
+  "root_system_usages": 1,
+  "support_process_usages": 1,
+  "reachable_non_root_usages": 16,
+  "semantic_containment_depth": 2,
+  "raw_connections": 44,
+  "weak_semantic_regions": 1,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 15,
+    "semantic_interactions": 33,
+    "nontrivial_contract_cases": 30,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {"usage":"requestQualifier","claimed_roles":["applicability"],"assigned_inputs":["INT-01 userRequest"],"owner_local_facts":["requestClass and freshness intent"],"contract_cases":["CASE-01","CASE-02","CASE-03","CASE-04"],"analyzer_checks":["request qualifier 96-value partition"]},
+      {"usage":"thermalNeedAssessor","claimed_roles":["applicability"],"assigned_inputs":["INT-02 cabinObservation","INT-10 qualifiedTarget"],"owner_local_facts":["thermalNeed and observation-invalid distinction"],"contract_cases":["THERMAL_COMPARISON"],"analyzer_checks":["thermal comparison 576-value partition"]},
+      {"usage":"visibilityNeedAssessor","claimed_roles":["applicability"],"assigned_inputs":["INT-03 glazingObservation"],"owner_local_facts":["visibility urgency and visibility criticality"],"contract_cases":["VISIBILITY_CLASSIFICATION","VISIBILITY_CRITICAL_FACT"],"analyzer_checks":["visibility six-value partition"]},
+      {"usage":"humidityNeedAssessor","claimed_roles":["applicability"],"assigned_inputs":["INT-04 humidityObservation"],"owner_local_facts":["humidityNeed"],"contract_cases":["HUMIDITY_CLASSIFICATION"],"analyzer_checks":["humidity six-value partition"]},
+      {"usage":"airQualityNeedAssessor","claimed_roles":["applicability"],"assigned_inputs":["INT-05 airObservation"],"owner_local_facts":["airNeed"],"contract_cases":["AIR_CLASSIFICATION"],"analyzer_checks":["air-quality four-value partition"]},
+      {"usage":"electricalEligibilityOwner","claimed_roles":["applicability"],"assigned_inputs":["INT-06 electricalAvailability"],"owner_local_facts":["electricalTier, denial provenance, and criticality"],"contract_cases":["CASE-05","CASE-06","CASE-07","CASE-08","CASE-09"],"analyzer_checks":["electrical 12-value partition"]},
+      {"usage":"wasteHeatEligibilityOwner","claimed_roles":["applicability"],"assigned_inputs":["INT-07 wasteHeatAvailability"],"owner_local_facts":["two-field wasteHeatEligibility"],"contract_cases":["WASTE_HEAT_ELIGIBILITY"],"analyzer_checks":["waste-heat four-value partition"]},
+      {"usage":"equipmentFaultAssessor","claimed_roles":["applicability"],"assigned_inputs":["INT-08 equipmentReadiness"],"owner_local_facts":["critical equipment fact and affected readiness set"],"contract_cases":["EQUIPMENT_AFFECTED_SET"],"analyzer_checks":["equipment 162-value partition"]},
+      {"usage":"priorityAuthorizationArbiter","claimed_roles":["decision"],"assigned_inputs":["INT-11 qualifiedRequest","INT-24 recoveryReport","INT-25 thermalProposal","INT-26 visibilityProposal","INT-27 cabinAirProposal"],"owner_local_facts":["selected service, authorization next state, and noncritical cause"],"contract_cases":["CASE-16","CASE-17","CASE-18","CASE-19","CASE-20","CASE-21","CASE-22","CASE-23","CASE-24","CASE-25"],"analyzer_checks":["arbiter effective-guard exhaustion","priority loser suppression"]},
+      {"usage":"thermalServiceProposer","claimed_roles":["proposal"],"assigned_inputs":["INT-12 thermalAssessment","INT-18 wasteHeatEligibility","INT-20 thermalPath"],"owner_local_facts":["thermal proposal applicability and heat source"],"contract_cases":["THERMAL_PROPOSAL_APPLICABILITY"],"analyzer_checks":["thermal proposal product exhaustion"]},
+      {"usage":"visibilityServiceProposer","claimed_roles":["proposal"],"assigned_inputs":["INT-13 visibilityNeed","INT-21 visibilityPath"],"owner_local_facts":["visibility proposal applicability and urgency"],"contract_cases":["VISIBILITY_PROPOSAL_APPLICABILITY","VISIBILITY_URGENCY_MAPPING"],"analyzer_checks":["visibility proposal product exhaustion"]},
+      {"usage":"cabinAirServiceProposer","claimed_roles":["proposal","decision"],"assigned_inputs":["INT-14 humidityNeed","INT-15 airNeed","INT-22 airPath"],"owner_local_facts":["Filter-over-Dry local decision and degradation facts"],"contract_cases":["CABIN_AIR_LOCAL_PRIORITY"],"analyzer_checks":["cabin-air proposal product exhaustion"]},
+      {"usage":"energySafePlanComposer","claimed_roles":["decision"],"assigned_inputs":["INT-16 electricalEligibility","INT-28 selectedIntent"],"owner_local_facts":["energy-tier constrained candidate plan and cause"],"contract_cases":["CASE-26","CASE-27","CASE-28","CASE-29","CASE-30"],"analyzer_checks":["composer effective-guard exhaustion","plan coherence checks"]},
+      {"usage":"criticalFaultRecoveryOwner","claimed_roles":["decision"],"assigned_inputs":["INT-09 recoveryAcknowledgment","INT-17 criticalElectrical","INT-19 criticalEquipment","INT-23 visibilityFault"],"owner_local_facts":["recovery next state, event, and critical cause"],"contract_cases":["CASE-10","CASE-11","CASE-12","CASE-13","CASE-14","CASE-15"],"analyzer_checks":["recovery 48-value partition","critical cause precedence"]},
+      {"usage":"atomicResultPublisher","claimed_roles":["decision"],"assigned_inputs":["INT-29 candidatePlan","INT-30 arbitrationStatus","INT-31 recoveryReport"],"owner_local_facts":["atomic public mode/cause consistency and hold suppression"],"contract_cases":["PUBLICATION_MODE_AND_SUPPRESSION","PUBLICATION_CAUSE_PRECEDENCE"],"analyzer_checks":["public composition invariant checks"]}
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "count_exclusions": ["root System usage", "behavior-free Process usage", "11 outer support delegation routes", "datatype invariants", "initialization guarantees", "identity field preservation", "support equations and scenario witnesses"]
+}

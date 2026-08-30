@@ -1,0 +1,388 @@
+{
+  "schema_version": 2,
+  "run_id": "20260812T160223Z-drone-governor-medium-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Drone_Lifecycle_Governor.sysml",
+  "source_sha256": "361b07a781b30345e58c494eeabc8153669914ca72a014a3627b4b1e5e482a19",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 17,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 181,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ASM-04",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "CTRL-04",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PURPOSE-01",
+      "TYPE-06",
+      "TYPE-07",
+      "TYPE-10"
+    ],
+    "relativePath": "cps48/runs/20260812T160223Z-drone-governor-medium-r1-a1/system-abstract.md",
+    "taggedElementCount": 110,
+    "traceAssociationCount": 110,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a medium lifecycle governor with 8 semantic usages, 21 typed interactions, 20 nontrivial cases, 7 scenario families, distributed qualification owners, one state owner, and explicit shutdown/recovery/fresh-request priority.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO forms expose the lifecycle owner's committed pre-state for state-dependent recovery without a same-evaluation algebraic cycle while preserving exactly 21 semantic interactions?",
+        "Can owner-local GUMBO contracts express the exact priority-ordered cases 07 through 17 and let the bounded analyzer demonstrate totality without downstream recomputation of credited owner facts?",
+        "Can EligibilityEnvelope, DecisionSnapshot, and PilotStatus be represented as finite structured concepts in the trusted tool subset without splitting or merging the declared semantic interactions?"
+      ],
+      "repair_actions": []
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Add one uncredited support Process, raise raw node count to 9 and depth to 2, and retain the complete 8/21/20/7 semantic allocation.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "Retained focused-checker evidence rejects a behavioral Thread directly under a System and rejects compute_cases on a System implementation. Trusted Isolette and a freshly checked accepted medium source use System -> Process -> contract-bearing Thread and both return Well-formed with the current checker.",
+          "requested_change": "Add exactly one behavior-free generated-support GovernorProcess at depth 1, place PART-01 through PART-08 in it as Threads at depth 2, change both containment-depth selections to [2, 2], and change node_count to [9, 9]. Give the Process no PART, owner, state, contract, or semantic-usage credit."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The 21 approved INTs can remain the semantic Process-boundary/Thread and Thread/Thread connections. Six inputs and four outputs require ten additional root-System/Process delegation declarations, so the minimal source has 31 PortConnection declarations even though the semantic edge metric remains 21.",
+          "requested_change": "Keep edge_count and semantic_interaction_count at 21 only as semantic metrics; report and trace the ten root delegation routes separately as generated support, and revise CONSTR-01, CONSTR-03, PASS-01, and matching design text accordingly."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-02 maps four capacity/check pairs to three qualifications and PART-03 maps nine navigation/radio pairs to three qualifications with explicit precedence; both are many-to-one classifications rather than one-to-one enum renames.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01 combines request, recovery, and charger facts under shutdown/recovery/fresh priority; PART-04 combines two qualifications, charger state, and lifecycle pre-state into applicability and recovery; PART-05 performs the sole state-dependent transition decision. Each has a meaningful owner-local relation.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-06 derives a two-output command pair with many-to-one and one-to-many distinctions, and PART-07 collapses five states into a one-versus-four authorization classification. Neither is extensionally outputCode == inputCode.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "PART-08 earns ownership from precedence-based PilotNotice selection over decision and battery facts. Its next-state field is a copy and its five-way transition-result/disposition relation is a one-to-one rename, so those submappings do not independently earn owner credit.",
+          "requested_change": "In metrics and bounded ownership evidence, credit PART-08 specifically for PilotNotice derivation and do not cite the copied state or disposition rename as its owner-local fact."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Current accepted syntax supports Thread-local state, In(state) pre-state publication, causally broken feedback, flat Data records with inspected attribute fields, and structured DataPort payloads; the 3,240 raw boundary/pre-state combinations are finite for a dependency-free analyzer.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved one support Process and ten delegation routes while retaining the 8/21/20/7 semantic baseline.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Repaired CASE-19 matches its DecisionNextState analyzer mirror, source traces use domain-relevant IDs, and the 8/21/20/7 model passes all gates.",
+      "canonical_source": "model/Drone_Lifecycle_Governor.sysml",
+      "architecture_repairs": 2,
+      "contract_repairs": 2,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated 17-edge overview repairs INT-14 routing and passes native and complete traceability review.",
+      "correction_cycles": 2,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ASM-04",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "CTRL-04",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PURPOSE-01",
+        "TYPE-06",
+        "TYPE-07",
+        "TYPE-10"
+      ],
+      "reviewed_tagged_element_count": 110,
+      "reviewed_trace_association_count": 110,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-grounded 8/21/20/7 model passes bounded semantic and rendered-artifact review without owner padding or silent drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 7
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "requestArbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "requestArbiter.pilotRequest",
+            "requestArbiter.chargerState",
+            "requestArbiter.recoveryProposal"
+          ],
+          "owner_local_facts": [
+            "priority-selected effective intent",
+            "fresh-request preemption",
+            "disconnected-charge rejection"
+          ],
+          "contract_cases": [
+            "CASE-11",
+            "CASE-12",
+            "CASE-13"
+          ],
+          "analyzer_checks": [
+            "request-arbiter-total-priority-check"
+          ]
+        },
+        {
+          "usage": "operationalEligibilityOwner",
+          "claimed_roles": [
+            "applicability",
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "operationalEligibilityOwner.batteryQualification",
+            "operationalEligibilityOwner.flightQualification",
+            "operationalEligibilityOwner.chargerState",
+            "operationalEligibilityOwner.currentLifecycleState"
+          ],
+          "owner_local_facts": [
+            "flight eligibility",
+            "charge eligibility",
+            "state-dependent recovery proposal",
+            "eligibility reason precedence"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10"
+          ],
+          "analyzer_checks": [
+            "operational-eligibility-total-recovery-check"
+          ]
+        },
+        {
+          "usage": "lifecycleStateGovernor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "lifecycleStateGovernor.arbitratedIntent",
+            "lifecycleStateGovernor.eligibilityEnvelope",
+            "lifecycleStateGovernor.committedLifecycleState"
+          ],
+          "owner_local_facts": [
+            "next lifecycle state",
+            "transition result",
+            "decision reason"
+          ],
+          "contract_cases": [
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17"
+          ],
+          "analyzer_checks": [
+            "lifecycle-governor-total-transition-check"
+          ]
+        },
+        {
+          "usage": "flightAuthorizationPolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "flightAuthorizationPolicy.decisionSnapshot.nextState"
+          ],
+          "owner_local_facts": [
+            "flight permission classification"
+          ],
+          "contract_cases": [
+            "CASE-19"
+          ],
+          "analyzer_checks": [
+            "flight-authorization-five-state-check"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-grounded 8/21/20/7 model passes bounded semantic and rendered-artifact review without owner padding or silent drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

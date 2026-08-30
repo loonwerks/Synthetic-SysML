@@ -1,0 +1,40 @@
+// #Sireum
+
+package scp_candidate.Drone_Battery_Charge_Qualification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object AuthorizationStatusCompositionOwner_chargeQualificationProcess_authorizationStatusCompositionOwner {
+
+  def initialise(api: AuthorizationStatusCompositionOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_PUBLIC_OUTCOMES
+        api.chargeAuthorizationOut == ChargeAuthorization.Denied &&
+          api.pilotStatusOut.statusAdvisory.advisoryValue == PilotAdvisory.ADVISORY_UNKNOWN &&
+          api.pilotStatusOut.statusSession.sessionValue == ChargeSession.Idle &&
+          api.pilotStatusOut.statusRequestResult.requestResultValue == RequestResult.None &&
+          api.pilotStatusOut.faults.batteryFault == T &&
+          api.pilotStatusOut.faults.chargerFault == T &&
+          api.pilotStatusOut.faults.interfaceFault == T &&
+          api.pilotStatusOut.faults.contextFault == T &&
+          api.pilotStatusOut.faults.sessionConflict == F &&
+          api.pilotStatusOut.aggregateFault == T
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_pilotStatusOut(Drone_Battery_Charge_Qualification_Supervisor.PilotStatus.example())
+    api.put_chargeAuthorizationOut(Drone_Battery_Charge_Qualification_Supervisor.ChargeAuthorization.Denied)
+  }
+
+  def finalise(api: AuthorizationStatusCompositionOwner_Operational_Api): Unit = { }
+}

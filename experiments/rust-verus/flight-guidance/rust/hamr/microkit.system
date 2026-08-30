@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Content between markers will be preserved if codegen is rerun -->
+
+  <xi:include href="microkit.schedule.xml" />
+
+  <protection_domain name="Flight_Guidance_System_Function_behavior_MON" domain="domain_2">
+    <program_image path="Flight_Guidance_System_Function_behavior_MON.elf" />
+    <protection_domain name="Flight_Guidance_System_Function_behavior" domain="domain_2" id="1">
+      <program_image path="Flight_Guidance_System_Function_behavior.elf" />
+      <map mr="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_Display_FD_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="Display_FD_queue_1"
+      />
+      <map mr="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_Sync_FD_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="Sync_FD_queue_1"
+      />
+      <map mr="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_Aircraft_Attitude_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="r"
+           setvar_vaddr="Aircraft_Attitude_queue_1"
+      />
+      <map mr="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_AP_Guidance_Request_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="r"
+           setvar_vaddr="AP_Guidance_Request_queue_1"
+      />
+      <map mr="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_AP_Guidance_1_Memory_Region"
+           vaddr="0x10_004_000"
+           perms="rw"
+           setvar_vaddr="AP_Guidance_queue_1"
+      />
+      <map mr="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_FD_Guidance_1_Memory_Region"
+           vaddr="0x10_005_000"
+           perms="rw"
+           setvar_vaddr="FD_Guidance_queue_1"
+      />
+      <map mr="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_FCS_Failed_1_Memory_Region"
+           vaddr="0x10_006_000"
+           perms="rw"
+           setvar_vaddr="FCS_Failed_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER Flight_Guidance_System_Function_behavior -->
+      <!-- END CONTENT MARKER Flight_Guidance_System_Function_behavior -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER Flight_Guidance_System_Function_behavior_MON -->
+    <!-- END CONTENT MARKER Flight_Guidance_System_Function_behavior_MON -->
+  </protection_domain>
+
+  <protection_domain name="pacer" domain="domain_1">
+    <program_image path="pacer.elf" />
+
+    <!-- BEGIN CONTENT MARKER pacer -->
+    <!-- END CONTENT MARKER pacer -->
+  </protection_domain>
+
+  <memory_region name="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_Display_FD_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_Sync_FD_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_Aircraft_Attitude_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_AP_Guidance_Request_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_AP_Guidance_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_FD_Guidance_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="Flight_Guidance_System_Instance_Flight_Guidance_System_Function_behavior_FCS_Failed_1_Memory_Region"
+                 size="0x1_000" />
+
+  <channel>
+    <end pd="pacer" id="61" />
+    <end pd="Flight_Guidance_System_Function_behavior_MON" id="61" />
+  </channel>
+
+  <channel>
+    <end pd="Flight_Guidance_System_Function_behavior_MON" id="60" />
+    <end pd="Flight_Guidance_System_Function_behavior" id="60" />
+  </channel>
+
+  <!-- BEGIN MSD CONTENT MARKER -->
+  <!-- END MSD CONTENT MARKER -->
+</system>

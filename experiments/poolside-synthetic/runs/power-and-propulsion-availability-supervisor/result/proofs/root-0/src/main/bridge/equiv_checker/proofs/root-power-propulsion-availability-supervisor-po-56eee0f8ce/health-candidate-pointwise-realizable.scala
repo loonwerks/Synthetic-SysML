@@ -1,0 +1,16 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_56eee0f8ceb3_Candidate_Pointwise_Realizable {
+  @pure def check(
+      configuration_evidence: equiv_shared_0.Power_Propulsion_Availability_Supervisor.ConfigurationEvidence): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Power_Propulsion_Availability_Supervisor.FourEngineConfigurationAssessor_supervisor_process_four_engine_configuration_assessor_Candidate_GumboX.compute_CEP_Post(configuration_evidence, equiv_shared_0.Power_Propulsion_Availability_Supervisor.ConfigurationAssessment.READY_NONE)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.FourEngineConfigurationAssessor_supervisor_process_four_engine_configuration_assessor_Candidate_GumboX.compute_CEP_Post(configuration_evidence, equiv_shared_0.Power_Propulsion_Availability_Supervisor.ConfigurationAssessment.NOT_READY_INVALID)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.FourEngineConfigurationAssessor_supervisor_process_four_engine_configuration_assessor_Candidate_GumboX.compute_CEP_Post(configuration_evidence, equiv_shared_0.Power_Propulsion_Availability_Supervisor.ConfigurationAssessment.NOT_READY_STALE)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.FourEngineConfigurationAssessor_supervisor_process_four_engine_configuration_assessor_Candidate_GumboX.compute_CEP_Post(configuration_evidence, equiv_shared_0.Power_Propulsion_Availability_Supervisor.ConfigurationAssessment.NOT_READY_ENGINE_COUNT)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.FourEngineConfigurationAssessor_supervisor_process_four_engine_configuration_assessor_Candidate_GumboX.compute_CEP_Post(configuration_evidence, equiv_shared_0.Power_Propulsion_Availability_Supervisor.ConfigurationAssessment.NOT_READY_ALTERNATION)))))
+  }
+}

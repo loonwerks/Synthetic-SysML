@@ -1,0 +1,403 @@
+{
+  "schema_version": 2,
+  "status": "passed",
+  "canonical_source": "model/Mining_Threat_Retreat_Supervision.sysml",
+  "source_sha256": "bb13339d7f5660e87e36ccfe82be77a6da2b6dd236c89790652c1e07a81df79d",
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 13,
+    "semantic_interactions": 31,
+    "nontrivial_contract_cases": 28,
+    "scenario_families": 12,
+    "ownership_audit": [
+      {
+        "usage": "threat_qualification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "threat_qualification.threat_sample"
+        ],
+        "owner_local_facts": [
+          "threat_qualification.threat_disposition",
+          "threat_qualification.threat_validity"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03",
+          "CASE-04"
+        ],
+        "analyzer_checks": [
+          "threat_qualification_total_partition",
+          "threat_validity_many_to_one"
+        ]
+      },
+      {
+        "usage": "readiness_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "readiness_assessment.cargo_band",
+          "readiness_assessment.capacitor_band",
+          "readiness_assessment.location",
+          "readiness_assessment.mining_available",
+          "readiness_assessment.defense_available",
+          "readiness_assessment.retreat_available",
+          "readiness_assessment.destination_available",
+          "readiness_assessment.service_available"
+        ],
+        "owner_local_facts": [
+          "readiness_assessment.mining_ready",
+          "readiness_assessment.defense_ready",
+          "readiness_assessment.retreat_feasible",
+          "readiness_assessment.cargo_full",
+          "readiness_assessment.dock_service_applicable"
+        ],
+        "contract_cases": [
+          "READINESS_LOCAL_FACTS"
+        ],
+        "analyzer_checks": [
+          "readiness_owner_exact_equations",
+          "readiness_policy_extensional_equivalence"
+        ]
+      },
+      {
+        "usage": "recovery_control",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "recovery_control.recovery_memory",
+          "recovery_control.intent",
+          "recovery_control.threat_validity",
+          "recovery_control.action_outcome"
+        ],
+        "owner_local_facts": [
+          "recovery_control.next_recovery_state",
+          "recovery_control.recovery_gate",
+          "recovery_control.emergency_state"
+        ],
+        "contract_cases": [
+          "CASE-05",
+          "CASE-06",
+          "CASE-07",
+          "CASE-08",
+          "CASE-09"
+        ],
+        "analyzer_checks": [
+          "recovery_first_match_partition",
+          "recovery_gate_emergency_mapping"
+        ]
+      },
+      {
+        "usage": "mining_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "mining_eligibility.intent",
+          "mining_eligibility.threat_disposition",
+          "mining_eligibility.assessment.mining_ready",
+          "mining_eligibility.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "mining_eligibility.mining_proposal"
+        ],
+        "contract_cases": [
+          "CASE-10",
+          "CASE-11"
+        ],
+        "analyzer_checks": [
+          "mining_eligibility_partition",
+          "mining_raw_policy_equivalence"
+        ]
+      },
+      {
+        "usage": "defense_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "defense_eligibility.intent",
+          "defense_eligibility.threat_disposition",
+          "defense_eligibility.assessment.defense_ready",
+          "defense_eligibility.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "defense_eligibility.defense_proposal"
+        ],
+        "contract_cases": [
+          "CASE-12",
+          "CASE-13"
+        ],
+        "analyzer_checks": [
+          "defense_eligibility_partition",
+          "defense_raw_policy_equivalence"
+        ]
+      },
+      {
+        "usage": "mobility_service_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "mobility_service_eligibility.intent",
+          "mobility_service_eligibility.threat_disposition",
+          "mobility_service_eligibility.assessment.retreat_feasible",
+          "mobility_service_eligibility.assessment.cargo_full",
+          "mobility_service_eligibility.assessment.dock_service_applicable",
+          "mobility_service_eligibility.recovery_gate"
+        ],
+        "owner_local_facts": [
+          "mobility_service_eligibility.mobility_proposal"
+        ],
+        "contract_cases": [
+          "CASE-14",
+          "CASE-15",
+          "CASE-16"
+        ],
+        "analyzer_checks": [
+          "mobility_service_first_match_partition",
+          "mobility_service_raw_policy_equivalence"
+        ]
+      },
+      {
+        "usage": "priority_arbitration",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "priority_arbitration.emergency_state",
+          "priority_arbitration.mining_proposal",
+          "priority_arbitration.defense_proposal",
+          "priority_arbitration.mobility_proposal"
+        ],
+        "owner_local_facts": [
+          "priority_arbitration.selected_action",
+          "priority_arbitration.selected_cause"
+        ],
+        "contract_cases": [
+          "CASE-17",
+          "CASE-18",
+          "CASE-19",
+          "CASE-20",
+          "CASE-21",
+          "CASE-22"
+        ],
+        "analyzer_checks": [
+          "arbitration_strict_priority_partition",
+          "action_cause_pair_integrity"
+        ]
+      },
+      {
+        "usage": "mission_mode_and_public_result",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "mission_mode_and_public_result.selected_action",
+          "mission_mode_and_public_result.selected_cause",
+          "mission_mode_and_public_result.next_recovery_state"
+        ],
+        "owner_local_facts": [
+          "mission_mode_and_public_result.next_mode",
+          "mission_mode_and_public_result.public_result"
+        ],
+        "contract_cases": [
+          "CASE-23",
+          "CASE-24",
+          "CASE-25",
+          "CASE-26",
+          "CASE-27",
+          "CASE-28"
+        ],
+        "analyzer_checks": [
+          "mission_mode_partition",
+          "atomic_public_composition"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "structural": {
+    "explicit_root_usages": 1,
+    "behavior_free_generated_support_usages": 1,
+    "semantic_containment_depth": 2,
+    "weakly_connected_semantic_regions": 1,
+    "orphan_semantic_usages": 0,
+    "semantic_usage_ids": [
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-14"
+    ],
+    "semantic_interaction_ids": [
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31"
+    ]
+  },
+  "behavior": {
+    "nontrivial_case_ids": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CASE-21",
+      "CASE-22",
+      "CASE-23",
+      "CASE-24",
+      "CASE-25",
+      "CASE-26",
+      "CASE-27",
+      "CASE-28"
+    ],
+    "datatype_invariants_credited": 0,
+    "identity_forwarding_credited": 0,
+    "synthetic_true_credited": 0,
+    "analyzer_evaluations": 161280,
+    "partition_counts": {
+      "CASE-01": 40320,
+      "CASE-02": 40320,
+      "CASE-03": 40320,
+      "CASE-04": 40320,
+      "CASE-05": 57600,
+      "CASE-06": 34560,
+      "CASE-07": 6912,
+      "CASE-08": 1152,
+      "CASE-09": 61056,
+      "CASE-10": 192,
+      "CASE-11": 161088,
+      "CASE-12": 3264,
+      "CASE-13": 158016,
+      "CASE-14": 2864,
+      "CASE-15": 7440,
+      "CASE-16": 150976,
+      "CASE-17": 125568,
+      "CASE-18": 2864,
+      "CASE-19": 2696,
+      "CASE-20": 7440,
+      "CASE-21": 192,
+      "CASE-22": 22520,
+      "CASE-23": 125568,
+      "CASE-24": 22520,
+      "CASE-25": 192,
+      "CASE-26": 2696,
+      "CASE-27": 2864,
+      "CASE-28": 7440
+    },
+    "defects": {
+      "partition_gaps": 0,
+      "partition_overlaps": 0,
+      "required_output_mismatches": 0,
+      "owner_mismatches": 0,
+      "readiness_equivalence_mismatches": 0,
+      "priority_violations": 0,
+      "recovery_violations": 0,
+      "fault_propagation_violations": 0,
+      "composition_mismatches": 0,
+      "invariant_violations": 0,
+      "scenario_failures": 0
+    }
+  },
+  "scenarios": {
+    "family_ids": [
+      "SCN-01",
+      "SCN-02",
+      "SCN-03",
+      "SCN-04",
+      "SCN-05",
+      "SCN-06",
+      "SCN-07",
+      "SCN-08",
+      "SCN-09",
+      "SCN-10",
+      "SCN-11",
+      "SCN-12"
+    ],
+    "all_have_distinct_bounded_traces": true,
+    "scenario_failures": 0
+  },
+  "validation": {
+    "architecture_tipe": {
+      "status": "passed",
+      "exit_code": 0,
+      "error_diagnostics": 0,
+      "well_formed_marker": true
+    },
+    "final_tipe": {
+      "status": "passed",
+      "exit_code": 0,
+      "error_diagnostics": 0,
+      "well_formed_marker": true
+    },
+    "bounded_analysis": {
+      "status": "passed",
+      "passed": true,
+      "source_sha256": "d688f97feaa08caf6e023de7a1bc2d1a7b99920858b14bc87d8e73432c6d1243"
+    }
+  },
+  "claim_boundary": "Verification evidence is limited to retained typechecking, source/ownership inspection, and exhaustive analysis of the frozen finite abstraction. No proof, code correctness, execution, physical performance, safety, or certification claim is made."
+}

@@ -1,0 +1,686 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234355Z-vehicle-mode-hard-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Protected_Start_Power_Supervisor.sysml",
+  "source_sha256": "8e37c768e6242d258ed9615ebf51237da4b63d7dd1dc6a23aa029d5675c70ce6",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 15,
+    "edgeCount": 24,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 206,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ASM-09",
+      "CASE-REARM-01",
+      "CASE-REARM-02",
+      "CASE-REARM-03",
+      "CASE-REARM-04",
+      "CASE-REARM-05",
+      "CASE-SESSION-01",
+      "CASE-SESSION-02",
+      "CASE-SESSION-03",
+      "CASE-SESSION-04",
+      "CASE-SESSION-05",
+      "CASE-SESSION-06",
+      "CASE-SESSION-07",
+      "CASE-SESSION-08",
+      "CASE-SESSION-09",
+      "CASE-SESSION-10",
+      "CASE-SESSION-11",
+      "CASE-SESSION-12",
+      "CASE-TEST-01",
+      "CASE-TEST-02",
+      "CASE-TEST-03",
+      "CASE-TEST-04",
+      "CASE-TEST-05",
+      "CASE-TEST-06",
+      "CASE-TEST-07",
+      "CASE-THERM-01",
+      "CASE-THERM-02",
+      "CASE-THERM-03",
+      "CASE-THERM-04",
+      "CASE-THERM-05",
+      "CTRL-01",
+      "CTRL-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "INT-22",
+      "INT-23",
+      "INT-24",
+      "INT-25",
+      "INT-26",
+      "INT-27",
+      "INT-28",
+      "INT-29",
+      "INT-30",
+      "INT-31",
+      "INT-32",
+      "INT-33",
+      "INT-34",
+      "INT-35",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "PART-10",
+      "PART-11",
+      "PART-12",
+      "PART-13",
+      "PART-14",
+      "POL-ACT-01",
+      "POL-COMP-01",
+      "POL-FAULT-01",
+      "POL-NOTICE-01",
+      "POL-SESSION-01",
+      "SCOPE-01",
+      "TYPE-01",
+      "TYPE-02",
+      "TYPE-03",
+      "TYPE-04",
+      "TYPE-05",
+      "TYPE-06",
+      "TYPE-07",
+      "TYPE-08",
+      "TYPE-09",
+      "TYPE-10",
+      "TYPE-11",
+      "TYPE-12",
+      "TYPE-13",
+      "TYPE-14",
+      "TYPE-15",
+      "TYPE-16",
+      "TYPE-17",
+      "TYPE-18",
+      "TYPE-19",
+      "TYPE-20",
+      "TYPE-21"
+    ],
+    "relativePath": "cps48/runs/20260813T234355Z-vehicle-mode-hard-r1-a1/system-abstract.md",
+    "taggedElementCount": 208,
+    "traceAssociationCount": 208,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a closed hard-tier protected start and power-enablement design with 14 substantive usages, 35 typed interactions, 29 cases, and 11 scenarios.",
+      "questions_for_model": [
+        "Can all four owner-local prior/new state relations feed same-snapshot downstream composition without a combinational cycle in the retained SysML-AADL/GUMBO forms?",
+        "Can the analyzer bind the 29 counted contract cases directly to retained owner contracts while proving exclusivity, exhaustiveness, and zero padding?",
+        "Can the two product-valued root outputs constrain and trace every actuation and status member independently with the trusted type and port forms?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Fully constrain initial public status and narrow PART-11/PART-14 owner credit; retain allocation, counts, and behavior.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "ASM-09 fixes initial session and readiness but TYPE-08 also exposes rearm, notice, six fault bits, and aggregate fault; PASS-02 forbids any unconstrained CTRL-02 member, and those stateless owner facts do not exist before the first complete evaluation.",
+          "requested_change": "Amend ASM-09 and PART-14 initialization to set CTRL-02 exactly to Off, startReady=false, sustainReady=false, rearm=Blocked, notice=Off, vector=[false,false,false,false,false,false], anyFault=false; retain initial CTRL-01 Inhibit/Isolate/Apply. Change no PART, INT, metric, scenario, policy, or claim-boundary exclusion."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-11 preserves/bundles six assigned fault inputs before deriving their OR, and PART-14 copies session/readiness/rearm/vector/OR before deriving notice. Under M-17 those copied fields cannot support owner-local-fact or semantic-usage credit, although six-input OR and prioritized notice selection make both usages substantive.",
+          "requested_change": "Narrow DS-OWN-02, DS-FAULT-01/02, PART-11, PART-14, AUD-PAD-01, and later ownership-audit claims so PART-11 is credited only for anyFault derivation and PART-14 only for notice classification; retain vector/status preservation as uncredited coherence obligations. Keep all PARTs, INT-25 and INT-29..35, counts, outputs, and domain behavior unchanged."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensionally, PART-01..05 collapse invalid alternatives or derive multi-class applicability; PART-06/07/10/12 make prior-state-dependent choices; PART-08/09/13 combine inputs into nonbijective decisions. None requires identity behavior for owner credit.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The 35-INT owner graph is acyclic with state local to PART-06/07/10/12. Trusted Isolette GUMBO forms and a fresh Sireum v4.20260630.386eac9f check against library commit 9016cbcceefa92f0068e1811923704dd261d15f1 support typed record ports, local state, compute_cases, same-owner next-state outputs, System/Process/Thread containment, and direct fan-out; the check exited 0 with Well-formed!.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The complete boundary/prior-state product is 5,529,600 valuations. The 29 counted cases can remain exactly four owner-local compute-case partitions, with qualification/composition equations uncounted, while a factorized analyzer checks the same local relations plus multi-step fresh-request and recovery traces under the retained watchdog.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved after full status initialization, ownership-credit narrowing, and thermal streak-reset repair.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized the approved Elevated thermal-reset repair; unchanged architecture, repaired final source, exact bounded mirror, 14/35/29/11 metrics, ownership, and traceability all pass.",
+      "canonical_source": "model/Protected_Start_Power_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 1,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated repaired revision exported with a selective 24-route overview; machine, native, and complete traceability reviews pass.",
+      "correction_cycles": 8,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ASM-09",
+        "CASE-REARM-01",
+        "CASE-REARM-02",
+        "CASE-REARM-03",
+        "CASE-REARM-04",
+        "CASE-REARM-05",
+        "CASE-SESSION-01",
+        "CASE-SESSION-02",
+        "CASE-SESSION-03",
+        "CASE-SESSION-04",
+        "CASE-SESSION-05",
+        "CASE-SESSION-06",
+        "CASE-SESSION-07",
+        "CASE-SESSION-08",
+        "CASE-SESSION-09",
+        "CASE-SESSION-10",
+        "CASE-SESSION-11",
+        "CASE-SESSION-12",
+        "CASE-TEST-01",
+        "CASE-TEST-02",
+        "CASE-TEST-03",
+        "CASE-TEST-04",
+        "CASE-TEST-05",
+        "CASE-TEST-06",
+        "CASE-TEST-07",
+        "CASE-THERM-01",
+        "CASE-THERM-02",
+        "CASE-THERM-03",
+        "CASE-THERM-04",
+        "CASE-THERM-05",
+        "CTRL-01",
+        "CTRL-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "INT-22",
+        "INT-23",
+        "INT-24",
+        "INT-25",
+        "INT-26",
+        "INT-27",
+        "INT-28",
+        "INT-29",
+        "INT-30",
+        "INT-31",
+        "INT-32",
+        "INT-33",
+        "INT-34",
+        "INT-35",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "PART-10",
+        "PART-11",
+        "PART-12",
+        "PART-13",
+        "PART-14",
+        "POL-ACT-01",
+        "POL-COMP-01",
+        "POL-FAULT-01",
+        "POL-NOTICE-01",
+        "POL-SESSION-01",
+        "SCOPE-01",
+        "TYPE-01",
+        "TYPE-02",
+        "TYPE-03",
+        "TYPE-04",
+        "TYPE-05",
+        "TYPE-06",
+        "TYPE-07",
+        "TYPE-08",
+        "TYPE-09",
+        "TYPE-10",
+        "TYPE-11",
+        "TYPE-12",
+        "TYPE-13",
+        "TYPE-14",
+        "TYPE-15",
+        "TYPE-16",
+        "TYPE-17",
+        "TYPE-18",
+        "TYPE-19",
+        "TYPE-20",
+        "TYPE-21"
+      ],
+      "reviewed_tagged_element_count": 208,
+      "reviewed_trace_association_count": 208,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound hard-tier model matches the repaired Designer resolution; bounded semantics and visualization pass.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "hard",
+      "observed": {
+        "semantic_usages": 14,
+        "semantic_interactions": 35,
+        "nontrivial_contract_cases": 29,
+        "scenario_families": 11
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "command_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "command_qualification_owner.command_report"
+          ],
+          "owner_local_facts": [
+            "invalid-command suppression, command evidence fault, and reset applicability"
+          ],
+          "contract_cases": [
+            "COMMAND_QUALIFICATION_TOTAL"
+          ],
+          "analyzer_checks": [
+            "command qualification total relation"
+          ]
+        },
+        {
+          "usage": "brake_pedal_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "brake_pedal_qualification_owner.brake_pedal_report"
+          ],
+          "owner_local_facts": [
+            "valid pressed-pedal applicability and pedal evidence fault"
+          ],
+          "contract_cases": [
+            "PEDAL_QUALIFICATION_TOTAL"
+          ],
+          "analyzer_checks": [
+            "pedal qualification total relation"
+          ]
+        },
+        {
+          "usage": "temperature_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "temperature_qualification_owner.temperature_report"
+          ],
+          "owner_local_facts": [
+            "invalid temperature suppression and qualified band classification"
+          ],
+          "contract_cases": [
+            "TEMPERATURE_QUALIFICATION_TOTAL"
+          ],
+          "analyzer_checks": [
+            "temperature qualification total relation"
+          ]
+        },
+        {
+          "usage": "electrical_supply_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "electrical_supply_qualification_owner.electrical_power_report"
+          ],
+          "owner_local_facts": [
+            "usable supply applicability and supply evidence fault"
+          ],
+          "contract_cases": [
+            "SUPPLY_QUALIFICATION_TOTAL"
+          ],
+          "analyzer_checks": [
+            "supply qualification total relation"
+          ]
+        },
+        {
+          "usage": "parking_brake_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "parking_brake_qualification_owner.parking_brake_report"
+          ],
+          "owner_local_facts": [
+            "valid applied-brake applicability and parking-brake evidence fault"
+          ],
+          "contract_cases": [
+            "PARKING_BRAKE_QUALIFICATION_TOTAL"
+          ],
+          "analyzer_checks": [
+            "parking-brake qualification total relation"
+          ]
+        },
+        {
+          "usage": "thermal_clearance_state_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "thermal_clearance_state_owner.qualified_temperature",
+            "thermal_clearance_state_owner.prior_thermal_state"
+          ],
+          "owner_local_facts": [
+            "next thermal state, thermal clearance, and current thermal fault"
+          ],
+          "contract_cases": [
+            "CASE-THERM-01",
+            "CASE-THERM-02",
+            "CASE-THERM-03",
+            "CASE-THERM-04",
+            "CASE-THERM-05"
+          ],
+          "analyzer_checks": [
+            "thermal five-case partition",
+            "two-observation thermal recovery"
+          ]
+        },
+        {
+          "usage": "self_test_campaign_state_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "self_test_campaign_state_owner.self_test_report",
+            "self_test_campaign_state_owner.qualified_command_facts",
+            "self_test_campaign_state_owner.prior_self_test_state"
+          ],
+          "owner_local_facts": [
+            "next self-test campaign state, pass fact, and persistent self-test fault"
+          ],
+          "contract_cases": [
+            "CASE-TEST-01",
+            "CASE-TEST-02",
+            "CASE-TEST-03",
+            "CASE-TEST-04",
+            "CASE-TEST-05",
+            "CASE-TEST-06",
+            "CASE-TEST-07"
+          ],
+          "analyzer_checks": [
+            "self-test seven-case partition",
+            "failure reset and requalification"
+          ]
+        },
+        {
+          "usage": "start_restraint_decision_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "start_restraint_decision_owner.qualified_pedal_facts",
+            "start_restraint_decision_owner.qualified_parking_brake_facts"
+          ],
+          "owner_local_facts": [
+            "combined start-restraint satisfaction"
+          ],
+          "contract_cases": [
+            "START_RESTRAINT_DECISION"
+          ],
+          "analyzer_checks": [
+            "start-restraint conjunction"
+          ]
+        },
+        {
+          "usage": "readiness_composition_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "readiness_composition_owner.qualified_supply_facts",
+            "readiness_composition_owner.thermal_state_facts",
+            "readiness_composition_owner.self_test_state_facts",
+            "readiness_composition_owner.start_restraint_fact"
+          ],
+          "owner_local_facts": [
+            "distinct start-ready and sustain-ready decisions"
+          ],
+          "contract_cases": [
+            "READINESS_COMPOSITION"
+          ],
+          "analyzer_checks": [
+            "readiness composition equations"
+          ]
+        },
+        {
+          "usage": "operating_session_state_priority_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "operating_session_state_priority_owner.qualified_command_facts",
+            "operating_session_state_priority_owner.readiness_facts",
+            "operating_session_state_priority_owner.exact_fault_summary",
+            "operating_session_state_priority_owner.recovery_permit_fact",
+            "operating_session_state_priority_owner.prior_session"
+          ],
+          "owner_local_facts": [
+            "winning next session and exact priority cause"
+          ],
+          "contract_cases": [
+            "CASE-SESSION-01",
+            "CASE-SESSION-02",
+            "CASE-SESSION-03",
+            "CASE-SESSION-04",
+            "CASE-SESSION-05",
+            "CASE-SESSION-06",
+            "CASE-SESSION-07",
+            "CASE-SESSION-08",
+            "CASE-SESSION-09",
+            "CASE-SESSION-10",
+            "CASE-SESSION-11",
+            "CASE-SESSION-12"
+          ],
+          "analyzer_checks": [
+            "session twelve-case priority partition",
+            "fresh request non-replay"
+          ]
+        },
+        {
+          "usage": "fault_vector_composition_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "fault_vector_composition_owner.command_fault",
+            "fault_vector_composition_owner.pedal_fault",
+            "fault_vector_composition_owner.thermal_fault",
+            "fault_vector_composition_owner.supply_fault",
+            "fault_vector_composition_owner.parking_brake_fault",
+            "fault_vector_composition_owner.self_test_fault"
+          ],
+          "owner_local_facts": [
+            "six-input aggregate-fault OR"
+          ],
+          "contract_cases": [
+            "EXACT_FAULT_VECTOR_AND_OR"
+          ],
+          "analyzer_checks": [
+            "all 64 fault vectors and exact OR"
+          ]
+        },
+        {
+          "usage": "rearm_qualification_state_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "rearm_qualification_state_owner.qualified_command_facts",
+            "rearm_qualification_state_owner.readiness_facts",
+            "rearm_qualification_state_owner.exact_fault_summary",
+            "rearm_qualification_state_owner.prior_rearm_state"
+          ],
+          "owner_local_facts": [
+            "next rearm state and fresh recovery permit"
+          ],
+          "contract_cases": [
+            "CASE-REARM-01",
+            "CASE-REARM-02",
+            "CASE-REARM-03",
+            "CASE-REARM-04",
+            "CASE-REARM-05"
+          ],
+          "analyzer_checks": [
+            "rearm five-case partition",
+            "two-clean-snapshot and fresh-return recovery"
+          ]
+        },
+        {
+          "usage": "actuation_composition_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "actuation_composition_owner.session_decision_facts",
+            "actuation_composition_owner.exact_fault_summary"
+          ],
+          "owner_local_facts": [
+            "fault-prioritized logical actuation tuple"
+          ],
+          "contract_cases": [
+            "ACTUATION_COMPOSITION_TOTAL"
+          ],
+          "analyzer_checks": [
+            "actuation composition and fault override"
+          ]
+        },
+        {
+          "usage": "supervisory_status_notice_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "supervisory_status_notice_owner.readiness_facts",
+            "supervisory_status_notice_owner.exact_fault_summary",
+            "supervisory_status_notice_owner.rearm_state_facts",
+            "supervisory_status_notice_owner.session_decision_facts"
+          ],
+          "owner_local_facts": [
+            "prioritized supervisory notice classification"
+          ],
+          "contract_cases": [
+            "PRIORITIZED_NOTICE_CLASSIFICATION"
+          ],
+          "analyzer_checks": [
+            "notice priority and exact status preservation"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound hard-tier model matches the repaired Designer resolution; bounded semantics and visualization pass.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

@@ -1,0 +1,421 @@
+{
+  "schemaVersion": 1,
+  "artifact": {
+    "path": "experiments/rust-verus/drone-lifecycle/visualization/rust-candidate.svg",
+    "format": "svg",
+    "bytes": 13555,
+    "sha256": "421498838d50c53bcb466845bd2961c9f3d6c740d9f3d605bd3c655bf01e0805"
+  },
+  "request": {
+    "view": "architecture",
+    "root": null
+  },
+  "session": {
+    "root": "experiments/rust-verus/drone-lifecycle/rust/model",
+    "libraryRoots": [
+      "./sysml-aadl-libraries"
+    ],
+    "revision": 1,
+    "parseStatus": "valid",
+    "validation": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--parseable-messages",
+        "--sourcepath",
+        "./sysml-aadl-libraries",
+        "experiments/rust-verus/drone-lifecycle/rust/model/Drone_Lifecycle_Governor.sysml"
+      ],
+      "completedAt": "2026-08-13T17:10:05.509Z",
+      "diagnostics": [
+        {
+          "message": "GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"drone_lifecycle_governor\", Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 7])))), Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 7])))), [TypingsSpecialization([Name([Id(\"Drone_Lifecycle_Governor_System\", Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 34])))], Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 34])))])], None(), [], None(), ResolvedAttr(Some([/Drone_Lifecycle_Governor.sysml, 723, 2]), None(), None())))",
+          "severity": "warning",
+          "source": {
+            "column": 2,
+            "endColumn": 66,
+            "endLine": 723,
+            "file": "experiments/rust-verus/drone-lifecycle/rust/model/Drone_Lifecycle_Governor.sysml",
+            "line": 723
+          }
+        }
+      ],
+      "durationMs": 10888,
+      "exitCode": 0,
+      "message": "Sireum accepted model",
+      "revision": 1,
+      "startedAt": "2026-08-13T17:09:54.621Z",
+      "status": "valid",
+      "stderr": "",
+      "stdout": "\nexperiments/rust-verus/drone-lifecycle/rust/model/Drone_Lifecycle_Governor.sysml:723:2:723:66: warning: GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"drone_lifecycle_governor\", Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 7])))), Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 7])))), [TypingsSpecialization([Name([Id(\"Drone_Lifecycle_Governor_System\", Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 34])))], Attr(Some([/Drone_Lifecycle_Governor.sysml, 723, 34])))])], None(), [], None(), ResolvedAttr(Some([/Drone_Lifecycle_Governor.sysml, 723, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "diagramHealth": {
+    "crossingCount": 3,
+    "crossings": [
+      {
+        "at": {
+          "x": 374,
+          "y": 479
+        },
+        "firstEdgeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_battery",
+        "secondEdgeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_charge"
+      },
+      {
+        "at": {
+          "x": 1354,
+          "y": 379
+        },
+        "firstEdgeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_enablement",
+        "secondEdgeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_phase_report"
+      },
+      {
+        "at": {
+          "x": 1354,
+          "y": 379
+        },
+        "firstEdgeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_notice",
+        "secondEdgeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_phase_report"
+      }
+    ],
+    "danglingPresentationLinkCount": 0,
+    "danglingPresentationLinkIds": [],
+    "edgeCount": 11,
+    "fidelity": {
+      "label": "Validated by Sireum",
+      "scope": "aadl-oriented-subset",
+      "state": "validated",
+      "summary": "Sireum validated this model revision. Fidelity covers the supported AADL-oriented SysML subset, not complete SysML v2."
+    },
+    "findings": [
+      {
+        "code": "route-object-collision",
+        "count": 3,
+        "elementIds": [
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_to_notice",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_charge",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_phase_report",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_assessment_process",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/enablement_derivation_process",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/lifecycle_governor_process"
+        ],
+        "message": "3 routes cross a diagram object.",
+        "repairable": false,
+        "severity": "attention"
+      },
+      {
+        "code": "truncated-text",
+        "count": 1,
+        "elementIds": [
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_assessment_process--label"
+        ],
+        "message": "1 label is truncated.",
+        "repairable": false,
+        "severity": "attention"
+      },
+      {
+        "code": "label-collision",
+        "count": 8,
+        "elementIds": [
+          "boundary/port/commanded_phase_report--label",
+          "boundary/port/lifecycle_enablement--label",
+          "boundary/port/pilot_notice--label",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_to_notice",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_enablement",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_notice",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/enablement_derivation_process",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/lifecycle_governor_process--label",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/lifecycle_governor_process/port/commanded_phase_report--label",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/pilot_notice_derivation_process",
+          "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/pilot_notice_derivation_process/port/pilot_notice--label"
+        ],
+        "message": "8 label collisions need attention.",
+        "repairable": false,
+        "severity": "attention"
+      },
+      {
+        "code": "edge-crossing",
+        "count": 3,
+        "elementIds": [
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_battery",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_charge",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_enablement",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_notice",
+          "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_phase_report"
+        ],
+        "message": "3 connection crossings need attention.",
+        "repairable": false,
+        "severity": "attention"
+      }
+    ],
+    "hiddenElementCount": 0,
+    "labelCollisionCount": 8,
+    "labelCollisions": [
+      {
+        "actionable": true,
+        "at": {
+          "x": 864,
+          "y": 316
+        },
+        "distance": 0,
+        "firstId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/lifecycle_governor_process--label",
+        "intersection": {
+          "x": 864,
+          "y": 316
+        },
+        "kind": "label-edge",
+        "labelBounds": {
+          "height": 18,
+          "width": 182,
+          "x": 750,
+          "y": 316
+        },
+        "routeSegment": {
+          "end": {
+            "x": 864,
+            "y": 227.33333333333334
+          },
+          "start": {
+            "x": 864,
+            "y": 485.6666666666667
+          }
+        },
+        "secondId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_to_notice"
+      },
+      {
+        "actionable": true,
+        "at": {
+          "x": 864,
+          "y": 402
+        },
+        "distance": 0,
+        "firstId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/lifecycle_governor_process/port/commanded_phase_report--label",
+        "intersection": {
+          "x": 864,
+          "y": 402
+        },
+        "kind": "label-edge",
+        "labelBounds": {
+          "height": 12,
+          "width": 118.80000000000001,
+          "x": 862.2,
+          "y": 402
+        },
+        "routeSegment": {
+          "end": {
+            "x": 864,
+            "y": 227.33333333333334
+          },
+          "start": {
+            "x": 864,
+            "y": 485.6666666666667
+          }
+        },
+        "secondId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_to_notice"
+      },
+      {
+        "area": 240.5,
+        "at": {
+          "x": 1274,
+          "y": 227
+        },
+        "distance": 0,
+        "firstId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/pilot_notice_derivation_process/port/pilot_notice--label",
+        "kind": "label-label",
+        "labelBounds": {
+          "height": 12,
+          "width": 64.80000000000001,
+          "x": 1246.2,
+          "y": 227
+        },
+        "secondId": "boundary/port/lifecycle_enablement--label"
+      },
+      {
+        "area": 528,
+        "at": {
+          "x": 1328,
+          "y": 227.5
+        },
+        "distance": 0,
+        "firstId": "boundary/port/lifecycle_enablement--label",
+        "kind": "label-node",
+        "labelBounds": {
+          "height": 12,
+          "width": 108,
+          "x": 1274,
+          "y": 221.5
+        },
+        "secondId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/pilot_notice_derivation_process"
+      },
+      {
+        "area": 657.5999999999995,
+        "at": {
+          "x": 1322.6000000000001,
+          "y": 367
+        },
+        "distance": 0,
+        "firstId": "boundary/port/commanded_phase_report--label",
+        "kind": "label-node",
+        "labelBounds": {
+          "height": 12,
+          "width": 118.80000000000001,
+          "x": 1263.2,
+          "y": 361
+        },
+        "secondId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/enablement_derivation_process"
+      },
+      {
+        "actionable": true,
+        "at": {
+          "x": 1354,
+          "y": 361
+        },
+        "distance": 0,
+        "firstId": "boundary/port/commanded_phase_report--label",
+        "intersection": {
+          "x": 1354,
+          "y": 361
+        },
+        "kind": "label-edge",
+        "labelBounds": {
+          "height": 12,
+          "width": 118.80000000000001,
+          "x": 1263.2,
+          "y": 361
+        },
+        "routeSegment": {
+          "end": {
+            "x": 1354,
+            "y": 239.5
+          },
+          "start": {
+            "x": 1354,
+            "y": 394
+          }
+        },
+        "secondId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_enablement"
+      },
+      {
+        "actionable": true,
+        "at": {
+          "x": 1354,
+          "y": 361
+        },
+        "distance": 0,
+        "firstId": "boundary/port/commanded_phase_report--label",
+        "intersection": {
+          "x": 1354,
+          "y": 361
+        },
+        "kind": "label-edge",
+        "labelBounds": {
+          "height": 12,
+          "width": 118.80000000000001,
+          "x": 1263.2,
+          "y": 361
+        },
+        "routeSegment": {
+          "end": {
+            "x": 1354,
+            "y": 518.5
+          },
+          "start": {
+            "x": 1354,
+            "y": 234
+          }
+        },
+        "secondId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_notice"
+      },
+      {
+        "actionable": true,
+        "at": {
+          "x": 1354,
+          "y": 500.5
+        },
+        "distance": 0,
+        "firstId": "boundary/port/pilot_notice--label",
+        "intersection": {
+          "x": 1354,
+          "y": 500.5
+        },
+        "kind": "label-edge",
+        "labelBounds": {
+          "height": 12,
+          "width": 64.80000000000001,
+          "x": 1317.2,
+          "y": 500.5
+        },
+        "routeSegment": {
+          "end": {
+            "x": 1354,
+            "y": 518.5
+          },
+          "start": {
+            "x": 1354,
+            "y": 234
+          }
+        },
+        "secondId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_notice"
+      }
+    ],
+    "nodeCount": 6,
+    "outOfBounds": [],
+    "outOfBoundsCount": 0,
+    "overlapCount": 0,
+    "overlaps": [],
+    "routeObjectCollisionCount": 3,
+    "routeObjectCollisions": [
+      {
+        "actionable": true,
+        "at": {
+          "x": 864,
+          "y": 310
+        },
+        "objectId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/lifecycle_governor_process",
+        "routeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_to_notice"
+      },
+      {
+        "actionable": true,
+        "at": {
+          "x": 658,
+          "y": 409
+        },
+        "objectId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_assessment_process",
+        "routeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_charge"
+      },
+      {
+        "actionable": true,
+        "at": {
+          "x": 1189,
+          "y": 379
+        },
+        "objectId": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/enablement_derivation_process",
+        "routeId": "edge:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/support_boundary_phase_report"
+      }
+    ],
+    "status": "attention",
+    "truncatedTextCount": 1,
+    "truncatedTexts": [
+      {
+        "availableWidth": 222,
+        "estimatedWidth": 245,
+        "id": "node:def:Drone_Lifecycle_Governor::Drone_Lifecycle_Governor_System/battery_evidence_assessment_process--label",
+        "text": "battery_evidence_assessment_process"
+      }
+    ],
+    "unresolvedEdgeIds": [],
+    "unresolvedEndpointCount": 0
+  },
+  "traceability": {
+    "anchorCount": 0,
+    "available": false,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [],
+    "relativePath": null,
+    "taggedElementCount": 0,
+    "traceAssociationCount": 0,
+    "unresolvedTraceIds": []
+  }
+}

@@ -1,0 +1,932 @@
+{
+  "schemaVersion": 2,
+  "viewRevision": 33,
+  "activeViewId": "faa-appendix-c",
+  "views": [
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "rootId": "def:FAA_Flight_Guidance_System::FGS_Function",
+      "positions": {
+        "boundary:boundary/port/Sync_FD": {
+          "x": 80,
+          "y": 80,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/FD_Guidance": {
+          "x": 80,
+          "y": 250,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/FCS_Failed": {
+          "x": 80,
+          "y": 420,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/Display_FD": {
+          "x": 80,
+          "y": 590,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/Aircraft_Attitude": {
+          "x": 80,
+          "y": 760,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/AP_Guidance_Request": {
+          "x": 80,
+          "y": 930,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/AP_Guidance": {
+          "x": 80,
+          "y": 1100,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [],
+      "aliases": {},
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [],
+      "presentationEdges": [],
+      "showPorts": true,
+      "showEdgeLabels": true,
+      "showTypes": true,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-26T21:11:40.990Z"
+    },
+    {
+      "id": "faa-appendix-c",
+      "name": "FAA Appendix C Context",
+      "rootId": "def:FAA_Flight_Guidance_System::FGS_Function",
+      "positions": {
+        "boundary:boundary/port/Sync_FD": {
+          "x": 80,
+          "y": 80,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/FD_Guidance": {
+          "x": 80,
+          "y": 250,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/FCS_Failed": {
+          "x": 80,
+          "y": 420,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/Display_FD": {
+          "x": 80,
+          "y": 590,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/Aircraft_Attitude": {
+          "x": 80,
+          "y": 760,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/AP_Guidance_Request": {
+          "x": 80,
+          "y": 930,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        },
+        "boundary:boundary/port/AP_Guidance": {
+          "x": 80,
+          "y": 1100,
+          "pinned": false,
+          "width": 248,
+          "height": 78
+        }
+      },
+      "edgeRoutes": {},
+      "hidden": [],
+      "expanded": [],
+      "aliases": {},
+      "annotations": [],
+      "constraints": [],
+      "presentationNodes": [
+        {
+          "id": "pilot",
+          "label": "Pilot",
+          "kind": "actor",
+          "x": -720,
+          "y": -80,
+          "width": 190,
+          "height": 80
+        },
+        {
+          "id": "copilot",
+          "label": "Copilot",
+          "kind": "actor",
+          "x": -720,
+          "y": 650,
+          "width": 190,
+          "height": 80
+        },
+        {
+          "id": "fci",
+          "label": "Flight Crew Interface (FCI)",
+          "kind": "reference",
+          "x": -390,
+          "y": 130,
+          "width": 230,
+          "height": 76
+        },
+        {
+          "id": "ahs",
+          "label": "Attitude Heading System (AHS)",
+          "kind": "reference",
+          "x": -390,
+          "y": 380,
+          "width": 230,
+          "height": 76
+        },
+        {
+          "id": "left-pfd",
+          "label": "Left Primary Flight Display (PFD)",
+          "kind": "reference",
+          "x": 1030,
+          "y": -80,
+          "width": 250,
+          "height": 76
+        },
+        {
+          "id": "ap",
+          "label": "Autopilot (AP)",
+          "kind": "reference",
+          "x": 1030,
+          "y": 250,
+          "width": 220,
+          "height": 76
+        },
+        {
+          "id": "right-pfd",
+          "label": "Right Primary Flight Display (PFD)",
+          "kind": "reference",
+          "x": 1030,
+          "y": 650,
+          "width": 250,
+          "height": 76
+        },
+        {
+          "id": "csa",
+          "label": "Control Surface Actuators (CSA)",
+          "kind": "reference",
+          "x": 1400,
+          "y": 250,
+          "width": 250,
+          "height": 76
+        }
+      ],
+      "presentationEdges": [
+        {
+          "id": "pilot-commands",
+          "sourceId": "pilot",
+          "targetId": "fci",
+          "kind": "informational",
+          "label": "Pilot Commands"
+        },
+        {
+          "id": "copilot-commands",
+          "sourceId": "copilot",
+          "targetId": "fci",
+          "kind": "informational",
+          "label": "Copilot Commands",
+          "bendPoints": [
+            {
+              "x": -470,
+              "y": 610
+            },
+            {
+              "x": -470,
+              "y": 230
+            }
+          ]
+        },
+        {
+          "id": "display-fd",
+          "sourceId": "fci",
+          "targetId": "port:FAA_Flight_Guidance_System::FGS_Function::Display_FD",
+          "kind": "informational",
+          "label": "Display FD"
+        },
+        {
+          "id": "sync-fd",
+          "sourceId": "fci",
+          "targetId": "port:FAA_Flight_Guidance_System::FGS_Function::Sync_FD",
+          "kind": "informational",
+          "label": "Sync FD"
+        },
+        {
+          "id": "aircraft-attitude",
+          "sourceId": "ahs",
+          "targetId": "port:FAA_Flight_Guidance_System::FGS_Function::Aircraft_Attitude",
+          "kind": "informational",
+          "label": "Aircraft Attitude"
+        },
+        {
+          "id": "ap-guidance",
+          "sourceId": "port:FAA_Flight_Guidance_System::FGS_Function::AP_Guidance",
+          "targetId": "ap",
+          "kind": "informational",
+          "label": "AP Guidance"
+        },
+        {
+          "id": "ap-guidance-request",
+          "sourceId": "ap",
+          "targetId": "port:FAA_Flight_Guidance_System::FGS_Function::AP_Guidance_Request",
+          "kind": "informational",
+          "label": "AP Guidance Request",
+          "bendPoints": [
+            {
+              "x": 1000,
+              "y": 560
+            },
+            {
+              "x": -30,
+              "y": 560
+            }
+          ]
+        },
+        {
+          "id": "fd-guidance-left",
+          "sourceId": "port:FAA_Flight_Guidance_System::FGS_Function::FD_Guidance",
+          "targetId": "left-pfd",
+          "kind": "informational",
+          "label": "FD Guidance",
+          "bendPoints": [
+            {
+              "x": 820,
+              "y": 280
+            },
+            {
+              "x": 820,
+              "y": -20
+            }
+          ]
+        },
+        {
+          "id": "fd-guidance-right",
+          "sourceId": "port:FAA_Flight_Guidance_System::FGS_Function::FD_Guidance",
+          "targetId": "right-pfd",
+          "kind": "informational",
+          "label": "FD Guidance",
+          "bendPoints": [
+            {
+              "x": 860,
+              "y": 330
+            },
+            {
+              "x": 860,
+              "y": 690
+            }
+          ]
+        },
+        {
+          "id": "fgs-failed-left",
+          "sourceId": "port:FAA_Flight_Guidance_System::FGS_Function::FCS_Failed",
+          "targetId": "left-pfd",
+          "kind": "informational",
+          "label": "FGS Failed",
+          "bendPoints": [
+            {
+              "x": 650,
+              "y": 430
+            },
+            {
+              "x": 650,
+              "y": -20
+            }
+          ]
+        },
+        {
+          "id": "fgs-failed-right",
+          "sourceId": "port:FAA_Flight_Guidance_System::FGS_Function::FCS_Failed",
+          "targetId": "right-pfd",
+          "kind": "informational",
+          "label": "FGS Failed",
+          "bendPoints": [
+            {
+              "x": 1450,
+              "y": 450
+            },
+            {
+              "x": 1450,
+              "y": 720
+            }
+          ]
+        },
+        {
+          "id": "actuator-commands",
+          "sourceId": "ap",
+          "targetId": "csa",
+          "kind": "informational",
+          "label": "Actuator Commands"
+        },
+        {
+          "id": "pilot-command-bars",
+          "sourceId": "left-pfd",
+          "targetId": "pilot",
+          "kind": "informational",
+          "label": "Command Bars",
+          "bendPoints": [
+            {
+              "x": 1000,
+              "y": -180
+            },
+            {
+              "x": -500,
+              "y": -180
+            }
+          ]
+        },
+        {
+          "id": "copilot-command-bars",
+          "sourceId": "right-pfd",
+          "targetId": "copilot",
+          "kind": "informational",
+          "label": "Command Bars",
+          "bendPoints": [
+            {
+              "x": 1000,
+              "y": 820
+            },
+            {
+              "x": -500,
+              "y": 820
+            }
+          ]
+        }
+      ],
+      "showPorts": true,
+      "showEdgeLabels": true,
+      "showTypes": true,
+      "camera": {
+        "x": 0,
+        "y": 0,
+        "zoom": 1
+      },
+      "updatedAt": "2026-08-26T21:38:54.822Z"
+    }
+  ],
+  "mutations": [
+    {
+      "id": "50a6d811-b569-4187-9045-dcab2233a177",
+      "at": "2026-08-26T21:11:40.990Z",
+      "actor": "codex",
+      "client": "cli",
+      "operation": "layout.apply",
+      "viewId": "architecture",
+      "modelRevision": 1,
+      "viewRevision": 1,
+      "targetIds": [],
+      "changedFields": [
+        "positions"
+      ]
+    },
+    {
+      "id": "73eefba5-fac4-4100-9ae3-2f318f784c8e",
+      "at": "2026-08-26T21:36:57.553Z",
+      "actor": "codex",
+      "client": "cli",
+      "operation": "view.create",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 2,
+      "targetIds": [],
+      "changedFields": [
+        "name",
+        "rootId"
+      ]
+    },
+    {
+      "id": "d1399276-7e10-496b-8236-7a9139a6f6e4",
+      "at": "2026-08-26T21:36:57.591Z",
+      "actor": "codex",
+      "client": "cli",
+      "operation": "view.activate",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 3,
+      "targetIds": [
+        "faa-appendix-c"
+      ],
+      "changedFields": [
+        "activeViewId"
+      ]
+    },
+    {
+      "id": "4de4473f-e0e9-4549-875d-f5c4b1572a4b",
+      "at": "2026-08-26T21:37:14.900Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 4,
+      "targetIds": [
+        "pilot"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "f3620334-b0ee-47e6-9cb2-6d963d37fcd9",
+      "at": "2026-08-26T21:37:15.296Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 5,
+      "targetIds": [
+        "copilot"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "b7997a40-9125-436c-9515-0ffc7aaae9d7",
+      "at": "2026-08-26T21:37:15.635Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 6,
+      "targetIds": [
+        "fci"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "35a78a86-2ce5-490b-a28a-13d218441e69",
+      "at": "2026-08-26T21:37:16.005Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 7,
+      "targetIds": [
+        "ahs"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "16162bb6-c769-49ba-bb1b-67c4a923ec43",
+      "at": "2026-08-26T21:37:16.416Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 8,
+      "targetIds": [
+        "left-pfd"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "1e590e55-5527-42b9-aac5-da8c090c881b",
+      "at": "2026-08-26T21:37:16.781Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 9,
+      "targetIds": [
+        "ap"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "92ddf4a8-ff79-4fc8-a186-b98f8014b6ec",
+      "at": "2026-08-26T21:37:17.255Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 10,
+      "targetIds": [
+        "right-pfd"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "a764d88c-d5f9-4db8-8208-a1f1f9ea8c2b",
+      "at": "2026-08-26T21:37:17.607Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 11,
+      "targetIds": [
+        "csa"
+      ],
+      "changedFields": [
+        "presentationNodes"
+      ]
+    },
+    {
+      "id": "c4b44024-a201-4574-985b-7a61f3d08833",
+      "at": "2026-08-26T21:37:50.287Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 12,
+      "targetIds": [
+        "pilot-commands"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "caefc917-55da-4b91-a1a7-ca7d948dac40",
+      "at": "2026-08-26T21:37:50.685Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 13,
+      "targetIds": [
+        "copilot-commands"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "910c7bba-2303-40fb-abfe-b9e0c0171dd5",
+      "at": "2026-08-26T21:37:51.062Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 14,
+      "targetIds": [
+        "display-fd"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "5b8c164e-bd4a-40b3-8058-90a340a6a011",
+      "at": "2026-08-26T21:37:51.419Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 15,
+      "targetIds": [
+        "sync-fd"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "b75f86e0-aa0d-409b-b77b-fb7739bd1a6d",
+      "at": "2026-08-26T21:37:51.768Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 16,
+      "targetIds": [
+        "aircraft-attitude"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "3a1eec11-ab81-484d-ad06-ddc810b59ced",
+      "at": "2026-08-26T21:37:52.141Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 17,
+      "targetIds": [
+        "ap-guidance"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "1c83722e-c127-4afb-9f22-9b850a5f3324",
+      "at": "2026-08-26T21:37:52.537Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 18,
+      "targetIds": [
+        "ap-guidance-request"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "3c63896b-daa5-4d8b-9b18-d4e5c31b09d8",
+      "at": "2026-08-26T21:37:52.915Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 19,
+      "targetIds": [
+        "fd-guidance-left"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "c1373141-5a3f-42eb-b1ee-dec915a2b28d",
+      "at": "2026-08-26T21:37:53.296Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 20,
+      "targetIds": [
+        "fd-guidance-right"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "65fdd6e4-7040-45e1-b634-15189ab35ae8",
+      "at": "2026-08-26T21:37:53.683Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 21,
+      "targetIds": [
+        "fgs-failed-left"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "8822b4aa-ebaf-4fc4-bcb3-a71d382b6796",
+      "at": "2026-08-26T21:37:54.039Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 22,
+      "targetIds": [
+        "fgs-failed-right"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "7f1b97dd-877f-4d1e-8663-82e744f414c3",
+      "at": "2026-08-26T21:37:54.423Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 23,
+      "targetIds": [
+        "actuator-commands"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "674f2fbe-e9c2-4777-923e-00180d217d77",
+      "at": "2026-08-26T21:37:54.816Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 24,
+      "targetIds": [
+        "pilot-command-bars"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "cce12570-49df-4bc8-917d-5384287baa4f",
+      "at": "2026-08-26T21:37:55.263Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 25,
+      "targetIds": [
+        "copilot-command-bars"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "9ea7c807-af39-4160-a251-25519c6698ec",
+      "at": "2026-08-26T21:38:27.067Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 26,
+      "targetIds": [
+        "fd-guidance-left"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "cf373b5a-7ed3-47e3-96e2-c131f5c3c017",
+      "at": "2026-08-26T21:38:27.424Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 27,
+      "targetIds": [
+        "fd-guidance-right"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "d6106031-f471-4868-b387-cb2d7c9370ad",
+      "at": "2026-08-26T21:38:27.794Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 28,
+      "targetIds": [
+        "fgs-failed-left"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "55df376d-fccc-46fe-88bd-0f91b60613d9",
+      "at": "2026-08-26T21:38:28.134Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 29,
+      "targetIds": [
+        "fgs-failed-right"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "ac1b1b93-73ec-45b0-9e4d-9e92a235ee0f",
+      "at": "2026-08-26T21:38:28.501Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 30,
+      "targetIds": [
+        "ap-guidance-request"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "a2fcd385-4eaa-4112-81ba-8ede0fed1243",
+      "at": "2026-08-26T21:38:44.431Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 31,
+      "targetIds": [
+        "fgs-failed-left"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "e8106a22-a327-4839-98b7-3837ebe10df9",
+      "at": "2026-08-26T21:38:44.772Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 32,
+      "targetIds": [
+        "fgs-failed-right"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    },
+    {
+      "id": "da9b348a-c959-4490-999f-937193c11934",
+      "at": "2026-08-26T21:38:54.822Z",
+      "actor": "cli",
+      "client": "cli",
+      "operation": "view.presentation",
+      "viewId": "faa-appendix-c",
+      "modelRevision": 1,
+      "viewRevision": 33,
+      "targetIds": [
+        "fgs-failed-left"
+      ],
+      "changedFields": [
+        "presentationEdges"
+      ]
+    }
+  ]
+}

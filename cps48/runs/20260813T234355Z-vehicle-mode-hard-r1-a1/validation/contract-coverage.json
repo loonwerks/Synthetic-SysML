@@ -1,0 +1,2852 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "8e37c768e6242d258ed9615ebf51237da4b63d7dd1dc6a23aa029d5675c70ce6",
+  "claim_boundary": "Exhaustive bounded conformance over the seed's finite root-input and four-owner prior-state domain only; not compositional proof, solver certification, generated-code correctness, execution, physical performance, or safety certification.",
+  "domain": {
+    "root_input_combinations": 30720,
+    "prior_state_tuples": 180,
+    "exhaustive_one_step_evaluations": 5529600
+  },
+  "semantic_connection_map": {
+    "INT-01": "root.command_report -> command_qualification_owner.command_report",
+    "INT-02": "root.brake_pedal_report -> brake_pedal_qualification_owner.brake_pedal_report",
+    "INT-03": "root.temperature_report -> temperature_qualification_owner.temperature_report",
+    "INT-04": "root.electrical_power_report -> electrical_supply_qualification_owner.electrical_power_report",
+    "INT-05": "root.parking_brake_report -> parking_brake_qualification_owner.parking_brake_report",
+    "INT-06": "root.self_test_report -> self_test_campaign_state_owner.self_test_report",
+    "INT-07": "command_qualification_owner.qualified_command_facts -> self_test_campaign_state_owner.qualified_command_facts",
+    "INT-08": "command_qualification_owner.qualified_command_facts -> operating_session_state_priority_owner.qualified_command_facts",
+    "INT-09": "command_qualification_owner.qualified_command_facts -> rearm_qualification_state_owner.qualified_command_facts",
+    "INT-10": "command_qualification_owner.command_fault -> fault_vector_composition_owner.command_fault",
+    "INT-11": "brake_pedal_qualification_owner.qualified_pedal_facts -> start_restraint_decision_owner.qualified_pedal_facts",
+    "INT-12": "brake_pedal_qualification_owner.pedal_fault -> fault_vector_composition_owner.pedal_fault",
+    "INT-13": "temperature_qualification_owner.qualified_temperature -> thermal_clearance_state_owner.qualified_temperature",
+    "INT-14": "electrical_supply_qualification_owner.qualified_supply_facts -> readiness_composition_owner.qualified_supply_facts",
+    "INT-15": "electrical_supply_qualification_owner.supply_fault -> fault_vector_composition_owner.supply_fault",
+    "INT-16": "parking_brake_qualification_owner.qualified_parking_brake_facts -> start_restraint_decision_owner.qualified_parking_brake_facts",
+    "INT-17": "parking_brake_qualification_owner.parking_brake_fault -> fault_vector_composition_owner.parking_brake_fault",
+    "INT-18": "thermal_clearance_state_owner.thermal_state_facts -> readiness_composition_owner.thermal_state_facts",
+    "INT-19": "thermal_clearance_state_owner.thermal_fault -> fault_vector_composition_owner.thermal_fault",
+    "INT-20": "self_test_campaign_state_owner.self_test_state_facts -> readiness_composition_owner.self_test_state_facts",
+    "INT-21": "self_test_campaign_state_owner.self_test_fault -> fault_vector_composition_owner.self_test_fault",
+    "INT-22": "start_restraint_decision_owner.start_restraint_fact -> readiness_composition_owner.start_restraint_fact",
+    "INT-23": "readiness_composition_owner.readiness_facts -> operating_session_state_priority_owner.readiness_facts",
+    "INT-24": "readiness_composition_owner.readiness_facts -> rearm_qualification_state_owner.readiness_facts",
+    "INT-25": "readiness_composition_owner.readiness_facts -> supervisory_status_notice_owner.readiness_facts",
+    "INT-26": "fault_vector_composition_owner.exact_fault_summary -> operating_session_state_priority_owner.exact_fault_summary",
+    "INT-27": "fault_vector_composition_owner.exact_fault_summary -> rearm_qualification_state_owner.exact_fault_summary",
+    "INT-28": "fault_vector_composition_owner.exact_fault_summary -> actuation_composition_owner.exact_fault_summary",
+    "INT-29": "fault_vector_composition_owner.exact_fault_summary -> supervisory_status_notice_owner.exact_fault_summary",
+    "INT-30": "rearm_qualification_state_owner.recovery_permit_fact -> operating_session_state_priority_owner.recovery_permit_fact",
+    "INT-31": "rearm_qualification_state_owner.rearm_state_facts -> supervisory_status_notice_owner.rearm_state_facts",
+    "INT-32": "operating_session_state_priority_owner.session_decision_facts -> actuation_composition_owner.session_decision_facts",
+    "INT-33": "operating_session_state_priority_owner.session_decision_facts -> supervisory_status_notice_owner.session_decision_facts",
+    "INT-34": "actuation_composition_owner.actuation_disposition -> root.actuation_disposition",
+    "INT-35": "supervisory_status_notice_owner.supervisory_status -> root.supervisory_status"
+  },
+  "partition_counts": {
+    "CASE-THERM-01": 3686400,
+    "CASE-THERM-02": 921600,
+    "CASE-THERM-03": 307200,
+    "CASE-THERM-04": 307200,
+    "CASE-THERM-05": 307200,
+    "CASE-TEST-01": 3456000,
+    "CASE-TEST-02": 414720,
+    "CASE-TEST-03": 17280,
+    "CASE-TEST-04": 17280,
+    "CASE-TEST-05": 138240,
+    "CASE-TEST-06": 414720,
+    "CASE-TEST-07": 1071360,
+    "CASE-REARM-01": 5492880,
+    "CASE-REARM-02": 35160,
+    "CASE-REARM-03": 520,
+    "CASE-REARM-04": 520,
+    "CASE-REARM-05": 520,
+    "CASE-SESSION-01": 5492880,
+    "CASE-SESSION-02": 32,
+    "CASE-SESSION-03": 7312,
+    "CASE-SESSION-04": 6912,
+    "CASE-SESSION-05": 6912,
+    "CASE-SESSION-06": 60,
+    "CASE-SESSION-07": 2532,
+    "CASE-SESSION-08": 312,
+    "CASE-SESSION-09": 3576,
+    "CASE-SESSION-10": 312,
+    "CASE-SESSION-11": 3576,
+    "CASE-SESSION-12": 5184
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "state_mismatches": 0,
+  "interaction_value_mismatches": 0,
+  "invariant_checks": {
+    "thermal_blocked": true,
+    "self_test_untested": true,
+    "rearm_blocked": true,
+    "session_off": true,
+    "actuation_exact_safe": true,
+    "public_status_exact_safe": true,
+    "fault_vector_checks": 64,
+    "fault_vector_mismatches": 0,
+    "priority_violations": 0,
+    "composition_violations": 0,
+    "fuel_enable_invariant_violations": 0,
+    "all_cases_witnessed": true,
+    "all_scenarios_passed": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "command_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "command_qualification_owner.command_report"
+      ],
+      "owner_local_facts": [
+        "invalid-command suppression, command evidence fault, and reset applicability"
+      ],
+      "contract_cases": [
+        "COMMAND_QUALIFICATION_TOTAL"
+      ],
+      "analyzer_checks": [
+        "command qualification total relation"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "brake_pedal_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "brake_pedal_qualification_owner.brake_pedal_report"
+      ],
+      "owner_local_facts": [
+        "valid pressed-pedal applicability and pedal evidence fault"
+      ],
+      "contract_cases": [
+        "PEDAL_QUALIFICATION_TOTAL"
+      ],
+      "analyzer_checks": [
+        "pedal qualification total relation"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "temperature_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "temperature_qualification_owner.temperature_report"
+      ],
+      "owner_local_facts": [
+        "invalid temperature suppression and qualified band classification"
+      ],
+      "contract_cases": [
+        "TEMPERATURE_QUALIFICATION_TOTAL"
+      ],
+      "analyzer_checks": [
+        "temperature qualification total relation"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "electrical_supply_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "electrical_supply_qualification_owner.electrical_power_report"
+      ],
+      "owner_local_facts": [
+        "usable supply applicability and supply evidence fault"
+      ],
+      "contract_cases": [
+        "SUPPLY_QUALIFICATION_TOTAL"
+      ],
+      "analyzer_checks": [
+        "supply qualification total relation"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "parking_brake_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "parking_brake_qualification_owner.parking_brake_report"
+      ],
+      "owner_local_facts": [
+        "valid applied-brake applicability and parking-brake evidence fault"
+      ],
+      "contract_cases": [
+        "PARKING_BRAKE_QUALIFICATION_TOTAL"
+      ],
+      "analyzer_checks": [
+        "parking-brake qualification total relation"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "thermal_clearance_state_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "thermal_clearance_state_owner.qualified_temperature",
+        "thermal_clearance_state_owner.prior_thermal_state"
+      ],
+      "owner_local_facts": [
+        "next thermal state, thermal clearance, and current thermal fault"
+      ],
+      "contract_cases": [
+        "CASE-THERM-01",
+        "CASE-THERM-02",
+        "CASE-THERM-03",
+        "CASE-THERM-04",
+        "CASE-THERM-05"
+      ],
+      "analyzer_checks": [
+        "thermal five-case partition",
+        "two-observation thermal recovery"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "self_test_campaign_state_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "self_test_campaign_state_owner.self_test_report",
+        "self_test_campaign_state_owner.qualified_command_facts",
+        "self_test_campaign_state_owner.prior_self_test_state"
+      ],
+      "owner_local_facts": [
+        "next self-test campaign state, pass fact, and persistent self-test fault"
+      ],
+      "contract_cases": [
+        "CASE-TEST-01",
+        "CASE-TEST-02",
+        "CASE-TEST-03",
+        "CASE-TEST-04",
+        "CASE-TEST-05",
+        "CASE-TEST-06",
+        "CASE-TEST-07"
+      ],
+      "analyzer_checks": [
+        "self-test seven-case partition",
+        "failure reset and requalification"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "start_restraint_decision_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "start_restraint_decision_owner.qualified_pedal_facts",
+        "start_restraint_decision_owner.qualified_parking_brake_facts"
+      ],
+      "owner_local_facts": [
+        "combined start-restraint satisfaction"
+      ],
+      "contract_cases": [
+        "START_RESTRAINT_DECISION"
+      ],
+      "analyzer_checks": [
+        "start-restraint conjunction"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "readiness_composition_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "readiness_composition_owner.qualified_supply_facts",
+        "readiness_composition_owner.thermal_state_facts",
+        "readiness_composition_owner.self_test_state_facts",
+        "readiness_composition_owner.start_restraint_fact"
+      ],
+      "owner_local_facts": [
+        "distinct start-ready and sustain-ready decisions"
+      ],
+      "contract_cases": [
+        "READINESS_COMPOSITION"
+      ],
+      "analyzer_checks": [
+        "readiness composition equations"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "operating_session_state_priority_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "operating_session_state_priority_owner.qualified_command_facts",
+        "operating_session_state_priority_owner.readiness_facts",
+        "operating_session_state_priority_owner.exact_fault_summary",
+        "operating_session_state_priority_owner.recovery_permit_fact",
+        "operating_session_state_priority_owner.prior_session"
+      ],
+      "owner_local_facts": [
+        "winning next session and exact priority cause"
+      ],
+      "contract_cases": [
+        "CASE-SESSION-01",
+        "CASE-SESSION-02",
+        "CASE-SESSION-03",
+        "CASE-SESSION-04",
+        "CASE-SESSION-05",
+        "CASE-SESSION-06",
+        "CASE-SESSION-07",
+        "CASE-SESSION-08",
+        "CASE-SESSION-09",
+        "CASE-SESSION-10",
+        "CASE-SESSION-11",
+        "CASE-SESSION-12"
+      ],
+      "analyzer_checks": [
+        "session twelve-case priority partition",
+        "fresh request non-replay"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "fault_vector_composition_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "fault_vector_composition_owner.command_fault",
+        "fault_vector_composition_owner.pedal_fault",
+        "fault_vector_composition_owner.thermal_fault",
+        "fault_vector_composition_owner.supply_fault",
+        "fault_vector_composition_owner.parking_brake_fault",
+        "fault_vector_composition_owner.self_test_fault"
+      ],
+      "owner_local_facts": [
+        "six-input aggregate-fault OR"
+      ],
+      "contract_cases": [
+        "EXACT_FAULT_VECTOR_AND_OR"
+      ],
+      "analyzer_checks": [
+        "all 64 fault vectors and exact OR"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "rearm_qualification_state_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "rearm_qualification_state_owner.qualified_command_facts",
+        "rearm_qualification_state_owner.readiness_facts",
+        "rearm_qualification_state_owner.exact_fault_summary",
+        "rearm_qualification_state_owner.prior_rearm_state"
+      ],
+      "owner_local_facts": [
+        "next rearm state and fresh recovery permit"
+      ],
+      "contract_cases": [
+        "CASE-REARM-01",
+        "CASE-REARM-02",
+        "CASE-REARM-03",
+        "CASE-REARM-04",
+        "CASE-REARM-05"
+      ],
+      "analyzer_checks": [
+        "rearm five-case partition",
+        "two-clean-snapshot and fresh-return recovery"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "actuation_composition_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "actuation_composition_owner.session_decision_facts",
+        "actuation_composition_owner.exact_fault_summary"
+      ],
+      "owner_local_facts": [
+        "fault-prioritized logical actuation tuple"
+      ],
+      "contract_cases": [
+        "ACTUATION_COMPOSITION_TOTAL"
+      ],
+      "analyzer_checks": [
+        "actuation composition and fault override"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    },
+    {
+      "usage": "supervisory_status_notice_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "supervisory_status_notice_owner.readiness_facts",
+        "supervisory_status_notice_owner.exact_fault_summary",
+        "supervisory_status_notice_owner.rearm_state_facts",
+        "supervisory_status_notice_owner.session_decision_facts"
+      ],
+      "owner_local_facts": [
+        "prioritized supervisory notice classification"
+      ],
+      "contract_cases": [
+        "PRIORITIZED_NOTICE_CLASSIFICATION"
+      ],
+      "analyzer_checks": [
+        "notice priority and exact status preservation"
+      ],
+      "executed_evaluations": 5529600,
+      "passed": true
+    }
+  ],
+  "scenario_families": [
+    {
+      "id": "SCN-01",
+      "expected_named_branch": "CASE-THERM-03, CASE-THERM-04, CASE-SESSION-06, CASE-SESSION-08",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Passed",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Blocked",
+            "selfTestState": "Untested",
+            "session": "Off",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-03",
+            "CASE-TEST-04",
+            "CASE-REARM-02",
+            "CASE-SESSION-07"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Confirming",
+              "thermalClear": false
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Off",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "Off",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-04",
+            "CASE-TEST-06",
+            "CASE-REARM-03",
+            "CASE-SESSION-06"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Provide",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Arming",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Confirming",
+              "notice": "Starting",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Arming",
+            "rearmState": "Confirming"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Arming",
+            "rearmState": "Confirming"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-04",
+            "CASE-SESSION-08"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Enable",
+              "electricalPower": "Provide",
+              "parkingBrake": "Release"
+            },
+            "status": {
+              "session": "On",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Enabled",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "On",
+            "rearmState": "Ready"
+          }
+        }
+      ],
+      "executed_steps": 3,
+      "passed": true
+    },
+    {
+      "id": "SCN-02",
+      "expected_named_branch": "CASE-SESSION-07 then CASE-SESSION-12 without replay",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Released",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-07"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Off",
+              "startReady": false,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Off",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-12"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Off",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Off",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          }
+        }
+      ],
+      "executed_steps": 2,
+      "passed": true
+    },
+    {
+      "id": "SCN-03",
+      "expected_named_branch": "CASE-TEST-01 then CASE-TEST-07 persistent failure",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Failed",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Untested",
+            "session": "Off",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-01",
+            "CASE-REARM-01",
+            "CASE-SESSION-01"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "FaultAttention",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": true,
+              "anyFault": true
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Failed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Passed",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Failed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-07",
+            "CASE-REARM-01",
+            "CASE-SESSION-01"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "FaultAttention",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": true,
+              "anyFault": true
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Failed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        }
+      ],
+      "executed_steps": 2,
+      "passed": true
+    },
+    {
+      "id": "SCN-04",
+      "expected_named_branch": "CASE-THERM-01/03/04 over-limit recovery and CASE-THERM-02/03/04 elevated reset recovery",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "OverLimit",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "On",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-01",
+            "CASE-TEST-06",
+            "CASE-REARM-01",
+            "CASE-SESSION-01"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Blocked",
+              "thermalClear": false
+            },
+            "thermal_fault": true
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "FaultAttention",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": true,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": true
+            }
+          },
+          "next_state": {
+            "thermalState": "Blocked",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Blocked",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-03",
+            "CASE-TEST-06",
+            "CASE-REARM-02",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Confirming",
+              "thermalClear": false
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "RecoveryRequired",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-04",
+            "CASE-TEST-06",
+            "CASE-REARM-03",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Confirming",
+              "notice": "RecoveryConfirming",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Confirming"
+          }
+        }
+      ],
+      "additional_witnesses": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Elevated",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "On",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-02",
+            "CASE-TEST-06",
+            "CASE-REARM-02",
+            "CASE-SESSION-11"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Blocked",
+              "thermalClear": false
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "RecoveryRequired",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Blocked",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Blocked",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-03",
+            "CASE-TEST-06",
+            "CASE-REARM-02",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Confirming",
+              "thermalClear": false
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "RecoveryRequired",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-04",
+            "CASE-TEST-06",
+            "CASE-REARM-03",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Confirming",
+              "notice": "RecoveryConfirming",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Confirming"
+          }
+        }
+      ],
+      "executed_steps": 6,
+      "passed": true
+    },
+    {
+      "id": "SCN-05",
+      "expected_named_branch": "invalid supply fault then recovery remains gated",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Invalid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "On",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-01",
+            "CASE-SESSION-01"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "FaultAttention",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": true,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": true
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-03",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Confirming",
+              "notice": "RecoveryConfirming",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Confirming"
+          }
+        }
+      ],
+      "additional_witnesses": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Unavailable",
+              "status": "Invalid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "On",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-01",
+            "CASE-SESSION-01"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "FaultAttention",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": true,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": true
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        }
+      ],
+      "executed_steps": 3,
+      "passed": true
+    },
+    {
+      "id": "SCN-06",
+      "expected_named_branch": "three concurrent exact evidence-fault bits",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Invalid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Invalid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Invalid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-01",
+            "CASE-SESSION-01"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": true,
+              "rearmState": "Blocked",
+              "notice": "FaultAttention",
+              "commandFault": true,
+              "pedalFault": true,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": true,
+              "selfTestFault": false,
+              "anyFault": true
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        }
+      ],
+      "executed_steps": 1,
+      "passed": true
+    },
+    {
+      "id": "SCN-07",
+      "expected_named_branch": "CASE-REARM-03, CASE-REARM-04, CASE-REARM-05, then fresh CASE-SESSION-02",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "ReturnToNormal",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-03",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Confirming",
+              "notice": "RecoveryConfirming",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Confirming"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Confirming"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-04",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "RecoveryRequired",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Ready"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "RecoveryRequired",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Ready"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "commandReport": {
+              "command": "ReturnToNormal",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-02"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Off",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Off",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          }
+        }
+      ],
+      "executed_steps": 4,
+      "passed": true
+    },
+    {
+      "id": "SCN-08",
+      "expected_named_branch": "reset, requalify, two-clean rearm, fresh return, fresh restart",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "Off",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Blocked",
+            "selfTestState": "Failed",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-03",
+            "CASE-TEST-02",
+            "CASE-REARM-02",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Confirming",
+              "thermalClear": false
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "RecoveryRequired",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Untested",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Passed",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Confirming",
+            "selfTestState": "Untested",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          },
+          "observed_cases": [
+            "CASE-THERM-04",
+            "CASE-TEST-04",
+            "CASE-REARM-03",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Confirming",
+              "notice": "RecoveryConfirming",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Confirming"
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Confirming"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-04",
+            "CASE-SESSION-03"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "RecoveryRequired",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Ready"
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "commandReport": {
+              "command": "ReturnToNormal",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Degraded",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-02"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Off",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Off",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-12"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Off",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Off",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          }
+        },
+        {
+          "step": 6,
+          "input": {
+            "commandReport": {
+              "command": "Start",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-06"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Provide",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Arming",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Starting",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Arming",
+            "rearmState": "Ready"
+          }
+        },
+        {
+          "step": 7,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Arming",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-05",
+            "CASE-SESSION-08"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Enable",
+              "electricalPower": "Provide",
+              "parkingBrake": "Release"
+            },
+            "status": {
+              "session": "On",
+              "startReady": true,
+              "sustainReady": true,
+              "rearmState": "Ready",
+              "notice": "Enabled",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "On",
+            "rearmState": "Ready"
+          }
+        }
+      ],
+      "executed_steps": 7,
+      "passed": true
+    },
+    {
+      "id": "SCN-09",
+      "expected_named_branch": "CASE-SESSION-01 fault dominates Off",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "Off",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "OverLimit",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "On",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-01",
+            "CASE-TEST-02",
+            "CASE-REARM-01",
+            "CASE-SESSION-01"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Blocked",
+              "thermalClear": false
+            },
+            "thermal_fault": true
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Degraded",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "FaultAttention",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": true,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": true
+            }
+          },
+          "next_state": {
+            "thermalState": "Blocked",
+            "selfTestState": "Untested",
+            "session": "Degraded",
+            "rearmState": "Blocked"
+          }
+        }
+      ],
+      "executed_steps": 1,
+      "passed": true
+    },
+    {
+      "id": "SCN-10",
+      "expected_named_branch": "CASE-TEST-02 and CASE-SESSION-05",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "EnterMaintenance",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Available",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-02",
+            "CASE-REARM-02",
+            "CASE-SESSION-05"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Provide",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Maintenance",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "Maintenance",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Untested",
+            "session": "Maintenance",
+            "rearmState": "Blocked"
+          }
+        }
+      ],
+      "executed_steps": 1,
+      "passed": true
+    },
+    {
+      "id": "SCN-11",
+      "expected_named_branch": "CASE-SESSION-09 valid unavailable arming abort",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "commandReport": {
+              "command": "None",
+              "status": "Valid"
+            },
+            "pedalReport": {
+              "condition": "Pressed",
+              "status": "Valid"
+            },
+            "temperatureReport": {
+              "band": "Nominal",
+              "status": "Valid"
+            },
+            "supplyReport": {
+              "availability": "Unavailable",
+              "status": "Valid"
+            },
+            "parkingReport": {
+              "condition": "Applied",
+              "status": "Valid"
+            },
+            "selfTestReport": {
+              "progress": "Idle",
+              "status": "Valid"
+            }
+          },
+          "prior_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Arming",
+            "rearmState": "Ready"
+          },
+          "observed_cases": [
+            "CASE-THERM-05",
+            "CASE-TEST-06",
+            "CASE-REARM-02",
+            "CASE-SESSION-09"
+          ],
+          "observed_owner_facts": {
+            "thermal_state_facts": {
+              "thermalState": "Clear",
+              "thermalClear": true
+            },
+            "thermal_fault": false
+          },
+          "observed_outputs": {
+            "actuation": {
+              "fuel": "Inhibit",
+              "electricalPower": "Isolate",
+              "parkingBrake": "Apply"
+            },
+            "status": {
+              "session": "Off",
+              "startReady": false,
+              "sustainReady": false,
+              "rearmState": "Blocked",
+              "notice": "Off",
+              "commandFault": false,
+              "pedalFault": false,
+              "thermalFault": false,
+              "supplyFault": false,
+              "parkingBrakeFault": false,
+              "selfTestFault": false,
+              "anyFault": false
+            }
+          },
+          "next_state": {
+            "thermalState": "Clear",
+            "selfTestState": "Passed",
+            "session": "Off",
+            "rearmState": "Blocked"
+          }
+        }
+      ],
+      "executed_steps": 1,
+      "passed": true
+    }
+  ]
+}

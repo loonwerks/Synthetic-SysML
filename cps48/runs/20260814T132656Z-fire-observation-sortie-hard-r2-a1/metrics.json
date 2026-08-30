@@ -1,0 +1,386 @@
+{
+  "source": "model/Power_Propulsion_Availability_Supervisor.sysml",
+  "source_sha256": "8472c1e85c443cbb1c53485c8c4c089823f3f9400a377a0d0c4161afc9dbe568",
+  "root_system_usages": 1,
+  "semantic_usages": 13,
+  "generated_support_usages": 1,
+  "reachable_architecture_usages_excluding_root": 14,
+  "all_usages_including_root": 15,
+  "containment_depth_beneath_root": 2,
+  "semantic_responsibility_layers": 1,
+  "semantic_interactions": 33,
+  "sibling_thread_semantic_connection_declarations": 22,
+  "boundary_semantic_meanings_realized_by_support": 11,
+  "generated_support_routes": 21,
+  "source_port_connection_declarations": 43,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 29,
+  "specified_scenario_families": 10,
+  "scenario_families": 10,
+  "state_owners": 3,
+  "decision_or_classification_owners": 13,
+  "gumbo_inspected_record_attributes": 32,
+  "architecture_repairs": 5,
+  "architecture_diagnostic_cycles": 5,
+  "contract_repairs": 6,
+  "contract_diagnostic_cycles": 10,
+  "analyzer_repairs": 1,
+  "analyzer_diagnostic_cycles": 2,
+  "bounded_analysis": {
+    "status": "passed",
+    "partition_counts": {
+      "PART_01": 16,
+      "PART_02": 12,
+      "PART_03": 16,
+      "PART_04": 64,
+      "PART_05": 64,
+      "PART_06": 36,
+      "PART_07": 125,
+      "PART_08": 16,
+      "PART_09": 45,
+      "PART_10": 4800,
+      "PART_11": 105,
+      "PART_12": 36000,
+      "PART_13": 2700
+    },
+    "gaps": 0,
+    "overlaps": 0,
+    "required_output_mismatches": {
+      "availability_oracle": 0,
+      "command_oracle": 0,
+      "scenario": 0
+    },
+    "invariant_failures": 0,
+    "scenario_failures": 0,
+    "producer_unreachable": {
+      "PART_11": 75,
+      "PART_12": 34783,
+      "PART_13": 2358
+    }
+  },
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 13,
+    "semantic_interactions": 33,
+    "nontrivial_contract_cases": 29,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "battery_observation_admission",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-01.battery_observation"
+        ],
+        "owner_local_facts": [
+          "prioritized battery admission"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02"
+        ],
+        "analyzer_checks": [
+          "part01_admission_partition"
+        ]
+      },
+      {
+        "usage": "battery_capacity_assessment",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-02.qualified_battery"
+        ],
+        "owner_local_facts": [
+          "qualified qualitative battery readiness"
+        ],
+        "contract_cases": [
+          "CASE-03",
+          "CASE-04"
+        ],
+        "analyzer_checks": [
+          "part02_capacity_partition"
+        ]
+      },
+      {
+        "usage": "power_management_assessment",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-03.power_evidence"
+        ],
+        "owner_local_facts": [
+          "prioritized power-management readiness"
+        ],
+        "contract_cases": [
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "part03_power_partition"
+        ]
+      },
+      {
+        "usage": "odd_engine_group_assessor",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-04.odd_engine_evidence"
+        ],
+        "owner_local_facts": [
+          "joint odd-position group readiness"
+        ],
+        "contract_cases": [
+          "CASE-07",
+          "CASE-08"
+        ],
+        "analyzer_checks": [
+          "part04_odd_group_partition"
+        ]
+      },
+      {
+        "usage": "even_engine_group_assessor",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-05.even_engine_evidence"
+        ],
+        "owner_local_facts": [
+          "joint even-position group readiness"
+        ],
+        "contract_cases": [
+          "CASE-09",
+          "CASE-10"
+        ],
+        "analyzer_checks": [
+          "part05_even_group_partition"
+        ]
+      },
+      {
+        "usage": "four_engine_configuration_assessor",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-06.configuration_evidence"
+        ],
+        "owner_local_facts": [
+          "four-engine structural concordance"
+        ],
+        "contract_cases": [
+          "CASE-11",
+          "CASE-12"
+        ],
+        "analyzer_checks": [
+          "part06_configuration_partition"
+        ]
+      },
+      {
+        "usage": "propulsion_evidence_composer",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-07.odd_engine_assessment",
+          "PART-07.even_engine_assessment",
+          "PART-07.configuration_assessment"
+        ],
+        "owner_local_facts": [
+          "prioritized propulsion evidence composition"
+        ],
+        "contract_cases": [
+          "CASE-13",
+          "CASE-14"
+        ],
+        "analyzer_checks": [
+          "part07_propulsion_partition"
+        ]
+      },
+      {
+        "usage": "charging_interlock_assessor",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-08.charger_evidence"
+        ],
+        "owner_local_facts": [
+          "prioritized charger interlock readiness"
+        ],
+        "contract_cases": [
+          "CASE-15",
+          "CASE-16"
+        ],
+        "analyzer_checks": [
+          "part08_charging_partition"
+        ]
+      },
+      {
+        "usage": "enable_demand_lifecycle",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-09.control_event",
+          "PART-09.actuation_feedback",
+          "PART-09.accepted_directive",
+          "PART-09.In(demandMemory)"
+        ],
+        "owner_local_facts": [
+          "fresh/requested/active demand transition"
+        ],
+        "contract_cases": [
+          "CASE-17",
+          "CASE-18",
+          "CASE-19"
+        ],
+        "analyzer_checks": [
+          "part09_demand_transition_partition"
+        ]
+      },
+      {
+        "usage": "fault_action_priority_resolver",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-10.request_context",
+          "PART-10.battery_assessment",
+          "PART-10.power_assessment",
+          "PART-10.propulsion_assessment",
+          "PART-10.charging_assessment"
+        ],
+        "owner_local_facts": [
+          "charger-first fault cause and action priority"
+        ],
+        "contract_cases": [
+          "CASE-20",
+          "CASE-21",
+          "CASE-22",
+          "CASE-23",
+          "CASE-24"
+        ],
+        "analyzer_checks": [
+          "part10_fault_action_partition"
+        ]
+      },
+      {
+        "usage": "recovery_qualification",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-11.fault_action_summary",
+          "PART-11.In(recoveryMemory)"
+        ],
+        "owner_local_facts": [
+          "fault-latched acknowledgment-gated recovery"
+        ],
+        "contract_cases": [
+          "CASE-25",
+          "CASE-26",
+          "CASE-27"
+        ],
+        "analyzer_checks": [
+          "part11_recovery_transition_partition"
+        ]
+      },
+      {
+        "usage": "availability_decision_owner",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-12.battery_assessment",
+          "PART-12.power_assessment",
+          "PART-12.propulsion_assessment",
+          "PART-12.charging_assessment",
+          "PART-12.demand_view",
+          "PART-12.fault_action_summary",
+          "PART-12.recovery_frame"
+        ],
+        "owner_local_facts": [
+          "composed availability and prioritized report cause"
+        ],
+        "contract_cases": [
+          "CASE-28",
+          "CASE-29"
+        ],
+        "analyzer_checks": [
+          "part12_availability_partition"
+        ]
+      },
+      {
+        "usage": "power_command_interlock",
+        "passed": true,
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "PART-13.availability_decision",
+          "PART-13.demand_view",
+          "PART-13.recovery_gate",
+          "PART-13.accepted_directive",
+          "PART-13.actuation_feedback",
+          "PART-13.In(commandMemory)"
+        ],
+        "owner_local_facts": [
+          "first-versus-held command sequencing"
+        ],
+        "contract_cases": [
+          "BEH-01"
+        ],
+        "analyzer_checks": [
+          "part13_command_transition_partition"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "exclusions": {
+    "semantic_usages": [
+      "root System usage",
+      "behavior-free generated-support Process"
+    ],
+    "semantic_interactions": [
+      "21 root/Process support segments",
+      "duplicate endpoint declarations",
+      "process routing"
+    ],
+    "nontrivial_contract_cases": [
+      "datatype invariants",
+      "initialization guarantees",
+      "preservation projections",
+      "BEH-01 command relation",
+      "identity forwarding",
+      "synthetic true",
+      "duplicate end-to-end restatements"
+    ],
+    "scenario_families": [
+      "variant traces within SCN-06, SCN-07, SCN-08, and SCN-10"
+    ]
+  }
+}

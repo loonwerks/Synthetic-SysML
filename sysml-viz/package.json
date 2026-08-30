@@ -1,0 +1,31 @@
+{
+  "name": "sysml-viz",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A local, agent-friendly SysML v2 and GUMBO visualization engine.",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace @sysml-viz/core && npm run build --workspace @sysml-viz/server && npm run build --workspace @sysml-viz/cli && npm run build --workspace @sysml-viz/web",
+    "predev": "npm run build --workspace @sysml-viz/core",
+    "dev": "concurrently --kill-others-on-fail --names server,web --prefix-colors cyan,magenta \"npm run dev --workspace @sysml-viz/server -- --root ../external/inspecta-scp/scp_demo_artifacts/isolette_io --library ../external/sysml-aadl-libraries\" \"npm run dev --workspace @sysml-viz/web\"",
+    "start": "node packages/cli/dist/index.js serve",
+    "sysml-viz": "node packages/cli/dist/index.js",
+    "test": "npm run test --workspace @sysml-viz/core && npm run test --workspace @sysml-viz/server && npm run test --workspace @sysml-viz/cli && npm run test --workspace @sysml-viz/web",
+    "test:e2e": "playwright test",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "check": "npm run typecheck && npm test && npm run build",
+    "clean": "npm run clean --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.61.1",
+    "@types/node": "^22.0.0",
+    "concurrently": "^9.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0"
+  }
+}

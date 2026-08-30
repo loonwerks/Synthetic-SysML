@@ -1,0 +1,399 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132656Z-eit-acquisition-small-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/EIT_Image_Availability_Coordinator.sysml",
+  "source_sha256": "2599d5211266ace93c420bbaa5c3cfabf9d73041dac8cdf15a89b0a1c2fd9a26",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 7,
+    "edgeCount": 18,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 117,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "DIRECTIVE-01",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INVAR-01",
+      "MATCH-01",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "OUTPUT-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PRIORITY-01",
+      "PUBLICATION-01",
+      "QUAL-ACQ-01",
+      "QUAL-INTENT-01",
+      "QUAL-RESULT-01",
+      "REQUEST-MAP-01",
+      "STATE-01",
+      "TYPE-02"
+    ],
+    "relativePath": "cps48/runs/20260814T132656Z-eit-acquisition-small-r2-a1/system-abstract.md",
+    "taggedElementCount": 99,
+    "traceAssociationCount": 99,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a diversity-compliant small EIT image-availability coordinator with an exact 6/12/12/5 design, one image-lifecycle decision owner, closed fault/recovery partitions, and acquisition only as an external upstream event.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset express the Image Availability Governor's two state variables, initialization, pre-state-dependent result correlation, twelve explicit-priority guards, and atomic next-state resolution without duplicating the principal decision?",
+        "Can the parameterized A/B/no-acquisition mappings inside CASE-06 and CASE-11 remain two counted top-level contract regions in canonical GUMBO, or is a trace-preserving refinement needed while retaining exactly twelve nontrivial cases?",
+        "What one-root containment and delegation mapping preserves six semantic usages, twelve semantic interactions, depth 1..2, and one weak semantic region while separately reporting every required support usage and raw connection?",
+        "Can the directive and publication usages retain producer-total nonidentity local contracts without receiving a hidden precomputed command or recomputing the governor's lifecycle policy?",
+        "Can the deterministic analyzer exhaust 4320 raw and 1200 qualified snapshots, witness every case and scenario, and check anomalous directive-pair unreachability without acting as another architectural owner?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "Doctor-facing EIT-image generation and analysis availability, with acquisition represented only as an opaque external upstream event",
+        "closest_baseline": "replicate-1 small EIT Monitoring-Start and Impedance-Acquisition Coordinator",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system removes monitoring, calibration, acquisition authorization, acquisition command, and impedance delivery; it instead owns requested/ready image identity, consumes external generation results, directs external image generation, and publishes Doctor-facing image availability under correlation, release, completion, and failure priorities. Realizing it requires substituted boundaries, state subject, topology, and policy rather than added detail or renamed replicate-1 session logic."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Add direct PART-05 and PART-06 relation coverage; allocation and domain behavior remain unchanged.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "ANALYSIS-01/02 exhaust 4320 raw snapshots and 1200 qualified governor snapshots, but root composition reaches only governor-produced downstream values. It cannot by itself execute every PART-05 ImageResolution x QualifiedAcquisition pair or every PART-06 ImageResolution value; for example, GenerationStarted paired with InvalidAcquisition is deliberately unreachable although DIRECTIVE-01 specifies its fail-closed result. The current harness validates reported ownership records and diagnostics but does not infer missing extensional coverage.",
+          "requested_change": "Revise ANALYSIS-01..03 and PASS-04 so metrics.json and the retained analyzer directly enumerate PART-05's 5*3*11*4=660 pairs with GenerateFromA/GenerateFromB/HoldGeneration fibers 15/15/630, and PART-06's 5*3*11=165 values with delivery fibers 33/33/99, status fibers 15/15/30/45/15/15/30, and exact joint outputs. Keep anomalous-pair unreachability as a separate end-to-end check. Change no PART, INT, campaign metric, case, scenario, root interface, domain behavior, or claim boundary."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional ownership audit: PART-01 and PART-02 are 6-to-4 status-dependent classifications with fibers 3/1/1/1; PART-03 is an 8-to-5 classification with fibers 4/1/1/1/1; PART-04 performs state-dependent correlation, priority, and twelve-case choice; PART-05 is a 660-to-3 conjunctive fail-closed gate with fibers 630/15/15; and PART-06 jointly classifies state and disposition into delivery and status. No usage is solely a copy, bundle, reroute, bijective enum translation, or A/B rename.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The current SysML-AADL library, trusted Isolette sources, and current accepted checker precedents support System/Process/Thread containment, typed DataPort and PortConnection flows, attribute-based Data records, local GUMBO state, initialization, compute cases, In(state), conditional finite mappings, and sibling fan-out.",
+          "requested_change": "Realize one explicit root System containing one uncredited behavior-free Process containing the six semantic Threads. Use twelve generated-support boundary delegation declarations plus six direct internal declarations, for eighteen raw PortConnection declarations at physical depth two; give support and delegation no semantic or owner credit."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "CASE-06 and CASE-11 can retain one top-level applicability region each while finite helper expressions select A/B/no-acquisition outcomes. PART-04 can constrain both local post-state variables and one complete ImageResolution, and PART-05/PART-06 can consume only their transmitted owner-local inputs. The 4320 raw and 1200 qualified products plus the direct local products are tractable under the current 180-second analyzer watchdog.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved unchanged architecture with direct downstream ownership coverage added.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized the JSON-only canonical-source binding; retained source, analyzer, metrics, and traceability agree after SysML typechecking and bounded analysis passed.",
+      "canonical_source": "model/EIT_Image_Availability_Coordinator.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": [
+        "Changed canonical_source from model/file.sysml to model/EIT_Image_Availability_Coordinator.sysml without changing source semantics."
+      ]
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Authoritatively bound system-overview accepted after three resumed presentation correction cycles; current-revision validation, native rendering, route health, and all 99 exact trace associations passed.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "DIRECTIVE-01",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INVAR-01",
+        "MATCH-01",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "OUTPUT-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PRIORITY-01",
+        "PUBLICATION-01",
+        "QUAL-ACQ-01",
+        "QUAL-INTENT-01",
+        "QUAL-RESULT-01",
+        "REQUEST-MAP-01",
+        "STATE-01",
+        "TYPE-02"
+      ],
+      "reviewed_tagged_element_count": 99,
+      "reviewed_trace_association_count": 99,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Canonical source binding, bounded semantics, ownership, traceability, and rendered-artifact fitness passed without silent drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 6,
+        "semantic_interactions": 12,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "upstream_acquisition_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "upstream_acquisition_qualification.acquisition_sample"
+          ],
+          "owner_local_facts": [
+            "status-sensitive Qualified_Acquisition classification"
+          ],
+          "contract_cases": [
+            "QUAL-ACQ-01"
+          ],
+          "analyzer_checks": [
+            "part01_qualification_product_6_fibers_3_1_1_1"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "doctor_intent_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "doctor_intent_qualification.review_intent_sample"
+          ],
+          "owner_local_facts": [
+            "status-sensitive Qualified_Intent classification"
+          ],
+          "contract_cases": [
+            "QUAL-INTENT-01"
+          ],
+          "analyzer_checks": [
+            "part02_qualification_product_6_fibers_3_1_1_1"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "generation_result_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "generation_result_qualification.generation_result_sample"
+          ],
+          "owner_local_facts": [
+            "status-sensitive Qualified_Generation_Result classification"
+          ],
+          "contract_cases": [
+            "QUAL-RESULT-01"
+          ],
+          "analyzer_checks": [
+            "part03_qualification_product_8_fibers_4_1_1_1_1"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "image_availability_governor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "image_availability_governor.qualified_acquisition",
+            "image_availability_governor.qualified_intent",
+            "image_availability_governor.qualified_generation_result",
+            "image_availability_governor.image_state.pre",
+            "image_availability_governor.recovery_phase.pre"
+          ],
+          "owner_local_facts": [
+            "ordered case selection",
+            "committed Image_Resolution",
+            "next image state",
+            "next recovery phase"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "part04_governor_product_1200_case_vector_957_54_27_27_27_27_27_12_12_12_9_9"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "generation_directive_derivation",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "generation_directive_derivation.image_resolution",
+            "generation_directive_derivation.qualified_acquisition"
+          ],
+          "owner_local_facts": [
+            "producer-total two-input Generation_Directive gate"
+          ],
+          "contract_cases": [
+            "DIRECTIVE-01"
+          ],
+          "analyzer_checks": [
+            "part05_direct_product_660_fibers_15_15_630"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "doctor_publication",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "doctor_publication.image_resolution"
+          ],
+          "owner_local_facts": [
+            "joint Image_Delivery gate and Availability_Status precedence"
+          ],
+          "contract_cases": [
+            "PUBLICATION-01"
+          ],
+          "analyzer_checks": [
+            "part06_direct_product_165_delivery_33_33_99_status_15_15_30_45_15_15_30"
+          ],
+          "passed": true
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Canonical source binding, bounded semantics, ownership, traceability, and rendered-artifact fitness passed without silent drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

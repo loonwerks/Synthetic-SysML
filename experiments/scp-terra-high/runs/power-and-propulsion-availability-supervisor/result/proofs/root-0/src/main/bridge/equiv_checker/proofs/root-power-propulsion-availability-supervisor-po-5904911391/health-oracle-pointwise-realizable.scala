@@ -1,0 +1,16 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_5904911391fa_Oracle_Pointwise_Realizable {
+  @pure def check(
+      qualified_battery: equiv_shared_0.Power_Propulsion_Availability_Supervisor.QualifiedBatteryObservation): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryCapacityAssessmentOwner_supervisor_process_battery_capacity_assessment_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryAssessment.READY_NONE)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryCapacityAssessmentOwner_supervisor_process_battery_capacity_assessment_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryAssessment.NOT_READY_INVALID)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryCapacityAssessmentOwner_supervisor_process_battery_capacity_assessment_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryAssessment.NOT_READY_STALE)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryCapacityAssessmentOwner_supervisor_process_battery_capacity_assessment_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryAssessment.NOT_READY_LIMITED)) |
+        (equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryCapacityAssessmentOwner_supervisor_process_battery_capacity_assessment_GumboX.inititialize_IEP_Post(equiv_shared_0.Power_Propulsion_Availability_Supervisor.BatteryAssessment.NOT_READY_DEPLETED_OR_UNKNOWN)))))
+  }
+}

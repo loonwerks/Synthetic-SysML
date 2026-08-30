@@ -1,0 +1,43 @@
+// #Sireum
+
+package scp_candidate.Mining_Threat_Retreat_Supervision
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object Recovery_Control_supervisor_process_recovery_control {
+
+  // BEGIN STATE VARS
+  var recovery_memory: Base_Types.Integer_32 = Base_Types.Integer_32_example()
+  // END STATE VARS
+
+  def initialise(api: Recovery_Control_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee healthy_initial
+        recovery_memory == 0 &
+          api.next_recovery_state.state_code == 0 &
+          api.gate_mining.gate_code == 0 &
+          api.gate_defense == api.gate_mining &
+          api.gate_mobility == api.gate_mining &
+          api.emergency_state.emergency_code == 0
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_gate_mining(Mining_Threat_Retreat_Supervision.RecoveryGateValue.example())
+    api.put_gate_defense(Mining_Threat_Retreat_Supervision.RecoveryGateValue.example())
+    api.put_gate_mobility(Mining_Threat_Retreat_Supervision.RecoveryGateValue.example())
+    api.put_emergency_state(Mining_Threat_Retreat_Supervision.EmergencyStateValue.example())
+    api.put_next_recovery_state(Mining_Threat_Retreat_Supervision.RecoveryStateValue.example())
+  }
+
+  def finalise(api: Recovery_Control_Operational_Api): Unit = { }
+}

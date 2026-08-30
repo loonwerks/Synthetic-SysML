@@ -1,0 +1,20 @@
+COMMAND
+SIREUM_HOME/bin/sireum hamr sysml codegen --sourcepath experiments/rust-verus/flight-stack/rust/proof/codegen-sourcepath --system-name FlightStack::FlightControlSystem --platform Microkit --output-dir experiments/rust-verus/flight-stack/rust/hamr --sel4-output-dir experiments/rust-verus/flight-stack/rust/hamr --workspace-root-dir experiments/rust-verus/flight-stack/rust --verus-attribute-syntax rust/model/flight_stack_rust.sysml
+
+EXIT_CODE
+0
+
+OUTPUT
+The file argument is currently ignored when the system-name is set
+Please set AM_REPOS_ROOT environment variable if you want HAMR to provision the project
+Wrote: experiments/rust-verus/flight-stack/rust/.slang/FlightControlSystem_Instance.json
+
+VERBOSE_DIAGNOSTIC_RETAINED_FROM_THE_SAME_FINAL_MODEL
+TODO: Need to handle datatype invariants for FlightStack::AircraftAttitude
+TODO: Need to handle datatype invariants for FlightStack::PairedFdGuidance
+TODO: Need to handle datatype invariants for FlightStack::PairedApStatus
+TODO: Need to handle datatype invariants for FlightStack::ActuatorCommand
+TODO: Need to handle datatype invariants for FlightStack::ProposedActuatorRates
+
+NOTE
+The five diagnostics are HAMR Microkit backend limitations, not projection removals. The invariant text remains byte-identical in the source/projection GUMBO block audit.

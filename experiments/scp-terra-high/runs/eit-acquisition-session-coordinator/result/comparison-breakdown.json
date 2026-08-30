@@ -1,0 +1,3447 @@
+{
+  "coverage_complete": true,
+  "coverage_gaps": [],
+  "roots": [
+    "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator"
+  ],
+  "schema_version": "2.0.0",
+  "types": [
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionCommand",
+      "kind": "enum",
+      "literals": [
+        "DO_NOT_COLLECT",
+        "COLLECT"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionCommand",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionObservation",
+      "kind": "enum",
+      "literals": [
+        "ACQUISITION_AVAILABLE",
+        "ACQUISITION_FAULT"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionObservation",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+      "element_type": null,
+      "fields": [
+        [
+          "effectiveIntent",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision::field::effectiveIntent"
+        ],
+        [
+          "disposition",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision::field::disposition"
+        ]
+      ],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionDisposition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionDisposition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision::field::disposition",
+      "kind": "enum",
+      "literals": [
+        "NO_REQUEST_DISPOSITION",
+        "ACCEPTED",
+        "REJECTED",
+        "RECOVERY_APPLIED",
+        "PREEMPTED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionDisposition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionDisposition.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision::field::disposition",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionEffectiveIntent",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionEffectiveIntent.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision::field::effectiveIntent",
+      "kind": "enum",
+      "literals": [
+        "NO_INTENT",
+        "STOP_INTENT",
+        "RESET_PREPARATION_INTENT",
+        "HOLD_MONITORING_INTENT",
+        "CONFIRM_BELT_INTENT",
+        "RECORD_CALIBRATION_INTENT",
+        "START_MONITORING_INTENT"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionEffectiveIntent",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecisionEffectiveIntent.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision::field::effectiveIntent",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+      "element_type": null,
+      "fields": [
+        [
+          "beltCategory",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment::field::beltCategory"
+        ],
+        [
+          "qualified",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment::field::qualified"
+        ]
+      ],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualification",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualification.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment::field::beltCategory",
+      "kind": "enum",
+      "literals": [
+        "BELT_UNAVAILABLE",
+        "BELT_ABSENT",
+        "BELT_PRESENT"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualification",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualification.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment::field::beltCategory",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment::field::qualified",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment::field::qualified",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltObservation",
+      "kind": "enum",
+      "literals": [
+        "BELT_OBSERVATION_INVALID",
+        "BELT_NOT_APPLIED",
+        "BELT_APPLIED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltObservation",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationObservation",
+      "kind": "enum",
+      "literals": [
+        "CALIBRATION_OBSERVATION_INVALID",
+        "CALIBRATION_NOT_AVAILABLE",
+        "CALIBRATION_FAILED",
+        "CALIBRATION_PASSED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationObservation",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationQualification",
+      "kind": "enum",
+      "literals": [
+        "CALIBRATION_BLOCKED",
+        "NOT_CALIBRATED",
+        "CALIBRATED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationQualification",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::DoctorRequest",
+      "kind": "enum",
+      "literals": [
+        "NO_DOCTOR_REQUEST",
+        "START_MONITORING",
+        "STOP_MONITORING"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::DoctorRequest",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+      "element_type": null,
+      "fields": [
+        [
+          "condition",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::condition"
+        ],
+        [
+          "recovery",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::recovery"
+        ],
+        [
+          "beltQualified",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::beltQualified"
+        ],
+        [
+          "calibrationQualified",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::calibrationQualified"
+        ],
+        [
+          "preparationState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::preparationState"
+        ],
+        [
+          "monitoringState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::monitoringState"
+        ]
+      ],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::beltQualified",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::beltQualified",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "B",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::calibrationQualified",
+      "kind": "scalar",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "B",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::calibrationQualified",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeCondition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeCondition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::condition",
+      "kind": "enum",
+      "literals": [
+        "BELT_UNAVAILABLE_CONDITION",
+        "BELT_ABSENT_CONDITION",
+        "CALIBRATION_NOT_READY_CONDITION",
+        "ACQUISITION_FAULT_CONDITION",
+        "ACQUISITION_READY"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeCondition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeCondition.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::condition",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeMonitoringState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeMonitoringState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::monitoringState",
+      "kind": "enum",
+      "literals": [
+        "MONITORING_INACTIVE",
+        "MONITORING_ACTIVE",
+        "MONITORING_HELD"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeMonitoringState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeMonitoringState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::monitoringState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopePreparationState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopePreparationState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::preparationState",
+      "kind": "enum",
+      "literals": [
+        "UNPREPARED",
+        "BELT_CONFIRMED",
+        "PREPARATION_CALIBRATED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopePreparationState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopePreparationState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::preparationState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeRecovery",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeRecovery.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::recovery",
+      "kind": "enum",
+      "literals": [
+        "NO_RECOVERY",
+        "RESET_PREPARATION_RECOVERY",
+        "HOLD_MONITORING_RECOVERY"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeRecovery",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelopeRecovery.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope::field::recovery",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::FrameDelivery",
+      "kind": "enum",
+      "literals": [
+        "NO_DELIVERY",
+        "DELIVER_FRAME_A",
+        "DELIVER_FRAME_B"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::FrameDelivery",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ImpedanceFrameObservation",
+      "kind": "enum",
+      "literals": [
+        "NO_FRAME",
+        "INVALID_FRAME",
+        "FRAME_A",
+        "FRAME_B"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ImpedanceFrameObservation",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+      "element_type": null,
+      "fields": [
+        [
+          "preState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::preState"
+        ],
+        [
+          "nextState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::nextState"
+        ],
+        [
+          "effectiveIntent",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::effectiveIntent"
+        ],
+        [
+          "disposition",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::disposition"
+        ],
+        [
+          "notice",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::notice"
+        ],
+        [
+          "preparationState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::preparationState"
+        ]
+      ],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionDisposition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionDisposition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::disposition",
+      "kind": "enum",
+      "literals": [
+        "NO_REQUEST_DISPOSITION",
+        "ACCEPTED",
+        "REJECTED",
+        "RECOVERY_APPLIED",
+        "PREEMPTED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionDisposition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionDisposition.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::disposition",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionIntent",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionIntent.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::effectiveIntent",
+      "kind": "enum",
+      "literals": [
+        "NO_INTENT",
+        "STOP_INTENT",
+        "RESET_PREPARATION_INTENT",
+        "HOLD_MONITORING_INTENT",
+        "CONFIRM_BELT_INTENT",
+        "RECORD_CALIBRATION_INTENT",
+        "START_MONITORING_INTENT"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionIntent",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionIntent.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::effectiveIntent",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNextState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNextState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::nextState",
+      "kind": "enum",
+      "literals": [
+        "MONITORING_INACTIVE",
+        "MONITORING_ACTIVE",
+        "MONITORING_HELD"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNextState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNextState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::nextState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNotice",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNotice.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::notice",
+      "kind": "enum",
+      "literals": [
+        "NONE",
+        "BELT_OBSERVATION_UNAVAILABLE",
+        "BELT_NOT_CONFIRMED",
+        "CALIBRATION_NOT_READY",
+        "ACQUISITION_UNAVAILABLE",
+        "MONITORING_HELD_NOTICE",
+        "INAPPLICABLE_REQUEST",
+        "WAITING_FOR_FRAME",
+        "FRAME_REJECTED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNotice",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionNotice.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::notice",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::preState",
+      "kind": "enum",
+      "literals": [
+        "MONITORING_INACTIVE",
+        "MONITORING_ACTIVE",
+        "MONITORING_HELD"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::preState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreparationState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreparationState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::preparationState",
+      "kind": "enum",
+      "literals": [
+        "UNPREPARED",
+        "BELT_CONFIRMED",
+        "PREPARATION_CALIBRATED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreparationState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionPreparationState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot::field::preparationState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState",
+      "kind": "enum",
+      "literals": [
+        "MONITORING_INACTIVE",
+        "MONITORING_ACTIVE",
+        "MONITORING_HELD"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+      "element_type": null,
+      "fields": [
+        [
+          "preState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::preState"
+        ],
+        [
+          "nextState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::nextState"
+        ],
+        [
+          "effectiveIntent",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::effectiveIntent"
+        ],
+        [
+          "disposition",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::disposition"
+        ]
+      ],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionDisposition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionDisposition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::disposition",
+      "kind": "enum",
+      "literals": [
+        "NO_REQUEST_DISPOSITION",
+        "ACCEPTED",
+        "REJECTED",
+        "RECOVERY_APPLIED",
+        "PREEMPTED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionDisposition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionDisposition.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::disposition",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionIntent",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionIntent.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::effectiveIntent",
+      "kind": "enum",
+      "literals": [
+        "NO_INTENT",
+        "STOP_INTENT",
+        "RESET_PREPARATION_INTENT",
+        "HOLD_MONITORING_INTENT",
+        "CONFIRM_BELT_INTENT",
+        "RECORD_CALIBRATION_INTENT",
+        "START_MONITORING_INTENT"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionIntent",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionIntent.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::effectiveIntent",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionNextState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionNextState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::nextState",
+      "kind": "enum",
+      "literals": [
+        "UNPREPARED",
+        "BELT_CONFIRMED",
+        "PREPARATION_CALIBRATED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionNextState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionNextState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::nextState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionPreState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionPreState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::preState",
+      "kind": "enum",
+      "literals": [
+        "UNPREPARED",
+        "BELT_CONFIRMED",
+        "PREPARATION_CALIBRATED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionPreState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionPreState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot::field::preState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState",
+      "kind": "enum",
+      "literals": [
+        "UNPREPARED",
+        "BELT_CONFIRMED",
+        "PREPARATION_CALIBRATED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": null,
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatus",
+      "element_type": null,
+      "fields": [
+        [
+          "preparationState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::preparationState"
+        ],
+        [
+          "monitoringState",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::monitoringState"
+        ],
+        [
+          "disposition",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::disposition"
+        ],
+        [
+          "notice",
+          "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::notice"
+        ]
+      ],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus",
+      "kind": "record",
+      "literals": [],
+      "oracle_enum_owner": null,
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatus",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusDisposition",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusDisposition.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::disposition",
+      "kind": "enum",
+      "literals": [
+        "NO_REQUEST_DISPOSITION",
+        "ACCEPTED",
+        "REJECTED",
+        "RECOVERY_APPLIED",
+        "PREEMPTED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusDisposition",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusDisposition.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::disposition",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusMonitoringState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusMonitoringState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::monitoringState",
+      "kind": "enum",
+      "literals": [
+        "MONITORING_INACTIVE",
+        "MONITORING_ACTIVE",
+        "MONITORING_HELD"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusMonitoringState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusMonitoringState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::monitoringState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusNotice",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusNotice.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::notice",
+      "kind": "enum",
+      "literals": [
+        "NONE",
+        "BELT_OBSERVATION_UNAVAILABLE",
+        "BELT_NOT_CONFIRMED",
+        "CALIBRATION_NOT_READY",
+        "ACQUISITION_UNAVAILABLE",
+        "MONITORING_HELD_NOTICE",
+        "INAPPLICABLE_REQUEST",
+        "WAITING_FOR_FRAME",
+        "FRAME_REJECTED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusNotice",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusNotice.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::notice",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusPreparationState",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusPreparationState.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::preparationState",
+      "kind": "enum",
+      "literals": [
+        "UNPREPARED",
+        "BELT_CONFIRMED",
+        "PREPARATION_CALIBRATED"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusPreparationState",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatusPreparationState.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus::field::preparationState",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    },
+    {
+      "bound": null,
+      "candidate_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest",
+      "candidate_index_minimum": null,
+      "candidate_index_type": null,
+      "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest.Type",
+      "element_type": null,
+      "fields": [],
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::TechnicianRequest",
+      "kind": "enum",
+      "literals": [
+        "NO_TECHNICIAN_REQUEST",
+        "CONFIRM_BELT",
+        "RECORD_CALIBRATION",
+        "RESET_PREPARATION"
+      ],
+      "oracle_enum_owner": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest",
+      "oracle_index_minimum": null,
+      "oracle_index_type": null,
+      "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest.Type",
+      "qualified_name": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::TechnicianRequest",
+      "recursive": false,
+      "supported": true,
+      "unsupported_reason": null
+    }
+  ],
+  "units": [
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "996276713fa844047f41a7585a0a77099453a4a343f4b6983d5c675c42e4697a",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "acquisitionCommand"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INIT_ACQUISITION_COMMAND",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 1160,
+            "offset": 78277,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::AcquisitionCommandPolicy",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionCommandPolicy",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionCommandPolicy::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand.Type",
+          "name": "acquisitionCommand",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionCommand"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "name": "monitoringDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "5da45246d08ca1f6ed64c5e34bc6f873ca1491a32ba8d9da745b183824797905",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "acquisitionCommand"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_ACQUISITION_COMMAND",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 922,
+            "offset": 51435,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "996276713fa844047f41a7585a0a77099453a4a343f4b6983d5c675c42e4697a",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "monitoringDecision",
+          "acquisitionCommand"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "CASE_19_ACTIVE_COLLECTION_CLASSIFICATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 1164,
+            "offset": 78404,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::AcquisitionCommandPolicy",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionCommandPolicy",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionCommandPolicy::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand.Type",
+          "name": "acquisitionCommand",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommand.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionCommand"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "name": "monitoringDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "5da45246d08ca1f6ed64c5e34bc6f873ca1491a32ba8d9da745b183824797905",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "monitoringDecision",
+          "acquisitionCommand"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionCommandPolicy_acquisitionCoordinationProcess_acquisitionCommandPolicy_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "CASE_19_ACTIVE_COLLECTION_CLASSIFICATION",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 929,
+            "offset": 51706,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-19"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": null,
+        "generated_sha256": null,
+        "generated_source": null,
+        "guarantee": null,
+        "guarantee_observations": [],
+        "side": "candidate",
+        "source_object": null,
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": true
+      },
+      "candidate_clauses": [],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::AcquisitionEligibilityOwner",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionEligibilityOwner",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionEligibilityOwner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation.Type",
+          "name": "acquisitionObservation",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionObservation"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "name": "beltAssessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "name": "calibrationQualification",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationQualification"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "name": "eligibilityEnvelope",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "name": "monitoringState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "name": "preparationState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "52af3cf75990cd2ca065111f1772a0c33b015e8781c770577e2ba8ce9f62dfbe",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "acquisitionObservation",
+          "beltAssessment",
+          "calibrationQualification",
+          "preparationState",
+          "eligibilityEnvelope"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_ELIGIBILITY_ENVELOPE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 459,
+            "offset": 14077,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "01a1189623e0a28ce420c195d914dafed4f9c185247b223c1c53504ae7bb9298",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "acquisitionObservation",
+          "beltAssessment",
+          "calibrationQualification",
+          "monitoringState",
+          "preparationState",
+          "eligibilityEnvelope"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "PROJECT_ELIGIBILITY_STATES",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 402,
+            "offset": 13788,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_CALIBRATION_BOOLEAN",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 405,
+            "offset": 13974,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_08_BELT_UNAVAILABLE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 408,
+            "offset": 14155,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_09_BELT_ABSENT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 418,
+            "offset": 15158,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_10_CALIBRATION_NOT_READY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 428,
+            "offset": 16146,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_11_ACQUISITION_FAULT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 445,
+            "offset": 17513,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_12_ACQUISITION_READY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 455,
+            "offset": 18380,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::AcquisitionEligibilityOwner",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionEligibilityOwner",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::acquisitionEligibilityOwner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation.Type",
+          "name": "acquisitionObservation",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::AcquisitionObservation"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "name": "beltAssessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "name": "calibrationQualification",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationQualification"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "name": "eligibilityEnvelope",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "name": "monitoringState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "name": "preparationState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "52af3cf75990cd2ca065111f1772a0c33b015e8781c770577e2ba8ce9f62dfbe",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "acquisitionObservation",
+          "beltAssessment",
+          "calibrationQualification",
+          "monitoringState",
+          "preparationState",
+          "eligibilityEnvelope"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.AcquisitionEligibilityOwner_acquisitionCoordinationProcess_acquisitionEligibilityOwner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "PROJECT_ELIGIBILITY_STATES",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 485,
+            "offset": 16374,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_CALIBRATION_BOOLEAN",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 500,
+            "offset": 17670,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_08_BELT_UNAVAILABLE",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 509,
+            "offset": 18194,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-08"
+          ]
+        },
+        {
+          "clause_id": "CASE_09_BELT_ABSENT",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 521,
+            "offset": 19320,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-09"
+          ]
+        },
+        {
+          "clause_id": "CASE_10_CALIBRATION_NOT_READY",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 533,
+            "offset": 20446,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-10"
+          ]
+        },
+        {
+          "clause_id": "CASE_11_ACQUISITION_FAULT",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 551,
+            "offset": 21940,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-11"
+          ]
+        },
+        {
+          "clause_id": "CASE_12_ACQUISITION_READY",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 563,
+            "offset": 22952,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-12"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": null,
+        "generated_sha256": null,
+        "generated_source": null,
+        "guarantee": null,
+        "guarantee_observations": [],
+        "side": "candidate",
+        "source_object": null,
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": true
+      },
+      "candidate_clauses": [],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::BeltQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::beltQualificationOwner",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::beltQualificationOwner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "name": "beltAssessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation.Type",
+          "name": "beltObservation",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltObservation"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "ac0482fe36591d9585ac73391a3dfc7bca84228fa408376ff10ddf8de2d287b6",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "beltObservation",
+          "beltAssessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_BELT_ASSESSMENT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 374,
+            "offset": 9426,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "f26b82c4e07e178a3a51035914c08b7f908f85b119ddfe38a4190a47531f0ab5",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "beltObservation",
+          "beltAssessment"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "CASE_01_INVALID_BELT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 303,
+            "offset": 7954,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_02_BELT_ABSENT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 306,
+            "offset": 8185,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_03_BELT_PRESENT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 309,
+            "offset": 8402,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::BeltQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::beltQualificationOwner",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::beltQualificationOwner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "name": "beltAssessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation.Type",
+          "name": "beltObservation",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltObservation"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "ac0482fe36591d9585ac73391a3dfc7bca84228fa408376ff10ddf8de2d287b6",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "beltObservation",
+          "beltAssessment"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltQualificationOwner_acquisitionCoordinationProcess_beltQualificationOwner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "CASE_01_INVALID_BELT",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 386,
+            "offset": 10221,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-01"
+          ]
+        },
+        {
+          "clause_id": "CASE_02_BELT_ABSENT",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 391,
+            "offset": 10554,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-02"
+          ]
+        },
+        {
+          "clause_id": "CASE_03_BELT_PRESENT",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 396,
+            "offset": 10874,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-03"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": null,
+        "generated_sha256": null,
+        "generated_source": null,
+        "guarantee": null,
+        "guarantee_observations": [],
+        "side": "candidate",
+        "source_object": null,
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": true
+      },
+      "candidate_clauses": [],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::CalibrationQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::calibrationQualificationOwner",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::calibrationQualificationOwner::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "name": "beltAssessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation.Type",
+          "name": "calibrationObservation",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationObservation"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "name": "calibrationQualification",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationQualification"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "2761a4790b0c52c78590293b2175c6a41d1625d21102133d23a579a7e5a40551",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "beltAssessment",
+          "calibrationObservation",
+          "calibrationQualification"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_CALIBRATION_QUALIFICATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 414,
+            "offset": 11594,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "e0b4340f1036cde90ff7806bec1214c293c0d8e5963e61f13249daa1a7d42a7f",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "beltAssessment",
+          "calibrationObservation",
+          "calibrationQualification"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "CASE_04_BELT_BLOCKS_CALIBRATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 352,
+            "offset": 10746,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_05_CALIBRATION_NOT_READY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 354,
+            "offset": 10919,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_06_CALIBRATION_READY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 357,
+            "offset": 11165,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::CalibrationQualificationOwner",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::calibrationQualificationOwner",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::calibrationQualificationOwner::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "name": "beltAssessment",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.BeltAssessment",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::BeltAssessment"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation.Type",
+          "name": "calibrationObservation",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationObservation"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "name": "calibrationQualification",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualification.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::CalibrationQualification"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "2761a4790b0c52c78590293b2175c6a41d1625d21102133d23a579a7e5a40551",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "beltAssessment",
+          "calibrationObservation",
+          "calibrationQualification"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.CalibrationQualificationOwner_acquisitionCoordinationProcess_calibrationQualificationOwner_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "CASE_04_BELT_BLOCKS_CALIBRATION",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 426,
+            "offset": 12379,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-04"
+          ]
+        },
+        {
+          "clause_id": "CASE_05_CALIBRATION_NOT_READY",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 430,
+            "offset": 12674,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-05"
+          ]
+        },
+        {
+          "clause_id": "CASE_06_CALIBRATION_READY",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 435,
+            "offset": 13039,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-06"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "5c96fd3a6386fd19a0bf4595f3bc8c09fb03969e805a81016d2806a738010949",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "committedMonitoringState",
+          "monitoringDecision",
+          "monitoringState"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INIT_MONITORING_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 927,
+            "offset": 56471,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::MonitoringStateGovernor",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::monitoringStateGovernor",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::monitoringStateGovernor::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "name": "arbitrationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "name": "eligibilityEnvelope",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "name": "monitoringDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "name": "monitoringState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "name": "preparationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "name": "committedMonitoringState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "role": "post-state",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "a9b7bb2a66e445785ac2efb27c5c3ea6691c2dfffa8f8ce6e6383da13d2f2b46",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "committedMonitoringState",
+          "monitoringDecision",
+          "monitoringState"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_MONITORING_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 791,
+            "offset": 39875,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "5c96fd3a6386fd19a0bf4595f3bc8c09fb03969e805a81016d2806a738010949",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_committedMonitoringState",
+          "committedMonitoringState",
+          "arbitrationDecision",
+          "eligibilityEnvelope",
+          "preparationDecision",
+          "monitoringDecision",
+          "monitoringState"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "PUBLISH_MONITORING_PRE_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 938,
+            "offset": 57232,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_MONITORING_STATES",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 940,
+            "offset": 57340,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_MONITORING_DECISION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 959,
+            "offset": 59059,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_18_MONITORING_TRANSITION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 972,
+            "offset": 61417,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_18_MONITORING_NOTICE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 991,
+            "offset": 63259,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::MonitoringStateGovernor",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::monitoringStateGovernor",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::monitoringStateGovernor::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "name": "arbitrationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "name": "eligibilityEnvelope",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "name": "monitoringDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "name": "monitoringState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "name": "preparationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "name": "In_committedMonitoringState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "role": "pre-state",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "name": "committedMonitoringState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringState.Type",
+          "role": "post-state",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringState"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "a9b7bb2a66e445785ac2efb27c5c3ea6691c2dfffa8f8ce6e6383da13d2f2b46",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_committedMonitoringState",
+          "committedMonitoringState",
+          "arbitrationDecision",
+          "eligibilityEnvelope",
+          "preparationDecision",
+          "monitoringDecision",
+          "monitoringState"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringStateGovernor_acquisitionCoordinationProcess_monitoringStateGovernor_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "PUBLISH_MONITORING_PRE_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 803,
+            "offset": 40728,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_MONITORING_STATES",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 807,
+            "offset": 40940,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_MONITORING_DECISION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 828,
+            "offset": 42836,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_18_MONITORING_TRANSITION_AND_NOTICE",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 857,
+            "offset": 45609,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-18"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "d21fdaff10817b06830875b295ebcd628966259735a621e3a219f44b3f89f5c2",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "committedPreparationState",
+          "preparationDecision",
+          "preparationState"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INIT_PREPARATION_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 767,
+            "offset": 43442,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::PreparationStateGovernor",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::preparationStateGovernor",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::preparationStateGovernor::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "name": "arbitrationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "name": "preparationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "name": "preparationState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "name": "committedPreparationState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "role": "post-state",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "644bbebed43b191154e46da78d22d36dd1fc9ae8088e8aae8b4fc476e3557f35",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "committedPreparationState",
+          "preparationDecision",
+          "preparationState"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_PREPARATION_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 695,
+            "offset": 32464,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "d21fdaff10817b06830875b295ebcd628966259735a621e3a219f44b3f89f5c2",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_committedPreparationState",
+          "committedPreparationState",
+          "arbitrationDecision",
+          "preparationDecision",
+          "preparationState"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "PUBLISH_PREPARATION_PRE_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 776,
+            "offset": 44004,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_PREPARATION_SNAPSHOT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 778,
+            "offset": 44115,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_PREPARATION_DECISION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 791,
+            "offset": 45227,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_07_RESET_OR_RETAIN_PREPARATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 816,
+            "offset": 47754,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_17_ADVANCE_PREPARATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 825,
+            "offset": 48627,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::PreparationStateGovernor",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::preparationStateGovernor",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::preparationStateGovernor::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "name": "arbitrationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "name": "preparationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationDecisionSnapshot",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "name": "preparationState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "name": "In_committedPreparationState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "role": "pre-state",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "name": "committedPreparationState",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationState.Type",
+          "role": "post-state",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::PreparationState"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "644bbebed43b191154e46da78d22d36dd1fc9ae8088e8aae8b4fc476e3557f35",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "In_committedPreparationState",
+          "committedPreparationState",
+          "arbitrationDecision",
+          "preparationDecision",
+          "preparationState"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.PreparationStateGovernor_acquisitionCoordinationProcess_preparationStateGovernor_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "PUBLISH_PREPARATION_PRE_STATE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 705,
+            "offset": 33125,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "PROJECT_PREPARATION_SNAPSHOT",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 709,
+            "offset": 33340,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_07_RESET_OR_RETAIN_PREPARATION",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 750,
+            "offset": 37218,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-07"
+          ]
+        },
+        {
+          "clause_id": "CASE_17_ADVANCE_PREPARATION",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 762,
+            "offset": 38356,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-17"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": null,
+        "generated_sha256": null,
+        "generated_source": null,
+        "guarantee": null,
+        "guarantee_observations": [],
+        "side": "candidate",
+        "source_object": null,
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": true
+      },
+      "candidate_clauses": [],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::RequestArbiter",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::requestArbiter",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::requestArbiter::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "name": "arbitrationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest.Type",
+          "name": "doctorRequest",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::DoctorRequest"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "name": "eligibilityEnvelope",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest.Type",
+          "name": "technicianRequest",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::TechnicianRequest"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "9438b445bd6c06fd7de0c36c837b95f4ff8c106bf5dadf2049351fa18ad7bde4",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "doctorRequest",
+          "eligibilityEnvelope",
+          "arbitrationDecision"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_ARBITRATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 587,
+            "offset": 24154,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "569aab341d340f52991c07e5ec5f7a9f016fd32b185795d7cd044cb32f70ca84",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/RequestArbiter_acquisitionCoordinationProcess_requestArbiter_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "doctorRequest",
+          "eligibilityEnvelope",
+          "technicianRequest",
+          "arbitrationDecision"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "CASE_13_STOP_PRIORITY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 589,
+            "offset": 29001,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_14_RECOVERY_PRIORITY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 598,
+            "offset": 29753,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_15_TECHNICIAN_PRIORITY_AND_APPLICABILITY",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 611,
+            "offset": 30891,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_16_START_OR_NO_REQUEST",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 644,
+            "offset": 33890,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::RequestArbiter",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::requestArbiter",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::requestArbiter::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "name": "arbitrationDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ArbitrationDecision",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ArbitrationDecision"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest.Type",
+          "name": "doctorRequest",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.DoctorRequest.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::DoctorRequest"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "name": "eligibilityEnvelope",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.EligibilityEnvelope",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::EligibilityEnvelope"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest.Type",
+          "name": "technicianRequest",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.TechnicianRequest.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::TechnicianRequest"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "9438b445bd6c06fd7de0c36c837b95f4ff8c106bf5dadf2049351fa18ad7bde4",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "doctorRequest",
+          "eligibilityEnvelope",
+          "technicianRequest",
+          "arbitrationDecision"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.RequestArbiter_acquisitionCoordinationProcess_requestArbiter_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "CASE_13_STOP_PRIORITY",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 601,
+            "offset": 25136,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-13"
+          ]
+        },
+        {
+          "clause_id": "CASE_14_RECOVERY_PRIORITY",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 611,
+            "offset": 25994,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-14"
+          ]
+        },
+        {
+          "clause_id": "CASE_15_TECHNICIAN_PRIORITY_AND_APPLICABILITY",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 626,
+            "offset": 27273,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-15"
+          ]
+        },
+        {
+          "clause_id": "CASE_16_START_OR_NO_REQUEST",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 662,
+            "offset": 30504,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-16"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "f444b21b9657f1f506fa63d62e8029585d0421375f8feec0253245f173ae8998",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "frameDelivery",
+          "sessionStatus"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "INIT_PUBLICATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 1195,
+            "offset": 79857,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::SessionPublicationPolicy",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::sessionPublicationPolicy",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::sessionPublicationPolicy::initialize",
+      "kind": "initialize",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery.Type",
+          "name": "frameDelivery",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::FrameDelivery"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation.Type",
+          "name": "impedanceFrame",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ImpedanceFrameObservation"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "name": "monitoringDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatus",
+          "name": "sessionStatus",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatus",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.inititialize_IEP_Post_Container",
+        "generated_sha256": "bd26ff1d5d1e83b3675834a8cbd307187cff4810accadbb4ae7c4b9a1bfd9191",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.inititialize_IEP_Post",
+        "guarantee_observations": [
+          "frameDelivery",
+          "sessionStatus"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "INIT_PUBLICATION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 951,
+            "offset": 52723,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "initialize",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    },
+    {
+      "candidate": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "f444b21b9657f1f506fa63d62e8029585d0421375f8feec0253245f173ae8998",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "impedanceFrame",
+          "monitoringDecision",
+          "frameDelivery",
+          "sessionStatus"
+        ],
+        "side": "candidate",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_Candidate_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "candidate_clauses": [
+        {
+          "clause_id": "PROJECT_SESSION_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 1203,
+            "offset": 80310,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_20_FRAME_ADMISSION",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 1226,
+            "offset": 82458,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_20_NOTICE",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 1237,
+            "offset": 83255,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/candidate.sysml"
+          },
+          "trace_ids": []
+        }
+      ],
+      "candidate_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "classifier": "EIT_Acquisition_Session_Coordinator::SessionPublicationPolicy",
+      "coverage_complete": true,
+      "instance_path": "EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::sessionPublicationPolicy",
+      "key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/root-instance::EITAcquisitionSessionCoordinator_Instance/component::EITAcquisitionSessionCoordinator_Instance::acquisitionCoordinationProcess::sessionPublicationPolicy::compute",
+      "kind": "compute",
+      "observations": [
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery.Type",
+          "name": "frameDelivery",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.FrameDelivery.Type",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::FrameDelivery"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation.Type",
+          "name": "impedanceFrame",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.ImpedanceFrameObservation.Type",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::ImpedanceFrameObservation"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "name": "monitoringDecision",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.MonitoringDecisionSnapshot",
+          "role": "input",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::MonitoringDecisionSnapshot"
+        },
+        {
+          "candidate_declared": true,
+          "candidate_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatus",
+          "name": "sessionStatus",
+          "oracle_declared": true,
+          "oracle_type": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionStatus",
+          "role": "output",
+          "type_key": "root::EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator/type::EIT_Acquisition_Session_Coordinator::SessionStatus"
+        }
+      ],
+      "oracle": {
+        "assumption": null,
+        "assumption_observations": [],
+        "container_assumption": null,
+        "container_guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.compute_CEP_Post_Container",
+        "generated_sha256": "bd26ff1d5d1e83b3675834a8cbd307187cff4810accadbb4ae7c4b9a1bfd9191",
+        "generated_source": "proofs/root-0/src/main/bridge/equiv_shared_0/EIT_Acquisition_Session_Coordinator/SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.scala",
+        "guarantee": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX.compute_CEP_Post",
+        "guarantee_observations": [
+          "impedanceFrame",
+          "monitoringDecision",
+          "frameDelivery",
+          "sessionStatus"
+        ],
+        "side": "oracle",
+        "source_object": "equiv_shared_0.EIT_Acquisition_Session_Coordinator.SessionPublicationPolicy_acquisitionCoordinationProcess_sessionPublicationPolicy_GumboX",
+        "synthetic_true_assumption": true,
+        "synthetic_true_guarantee": false
+      },
+      "oracle_clauses": [
+        {
+          "clause_id": "PROJECT_SESSION_STATUS",
+          "kind": "guarantee",
+          "source": {
+            "column": 8,
+            "line": 960,
+            "offset": 53287,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": []
+        },
+        {
+          "clause_id": "CASE_20_FRAME_ADMISSION_AND_NOTICE",
+          "kind": "case",
+          "source": {
+            "column": 10,
+            "line": 987,
+            "offset": 55683,
+            "uri": "/tmp/equiv-result-staging-6i51dmji/bundle/inputs/oracle.sysml"
+          },
+          "trace_ids": [
+            "CASE-20"
+          ]
+        }
+      ],
+      "oracle_writes": {
+        "restricted": false,
+        "targets": []
+      },
+      "phase": "compute",
+      "root": "EIT_Acquisition_Session_Coordinator::EITAcquisitionSessionCoordinator",
+      "unsupported_reasons": []
+    }
+  ]
+}

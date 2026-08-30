@@ -1,0 +1,4169 @@
+{
+  "status": "passed",
+  "source_sha256": "6312123075cfed13af009e2bab34490f60559dbd2b7fa5ce5e3e914bad573c27",
+  "analysis_profile": "finite-bounded-campaign-v1",
+  "ownership_allocation": {
+    "principal_decision_owner": "PART-01",
+    "qualifier_relations": [
+      "PART-02",
+      "PART-03",
+      "PART-04"
+    ],
+    "command_preservation_relations": [
+      "PART-05",
+      "PART-06",
+      "PART-07"
+    ],
+    "multiple_decision_owners": false
+  },
+  "semantic_connection_map": {
+    "INT-01": {
+      "from": "CTX-02.threat_observation",
+      "via": "PART-02.threat_qualification",
+      "to": "PART-01.threat_input",
+      "payload": "Threat_Observation",
+      "routes": [
+        "boundary_threat",
+        "route_threat_to_qualifier",
+        "qualified_threat_to_owner"
+      ]
+    },
+    "INT-02": {
+      "from": "CTX-02.cargo_observation",
+      "via": "PART-03.resource_qualification",
+      "to": "PART-01.cargo_input",
+      "payload": "Cargo_Observation",
+      "routes": [
+        "boundary_cargo",
+        "route_cargo_to_qualifier",
+        "qualified_cargo_to_owner"
+      ]
+    },
+    "INT-03": {
+      "from": "CTX-02.capacitor_observation",
+      "via": "PART-03.resource_qualification",
+      "to": "PART-01.capacitor_input",
+      "payload": "Capacitor_Observation",
+      "routes": [
+        "boundary_capacitor",
+        "route_capacitor_to_qualifier",
+        "qualified_capacitor_to_owner"
+      ]
+    },
+    "INT-04": {
+      "from": "CTX-01.request_observation",
+      "via": "PART-04.request_availability_qualification",
+      "to": "PART-01.request_input",
+      "payload": "Request_Observation",
+      "routes": [
+        "boundary_request",
+        "route_request_to_qualifier",
+        "qualified_request_to_owner"
+      ]
+    },
+    "INT-05": {
+      "from": "CTX-02.mining_availability_observation",
+      "via": "PART-04.request_availability_qualification",
+      "to": "PART-01.mining_availability_input",
+      "payload": "Mining_Availability_Observation",
+      "routes": [
+        "boundary_mining_availability",
+        "route_mining_availability_to_qualifier",
+        "qualified_mining_availability_to_owner"
+      ]
+    },
+    "INT-06": {
+      "from": "CTX-02.defense_availability_observation",
+      "via": "PART-04.request_availability_qualification",
+      "to": "PART-01.defense_availability_input",
+      "payload": "Defense_Availability_Observation",
+      "routes": [
+        "boundary_defense_availability",
+        "route_defense_availability_to_qualifier",
+        "qualified_defense_availability_to_owner"
+      ]
+    },
+    "INT-07": {
+      "from": "CTX-02.retreat_availability_observation",
+      "via": "PART-04.request_availability_qualification",
+      "to": "PART-01.retreat_availability_input",
+      "payload": "Retreat_Availability_Observation",
+      "routes": [
+        "boundary_retreat_availability",
+        "route_retreat_availability_to_qualifier",
+        "qualified_retreat_availability_to_owner"
+      ]
+    },
+    "INT-08": {
+      "from": "CTX-02.service_progress_observation",
+      "via": null,
+      "to": "PART-01.service_progress_input",
+      "payload": "Service_Progress_Observation",
+      "routes": [
+        "boundary_service_progress",
+        "service_progress_to_owner"
+      ]
+    },
+    "INT-09": {
+      "from": "PART-01.mining_decision",
+      "via": "PART-05.mining_command_delivery",
+      "to": "CTX-03.mining_command",
+      "payload": "Mining_Command",
+      "routes": [
+        "mining_decision_to_delivery",
+        "mining_delivery_to_boundary",
+        "boundary_mining_command"
+      ]
+    },
+    "INT-10": {
+      "from": "PART-01.defense_decision",
+      "via": "PART-06.defense_command_delivery",
+      "to": "CTX-03.defense_command",
+      "payload": "Defense_Command",
+      "routes": [
+        "defense_decision_to_delivery",
+        "defense_delivery_to_boundary",
+        "boundary_defense_command"
+      ]
+    },
+    "INT-11": {
+      "from": "PART-01.movement_service_decision",
+      "via": "PART-07.movement_service_command_delivery",
+      "to": "CTX-03.movement_service_command",
+      "payload": "Movement_Service_Command",
+      "routes": [
+        "movement_service_decision_to_delivery",
+        "movement_service_delivery_to_boundary",
+        "boundary_movement_service_command"
+      ]
+    },
+    "INT-12": {
+      "from": "PART-01.phase_decision",
+      "via": null,
+      "to": "CTX-01.phase_report",
+      "payload": "Operational_Phase",
+      "routes": [
+        "phase_decision_to_boundary",
+        "boundary_phase_report"
+      ]
+    },
+    "INT-13": {
+      "from": "PART-01.fault_decision",
+      "via": null,
+      "to": "CTX-01.input_fault",
+      "payload": "Input_Fault",
+      "routes": [
+        "fault_decision_to_boundary",
+        "boundary_input_fault"
+      ]
+    }
+  },
+  "guard_crosscheck": {
+    "canonical_source_signatures": [
+      "invalid & active_or_retreating & retreat_status_valid & retreat_available",
+      "invalid & !(active_or_retreating & retreat_status_valid & retreat_available)",
+      "valid & away & retreat_available & (retreating_or_fault_hold | retreat_trigger)",
+      "valid & away & retreat_unavailable & (retreating_or_fault_hold | retreat_trigger)",
+      "valid & at_station & retreating_or_fault_hold",
+      "valid & docked_loaded & retreating_or_servicing_or_fault_hold",
+      "valid & offload_confirmed & servicing_or_fault_hold",
+      "valid & resupply_confirmed & servicing_or_fault_hold",
+      "valid & operational & away & hostile & request_not_retreat & cargo_not_full & capacitor_not_critical & defense_available",
+      "valid & operational & away & clear & request_mine & cargo_partial & capacitor_reserve_or_ready & mining_available",
+      "valid & operational & away & !retreat_trigger & !hostile & !mining_guard"
+    ],
+    "analyzer_signatures": [
+      "invalid & active_or_retreating & retreat_status_valid & retreat_available",
+      "invalid & !(active_or_retreating & retreat_status_valid & retreat_available)",
+      "valid & away & retreat_available & (retreating_or_fault_hold | retreat_trigger)",
+      "valid & away & retreat_unavailable & (retreating_or_fault_hold | retreat_trigger)",
+      "valid & at_station & retreating_or_fault_hold",
+      "valid & docked_loaded & retreating_or_servicing_or_fault_hold",
+      "valid & offload_confirmed & servicing_or_fault_hold",
+      "valid & resupply_confirmed & servicing_or_fault_hold",
+      "valid & operational & away & hostile & request_not_retreat & cargo_not_full & capacitor_not_critical & defense_available",
+      "valid & operational & away & clear & request_mine & cargo_partial & capacitor_reserve_or_ready & mining_available",
+      "valid & operational & away & !retreat_trigger & !hostile & !mining_guard"
+    ],
+    "mismatches": 0
+  },
+  "observations": {
+    "raw_domain_snapshots": 4976640,
+    "admissible_snapshots": 2322432,
+    "partition_counts": {
+      "CASE-01": 205740,
+      "CASE-02": 2107620,
+      "CASE-03": 1380,
+      "CASE-04": 1380,
+      "CASE-05": 1296,
+      "CASE-06": 1944,
+      "CASE-07": 1296,
+      "CASE-08": 1296,
+      "CASE-09": 96,
+      "CASE-10": 24,
+      "CASE-11": 360
+    },
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "next_state_mismatches": 0,
+    "qualifier_identity_violations": 0,
+    "delivery_identity_violations": 0,
+    "interaction_resolution_violations": 0,
+    "fault_equivalence_violations": 0,
+    "phase_state_violations": 0,
+    "output_domain_violations": 0,
+    "guard_crosscheck_mismatches": 0,
+    "scenario_failures": 0
+  },
+  "checks": {
+    "raw_domain_exact": true,
+    "admissible_domain_exact": true,
+    "eleven_cases_present": true,
+    "unique_exhaustive_partition": true,
+    "all_five_outputs_match": true,
+    "next_state_matches_phase_report": true,
+    "qualification_identity_preserved": true,
+    "command_delivery_identity_preserved": true,
+    "thirteen_interactions_resolved": true,
+    "fault_is_exact_invalid_complement": true,
+    "source_guards_crosschecked": true,
+    "all_scenario_families_executed": true,
+    "no_failure_observation": true
+  },
+  "scenario_families": {
+    "SCN-01": {
+      "name": "nominal",
+      "traces": [
+        {
+          "trace_id": "SCN-01-NOMINAL-SEQUENCE",
+          "steps": [
+            {
+              "step": "idle_to_mining",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-10",
+              "expected_trace_ids": [
+                "BEH-07",
+                "CASE-10"
+              ],
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "caseId": "CASE-10",
+                "miningCommand": "Mine",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Mining",
+                "inputFault": "Clear",
+                "nextPhase": "Mining"
+              },
+              "passed": true
+            },
+            {
+              "step": "continued_mining",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-10",
+              "expected_trace_ids": [
+                "BEH-07",
+                "CASE-10"
+              ],
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "caseId": "CASE-10",
+                "miningCommand": "Mine",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Mining",
+                "inputFault": "Clear",
+                "nextPhase": "Mining"
+              },
+              "passed": true
+            },
+            {
+              "step": "hostile_defense",
+              "input": {
+                "threat": "Hostile",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-09",
+              "expected_trace_ids": [
+                "BEH-06",
+                "CASE-09"
+              ],
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "caseId": "CASE-09",
+                "miningCommand": "Stop",
+                "defenseCommand": "Engage",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Defending",
+                "inputFault": "Clear",
+                "nextPhase": "Defending"
+              },
+              "passed": true
+            },
+            {
+              "step": "defense_persistence",
+              "input": {
+                "threat": "Hostile",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-09",
+              "expected_trace_ids": [
+                "BEH-06",
+                "CASE-09"
+              ],
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "caseId": "CASE-09",
+                "miningCommand": "Stop",
+                "defenseCommand": "Engage",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Defending",
+                "inputFault": "Clear",
+                "nextPhase": "Defending"
+              },
+              "passed": true
+            },
+            {
+              "step": "threat_clearance",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-11",
+              "expected_trace_ids": [
+                "BEH-08",
+                "CASE-11"
+              ],
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "caseId": "CASE-11",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            },
+            {
+              "step": "idle_without_fresh_request",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-11",
+              "expected_trace_ids": [
+                "BEH-08",
+                "CASE-11"
+              ],
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "caseId": "CASE-11",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            },
+            {
+              "step": "fresh_request_resumption",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-10",
+              "expected_trace_ids": [
+                "BEH-07",
+                "CASE-10"
+              ],
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "caseId": "CASE-10",
+                "miningCommand": "Mine",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Mining",
+                "inputFault": "Clear",
+                "nextPhase": "Mining"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "SCN-02": {
+      "name": "boundary-and-priority",
+      "traces": [
+        {
+          "trace_id": "SCN-02-CARGO_PARTIAL",
+          "steps": [
+            {
+              "step": "cargo_partial",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-10",
+              "expected_trace_ids": [
+                "BEH-07",
+                "CASE-10"
+              ],
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "caseId": "CASE-10",
+                "miningCommand": "Mine",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Mining",
+                "inputFault": "Clear",
+                "nextPhase": "Mining"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-CARGO_NEAR_FULL_BOUNDARY",
+          "steps": [
+            {
+              "step": "cargo_near_full_boundary",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Near_Full",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-11",
+              "expected_trace_ids": [
+                "BEH-08",
+                "CASE-11"
+              ],
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "caseId": "CASE-11",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-CARGO_FULL_RETREAT_PRIORITY",
+          "steps": [
+            {
+              "step": "cargo_full_retreat_priority",
+              "input": {
+                "threat": "Hostile",
+                "cargoBand": "Full",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-03",
+              "expected_trace_ids": [
+                "BEH-01",
+                "CASE-03"
+              ],
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "caseId": "CASE-03",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-CAPACITOR_CRITICAL_BOUNDARY",
+          "steps": [
+            {
+              "step": "capacitor_critical_boundary",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Critical",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-03",
+              "expected_trace_ids": [
+                "BEH-01",
+                "CASE-03"
+              ],
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "caseId": "CASE-03",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-CAPACITOR_RESERVE_BOUNDARY",
+          "steps": [
+            {
+              "step": "capacitor_reserve_boundary",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-10",
+              "expected_trace_ids": [
+                "BEH-07",
+                "CASE-10"
+              ],
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "caseId": "CASE-10",
+                "miningCommand": "Mine",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Mining",
+                "inputFault": "Clear",
+                "nextPhase": "Mining"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-THREAT_CLEAR",
+          "steps": [
+            {
+              "step": "threat_clear",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-11",
+              "expected_trace_ids": [
+                "BEH-08",
+                "CASE-11"
+              ],
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "caseId": "CASE-11",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-THREAT_SUSPECT_INHIBITS",
+          "steps": [
+            {
+              "step": "threat_suspect_inhibits",
+              "input": {
+                "threat": "Suspect",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-11",
+              "expected_trace_ids": [
+                "BEH-08",
+                "CASE-11"
+              ],
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "caseId": "CASE-11",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-HOSTILE_OVER_MINING",
+          "steps": [
+            {
+              "step": "hostile_over_mining",
+              "input": {
+                "threat": "Hostile",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-09",
+              "expected_trace_ids": [
+                "BEH-06",
+                "CASE-09"
+              ],
+              "observed_case": "CASE-09",
+              "observed_outputs": {
+                "caseId": "CASE-09",
+                "miningCommand": "Stop",
+                "defenseCommand": "Engage",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Defending",
+                "inputFault": "Clear",
+                "nextPhase": "Defending"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-02-RETREAT_OVER_HOSTILE_DEFENSE",
+          "steps": [
+            {
+              "step": "retreat_over_hostile_defense",
+              "input": {
+                "threat": "Hostile",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Retreat",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-03",
+              "expected_trace_ids": [
+                "BEH-01",
+                "CASE-03"
+              ],
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "caseId": "CASE-03",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "SCN-03": {
+      "name": "availability",
+      "traces": [
+        {
+          "trace_id": "SCN-03-MINING-UNAVAILABLE",
+          "steps": [
+            {
+              "step": "mining_removed",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Unavailable",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-11",
+              "expected_trace_ids": [
+                "BEH-08",
+                "CASE-11"
+              ],
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "caseId": "CASE-11",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-03-DEFENSE-UNAVAILABLE",
+          "steps": [
+            {
+              "step": "hostile_without_defense_escalates",
+              "input": {
+                "threat": "Hostile",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Unavailable",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-03",
+              "expected_trace_ids": [
+                "BEH-01",
+                "CASE-03"
+              ],
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "caseId": "CASE-03",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-03-RETREAT-LOSS-RECOVERY",
+          "steps": [
+            {
+              "step": "retreat_removed",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Retreat",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Unavailable",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-04",
+              "expected_trace_ids": [
+                "FAULT-03",
+                "CASE-04"
+              ],
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "caseId": "CASE-04",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Clear",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            },
+            {
+              "step": "fault_hold_persists",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Unavailable",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-04",
+              "expected_trace_ids": [
+                "FAULT-03",
+                "CASE-04"
+              ],
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "caseId": "CASE-04",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Clear",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            },
+            {
+              "step": "retreat_restored",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-03",
+              "expected_trace_ids": [
+                "BEH-01",
+                "CASE-03"
+              ],
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "caseId": "CASE-03",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "SCN-04": {
+      "name": "invalid-input",
+      "traces": [
+        {
+          "trace_id": "SCN-04-IDLE-THREATSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_threatStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-CARGOSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_cargoStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-CAPACITORSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_capacitorStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Invalid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-REQUESTSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_requestStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Invalid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-MININGAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_miningAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Invalid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-DEFENSEAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_defenseAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-RETREATAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_retreatAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Invalid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-SERVICEPROGRESSSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_serviceProgressStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-THREAT_CARGO",
+          "steps": [
+            {
+              "step": "combined_invalid_threat_cargo",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-IDLE-DEFENSE_SERVICE",
+          "steps": [
+            {
+              "step": "combined_invalid_defense_service",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-THREATSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_threatStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-CARGOSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_cargoStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-CAPACITORSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_capacitorStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Invalid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-REQUESTSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_requestStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Invalid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-MININGAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_miningAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Invalid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-DEFENSEAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_defenseAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-RETREATAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_retreatAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Invalid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-SERVICEPROGRESSSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_serviceProgressStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-THREAT_CARGO",
+          "steps": [
+            {
+              "step": "combined_invalid_threat_cargo",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-MINING-DEFENSE_SERVICE",
+          "steps": [
+            {
+              "step": "combined_invalid_defense_service",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-THREATSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_threatStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-CARGOSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_cargoStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-CAPACITORSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_capacitorStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Invalid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-REQUESTSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_requestStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Invalid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-MININGAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_miningAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Invalid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-DEFENSEAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_defenseAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-RETREATAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_retreatAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Invalid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-SERVICEPROGRESSSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_serviceProgressStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-THREAT_CARGO",
+          "steps": [
+            {
+              "step": "combined_invalid_threat_cargo",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-DEFENDING-DEFENSE_SERVICE",
+          "steps": [
+            {
+              "step": "combined_invalid_defense_service",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Defending",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-THREATSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_threatStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-CARGOSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_cargoStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-CAPACITORSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_capacitorStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Invalid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-REQUESTSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_requestStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Invalid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-MININGAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_miningAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Invalid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-DEFENSEAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_defenseAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-RETREATAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_retreatAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Invalid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-SERVICEPROGRESSSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_serviceProgressStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-THREAT_CARGO",
+          "steps": [
+            {
+              "step": "combined_invalid_threat_cargo",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-RETREATING-DEFENSE_SERVICE",
+          "steps": [
+            {
+              "step": "combined_invalid_defense_service",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-THREATSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_threatStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-CARGOSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_cargoStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-CAPACITORSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_capacitorStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Invalid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-REQUESTSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_requestStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Invalid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-MININGAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_miningAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Invalid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-DEFENSEAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_defenseAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-RETREATAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_retreatAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Invalid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-SERVICEPROGRESSSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_serviceProgressStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-THREAT_CARGO",
+          "steps": [
+            {
+              "step": "combined_invalid_threat_cargo",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-SERVICING-DEFENSE_SERVICE",
+          "steps": [
+            {
+              "step": "combined_invalid_defense_service",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-THREATSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_threatStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-CARGOSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_cargoStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-CAPACITORSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_capacitorStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Invalid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-REQUESTSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_requestStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Invalid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-MININGAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_miningAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Invalid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-DEFENSEAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_defenseAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-RETREATAVAILABILITYSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_retreatAvailabilityStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Invalid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-SERVICEPROGRESSSTATUS",
+          "steps": [
+            {
+              "step": "single_invalid_serviceProgressStatus",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-THREAT_CARGO",
+          "steps": [
+            {
+              "step": "combined_invalid_threat_cargo",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Invalid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        },
+        {
+          "trace_id": "SCN-04-FAULT_HOLD-DEFENSE_SERVICE",
+          "steps": [
+            {
+              "step": "combined_invalid_defense_service",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Invalid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Invalid"
+              },
+              "expected_case": "CASE-02",
+              "expected_trace_ids": [
+                "FAULT-02",
+                "CASE-02"
+              ],
+              "observed_case": "CASE-02",
+              "observed_outputs": {
+                "caseId": "CASE-02",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Asserted",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    },
+    "SCN-05": {
+      "name": "recovery",
+      "traces": [
+        {
+          "trace_id": "SCN-05-ORDERED-RECOVERY",
+          "steps": [
+            {
+              "step": "invalid_mining_retreats",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Mining",
+                "threatStatus": "Invalid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-01",
+              "expected_trace_ids": [
+                "FAULT-01",
+                "CASE-01"
+              ],
+              "observed_case": "CASE-01",
+              "observed_outputs": {
+                "caseId": "CASE-01",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Asserted",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            },
+            {
+              "step": "validity_restored_but_retreat_removed",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Unavailable",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-04",
+              "expected_trace_ids": [
+                "FAULT-03",
+                "CASE-04"
+              ],
+              "observed_case": "CASE-04",
+              "observed_outputs": {
+                "caseId": "CASE-04",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Fault_Hold",
+                "inputFault": "Clear",
+                "nextPhase": "Fault_Hold"
+              },
+              "passed": true
+            },
+            {
+              "step": "retreat_availability_restored",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Fault_Hold",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-03",
+              "expected_trace_ids": [
+                "BEH-01",
+                "CASE-03"
+              ],
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "caseId": "CASE-03",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            },
+            {
+              "step": "retreat_persists_away",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-03",
+              "expected_trace_ids": [
+                "BEH-01",
+                "CASE-03"
+              ],
+              "observed_case": "CASE-03",
+              "observed_outputs": {
+                "caseId": "CASE-03",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Retreat",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            },
+            {
+              "step": "dock_at_station",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "At_Station",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-05",
+              "expected_trace_ids": [
+                "BEH-02",
+                "CASE-05"
+              ],
+              "observed_case": "CASE-05",
+              "observed_outputs": {
+                "caseId": "CASE-05",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Dock",
+                "phaseReport": "Retreating",
+                "inputFault": "Clear",
+                "nextPhase": "Retreating"
+              },
+              "passed": true
+            },
+            {
+              "step": "offload_when_docked_loaded",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Docked_Loaded",
+                "currentPhase": "Retreating",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-06",
+              "expected_trace_ids": [
+                "BEH-03",
+                "CASE-06"
+              ],
+              "observed_case": "CASE-06",
+              "observed_outputs": {
+                "caseId": "CASE-06",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Offload",
+                "phaseReport": "Servicing",
+                "inputFault": "Clear",
+                "nextPhase": "Servicing"
+              },
+              "passed": true
+            },
+            {
+              "step": "resupply_after_offload",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Offload_Confirmed",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-07",
+              "expected_trace_ids": [
+                "BEH-04",
+                "CASE-07"
+              ],
+              "observed_case": "CASE-07",
+              "observed_outputs": {
+                "caseId": "CASE-07",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Resupply",
+                "phaseReport": "Servicing",
+                "inputFault": "Clear",
+                "nextPhase": "Servicing"
+              },
+              "passed": true
+            },
+            {
+              "step": "acknowledge_after_resupply",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Resupply_Confirmed",
+                "currentPhase": "Servicing",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-08",
+              "expected_trace_ids": [
+                "BEH-05",
+                "CASE-08"
+              ],
+              "observed_case": "CASE-08",
+              "observed_outputs": {
+                "caseId": "CASE-08",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Acknowledge_Ready",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            },
+            {
+              "step": "no_stale_mining_demand",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Idle",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-11",
+              "expected_trace_ids": [
+                "BEH-08",
+                "CASE-11"
+              ],
+              "observed_case": "CASE-11",
+              "observed_outputs": {
+                "caseId": "CASE-11",
+                "miningCommand": "Stop",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Idle",
+                "inputFault": "Clear",
+                "nextPhase": "Idle"
+              },
+              "passed": true
+            },
+            {
+              "step": "fresh_mining_request_required",
+              "input": {
+                "threat": "Clear",
+                "cargoBand": "Partial",
+                "capacitorBand": "Reserve",
+                "operatorRequest": "Mine",
+                "miningAvailable": "Available",
+                "defenseAvailable": "Available",
+                "retreatAvailable": "Available",
+                "serviceProgress": "Away",
+                "currentPhase": "Idle",
+                "threatStatus": "Valid",
+                "cargoStatus": "Valid",
+                "capacitorStatus": "Valid",
+                "requestStatus": "Valid",
+                "miningAvailabilityStatus": "Valid",
+                "defenseAvailabilityStatus": "Valid",
+                "retreatAvailabilityStatus": "Valid",
+                "serviceProgressStatus": "Valid"
+              },
+              "expected_case": "CASE-10",
+              "expected_trace_ids": [
+                "BEH-07",
+                "CASE-10"
+              ],
+              "observed_case": "CASE-10",
+              "observed_outputs": {
+                "caseId": "CASE-10",
+                "miningCommand": "Mine",
+                "defenseCommand": "Stand_Down",
+                "movementServiceCommand": "Hold",
+                "phaseReport": "Mining",
+                "inputFault": "Clear",
+                "nextPhase": "Mining"
+              },
+              "passed": true
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "passed": true
+    }
+  },
+  "claim_boundary": "Exhaustive only over the seed's 4,976,640 finite raw snapshots and 2,322,432 CONS-05-admissible snapshots. Results are bounded conformance evidence, not compositional proof, solver certification, unbounded correctness, generated-code correctness, execution evidence, physical performance, safety certification, mission success, or production readiness."
+}

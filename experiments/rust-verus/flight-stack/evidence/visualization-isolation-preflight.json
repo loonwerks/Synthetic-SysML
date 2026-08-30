@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "run": "flight_stack",
+  "stage": "visualize",
+  "permission_profile": "appendix_cleanroom_visualization",
+  "filesystem_policy": "identical to appendix_cleanroom",
+  "network": {
+    "enabled": true,
+    "proxy_enforced": true,
+    "allowed_domains": ["localhost", "127.0.0.1", "raw.githubusercontent.com"],
+    "other_destinations": "denied"
+  },
+  "localhost_bind": {
+    "host": "127.0.0.1",
+    "port": 4791,
+    "status": "passed"
+  },
+  "accepted_model": {
+    "path": "workspace/runs/20260817T021406Z-faa-flight-stack-appendices-b-c-d/model/flight_stack.sysml",
+    "sha256": "c050e9438f50dc734c044d31ba5ef2bd46575df0df5b97c2efefd7d5f2556ccd",
+    "readable": true
+  },
+  "denied_checks": [
+    "./Steve_Miller_FAA_docAR-08-32.pdf",
+    "./INSPECTA-models",
+    "./SysML-v2-Models",
+    "./agent_experiments/isolette_SCP_experiments",
+    "./agent_experiments/flight_guidance_system_gpt5.6sol",
+    "./agent_experiments/flight_guidance_system_poolside",
+    "./agent_experiments/autopilot_gpt5.6sol",
+    "./agent_experiments/autopilot_poolside",
+    "experiments/rust-verus/isolette"
+  ],
+  "denied_checks_passed": 9,
+  "exit_code": 0,
+  "checked_at": "2026-08-17T13:44:10Z"
+}

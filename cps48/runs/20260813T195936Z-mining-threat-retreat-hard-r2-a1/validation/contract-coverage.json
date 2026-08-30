@@ -1,0 +1,1222 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "afc7840bd2fd464b3c053acfcc523be9f4b463e09e81daa04eb2fcdbb96921a8",
+  "claim_boundary": "Exhaustive evidence over the frozen finite logical input/prior-state domain only; not execution, proof, generated-code correctness, physical performance, safety, or certification.",
+  "domain_cardinality": 1492992,
+  "semantic_connection_map": {
+    "INT-01": "threatEvidenceContext.threatEvidenceOut -> threatQualification.threatEvidenceIn",
+    "INT-02": "threatQualification.qualifiedThreatToAlertOut -> alertMemory.qualifiedThreatIn",
+    "INT-03": "pilotAuthorityContext.clearAcknowledgmentOut -> alertMemory.clearAcknowledgmentIn",
+    "INT-04": "pilotAuthorityContext.defenseAuthorityOut -> defenseChannelRecovery.defenseAuthorityIn",
+    "INT-05": "defenseExecutionContext.defenseOutcomeOut -> defenseChannelRecovery.defenseOutcomeIn",
+    "INT-06": "threatQualification.threatValidityToDefenseOut -> defenseChannelRecovery.threatValidityIn",
+    "INT-07": "pilotAuthorityContext.escapeAuthorityOut -> escapeChannelRecovery.escapeAuthorityIn",
+    "INT-08": "navigationExecutionContext.escapeOutcomeOut -> escapeChannelRecovery.escapeOutcomeIn",
+    "INT-09": "threatQualification.threatValidityToEscapeOut -> escapeChannelRecovery.threatValidityIn",
+    "INT-10": "defenseExecutionContext.readinessContextOut -> defenseReadiness.readinessContextIn",
+    "INT-11": "defenseChannelRecovery.defenseGateOut -> defenseReadiness.defenseGateIn",
+    "INT-12": "navigationExecutionContext.navigationAvailableOut -> departureReadiness.navigationAvailableIn",
+    "INT-13": "navigationExecutionContext.routeStatusOut -> departureReadiness.routeStatusIn",
+    "INT-14": "miningInterlockContext.miningInterlockOut -> departureReadiness.miningInterlockIn",
+    "INT-15": "escapeChannelRecovery.escapeGateOut -> departureReadiness.escapeGateIn",
+    "INT-16": "alertMemory.defenseAlertOut -> defenseActivationDecision.alertStateIn",
+    "INT-17": "defenseReadiness.defenseReadyOut -> defenseActivationDecision.defenseReadyIn",
+    "INT-18": "pilotAuthorityContext.defenseAuthorityOut -> defenseActivationDecision.defenseAuthorityIn",
+    "INT-19": "alertMemory.escapeAlertOut -> departureInitiationDecision.alertStateIn",
+    "INT-20": "departureReadiness.escapeReadyOut -> departureInitiationDecision.escapeReadyIn",
+    "INT-21": "pilotAuthorityContext.escapeAuthorityOut -> departureInitiationDecision.escapeAuthorityIn",
+    "INT-22": "defenseActivationDecision.defenseProposalToCoordinationOut -> responseCoordination.defenseProposalIn",
+    "INT-23": "departureInitiationDecision.escapeProposalToCoordinationOut -> responseCoordination.escapeProposalIn",
+    "INT-24": "responseCoordination.responsePatternOut -> reportFrameComposition.responsePatternIn",
+    "INT-25": "defenseActivationDecision.defenseProposalToCompositionOut -> reportFrameComposition.defenseProposalIn",
+    "INT-26": "departureInitiationDecision.escapeProposalToCompositionOut -> reportFrameComposition.escapeProposalIn",
+    "INT-27": "alertMemory.(compositionAlertOut,threatReportOut) -> reportFrameComposition.(alertStateIn,threatReportIn)",
+    "INT-28": "defenseChannelRecovery.defenseChannelStateOut -> reportFrameComposition.defenseChannelStateIn",
+    "INT-29": "escapeChannelRecovery.escapeChannelStateOut -> reportFrameComposition.escapeChannelStateIn",
+    "INT-30": "reportFrameComposition.responseFrameOut -> pilotAuthorityContext.responseFrameIn",
+    "INT-31": "reportFrameComposition.responseFrameOut -> defenseExecutionContext.responseFrameIn",
+    "INT-32": "reportFrameComposition.responseFrameOut -> navigationExecutionContext.responseFrameIn"
+  },
+  "canonical_guard_crosscheck": {
+    "status": "matched",
+    "cases": "CASE-01 through CASE-29",
+    "note": "Analyzer guards were manually cross-checked against the retained canonical GUMBO guards after the explicit CASE-09 hostile exclusion repair."
+  },
+  "partition_counts": {
+    "CASE-01": 746496,
+    "CASE-02": 248832,
+    "CASE-03": 248832,
+    "CASE-04": 248832,
+    "CASE-05": 746496,
+    "CASE-06": 248832,
+    "CASE-07": 41472,
+    "CASE-08": 124416,
+    "CASE-09": 207360,
+    "CASE-10": 124416,
+    "CASE-11": 933120,
+    "CASE-12": 62208,
+    "CASE-13": 62208,
+    "CASE-14": 435456,
+    "CASE-15": 933120,
+    "CASE-16": 62208,
+    "CASE-17": 62208,
+    "CASE-18": 435456,
+    "CASE-19": 12960,
+    "CASE-20": 1480032,
+    "CASE-21": 3888,
+    "CASE-22": 1489104,
+    "CASE-23": 3888,
+    "CASE-24": 12879,
+    "CASE-25": 1476225,
+    "CASE-26": 746496,
+    "CASE-27": 663552,
+    "CASE-28": 13824,
+    "CASE-29": 69120
+  },
+  "partition_diagnostics": {
+    "qualification": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "alert": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "defenseRecovery": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "escapeRecovery": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "defenseDecision": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "departureDecision": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "coordination": {
+      "gaps": 0,
+      "overlaps": 0
+    },
+    "composition": {
+      "gaps": 0,
+      "overlaps": 0
+    }
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "owner_mismatches": 0,
+    "cross_channel_interference": 0,
+    "stale_request_recoveries": 0,
+    "invariant_violations": 0,
+    "missing_case_witnesses": []
+  },
+  "ownership_audit": [
+    {
+      "usage": "threatQualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "threatQualification.threatEvidenceIn"
+      ],
+      "owner_local_facts": [
+        "qualified threat band and many-to-one threat validity"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04"
+      ],
+      "analyzer_checks": [
+        "threat qualification partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "alertMemory",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "alertMemory.qualifiedThreatIn",
+        "alertMemory.clearAcknowledgmentIn",
+        "alertMemory.retainedAlert"
+      ],
+      "owner_local_facts": [
+        "actual next alert and threat report"
+      ],
+      "contract_cases": [
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10"
+      ],
+      "analyzer_checks": [
+        "alert transition partition",
+        "two-step acknowledged de-escalation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "defenseChannelRecovery",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "defenseChannelRecovery.threatValidityIn",
+        "defenseChannelRecovery.defenseAuthorityIn",
+        "defenseChannelRecovery.defenseOutcomeIn",
+        "defenseChannelRecovery.defenseRecoveryState"
+      ],
+      "owner_local_facts": [
+        "actual next defense channel state and confirmation-evaluation gate"
+      ],
+      "contract_cases": [
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14"
+      ],
+      "analyzer_checks": [
+        "defense recovery partition",
+        "defense trigger dominance",
+        "defense fresh-enable recovery"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "escapeChannelRecovery",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "escapeChannelRecovery.threatValidityIn",
+        "escapeChannelRecovery.escapeAuthorityIn",
+        "escapeChannelRecovery.escapeOutcomeIn",
+        "escapeChannelRecovery.escapeRecoveryState"
+      ],
+      "owner_local_facts": [
+        "actual next escape channel state and confirmation-evaluation gate"
+      ],
+      "contract_cases": [
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18"
+      ],
+      "analyzer_checks": [
+        "escape recovery partition",
+        "escape trigger dominance",
+        "escape fresh-enable recovery"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "defenseReadiness",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "defenseReadiness.readinessContextIn",
+        "defenseReadiness.defenseGateIn"
+      ],
+      "owner_local_facts": [
+        "defense readiness conjunction"
+      ],
+      "contract_cases": [
+        "DEFENSE_READINESS_EQUATION"
+      ],
+      "analyzer_checks": [
+        "defense readiness equation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "departureReadiness",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "departureReadiness.navigationAvailableIn",
+        "departureReadiness.routeStatusIn",
+        "departureReadiness.miningInterlockIn",
+        "departureReadiness.escapeGateIn"
+      ],
+      "owner_local_facts": [
+        "departure readiness conjunction"
+      ],
+      "contract_cases": [
+        "ESCAPE_READINESS_EQUATION"
+      ],
+      "analyzer_checks": [
+        "departure readiness equation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "defenseActivationDecision",
+      "claimed_roles": [
+        "proposal",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "defenseActivationDecision.alertStateIn",
+        "defenseActivationDecision.defenseReadyIn",
+        "defenseActivationDecision.defenseAuthorityIn"
+      ],
+      "owner_local_facts": [
+        "defense proposal"
+      ],
+      "contract_cases": [
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "defense proposal partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "departureInitiationDecision",
+      "claimed_roles": [
+        "proposal",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "departureInitiationDecision.alertStateIn",
+        "departureInitiationDecision.escapeReadyIn",
+        "departureInitiationDecision.escapeAuthorityIn"
+      ],
+      "owner_local_facts": [
+        "escape proposal"
+      ],
+      "contract_cases": [
+        "CASE-21",
+        "CASE-22"
+      ],
+      "analyzer_checks": [
+        "escape proposal partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "responseCoordination",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "responseCoordination.defenseProposalIn",
+        "responseCoordination.escapeProposalIn"
+      ],
+      "owner_local_facts": [
+        "departure-priority response pattern"
+      ],
+      "contract_cases": [
+        "CASE-23",
+        "CASE-24",
+        "CASE-25"
+      ],
+      "analyzer_checks": [
+        "response pattern priority partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "reportFrameComposition",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "reportFrameComposition.responsePatternIn",
+        "reportFrameComposition.defenseProposalIn",
+        "reportFrameComposition.escapeProposalIn",
+        "reportFrameComposition.alertStateIn",
+        "reportFrameComposition.threatReportIn",
+        "reportFrameComposition.defenseChannelStateIn",
+        "reportFrameComposition.escapeChannelStateIn"
+      ],
+      "owner_local_facts": [
+        "four-way response stage classification"
+      ],
+      "contract_cases": [
+        "CASE-26",
+        "CASE-27",
+        "CASE-28",
+        "CASE-29"
+      ],
+      "analyzer_checks": [
+        "response stage partition",
+        "atomic frame composition"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_families": [
+    {
+      "scenario": "SCN-01",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "QUIET",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-28",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-10",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-28"
+          },
+          "observed_frame": {
+            "threatReport": "CLEAR",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "MONITORING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "QUIET",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-02",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "UNCERTAIN",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "QUIET",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-19",
+          "observed_owner_cases": {
+            "qualification": "CASE-03",
+            "alert": "CASE-09",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-19",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-24",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "CAUTION",
+            "defenseDirective": "ACTIVATE",
+            "escapeDirective": "STAY",
+            "responsePattern": "DEFENSE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "WATCH",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-03",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "HOSTILE_SIGNATURE",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "QUIET",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-23",
+          "observed_owner_cases": {
+            "qualification": "CASE-04",
+            "alert": "CASE-06",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-19",
+            "escape_decision": "CASE-21",
+            "coordination": "CASE-23",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "ACTIVATE",
+            "escapeDirective": "DEPART",
+            "responsePattern": "DEPARTURE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-04",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": false,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-23",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-21",
+            "coordination": "CASE-23",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "DEPART",
+            "responsePattern": "DEPARTURE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-05",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "BLOCKED"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-24",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-19",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-24",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "ACTIVATE",
+            "escapeDirective": "STAY",
+            "responsePattern": "DEFENSE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-06",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": false,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": false,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-25",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-07",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "INVALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-26",
+          "observed_owner_cases": {
+            "qualification": "CASE-01",
+            "alert": "CASE-05",
+            "defense_recovery": "CASE-11",
+            "escape_recovery": "CASE-15",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-26"
+          },
+          "observed_frame": {
+            "threatReport": "UNKNOWN",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "EVIDENCE_FAULT",
+            "defenseCondition": "ISOLATED",
+            "escapeCondition": "ISOLATED"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "ISOLATED",
+            "escape": "ISOLATED"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-08",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "COMMAND_FAILED",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-11",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-11",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-21",
+            "coordination": "CASE-23",
+            "composition": "CASE-27"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "DEPART",
+            "responsePattern": "DEPARTURE",
+            "responseStage": "DEGRADED",
+            "defenseCondition": "ISOLATED",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "ISOLATED",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-09",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "DEPARTURE_FAILED",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-15",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-15",
+            "defense_decision": "CASE-19",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-24",
+            "composition": "CASE-27"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "ACTIVATE",
+            "escapeDirective": "STAY",
+            "responsePattern": "DEFENSE",
+            "responseStage": "DEGRADED",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "ISOLATED"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "ISOLATED"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-10",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "RESET",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "ISOLATED",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-12",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-12",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-27"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "DEGRADED",
+            "defenseCondition": "PROBATION",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "PROBATION",
+            "escape": "AVAILABLE"
+          }
+        },
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "RECOVERY_CONFIRMED",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "PROBATION",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-13",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-13",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        },
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "ENABLE",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-19",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-19",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-24",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "ACTIVATE",
+            "escapeDirective": "STAY",
+            "responsePattern": "DEFENSE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-11",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "RESET",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "ISOLATED"
+          },
+          "expected_case": "CASE-16",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-16",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-27"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "DEGRADED",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "PROBATION"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "PROBATION"
+          }
+        },
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "RECOVERY_CONFIRMED",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "PROBATION"
+          },
+          "expected_case": "CASE-17",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-17",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        },
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "ENABLE",
+            "clearAcknowledgment": false,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-21",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-08",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-21",
+            "coordination": "CASE-23",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "HOSTILE",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "DEPART",
+            "responsePattern": "DEPARTURE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "scenario": "SCN-12",
+      "trace": [
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": true,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "ALARM",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-07",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-07",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-29"
+          },
+          "observed_frame": {
+            "threatReport": "CAUTION",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "RESPONDING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "WATCH",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        },
+        {
+          "input": {
+            "contactClass": "NO_CONTACT",
+            "evidenceStatus": "VALID",
+            "defenseAuthority": "NONE",
+            "escapeAuthority": "NONE",
+            "clearAcknowledgment": true,
+            "defenseAvailable": true,
+            "capacitorAdequate": true,
+            "defenseOutcome": "NONE",
+            "navigationAvailable": true,
+            "routeStatus": "READY",
+            "escapeOutcome": "NONE",
+            "miningInterlock": "CLEAR"
+          },
+          "previous_state": {
+            "alert": "WATCH",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          },
+          "expected_case": "CASE-10",
+          "observed_owner_cases": {
+            "qualification": "CASE-02",
+            "alert": "CASE-10",
+            "defense_recovery": "CASE-14",
+            "escape_recovery": "CASE-18",
+            "defense_decision": "CASE-20",
+            "escape_decision": "CASE-22",
+            "coordination": "CASE-25",
+            "composition": "CASE-28"
+          },
+          "observed_frame": {
+            "threatReport": "CLEAR",
+            "defenseDirective": "STANDBY",
+            "escapeDirective": "STAY",
+            "responsePattern": "OBSERVE",
+            "responseStage": "MONITORING",
+            "defenseCondition": "AVAILABLE",
+            "escapeCondition": "AVAILABLE"
+          },
+          "next_state": {
+            "alert": "QUIET",
+            "defense": "AVAILABLE",
+            "escape": "AVAILABLE"
+          }
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "failed_scenarios": []
+}

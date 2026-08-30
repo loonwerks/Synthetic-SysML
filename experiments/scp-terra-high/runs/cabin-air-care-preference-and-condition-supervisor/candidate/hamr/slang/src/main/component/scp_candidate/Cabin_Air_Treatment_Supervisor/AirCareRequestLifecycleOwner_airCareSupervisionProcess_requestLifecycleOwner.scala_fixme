@@ -1,0 +1,35 @@
+// #Sireum
+
+package scp_candidate.Cabin_Air_Treatment_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner {
+
+  // BEGIN STATE VARS
+  var requestMemory: Cabin_Air_Treatment_Supervisor.RequestMemory.Type = Cabin_Air_Treatment_Supervisor.RequestMemory.Released
+  // END STATE VARS
+
+  def initialise(api: AirCareRequestLifecycleOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_REQUEST_LIFECYCLE_SAFE
+        requestMemory == RequestMemory.Released &&
+          api.requestIntent == RequestIntent.None
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_requestIntent(Cabin_Air_Treatment_Supervisor.RequestIntent.None)
+  }
+
+  def finalise(api: AirCareRequestLifecycleOwner_Operational_Api): Unit = { }
+}

@@ -1,0 +1,401 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132655Z-mining-cargo-docking-small-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Ore_Hold_Mining_Guard_Supervisor.sysml",
+  "source_sha256": "f6e3daabbf5e160614f1b24a70aa7650b3d3bb5fbb5f2f1860b728f7b587bfd2",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 7,
+    "edgeCount": 17,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 144,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "OUTPUT-01",
+      "OUTPUT-02",
+      "OUTPUT-03",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "QUAL-HOLD-01",
+      "QUAL-REQ-01",
+      "QUAL-SUPPORT-01",
+      "STATE-01",
+      "STATE-02",
+      "TYPE-02",
+      "TYPE-03",
+      "TYPE-05",
+      "TYPE-06",
+      "TYPE-09"
+    ],
+    "relativePath": "cps48/runs/20260814T132655Z-mining-cargo-docking-small-r2-a1/system-abstract.md",
+    "taggedElementCount": 85,
+    "traceAssociationCount": 85,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a six-usage ore-hold mining guard with 11 typed interactions, 11 total cases, five scenario families, one principal decision owner, and fresh-resume recovery.",
+      "questions_for_model": [
+        "Can PART-01 request-edge state and PART-04 guard-mode state be expressed in separate owner-local initialization and compute contracts without PART-04 recomputing freshness?",
+        "Can CASE-01 through CASE-11 be encoded with explicit higher-priority exclusions so the resolution constrains next mode and same-evaluation outputs, including ContinueMining exactly when nextMode is Mining?",
+        "Can one root realize exactly six semantic usages and eleven end-to-end interaction meanings at semantic depth 1..2 while any required SysML-AADL containment or delegation remains behavior-free, traced, and uncredited?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "ore-hold supervision before offload",
+        "closest_baseline": "replicate-1 Small Station Cargo-Transfer Verification Supervisor",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected system controls logical mining continuation from pilot, qualitative hold, and mining-support inputs; it owns mining/guard/recovery state and reports only a nearly-full advisory. It has no offload admission, transfer phase, ship/warehouse evidence reconciliation, transfer command, or completion finding, so the replicate-1 cargo-transfer transaction is outside rather than repartitioned inside its boundary."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "The selected 6/11/11/5 allocation is realizable unchanged and every claimed owner derives a nonidentity local fact.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "Extensionally, PART-01 derives temporal freshness, conflict, and priority; PART-02 maps four hold/status pairs to three facts with a two-element invalid fiber; PART-03 maps sixteen support samples to three classes; PART-04 owns the stateful eleven-case composition; PART-05 maps five modes many-to-one to two commands; and PART-06 maps the compound resolution many-to-one to status and readiness. None is a copier, bundle-only owner, rerouter, or one-to-one enum/code rename.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "SysML-AADL library commit 9016cbcceefa92f0068e1811923704dd261d15f1 and the trusted Isolette forms support System/Process/Thread containment, typed DataPort/PortConnection flows, Thread-local GUMBO state, initialize, compute cases, and prior-state references; current accepted checker evidence supports attribute-based Data records and In(state).",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "One explicit root System usage, one uncredited behavior-free Process, six semantic Threads, twelve raw hops realizing the six boundary interactions, and five direct inter-Thread connections realize exactly eleven semantic interactions at physical depth two with seventeen raw PortConnection declarations and one weakly connected semantic region.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Independent enumeration of exactly 40,960 snapshots produced CASE-01 through CASE-11 witness counts 35840, 2560, 1280, 1120, 6, 26, 32, 32, 32, 8, and 24, with zero partition gaps and zero mining-command or offload-readiness equivalence mismatches. The recovery protocol has a finite low-then-high witness after same-evaluation resume discard.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Owner-local contracts can keep three request-history values solely in PART-01 and guardMode solely in PART-04 while PART-04 consumes RequestAssessment, HoldAssessment, and SupportAssessment and downstream owners consume GuardResolution. Attribute members make every planned compound-field access local and checker-resolvable without raw-input recomputation or mirror state.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings accepted with unchanged 6/11/11/5 baseline; generation is authorized under exact owner-local, support, analysis, and claim-boundary constraints.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Relabeled the two downstream ownership-audit wire roles as proposal without changing source semantics; the focused protocol check, SysML typecheck, and 40,960-snapshot bounded analyzer all passed.",
+      "canonical_source": "model/Ore_Hold_Mining_Guard_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Accepted one validated system overview with zero connector crossings and route-object collisions; native and complete traceability reviews passed.",
+      "correction_cycles": 4,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "OUTPUT-01",
+        "OUTPUT-02",
+        "OUTPUT-03",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "QUAL-HOLD-01",
+        "QUAL-REQ-01",
+        "QUAL-SUPPORT-01",
+        "STATE-01",
+        "STATE-02",
+        "TYPE-02",
+        "TYPE-03",
+        "TYPE-05",
+        "TYPE-06",
+        "TYPE-09"
+      ],
+      "reviewed_tagged_element_count": 85,
+      "reviewed_trace_association_count": 85,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and rendered visualization passed without silent drift; execution was not run by profile.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 6,
+        "semantic_interactions": 11,
+        "nontrivial_contract_cases": 11,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "request_freshness_priority_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "request_freshness_priority_owner.pilot_request",
+            "state.previousStart",
+            "state.previousHalt",
+            "state.previousResume"
+          ],
+          "owner_local_facts": [
+            "requestValidity",
+            "freshStart",
+            "freshResume",
+            "haltPriority",
+            "requestConflict",
+            "requestDisposition"
+          ],
+          "contract_cases": [
+            "REQUEST_QUALIFICATION_PRIORITY_AND_FRESHNESS"
+          ],
+          "analyzer_checks": [
+            "request-owner-128-transitions"
+          ]
+        },
+        {
+          "usage": "hold_guard_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "hold_guard_qualification_owner.hold_sample"
+          ],
+          "owner_local_facts": [
+            "threeWayHoldAssessment"
+          ],
+          "contract_cases": [
+            "HOLD_GUARD_QUALIFICATION"
+          ],
+          "analyzer_checks": [
+            "hold-owner-four-samples"
+          ]
+        },
+        {
+          "usage": "mining_support_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "mining_support_qualification_owner.mining_support"
+          ],
+          "owner_local_facts": [
+            "threeWaySupportAssessment",
+            "allPositiveSupportApplicability"
+          ],
+          "contract_cases": [
+            "MINING_SUPPORT_QUALIFICATION"
+          ],
+          "analyzer_checks": [
+            "support-owner-sixteen-samples"
+          ]
+        },
+        {
+          "usage": "ore_hold_decision_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "ore_hold_decision_owner.request_assessment",
+            "ore_hold_decision_owner.hold_assessment",
+            "ore_hold_decision_owner.support_assessment",
+            "state.guardMode"
+          ],
+          "owner_local_facts": [
+            "orderedGuardResolution",
+            "nextGuardMode",
+            "resolutionReason",
+            "preservedRequestConflict"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11"
+          ],
+          "analyzer_checks": [
+            "decision-owner-total-exclusive-40960"
+          ]
+        },
+        {
+          "usage": "mining_command_derivation_owner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "mining_command_derivation_owner.guard_resolution"
+          ],
+          "owner_local_facts": [
+            "miningCommandFromNextMode"
+          ],
+          "contract_cases": [
+            "OUTPUT-01"
+          ],
+          "analyzer_checks": [
+            "command-owner-five-mode-equivalence"
+          ]
+        },
+        {
+          "usage": "guard_reporting_derivation_owner",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "guard_reporting_derivation_owner.guard_resolution"
+          ],
+          "owner_local_facts": [
+            "guardStatusFromReasonAndConflict",
+            "offloadReadinessFromNextMode"
+          ],
+          "contract_cases": [
+            "OUTPUT-02",
+            "OUTPUT-03"
+          ],
+          "analyzer_checks": [
+            "report-owner-eleven-reason-classification",
+            "readiness-owner-five-mode-equivalence"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and rendered visualization passed without silent drift; execution was not run by profile.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

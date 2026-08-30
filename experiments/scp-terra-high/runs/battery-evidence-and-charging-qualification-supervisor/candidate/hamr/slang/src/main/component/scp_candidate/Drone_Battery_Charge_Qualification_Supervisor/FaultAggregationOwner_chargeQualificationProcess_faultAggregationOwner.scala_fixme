@@ -1,0 +1,37 @@
+// #Sireum
+
+package scp_candidate.Drone_Battery_Charge_Qualification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object FaultAggregationOwner_chargeQualificationProcess_faultAggregationOwner {
+
+  def initialise(api: FaultAggregationOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_FAULT_FACTS
+        api.faultsToNotification.vector.batteryFault == T &&
+          api.faultsToNotification.vector.chargerFault == T &&
+          api.faultsToNotification.vector.interfaceFault == T &&
+          api.faultsToNotification.vector.contextFault == T &&
+          api.faultsToNotification.vector.sessionConflict == F &&
+          api.faultsToNotification.aggregateFault == T &&
+          api.faultsToComposition == api.faultsToNotification
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_faultsToNotification(Drone_Battery_Charge_Qualification_Supervisor.FaultFacts.example())
+    api.put_faultsToComposition(Drone_Battery_Charge_Qualification_Supervisor.FaultFacts.example())
+  }
+
+  def finalise(api: FaultAggregationOwner_Operational_Api): Unit = { }
+}

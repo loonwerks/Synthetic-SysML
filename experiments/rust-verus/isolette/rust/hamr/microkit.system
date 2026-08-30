@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- Content between markers will be preserved if codegen is rerun -->
+
+  <xi:include href="microkit.schedule.xml" />
+
+  <protection_domain name="manage_regulator_interface_process_manage_regulator_interface_MON" domain="domain_2">
+    <program_image path="manage_regulator_interface_process_manage_regulator_interface_MON.elf" />
+    <protection_domain name="manage_regulator_interface_process_manage_regulator_interface" domain="domain_2" id="1">
+      <program_image path="manage_regulator_interface_process_manage_regulator_interface.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_interface_facts_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="interface_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_control_basis_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="rw"
+           setvar_vaddr="control_basis_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_current_temperature_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="r"
+           setvar_vaddr="current_temperature_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_desired_settings_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="r"
+           setvar_vaddr="desired_settings_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_regulator_feedback_1_Memory_Region"
+           vaddr="0x10_004_000"
+           perms="rw"
+           setvar_vaddr="regulator_feedback_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_mode_process_manage_regulator_mode_mode_for_interface_1_Memory_Region"
+           vaddr="0x10_005_000"
+           perms="r"
+           setvar_vaddr="regulator_mode_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER manage_regulator_interface_process_manage_regulator_interface -->
+      <!-- END CONTENT MARKER manage_regulator_interface_process_manage_regulator_interface -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER manage_regulator_interface_process_manage_regulator_interface_MON -->
+    <!-- END CONTENT MARKER manage_regulator_interface_process_manage_regulator_interface_MON -->
+  </protection_domain>
+
+  <protection_domain name="detect_regulator_failure_process_detect_regulator_failure_MON" domain="domain_3">
+    <program_image path="detect_regulator_failure_process_detect_regulator_failure_MON.elf" />
+    <protection_domain name="detect_regulator_failure_process_detect_regulator_failure" domain="domain_3" id="1">
+      <program_image path="detect_regulator_failure_process_detect_regulator_failure.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_detect_regulator_failure_process_detect_regulator_failure_diagnostic_facts_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="diagnostic_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_detect_regulator_failure_process_detect_regulator_failure_supervision_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="supervision_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER detect_regulator_failure_process_detect_regulator_failure -->
+      <!-- END CONTENT MARKER detect_regulator_failure_process_detect_regulator_failure -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER detect_regulator_failure_process_detect_regulator_failure_MON -->
+    <!-- END CONTENT MARKER detect_regulator_failure_process_detect_regulator_failure_MON -->
+  </protection_domain>
+
+  <protection_domain name="manage_regulator_mode_process_manage_regulator_mode_MON" domain="domain_4">
+    <program_image path="manage_regulator_mode_process_manage_regulator_mode_MON.elf" />
+    <protection_domain name="manage_regulator_mode_process_manage_regulator_mode" domain="domain_4" id="1">
+      <program_image path="manage_regulator_mode_process_manage_regulator_mode.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_interface_facts_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="interface_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_detect_regulator_failure_process_detect_regulator_failure_diagnostic_facts_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="diagnostic_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_mode_process_manage_regulator_mode_mode_for_interface_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="mode_for_interface_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_mode_process_manage_regulator_mode_mode_for_heat_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="rw"
+           setvar_vaddr="mode_for_heat_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER manage_regulator_mode_process_manage_regulator_mode -->
+      <!-- END CONTENT MARKER manage_regulator_mode_process_manage_regulator_mode -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER manage_regulator_mode_process_manage_regulator_mode_MON -->
+    <!-- END CONTENT MARKER manage_regulator_mode_process_manage_regulator_mode_MON -->
+  </protection_domain>
+
+  <protection_domain name="manage_heat_source_process_manage_heat_source_MON" domain="domain_5">
+    <program_image path="manage_heat_source_process_manage_heat_source_MON.elf" />
+    <protection_domain name="manage_heat_source_process_manage_heat_source" domain="domain_5" id="1">
+      <program_image path="manage_heat_source_process_manage_heat_source.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_control_basis_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="control_basis_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_regulator_mode_process_manage_regulator_mode_mode_for_heat_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="regulator_mode_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_heat_source_process_manage_heat_source_heat_control_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="heat_control_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER manage_heat_source_process_manage_heat_source -->
+      <!-- END CONTENT MARKER manage_heat_source_process_manage_heat_source -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER manage_heat_source_process_manage_heat_source_MON -->
+    <!-- END CONTENT MARKER manage_heat_source_process_manage_heat_source_MON -->
+  </protection_domain>
+
+  <protection_domain name="manage_monitor_interface_process_manage_monitor_interface_MON" domain="domain_6">
+    <program_image path="manage_monitor_interface_process_manage_monitor_interface_MON.elf" />
+    <protection_domain name="manage_monitor_interface_process_manage_monitor_interface" domain="domain_6" id="1">
+      <program_image path="manage_monitor_interface_process_manage_monitor_interface.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_interface_facts_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="interface_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_control_basis_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="rw"
+           setvar_vaddr="control_basis_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_current_temperature_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="r"
+           setvar_vaddr="current_temperature_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_alarm_settings_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="r"
+           setvar_vaddr="alarm_settings_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_monitor_status_1_Memory_Region"
+           vaddr="0x10_004_000"
+           perms="rw"
+           setvar_vaddr="monitor_status_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_mode_process_manage_monitor_mode_mode_for_interface_1_Memory_Region"
+           vaddr="0x10_005_000"
+           perms="r"
+           setvar_vaddr="monitor_mode_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER manage_monitor_interface_process_manage_monitor_interface -->
+      <!-- END CONTENT MARKER manage_monitor_interface_process_manage_monitor_interface -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER manage_monitor_interface_process_manage_monitor_interface_MON -->
+    <!-- END CONTENT MARKER manage_monitor_interface_process_manage_monitor_interface_MON -->
+  </protection_domain>
+
+  <protection_domain name="detect_monitor_failure_process_detect_monitor_failure_MON" domain="domain_7">
+    <program_image path="detect_monitor_failure_process_detect_monitor_failure_MON.elf" />
+    <protection_domain name="detect_monitor_failure_process_detect_monitor_failure" domain="domain_7" id="1">
+      <program_image path="detect_monitor_failure_process_detect_monitor_failure.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_detect_monitor_failure_process_detect_monitor_failure_diagnostic_facts_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="rw"
+           setvar_vaddr="diagnostic_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_detect_monitor_failure_process_detect_monitor_failure_supervision_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="supervision_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER detect_monitor_failure_process_detect_monitor_failure -->
+      <!-- END CONTENT MARKER detect_monitor_failure_process_detect_monitor_failure -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER detect_monitor_failure_process_detect_monitor_failure_MON -->
+    <!-- END CONTENT MARKER detect_monitor_failure_process_detect_monitor_failure_MON -->
+  </protection_domain>
+
+  <protection_domain name="manage_monitor_mode_process_manage_monitor_mode_MON" domain="domain_8">
+    <program_image path="manage_monitor_mode_process_manage_monitor_mode_MON.elf" />
+    <protection_domain name="manage_monitor_mode_process_manage_monitor_mode" domain="domain_8" id="1">
+      <program_image path="manage_monitor_mode_process_manage_monitor_mode.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_interface_facts_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="interface_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_detect_monitor_failure_process_detect_monitor_failure_diagnostic_facts_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="diagnostic_facts_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_mode_process_manage_monitor_mode_mode_for_interface_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="mode_for_interface_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_mode_process_manage_monitor_mode_mode_for_alarm_1_Memory_Region"
+           vaddr="0x10_003_000"
+           perms="rw"
+           setvar_vaddr="mode_for_alarm_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER manage_monitor_mode_process_manage_monitor_mode -->
+      <!-- END CONTENT MARKER manage_monitor_mode_process_manage_monitor_mode -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER manage_monitor_mode_process_manage_monitor_mode_MON -->
+    <!-- END CONTENT MARKER manage_monitor_mode_process_manage_monitor_mode_MON -->
+  </protection_domain>
+
+  <protection_domain name="manage_alarm_process_manage_alarm_MON" domain="domain_9">
+    <program_image path="manage_alarm_process_manage_alarm_MON.elf" />
+    <protection_domain name="manage_alarm_process_manage_alarm" domain="domain_9" id="1">
+      <program_image path="manage_alarm_process_manage_alarm.elf" />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_control_basis_1_Memory_Region"
+           vaddr="0x10_000_000"
+           perms="r"
+           setvar_vaddr="control_basis_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_monitor_mode_process_manage_monitor_mode_mode_for_alarm_1_Memory_Region"
+           vaddr="0x10_001_000"
+           perms="r"
+           setvar_vaddr="monitor_mode_queue_1"
+      />
+      <map mr="IsoletteThermostatSystem_Instance_manage_alarm_process_manage_alarm_alarm_control_1_Memory_Region"
+           vaddr="0x10_002_000"
+           perms="rw"
+           setvar_vaddr="alarm_control_queue_1"
+      />
+
+      <!-- BEGIN CONTENT MARKER manage_alarm_process_manage_alarm -->
+      <!-- END CONTENT MARKER manage_alarm_process_manage_alarm -->
+    </protection_domain>
+
+    <!-- BEGIN CONTENT MARKER manage_alarm_process_manage_alarm_MON -->
+    <!-- END CONTENT MARKER manage_alarm_process_manage_alarm_MON -->
+  </protection_domain>
+
+  <protection_domain name="pacer" domain="domain_1">
+    <program_image path="pacer.elf" />
+
+    <!-- BEGIN CONTENT MARKER pacer -->
+    <!-- END CONTENT MARKER pacer -->
+  </protection_domain>
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_interface_facts_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_control_basis_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_current_temperature_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_desired_settings_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_regulator_interface_process_manage_regulator_interface_regulator_feedback_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_detect_regulator_failure_process_detect_regulator_failure_diagnostic_facts_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_detect_regulator_failure_process_detect_regulator_failure_supervision_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_regulator_mode_process_manage_regulator_mode_mode_for_interface_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_regulator_mode_process_manage_regulator_mode_mode_for_heat_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_heat_source_process_manage_heat_source_heat_control_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_interface_facts_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_control_basis_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_current_temperature_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_alarm_settings_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_monitor_interface_process_manage_monitor_interface_monitor_status_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_detect_monitor_failure_process_detect_monitor_failure_diagnostic_facts_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_detect_monitor_failure_process_detect_monitor_failure_supervision_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_monitor_mode_process_manage_monitor_mode_mode_for_interface_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_monitor_mode_process_manage_monitor_mode_mode_for_alarm_1_Memory_Region"
+                 size="0x1_000" />
+
+  <memory_region name="IsoletteThermostatSystem_Instance_manage_alarm_process_manage_alarm_alarm_control_1_Memory_Region"
+                 size="0x1_000" />
+
+  <channel>
+    <end pd="pacer" id="61" />
+    <end pd="manage_regulator_interface_process_manage_regulator_interface_MON" id="61" />
+  </channel>
+
+  <channel>
+    <end pd="manage_regulator_interface_process_manage_regulator_interface_MON" id="60" />
+    <end pd="manage_regulator_interface_process_manage_regulator_interface" id="60" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="59" />
+    <end pd="detect_regulator_failure_process_detect_regulator_failure_MON" id="59" />
+  </channel>
+
+  <channel>
+    <end pd="detect_regulator_failure_process_detect_regulator_failure_MON" id="58" />
+    <end pd="detect_regulator_failure_process_detect_regulator_failure" id="58" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="57" />
+    <end pd="manage_regulator_mode_process_manage_regulator_mode_MON" id="57" />
+  </channel>
+
+  <channel>
+    <end pd="manage_regulator_mode_process_manage_regulator_mode_MON" id="56" />
+    <end pd="manage_regulator_mode_process_manage_regulator_mode" id="56" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="55" />
+    <end pd="manage_heat_source_process_manage_heat_source_MON" id="55" />
+  </channel>
+
+  <channel>
+    <end pd="manage_heat_source_process_manage_heat_source_MON" id="54" />
+    <end pd="manage_heat_source_process_manage_heat_source" id="54" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="53" />
+    <end pd="manage_monitor_interface_process_manage_monitor_interface_MON" id="53" />
+  </channel>
+
+  <channel>
+    <end pd="manage_monitor_interface_process_manage_monitor_interface_MON" id="52" />
+    <end pd="manage_monitor_interface_process_manage_monitor_interface" id="52" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="51" />
+    <end pd="detect_monitor_failure_process_detect_monitor_failure_MON" id="51" />
+  </channel>
+
+  <channel>
+    <end pd="detect_monitor_failure_process_detect_monitor_failure_MON" id="50" />
+    <end pd="detect_monitor_failure_process_detect_monitor_failure" id="50" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="49" />
+    <end pd="manage_monitor_mode_process_manage_monitor_mode_MON" id="49" />
+  </channel>
+
+  <channel>
+    <end pd="manage_monitor_mode_process_manage_monitor_mode_MON" id="48" />
+    <end pd="manage_monitor_mode_process_manage_monitor_mode" id="48" />
+  </channel>
+
+  <channel>
+    <end pd="pacer" id="47" />
+    <end pd="manage_alarm_process_manage_alarm_MON" id="47" />
+  </channel>
+
+  <channel>
+    <end pd="manage_alarm_process_manage_alarm_MON" id="46" />
+    <end pd="manage_alarm_process_manage_alarm" id="46" />
+  </channel>
+
+  <!-- BEGIN MSD CONTENT MARKER -->
+  <!-- END MSD CONTENT MARKER -->
+</system>

@@ -1,0 +1,17 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_1ab85240039b_3_Valid {
+  @pure def check(
+      healthdecision: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.HealthDecision,
+      maintenanceassessment: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.MaintenanceAssessment.Type,
+      recoveryproposal: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.RecoveryProposal.Type,
+      temperatureassessment: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.TemperatureAssessment.Type,
+      in_healthstate: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.VehicleHealthMode.Type,
+      healthstate: equiv_shared_0.Vehicle_Temperature_Health_Supervisor.VehicleHealthMode.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: (T)))
+  }
+}

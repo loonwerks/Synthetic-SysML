@@ -1,0 +1,30 @@
+// #Sireum
+
+package scp_candidate.Power_Propulsion_Availability_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object BatteryCapacityAssessmentOwner_supervisor_process_battery_capacity_assessment {
+
+  def initialise(api: BatteryCapacityAssessmentOwner_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INITIAL_BATTERY_NOT_READY
+        api.battery_assessment == BatteryAssessment.NOT_READY_INVALID
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_battery_assessment(Power_Propulsion_Availability_Supervisor.BatteryAssessment.READY_NONE)
+  }
+
+  def finalise(api: BatteryCapacityAssessmentOwner_Operational_Api): Unit = { }
+}

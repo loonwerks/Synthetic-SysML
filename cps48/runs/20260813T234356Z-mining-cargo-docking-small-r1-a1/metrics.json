@@ -1,0 +1,143 @@
+{
+  "schema_version": 2,
+  "source_sha256": "9644e38a4e8771374232945758e5e1b80bdcdd6478e14d923fa12908058fe0d6",
+  "root_definition": "Mining_Cargo_Transfer_Supervisor::MiningCargoTransferSupervisorSystem",
+  "root_usage": "miningCargoTransferSupervisor",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 7,
+    "generated_support_processes": 1,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 13,
+    "boundary_semantic_interactions": 7,
+    "internal_semantic_interactions": 6,
+    "generated_support_delegations": 14,
+    "raw_port_connection_declarations": 20,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2, "INT-02": 1, "INT-03": 2, "INT-04": 1,
+      "INT-05": 2, "INT-06": 1, "INT-07": 2, "INT-08": 1,
+      "INT-09": 1, "INT-10": 1, "INT-11": 2, "INT-12": 2, "INT-13": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "decision_owner_cases": 12,
+    "qualification_total_relations": 4,
+    "downstream_output_relations": 2,
+    "safe_initialization_guarantees": 7,
+    "state_invariant_guarantees": 1,
+    "identity_forwarding_cases_counted": 0,
+    "synthetic_true_cases_counted": 0
+  },
+  "bounded_analysis": {
+    "snapshots": 3072,
+    "partition_counts": {
+      "CASE-01": 2880, "CASE-02": 46, "CASE-03": 2, "CASE-04": 80,
+      "CASE-05": 44, "CASE-06": 1, "CASE-07": 1, "CASE-08": 2,
+      "CASE-09": 2, "CASE-10": 4, "CASE-11": 8, "CASE-12": 2
+    },
+    "partition_gaps": 0,
+    "effective_partition_overlaps": 0,
+    "qualification_mismatches": 0,
+    "state_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "scenario_families": 5,
+    "scenario_failures": 0,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": { "exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 1 },
+    "final": { "exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0 }
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 7,
+    "semantic_interactions": 13,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "requestQualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["requestQualification.requestSample"],
+        "owner_local_facts": ["validity-aware three-valued request qualification"],
+        "contract_cases": ["QUAL_REQ_TOTAL"],
+        "analyzer_checks": ["request qualification four-pair total relation"]
+      },
+      {
+        "usage": "dockingAssessmentOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["dockingAssessmentOwner.dockingSample"],
+        "owner_local_facts": ["validity-aware three-valued docking assessment"],
+        "contract_cases": ["QUAL_DOCK_TOTAL"],
+        "analyzer_checks": ["docking assessment four-pair total relation"]
+      },
+      {
+        "usage": "shipProgressQualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["shipProgressQualification.shipSample"],
+        "owner_local_facts": ["validity-aware five-valued ship-progress qualification"],
+        "contract_cases": ["QUAL_SHIP_TOTAL"],
+        "analyzer_checks": ["ship qualification eight-pair total relation"]
+      },
+      {
+        "usage": "warehouseEvidenceQualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["warehouseEvidenceQualification.warehouseSample"],
+        "owner_local_facts": ["validity-aware four-valued warehouse-evidence qualification"],
+        "contract_cases": ["QUAL_WAREHOUSE_TOTAL"],
+        "analyzer_checks": ["warehouse qualification six-pair total relation"]
+      },
+      {
+        "usage": "transferDecisionOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": [
+          "transferDecisionOwner.qualifiedRequest",
+          "transferDecisionOwner.dockingAssessment",
+          "transferDecisionOwner.qualifiedShipProgress",
+          "transferDecisionOwner.qualifiedWarehouseEvidence",
+          "transferDecisionOwner.In(transferPhase)",
+          "transferDecisionOwner.In(rearmRequired)"
+        ],
+        "owner_local_facts": ["ordered twelve-way disposition", "next transfer phase", "next rearm obligation"],
+        "contract_cases": [
+          "CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06",
+          "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"
+        ],
+        "analyzer_checks": ["decision twelve-case effective partition", "decision next-state and invariant preservation"]
+      },
+      {
+        "usage": "transferCommandDerivation",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["transferCommandDerivation.resolution"],
+        "owner_local_facts": ["twelve-to-two transfer-command classification"],
+        "contract_cases": ["COMMAND_TOTAL"],
+        "analyzer_checks": ["command derivation total relation through INT-09"]
+      },
+      {
+        "usage": "transferReportDerivation",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["transferReportDerivation.resolution"],
+        "owner_local_facts": ["disposition-and-phase status classification", "three-valued finding classification"],
+        "contract_cases": ["REPORT_TOTAL"],
+        "analyzer_checks": ["status and finding total relation through INT-10"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-07 only. Interactions count INT-01 through INT-13 once each and exclude fourteen support delegations. Nontrivial cases count CASE-01 through CASE-12 only. Scenario families count SCN-01 through SCN-05. Root, Process support, types, initialization, invariants, qualification relations, downstream output relations, identity routes, and analyzer fixtures receive no additional campaign credit. Composition means executable finite-relation and explicit-connection-map composition, not compositional proof."
+}

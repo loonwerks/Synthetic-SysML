@@ -1,0 +1,156 @@
+{
+  "schema_version": 2,
+  "source_sha256": "2599d5211266ace93c420bbaa5c3cfabf9d73041dac8cdf15a89b0a1c2fd9a26",
+  "root_definition": "EIT_Image_Availability_Coordinator::EIT_Image_Availability_System",
+  "root_usage": "eit_image_availability_coordinator",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 6,
+    "generated_support_processes": 1,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 12,
+    "boundary_semantic_interactions": 6,
+    "internal_semantic_interactions": 6,
+    "generated_support_delegations": 12,
+    "raw_port_connection_declarations": 18,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2,
+      "INT-02": 2,
+      "INT-03": 2,
+      "INT-04": 1,
+      "INT-05": 1,
+      "INT-06": 1,
+      "INT-07": 1,
+      "INT-08": 1,
+      "INT-09": 2,
+      "INT-10": 1,
+      "INT-11": 2,
+      "INT-12": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "governor_priority_cases": 12,
+    "safe_initialization_guarantees": 6,
+    "state_invariant_guarantees": 1,
+    "identity_forwarding_cases_counted": 0,
+    "synthetic_true_cases_counted": 0,
+    "datatype_invariants_counted": 0
+  },
+  "bounded_analysis": {
+    "raw_end_to_end_snapshots": 4320,
+    "qualified_governor_snapshots": 1200,
+    "direct_part05_pairs": 660,
+    "direct_part06_values": 165,
+    "partition_gaps": 0,
+    "effective_partition_overlaps": 0,
+    "qualification_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "anomalous_generation_started_pairings": 0,
+    "scenario_families": 5,
+    "analyzer_repair_cycles": 3,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    },
+    "final": {
+      "exit_status": 0,
+      "errors": 0,
+      "well_formed_marker": true,
+      "repairs": 0
+    }
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 6,
+    "semantic_interactions": 12,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "upstream_acquisition_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["upstream_acquisition_qualification.acquisition_sample"],
+        "owner_local_facts": ["status-sensitive Qualified_Acquisition classification"],
+        "contract_cases": ["QUAL-ACQ-01"],
+        "analyzer_checks": ["part01_qualification_product_6_fibers_3_1_1_1"],
+        "passed": true
+      },
+      {
+        "usage": "doctor_intent_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["doctor_intent_qualification.review_intent_sample"],
+        "owner_local_facts": ["status-sensitive Qualified_Intent classification"],
+        "contract_cases": ["QUAL-INTENT-01"],
+        "analyzer_checks": ["part02_qualification_product_6_fibers_3_1_1_1"],
+        "passed": true
+      },
+      {
+        "usage": "generation_result_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["generation_result_qualification.generation_result_sample"],
+        "owner_local_facts": ["status-sensitive Qualified_Generation_Result classification"],
+        "contract_cases": ["QUAL-RESULT-01"],
+        "analyzer_checks": ["part03_qualification_product_8_fibers_4_1_1_1_1"],
+        "passed": true
+      },
+      {
+        "usage": "image_availability_governor",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": [
+          "image_availability_governor.qualified_acquisition",
+          "image_availability_governor.qualified_intent",
+          "image_availability_governor.qualified_generation_result",
+          "image_availability_governor.image_state.pre",
+          "image_availability_governor.recovery_phase.pre"
+        ],
+        "owner_local_facts": ["ordered case selection", "committed Image_Resolution", "next image state", "next recovery phase"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["part04_governor_product_1200_case_vector_957_54_27_27_27_27_27_12_12_12_9_9"],
+        "passed": true
+      },
+      {
+        "usage": "generation_directive_derivation",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": [
+          "generation_directive_derivation.image_resolution",
+          "generation_directive_derivation.qualified_acquisition"
+        ],
+        "owner_local_facts": ["producer-total two-input Generation_Directive gate"],
+        "contract_cases": ["DIRECTIVE-01"],
+        "analyzer_checks": ["part05_direct_product_660_fibers_15_15_630"],
+        "passed": true
+      },
+      {
+        "usage": "doctor_publication",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["doctor_publication.image_resolution"],
+        "owner_local_facts": ["joint Image_Delivery gate and Availability_Status precedence"],
+        "contract_cases": ["PUBLICATION-01"],
+        "analyzer_checks": ["part06_direct_product_165_delivery_33_33_99_status_15_15_30_45_15_15_30"],
+        "passed": true
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-06 only. Semantic interactions count INT-01 through INT-12 once each and exclude twelve support delegations. Nontrivial cases count only the governor's CASE-01 through CASE-12 ordered regions. Scenario families count SCN-01 through SCN-05. Root, Process support, types, ports, initialization, invariants, qualification relations, mappings, identity routes, scenario variants, and analyzer fixtures receive no campaign credit. Composition denotes finite relation composition through the explicit connection map, not compositional proof."
+}

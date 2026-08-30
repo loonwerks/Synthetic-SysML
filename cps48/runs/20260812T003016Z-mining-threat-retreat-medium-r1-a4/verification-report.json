@@ -1,0 +1,587 @@
+{
+  "schema_version": 2,
+  "run_id": "20260812T003016Z-mining-threat-retreat-medium-r1-a4",
+  "terminal_status": "accepted",
+  "source": "model/Mining_Threat_Retreat_Supervisor.sysml",
+  "source_sha256": "521f5796085d5aedab7ade2f73c2918d459ae6646cd23511b1c06dbcaf105174",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 7,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 130,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "ASM-02",
+      "ASM-03",
+      "ASM-04",
+      "ASM-05",
+      "BEH-01",
+      "BEH-04",
+      "BEH-05",
+      "BOUNDARY-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "FAULT-01",
+      "GENERATED-SUPPORT-01",
+      "GENERATED-SUPPORT-02",
+      "GENERATED-SUPPORT-03",
+      "GOAL-04",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "LOCAL-CONTRACT-02",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "QUAL-01",
+      "STATE-01",
+      "STATE-OWN-01"
+    ],
+    "relativePath": "cps48/runs/20260812T003016Z-mining-threat-retreat-medium-r1-a4/system-abstract.md",
+    "taggedElementCount": 235,
+    "traceAssociationCount": 235,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "seed-generation": {
+      "disposition": "passed",
+      "summary": "Frozen medium mining threat-response and retreat supervision seed completed from all six pinned upstream sources.",
+      "source_files": [
+        "models/example_EveOnlineMiningFrigate/DomainModel/BusinessCaseOpsCon.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/Concerns.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/Domain.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/MiningFrigate.sysml",
+        "models/example_EveOnlineMiningFrigate/DomainModel/MiningFrigateRequirementsDef.sysml",
+        "models/example_EveOnlineMiningFrigate/UseCases/OperationalUseCaseActions.sysml"
+      ],
+      "selected_problem": "Mining threat-response and retreat supervision"
+    },
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected an implementation-independent eight-usage, 17-interaction signal-centered allocation with 20 ordered cases, seven scenario families, cooperating policy owners, and explicit C05 priority.",
+      "questions_for_model": [
+        "Can the retained SysML-AADL/GUMBO forms make threat qualification the sole streak owner and arbitration the sole phase owner while the bounded analyzer executes, but does not duplicate, those local updates?",
+        "Can two finite proposal domains preserve all C01 through C20 published reasons, including a direct C05-over-C07/C08 conflict witness, without arbitration recomputing policy guards?",
+        "Can exactly 17 compatible typed semantic dependencies form one weakly connected region at depth 1 through 2 without routing-only usages or extra counted connections?",
+        "Can one atomic result make command, phase, reason, fault, streak, advisories, and actuator posture jointly contract-checkable in the allowed source forms?",
+        "Can phase-relevant arrival and resupply invalidity be divided between mission qualification and arbitration without predicate duplication, with ownership visible to the harness audit?"
+      ]
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Replace identity-only Observation Intake credit with baseline-required Fault Assessment and revise the semantic interaction inventory from 17 to 18.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-01 receives an already coherent current-tick snapshot under ASM-01 and only separates it into ThreatObservation, ResourceObservation, and MissionObservation. With no freshness, sequence, or provenance input, those obligations only copy, bundle, and reroute assigned values, so PART-01 is an identity wrapper under M-17.",
+          "requested_change": "Replace semantic PART-01 OI with a Fault Assessment owner that derives FAULT-01 from TQ/RQ/PQ status facts and AS current phase; make boundary intake/routes uncounted support; remove semantic INT-01..03; add TQ-to-FA, RQ-to-FA, AS-phase-to-FA, and FA-fault-to-AS while retargeting PQ status to FA; retain direct TQ/RQ publication facts to AS. Set the exact semantic-interaction metric to 18 and retain exactly 8 semantic usages."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "PART-04 has no phase input, so it can derive valid-Mine, invalid-or-Return, valid-SafeAtStation, valid-Complete-resupply, and independent validity facts, but cannot itself decide that arrival invalidity is relevant only in Retreating or resupply invalidity only in Docked/Recovery.",
+          "requested_change": "Narrow PART-04's phase-relevant wording to owner-local qualified mission/arrival/resupply facts; have revised PART-01 FA apply current-phase relevance. Do not change ASM-05, C16..C20, or the fault predicate."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "MR and TR receive all qualified facts needed to derive their finite proposal domains, and AS receives phase plus both proposal enums. These interfaces distinguish C05 from simultaneous C07/C08 and distinguish Defending C14 from TR fallback C15 without central recomputation of qualifier or policy guards.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The current library and trusted Isolette source support composite Data/DataPort/PortConnection interfaces, nested payload fields, local state, initialize, compute, and compute_cases; the current Sireum gate returned exit 0 and Well-formed. The harness accepts ownership roles only as applicability, proposal, or decision and gives the deterministic analyzer 180 seconds for the 47,185,920-element finite product.",
+          "requested_change": "Encode priority with mutually exclusive effective proposal guards, use only accepted ownership role labels, stream the full Cartesian analysis through named owner-local relations, and retain the existing bounded/no-proof claim boundary."
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved the fault-assessment revision and repaired the MON-01 and STATE-01 trace anchors.",
+      "revision_used": true,
+      "generation_authorized": true
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Approved eight-owner model passed both SysML gates, exact trace audit, and exhaustive bounded analysis.",
+      "canonical_source": "model/Mining_Threat_Retreat_Supervisor.sysml",
+      "architecture_repairs": 1,
+      "contract_repairs": 0
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated seven-edge overview resolves all named overlays and passes native and traceability review.",
+      "correction_cycles": 12,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "ASM-02",
+        "ASM-03",
+        "ASM-04",
+        "ASM-05",
+        "BEH-01",
+        "BEH-04",
+        "BEH-05",
+        "BOUNDARY-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "FAULT-01",
+        "GENERATED-SUPPORT-01",
+        "GENERATED-SUPPORT-02",
+        "GENERATED-SUPPORT-03",
+        "GOAL-04",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "LOCAL-CONTRACT-02",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "QUAL-01",
+        "STATE-01",
+        "STATE-OWN-01"
+      ],
+      "reviewed_tagged_element_count": 235,
+      "reviewed_trace_association_count": 235,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, and repaired visualization passed without drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run"
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 18,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 7
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "Fault Assessment",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "phase_context.current_phase",
+            "threat_invalidity.threat_invalid",
+            "resource_invalidity.resource_invalid",
+            "mission_invalidity.intent_invalid",
+            "mission_invalidity.arrival_invalid",
+            "mission_invalidity.resupply_invalid"
+          ],
+          "owner_local_facts": [
+            "phase_relevant_fault"
+          ],
+          "contract_cases": [
+            "FA_PHASE_RELEVANT_FAULT"
+          ],
+          "analyzer_checks": [
+            "fa_exact_fault_predicate"
+          ]
+        },
+        {
+          "usage": "Threat Qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "raw_threat.threat",
+            "raw_threat.threat_validity",
+            "streak_state.current_valid_streak"
+          ],
+          "owner_local_facts": [
+            "qualified_threat",
+            "next_valid_streak",
+            "threat_invalid"
+          ],
+          "contract_cases": [
+            "TQ_STREAK_AND_TRUST",
+            "TQ_QUALIFIED_FACTS"
+          ],
+          "analyzer_checks": [
+            "tq_streak_and_trust_mapping"
+          ]
+        },
+        {
+          "usage": "Resource Qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "raw_resources.cargo",
+            "raw_resources.cargo_validity",
+            "raw_resources.capacitor",
+            "raw_resources.capacitor_validity",
+            "raw_resources.target",
+            "raw_resources.target_validity",
+            "raw_resources.mining_availability",
+            "raw_resources.defense_availability",
+            "raw_resources.retreat_availability",
+            "raw_resources.availability_validity"
+          ],
+          "owner_local_facts": [
+            "mine_ready",
+            "resource_reset",
+            "defense_ready",
+            "cargo_or_capacitor_retreat",
+            "target_or_mining_block",
+            "resource_advisories",
+            "resource_invalid"
+          ],
+          "contract_cases": [
+            "RQ_MINING_AND_RESET",
+            "RQ_DEFENSE",
+            "RQ_ADVISORIES"
+          ],
+          "analyzer_checks": [
+            "rq_readiness_advisory_invalidity_mapping"
+          ]
+        },
+        {
+          "usage": "Personnel Mission Qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "raw_mission.pilot_intent",
+            "raw_mission.intent_validity",
+            "raw_mission.arrival",
+            "raw_mission.arrival_validity",
+            "raw_mission.resupply",
+            "raw_mission.resupply_validity"
+          ],
+          "owner_local_facts": [
+            "valid_mine",
+            "invalid_or_return",
+            "valid_hold_or_return",
+            "valid_safe_at_station",
+            "valid_complete_resupply",
+            "mission_invalidity"
+          ],
+          "contract_cases": [
+            "PQ_INTENT_FACTS",
+            "PQ_PROGRESS_FACTS",
+            "PQ_INDEPENDENT_INVALIDITY"
+          ],
+          "analyzer_checks": [
+            "pq_independent_mission_mapping"
+          ]
+        },
+        {
+          "usage": "Mission Recovery Decision",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "phase_context.current_phase",
+            "threat_fact.acceptable",
+            "resource_facts.mine_ready",
+            "resource_facts.resource_reset",
+            "resource_facts.cargo_or_capacitor_retreat",
+            "resource_facts.target_or_mining_block",
+            "mission_facts.valid_mine",
+            "mission_facts.invalid_or_return",
+            "mission_facts.valid_hold_or_return",
+            "mission_facts.valid_complete_resupply",
+            "mission_facts.intent_invalid"
+          ],
+          "owner_local_facts": [
+            "mission_proposal"
+          ],
+          "contract_cases": [
+            "MR_PROPOSAL_PARTITIONS"
+          ],
+          "analyzer_checks": [
+            "mr_total_local_proposal_partition"
+          ]
+        },
+        {
+          "usage": "Threat Retreat Decision",
+          "claimed_roles": [
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "phase_context.current_phase",
+            "threat_fact.untrusted",
+            "threat_fact.hostile",
+            "threat_fact.severe",
+            "defense_facts.defense_ready",
+            "arrival_fact.valid_safe_at_station"
+          ],
+          "owner_local_facts": [
+            "response_proposal"
+          ],
+          "contract_cases": [
+            "TR_PROPOSAL_PARTITIONS"
+          ],
+          "analyzer_checks": [
+            "tr_total_local_proposal_partition"
+          ]
+        },
+        {
+          "usage": "Priority Phase Arbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "phase_state.current_phase",
+            "mission_candidate.proposed_reason",
+            "response_candidate.proposed_reason",
+            "threat_publication.next_valid_streak",
+            "resource_publication.cargo_advisory",
+            "resource_publication.capacitor_advisory",
+            "resource_publication.retreat_advisory",
+            "fault.fault"
+          ],
+          "owner_local_facts": [
+            "selected_reason",
+            "command",
+            "next_phase",
+            "atomic_status"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "as_effective_guard_totality",
+            "as_priority_resolution",
+            "as_atomic_preservation"
+          ]
+        },
+        {
+          "usage": "Atomic Publication",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "atomic_result.command",
+            "atomic_result.current_phase",
+            "atomic_result.next_phase",
+            "atomic_result.reason",
+            "atomic_result.fault",
+            "atomic_result.next_valid_streak",
+            "atomic_result.cargo_advisory",
+            "atomic_result.capacitor_advisory",
+            "atomic_result.retreat_advisory"
+          ],
+          "owner_local_facts": [
+            "laser_command",
+            "drone_assignment",
+            "coherent_publication"
+          ],
+          "contract_cases": [
+            "AP_ACTUATOR_MAPPING",
+            "AP_ATOMIC_PRESERVATION"
+          ],
+          "analyzer_checks": [
+            "ap_command_to_actuator_mapping",
+            "ap_atomic_field_preservation"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    },
+    "seed-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "seed": "cps48/runs/20260812T003016Z-mining-threat-retreat-medium-r1-a4/seed.md",
+      "seed_sha256": "db330b4531890c7427879fe842cffa73825dac818235d423fb68a651773d8045",
+      "source": "cps48/seeds/sources/mining-threat-retreat-v1.md",
+      "source_sha256": "fdc47798d44f639cfbf033fb3a72402e63da2c4cff278b8d04433ad385477adb",
+      "identifier_classes": [
+        "NEED",
+        "PURPOSE",
+        "STAKE",
+        "CTX",
+        "MON",
+        "CTRL",
+        "REQ",
+        "SCN",
+        "ASM",
+        "EXCL"
+      ],
+      "complexity": "medium",
+      "realizability_audit": {
+        "status": "passed",
+        "semantic_interactions": 17,
+        "bounds": [
+          15,
+          21
+        ],
+        "interaction_ids": [
+          "INT-01",
+          "INT-02",
+          "INT-03",
+          "INT-04",
+          "INT-05",
+          "INT-06",
+          "INT-07",
+          "INT-08",
+          "INT-09",
+          "INT-10",
+          "INT-11",
+          "INT-12",
+          "INT-13",
+          "INT-14",
+          "INT-15",
+          "INT-16",
+          "INT-17"
+        ],
+        "semantic_review_owner": "seed-agent"
+      },
+      "advisories": []
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, and repaired visualization passed without drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

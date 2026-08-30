@@ -1,0 +1,33 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_137abeffc96e_Oracle_Pointwise_Realizable {
+  @pure def check(
+      lifecycleprestate: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.LifecycleState.Type,
+      operationalassessment: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.OperationalAssessment.Type,
+      qualifiedintent: equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.QualifiedIntent.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.ENTER_RECOVERY_FAULT)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.ENTER_RECOVERY_CONFLICT)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.RESET_RECOVERY)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.HOLD_RECOVERY)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.FINISH_SERVICE_DEFER_UNDOCK)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.FINISH_SERVICE)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.DEFER_UNDOCK)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.HOLD_ACTIVE_SERVICE)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.START_SERVICE)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.HOLD_SERVICE_GRANT)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.WITHDRAW_SERVICE_GRANT)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.CONFIRM_RELEASE)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.HOLD_UNDOCK_CLEARANCE)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.CONFIRM_DOCK)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.HOLD_DOCK_CLEARANCE)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.AUTHORIZE_UNDOCK)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.GRANT_SERVICE_ACCESS)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.AUTHORIZE_DOCK)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.INHIBIT_ACTION)) |
+        (equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.PriorityArbiter_supervisorProcess_priorityArbiter_GumboX.compute_CEP_Post(lifecycleprestate, operationalassessment, qualifiedintent, equiv_shared_0.Docked_Service_Access_Lifecycle_Supervisor.AdmittedDirective.HOLD_STABLE)))))
+  }
+}

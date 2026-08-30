@@ -1,0 +1,350 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132657Z-vehicle-mode-small-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Vehicle_Controller_Mode_Coordinator.sysml",
+  "source_sha256": "d4edf7ab89d07cfec03c783df4ab33931b2135029558ac6dd30c89d1acb0bc91",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 12,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 97,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "COMPAT-01",
+      "CONSIST-01",
+      "CTRL-01",
+      "CTRL-02",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "MON-01",
+      "MON-02",
+      "OUT-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "QUAL-COND-01",
+      "QUAL-LIFE-01",
+      "SEM-01",
+      "STATE-01"
+    ],
+    "relativePath": "cps48/runs/20260814T132657Z-vehicle-mode-small-r2-a1/system-abstract.md",
+    "taggedElementCount": 93,
+    "traceAssociationCount": 93,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a five-usage controller operating-mode coordinator with ten interactions, eleven closed policy cases, five scenario families, and one mode-decision owner.",
+      "questions_for_model": [
+        "Can the retained SysML-AADL/GUMBO subset let PART-05 publish PART-04's applied next-mode decision in the same logical evaluation without an unintended one-cycle delay? If not, identify the exact realizability limitation without changing the case semantics."
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "Controller operating-mode coordination for finite start, on, off, maintenance, degraded, and return-to-normal indications",
+        "closest_baseline": "Vehicle Start-Readiness and Recovery Supervisor (replicate 1 medium)",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "The selected coordinator owns only controller mode sequencing and a coordination result from two indication channels. It removes brake, temperature/health, self-test, power, readiness, authorization, and actuation responsibilities; uses one mode state with a dual-qualification/compatibility/arbitration topology; gives invalid indication evidence explicit top priority; and recovers only to Off before later fresh Start and On events. Those changes replace the closest baseline's controlled purpose and policy rather than extending, repartitioning, or renaming it."
+      }
+    },
+    "model-review": {
+      "disposition": "no-concern",
+      "summary": "All five owners are nonidentity, same-evaluation framing is realizable as an abstract relation, and the exact 5/10/11/5 allocation can proceed unchanged.",
+      "findings": [
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01 and PART-02 each map eight event/status values with fibers 4/1/1/1/1 because invalid status suppresses all four payloads. Both derive validity-aware applicability facts rather than one-to-one enum or code renames.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-03 maps all 25 assessment pairs with fibers 9/1/3/3/3/4/2, while PART-04 maps 875 assessment/class/pre-mode tuples through consistency, strict priority, and state-dependent transition policy. Both are substantive local classification or decision owners, and PART-04 remains the sole state and principal decision owner.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-05's ControllerModeDisposition projection is uncredited, but its eleven DecisionReason values map non-bijectively to CoordinationResult fibers 1/6/1/3. The public Applied/Stable/Rejected/EvidenceFault distinction is a baseline-required owner-local classification, not record bundling or a code rename.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted Isolette forms and a fresh current Sireum check support local state, In(pre-state), post-state/output equality, record-valued DataPort flows, and downstream classification. The directly analogous accepted Factory Dispatch source exited 0 with Well-formed against library revision 9016cbcceefa92f0068e1811923704dd261d15f1.",
+          "requested_change": "No Designer allocation change; PART-04 must use In(controllerMode) only for pre-mode guards, constrain post-state and ModeDecision.nextMode to the same selected value, and send that applied decision over INT-08 for PART-05's local OUT-01 mapping. Preserve the non-executable timing claim boundary."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Four boundary interactions require eight generated-support delegation declarations and the six internal interactions require six sibling-Thread declarations, giving exactly 14 raw PortConnection declarations, one support Process, five semantic Threads, physical depth two, ten semantic interactions, and one connected region.",
+          "requested_change": "No Designer allocation change; give the Process and boundary delegations no owner or semantic credit, declare all GUMBO-inspected record fields as attributes, encode explicit higher-priority exclusions, and directly analyze owner-local spaces 8/8/25/875/55 plus all 320 composed snapshots."
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings accepted as compatible with the unchanged 5/10/11/5 baseline; generation authorized.",
+      "revision_used": false,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "The retained architecture and final SysML gates passed with Well-formed!, and exhaustive owner-local, 320-snapshot composition, malformed-class, scenario, ownership, count, and trace audits passed without changing Designer intent.",
+      "canonical_source": "model/Vehicle_Controller_Mode_Coordinator.sysml",
+      "architecture_repairs": 1,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated collision-free overview exported; all 93 trace associations passed audit.",
+      "correction_cycles": 3,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "COMPAT-01",
+        "CONSIST-01",
+        "CTRL-01",
+        "CTRL-02",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "MON-01",
+        "MON-02",
+        "OUT-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "QUAL-COND-01",
+        "QUAL-LIFE-01",
+        "SEM-01",
+        "STATE-01"
+      ],
+      "reviewed_tagged_element_count": 93,
+      "reviewed_trace_association_count": 93,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Canonical source, bounded semantics, ownership, traceability, and rendered overview pass without Designer-intent drift; execution remains not-run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 10,
+        "nontrivial_contract_cases": 11,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "lifecycle_indication_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "lifecycle_indication_qualification.lifecycle_sample"
+          ],
+          "owner_local_facts": [
+            "eight-value lifecycle applicability classification"
+          ],
+          "contract_cases": [
+            "QUAL_LIFE_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "lifecycle-owner-eight-values"
+          ]
+        },
+        {
+          "usage": "condition_indication_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "condition_indication_qualification.condition_sample"
+          ],
+          "owner_local_facts": [
+            "eight-value condition applicability classification"
+          ],
+          "contract_cases": [
+            "QUAL_COND_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "condition-owner-eight-values"
+          ]
+        },
+        {
+          "usage": "cross_channel_compatibility",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "cross_channel_compatibility.lifecycle_assessment",
+            "cross_channel_compatibility.condition_assessment"
+          ],
+          "owner_local_facts": [
+            "seven-valued cross-channel compatibility classification"
+          ],
+          "contract_cases": [
+            "COMPATIBILITY_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "compatibility-owner-twenty-five-pairs"
+          ]
+        },
+        {
+          "usage": "controller_mode_arbitration",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "controller_mode_arbitration.lifecycle_assessment",
+            "controller_mode_arbitration.condition_assessment",
+            "controller_mode_arbitration.coordination_class",
+            "state.controllerMode"
+          ],
+          "owner_local_facts": [
+            "class-consistency defense",
+            "strict transition priority",
+            "applied next-mode decision"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11"
+          ],
+          "analyzer_checks": [
+            "arbiter-owner-eight-hundred-seventy-five-tuples",
+            "arbiter-canonical-guard-cross-check"
+          ]
+        },
+        {
+          "usage": "coordination_frame_derivation",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "coordination_frame_derivation.mode_decision"
+          ],
+          "owner_local_facts": [
+            "eleven-reason to four-result classification"
+          ],
+          "contract_cases": [
+            "FRAME_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "frame-owner-fifty-five-decisions"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Canonical source, bounded semantics, ownership, traceability, and rendered overview pass without Designer-intent drift; execution remains not-run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

@@ -1,0 +1,1519 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "6d8d844e0170631c0cdaf6a477034cb8a870b3675428cf72fde6906c5877e510",
+  "claim_boundary": "Deterministic exhaustive evidence over the seed's 10,368 finite root-input/pre-state valuations, producer-local products, producer-reachable consumer products, and seven named scenario families only; not compositional proof, solver certification, generated-code correctness, application execution, physical performance, safety certification, or clinical validation.",
+  "semantic_connection_map": {
+    "INT-01": "root.doctorRequest -> requestArbiter.doctorRequest",
+    "INT-02": "root.technicianRequest -> requestArbiter.technicianRequest",
+    "INT-03": "root.beltObservation -> beltQualificationOwner.beltObservation",
+    "INT-04": "root.calibrationObservation -> calibrationQualificationOwner.calibrationObservation",
+    "INT-05": "root.acquisitionObservation -> acquisitionEligibilityOwner.acquisitionObservation",
+    "INT-06": "root.impedanceFrame -> sessionPublicationPolicy.impedanceFrame",
+    "INT-07": "beltQualificationOwner.beltAssessment -> calibrationQualificationOwner.beltAssessment",
+    "INT-08": "beltQualificationOwner.beltAssessment -> acquisitionEligibilityOwner.beltAssessment",
+    "INT-09": "calibrationQualificationOwner.calibrationQualification -> acquisitionEligibilityOwner.calibrationQualification",
+    "INT-10": "preparationStateGovernor.preparationState -> acquisitionEligibilityOwner.preparationState",
+    "INT-11": "monitoringStateGovernor.monitoringState -> acquisitionEligibilityOwner.monitoringState",
+    "INT-12": "acquisitionEligibilityOwner.eligibilityEnvelope -> requestArbiter.eligibilityEnvelope",
+    "INT-13": "requestArbiter.arbitrationDecision -> preparationStateGovernor.arbitrationDecision",
+    "INT-14": "preparationStateGovernor.preparationDecision -> monitoringStateGovernor.preparationDecision",
+    "INT-15": "requestArbiter.arbitrationDecision -> monitoringStateGovernor.arbitrationDecision",
+    "INT-16": "acquisitionEligibilityOwner.eligibilityEnvelope -> monitoringStateGovernor.eligibilityEnvelope",
+    "INT-17": "monitoringStateGovernor.monitoringDecision -> acquisitionCommandPolicy.monitoringDecision",
+    "INT-18": "monitoringStateGovernor.monitoringDecision -> sessionPublicationPolicy.monitoringDecision",
+    "INT-19": "acquisitionCommandPolicy.acquisitionCommand -> root.acquisitionCommand",
+    "INT-20": "sessionPublicationPolicy.frameDelivery -> root.frameDelivery",
+    "INT-21": "sessionPublicationPolicy.sessionStatus -> root.sessionStatus"
+  },
+  "domain": {
+    "doctor_requests": 3,
+    "technician_requests": 4,
+    "belt_observations": 3,
+    "calibration_observations": 4,
+    "acquisition_observations": 2,
+    "impedance_frames": 4,
+    "preparation_pre_states": 3,
+    "monitoring_pre_states": 3,
+    "expected_root_valuations": 10368,
+    "enumerated_root_valuations": 10368,
+    "producer_local_and_reachable_consumer_products": {
+      "PART_01": 3,
+      "PART_02": 12,
+      "PART_03": 162,
+      "PART_04": 684,
+      "PART_05": 48,
+      "PART_06": 213,
+      "PART_07": 93,
+      "PART_08": 372
+    }
+  },
+  "partition_counts": {
+    "CASE-01": 3456,
+    "CASE-02": 3456,
+    "CASE-03": 3456,
+    "CASE-04": 6912,
+    "CASE-05": 2592,
+    "CASE-06": 864,
+    "CASE-07": 10040,
+    "CASE-08": 3456,
+    "CASE-09": 3456,
+    "CASE-10": 3168,
+    "CASE-11": 144,
+    "CASE-12": 144,
+    "CASE-13": 3456,
+    "CASE-14": 4704,
+    "CASE-15": 1656,
+    "CASE-16": 552,
+    "CASE-17": 328,
+    "CASE-18": 10368,
+    "CASE-19": 10368,
+    "CASE-20": 10368
+  },
+  "partition_gaps": 0,
+  "partition_overlaps": 0,
+  "required_output_mismatches": 0,
+  "invariant_violations": 0,
+  "invariant_checks": {
+    "legal_producer_records": true,
+    "sole_state_writers": true,
+    "no_unready_active_monitoring": true,
+    "no_collection_outside_active": true,
+    "no_inadmissible_delivery": true,
+    "fresh_request_reentry": true,
+    "priority_conflicts": true
+  },
+  "case_witnesses": {
+    "CASE-01": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-02": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_NOT_APPLIED",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-03": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_APPLIED",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-04": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-05": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_APPLIED",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-06": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_APPLIED",
+        "calibrationObservation": "CALIBRATION_PASSED",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-07": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-08": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-09": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_NOT_APPLIED",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-10": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_APPLIED",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-11": {
+      "preState": {
+        "preparationState": "PREPARATION_CALIBRATED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_APPLIED",
+        "calibrationObservation": "CALIBRATION_PASSED",
+        "acquisitionObservation": "ACQUISITION_FAULT",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-12": {
+      "preState": {
+        "preparationState": "PREPARATION_CALIBRATED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_APPLIED",
+        "calibrationObservation": "CALIBRATION_PASSED",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-13": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "STOP_MONITORING",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-14": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_ACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-15": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "CONFIRM_BELT",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-16": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-17": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "CONFIRM_BELT",
+        "beltObservation": "BELT_APPLIED",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-18": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-19": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    },
+    "CASE-20": {
+      "preState": {
+        "preparationState": "UNPREPARED",
+        "monitoringState": "MONITORING_INACTIVE"
+      },
+      "raw": {
+        "doctorRequest": "NO_DOCTOR_REQUEST",
+        "technicianRequest": "NO_TECHNICIAN_REQUEST",
+        "beltObservation": "BELT_OBSERVATION_INVALID",
+        "calibrationObservation": "CALIBRATION_OBSERVATION_INVALID",
+        "acquisitionObservation": "ACQUISITION_AVAILABLE",
+        "impedanceFrame": "NO_FRAME"
+      }
+    }
+  },
+  "canonical_guard_crosscheck": [
+    {
+      "case_id": "CASE-01",
+      "canonical_guard": "belt observation is invalid",
+      "analyzer_guard": "belt observation is invalid",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-02",
+      "canonical_guard": "belt observation is not applied",
+      "analyzer_guard": "belt observation is not applied",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-03",
+      "canonical_guard": "belt observation is applied",
+      "analyzer_guard": "belt observation is applied",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-04",
+      "canonical_guard": "supplied belt qualified is false",
+      "analyzer_guard": "supplied belt qualified is false",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-05",
+      "canonical_guard": "supplied belt qualified is true and calibration is not passed",
+      "analyzer_guard": "supplied belt qualified is true and calibration is not passed",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-06",
+      "canonical_guard": "supplied belt qualified is true and calibration is passed",
+      "analyzer_guard": "supplied belt qualified is true and calibration is passed",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-07",
+      "canonical_guard": "intent is reset, stop, hold, start, or none",
+      "analyzer_guard": "intent is reset, stop, hold, start, or none",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-08",
+      "canonical_guard": "supplied assessment is unavailable and false",
+      "analyzer_guard": "supplied assessment is unavailable and false",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-09",
+      "canonical_guard": "supplied assessment is absent and false",
+      "analyzer_guard": "supplied assessment is absent and false",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-10",
+      "canonical_guard": "supplied belt qualified is true and preparation or calibration is unready",
+      "analyzer_guard": "supplied belt qualified is true and preparation or calibration is unready",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-11",
+      "canonical_guard": "belt and calibration are qualified, preparation is calibrated, and acquisition is faulted",
+      "analyzer_guard": "belt and calibration are qualified, preparation is calibrated, and acquisition is faulted",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-12",
+      "canonical_guard": "belt and calibration are qualified, preparation is calibrated, and acquisition is available",
+      "analyzer_guard": "belt and calibration are qualified, preparation is calibrated, and acquisition is available",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-13",
+      "canonical_guard": "doctor request is stop",
+      "analyzer_guard": "doctor request is stop",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-14",
+      "canonical_guard": "doctor request is not stop and recovery is present",
+      "analyzer_guard": "doctor request is not stop and recovery is present",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-15",
+      "canonical_guard": "no stop or recovery and technician request is present",
+      "analyzer_guard": "no stop or recovery and technician request is present",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-16",
+      "canonical_guard": "no stop or recovery and technician request is absent",
+      "analyzer_guard": "no stop or recovery and technician request is absent",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-17",
+      "canonical_guard": "intent is confirm belt or record calibration",
+      "analyzer_guard": "intent is confirm belt or record calibration",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-18",
+      "canonical_guard": "all monitoring transition inputs",
+      "analyzer_guard": "all monitoring transition inputs",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-19",
+      "canonical_guard": "all committed monitoring next states",
+      "analyzer_guard": "all committed monitoring next states",
+      "matched": true
+    },
+    {
+      "case_id": "CASE-20",
+      "canonical_guard": "all committed monitoring next states and frame observations",
+      "analyzer_guard": "all committed monitoring next states and frame observations",
+      "matched": true
+    }
+  ],
+  "guard_crosscheck_mismatches": 0,
+  "scenario_family_count": 7,
+  "scenario_failures": 0,
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "preparation progression and premature-start rejection",
+      "traces": [
+        {
+          "trace": "SCN-01-preparation-progression",
+          "initial_state": {
+            "preparationState": "UNPREPARED",
+            "monitoringState": "MONITORING_INACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "CONFIRM_BELT",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_FAILED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-17",
+              "expected": {
+                "case": "CASE-17",
+                "nextState": {
+                  "preparationState": "BELT_CONFIRMED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "BELT_CONFIRMED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "ACCEPTED",
+                "notice": "NONE"
+              },
+              "status": "passed"
+            },
+            {
+              "input": {
+                "doctorRequest": "START_MONITORING",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_FAILED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-16",
+              "expected": {
+                "case": "CASE-16",
+                "nextState": {
+                  "preparationState": "BELT_CONFIRMED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "disposition": "REJECTED",
+                "notice": "CALIBRATION_NOT_READY"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "BELT_CONFIRMED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "REJECTED",
+                "notice": "CALIBRATION_NOT_READY"
+              },
+              "status": "passed"
+            },
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "RECORD_CALIBRATION",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-17",
+              "expected": {
+                "case": "CASE-17",
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-10",
+                  "CASE-15",
+                  "CASE-17",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "ACCEPTED",
+                "notice": "NONE"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "nominal acquisition and stop",
+      "traces": [
+        {
+          "trace": "SCN-02-active-frame-delivery",
+          "initial_state": {
+            "preparationState": "PREPARATION_CALIBRATED",
+            "monitoringState": "MONITORING_INACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "START_MONITORING",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-16",
+              "expected": {
+                "case": "CASE-16",
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_ACTIVE"
+                },
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "notice": "WAITING_FOR_FRAME"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_ACTIVE"
+                },
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "ACCEPTED",
+                "notice": "WAITING_FOR_FRAME"
+              },
+              "status": "passed"
+            },
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "FRAME_A"
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case": "CASE-20",
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "DELIVER_FRAME_A",
+                "notice": "NONE"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_ACTIVE"
+                },
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "DELIVER_FRAME_A",
+                "disposition": "NO_REQUEST_DISPOSITION",
+                "notice": "NONE"
+              },
+              "status": "passed"
+            },
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "FRAME_B"
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case": "CASE-20",
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "DELIVER_FRAME_B",
+                "notice": "NONE"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_ACTIVE"
+                },
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "DELIVER_FRAME_B",
+                "disposition": "NO_REQUEST_DISPOSITION",
+                "notice": "NONE"
+              },
+              "status": "passed"
+            },
+            {
+              "input": {
+                "doctorRequest": "STOP_MONITORING",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-13",
+              "expected": {
+                "case": "CASE-13",
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-13",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "ACCEPTED",
+                "notice": "NONE"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "reset over simultaneous fresh start",
+      "traces": [
+        {
+          "trace": "SCN-03-reset-start-conflict",
+          "initial_state": {
+            "preparationState": "PREPARATION_CALIBRATED",
+            "monitoringState": "MONITORING_INACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "START_MONITORING",
+                "technicianRequest": "RESET_PREPARATION",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-15",
+              "expected": {
+                "case": "CASE-15",
+                "nextState": {
+                  "preparationState": "UNPREPARED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "disposition": "PREEMPTED",
+                "acquisitionCommand": "DO_NOT_COLLECT"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-15",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "UNPREPARED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "PREEMPTED",
+                "notice": "NONE"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "stop before persistent preparation recovery",
+      "traces": [
+        {
+          "trace": "SCN-04-stop-then-reset",
+          "initial_state": {
+            "preparationState": "PREPARATION_CALIBRATED",
+            "monitoringState": "MONITORING_ACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "STOP_MONITORING",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_NOT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-13",
+              "expected": {
+                "case": "CASE-13",
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "disposition": "PREEMPTED",
+                "acquisitionCommand": "DO_NOT_COLLECT"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-02",
+                  "CASE-04",
+                  "CASE-09",
+                  "CASE-13",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "PREEMPTED",
+                "notice": "NONE"
+              },
+              "status": "passed"
+            },
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_NOT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-14",
+              "expected": {
+                "case": "CASE-14",
+                "nextState": {
+                  "preparationState": "UNPREPARED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "disposition": "RECOVERY_APPLIED",
+                "notice": "BELT_NOT_CONFIRMED"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-02",
+                  "CASE-04",
+                  "CASE-09",
+                  "CASE-14",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "UNPREPARED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "RECOVERY_APPLIED",
+                "notice": "BELT_NOT_CONFIRMED"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "acquisition fault recovery and notice precedence",
+      "traces": [
+        {
+          "trace": "SCN-05-acquisition-fault",
+          "initial_state": {
+            "preparationState": "PREPARATION_CALIBRATED",
+            "monitoringState": "MONITORING_ACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_FAULT",
+                "impedanceFrame": "INVALID_FRAME"
+              },
+              "expected_named_branch": "CASE-14",
+              "expected": {
+                "case": "CASE-14",
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_HELD"
+                },
+                "disposition": "RECOVERY_APPLIED",
+                "notice": "ACQUISITION_UNAVAILABLE",
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-11",
+                  "CASE-14",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_HELD"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "RECOVERY_APPLIED",
+                "notice": "ACQUISITION_UNAVAILABLE"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-06",
+      "family": "held persistence and fresh-start re-entry",
+      "traces": [
+        {
+          "trace": "SCN-06-held-fresh-reentry",
+          "initial_state": {
+            "preparationState": "PREPARATION_CALIBRATED",
+            "monitoringState": "MONITORING_HELD"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-16",
+              "expected": {
+                "case": "CASE-16",
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_HELD"
+                },
+                "notice": "MONITORING_HELD_NOTICE",
+                "acquisitionCommand": "DO_NOT_COLLECT"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_HELD"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "NO_REQUEST_DISPOSITION",
+                "notice": "MONITORING_HELD_NOTICE"
+              },
+              "status": "passed"
+            },
+            {
+              "input": {
+                "doctorRequest": "START_MONITORING",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-16",
+              "expected": {
+                "case": "CASE-16",
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_ACTIVE"
+                },
+                "disposition": "ACCEPTED",
+                "acquisitionCommand": "COLLECT"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_ACTIVE"
+                },
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "ACCEPTED",
+                "notice": "WAITING_FOR_FRAME"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        }
+      ],
+      "status": "passed"
+    },
+    {
+      "scenario_id": "SCN-07",
+      "family": "invalid and inapplicable inputs",
+      "traces": [
+        {
+          "trace": "SCN-07-invalid-belt-start",
+          "initial_state": {
+            "preparationState": "UNPREPARED",
+            "monitoringState": "MONITORING_INACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "START_MONITORING",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_OBSERVATION_INVALID",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-08",
+              "expected": {
+                "case": "CASE-08",
+                "disposition": "REJECTED",
+                "notice": "BELT_OBSERVATION_UNAVAILABLE",
+                "frameDelivery": "NO_DELIVERY"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-01",
+                  "CASE-04",
+                  "CASE-08",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "UNPREPARED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "REJECTED",
+                "notice": "BELT_OBSERVATION_UNAVAILABLE"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        },
+        {
+          "trace": "SCN-07-failed-calibration-start",
+          "initial_state": {
+            "preparationState": "BELT_CONFIRMED",
+            "monitoringState": "MONITORING_INACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "START_MONITORING",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_FAILED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-10",
+              "expected": {
+                "case": "CASE-10",
+                "disposition": "REJECTED",
+                "notice": "CALIBRATION_NOT_READY"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-05",
+                  "CASE-10",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "BELT_CONFIRMED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "REJECTED",
+                "notice": "CALIBRATION_NOT_READY"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        },
+        {
+          "trace": "SCN-07-record-before-confirmation",
+          "initial_state": {
+            "preparationState": "UNPREPARED",
+            "monitoringState": "MONITORING_INACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "RECORD_CALIBRATION",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "NO_FRAME"
+              },
+              "expected_named_branch": "CASE-15",
+              "expected": {
+                "case": "CASE-15",
+                "disposition": "REJECTED",
+                "notice": "CALIBRATION_NOT_READY"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-10",
+                  "CASE-15",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "UNPREPARED",
+                  "monitoringState": "MONITORING_INACTIVE"
+                },
+                "acquisitionCommand": "DO_NOT_COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "REJECTED",
+                "notice": "CALIBRATION_NOT_READY"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        },
+        {
+          "trace": "SCN-07-invalid-active-frame",
+          "initial_state": {
+            "preparationState": "PREPARATION_CALIBRATED",
+            "monitoringState": "MONITORING_ACTIVE"
+          },
+          "steps": [
+            {
+              "input": {
+                "doctorRequest": "NO_DOCTOR_REQUEST",
+                "technicianRequest": "NO_TECHNICIAN_REQUEST",
+                "beltObservation": "BELT_APPLIED",
+                "calibrationObservation": "CALIBRATION_PASSED",
+                "acquisitionObservation": "ACQUISITION_AVAILABLE",
+                "impedanceFrame": "INVALID_FRAME"
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case": "CASE-20",
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "notice": "FRAME_REJECTED"
+              },
+              "observed": {
+                "cases": [
+                  "CASE-03",
+                  "CASE-06",
+                  "CASE-12",
+                  "CASE-16",
+                  "CASE-07",
+                  "CASE-18",
+                  "CASE-19",
+                  "CASE-20"
+                ],
+                "nextState": {
+                  "preparationState": "PREPARATION_CALIBRATED",
+                  "monitoringState": "MONITORING_ACTIVE"
+                },
+                "acquisitionCommand": "COLLECT",
+                "frameDelivery": "NO_DELIVERY",
+                "disposition": "NO_REQUEST_DISPOSITION",
+                "notice": "FRAME_REJECTED"
+              },
+              "status": "passed"
+            }
+          ],
+          "status": "passed"
+        }
+      ],
+      "status": "passed"
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "beltQualificationOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "beltQualificationOwner.beltObservation"
+      ],
+      "owner_local_facts": [
+        "many-to-one belt qualified Boolean with retained unavailable-versus-absent reason"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03"
+      ],
+      "analyzer_checks": [
+        "belt assessment three-input total relation"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "calibrationQualificationOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "calibrationQualificationOwner.beltAssessment.qualified",
+        "calibrationQualificationOwner.calibrationObservation"
+      ],
+      "owner_local_facts": [
+        "belt-dependent calibration blocking and passed-observation qualification"
+      ],
+      "contract_cases": [
+        "CASE-04",
+        "CASE-05",
+        "CASE-06"
+      ],
+      "analyzer_checks": [
+        "calibration qualification twelve-pair reachable relation"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "acquisitionEligibilityOwner",
+      "claimed_roles": [
+        "decision",
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "acquisitionEligibilityOwner.beltAssessment",
+        "acquisitionEligibilityOwner.calibrationQualification",
+        "acquisitionEligibilityOwner.acquisitionObservation",
+        "acquisitionEligibilityOwner.preparationState",
+        "acquisitionEligibilityOwner.monitoringState"
+      ],
+      "owner_local_facts": [
+        "five-way eligibility condition",
+        "reset-before-hold recovery proposal"
+      ],
+      "contract_cases": [
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "eligibility 162-tuple producer-reachable partition",
+        "eligibility field legality and recovery precedence"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "requestArbiter",
+      "claimed_roles": [
+        "decision",
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "requestArbiter.doctorRequest",
+        "requestArbiter.technicianRequest",
+        "requestArbiter.eligibilityEnvelope"
+      ],
+      "owner_local_facts": [
+        "stop-over-recovery-over-technician-over-start priority",
+        "request applicability and preemption disposition"
+      ],
+      "contract_cases": [
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16"
+      ],
+      "analyzer_checks": [
+        "arbiter four-case priority partition",
+        "fresh-request conflict and applicability checks"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "preparationStateGovernor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "preparationStateGovernor.arbitrationDecision",
+        "preparationStateGovernor.In(committedPreparationState)"
+      ],
+      "owner_local_facts": [
+        "sole next preparation state"
+      ],
+      "contract_cases": [
+        "CASE-07",
+        "CASE-17"
+      ],
+      "analyzer_checks": [
+        "preparation two-case transition partition",
+        "preparation sole-writer check"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "monitoringStateGovernor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "monitoringStateGovernor.preparationDecision",
+        "monitoringStateGovernor.arbitrationDecision",
+        "monitoringStateGovernor.eligibilityEnvelope",
+        "monitoringStateGovernor.In(committedMonitoringState)"
+      ],
+      "owner_local_facts": [
+        "sole next monitoring state",
+        "transition disposition and monitoring notice"
+      ],
+      "contract_cases": [
+        "CASE-18"
+      ],
+      "analyzer_checks": [
+        "monitoring transition total relation",
+        "fresh-start and recovery notice checks"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "acquisitionCommandPolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "acquisitionCommandPolicy.monitoringDecision"
+      ],
+      "owner_local_facts": [
+        "active-versus-nonactive collection classification"
+      ],
+      "contract_cases": [
+        "CASE-19"
+      ],
+      "analyzer_checks": [
+        "collection command total relation through INT-17"
+      ],
+      "mismatches": 0,
+      "passed": true
+    },
+    {
+      "usage": "sessionPublicationPolicy",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "sessionPublicationPolicy.monitoringDecision",
+        "sessionPublicationPolicy.impedanceFrame"
+      ],
+      "owner_local_facts": [
+        "active valid-frame admission",
+        "monitoring-before-frame notice precedence"
+      ],
+      "contract_cases": [
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "publication twelve-class frame relation",
+        "session notice precedence check"
+      ],
+      "mismatches": 0,
+      "passed": true
+    }
+  ]
+}

@@ -1,0 +1,3236 @@
+{
+  "schema": "factory-flow-supervisor-bounded-analysis-v1",
+  "status": "passed",
+  "passed": true,
+  "source": "model/factory_flow_supervisor.sysml",
+  "source_sha256": "6021ecad6d6ae12651dea1ecb72ea594b762e6c00d20b60f1e96d0fd08a5de63",
+  "claim_boundary": "Deterministic finite-domain conformance evidence for the retained SysML contracts and approved logical policy; not compositional proof, solver certification, generated-code correctness, execution, physical performance, safety certification, or physical validation.",
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "from": "root.presentedWork",
+      "to": "PART-01.presentedWork"
+    },
+    {
+      "id": "INT-02",
+      "from": "root.materialObservation",
+      "to": "PART-02.materialObservation"
+    },
+    {
+      "id": "INT-03",
+      "from": "root.readinessObservation",
+      "to": "PART-03.readinessObservation"
+    },
+    {
+      "id": "INT-04",
+      "from": "root.processResult",
+      "to": "PART-04.processResult"
+    },
+    {
+      "id": "INT-05",
+      "from": "PART-01.admissionToMaterial",
+      "to": "PART-02.admission"
+    },
+    {
+      "id": "INT-06",
+      "from": "PART-01.admissionToPriority",
+      "to": "PART-05.admission"
+    },
+    {
+      "id": "INT-07",
+      "from": "PART-02.materialFact",
+      "to": "PART-06.materialFact"
+    },
+    {
+      "id": "INT-08",
+      "from": "PART-03.targetFact",
+      "to": "PART-06.targetFact"
+    },
+    {
+      "id": "INT-09",
+      "from": "PART-04.outcomeToAuthorization",
+      "to": "PART-06.outcomeFact"
+    },
+    {
+      "id": "INT-10",
+      "from": "PART-05.intentFact",
+      "to": "PART-06.intentFact"
+    },
+    {
+      "id": "INT-11",
+      "from": "PART-06.authorization",
+      "to": "PART-07.authorization"
+    },
+    {
+      "id": "INT-12",
+      "from": "PART-07.preState",
+      "to": "PART-03.flowContext"
+    },
+    {
+      "id": "INT-13",
+      "from": "PART-07.preState",
+      "to": "PART-04.flowContext"
+    },
+    {
+      "id": "INT-14",
+      "from": "PART-07.preState",
+      "to": "PART-05.protectionContext"
+    },
+    {
+      "id": "INT-15",
+      "from": "PART-04.outcomeToDeterminer",
+      "to": "PART-08.outcomeFact"
+    },
+    {
+      "id": "INT-16",
+      "from": "PART-06.reasonToStatus",
+      "to": "PART-09.decisionReason"
+    },
+    {
+      "id": "INT-17",
+      "from": "PART-07.appliedSnapshot",
+      "to": "PART-08.appliedSnapshot"
+    },
+    {
+      "id": "INT-18",
+      "from": "PART-07.appliedSnapshot",
+      "to": "PART-09.appliedSnapshot"
+    },
+    {
+      "id": "INT-19",
+      "from": "PART-07.lineCommand",
+      "to": "root.lineCommand"
+    },
+    {
+      "id": "INT-20",
+      "from": "PART-08.productionOutcome",
+      "to": "root.productionOutcome"
+    },
+    {
+      "id": "INT-21",
+      "from": "PART-09.flowStatus",
+      "to": "root.flowStatus"
+    }
+  ],
+  "root_input_domain": {
+    "cardinality": 995328,
+    "evaluated": 995328,
+    "partition_counts": {
+      "CASE-01": 0,
+      "CASE-02": 0,
+      "CASE-03": 0,
+      "CASE-04": 0,
+      "CASE-05": 0,
+      "CASE-06": 0,
+      "CASE-07": 0,
+      "CASE-08": 0,
+      "CASE-09": 0,
+      "CASE-10": 0,
+      "CASE-11": 0,
+      "CASE-12": 0,
+      "CASE-13": 0,
+      "CASE-14": 497664,
+      "CASE-15": 414720,
+      "CASE-16": 6912,
+      "CASE-17": 69120,
+      "CASE-18": 288,
+      "CASE-19": 6336,
+      "CASE-20": 288
+    },
+    "gaps": 0,
+    "overlaps": 0,
+    "required_output_mismatches": 0
+  },
+  "owner_local_analysis": {
+    "PART-01": {
+      "evaluated": 24,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-02": {
+      "evaluated": 48,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-03": {
+      "evaluated": 864,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-04": {
+      "evaluated": 31104,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-05": {
+      "evaluated": 864,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-06": {
+      "evaluated": 73980,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-07": {
+      "evaluated": 8640,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-08": {
+      "evaluated": 211,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    },
+    "PART-09": {
+      "evaluated": 277,
+      "gaps": 0,
+      "overlaps": 0,
+      "oracle_mismatches": 0
+    }
+  },
+  "contract_partition": {
+    "case_witness_counts": {
+      "CASE-01": 14580,
+      "CASE-02": 14580,
+      "CASE-03": 1944,
+      "CASE-04": 972,
+      "CASE-05": 2916,
+      "CASE-06": 972,
+      "CASE-07": 1944,
+      "CASE-08": 2916,
+      "CASE-09": 2916,
+      "CASE-10": 4860,
+      "CASE-11": 9720,
+      "CASE-12": 4860,
+      "CASE-13": 9720,
+      "CASE-14": 270,
+      "CASE-15": 270,
+      "CASE-16": 180,
+      "CASE-17": 180,
+      "CASE-18": 60,
+      "CASE-19": 60,
+      "CASE-20": 60
+    },
+    "gaps": 0,
+    "overlaps": 0,
+    "oracle_mismatches": 0
+  },
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "traces": [
+        {
+          "name": "fresh-W1-start",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "traces": [
+        {
+          "name": "fresh-rejection-boundary",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-14",
+              "expected": {
+                "case_id": "CASE-14",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Idle",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-14",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Idle",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Invalid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-15",
+              "expected": {
+                "case_id": "CASE-15",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Rejected",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-15",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Rejected",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-15",
+              "expected": {
+                "case_id": "CASE-15",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Rejected",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-15",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Rejected",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "UnsupportedProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-15",
+              "expected": {
+                "case_id": "CASE-15",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Rejected",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-15",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Rejected",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "traces": [
+        {
+          "name": "material-partitions",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-16",
+              "expected": {
+                "case_id": "CASE-16",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingMaterial",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-16",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingMaterial",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-17",
+              "expected": {
+                "case_id": "CASE-17",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingMaterial",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-17",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingMaterial",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-17",
+              "expected": {
+                "case_id": "CASE-17",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingMaterial",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-17",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingMaterial",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-18",
+              "expected": {
+                "case_id": "CASE-18",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-18",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "traces": [
+        {
+          "name": "station-and-transfer-wait",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-18",
+              "expected": {
+                "case_id": "CASE-18",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-18",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 1,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-19",
+              "expected": {
+                "case_id": "CASE-19",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-19",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 1,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 0,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-07",
+              "expected": {
+                "case_id": "CASE-07",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "TransferPending",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-07",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "TransferPending",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 1,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-11",
+              "expected": {
+                "case_id": "CASE-11",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "TransferPending",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-11",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "TransferPending",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 6,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 1,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-10",
+              "expected": {
+                "case_id": "CASE-10",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-10",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "traces": [
+        {
+          "name": "six-step-nominal",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 1,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 0,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-06",
+              "expected": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 2,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 1,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-06",
+              "expected": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 2
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 2,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 2
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 2,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 3,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 2,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-06",
+              "expected": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 3
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 3,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 3
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 3,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 4,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 3,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-06",
+              "expected": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 4
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 4,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 4
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 4,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 6,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 5,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 4,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-06",
+              "expected": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 5
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 5,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-06",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 5
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 5,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 7,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 5,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 5,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-05",
+              "expected": {
+                "case_id": "CASE-05",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 5
+                },
+                "outcome": {
+                  "result": "ProductionComplete",
+                  "work_id": "W1"
+                },
+                "status": "Completed",
+                "next": {
+                  "phase": "TerminalComplete",
+                  "work_id": "W1",
+                  "step": 5,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-05",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 5
+                },
+                "outcome": {
+                  "result": "ProductionComplete",
+                  "work_id": "W1"
+                },
+                "status": "Completed",
+                "next": {
+                  "phase": "TerminalComplete",
+                  "work_id": "W1",
+                  "step": 5,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 8,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-01",
+              "expected": {
+                "case_id": "CASE-01",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Idle",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-01",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Idle",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "traces": [
+        {
+          "name": "protected-work-conflict",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-04",
+              "expected": {
+                "case_id": "CASE-04",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Busy",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-04",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Busy",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 1,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 0,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-07",
+              "expected": {
+                "case_id": "CASE-07",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "TransferPending",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-07",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "WaitingStation",
+                "next": {
+                  "phase": "TransferPending",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 1,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-10",
+              "expected": {
+                "case_id": "CASE-10",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-10",
+                "command": {
+                  "action_kind": "Advance",
+                  "work_id": "W1",
+                  "step": 1
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Advanced",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 1,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-07",
+      "traces": [
+        {
+          "name": "first-failure-then-competing-retry",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 0,
+                  "event_kind": "Failed"
+                }
+              },
+              "expected_named_branch": "CASE-08",
+              "expected": {
+                "case_id": "CASE-08",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "RecoveryPending",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-08",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "RecoveryPending",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-12",
+              "expected": {
+                "case_id": "CASE-12",
+                "command": {
+                  "action_kind": "Retry",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "Retry"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-12",
+                "command": {
+                  "action_kind": "Retry",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "Retry"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "recovery-no-request",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 2,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-12",
+              "expected": {
+                "case_id": "CASE-12",
+                "command": {
+                  "action_kind": "Retry",
+                  "work_id": "W1",
+                  "step": 2
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 2,
+                  "attempt": "Retry"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-12",
+                "command": {
+                  "action_kind": "Retry",
+                  "work_id": "W1",
+                  "step": 2
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 2,
+                  "attempt": "Retry"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "recovery-blocked",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 2,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-13",
+              "expected": {
+                "case_id": "CASE-13",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 2
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "RecoveryPending",
+                  "work_id": "W1",
+                  "step": 2,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-13",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 2
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "RecoveryPending",
+                  "work_id": "W1",
+                  "step": 2,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-08",
+      "traces": [
+        {
+          "name": "stale-result-exhausted-retry-reset-represent",
+          "passed": true,
+          "observations": [
+            {
+              "step": 1,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 2,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "step": 0,
+                  "event_kind": "Completed"
+                }
+              },
+              "expected_named_branch": "CASE-03",
+              "expected": {
+                "case_id": "CASE-03",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Processing",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-03",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Processing",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 0,
+                  "event_kind": "InProgress"
+                }
+              },
+              "expected_named_branch": "CASE-03",
+              "expected": {
+                "case_id": "CASE-03",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Processing",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-03",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Processing",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 4,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 0,
+                  "event_kind": "Failed"
+                }
+              },
+              "expected_named_branch": "CASE-08",
+              "expected": {
+                "case_id": "CASE-08",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "RecoveryPending",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-08",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "RecoveryPending",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-12",
+              "expected": {
+                "case_id": "CASE-12",
+                "command": {
+                  "action_kind": "Retry",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "Retry"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-12",
+                "command": {
+                  "action_kind": "Retry",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Recovering",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "Retry"
+                }
+              }
+            },
+            {
+              "step": 6,
+              "input": {
+                "request": {
+                  "presence": "None",
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Invalid",
+                  "work_id": "NoWork",
+                  "disposition": "Unavailable"
+                },
+                "readiness": {
+                  "validity": "Invalid",
+                  "step": 0,
+                  "disposition": "Blocked"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "W1",
+                  "step": 0,
+                  "event_kind": "Failed"
+                }
+              },
+              "expected_named_branch": "CASE-09",
+              "expected": {
+                "case_id": "CASE-09",
+                "command": {
+                  "action_kind": "Abort",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "ProductionFailed",
+                  "work_id": "W1"
+                },
+                "status": "Failed",
+                "next": {
+                  "phase": "TerminalFailed",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "Retry"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-09",
+                "command": {
+                  "action_kind": "Abort",
+                  "work_id": "W1",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "ProductionFailed",
+                  "work_id": "W1"
+                },
+                "status": "Failed",
+                "next": {
+                  "phase": "TerminalFailed",
+                  "work_id": "W1",
+                  "step": 0,
+                  "attempt": "Retry"
+                }
+              }
+            },
+            {
+              "step": 7,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-02",
+              "expected": {
+                "case_id": "CASE-02",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Idle",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-02",
+                "command": {
+                  "action_kind": "NoCommand",
+                  "work_id": "NoWork",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Idle",
+                "next": {
+                  "phase": "Idle",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            },
+            {
+              "step": 8,
+              "input": {
+                "request": {
+                  "presence": "Present",
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "product": "AngleProduct"
+                },
+                "material": {
+                  "validity": "Valid",
+                  "work_id": "W2",
+                  "disposition": "Ready"
+                },
+                "readiness": {
+                  "validity": "Valid",
+                  "step": 0,
+                  "disposition": "Ready"
+                },
+                "result": {
+                  "validity": "Valid",
+                  "work_id": "NoWork",
+                  "step": 0,
+                  "event_kind": "NoEvent"
+                }
+              },
+              "expected_named_branch": "CASE-20",
+              "expected": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W2",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W2",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              },
+              "observed": {
+                "case_id": "CASE-20",
+                "command": {
+                  "action_kind": "Start",
+                  "work_id": "W2",
+                  "step": 0
+                },
+                "outcome": {
+                  "result": "None",
+                  "work_id": "NoWork"
+                },
+                "status": "Started",
+                "next": {
+                  "phase": "Active",
+                  "work_id": "W2",
+                  "step": 0,
+                  "attempt": "First"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "invariant_checks": {
+    "explicit_successor": true,
+    "terminal_reset_unconditional": true,
+    "retry_over_fresh_priority": true,
+    "one_retry_maximum": true,
+    "all_six_steps_commanded_in_order": true,
+    "entry_only_terminal_outcome": true,
+    "production_not_dispatch_vocabulary": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "workRequestQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "presentedWork"
+      ],
+      "owner_local_facts": [
+        "AdmissionAssessment and eligible work identity"
+      ],
+      "contract_cases": [
+        "RequestAbsent",
+        "RequestEligible",
+        "RequestMalformed"
+      ],
+      "analyzer_checks": [
+        "request_classification_product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "materialCorrelationQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "admission",
+        "materialObservation"
+      ],
+      "owner_local_facts": [
+        "MaterialAssessment with identifier correlation"
+      ],
+      "contract_cases": [
+        "MaterialReadyCorrelated",
+        "MaterialUnavailableCorrelated",
+        "MaterialUnknownOrInapplicable"
+      ],
+      "analyzer_checks": [
+        "material_correlation_product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "targetStepReadinessQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "readinessObservation",
+        "flowContext"
+      ],
+      "owner_local_facts": [
+        "state-derived target and TargetQualification"
+      ],
+      "contract_cases": [
+        "TargetReadyCorrelated",
+        "TargetBlockedCorrelated",
+        "TargetUnknownOrMismatched"
+      ],
+      "analyzer_checks": [
+        "target_readiness_product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "processOutcomeCorrelator",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "processResult",
+        "flowContext"
+      ],
+      "owner_local_facts": [
+        "five-way CorrelatedOutcomePlan"
+      ],
+      "contract_cases": [
+        "IntermediateCompletion",
+        "FinalCompletion",
+        "FirstAttemptFailure",
+        "RetryAttemptFailure",
+        "PreserveUncorrelated"
+      ],
+      "analyzer_checks": [
+        "process_outcome_product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "protectedWorkPriorityResolver",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "admission",
+        "protectionContext"
+      ],
+      "owner_local_facts": [
+        "protected FlowIntent and competitor classification"
+      ],
+      "contract_cases": [
+        "IdleWithoutEligibleWork",
+        "FreshWorkIntent",
+        "ActiveWorkProtected",
+        "TransferWorkProtected",
+        "RecoveryWorkProtected",
+        "TerminalResetIntent"
+      ],
+      "analyzer_checks": [
+        "priority_intent_product",
+        "retry_over_fresh_conflict"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "flowAuthorizationOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "materialFact",
+        "targetFact",
+        "outcomeFact",
+        "intentFact"
+      ],
+      "owner_local_facts": [
+        "complete FlowDecision and DecisionReason partition"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "authorization_partition_product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "flowLedger",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "authorization",
+        "pre-state phase",
+        "pre-state work",
+        "pre-state step",
+        "pre-state attempt"
+      ],
+      "owner_local_facts": [
+        "persistent transition and LineFlowCommand"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20"
+      ],
+      "analyzer_checks": [
+        "ledger_transition_partition"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "productionOutcomeDeterminer",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "outcomeFact",
+        "appliedSnapshot"
+      ],
+      "owner_local_facts": [
+        "entry-only ProductionOutcome"
+      ],
+      "contract_cases": [
+        "CompletionEntry",
+        "FailureEntry",
+        "SuppressNonterminalAndReset"
+      ],
+      "analyzer_checks": [
+        "entry_outcome_product"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "flowStatusDeterminer",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "decisionReason",
+        "appliedSnapshot"
+      ],
+      "owner_local_facts": [
+        "lifecycle-precedence ProductionFlowStatus"
+      ],
+      "contract_cases": [
+        "TerminalCompleteStatus",
+        "TerminalFailedStatus",
+        "RecoveryPendingStatus",
+        "RetryReleasedStatus",
+        "TransferPendingStatus",
+        "RejectedStatus",
+        "MaterialWaitStatus",
+        "HeatingWaitStatus",
+        "StartedStatus",
+        "AdvancedStatus",
+        "BusyStatus",
+        "ProcessingStatus",
+        "IdleStatus"
+      ],
+      "analyzer_checks": [
+        "status_precedence_product"
+      ],
+      "passed": true
+    }
+  ],
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "elapsed_time_claim": "No wall-clock performance claim; the harness enforces the external 180-second watchdog."
+}

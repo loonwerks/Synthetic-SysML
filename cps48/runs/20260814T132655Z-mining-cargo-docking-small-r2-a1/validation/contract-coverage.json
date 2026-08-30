@@ -1,0 +1,1788 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source": "model/Ore_Hold_Mining_Guard_Supervisor.sysml",
+  "source_sha256": "f6e3daabbf5e160614f1b24a70aa7650b3d3bb5fbb5f2f1860b728f7b587bfd2",
+  "claim_boundary": "Exact finite-domain conformance of the retained owner-local relations, semantic connection map, outputs, invariants, and named bounded scenarios only; not execution, physical performance, compositional proof, solver certification, generated-code correctness, or safety certification.",
+  "domain": {
+    "formula": "5 pre-modes * 8 previous request states * 16 current request samples * 4 hold samples * 16 support samples",
+    "expected_snapshots": 40960,
+    "enumerated_snapshots": 40960
+  },
+  "semantic_connection_map": {
+    "INT-01": "root.pilot_request -> request_freshness_priority_owner.pilot_request",
+    "INT-02": "root.hold_sample -> hold_guard_qualification_owner.hold_sample",
+    "INT-03": "root.mining_support -> mining_support_qualification_owner.mining_support",
+    "INT-04": "request_freshness_priority_owner.request_assessment -> ore_hold_decision_owner.request_assessment",
+    "INT-05": "hold_guard_qualification_owner.hold_assessment -> ore_hold_decision_owner.hold_assessment",
+    "INT-06": "mining_support_qualification_owner.support_assessment -> ore_hold_decision_owner.support_assessment",
+    "INT-07": "ore_hold_decision_owner.resolution_to_command -> mining_command_derivation_owner.guard_resolution",
+    "INT-08": "ore_hold_decision_owner.resolution_to_reporting -> guard_reporting_derivation_owner.guard_resolution",
+    "INT-09": "mining_command_derivation_owner.mining_command -> root.mining_command",
+    "INT-10": "guard_reporting_derivation_owner.guard_status -> root.guard_status",
+    "INT-11": "guard_reporting_derivation_owner.offload_readiness -> root.offload_readiness"
+  },
+  "partition_counts": {
+    "CASE-01": 35840,
+    "CASE-02": 2560,
+    "CASE-03": 1280,
+    "CASE-04": 1120,
+    "CASE-05": 6,
+    "CASE-06": 26,
+    "CASE-07": 32,
+    "CASE-08": 32,
+    "CASE-09": 32,
+    "CASE-10": 8,
+    "CASE-11": 24
+  },
+  "expected_partition_counts": {
+    "CASE-01": 35840,
+    "CASE-02": 2560,
+    "CASE-03": 1280,
+    "CASE-04": 1120,
+    "CASE-05": 6,
+    "CASE-06": 26,
+    "CASE-07": 32,
+    "CASE-08": 32,
+    "CASE-09": 32,
+    "CASE-10": 8,
+    "CASE-11": 24
+  },
+  "partition_count_mismatches": [],
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": {
+    "mining_command": 0,
+    "guard_status": 0,
+    "offload_readiness": 0
+  },
+  "invariant_checks": {
+    "request_history_update_mismatches": 0,
+    "decision_resolution_mismatches": 0,
+    "resolution_fanout_mismatches": 0,
+    "continue_mining_iff_next_mode_mining_mismatches": 0,
+    "readiness_iff_capacity_hold_mismatches": 0,
+    "coherent_output_tuple_mismatches": 0,
+    "support_block_variant_count": 7
+  },
+  "ownership_audit": [
+    {
+      "usage": "request_freshness_priority_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "request_freshness_priority_owner.pilot_request",
+        "state.previousStart",
+        "state.previousHalt",
+        "state.previousResume"
+      ],
+      "owner_local_facts": [
+        "requestValidity",
+        "freshStart",
+        "freshResume",
+        "haltPriority",
+        "requestConflict",
+        "requestDisposition"
+      ],
+      "contract_cases": [
+        "REQUEST_QUALIFICATION_PRIORITY_AND_FRESHNESS"
+      ],
+      "analyzer_checks": [
+        "request-owner-128-transitions"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "hold_guard_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "hold_guard_qualification_owner.hold_sample"
+      ],
+      "owner_local_facts": [
+        "threeWayHoldAssessment"
+      ],
+      "contract_cases": [
+        "HOLD_GUARD_QUALIFICATION"
+      ],
+      "analyzer_checks": [
+        "hold-owner-four-samples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "mining_support_qualification_owner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "mining_support_qualification_owner.mining_support"
+      ],
+      "owner_local_facts": [
+        "threeWaySupportAssessment",
+        "allPositiveSupportApplicability"
+      ],
+      "contract_cases": [
+        "MINING_SUPPORT_QUALIFICATION"
+      ],
+      "analyzer_checks": [
+        "support-owner-sixteen-samples"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "ore_hold_decision_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "ore_hold_decision_owner.request_assessment",
+        "ore_hold_decision_owner.hold_assessment",
+        "ore_hold_decision_owner.support_assessment",
+        "state.guardMode"
+      ],
+      "owner_local_facts": [
+        "orderedGuardResolution",
+        "nextGuardMode",
+        "resolutionReason",
+        "preservedRequestConflict"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11"
+      ],
+      "analyzer_checks": [
+        "decision-owner-total-exclusive-40960"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "mining_command_derivation_owner",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "mining_command_derivation_owner.guard_resolution"
+      ],
+      "owner_local_facts": [
+        "miningCommandFromNextMode"
+      ],
+      "contract_cases": [
+        "OUTPUT-01"
+      ],
+      "analyzer_checks": [
+        "command-owner-five-mode-equivalence"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "guard_reporting_derivation_owner",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "guard_reporting_derivation_owner.guard_resolution"
+      ],
+      "owner_local_facts": [
+        "guardStatusFromReasonAndConflict",
+        "offloadReadinessFromNextMode"
+      ],
+      "contract_cases": [
+        "OUTPUT-02",
+        "OUTPUT-03"
+      ],
+      "analyzer_checks": [
+        "report-owner-eleven-reason-classification",
+        "readiness-owner-five-mode-equivalence"
+      ],
+      "passed": true
+    }
+  ],
+  "ownership_checks_passed": true,
+  "scenario_family_count": 5,
+  "scenario_failures": [],
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "partition": "nominal-admission-and-persistence",
+      "traces": [
+        {
+          "trace_id": "SCN-01-NOMINAL",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-05",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "FreshStart",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-05",
+                  "nextMode": "Mining",
+                  "reason": "StartAdmitted",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "ContinueMining",
+                  "guard_status": "MiningAuthorized",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "Mining",
+                  "previous": {
+                    "start": true,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-07",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-07",
+                  "nextMode": "Mining",
+                  "reason": "MiningMaintained",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "ContinueMining",
+                  "guard_status": "MiningAuthorized",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "Mining",
+                  "previous": {
+                    "start": true,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "partition": "nearly-full-boundary-protection",
+      "traces": [
+        {
+          "trace_id": "SCN-02-GUARD-AND-RETAIN",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "NearlyFull",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-03",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "GuardReached",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-03",
+                  "nextMode": "CapacityHold",
+                  "reason": "HoldGuardReached",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "GuardedNearlyFull",
+                  "offload_readiness": "ReadyForLaterOffload"
+                },
+                "next_state": {
+                  "mode": "CapacityHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "NearlyFull",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-03",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "GuardReached",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-03",
+                  "nextMode": "CapacityHold",
+                  "reason": "HoldGuardReached",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "GuardedNearlyFull",
+                  "offload_readiness": "ReadyForLaterOffload"
+                },
+                "next_state": {
+                  "mode": "CapacityHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "partition": "invalid-and-support-fault-protection",
+      "traces": [
+        {
+          "trace_id": "SCN-03-INVALID-REQUEST",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Invalid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "InvalidRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-01",
+                  "nextMode": "ConditionHold",
+                  "reason": "InvalidEvidence",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "InputFault",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-INVALID-HOLD",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Invalid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "InvalidHold",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-01",
+                  "nextMode": "ConditionHold",
+                  "reason": "InvalidEvidence",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "InputFault",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-INVALID-SUPPORT",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Invalid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "InvalidSupport",
+                "resolution": {
+                  "case_id": "CASE-01",
+                  "nextMode": "ConditionHold",
+                  "reason": "InvalidEvidence",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "InputFault",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-SUPPORT-BLOCK-1",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Interfered",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-SUPPORT-BLOCK-2",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Overheated",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-SUPPORT-BLOCK-3",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Overheated",
+                  "target": "Interfered",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-SUPPORT-BLOCK-4",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "Depleted",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-SUPPORT-BLOCK-5",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "Depleted",
+                  "laser": "Ready",
+                  "target": "Interfered",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-SUPPORT-BLOCK-6",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "Depleted",
+                  "laser": "Overheated",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-03-SUPPORT-BLOCK-7",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "Depleted",
+                  "laser": "Overheated",
+                  "target": "Interfered",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "partition": "command-priority-and-freshness",
+      "traces": [
+        {
+          "trace_id": "SCN-04-HALT-CONFLICT-NONREPLAY",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": true,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-02",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "HaltDominant",
+                  "conflict": true
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-02",
+                  "nextMode": "Idle",
+                  "reason": "HaltSelected",
+                  "requestConflict": true
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HaltedByPilot",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "Idle",
+                  "previous": {
+                    "start": true,
+                    "halt": true,
+                    "resume": true
+                  }
+                }
+              }
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": false,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": true
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-06",
+                  "nextMode": "Idle",
+                  "reason": "IdleWaiting",
+                  "requestConflict": true
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "RequestConflict",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "Idle",
+                  "previous": {
+                    "start": true,
+                    "halt": false,
+                    "resume": true
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-RESUME-BEFORE-START",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": false,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-06",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "FreshResume",
+                  "conflict": true
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-06",
+                  "nextMode": "Idle",
+                  "reason": "IdleWaiting",
+                  "requestConflict": true
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "RequestConflict",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "Idle",
+                  "previous": {
+                    "start": true,
+                    "halt": false,
+                    "resume": true
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-04-INVALID-TO-VALID-NONFRESH",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Invalid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-01",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "InvalidRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-01",
+                  "nextMode": "ConditionHold",
+                  "reason": "InvalidEvidence",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "InputFault",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": true,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-09",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-09",
+                  "nextMode": "RecoveryReady",
+                  "reason": "EvidenceRestored",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "AwaitingFreshResume",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "RecoveryReady",
+                  "previous": {
+                    "start": true,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "partition": "protected-recovery",
+      "traces": [
+        {
+          "trace_id": "SCN-05-CAPACITY-CLEAR-DISCARD-WAIT-RESUME",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-08",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "FreshResume",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-08",
+                  "nextMode": "RecoveryReady",
+                  "reason": "GuardCleared",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "AwaitingFreshResume",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "RecoveryReady",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": true
+                  }
+                }
+              }
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-11",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-11",
+                  "nextMode": "RecoveryReady",
+                  "reason": "RecoveryWaiting",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "AwaitingFreshResume",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "RecoveryReady",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": true
+                  }
+                }
+              }
+            },
+            {
+              "step": 3,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-11",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-11",
+                  "nextMode": "RecoveryReady",
+                  "reason": "RecoveryWaiting",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "AwaitingFreshResume",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "RecoveryReady",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            },
+            {
+              "step": 4,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-10",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "FreshResume",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-10",
+                  "nextMode": "Mining",
+                  "reason": "ResumeAdmitted",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "ContinueMining",
+                  "guard_status": "MiningAuthorized",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "Mining",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": true
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-05-CONDITION-RESTORE-THEN-RESUME",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-09",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "FreshResume",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-09",
+                  "nextMode": "RecoveryReady",
+                  "reason": "EvidenceRestored",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "AwaitingFreshResume",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "RecoveryReady",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": true
+                  }
+                }
+              }
+            },
+            {
+              "step": 2,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-11",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-11",
+                  "nextMode": "RecoveryReady",
+                  "reason": "RecoveryWaiting",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "AwaitingFreshResume",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "RecoveryReady",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            },
+            {
+              "step": 3,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": true,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-10",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "FreshResume",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-10",
+                  "nextMode": "Mining",
+                  "reason": "ResumeAdmitted",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "ContinueMining",
+                  "guard_status": "MiningAuthorized",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "Mining",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": true
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-05-FRESH-START-REJECTED",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": true,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-11",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "FreshStart",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-11",
+                  "nextMode": "RecoveryReady",
+                  "reason": "RecoveryWaiting",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "AwaitingFreshResume",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "RecoveryReady",
+                  "previous": {
+                    "start": true,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-05-REPROTECTION-CAPACITY",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "NearlyFull",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Locked",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-03",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "GuardReached",
+                "support_assessment": "SupportReady",
+                "resolution": {
+                  "case_id": "CASE-03",
+                  "nextMode": "CapacityHold",
+                  "reason": "HoldGuardReached",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "GuardedNearlyFull",
+                  "offload_readiness": "ReadyForLaterOffload"
+                },
+                "next_state": {
+                  "mode": "CapacityHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "trace_id": "SCN-05-REPROTECTION-SUPPORT",
+          "passed": true,
+          "steps": [
+            {
+              "step": 1,
+              "inputs": {
+                "pilot_request": {
+                  "start": false,
+                  "halt": false,
+                  "resume": false,
+                  "status": "Valid"
+                },
+                "hold_sample": {
+                  "observation": "RoomAvailable",
+                  "status": "Valid"
+                },
+                "mining_support": {
+                  "asteroid": "OreAvailable",
+                  "laser": "Ready",
+                  "target": "Interfered",
+                  "status": "Valid"
+                }
+              },
+              "expected_case": "CASE-04",
+              "observed": {
+                "request_assessment": {
+                  "disposition": "NoFreshRequest",
+                  "conflict": false
+                },
+                "hold_assessment": "SpaceAvailable",
+                "support_assessment": "SupportBlocked",
+                "resolution": {
+                  "case_id": "CASE-04",
+                  "nextMode": "ConditionHold",
+                  "reason": "SupportUnavailable",
+                  "requestConflict": false
+                },
+                "outputs": {
+                  "mining_command": "StopMining",
+                  "guard_status": "HeldForSupport",
+                  "offload_readiness": "NotReadyForOffload"
+                },
+                "next_state": {
+                  "mode": "ConditionHold",
+                  "previous": {
+                    "start": false,
+                    "halt": false,
+                    "resume": false
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

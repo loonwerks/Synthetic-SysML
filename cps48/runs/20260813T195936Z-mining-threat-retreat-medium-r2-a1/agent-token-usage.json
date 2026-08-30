@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "run_id": "20260813T195936Z-mining-threat-retreat-medium-r2-a1",
+  "recorded_at": "2026-08-13T21:08:16Z",
+  "scope": "Usage reported by the run's stateless Codex stage invocations.",
+  "cache_semantics": "Cache attribution applies to input only; reasoning output is a subset of output.",
+  "agents": [
+    {
+      "role": "designer",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "designer-initial",
+        "designer-resolution",
+        "designer-final"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 3201536,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 332748,
+          "output": 53055
+        },
+        "totals": {
+          "input": 3534284,
+          "output": 53055,
+          "overall": 3587339
+        }
+      },
+      "reasoning_output_tokens": 21161,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 1187.073
+    },
+    {
+      "role": "model",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "model-review",
+        "model-generate"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 8211712,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 290328,
+          "output": 82111
+        },
+        "totals": {
+          "input": 8502040,
+          "output": 82111,
+          "overall": 8584151
+        }
+      },
+      "reasoning_output_tokens": 22272,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 1759.981
+    },
+    {
+      "role": "visualization",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "visualize"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 13263616,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 283795,
+          "output": 37045
+        },
+        "totals": {
+          "input": 13547411,
+          "output": 37045,
+          "overall": 13584456
+        }
+      },
+      "reasoning_output_tokens": 13076,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 1162.242
+    }
+  ],
+  "aggregate": {
+    "agent_count": 3,
+    "token_matrix": {
+      "cached": {
+        "input": 24676864,
+        "output": 0
+      },
+      "non_cached": {
+        "input": 906871,
+        "output": 172211
+      },
+      "totals": {
+        "input": 25583735,
+        "output": 172211,
+        "overall": 25755946
+      }
+    },
+    "reasoning_output_tokens": 56509,
+    "cache_write_input_tokens": 0
+  },
+  "timing": {
+    "started_at": "2026-08-13T19:59:36Z",
+    "completed_at": "2026-08-13T21:08:16Z",
+    "run_elapsed_seconds": 4120.0,
+    "summed_agent_stage_seconds": 4109.296,
+    "stages": [
+      {
+        "stage": "designer-initial",
+        "role": "designer",
+        "completed_at": "2026-08-13T20:11:36Z",
+        "duration_seconds": 720.675
+      },
+      {
+        "stage": "model-review",
+        "role": "model",
+        "completed_at": "2026-08-13T20:16:05Z",
+        "duration_seconds": 268.711
+      },
+      {
+        "stage": "designer-resolution",
+        "role": "designer",
+        "completed_at": "2026-08-13T20:19:46Z",
+        "duration_seconds": 220.865
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-13T20:44:37Z",
+        "duration_seconds": 1491.27
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-13T21:04:11Z",
+        "duration_seconds": 1162.242
+      },
+      {
+        "stage": "designer-final",
+        "role": "designer",
+        "completed_at": "2026-08-13T21:08:16Z",
+        "duration_seconds": 245.533
+      }
+    ],
+    "semantics": "run_elapsed_seconds is real elapsed time from run creation through acceptance; summed_agent_stage_seconds excludes harness-only checks and inter-stage gaps."
+  }
+}

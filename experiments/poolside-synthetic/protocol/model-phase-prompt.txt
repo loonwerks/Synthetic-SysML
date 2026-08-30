@@ -1,0 +1,22 @@
+Read `/workspace/Gumbo_FSE_agent_Plan.txt` and
+`/workspace/sireum_verification_plan.txt` completely before acting. Then execute
+Phase A exactly as written for `N.md` and `M-star.sysml`.
+
+Modify only `/workspace/M-star.sysml`. Begin editing component-by-component
+after the required initial reading, compile after every component, and continue
+until every detailed requirement is covered and the exact Phase A gate exits 0.
+Do not run Phase B in this workspace. Do not run or seek an evaluator or oracle.
+
+For each Thread, avoid matching or replacing erased-contract whitespace. Use a
+structured edit whose old string is only that Thread's unique final port
+declaration, and whose new string is the identical port declaration followed by
+the complete GUMBO block. Leave the existing later SysML closing brace intact;
+the GUMBO `}*/` must not add another SysML brace. Every edit must include
+`path: /workspace/M-star.sysml`. Do not use shell rewriting, byte dumps,
+redirection, pipelines, temporary files, Python, sed, Perl, `xxd`, or `od`.
+
+Run the named-file gate as one simple command with no wrapper or output filter:
+`/opt/sireum/bin/sireum hamr sysml logika --sourcepath /workspace:/opt/sysml-aadl-libraries /workspace/M-star.sysml`
+Before finishing, explicitly count Threads and GUMBO blocks, compare every N.md
+requirement ID and formula (including false-valued outputs and precedence), and
+confirm every Thread has exactly one block.

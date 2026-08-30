@@ -1,0 +1,373 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T142826Z-factory-dispatch-small-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Factory_Dispatch_Coordinator.sysml",
+  "source_sha256": "c843b555f4601df7b706eb1bee8619349d98928143c2590fc50e3763aa634a7d",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 6,
+    "edgeCount": 19,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 104,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "COHERENCE-01",
+      "CTRL-01",
+      "CTRL-02",
+      "FRESH-01",
+      "INIT-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INVAR-01",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "NOTICE-01",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PRIORITY-01",
+      "PRIORITY-02",
+      "QUAL-01",
+      "RECOVERY-01",
+      "RISK-02",
+      "STATE-01",
+      "STATE-02",
+      "STOCK-01"
+    ],
+    "relativePath": "cps48/runs/20260813T142826Z-factory-dispatch-small-r2-a1/system-abstract.md",
+    "taggedElementCount": 111,
+    "traceAssociationCount": 111,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited a finite five-usage dispatch coordinator with exact 5/14/12/5 small-tier counts and one principal release-decision owner.",
+      "questions_for_model": [
+        "Can the trusted SysML-AADL/GUMBO subset represent the Request Registry's two owner-local state variables and its provisional event update plus final same-request MarkSubmitted commitment atomically without moving release authority out of the sole Dispatch Arbiter?",
+        "Can the exact fourteen semantic interactions be preserved while any library-required delegation or routing connections are separately justified and mapped as generated support, with the raw connection count reported?",
+        "Can owner-local contracts express the product-bearing active/completion types, both total case partitions, and equivalence among Release, MarkSubmitted, and committed Submitted state without central recomputation?",
+        "Can an independent bounded analyzer enumerate exactly 980,424 snapshots and execute all five scenario families without using copied Registry or Dispatch Arbiter predicates as its oracle?"
+      ],
+      "repair_actions": []
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Remove redundant INT-03 and distinguish one semantic layer from AADL physical depth two; all five owners remain nonidentity and realizable.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "Original INT-03 sends ArrivalFact to PART-05 only for invalid-arrival notice priority, but QUAL-01 plus CASE-01 already makes every invalid present arrival produce RegistryOutcome.InvalidEvent, which reaches PART-05 on original INT-12 and determines the same CTRL-02 value. The fan-out therefore adds no distinct local derivation on any admissible evaluation.",
+          "requested_change": "Delete original INT-03, remove ArrivalFact from PART-05 inputs, renumber the remaining inventory to INT-01..INT-13, and update every 14-interaction metric/audit claim to 13; preserve all PARTs, MON/CTRL semantics, twelve cases, notice priority, and five scenarios."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "The trusted Isolette pattern uses System -> Process -> Thread containment, accepted factory-dispatch source uses that structure and passes HAMR gates, and run 20260812T035741Z-mining-threat-retreat-hard-r1-a5 records that HAMR rejected Threads directly under System and required a behavior-free Process. The selected exact depth-one-under-System claim is therefore not a valid physical AADL realization.",
+          "requested_change": "Declare one semantic responsibility layer but physical containment depth two beneath the explicit System root, add one generated-support Process with no semantic credit, and preserve the five PART owners and one weak semantic region."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Extensional audit finds PART-01 performs a 17-to-10 validity classification, PART-02 owns state-dependent event/lifecycle transitions, PART-03 combines product and amount thresholds, PART-04 performs prioritized multi-input authorization, and PART-05 resolves competing registry/dispatch facts. None is a copy, bundle, rename, reroute, or bijective code translation.",
+          "requested_change": ""
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "After deleting original INT-03, the AADL-valid realization has 13 semantic interactions and 19 raw connections: six boundary interactions map to two delegation declarations each and seven inter-usage interactions map to one declaration each. Attribute-based records, composite state member access, In(...) pre-state constraints, multi-output contracts, and cyclic relational dependencies have current repository/tool precedents.",
+          "requested_change": "Record the 13-to-19 semantic/raw mapping, tag all twelve boundary delegation declarations as generated support, and keep support out of semantic and owner counts."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The bounded domain arithmetic is exact: 89 valid owner states times 11,016 boundary combinations equals 980,424 snapshots. The current harness can execute this deterministic Node analysis and cross-check source hash, status, zero diagnostics, Boolean checks, and ownership evidence, provided the analyzer keeps an abstract evaluator separate from owner-local evaluators and makes no formal-proof claim.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved revised 5/13/12/5 baseline with redundant interaction removed and physical depth-two generated support made explicit.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Canonical SysML passed retained architecture/final gates and exhaustive 980,424-snapshot bounded analysis at the approved 5/13/12/5 baseline.",
+      "canonical_source": "model/Factory_Dispatch_Coordinator.sysml",
+      "architecture_repairs": 1,
+      "contract_repairs": 1,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated one-view system overview passed native, geometry, and complete traceability review.",
+      "correction_cycles": 4,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "COHERENCE-01",
+        "CTRL-01",
+        "CTRL-02",
+        "FRESH-01",
+        "INIT-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INVAR-01",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "NOTICE-01",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PRIORITY-01",
+        "PRIORITY-02",
+        "QUAL-01",
+        "RECOVERY-01",
+        "RISK-02",
+        "STATE-01",
+        "STATE-02",
+        "STOCK-01"
+      ],
+      "reviewed_tagged_element_count": 111,
+      "reviewed_trace_association_count": 111,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, owner-local bounded semantics, Designer fidelity, and rendered presentation passed; executable evidence is not required and was not run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "small",
+      "observed": {
+        "semantic_usages": 5,
+        "semantic_interactions": 13,
+        "nontrivial_contract_cases": 12,
+        "scenario_families": 5
+      },
+      "features": {
+        "multiple_decision_owners": false,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "request_qualification",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "request_qualification.request_arrival"
+          ],
+          "owner_local_facts": [
+            "17-value arrival qualification"
+          ],
+          "contract_cases": [
+            "QUAL_NO_ARRIVAL",
+            "QUAL_INVALID_ARRIVAL",
+            "QUAL_VALID_ARRIVAL"
+          ],
+          "analyzer_checks": [
+            "qualification 17-to-10 total relation"
+          ]
+        },
+        {
+          "usage": "request_registry",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "request_registry.arrival_fact",
+            "request_registry.shipment_result",
+            "request_registry.registry_instruction",
+            "request_registry.active",
+            "request_registry.last_completed"
+          ],
+          "owner_local_facts": [
+            "ordered event classification",
+            "provisional registry transition",
+            "event and recovery blockers"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09"
+          ],
+          "analyzer_checks": [
+            "registry nine-case effective partition",
+            "registry commit and invariant"
+          ]
+        },
+        {
+          "usage": "inventory_assessment",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "inventory_assessment.pending_request",
+            "inventory_assessment.inventory_evidence"
+          ],
+          "owner_local_facts": [
+            "product-and-amount stock threshold classification"
+          ],
+          "contract_cases": [
+            "STOCK_NO_DEMAND",
+            "STOCK_INVALID",
+            "STOCK_SUFFICIENT",
+            "STOCK_INSUFFICIENT"
+          ],
+          "analyzer_checks": [
+            "inventory four-class total relation",
+            "both-product two-amount threshold matrix"
+          ]
+        },
+        {
+          "usage": "dispatch_arbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "dispatch_arbiter.dispatch_candidate",
+            "dispatch_arbiter.inventory_finding",
+            "dispatch_arbiter.readiness_sample"
+          ],
+          "owner_local_facts": [
+            "prioritized release authorization",
+            "matching submission instruction"
+          ],
+          "contract_cases": [
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "arbiter three-case effective partition",
+            "release instruction coherence"
+          ]
+        },
+        {
+          "usage": "customer_notice_synthesis",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "customer_notice_synthesis.registry_outcome",
+            "customer_notice_synthesis.dispatch_disposition"
+          ],
+          "owner_local_facts": [
+            "ordered competing-fact notice resolution"
+          ],
+          "contract_cases": [
+            "NOTICE_PRIORITY_RESOLUTION"
+          ],
+          "analyzer_checks": [
+            "notice priority total relation"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, owner-local bounded semantics, Designer fidelity, and rendered presentation passed; executable evidence is not required and was not run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

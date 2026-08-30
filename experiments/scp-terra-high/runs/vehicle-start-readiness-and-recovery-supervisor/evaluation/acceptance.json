@@ -1,0 +1,70 @@
+{
+  "completed_at": "2026-08-21T00:46:33.813537Z",
+  "dataset_id": "vehicle-start-readiness-and-recovery-supervisor",
+  "gates": {
+    "codegen": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "codegen",
+        "--platform",
+        "JVM",
+        "--runtime-monitoring",
+        "--package-name",
+        "scp_candidate",
+        "--output-dir",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr",
+        "--slang-output-dir",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang",
+        "--no-proyek-ive",
+        "--workspace-root-dir",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate:experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/sysml-aadl-libraries",
+        "--system-name",
+        "Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/.tmp\nThe file argument is currently ignored when the system-name is set\n\n* file://experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml\n  - [932, 4] Dispatch Protocol not specified for thread request_priority_owner, assuming Sporadic\n  - [933, 4] Dispatch Protocol not specified for thread brake_qualification_owner, assuming Sporadic\n  - [934, 4] Dispatch Protocol not specified for thread health_qualification_owner, assuming Sporadic\n  - [935, 4] Dispatch Protocol not specified for thread power_qualification_owner, assuming Sporadic\n  - [936, 4] Dispatch Protocol not specified for thread self_test_cycle_owner, assuming Sporadic\n  - [937, 4] Dispatch Protocol not specified for thread start_authorization_owner, assuming Sporadic\n  - [938, 4] Dispatch Protocol not specified for thread lifecycle_recovery_owner, assuming Sporadic\n  - [939, 4] Dispatch Protocol not specified for thread coordinated_outcome_owner, assuming Sporadic\n  - [980, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicle_start_readiness_recovery_supervisor\", Attr(Some([/M-star.sysml, 980, 7])))), Attr(Some([/M-star.sysml, 980, 7])))), [TypingsSpecialization([Name([Id(\"VehicleStartReadinessRecoverySupervisorSystem\", Attr(Some([/M-star.sysml, 980, 53])))], Attr(Some([/M-star.sysml, 980, 53])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 980, 2]), None(), None())))\nWrote experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/JSON.scala\nWrote experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/MsgPack.scala\nWrote experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckRandom.scala\nWrote experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckConfig.scala\nWrote experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckGenerator.scala\nWrote experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang/src/main/util/scp_candidate/SlangCheckDataTypeId.scala\n\nSlang Instructions:\n-------------------\n  Slang-Embedded Project Directory: experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/hamr/slang\n\n    Refer to the comments in bin/project.cmd for instructions on how to open the\n    project in Sireum IVE and how to run the system/unit-tests from IVE or the command line.\n\nWrote: experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/.slang/VehicleStartReadinessRecoverySupervisorSystem_Instance.json\n"
+    },
+    "component_logika": {
+      "command": [
+        "/bin/bash",
+        "bin/run-logika.cmd"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/.tmp\nPicked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/.tmp\nChecking initialise method of BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner.scala\n  Verification succeeded!\n\nChecking initialise method of CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner.scala\n  Verification succeeded!\n\nChecking initialise method of HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner.scala\n  Verification succeeded!\n\nChecking initialise method of LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner.scala\n  Verification succeeded!\n\nChecking initialise method of PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner.scala\n  Verification succeeded!\n\nChecking initialise method of RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner.scala\n  Verification succeeded!\n\nChecking initialise method of SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner.scala\n  Verification succeeded!\n\nChecking initialise method of StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner.scala\n  Verification succeeded!\n\nChecking timeTriggered method of StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner.scala\n  Verification succeeded!\n\nVerified 16 method(s) across 8 component(s).\n"
+    },
+    "integration_logika": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "logika",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate:experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml\n  - [932, 4] Dispatch Protocol not specified for thread request_priority_owner, assuming Sporadic\n  - [933, 4] Dispatch Protocol not specified for thread brake_qualification_owner, assuming Sporadic\n  - [934, 4] Dispatch Protocol not specified for thread health_qualification_owner, assuming Sporadic\n  - [935, 4] Dispatch Protocol not specified for thread power_qualification_owner, assuming Sporadic\n  - [936, 4] Dispatch Protocol not specified for thread self_test_cycle_owner, assuming Sporadic\n  - [937, 4] Dispatch Protocol not specified for thread start_authorization_owner, assuming Sporadic\n  - [938, 4] Dispatch Protocol not specified for thread lifecycle_recovery_owner, assuming Sporadic\n  - [939, 4] Dispatch Protocol not specified for thread coordinated_outcome_owner, assuming Sporadic\n  - [980, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicle_start_readiness_recovery_supervisor\", Attr(Some([/M-star.sysml, 980, 7])))), Attr(Some([/M-star.sysml, 980, 7])))), [TypingsSpecialization([Name([Id(\"VehicleStartReadinessRecoverySupervisorSystem\", Attr(Some([/M-star.sysml, 980, 53])))], Attr(Some([/M-star.sysml, 980, 53])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 980, 2]), None(), None())))\n* file://experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml\n  - [932, 4] Dispatch Protocol not specified for thread request_priority_owner, assuming Sporadic\n  - [933, 4] Dispatch Protocol not specified for thread brake_qualification_owner, assuming Sporadic\n  - [934, 4] Dispatch Protocol not specified for thread health_qualification_owner, assuming Sporadic\n  - [935, 4] Dispatch Protocol not specified for thread power_qualification_owner, assuming Sporadic\n  - [936, 4] Dispatch Protocol not specified for thread self_test_cycle_owner, assuming Sporadic\n  - [937, 4] Dispatch Protocol not specified for thread start_authorization_owner, assuming Sporadic\n  - [938, 4] Dispatch Protocol not specified for thread lifecycle_recovery_owner, assuming Sporadic\n  - [939, 4] Dispatch Protocol not specified for thread coordinated_outcome_owner, assuming Sporadic\n  - [980, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicle_start_readiness_recovery_supervisor\", Attr(Some([/M-star.sysml, 980, 7])))), Attr(Some([/M-star.sysml, 980, 7])))), [TypingsSpecialization([Name([Id(\"VehicleStartReadinessRecoverySupervisorSystem\", Attr(Some([/M-star.sysml, 980, 53])))], Attr(Some([/M-star.sysml, 980, 53])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 980, 2]), None(), None())))\n"
+    },
+    "tipe": {
+      "command": [
+        "SIREUM_HOME/bin/sireum",
+        "hamr",
+        "sysml",
+        "tipe",
+        "--sourcepath",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate:experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/sysml-aadl-libraries",
+        "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml"
+      ],
+      "exit_code": 0,
+      "output": "Picked up JAVA_TOOL_OPTIONS: -Djava.io.tmpdir=experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/.tmp\n\n* file://experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml\n  - [932, 4] Dispatch Protocol not specified for thread request_priority_owner, assuming Sporadic\n  - [933, 4] Dispatch Protocol not specified for thread brake_qualification_owner, assuming Sporadic\n  - [934, 4] Dispatch Protocol not specified for thread health_qualification_owner, assuming Sporadic\n  - [935, 4] Dispatch Protocol not specified for thread power_qualification_owner, assuming Sporadic\n  - [936, 4] Dispatch Protocol not specified for thread self_test_cycle_owner, assuming Sporadic\n  - [937, 4] Dispatch Protocol not specified for thread start_authorization_owner, assuming Sporadic\n  - [938, 4] Dispatch Protocol not specified for thread lifecycle_recovery_owner, assuming Sporadic\n  - [939, 4] Dispatch Protocol not specified for thread coordinated_outcome_owner, assuming Sporadic\n  - [980, 2] GlobalDeclarationResolver Warning: Need to handle PartUsage(OccurrenceBasicUsagePrefix(RefPrefix(None(), false, false, false, false), false, false, false, false, []), CommonUsageElements(Public, Some(Identification(None(), Some(Id(\"vehicle_start_readiness_recovery_supervisor\", Attr(Some([/M-star.sysml, 980, 7])))), Attr(Some([/M-star.sysml, 980, 7])))), [TypingsSpecialization([Name([Id(\"VehicleStartReadinessRecoverySupervisorSystem\", Attr(Some([/M-star.sysml, 980, 53])))], Attr(Some([/M-star.sysml, 980, 53])))])], None(), [], None(), ResolvedAttr(Some([/M-star.sysml, 980, 2]), None(), None())))\nWell-formed!\n"
+    }
+  },
+  "schema_version": "scp-independent-acceptance-1.0.0",
+  "started_at": "2026-08-21T00:44:17.685275Z",
+  "status": "passed"
+}

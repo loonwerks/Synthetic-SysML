@@ -1,0 +1,487 @@
+{
+  "schema_version": 2,
+  "run_id": "20260814T132657Z-vehicle-mode-medium-r2-a1",
+  "terminal_status": "accepted",
+  "source": "model/Vehicle_Mode_Coordinator.sysml",
+  "source_sha256": "de3cf758be9de558de457a1dca22c7ecdb1c2687bb1984cb23a4a371361e3c44",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 18,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 168,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "APPLY-01",
+      "APPLY-02",
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "POL-02",
+      "POL-05",
+      "POL-06",
+      "STATE-01",
+      "STATE-02",
+      "STATE-03",
+      "STATE-04",
+      "TYPE-01",
+      "TYPE-02",
+      "TYPE-03",
+      "TYPE-04",
+      "TYPE-06",
+      "TYPE-07"
+    ],
+    "relativePath": "cps48/runs/20260814T132657Z-vehicle-mode-medium-r2-a1/system-abstract.md",
+    "taggedElementCount": 122,
+    "traceAssociationCount": 122,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and fully partitioned a medium controller operating-mode coordinator at 8 usages, 16 interactions, 20 cases, and 8 scenario families.",
+      "questions_for_model": [
+        "Can independent lifecycle and service rising-edge histories remain local to their owners while Intent Arbitration consumes only derived facts?",
+        "Can pre-state mode and recovery target feed Transition Qualification while one resolution updates both state owners and controls same-evaluation outputs without an ambiguous contract cycle?",
+        "Can the 8 arbitration cases and 12 transition cases remain owner-local without policy duplication in state, publication, or analyzer logic?",
+        "Can required SysML-AADL delegation preserve exactly 8 semantic usages and 16 semantic end-to-end interactions while support hops remain explicitly uncredited?"
+      ],
+      "repair_actions": [],
+      "diversity": {
+        "selected_primary_scope": "VehicleController operating-mode coordination for start/on/off/maintenance/degraded/return indications, with logical mode publication and parking-brake/status coordination",
+        "closest_baseline": "Replicate-1 medium Vehicle Start-Readiness and Recovery Supervisor",
+        "primary_scope_differs": true,
+        "controlled_purpose_differs": true,
+        "differing_dimensions": [
+          "boundary",
+          "state_ownership",
+          "interaction_topology",
+          "priority_policy",
+          "recovery_policy"
+        ],
+        "why_not_extension_or_rename": "This design removes brake, thermal/maintenance readiness, power, and self-test qualification plus start authorization, and instead owns lifecycle/service freshness, logical mode applicability, maintenance handoff, recovery-target memory, and direct logical resume. Those changes replace the baseline boundary, decision chain, state topology, priority domain, outputs, and recovery semantics rather than rename or repartition them."
+      }
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Move state-dependent transition application from PART-06 to PART-07 so PART-07 is not a copy wrapper; preserve the 8/16/20/8 behavior.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-06 currently derives the complete TransitionResolution including nextMode, while PART-07 only initializes mode, publishes the prior mode, and assigns its retained mode to the received nextMode. Extensionally, PART-07 contributes only delayed copying/state forwarding, so it cannot receive behavior-owner or semantic-usage credit under M-17.",
+          "requested_change": "Add a finite QualifiedTransition directive. Make PART-06 derive that directive from SelectedIntent and current mode under unchanged CASE-09..CASE-20 guards, and make PART-07 combine In(controllerMode), QualifiedTransition, and RecoveryTarget to derive the applied TransitionResolution and commit next mode. Redirect INT-09 to PART-07, make INT-10 carry the directive, and source INT-12, INT-13, and INT-15 from PART-07. Preserve the exact composed transition triples and 8/16/20/8 counts."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted Isolette and the current accepted vehicle-medium source demonstrate GUMBO local state, initialize, compute_cases, In(state), pre-state publication, post-state update, attribute-based records, and typed sibling-Thread connections; retained independent Sireum output is Well-formed under library revision 9016cbcceefa92f0068e1811923704dd261d15f1.",
+          "requested_change": "Publish PART-05 and PART-07 pre-state views from In(state), derive the same-evaluation applied resolution from those views, and constrain post-state separately. Use one uncredited support Process, five root/Process delegations, and attribute members for all GUMBO-inspected record fields; do not introduce a scheduling claim or semantic support credit."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01 and PART-02 derive rising-edge/conflict facts; PART-03 has a 4/1/1 two-field qualification; PART-04 combines independent facts under priority; PART-05 conditionally captures/maps/preserves/resets recovery memory; PART-06 classifies 40 applicability pairs; and PART-08 derives multi-input diagnostic precedence plus a many-to-one brake policy. None is extensionally a rename or forwarding-only usage.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "The full finite single-evaluation product is 92160 boundary/pre-state valuations, with direct revised owner products of 40 PART-06 pairs and 120 PART-07 application tuples. The harness watchdog is 180 seconds and the checker executes the retained analyzer, requires passed ownership records, and rejects nonzero gaps, overlaps, or mismatches.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved the narrow PART-06 qualification and PART-07 state-dependent application revision while preserving the exact 8/16/20/8 policy.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Localized the campaign-v1 analyzer wire repair by deriving each ownership record's passed field from its executed named checks; SysML typechecking and the complete bounded analyzer passed with source, metrics, and traceability unchanged.",
+      "canonical_source": "model/Vehicle_Mode_Coordinator.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated 18-edge overview passed machine, native-resolution, sidecar, and complete traceability review.",
+      "correction_cycles": 2,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "APPLY-01",
+        "APPLY-02",
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "POL-02",
+        "POL-05",
+        "POL-06",
+        "STATE-01",
+        "STATE-02",
+        "STATE-03",
+        "STATE-04",
+        "TYPE-01",
+        "TYPE-02",
+        "TYPE-03",
+        "TYPE-04",
+        "TYPE-06",
+        "TYPE-07"
+      ],
+      "reviewed_tagged_element_count": 122,
+      "reviewed_trace_association_count": 122,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source-bound design, owner-local semantics, bounded analysis, traceability, and rendered overview all pass; executable evidence is not required and remains not run.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 16,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 8
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "lifecycleEventOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "lifecycleLevels",
+            "In(previousStart)",
+            "In(previousOn)",
+            "In(previousOff)"
+          ],
+          "owner_local_facts": [
+            "freshStart",
+            "freshOn",
+            "offActive",
+            "lifecycleConflict"
+          ],
+          "contract_cases": [
+            "LIFECYCLE_RISING_EDGES",
+            "LIFECYCLE_CONFLICT",
+            "STORE_LIFECYCLE_LEVELS"
+          ],
+          "analyzer_checks": [
+            "lifecycle-owner-64-tuples"
+          ]
+        },
+        {
+          "usage": "serviceEventOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "serviceLevels",
+            "In(previousMaintenance)",
+            "In(previousReturn)"
+          ],
+          "owner_local_facts": [
+            "freshMaintenance",
+            "freshReturn",
+            "serviceConflict"
+          ],
+          "contract_cases": [
+            "SERVICE_RISING_EDGES",
+            "SERVICE_CONFLICT",
+            "STORE_SERVICE_LEVELS"
+          ],
+          "analyzer_checks": [
+            "service-owner-16-tuples"
+          ]
+        },
+        {
+          "usage": "conditionAssessmentOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "conditionEvidence.reportedCondition",
+            "conditionEvidence.reportCurrency"
+          ],
+          "owner_local_facts": [
+            "conditionAssessment"
+          ],
+          "contract_cases": [
+            "CONDITION_QUALIFICATION"
+          ],
+          "analyzer_checks": [
+            "condition-owner-six-values-and-fibers"
+          ]
+        },
+        {
+          "usage": "intentArbitrationOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "lifecycleFacts",
+            "serviceFacts",
+            "conditionAssessment"
+          ],
+          "owner_local_facts": [
+            "selectedIntent",
+            "priorityConflict"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05",
+            "CASE-06",
+            "CASE-07",
+            "CASE-08"
+          ],
+          "analyzer_checks": [
+            "intent-arbitration-totality-priority-conflict"
+          ]
+        },
+        {
+          "usage": "recoveryTargetOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "currentMode",
+            "appliedResolution",
+            "In(recoveryTarget)"
+          ],
+          "owner_local_facts": [
+            "storedRecoveryTarget",
+            "nextRecoveryTarget"
+          ],
+          "contract_cases": [
+            "PUBLISH_PRE_UPDATE_TARGET",
+            "UPDATE_RECOVERY_TARGET"
+          ],
+          "analyzer_checks": [
+            "recovery-target-capture-preserve-reset-75-tuples"
+          ]
+        },
+        {
+          "usage": "transitionQualificationOwner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "arbitrationResult.selectedIntent",
+            "currentMode"
+          ],
+          "owner_local_facts": [
+            "qualifiedTransition"
+          ],
+          "contract_cases": [
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "transition-qualification-40-pairs"
+          ]
+        },
+        {
+          "usage": "modeTransitionApplicationOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "In(controllerMode)",
+            "qualifiedTransition",
+            "storedRecoveryTarget"
+          ],
+          "owner_local_facts": [
+            "transitionResolution",
+            "nextControllerMode"
+          ],
+          "contract_cases": [
+            "APPLY_STAY_OR_REJECT",
+            "APPLY_GO_DIRECTIVES",
+            "APPLY_STORED_RESUME",
+            "COMMIT_AND_DELIVER_MODE"
+          ],
+          "analyzer_checks": [
+            "transition-application-120-tuples"
+          ]
+        },
+        {
+          "usage": "coordinationPublicationOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "arbitrationResult",
+            "appliedResolution"
+          ],
+          "owner_local_facts": [
+            "parkingBrake",
+            "coordinationStatus"
+          ],
+          "contract_cases": [
+            "PARKING_BRAKE_COHERENCE",
+            "STATUS_PRECEDENCE"
+          ],
+          "analyzer_checks": [
+            "publication-precedence-and-brake-equivalence"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source-bound design, owner-local semantics, bounded analysis, traceability, and rendered overview all pass; executable evidence is not required and remains not run.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

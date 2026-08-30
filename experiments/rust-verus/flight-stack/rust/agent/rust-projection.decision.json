@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "summary": "Accepted source and Rust projection typechecked; HAMR Microkit Rust/Verus code generation completed with exit 0. Eight behavior-owner application crates and unchanged accepted GUMBO semantics were produced; the temporary AIR cache was removed after final verification. The backend reports an explicit non-fatal limitation for lowering five datatype invariants, which remain unchanged in the projected model.",
+  "canonical_source": {
+    "path": "runs/20260817T021406Z-faa-flight-stack-appendices-b-c-d/model/flight_stack.sysml",
+    "sha256": "21424fafbfd58b33998929b314423608434264eee9b94f2327f51b06074ba657"
+  },
+  "projected_source": {
+    "path": "rust/model/flight_stack_rust.sysml",
+    "sha256": "2e5a607eb917bd9345eff9417ab09b6486ca7a6e532e89ae7923711b2c872923"
+  },
+  "typecheck": {
+    "accepted_source": {
+      "status": "passed",
+      "exit_code": 0,
+      "result": "Well-formed!",
+      "proof": "rust/proof/accepted-source-tipe.log"
+    },
+    "projected_source": {
+      "status": "passed",
+      "exit_code": 0,
+      "result": "Well-formed!",
+      "proof": "rust/proof/projected-source-tipe.log"
+    }
+  },
+  "codegen": {
+    "status": "passed",
+    "exit_code": 0,
+    "platform": "Microkit",
+    "rust_verus_attribute_syntax": true,
+    "workspace_root": "rust",
+    "output_directory": "rust/hamr",
+    "air_cache": null,
+    "air_sha256": null,
+    "generated_file_count": 248,
+    "generated_tree_aggregate_sha256": "6a9b832cdfc5d469db0b19978ef4705db324275e48018a80471719fc4324db90",
+    "scala_file_count": 0,
+    "proof": "rust/proof/codegen-final.log",
+    "backend_limitations": [
+      "The current HAMR Microkit backend emits non-fatal TODO diagnostics and does not lower datatype invariant annotations for AircraftAttitude, PairedFdGuidance, PairedApStatus, ActuatorCommand, and ProposedActuatorRates. The annotations remain byte-identical in the projected SysML."
+    ]
+  },
+  "component_crates": [
+    {
+      "owner": "PART-FCS-01",
+      "crate": "rust/hamr/crates/crewCommandQualifier_behavior",
+      "application_file": "rust/hamr/crates/crewCommandQualifier_behavior/src/component/crewCommandQualifier_behavior_app.rs",
+      "implemented": true
+    },
+    {
+      "owner": "PART-FCS-02",
+      "crate": "rust/hamr/crates/attitudeSafetyQualifier_behavior",
+      "application_file": "rust/hamr/crates/attitudeSafetyQualifier_behavior/src/component/attitudeSafetyQualifier_behavior_app.rs",
+      "implemented": true
+    },
+    {
+      "owner": "PART-FGS-01",
+      "crate": "rust/hamr/crates/referenceManager_behavior",
+      "application_file": "rust/hamr/crates/referenceManager_behavior/src/component/referenceManager_behavior_app.rs",
+      "implemented": true
+    },
+    {
+      "owner": "PART-FGS-02",
+      "crate": "rust/hamr/crates/fdGuidanceHealthGenerator_behavior",
+      "application_file": "rust/hamr/crates/fdGuidanceHealthGenerator_behavior/src/component/fdGuidanceHealthGenerator_behavior_app.rs",
+      "implemented": true
+    },
+    {
+      "owner": "PART-FGS-03",
+      "crate": "rust/hamr/crates/apGuidanceGenerator_behavior",
+      "application_file": "rust/hamr/crates/apGuidanceGenerator_behavior/src/component/apGuidanceGenerator_behavior_app.rs",
+      "implemented": true
+    },
+    {
+      "owner": "PART-APS-01",
+      "crate": "rust/hamr/crates/apEngagementManager_behavior",
+      "application_file": "rust/hamr/crates/apEngagementManager_behavior/src/component/apEngagementManager_behavior_app.rs",
+      "implemented": true
+    },
+    {
+      "owner": "PART-APS-02",
+      "crate": "rust/hamr/crates/actuatorRateProposer_behavior",
+      "application_file": "rust/hamr/crates/actuatorRateProposer_behavior/src/component/actuatorRateProposer_behavior_app.rs",
+      "implemented": true
+    },
+    {
+      "owner": "PART-APS-03",
+      "crate": "rust/hamr/crates/actuatorSafetyGate_behavior",
+      "application_file": "rust/hamr/crates/actuatorSafetyGate_behavior/src/component/actuatorSafetyGate_behavior_app.rs",
+      "implemented": true
+    }
+  ],
+  "contract_changes": {
+    "semantic_changes": [],
+    "spelling_normalizations": [],
+    "canonical_gumbo_blocks_sha256": "14e62f277854641ea1e997fadf4e6763a7c3805ad61c3fac40bf2dcf8a5214c2",
+    "projected_gumbo_blocks_sha256": "14e62f277854641ea1e997fadf4e6763a7c3805ad61c3fac40bf2dcf8a5214c2",
+    "source_case_count": 20,
+    "generated_case_count": 20
+  },
+  "blockers": []
+}

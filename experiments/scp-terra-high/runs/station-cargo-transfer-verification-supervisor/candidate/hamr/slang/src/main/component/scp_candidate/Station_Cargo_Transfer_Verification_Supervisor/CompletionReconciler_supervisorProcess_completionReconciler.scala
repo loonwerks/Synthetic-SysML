@@ -1,0 +1,32 @@
+// #Sireum
+
+package scp_candidate.Station_Cargo_Transfer_Verification_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object CompletionReconciler_supervisorProcess_completionReconciler {
+
+  def initialise(api: CompletionReconciler_Initialization_Api): Unit = {
+    Contract(
+      Modifies(api),
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee RECONCILER_INITIAL
+        api.verificationDisposition == VerificationDisposition.Neutral
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_verificationDisposition(Station_Cargo_Transfer_Verification_Supervisor.VerificationDisposition.Neutral)
+  }
+
+  def timeTriggered(api: CompletionReconciler_Operational_Api): Unit = { }
+  def finalise(api: CompletionReconciler_Operational_Api): Unit = { }
+}

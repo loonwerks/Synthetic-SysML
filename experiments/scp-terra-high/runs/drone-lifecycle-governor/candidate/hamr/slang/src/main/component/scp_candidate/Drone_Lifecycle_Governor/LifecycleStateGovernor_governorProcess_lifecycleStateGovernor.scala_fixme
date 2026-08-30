@@ -1,0 +1,48 @@
+// #Sireum
+
+package scp_candidate.Drone_Lifecycle_Governor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object LifecycleStateGovernor_governorProcess_lifecycleStateGovernor {
+
+  // BEGIN STATE VARS
+  var committedLifecycleState: Drone_Lifecycle_Governor.LifecycleState.Type = Drone_Lifecycle_Governor.LifecycleState.OFF
+  // END STATE VARS
+
+  def initialise(api: LifecycleStateGovernor_Initialization_Api): Unit = {
+    Contract(
+      Modifies(
+        // BEGIN INITIALIZES MODIFIES
+        committedLifecycleState
+        // END INITIALIZES MODIFIES
+      ),
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee initialCommitted
+        committedLifecycleState == LifecycleState.OFF,
+        // guarantee initialCurrent
+        api.currentLifecycleState == LifecycleState.OFF,
+        // guarantee initialSnapshot
+        api.decisionSnapshot.preState == DecisionPreState.OFF &
+          api.decisionSnapshot.nextState == DecisionNextState.OFF &
+          api.decisionSnapshot.effectiveIntent == EffectiveIntent.NO_INTENT &
+          api.decisionSnapshot.transitionResult == TransitionResult.NO_CHANGE &
+          api.decisionSnapshot.decisionReason == EligibilityReason.NONE
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_currentLifecycleState(Drone_Lifecycle_Governor.LifecycleState.OFF)
+    api.put_decisionSnapshot(Drone_Lifecycle_Governor.DecisionSnapshot.example())
+  }
+
+  def finalise(api: LifecycleStateGovernor_Operational_Api): Unit = { }
+}

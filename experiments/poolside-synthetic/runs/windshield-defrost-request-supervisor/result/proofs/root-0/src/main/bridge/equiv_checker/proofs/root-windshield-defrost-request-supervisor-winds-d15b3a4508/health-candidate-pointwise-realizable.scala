@@ -1,0 +1,23 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_d15b3a45082c_Candidate_Pointwise_Realizable {
+  @pure def check(
+      defrosteligibility: equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEligibility.Type,
+      requestintent: equiv_shared_0.Windshield_Defrost_Request_Supervisor.RequestIntent.Type,
+      visibilityassessment: equiv_shared_0.Windshield_Defrost_Request_Supervisor.VisibilityAssessment.Type): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.Off, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.Inactive)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.Off, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.Defrosting)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.Off, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.Complete)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.Off, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.ObservationFault)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.Off, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.ElectricalBlocked)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.On, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.Inactive)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.On, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.Defrosting)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.On, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.Complete)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.On, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.ObservationFault)) |
+        (equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostPolicySupervisor_defrostSupervisionProcess_defrostPolicySupervisor_Candidate_GumboX.compute_CEP_Post(defrosteligibility, requestintent, visibilityassessment, equiv_shared_0.Windshield_Defrost_Request_Supervisor.DefrostEnableCommand.On, equiv_shared_0.Windshield_Defrost_Request_Supervisor.PolicyDisposition.ElectricalBlocked)))))
+  }
+}

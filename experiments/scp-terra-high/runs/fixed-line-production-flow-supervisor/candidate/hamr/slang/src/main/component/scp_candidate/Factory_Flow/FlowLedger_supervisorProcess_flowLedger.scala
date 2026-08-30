@@ -1,0 +1,44 @@
+// #Sireum
+
+package scp_candidate.Factory_Flow
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object FlowLedger_supervisorProcess_flowLedger {
+  // BEGIN STATE VARS
+  var phase: Factory_Flow.LedgerPhase.Type = Factory_Flow.LedgerPhase.Idle
+
+  var activeWork: Factory_Flow.WorkId.Type = Factory_Flow.WorkId.NoWork
+
+  var activeStep: Factory_Flow.FlowStep.Type = Factory_Flow.FlowStep.Heating
+
+  var attempt: Factory_Flow.AttemptKind.Type = Factory_Flow.AttemptKind.First
+  // END STATE VARS
+
+  def initialise(api: FlowLedger_Initialization_Api): Unit = {
+    Contract(Modifies(api), Ensures(
+      // BEGIN INITIALIZES ENSURES
+        // guarantee SafeLedgerInitialization
+        T
+        // END INITIALIZES ENSURES
+    ))
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_contextToReadiness(Factory_Flow.FlowContext.example())
+    api.put_contextToOutcome(Factory_Flow.FlowContext.example())
+    api.put_protectionContext(Factory_Flow.ProtectionContext.example())
+    api.put_snapshotToOutcome(Factory_Flow.FlowSnapshot.example())
+    api.put_snapshotToStatus(Factory_Flow.FlowSnapshot.example())
+    api.put_lineCommand(Factory_Flow.LineFlowCommand.example())
+  }
+
+  def timeTriggered(api: FlowLedger_Operational_Api): Unit = { }
+
+  def finalise(api: FlowLedger_Operational_Api): Unit = { }
+}

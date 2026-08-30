@@ -1,0 +1,481 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234355Z-vehicle-mode-medium-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Vehicle_Start_Readiness_Recovery_Supervisor.sysml",
+  "source_sha256": "1a4cb0d0296ebe42b7b525f88eb330dda0cfdc2ed36398b51cd031ec104eb8da",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 25,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 159,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BEH-02",
+      "BOUND-01",
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "POL-05",
+      "POL-06",
+      "POL-07",
+      "POL-08",
+      "STATE-01",
+      "STATE-02",
+      "STATE-03",
+      "STATE-04",
+      "TYPE-01",
+      "TYPE-02",
+      "TYPE-03",
+      "TYPE-04",
+      "TYPE-09",
+      "TYPE-11"
+    ],
+    "relativePath": "cps48/runs/20260813T234355Z-vehicle-mode-medium-r1-a1/system-abstract.md",
+    "taggedElementCount": 127,
+    "traceAssociationCount": 127,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected and audited an eight-owner start-readiness supervisor with 19 typed interactions, 20 complete cases, eight scenario families, explicit off priority, and fresh recovery.",
+      "questions_for_model": [
+        "Can PART-01 rising-edge ownership and PART-05 armed test-cycle ownership be expressed with local initialization and post-state contracts while PART-06 and PART-07 consume rather than recompute those facts?",
+        "Can CASE-01 through CASE-20 be encoded as mutually exclusive and total owner-local GUMBO obligations with the same-evaluation next-state fail-closed frame required by FAULT-04?",
+        "Can one root realize exactly eight semantic usages and nineteen end-to-end interactions at depth 1..2 while any SysML-AADL-required support routing remains behavior-free and uncredited?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Replace two bijective qualification owners, close the lifecycle-reason interface, and use pre-state feedback; preserve the 8/19/20/8 behavior.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-02 is exactly Pressed->Ready, Released->NotReady, Invalid->Invalid and PART-04 is exactly Available->Ready, Unavailable->NotReady, Invalid->Invalid. Both relations are three-element bijections with fibers 1/1/1, so changing type and labels is only a code rename and cannot support owner or semantic-usage credit.",
+          "requested_change": "Revise PART-02 to derive separately constrained brakeEvidenceTrusted and brakeReadyForAdmission predicates, and PART-04 to derive powerEvidenceTrusted and powerAvailableForSupervision predicates; revise only their internal fact types, INT-08/09/12/13 payloads, and consuming CASE guards. List and directly analyze both facts for each owner, give any retained three-code projection zero credit, and preserve every boundary result plus the exact 8/19/20/8 counts."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-07 claims a transition reason, INT-18 transports it, and PART-08 must distinguish an awaiting recovery cycle to emit RecoveryTesting, but no exact finite reason type or case mapping is selected and PART-08 receives no PART-05 cycle fact directly. The current interface is therefore neither extensionally closed nor sufficient for POL-04 and ANALYSIS-01.",
+          "requested_change": "Add LifecycleReason={Ordinary, QualificationInvalid, QualificationNotReady, RecoveryAwaiting, RecoveryCompleted}; map CASE-09 to the applicable qualification reason, CASE-20 with AwaitingRecovery to RecoveryAwaiting, CASE-19 to RecoveryCompleted, and all other lifecycle cases to Ordinary. Carry it on INT-18 and use it only for the existing RecoveryTesting/RecoveredAwaitFreshStart policies; change no interaction, case, scenario, boundary value, or claim boundary."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "If INT-14 publishes PART-05's post-state TestCycle, a recovery pass makes PART-07 issue Clear, Clear makes the published cycle Idle, and CASE-19 loses its RecoveryPassed premise in the same evaluation. Trusted and freshly current-checker-accepted sources instead publish feedback from In(state) while separately constraining post-state; the fresh Sireum check exited 0 with Well-formed.",
+          "requested_change": "Make INT-14 a cycle assessment derived only from In(committedTestCycle) and current self-test observation, and let INT-17 independently constrain the PART-05 post-state. Thus RecoveryPassed may be consumed while Clear sets the post-state to Idle. Directly enumerate the 7*4*4=112 PART-05 pre-state/observation/directive tuples; preserve INT-14, INT-17, CASE-19, and same-evaluation output semantics."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The retained library, trusted Isolette forms, and a fresh current Sireum check support one System containing a behavior-free Process containing contract-bearing Threads, typed DataPort/PortConnection flows, attribute-based records, local state, initialize, compute_cases, and In(state). Five inputs plus one output cross the root while thirteen interactions are internal.",
+          "requested_change": "Use one uncredited support Process and eight semantic Threads at depth 2; retain 19 Process-local semantic connections and add exactly 6 root/Process support delegations, for 9 non-root usages and 25 raw PortConnection declarations. Give all support and one-to-one projections zero semantic or owner credit."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01 performs temporal edge/conflict/priority classification; PART-03 combines nine health values into fibers 5/3/1; PART-05 is armed-cycle stateful; PART-06 combines and prioritizes qualification facts; PART-07 owns the fifteen-case lifecycle/recovery transition; and PART-08 derives multi-input atomic-frame coherence and status precedence. The full raw-boundary/state product is 580608 valuations, below the 995328 root valuations retained by a current accepted analyzer under the same 180-second watchdog precedent.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Model findings resolved; revised 8/19/20/8 baseline approved for generation.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Recovered the interrupted BrokenPipeError checkpoint without changing source semantics; the analyzer syntax check, library-aware SysML typecheck, bounded 580,608-valuation analysis, ownership wire audit, metrics/hash reconciliation, and traceability consistency checks all passed. The SysML typecheck requires the repository external/sysml-aadl-libraries source path to resolve HAMR Data, Thread, Process, and System types.",
+      "canonical_source": "model/Vehicle_Start_Readiness_Recovery_Supervisor.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Repaired complete nineteen-direction disclosure in the retained system-overview using presentation-only context aliases and distinct routes for INT-09, INT-11, INT-13, and INT-16; current-revision validation, native review, zero-crossing/zero-route-collision health, exact source binding, and the complete 127-element/127-association trace audit passed without changing SysML semantics.",
+      "correction_cycles": 5,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BEH-02",
+        "BOUND-01",
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "POL-05",
+        "POL-06",
+        "POL-07",
+        "POL-08",
+        "STATE-01",
+        "STATE-02",
+        "STATE-03",
+        "STATE-04",
+        "TYPE-01",
+        "TYPE-02",
+        "TYPE-03",
+        "TYPE-04",
+        "TYPE-09",
+        "TYPE-11"
+      ],
+      "reviewed_tagged_element_count": 127,
+      "reviewed_trace_association_count": 127,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and rendered-artifact fitness pass without silent drift; executable evidence was not required.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 19,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 8
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "request_priority_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "request_priority_owner.request_levels",
+            "state.previous_request_levels"
+          ],
+          "owner_local_facts": [
+            "offActive",
+            "freshReturn",
+            "freshStart",
+            "requestConflict",
+            "requestDisposition"
+          ],
+          "contract_cases": [
+            "REQUEST_PRIORITY_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "request-owner-64-pairs"
+          ]
+        },
+        {
+          "usage": "brake_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "brake_qualification_owner.brake_observation"
+          ],
+          "owner_local_facts": [
+            "brakeEvidenceTrusted",
+            "brakeReadyForAdmission"
+          ],
+          "contract_cases": [
+            "BRAKE_FACT_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "brake-owner-three-values"
+          ]
+        },
+        {
+          "usage": "health_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "health_qualification_owner.health_observation"
+          ],
+          "owner_local_facts": [
+            "combinedHealthQualification",
+            "invalidOverNotReadyPriority"
+          ],
+          "contract_cases": [
+            "HEALTH_QUALIFICATION_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "health-owner-nine-values"
+          ]
+        },
+        {
+          "usage": "power_qualification_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "power_qualification_owner.power_observation"
+          ],
+          "owner_local_facts": [
+            "powerEvidenceTrusted",
+            "powerAvailableForSupervision"
+          ],
+          "contract_cases": [
+            "POWER_FACT_DERIVATION"
+          ],
+          "analyzer_checks": [
+            "power-owner-three-values"
+          ]
+        },
+        {
+          "usage": "self_test_cycle_owner",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "self_test_cycle_owner.self_test_observation",
+            "self_test_cycle_owner.test_cycle_directive",
+            "state.committed_test_cycle"
+          ],
+          "owner_local_facts": [
+            "preUpdateCycleAssessment",
+            "postUpdateCommittedTestCycle"
+          ],
+          "contract_cases": [
+            "PRE_UPDATE_CYCLE_ASSESSMENT",
+            "INDEPENDENT_TEST_CYCLE_STORAGE"
+          ],
+          "analyzer_checks": [
+            "cycle-owner-112-tuples"
+          ]
+        },
+        {
+          "usage": "start_authorization_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "start_authorization_owner.request_facts",
+            "start_authorization_owner.brake_facts",
+            "start_authorization_owner.health_qualification",
+            "start_authorization_owner.power_facts"
+          ],
+          "owner_local_facts": [
+            "fiveWayStartDecision"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03",
+            "CASE-04",
+            "CASE-05"
+          ],
+          "analyzer_checks": [
+            "authorization-total-exclusive-product"
+          ]
+        },
+        {
+          "usage": "lifecycle_recovery_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "lifecycle_recovery_owner.request_facts",
+            "lifecycle_recovery_owner.brake_facts",
+            "lifecycle_recovery_owner.health_qualification",
+            "lifecycle_recovery_owner.power_facts",
+            "lifecycle_recovery_owner.cycle_assessment",
+            "lifecycle_recovery_owner.authorization",
+            "state.lifecycle_mode"
+          ],
+          "owner_local_facts": [
+            "nextLifecycleMode",
+            "lifecycleReason",
+            "testCycleDirective"
+          ],
+          "contract_cases": [
+            "CASE-06",
+            "CASE-07",
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12",
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16",
+            "CASE-17",
+            "CASE-18",
+            "CASE-19",
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "lifecycle-total-exclusive-product"
+          ]
+        },
+        {
+          "usage": "coordinated_outcome_owner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "coordinated_outcome_owner.authorization",
+            "coordinated_outcome_owner.applied_lifecycle"
+          ],
+          "owner_local_facts": [
+            "atomicControlFrame",
+            "failClosedStatusPrecedence"
+          ],
+          "contract_cases": [
+            "STARTING_AND_ON_FRAME_MAPPING",
+            "DEGRADED_FRAME_MAPPING",
+            "OFF_FRAME_MAPPING"
+          ],
+          "analyzer_checks": [
+            "complete-frame-oracle-product"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and rendered-artifact fitness pass without silent drift; executable evidence was not required.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

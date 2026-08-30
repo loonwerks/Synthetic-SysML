@@ -1,0 +1,20 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_6002ac0ae8fe_Oracle_Pointwise_Realizable {
+  @pure def check(
+      visibilityneed: equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityNeed.Type,
+      visibilitypath: equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityPathReadiness): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Available, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.Unavailable))) |
+        (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Available, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.None))) |
+        (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Available, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.Preventive))) |
+        (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Available, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.Urgent))) |
+        (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Unavailable, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.Unavailable))) |
+        (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Unavailable, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.None))) |
+        (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Unavailable, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.Preventive))) |
+        (equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityServiceProposer_supervision_visibilityServiceProposer_GumboX.inititialize_IEP_Post(equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposal(visibilityApplicability = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.VisibilityProposalAvailability.Unavailable, urgency = equiv_shared_0.HVAC_Visibility_Priority_Supervisor.ProposalUrgency.Urgent))))))
+  }
+}

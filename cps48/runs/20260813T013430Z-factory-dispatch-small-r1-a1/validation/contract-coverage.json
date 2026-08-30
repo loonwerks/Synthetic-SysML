@@ -1,0 +1,1497 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "65d7cb910a5aef063b5c540f16d2bb2a8e98a3b2f56bd689c1cc0e2eee87f8cd",
+  "bounded_analysis_claim_boundary": "Exhaustive conformance over the declared 384 finite raw snapshots and retained scenario traces only; not formal, unbounded, compositional, generated-code, execution, physical-performance, or safety-certification evidence.",
+  "semantic_connection_map": {
+    "INT-01": {
+      "from": "root.dispatch_request",
+      "to": "PART-01.raw_request",
+      "payload": "Dispatch_Request_Sample",
+      "routes": [
+        "support_boundary_request",
+        "support_request_to_qualifier"
+      ]
+    },
+    "INT-02": {
+      "from": "PART-01.qualified_request",
+      "to": "PART-04.qualified_request",
+      "payload": "Qualified_Request",
+      "routes": [
+        "qualified_request_to_owner"
+      ]
+    },
+    "INT-03": {
+      "from": "root.product_availability",
+      "to": "PART-02.raw_availability",
+      "payload": "Product_Availability_Sample",
+      "routes": [
+        "support_boundary_availability",
+        "support_availability_to_assessment"
+      ]
+    },
+    "INT-04": {
+      "from": "PART-02.availability_assessment",
+      "to": "PART-04.availability_assessment",
+      "payload": "Availability_Assessment_Value",
+      "routes": [
+        "assessed_availability_to_owner"
+      ]
+    },
+    "INT-05": {
+      "from": "root.dispatch_outcome",
+      "to": "PART-03.raw_outcome",
+      "payload": "Dispatch_Outcome_Sample",
+      "routes": [
+        "support_boundary_outcome",
+        "support_outcome_to_qualifier"
+      ]
+    },
+    "INT-06": {
+      "from": "PART-03.qualified_outcome",
+      "to": "PART-04.qualified_outcome",
+      "payload": "Qualified_Outcome",
+      "routes": [
+        "qualified_outcome_to_owner"
+      ]
+    },
+    "INT-07": {
+      "from": "PART-04.release_resolution",
+      "to": "PART-05.dispatch_resolution",
+      "payload": "Dispatch_Resolution",
+      "routes": [
+        "resolution_to_release_derivation"
+      ]
+    },
+    "INT-08": {
+      "from": "PART-04.notice_resolution",
+      "to": "PART-06.dispatch_resolution",
+      "payload": "Dispatch_Resolution",
+      "routes": [
+        "resolution_to_notice_derivation"
+      ]
+    },
+    "INT-09": {
+      "from": "PART-05.shipment_release_command",
+      "to": "root.shipment_release_command",
+      "payload": "Shipment_Release_Command",
+      "routes": [
+        "support_release_to_process_boundary",
+        "support_boundary_release"
+      ]
+    },
+    "INT-10": {
+      "from": "PART-06.dispatch_status",
+      "to": "root.dispatch_status",
+      "payload": "Dispatch_Status",
+      "routes": [
+        "support_status_to_process_boundary",
+        "support_boundary_status"
+      ]
+    },
+    "INT-11": {
+      "from": "PART-06.shipping_confirmation",
+      "to": "root.shipping_confirmation",
+      "payload": "Shipping_Confirmation",
+      "routes": [
+        "support_confirmation_to_process_boundary",
+        "support_boundary_confirmation"
+      ]
+    }
+  },
+  "raw_domain_snapshots": 384,
+  "partition_counts": {
+    "CASE-01": 336,
+    "CASE-02": 18,
+    "CASE-03": 6,
+    "CASE-04": 4,
+    "CASE-05": 8,
+    "CASE-06": 1,
+    "CASE-07": 1,
+    "CASE-08": 2,
+    "CASE-09": 8
+  },
+  "partition_gaps": 0,
+  "partition_overlaps": 0,
+  "qualification_mismatches": 0,
+  "canonical_analyzer_guard_mismatches": 0,
+  "next_state_mismatches": 0,
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "INIT-01": {
+      "passed": true,
+      "initial_state": {
+        "currentPhase": "Idle",
+        "recoveryRequired": false
+      },
+      "initial_outputs": {
+        "shipmentReleaseCommand": "Hold",
+        "dispatchStatus": "Idle",
+        "shippingConfirmation": "Not_Issued"
+      }
+    },
+    "INVAR-01": {
+      "passed": true,
+      "violations": 0
+    },
+    "FRESH-01": {
+      "passed": true
+    },
+    "PRIORITY-01": {
+      "passed": true
+    },
+    "OUTPUT-01": {
+      "passed": true
+    },
+    "OWNER-01": {
+      "passed": true,
+      "principal_decision_owners": [
+        "dispatch_decision_owner"
+      ]
+    }
+  },
+  "interaction_resolution_violations": 0,
+  "case_witnesses": {
+    "CASE-01": {
+      "currentPhase": "Idle",
+      "recoveryRequired": false,
+      "requestEvent": "No_Request",
+      "requestStatus": "Valid",
+      "availabilityValue": "Unavailable",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "No_Report",
+      "outcomeStatus": "Invalid"
+    },
+    "CASE-02": {
+      "currentPhase": "Idle",
+      "recoveryRequired": true,
+      "requestEvent": "No_Request",
+      "requestStatus": "Valid",
+      "availabilityValue": "Unavailable",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "Shipment_Accepted",
+      "outcomeStatus": "Valid"
+    },
+    "CASE-03": {
+      "currentPhase": "Idle",
+      "recoveryRequired": true,
+      "requestEvent": "No_Request",
+      "requestStatus": "Valid",
+      "availabilityValue": "Unavailable",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "No_Report",
+      "outcomeStatus": "Valid"
+    },
+    "CASE-04": {
+      "currentPhase": "Release_Outstanding",
+      "recoveryRequired": false,
+      "requestEvent": "No_Request",
+      "requestStatus": "Valid",
+      "availabilityValue": "Unavailable",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "Shipment_Accepted",
+      "outcomeStatus": "Valid"
+    },
+    "CASE-05": {
+      "currentPhase": "Idle",
+      "recoveryRequired": false,
+      "requestEvent": "No_Request",
+      "requestStatus": "Valid",
+      "availabilityValue": "Unavailable",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "Shipment_Accepted",
+      "outcomeStatus": "Valid"
+    },
+    "CASE-06": {
+      "currentPhase": "Idle",
+      "recoveryRequired": false,
+      "requestEvent": "Request_Shipment",
+      "requestStatus": "Valid",
+      "availabilityValue": "Available",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "No_Report",
+      "outcomeStatus": "Valid"
+    },
+    "CASE-07": {
+      "currentPhase": "Idle",
+      "recoveryRequired": false,
+      "requestEvent": "Request_Shipment",
+      "requestStatus": "Valid",
+      "availabilityValue": "Unavailable",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "No_Report",
+      "outcomeStatus": "Valid"
+    },
+    "CASE-08": {
+      "currentPhase": "Awaiting_Product",
+      "recoveryRequired": false,
+      "requestEvent": "No_Request",
+      "requestStatus": "Valid",
+      "availabilityValue": "Available",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "No_Report",
+      "outcomeStatus": "Valid"
+    },
+    "CASE-09": {
+      "currentPhase": "Idle",
+      "recoveryRequired": false,
+      "requestEvent": "No_Request",
+      "requestStatus": "Valid",
+      "availabilityValue": "Unavailable",
+      "availabilityStatus": "Valid",
+      "outcomeValue": "No_Report",
+      "outcomeStatus": "Valid"
+    }
+  },
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "expected_named_branches": [
+        "CASE-06",
+        "CASE-09",
+        "CASE-04"
+      ],
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "requestEvent": "Request_Shipment",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-06",
+          "observed_case": "CASE-06",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Release",
+            "dispatchStatus": "Release_Issued",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-09",
+          "observed_case": "CASE-09",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Release_Issued",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "Shipment_Accepted",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-04",
+          "observed_case": "CASE-04",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Shipment_Acknowledged",
+            "shippingConfirmation": "Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "expected_named_branches": [
+        "CASE-07",
+        "CASE-09",
+        "CASE-08",
+        "CASE-09"
+      ],
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "requestEvent": "Request_Shipment",
+            "requestStatus": "Valid",
+            "availabilityValue": "Unavailable",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-07",
+          "observed_case": "CASE-07",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Waiting_Product",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Unavailable",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-09",
+          "observed_case": "CASE-09",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Waiting_Product",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-08",
+          "observed_case": "CASE-08",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Release",
+            "dispatchStatus": "Release_Issued",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-09",
+          "observed_case": "CASE-09",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Release_Issued",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "expected_named_branches": [
+        "CASE-05",
+        "CASE-07",
+        "CASE-05",
+        "CASE-08",
+        "CASE-04"
+      ],
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Unavailable",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "Shipment_Accepted",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-05",
+          "observed_case": "CASE-05",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Unexpected_Outcome",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "requestEvent": "Request_Shipment",
+            "requestStatus": "Valid",
+            "availabilityValue": "Unavailable",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-07",
+          "observed_case": "CASE-07",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Waiting_Product",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Unavailable",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "Shipment_Accepted",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-05",
+          "observed_case": "CASE-05",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Unexpected_Outcome",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Awaiting_Product",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-08",
+          "observed_case": "CASE-08",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Release",
+            "dispatchStatus": "Release_Issued",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "requestEvent": "Request_Shipment",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "Shipment_Accepted",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-04",
+          "observed_case": "CASE-04",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Shipment_Acknowledged",
+            "shippingConfirmation": "Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "expected_named_branches": [
+        "CASE-01"
+      ],
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "requestEvent": "Request_Shipment",
+            "requestStatus": "Invalid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "Shipment_Accepted",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-01",
+          "observed_case": "CASE-01",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Input_Fault",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": true
+          }
+        }
+      ],
+      "exhaustive_variants": [
+        {
+          "initial_phase": "Idle",
+          "invalid_mask": 1,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Idle",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Idle",
+          "invalid_mask": 2,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Idle",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Idle",
+          "invalid_mask": 4,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Idle",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Idle",
+          "invalid_mask": 3,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Idle",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Idle",
+          "invalid_mask": 5,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Idle",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Idle",
+          "invalid_mask": 6,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Idle",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Idle",
+          "invalid_mask": 7,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Idle",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Awaiting_Product",
+          "invalid_mask": 1,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Awaiting_Product",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Awaiting_Product",
+          "invalid_mask": 2,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Awaiting_Product",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Awaiting_Product",
+          "invalid_mask": 4,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Awaiting_Product",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Awaiting_Product",
+          "invalid_mask": 3,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Awaiting_Product",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Awaiting_Product",
+          "invalid_mask": 5,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Awaiting_Product",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Awaiting_Product",
+          "invalid_mask": 6,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Awaiting_Product",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Awaiting_Product",
+          "invalid_mask": 7,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Awaiting_Product",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Release_Outstanding",
+          "invalid_mask": 1,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Release_Outstanding",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Release_Outstanding",
+          "invalid_mask": 2,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Release_Outstanding",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Release_Outstanding",
+          "invalid_mask": 4,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Release_Outstanding",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Release_Outstanding",
+          "invalid_mask": 3,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Valid",
+              "currentPhase": "Release_Outstanding",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Release_Outstanding",
+          "invalid_mask": 5,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Valid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Release_Outstanding",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Release_Outstanding",
+          "invalid_mask": 6,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Valid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Release_Outstanding",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        },
+        {
+          "initial_phase": "Release_Outstanding",
+          "invalid_mask": 7,
+          "passed": true,
+          "observed": {
+            "step": 1,
+            "input": {
+              "requestEvent": "Request_Shipment",
+              "requestStatus": "Invalid",
+              "availabilityValue": "Available",
+              "availabilityStatus": "Invalid",
+              "outcomeValue": "Shipment_Accepted",
+              "outcomeStatus": "Invalid",
+              "currentPhase": "Release_Outstanding",
+              "recoveryRequired": false
+            },
+            "expected_case": "CASE-01",
+            "observed_case": "CASE-01",
+            "observed_outputs": {
+              "shipmentReleaseCommand": "Hold",
+              "dispatchStatus": "Input_Fault",
+              "shippingConfirmation": "Not_Issued"
+            },
+            "next_state": {
+              "currentPhase": "Idle",
+              "recoveryRequired": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "expected_named_branches": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-02",
+        "CASE-03",
+        "CASE-06"
+      ],
+      "passed": true,
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Invalid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-01",
+          "observed_case": "CASE-01",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Input_Fault",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": true
+          }
+        },
+        {
+          "step": 2,
+          "input": {
+            "requestEvent": "Request_Shipment",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": true
+          },
+          "expected_case": "CASE-02",
+          "observed_case": "CASE-02",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Recovery_Awaiting_Neutral",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": true
+          }
+        },
+        {
+          "step": 3,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "Shipment_Accepted",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": true
+          },
+          "expected_case": "CASE-02",
+          "observed_case": "CASE-02",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Recovery_Awaiting_Neutral",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": true
+          }
+        },
+        {
+          "step": 4,
+          "input": {
+            "requestEvent": "No_Request",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": true
+          },
+          "expected_case": "CASE-03",
+          "observed_case": "CASE-03",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Hold",
+            "dispatchStatus": "Idle",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          }
+        },
+        {
+          "step": 5,
+          "input": {
+            "requestEvent": "Request_Shipment",
+            "requestStatus": "Valid",
+            "availabilityValue": "Available",
+            "availabilityStatus": "Valid",
+            "outcomeValue": "No_Report",
+            "outcomeStatus": "Valid",
+            "currentPhase": "Idle",
+            "recoveryRequired": false
+          },
+          "expected_case": "CASE-06",
+          "observed_case": "CASE-06",
+          "observed_outputs": {
+            "shipmentReleaseCommand": "Release",
+            "dispatchStatus": "Release_Issued",
+            "shippingConfirmation": "Not_Issued"
+          },
+          "next_state": {
+            "currentPhase": "Release_Outstanding",
+            "recoveryRequired": false
+          }
+        }
+      ]
+    }
+  ],
+  "ownership_audit": [
+    {
+      "usage": "request_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "request_qualification.raw_request"
+      ],
+      "owner_local_facts": [
+        "validity-aware qualified request classification"
+      ],
+      "contract_cases": [
+        "REQUEST_INVALID",
+        "REQUEST_NEUTRAL",
+        "REQUEST_SHIPMENT"
+      ],
+      "analyzer_checks": [
+        "request qualification total 4-to-3 relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "availability_assessment",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "availability_assessment.raw_availability"
+      ],
+      "owner_local_facts": [
+        "validity-aware availability classification"
+      ],
+      "contract_cases": [
+        "AVAILABILITY_INVALID",
+        "PRODUCT_UNAVAILABLE",
+        "PRODUCT_AVAILABLE"
+      ],
+      "analyzer_checks": [
+        "availability assessment total 4-to-3 relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "outcome_qualification",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "outcome_qualification.raw_outcome"
+      ],
+      "owner_local_facts": [
+        "validity-aware outcome classification"
+      ],
+      "contract_cases": [
+        "OUTCOME_INVALID",
+        "OUTCOME_NEUTRAL",
+        "OUTCOME_ACCEPTED"
+      ],
+      "analyzer_checks": [
+        "outcome qualification total 4-to-3 relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "dispatch_decision_owner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "dispatch_decision_owner.qualified_request",
+        "dispatch_decision_owner.availability_assessment",
+        "dispatch_decision_owner.qualified_outcome",
+        "dispatch_decision_owner.current_phase",
+        "dispatch_decision_owner.recovery_required"
+      ],
+      "owner_local_facts": [
+        "ordered dispatch resolution",
+        "next dispatch phase",
+        "next recovery requirement"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09"
+      ],
+      "analyzer_checks": [
+        "owner nine-case partition",
+        "owner complete next-state and resolution"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "release_command_derivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "release_command_derivation.dispatch_resolution"
+      ],
+      "owner_local_facts": [
+        "release exactly for either release disposition"
+      ],
+      "contract_cases": [
+        "RELEASE_COMMAND",
+        "HOLD_COMMAND"
+      ],
+      "analyzer_checks": [
+        "release command total 9-to-2 relation"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "dispatch_notice_derivation",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "dispatch_notice_derivation.dispatch_resolution"
+      ],
+      "owner_local_facts": [
+        "disposition-and-phase status classification",
+        "confirmation only for expected acknowledgment"
+      ],
+      "contract_cases": [
+        "NOTICE_INPUT_FAULT",
+        "NOTICE_RECOVERY_BLOCKED",
+        "NOTICE_RECOVERY_CLEARED",
+        "NOTICE_ACKNOWLEDGED",
+        "NOTICE_UNEXPECTED",
+        "NOTICE_RELEASE_ISSUED",
+        "NOTICE_WAITING_PRODUCT",
+        "NOTICE_HOLD_IDLE",
+        "NOTICE_HOLD_AWAITING",
+        "NOTICE_HOLD_OUTSTANDING"
+      ],
+      "analyzer_checks": [
+        "notice derivation total disposition-and-phase relation"
+      ],
+      "passed": true
+    }
+  ]
+}

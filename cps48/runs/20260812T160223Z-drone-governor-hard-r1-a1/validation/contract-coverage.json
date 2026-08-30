@@ -1,0 +1,3334 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "8edeec3db2159e274d34896167ee7793432c46c738fcc08e56f1d3b87e36067a",
+  "claim_boundary": "Exhaustive only over the frozen 15,360-value logical snapshot domain and reachable finite phase/confidence pairs; this is not solver proof, code execution, physical validation, performance evidence, or safety certification.",
+  "domain": {
+    "raw_snapshot_count": 15360,
+    "factors": {
+      "requests": 10,
+      "battery_reports": 8,
+      "charger_reports": 3,
+      "navigation_reports": 2,
+      "flight_control_reports": 2,
+      "home_reports": 4,
+      "touchdown_reports": 4
+    }
+  },
+  "reachability": {
+    "initial_state": {
+      "phase": "OFF",
+      "confidence": "UNTRUSTED"
+    },
+    "reachable_pair_count": 13,
+    "reachable_pairs": [
+      {
+        "phase": "CHARGING",
+        "confidence": "TRUSTED"
+      },
+      {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      },
+      {
+        "phase": "LANDING",
+        "confidence": "CONFIRMING"
+      },
+      {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      },
+      {
+        "phase": "LANDING",
+        "confidence": "UNTRUSTED"
+      },
+      {
+        "phase": "OFF",
+        "confidence": "CONFIRMING"
+      },
+      {
+        "phase": "OFF",
+        "confidence": "TRUSTED"
+      },
+      {
+        "phase": "OFF",
+        "confidence": "UNTRUSTED"
+      },
+      {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      },
+      {
+        "phase": "RETURNING",
+        "confidence": "TRUSTED"
+      },
+      {
+        "phase": "STANDBY",
+        "confidence": "CONFIRMING"
+      },
+      {
+        "phase": "STANDBY",
+        "confidence": "TRUSTED"
+      },
+      {
+        "phase": "STANDBY",
+        "confidence": "UNTRUSTED"
+      }
+    ],
+    "evaluation_count": 199680,
+    "upper_bound": 322560
+  },
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "source": "CTX-01.request",
+      "destination": "PART-01.requestIn"
+    },
+    {
+      "id": "INT-02",
+      "source": "CTX-02.batteryReport",
+      "destination": "PART-02.reportIn"
+    },
+    {
+      "id": "INT-03",
+      "source": "CTX-03.chargerReport",
+      "destination": "PART-03.reportIn"
+    },
+    {
+      "id": "INT-04",
+      "source": "CTX-04.navigationReport",
+      "destination": "PART-05.navigationIn"
+    },
+    {
+      "id": "INT-05",
+      "source": "CTX-05.flightControlReport",
+      "destination": "PART-05.flightControlIn"
+    },
+    {
+      "id": "INT-06",
+      "source": "CTX-06.homeReport",
+      "destination": "PART-06.reportIn"
+    },
+    {
+      "id": "INT-07",
+      "source": "CTX-07.touchdownReport",
+      "destination": "PART-07.reportIn"
+    },
+    {
+      "id": "INT-08",
+      "source": "CTX-04.navigationReport",
+      "destination": "PART-09.navigationIn"
+    },
+    {
+      "id": "INT-09",
+      "source": "PART-01.semanticsToAirborne",
+      "destination": "PART-10.semanticsIn"
+    },
+    {
+      "id": "INT-10",
+      "source": "PART-01.semanticsToLifecycle",
+      "destination": "PART-12.semanticsIn"
+    },
+    {
+      "id": "INT-11",
+      "source": "PART-02.evidenceOut",
+      "destination": "PART-08.evidenceIn"
+    },
+    {
+      "id": "INT-12",
+      "source": "PART-08.stateToCharge",
+      "destination": "PART-04.batteryIn"
+    },
+    {
+      "id": "INT-13",
+      "source": "PART-08.stateToReadiness",
+      "destination": "PART-05.batteryIn"
+    },
+    {
+      "id": "INT-14",
+      "source": "PART-08.confidenceToFault",
+      "destination": "PART-11.confidenceIn"
+    },
+    {
+      "id": "INT-15",
+      "source": "PART-08.stateToComposition",
+      "destination": "PART-13.batteryIn"
+    },
+    {
+      "id": "INT-16",
+      "source": "PART-03.factsToCharge",
+      "destination": "PART-04.chargerIn"
+    },
+    {
+      "id": "INT-17",
+      "source": "PART-03.faultToAggregation",
+      "destination": "PART-11.chargerFaultIn"
+    },
+    {
+      "id": "INT-18",
+      "source": "CTX-04.navigationReport",
+      "destination": "PART-11.navigationIn"
+    },
+    {
+      "id": "INT-19",
+      "source": "CTX-05.flightControlReport",
+      "destination": "PART-09.flightControlIn"
+    },
+    {
+      "id": "INT-20",
+      "source": "CTX-05.flightControlReport",
+      "destination": "PART-11.flightControlIn"
+    },
+    {
+      "id": "INT-21",
+      "source": "PART-08.stateToHazard",
+      "destination": "PART-09.batteryIn"
+    },
+    {
+      "id": "INT-22",
+      "source": "PART-04.eligibilityOut",
+      "destination": "PART-12.chargeEligibilityIn"
+    },
+    {
+      "id": "INT-23",
+      "source": "PART-05.readinessOut",
+      "destination": "PART-12.readinessIn"
+    },
+    {
+      "id": "INT-24",
+      "source": "PART-06.factsToLifecycle",
+      "destination": "PART-12.homeFactsIn"
+    },
+    {
+      "id": "INT-25",
+      "source": "PART-06.faultToAggregation",
+      "destination": "PART-11.homeFaultIn"
+    },
+    {
+      "id": "INT-26",
+      "source": "PART-07.factsToLifecycle",
+      "destination": "PART-12.touchdownFactsIn"
+    },
+    {
+      "id": "INT-27",
+      "source": "PART-07.faultToAggregation",
+      "destination": "PART-11.touchdownFaultIn"
+    },
+    {
+      "id": "INT-28",
+      "source": "PART-09.proposalOut",
+      "destination": "PART-12.hazardProposalIn"
+    },
+    {
+      "id": "INT-29",
+      "source": "PART-10.proposalOut",
+      "destination": "PART-12.airborneRequestIn"
+    },
+    {
+      "id": "INT-30",
+      "source": "PART-11.faultsOut",
+      "destination": "PART-13.faultsIn"
+    },
+    {
+      "id": "INT-31",
+      "source": "PART-12.resolutionOut",
+      "destination": "PART-13.resolutionIn"
+    },
+    {
+      "id": "INT-32",
+      "source": "PART-13.pilotStatusOut",
+      "destination": "CTX-01.pilotStatus"
+    },
+    {
+      "id": "INT-33",
+      "source": "PART-13.chargePermissionOut",
+      "destination": "CTX-03.chargePermission"
+    },
+    {
+      "id": "INT-34",
+      "source": "PART-13.flightControlOut",
+      "destination": "CTX-05.flightControlOutputs"
+    },
+    {
+      "id": "INT-35",
+      "source": "PART-13.propulsionPermissionOut",
+      "destination": "CTX-08.propulsionPermission"
+    }
+  ],
+  "partition_counts": {
+    "confidence": {
+      "CASE-A-01": 99840,
+      "CASE-A-02": 23040,
+      "CASE-A-03": 23040,
+      "CASE-A-04": 53760
+    },
+    "lifecycle": {
+      "CASE-L-01": 65280,
+      "CASE-L-02": 1440,
+      "CASE-L-03": 1920,
+      "CASE-L-04": 240,
+      "CASE-L-05": 96,
+      "CASE-L-06": 324,
+      "CASE-L-07": 480,
+      "CASE-L-08": 960,
+      "CASE-L-09": 46080,
+      "CASE-L-10": 3840,
+      "CASE-L-11": 4608,
+      "CASE-L-12": 41472,
+      "CASE-L-13": 1536,
+      "CASE-L-14": 384,
+      "CASE-L-15": 192,
+      "CASE-L-16": 13248,
+      "CASE-L-17": 768,
+      "CASE-L-18": 5376,
+      "CASE-L-19": 1536,
+      "CASE-L-20": 384,
+      "CASE-L-21": 384,
+      "CASE-L-22": 96,
+      "CASE-L-23": 2976,
+      "CASE-L-24": 768,
+      "CASE-L-25": 972,
+      "CASE-L-26": 4320
+    }
+  },
+  "gaps": {
+    "partition": 0,
+    "reachability": 0,
+    "missing_case_witnesses": []
+  },
+  "overlaps": {
+    "partition": 0
+  },
+  "required_output_mismatches": 0,
+  "invariant_checks": {
+    "aggregate_fault_exact": true,
+    "charge_propulsion_exclusion": true,
+    "fresh_request_recovery": true,
+    "composition_oracle_equal": true
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "case_mismatches": 0,
+    "next_state_mismatches": 0,
+    "public_output_mismatches": 0,
+    "priority_violations": 0,
+    "request_result_mismatches": 0,
+    "local_fault_mismatches": 0,
+    "aggregate_disjunction_mismatches": 0,
+    "charge_propulsion_exclusion_violations": 0,
+    "recovery_violations": 0,
+    "stale_request_violations": 0,
+    "ownership_violations": 0,
+    "composition_oracle_mismatches": 0,
+    "reachability_gaps": 0
+  },
+  "checks": {
+    "raw_domain_exact": true,
+    "reachable_pairs_bounded": true,
+    "exhaustive_count_exact": true,
+    "confidence_partition_complete": true,
+    "lifecycle_partition_complete": true,
+    "all_case_witnesses_present": true,
+    "all_scenarios_passed": true,
+    "semantic_connection_map_exact": true,
+    "owner_local_relations_executed": true,
+    "observations_clear": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "requestApplicabilityOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-01 requestIn"
+      ],
+      "owner_local_facts": [
+        "five-valued request family classification"
+      ],
+      "contract_cases": [
+        "REQUEST_FAMILY_CLASSIFICATION"
+      ],
+      "analyzer_checks": [
+        "request_family_many_to_one"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "batteryEvidenceQualifier",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-02 reportIn"
+      ],
+      "owner_local_facts": [
+        "valid-band suppression"
+      ],
+      "contract_cases": [
+        "VALID_BAND_SUPPRESSION"
+      ],
+      "analyzer_checks": [
+        "invalid_band_suppression"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "chargerEvidenceQualifier",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-03 reportIn"
+      ],
+      "owner_local_facts": [
+        "connected healthy and fault classification"
+      ],
+      "contract_cases": [
+        "CHARGER_POLICY_CLASSIFICATION"
+      ],
+      "analyzer_checks": [
+        "charger_three_way_classification"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "chargeEligibilityOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-12 batteryIn",
+        "INT-16 chargerIn"
+      ],
+      "owner_local_facts": [
+        "entry retention and exit eligibility"
+      ],
+      "contract_cases": [
+        "CHARGE_ELIGIBILITY_COMBINATION"
+      ],
+      "analyzer_checks": [
+        "charge_eligibility_combination"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "flightReadinessOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-04 navigationIn",
+        "INT-05 flightControlIn",
+        "INT-13 batteryIn"
+      ],
+      "owner_local_facts": [
+        "combined activation and launch readiness"
+      ],
+      "contract_cases": [
+        "COMBINED_FLIGHT_READINESS"
+      ],
+      "analyzer_checks": [
+        "flight_readiness_combination"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "homeEvidenceQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-06 reportIn"
+      ],
+      "owner_local_facts": [
+        "qualified arrival and home evidence fault"
+      ],
+      "contract_cases": [
+        "QUALIFIED_HOME_COMPLETION"
+      ],
+      "analyzer_checks": [
+        "home_four_pair_qualification"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "touchdownEvidenceQualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "INT-07 reportIn"
+      ],
+      "owner_local_facts": [
+        "qualified touchdown and touchdown evidence fault"
+      ],
+      "contract_cases": [
+        "QUALIFIED_TOUCHDOWN_COMPLETION"
+      ],
+      "analyzer_checks": [
+        "touchdown_four_pair_qualification"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "batteryConfidenceOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-11 evidenceIn",
+        "owned prior confidenceState"
+      ],
+      "owner_local_facts": [
+        "three-valued confidence next state",
+        "same-step battery usability"
+      ],
+      "contract_cases": [
+        "CASE-A-01",
+        "CASE-A-02",
+        "CASE-A-03",
+        "CASE-A-04"
+      ],
+      "analyzer_checks": [
+        "confidence_partition",
+        "two_valid_step_recovery"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "airborneHazardProposalOwner",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "INT-08 navigationIn",
+        "INT-19 flightControlIn",
+        "INT-21 batteryIn"
+      ],
+      "owner_local_facts": [
+        "emergency-land proposal",
+        "forced-return proposal"
+      ],
+      "contract_cases": [
+        "AIRBORNE_HAZARD_PROPOSALS"
+      ],
+      "analyzer_checks": [
+        "airborne_hazard_proposals"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "airborneRequestProposalOwner",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "INT-09 semanticsIn"
+      ],
+      "owner_local_facts": [
+        "three-valued airborne request classification"
+      ],
+      "contract_cases": [
+        "AIRBORNE_REQUEST_CLASSIFICATION"
+      ],
+      "analyzer_checks": [
+        "airborne_request_many_to_one"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "faultAggregationOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-14 confidenceIn",
+        "INT-17 chargerFaultIn",
+        "INT-18 navigationIn",
+        "INT-20 flightControlIn",
+        "INT-25 homeFaultIn",
+        "INT-27 touchdownFaultIn"
+      ],
+      "owner_local_facts": [
+        "confidence-derived battery fault",
+        "six-way exact aggregate disjunction"
+      ],
+      "contract_cases": [
+        "CURRENT_FAULT_VECTOR_AND_DISJUNCTION"
+      ],
+      "analyzer_checks": [
+        "battery_fault_classification",
+        "aggregate_fault_disjunction"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "lifecyclePriorityOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-10 semanticsIn",
+        "INT-22 chargeEligibilityIn",
+        "INT-23 readinessIn",
+        "INT-24 homeFactsIn",
+        "INT-26 touchdownFactsIn",
+        "INT-28 hazardProposalIn",
+        "INT-29 airborneRequestIn",
+        "owned prior phaseState"
+      ],
+      "owner_local_facts": [
+        "first-match lifecycle case",
+        "next lifecycle phase",
+        "primitive request-effect evidence"
+      ],
+      "contract_cases": [
+        "CASE-L-01",
+        "CASE-L-02",
+        "CASE-L-03",
+        "CASE-L-04",
+        "CASE-L-05",
+        "CASE-L-06",
+        "CASE-L-07",
+        "CASE-L-08",
+        "CASE-L-09",
+        "CASE-L-10",
+        "CASE-L-11",
+        "CASE-L-12",
+        "CASE-L-13",
+        "CASE-L-14",
+        "CASE-L-15",
+        "CASE-L-16",
+        "CASE-L-17",
+        "CASE-L-18",
+        "CASE-L-19",
+        "CASE-L-20",
+        "CASE-L-21",
+        "CASE-L-22",
+        "CASE-L-23",
+        "CASE-L-24",
+        "CASE-L-25",
+        "CASE-L-26"
+      ],
+      "analyzer_checks": [
+        "lifecycle_partition",
+        "first_match_priority",
+        "request_effect_evidence"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "outcomeCompositionOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "INT-15 batteryIn",
+        "INT-30 faultsIn",
+        "INT-31 resolutionIn"
+      ],
+      "owner_local_facts": [
+        "request result",
+        "battery notice",
+        "flight intent",
+        "charge launch and propulsion permissions"
+      ],
+      "contract_cases": [
+        "REQUEST_RESULT_DERIVATION",
+        "BATTERY_NOTICE_DERIVATION",
+        "FLIGHT_INTENT_DERIVATION",
+        "PERMISSION_DERIVATION"
+      ],
+      "analyzer_checks": [
+        "atomic_public_tuple",
+        "composition_oracle_equality"
+      ],
+      "passed": true
+    }
+  ],
+  "case_witnesses": {
+    "CASE-A-02": {
+      "prior_state": {
+        "phase": "OFF",
+        "confidence": "UNTRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "CONFIRMING"
+      }
+    },
+    "CASE-L-12": {
+      "prior_state": {
+        "phase": "OFF",
+        "confidence": "UNTRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "CONFIRMING"
+      }
+    },
+    "CASE-A-01": {
+      "prior_state": {
+        "phase": "OFF",
+        "confidence": "UNTRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "INVALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "UNTRUSTED"
+      }
+    },
+    "CASE-L-11": {
+      "prior_state": {
+        "phase": "OFF",
+        "confidence": "UNTRUSTED"
+      },
+      "input": {
+        "request": "SWITCH_ON",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "STANDBY",
+        "confidence": "CONFIRMING"
+      }
+    },
+    "CASE-A-03": {
+      "prior_state": {
+        "phase": "OFF",
+        "confidence": "CONFIRMING"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-16": {
+      "prior_state": {
+        "phase": "STANDBY",
+        "confidence": "CONFIRMING"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "STANDBY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-09": {
+      "prior_state": {
+        "phase": "STANDBY",
+        "confidence": "CONFIRMING"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "INVALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "STANDBY",
+        "confidence": "UNTRUSTED"
+      }
+    },
+    "CASE-L-13": {
+      "prior_state": {
+        "phase": "STANDBY",
+        "confidence": "CONFIRMING"
+      },
+      "input": {
+        "request": "SWITCH_OFF",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-14": {
+      "prior_state": {
+        "phase": "STANDBY",
+        "confidence": "CONFIRMING"
+      },
+      "input": {
+        "request": "START_CHARGE",
+        "batteryBand": "MEDIUM",
+        "batteryValidity": "VALID",
+        "charger": "CONNECTED_HEALTHY",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "CHARGING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-15": {
+      "prior_state": {
+        "phase": "STANDBY",
+        "confidence": "CONFIRMING"
+      },
+      "input": {
+        "request": "ACTIVATE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-A-04": {
+      "prior_state": {
+        "phase": "OFF",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-18": {
+      "prior_state": {
+        "phase": "CHARGING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "STANDBY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-19": {
+      "prior_state": {
+        "phase": "CHARGING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "MEDIUM",
+        "batteryValidity": "VALID",
+        "charger": "CONNECTED_HEALTHY",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "CHARGING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-17": {
+      "prior_state": {
+        "phase": "CHARGING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "SWITCH_OFF",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-23": {
+      "prior_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-10": {
+      "prior_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "LOW",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "STANDBY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-20": {
+      "prior_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "SWITCH_OFF",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "OFF",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-21": {
+      "prior_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "DEACTIVATE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "STANDBY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-22": {
+      "prior_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "LAUNCH",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-24": {
+      "prior_state": {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-01": {
+      "prior_state": {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "FAULTED",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-03": {
+      "prior_state": {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "UNUSABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "RETURNING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-05": {
+      "prior_state": {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "RETURN",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "RETURNING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-04": {
+      "prior_state": {
+        "phase": "FLYING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "LAND",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-26": {
+      "prior_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-07": {
+      "prior_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "READY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-08": {
+      "prior_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "UNUSABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "STANDBY",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-25": {
+      "prior_state": {
+        "phase": "RETURNING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "RETURNING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-06": {
+      "prior_state": {
+        "phase": "RETURNING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "USABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "REACHED",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      }
+    },
+    "CASE-L-02": {
+      "prior_state": {
+        "phase": "RETURNING",
+        "confidence": "TRUSTED"
+      },
+      "input": {
+        "request": "NONE",
+        "batteryBand": "FULL",
+        "batteryValidity": "VALID",
+        "charger": "DISCONNECTED",
+        "navigation": "UNUSABLE",
+        "flightControl": "AVAILABLE",
+        "homeValue": "AWAY",
+        "homeValidity": "VALID",
+        "touchdownValue": "NOT_CONFIRMED",
+        "touchdownValidity": "VALID"
+      },
+      "next_state": {
+        "phase": "LANDING",
+        "confidence": "TRUSTED"
+      }
+    }
+  },
+  "scenario_families": [
+    {
+      "id": "SCN-01",
+      "title": "nominal startup and launch",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "OFF",
+            "confidence": "UNTRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "OFF",
+                "confidence": "UNTRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-12",
+              "observed": {
+                "case": "CASE-L-12",
+                "next_state": {
+                  "phase": "OFF",
+                  "confidence": "CONFIRMING"
+                },
+                "outputs": {
+                  "phase": "OFF",
+                  "requestResult": "NONE",
+                  "batteryNotice": "UNTRUSTED",
+                  "faults": {
+                    "batteryFault": true,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "OFF",
+                "confidence": "CONFIRMING"
+              },
+              "input": {
+                "request": "SWITCH_ON",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-11",
+              "observed": {
+                "case": "CASE-L-11",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "ACTIVATE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-15",
+              "observed": {
+                "case": "CASE-L-15",
+                "next_state": {
+                  "phase": "READY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "READY",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "PERMITTED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "READY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "LAUNCH",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-22",
+              "observed": {
+                "case": "CASE-L-22",
+                "next_state": {
+                  "phase": "FLYING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "FLYING",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAUNCH",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "title": "nominal charging lifecycle",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "STANDBY",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "START_CHARGE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-14",
+              "observed": {
+                "case": "CASE-L-14",
+                "next_state": {
+                  "phase": "CHARGING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "CHARGING",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "PERMITTED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "CHARGING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-19",
+              "observed": {
+                "case": "CASE-L-19",
+                "next_state": {
+                  "phase": "CHARGING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "CHARGING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "PERMITTED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "CHARGING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "FULL",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-18",
+              "observed": {
+                "case": "CASE-L-18",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "title": "emergency priority over request",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "FLYING",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "FLYING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "RETURN",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "INVALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-01",
+              "observed": {
+                "case": "CASE-L-01",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "UNTRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "PREEMPTED",
+                  "batteryNotice": "UNTRUSTED",
+                  "faults": {
+                    "batteryFault": true,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "title": "low battery return arrival touchdown",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "FLYING",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "FLYING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "LOW",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-03",
+              "observed": {
+                "case": "CASE-L-03",
+                "next_state": {
+                  "phase": "RETURNING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "RETURNING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "LOW",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "RETURN",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "RETURNING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "REACHED",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-06",
+              "observed": {
+                "case": "CASE-L-06",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "LANDING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-07",
+              "observed": {
+                "case": "CASE-L-07",
+                "next_state": {
+                  "phase": "READY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "READY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "PERMITTED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "title": "navigation escalation and non-reversal",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "FLYING",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "FLYING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "UNUSABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-03",
+              "observed": {
+                "case": "CASE-L-03",
+                "next_state": {
+                  "phase": "RETURNING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "RETURNING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": true,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "RETURN",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "RETURNING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "UNUSABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-02",
+              "observed": {
+                "case": "CASE-L-02",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": true,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "LANDING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-26",
+              "observed": {
+                "case": "CASE-L-26",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-06",
+      "title": "battery invalidity two-step recovery and fresh request",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "STANDBY",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "ACTIVATE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "INVALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-09",
+              "observed": {
+                "case": "CASE-L-09",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "UNTRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "REJECTED",
+                  "batteryNotice": "UNTRUSTED",
+                  "faults": {
+                    "batteryFault": true,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "UNTRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-09",
+              "observed": {
+                "case": "CASE-L-09",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "CONFIRMING"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "UNTRUSTED",
+                  "faults": {
+                    "batteryFault": true,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "CONFIRMING"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "ACTIVATE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-15",
+              "observed": {
+                "case": "CASE-L-15",
+                "next_state": {
+                  "phase": "READY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "READY",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "PERMITTED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-07",
+      "title": "charger fault propagation correction and fresh request",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "STANDBY",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "START_CHARGE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_FAULTED",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "REJECTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": true,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "START_CHARGE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-14",
+              "observed": {
+                "case": "CASE-L-14",
+                "next_state": {
+                  "phase": "CHARGING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "CHARGING",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "PERMITTED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "CHARGING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_FAULTED",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-18",
+              "observed": {
+                "case": "CASE-L-18",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": true,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "START_CHARGE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-14",
+              "observed": {
+                "case": "CASE-L-14",
+                "next_state": {
+                  "phase": "CHARGING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "CHARGING",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "PERMITTED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-08",
+      "title": "home four-pair qualification",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "RETURNING",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "RETURNING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "INVALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-25",
+              "observed": {
+                "case": "CASE-L-25",
+                "next_state": {
+                  "phase": "RETURNING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "RETURNING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": true,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "RETURN",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "RETURNING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "REACHED",
+                "homeValidity": "INVALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-25",
+              "observed": {
+                "case": "CASE-L-25",
+                "next_state": {
+                  "phase": "RETURNING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "RETURNING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": true,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "RETURN",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "RETURNING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-25",
+              "observed": {
+                "case": "CASE-L-25",
+                "next_state": {
+                  "phase": "RETURNING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "RETURNING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "RETURN",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "RETURNING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "REACHED",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-06",
+              "observed": {
+                "case": "CASE-L-06",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-09",
+      "title": "touchdown four-pair qualification and two destinations",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "LANDING",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "LANDING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "INVALID"
+              },
+              "expected_branch": "CASE-L-26",
+              "observed": {
+                "case": "CASE-L-26",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": true,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "LANDING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "CONFIRMED",
+                "touchdownValidity": "INVALID"
+              },
+              "expected_branch": "CASE-L-26",
+              "observed": {
+                "case": "CASE-L-26",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": true,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "LANDING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-26",
+              "observed": {
+                "case": "CASE-L-26",
+                "next_state": {
+                  "phase": "LANDING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "LANDING",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAND",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "LANDING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-07",
+              "observed": {
+                "case": "CASE-L-07",
+                "next_state": {
+                  "phase": "READY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "READY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "PERMITTED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        },
+        {
+          "initial_state": {
+            "phase": "LANDING",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "LANDING",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "UNUSABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-08",
+              "observed": {
+                "case": "CASE-L-08",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": true,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-10",
+      "title": "staggered concurrent fault recovery",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "STANDBY",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_FAULTED",
+                "navigation": "UNUSABLE",
+                "flightControl": "FAULTED",
+                "homeValue": "AWAY",
+                "homeValidity": "INVALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": true,
+                    "navigationFault": true,
+                    "flightControlFault": true,
+                    "homeFault": true,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "UNUSABLE",
+                "flightControl": "FAULTED",
+                "homeValue": "AWAY",
+                "homeValidity": "INVALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": true,
+                    "flightControlFault": true,
+                    "homeFault": true,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "FAULTED",
+                "homeValue": "AWAY",
+                "homeValidity": "INVALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": true,
+                    "homeFault": true,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "INVALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": true,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "STANDBY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-16",
+              "observed": {
+                "case": "CASE-L-16",
+                "next_state": {
+                  "phase": "STANDBY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "STANDBY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-11",
+      "title": "composition and fresh launch request",
+      "passed": true,
+      "traces": [
+        {
+          "initial_state": {
+            "phase": "READY",
+            "confidence": "TRUSTED"
+          },
+          "steps": [
+            {
+              "prior_state": {
+                "phase": "READY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "LAUNCH",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "UNUSABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-23",
+              "observed": {
+                "case": "CASE-L-23",
+                "next_state": {
+                  "phase": "READY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "READY",
+                  "requestResult": "REJECTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": true,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": true
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "READY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "NONE",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-23",
+              "observed": {
+                "case": "CASE-L-23",
+                "next_state": {
+                  "phase": "READY",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "READY",
+                  "requestResult": "NONE",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "HOLD",
+                  "launchPermission": "PERMITTED",
+                  "propulsionPermission": "DISABLED"
+                }
+              },
+              "passed": true
+            },
+            {
+              "prior_state": {
+                "phase": "READY",
+                "confidence": "TRUSTED"
+              },
+              "input": {
+                "request": "LAUNCH",
+                "batteryBand": "MEDIUM",
+                "batteryValidity": "VALID",
+                "charger": "CONNECTED_HEALTHY",
+                "navigation": "USABLE",
+                "flightControl": "AVAILABLE",
+                "homeValue": "AWAY",
+                "homeValidity": "VALID",
+                "touchdownValue": "NOT_CONFIRMED",
+                "touchdownValidity": "VALID"
+              },
+              "expected_branch": "CASE-L-22",
+              "observed": {
+                "case": "CASE-L-22",
+                "next_state": {
+                  "phase": "FLYING",
+                  "confidence": "TRUSTED"
+                },
+                "outputs": {
+                  "phase": "FLYING",
+                  "requestResult": "ACCEPTED",
+                  "batteryNotice": "CLEAR",
+                  "faults": {
+                    "batteryFault": false,
+                    "chargerFault": false,
+                    "navigationFault": false,
+                    "flightControlFault": false,
+                    "homeFault": false,
+                    "touchdownFault": false,
+                    "aggregateFault": false
+                  },
+                  "chargePermission": "DENIED",
+                  "intent": "LAUNCH",
+                  "launchPermission": "DENIED",
+                  "propulsionPermission": "ENABLED"
+                }
+              },
+              "passed": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

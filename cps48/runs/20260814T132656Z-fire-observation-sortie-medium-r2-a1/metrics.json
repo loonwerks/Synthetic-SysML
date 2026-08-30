@@ -1,0 +1,127 @@
+{
+  "source": "model/Navigation_Obstacle_Awareness_Use_Supervisor.sysml",
+  "source_sha256": "0378021a553d8861748f3ca3dae1b52fde0fcba8b6caaee8d06fd29ed7100601",
+  "root_system_usages": 1,
+  "semantic_usages": 10,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 11,
+  "all_usages_including_root": 12,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 21,
+  "generated_support_routes": 9,
+  "source_port_connection_declarations": 30,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 8,
+  "state_owners": 1,
+  "gumbo_inspected_data_fields": 0,
+  "gumbo_inspected_fields_declared_as_attributes": 0,
+  "architecture_repairs": 0,
+  "contract_repairs": 0,
+  "analyzer_repairs": 2,
+  "trace_annotation_repairs": 0,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 10,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {
+        "usage": "gpsEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["gpsEvidenceQualifier.gpsEvidence"],
+        "owner_local_facts": ["gpsAssessment"],
+        "contract_cases": ["CASE-01"],
+        "analyzer_checks": ["gps-qualifier-five-values"]
+      },
+      {
+        "usage": "inertialEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["inertialEvidenceQualifier.inertialEvidence"],
+        "owner_local_facts": ["inertialAssessment"],
+        "contract_cases": ["CASE-02"],
+        "analyzer_checks": ["inertial-qualifier-five-values"]
+      },
+      {
+        "usage": "barometricEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["barometricEvidenceQualifier.barometricEvidence"],
+        "owner_local_facts": ["barometricAssessment"],
+        "contract_cases": ["CASE-03"],
+        "analyzer_checks": ["barometric-qualifier-five-values"]
+      },
+      {
+        "usage": "obstacleEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["obstacleEvidenceQualifier.obstacleEvidence"],
+        "owner_local_facts": ["obstacleAssessment"],
+        "contract_cases": ["CASE-04"],
+        "analyzer_checks": ["obstacle-qualifier-five-values"]
+      },
+      {
+        "usage": "navigationBasisOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["navigationBasisOwner.gpsAssessment", "navigationBasisOwner.inertialAssessment", "navigationBasisOwner.barometricAssessment"],
+        "owner_local_facts": ["navigationBasis"],
+        "contract_cases": ["CASE-05", "CASE-06", "CASE-07", "CASE-08"],
+        "analyzer_checks": ["navigation-basis-27-tuples"]
+      },
+      {
+        "usage": "awarenessConditionOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["awarenessConditionOwner.obstacleAssessment", "awarenessConditionOwner.motionContext"],
+        "owner_local_facts": ["awarenessCondition"],
+        "contract_cases": ["CASE-09", "CASE-10", "CASE-11", "CASE-12", "CASE-13"],
+        "analyzer_checks": ["awareness-condition-12-tuples"]
+      },
+      {
+        "usage": "constraintProposalOwner",
+        "claimed_roles": ["proposal"],
+        "assigned_inputs": ["constraintProposalOwner.navigationBasis", "constraintProposalOwner.awarenessCondition"],
+        "owner_local_facts": ["constraintProposal"],
+        "contract_cases": ["CASE-14"],
+        "analyzer_checks": ["constraint-proposal-20-tuples"]
+      },
+      {
+        "usage": "eventPriorityArbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["eventPriorityArbiter.constraintProposal", "eventPriorityArbiter.supervisionEvent", "eventPriorityArbiter.preRecoveryPhase"],
+        "owner_local_facts": ["acceptedAction"],
+        "contract_cases": ["CASE-15", "CASE-16", "CASE-17"],
+        "analyzer_checks": ["event-priority-80-tuples"]
+      },
+      {
+        "usage": "recoveryLatchOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["recoveryLatchOwner.acceptedAction", "state.committedRecoveryPhase"],
+        "owner_local_facts": ["postRecoveryPhase"],
+        "contract_cases": ["CASE-18", "CASE-19"],
+        "analyzer_checks": ["recovery-reachable-27-pairs"]
+      },
+      {
+        "usage": "supervisionOutcomeOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["supervisionOutcomeOwner.acceptedAction", "supervisionOutcomeOwner.postRecoveryPhase", "supervisionOutcomeOwner.navigationBasis"],
+        "owner_local_facts": ["navigationUseDirective", "obstacleAwarenessNotice", "supervisionStatus"],
+        "contract_cases": ["CASE-20"],
+        "analyzer_checks": ["outcome-reachable-24-triples"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "Ten responsibility-bearing Threads; the root System and behavior-free support Process are excluded.",
+    "semantic_interactions": "INT-01 through INT-21; nine transparent root/Process routes are excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-20; initialization and duplicate fact publications are excluded.",
+    "scenario_families": "SCN-01 through SCN-08, each supported by one or more concrete bounded input/state traces.",
+    "composition": "The analyzer composes named local relations through the explicit INT-01..INT-21 map; this is not a compositional-proof claim."
+  }
+}

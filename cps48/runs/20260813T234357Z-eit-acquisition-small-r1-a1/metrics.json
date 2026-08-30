@@ -1,0 +1,127 @@
+{
+  "schema_version": 2,
+  "source_sha256": "683018484c7e77a24a345bda65aef4a3af75bb530ad707b21e485185a1e8ca7a",
+  "root_definition": "EIT_Acquisition_Coordinator::EITMonitoringAcquisitionCoordinatorSystem",
+  "root_usage": "eitMonitoringAcquisitionCoordinator",
+  "explicit_root_usages": 1,
+  "architecture": {
+    "semantic_usages": 5,
+    "generated_support_processes": 1,
+    "physical_non_root_aadl_usages": 6,
+    "semantic_responsibility_layers": 1,
+    "physical_containment_depth_below_root": 2,
+    "weakly_connected_semantic_regions": 1,
+    "persistent_state_owners": 1,
+    "principal_decision_owners": 1
+  },
+  "connections": {
+    "semantic_interactions": 12,
+    "boundary_semantic_interactions": 6,
+    "internal_semantic_interactions": 6,
+    "generated_support_delegations": 12,
+    "raw_port_connection_declarations": 18,
+    "semantic_to_raw_multiplicity": {
+      "INT-01": 2, "INT-02": 2, "INT-03": 2, "INT-04": 1,
+      "INT-05": 1, "INT-06": 2, "INT-07": 1, "INT-08": 1,
+      "INT-09": 2, "INT-10": 1, "INT-11": 1, "INT-12": 2
+    }
+  },
+  "contracts": {
+    "nontrivial_contract_cases": 12,
+    "safe_initialization_guarantees": 6,
+    "state_variables": 2,
+    "qualification_cases": 9,
+    "downstream_derivation_cases": 10,
+    "identity_forwarding_cases_counted": 0,
+    "datatype_invariants_counted": 0,
+    "synthetic_true_cases_counted": 0,
+    "principal_case_owner": "monitoringDecisionOwner"
+  },
+  "bounded_analysis": {
+    "qualified_owner_snapshots": 120,
+    "raw_root_input_tuples": 144,
+    "raw_root_and_owner_state_snapshots": 864,
+    "partition_counts": {
+      "CASE-01": 48, "CASE-02": 16, "CASE-03": 8, "CASE-04": 8,
+      "CASE-05": 8, "CASE-06": 6, "CASE-07": 2, "CASE-08": 8,
+      "CASE-09": 6, "CASE-10": 2, "CASE-11": 3, "CASE-12": 5
+    },
+    "raw_partition_counts": {
+      "CASE-01": 756, "CASE-02": 24, "CASE-03": 12, "CASE-04": 12,
+      "CASE-05": 12, "CASE-06": 6, "CASE-07": 6, "CASE-08": 12,
+      "CASE-09": 6, "CASE-10": 6, "CASE-11": 3, "CASE-12": 9
+    },
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "qualification_mismatches": 0,
+    "next_state_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "interaction_resolution_violations": 0,
+    "scenario_mismatches": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0},
+    "final": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0}
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 5,
+    "semantic_interactions": 12,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "requestQualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["requestQualification.requestSample"],
+        "owner_local_facts": ["validity-aware 6-to-4 qualified request classification"],
+        "contract_cases": ["QUAL_REQ_Invalid", "QUAL_REQ_None", "QUAL_REQ_Start", "QUAL_REQ_Stop"],
+        "analyzer_checks": ["request qualification total 6-to-4 relation", "request invalid-status collapse"]
+      },
+      {
+        "usage": "acquisitionEvidenceQualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["acquisitionEvidenceQualification.calibrationSample", "acquisitionEvidenceQualification.impedanceSample"],
+        "owner_local_facts": ["joint validity-calibration-token acquisition evidence classification"],
+        "contract_cases": ["QUAL_EVID_Invalid", "QUAL_EVID_NotCurrent", "QUAL_EVID_NoToken", "QUAL_EVID_TokenOne", "QUAL_EVID_TokenTwo"],
+        "analyzer_checks": ["acquisition evidence total 24-to-5 relation", "acquisition evidence 18-3-1-1-1 fibers"]
+      },
+      {
+        "usage": "monitoringDecisionOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["monitoringDecisionOwner.qualifiedRequest", "monitoringDecisionOwner.acquisitionEvidence", "monitoringDecisionOwner.sessionMode", "monitoringDecisionOwner.recoveryPhase"],
+        "owner_local_facts": ["ordered monitoring resolution", "next session mode", "next recovery phase", "acquisition command"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["owner twelve-case partition over 120 qualified snapshots", "owner complete next-state resolution and command"]
+      },
+      {
+        "usage": "impedanceDeliveryDerivation",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["impedanceDeliveryDerivation.monitoringResolution", "impedanceDeliveryDerivation.acquisitionEvidence"],
+        "owner_local_facts": ["command-gated producer-total impedance delivery classification"],
+        "contract_cases": ["DELIVERY_Hold", "DELIVERY_Anomalous", "DELIVERY_None", "DELIVERY_One", "DELIVERY_Two"],
+        "analyzer_checks": ["delivery total 10-to-4 relation", "delivery 7-1-1-1 fibers", "anomalous collect pairing unreachable"]
+      },
+      {
+        "usage": "doctorStatusDerivation",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["doctorStatusDerivation.monitoringResolution", "doctorStatusDerivation.acquisitionEvidence"],
+        "owner_local_facts": ["priority-ordered fault-recovery-calibration-monitoring status classification"],
+        "contract_cases": ["STATUS_Fault", "STATUS_Recovery", "STATUS_Calibration", "STATUS_Monitoring", "STATUS_Stopped"],
+        "analyzer_checks": ["Doctor status total 70-to-5 relation", "Doctor status 10-10-12-19-19 fibers"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-05 only and exclude the root and behavior-free Process. Interactions count INT-01 through INT-12 once and exclude twelve delegation hops. Nontrivial cases count only MonitoringDecisionOwner CASE-01 through CASE-12; qualification, initialization, invariants, preservation equations, output derivations, and scenarios are excluded. Scenario families count SCN-01 through SCN-05. Composition denotes deterministic finite local-relation composition through the explicit semantic connection map, not compositional proof."
+}

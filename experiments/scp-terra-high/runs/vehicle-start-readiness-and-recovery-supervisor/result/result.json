@@ -1,0 +1,764 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/vehicle-start-readiness-and-recovery-supervisor/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "retry_attempts": [
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-vehicle-start-readiness-recovery-supervisor-0757244392:atomic:02-a----g----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-vehicle-start-readiness-recovery-supervisor-0757244392:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-vehicle-start-readiness-recovery-supervisor-b50c9902f7:atomic:02-a----g----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-vehicle-start-readiness-recovery-supervisor-b50c9902f7:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    }
+  ],
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b36a7ce816:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(brake_to_authorization, brake_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_GumboX.inititialize_IEP_Post(brake_to_authorization, brake_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b36a7ce816:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b36a7ce816:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_GumboX.inititialize_IEP_Post(brake_to_authorization, brake_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(brake_to_authorization, brake_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b36a7ce816:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::brake_qualification_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-9c4d0ee030:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_Candidate_GumboX.compute_CEP_Post(brake_observation, brake_to_authorization, brake_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_GumboX.compute_CEP_Post(brake_observation, brake_to_authorization, brake_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-9c4d0ee030:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-9c4d0ee030:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_GumboX.compute_CEP_Post(brake_observation, brake_to_authorization, brake_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.BrakeQualificationOwner_vehicle_supervisor_process_brake_qualification_owner_Candidate_GumboX.compute_CEP_Post(brake_observation, brake_to_authorization, brake_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-9c4d0ee030:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::brake_qualification_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-639ec7354b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_Candidate_GumboX.inititialize_IEP_Post(control_frame))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_GumboX.inititialize_IEP_Post(control_frame))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-639ec7354b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-639ec7354b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_GumboX.inititialize_IEP_Post(control_frame))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_Candidate_GumboX.inititialize_IEP_Post(control_frame))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-639ec7354b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::coordinated_outcome_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-d1bcbb0d3d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_Candidate_GumboX.compute_CEP_Post(applied_lifecycle, authorization, control_frame))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_GumboX.compute_CEP_Post(applied_lifecycle, authorization, control_frame))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-d1bcbb0d3d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-d1bcbb0d3d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_GumboX.compute_CEP_Post(applied_lifecycle, authorization, control_frame))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.CoordinatedOutcomeOwner_vehicle_supervisor_process_coordinated_outcome_owner_Candidate_GumboX.compute_CEP_Post(applied_lifecycle, authorization, control_frame))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-d1bcbb0d3d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::coordinated_outcome_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-7871607745:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(health_to_authorization, health_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_GumboX.inititialize_IEP_Post(health_to_authorization, health_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-7871607745:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-7871607745:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_GumboX.inititialize_IEP_Post(health_to_authorization, health_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(health_to_authorization, health_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-7871607745:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::health_qualification_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-2194303bbf:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_Candidate_GumboX.compute_CEP_Post(health_observation, health_to_authorization, health_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_GumboX.compute_CEP_Post(health_observation, health_to_authorization, health_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-2194303bbf:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-2194303bbf:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_GumboX.compute_CEP_Post(health_observation, health_to_authorization, health_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.HealthQualificationOwner_vehicle_supervisor_process_health_qualification_owner_Candidate_GumboX.compute_CEP_Post(health_observation, health_to_authorization, health_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-2194303bbf:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::health_qualification_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-795c3444a7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_Candidate_GumboX.inititialize_IEP_Post(lifecyclemodememory, applied_lifecycle, test_cycle_directive))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_GumboX.inititialize_IEP_Post(lifecyclemodememory, applied_lifecycle, test_cycle_directive))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-795c3444a7:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-795c3444a7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_GumboX.inititialize_IEP_Post(lifecyclemodememory, applied_lifecycle, test_cycle_directive))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_Candidate_GumboX.inititialize_IEP_Post(lifecyclemodememory, applied_lifecycle, test_cycle_directive))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-795c3444a7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::lifecycle_recovery_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-0757244392:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_Candidate_GumboX.compute_CEP_Post(in_lifecyclemodememory, lifecyclemodememory, authorization, brake_facts, cycle_assessment, health_qualification, power_facts, request_facts, applied_lifecycle, test_cycle_directive))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_GumboX.compute_CEP_Post(in_lifecyclemodememory, lifecyclemodememory, authorization, brake_facts, cycle_assessment, health_qualification, power_facts, request_facts, applied_lifecycle, test_cycle_directive))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-0757244392:atomic:02-a----g----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-0757244392:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_GumboX.compute_CEP_Post(in_lifecyclemodememory, lifecyclemodememory, authorization, brake_facts, cycle_assessment, health_qualification, power_facts, request_facts, applied_lifecycle, test_cycle_directive))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.LifecycleRecoveryOwner_vehicle_supervisor_process_lifecycle_recovery_owner_Candidate_GumboX.compute_CEP_Post(in_lifecyclemodememory, lifecyclemodememory, authorization, brake_facts, cycle_assessment, health_qualification, power_facts, request_facts, applied_lifecycle, test_cycle_directive))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-0757244392:atomic:04-a---g-----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::lifecycle_recovery_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-384e1aff76:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(power_to_authorization, power_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_GumboX.inititialize_IEP_Post(power_to_authorization, power_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-384e1aff76:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-384e1aff76:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_GumboX.inititialize_IEP_Post(power_to_authorization, power_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_Candidate_GumboX.inititialize_IEP_Post(power_to_authorization, power_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-384e1aff76:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::power_qualification_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-5af5136c63:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_Candidate_GumboX.compute_CEP_Post(power_observation, power_to_authorization, power_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_GumboX.compute_CEP_Post(power_observation, power_to_authorization, power_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-5af5136c63:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-5af5136c63:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_GumboX.compute_CEP_Post(power_observation, power_to_authorization, power_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.PowerQualificationOwner_vehicle_supervisor_process_power_qualification_owner_Candidate_GumboX.compute_CEP_Post(power_observation, power_to_authorization, power_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-5af5136c63:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::power_qualification_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-efd67fdda2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_Candidate_GumboX.inititialize_IEP_Post(previousoff, previousreturn, previousstart, request_to_authorization, request_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_GumboX.inititialize_IEP_Post(previousoff, previousreturn, previousstart, request_to_authorization, request_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-efd67fdda2:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-efd67fdda2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_GumboX.inititialize_IEP_Post(previousoff, previousreturn, previousstart, request_to_authorization, request_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_Candidate_GumboX.inititialize_IEP_Post(previousoff, previousreturn, previousstart, request_to_authorization, request_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-efd67fdda2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::request_priority_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b50c9902f7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_Candidate_GumboX.compute_CEP_Post(in_previousoff, in_previousreturn, in_previousstart, previousoff, previousreturn, previousstart, request_levels, request_to_authorization, request_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_GumboX.compute_CEP_Post(in_previousoff, in_previousreturn, in_previousstart, previousoff, previousreturn, previousstart, request_levels, request_to_authorization, request_to_lifecycle))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b50c9902f7:atomic:02-a----g----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b50c9902f7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_GumboX.compute_CEP_Post(in_previousoff, in_previousreturn, in_previousstart, previousoff, previousreturn, previousstart, request_levels, request_to_authorization, request_to_lifecycle))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.RequestPriorityOwner_vehicle_supervisor_process_request_priority_owner_Candidate_GumboX.compute_CEP_Post(in_previousoff, in_previousreturn, in_previousstart, previousoff, previousreturn, previousstart, request_levels, request_to_authorization, request_to_lifecycle))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-b50c9902f7:atomic:04-a---g-----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::request_priority_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-a735cb3e5b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_Candidate_GumboX.inititialize_IEP_Post(committedtestcycle, cycle_assessment))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_GumboX.inititialize_IEP_Post(committedtestcycle, cycle_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-a735cb3e5b:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-a735cb3e5b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_GumboX.inititialize_IEP_Post(committedtestcycle, cycle_assessment))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_Candidate_GumboX.inititialize_IEP_Post(committedtestcycle, cycle_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-a735cb3e5b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::self_test_cycle_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-277740a1df:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_Candidate_GumboX.compute_CEP_Post(in_committedtestcycle, committedtestcycle, self_test_observation, test_cycle_directive, cycle_assessment))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_GumboX.compute_CEP_Post(in_committedtestcycle, committedtestcycle, self_test_observation, test_cycle_directive, cycle_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-277740a1df:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-277740a1df:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_GumboX.compute_CEP_Post(in_committedtestcycle, committedtestcycle, self_test_observation, test_cycle_directive, cycle_assessment))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.SelfTestCycleOwner_vehicle_supervisor_process_self_test_cycle_owner_Candidate_GumboX.compute_CEP_Post(in_committedtestcycle, committedtestcycle, self_test_observation, test_cycle_directive, cycle_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-277740a1df:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::self_test_cycle_owner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-bcd3e24d79:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_Candidate_GumboX.inititialize_IEP_Post(authorization_to_lifecycle, authorization_to_outcome))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_GumboX.inititialize_IEP_Post(authorization_to_lifecycle, authorization_to_outcome))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-bcd3e24d79:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-bcd3e24d79:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_GumboX.inititialize_IEP_Post(authorization_to_lifecycle, authorization_to_outcome))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_Candidate_GumboX.inititialize_IEP_Post(authorization_to_lifecycle, authorization_to_outcome))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-bcd3e24d79:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::start_authorization_owner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-3bdb481e5a:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_Candidate_GumboX.compute_CEP_Post(brake_facts, health_qualification, power_facts, request_facts, authorization_to_lifecycle, authorization_to_outcome))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_GumboX.compute_CEP_Post(brake_facts, health_qualification, power_facts, request_facts, authorization_to_lifecycle, authorization_to_outcome))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-3bdb481e5a:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-3bdb481e5a:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_GumboX.compute_CEP_Post(brake_facts, health_qualification, power_facts, request_facts, authorization_to_lifecycle, authorization_to_outcome))) ___>: (equiv_shared_0.Vehicle_Start_Readiness_Recovery_Supervisor.StartAuthorizationOwner_vehicle_supervisor_process_start_authorization_owner_Candidate_GumboX.compute_CEP_Post(brake_facts, health_qualification, power_facts, request_facts, authorization_to_lifecycle, authorization_to_outcome))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-vehicle-start-readiness-recovery-supervisor-3bdb481e5a:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Vehicle_Start_Readiness_Recovery_Supervisor::VehicleStartReadinessRecoverySupervisorSystem/root-instance::VehicleStartReadinessRecoverySupervisorSystem_Instance/component::VehicleStartReadinessRecoverySupervisorSystem_Instance::vehicle_supervisor_process::start_authorization_owner::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

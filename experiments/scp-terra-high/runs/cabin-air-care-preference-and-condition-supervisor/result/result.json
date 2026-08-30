@@ -1,0 +1,754 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/cabin-air-care-preference-and-condition-supervisor/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/cabin-air-care-preference-and-condition-supervisor/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/cabin-air-care-preference-and-condition-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/cabin-air-care-preference-and-condition-supervisor/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/cabin-air-care-preference-and-condition-supervisor/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "retry_attempts": [
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8bfb283a73:atomic:02-a----g----g-validity",
+      "replacement_status": "VERIFIED"
+    },
+    {
+      "attempt": "600s",
+      "evidence_id": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8bfb283a73:atomic:04-a---g-----g-validity",
+      "replacement_status": "VERIFIED"
+    }
+  ],
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-775413d808:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_Candidate_GumboX.inititialize_IEP_Post(airassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_GumboX.inititialize_IEP_Post(airassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-775413d808:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-775413d808:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_GumboX.inititialize_IEP_Post(airassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_Candidate_GumboX.inititialize_IEP_Post(airassessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-775413d808:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::airQualityOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-176cc1c3ba:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_Candidate_GumboX.compute_CEP_Post(airqualityvalidity, cabinairquality, airassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_GumboX.compute_CEP_Post(airqualityvalidity, cabinairquality, airassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-176cc1c3ba:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-176cc1c3ba:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_GumboX.compute_CEP_Post(airqualityvalidity, cabinairquality, airassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirQualityQualificationOwner_airCareSupervisionProcess_airQualityOwner_Candidate_GumboX.compute_CEP_Post(airqualityvalidity, cabinairquality, airassessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-176cc1c3ba:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::airQualityOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5d5bfcfaf0:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_Candidate_GumboX.inititialize_IEP_Post(airproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_GumboX.inititialize_IEP_Post(airproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5d5bfcfaf0:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5d5bfcfaf0:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_GumboX.inititialize_IEP_Post(airproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_Candidate_GumboX.inititialize_IEP_Post(airproposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5d5bfcfaf0:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::filtrationProposalOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-77dd91cb06:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_Candidate_GumboX.compute_CEP_Post(airassessment, requestintent, treatmentreadiness, airproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_GumboX.compute_CEP_Post(airassessment, requestintent, treatmentreadiness, airproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-77dd91cb06:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-77dd91cb06:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_GumboX.compute_CEP_Post(airassessment, requestintent, treatmentreadiness, airproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.FiltrationProposalOwner_airCareSupervisionProcess_filtrationProposalOwner_Candidate_GumboX.compute_CEP_Post(airassessment, requestintent, treatmentreadiness, airproposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-77dd91cb06:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::filtrationProposalOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e751208310:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_Candidate_GumboX.inititialize_IEP_Post(humidityassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_GumboX.inititialize_IEP_Post(humidityassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e751208310:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e751208310:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_GumboX.inititialize_IEP_Post(humidityassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_Candidate_GumboX.inititialize_IEP_Post(humidityassessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e751208310:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::humidityOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-aaee23ff33:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_Candidate_GumboX.compute_CEP_Post(cabinhumidity, humidityvalidity, humidityassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_GumboX.compute_CEP_Post(cabinhumidity, humidityvalidity, humidityassessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-aaee23ff33:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-aaee23ff33:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_GumboX.compute_CEP_Post(cabinhumidity, humidityvalidity, humidityassessment))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityQualificationOwner_airCareSupervisionProcess_humidityOwner_Candidate_GumboX.compute_CEP_Post(cabinhumidity, humidityvalidity, humidityassessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-aaee23ff33:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::humidityOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5044894438:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_Candidate_GumboX.inititialize_IEP_Post(humidityproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_GumboX.inititialize_IEP_Post(humidityproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5044894438:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5044894438:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_GumboX.inititialize_IEP_Post(humidityproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_Candidate_GumboX.inititialize_IEP_Post(humidityproposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-5044894438:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::humidityProposalOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8c0867ffcf:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_Candidate_GumboX.compute_CEP_Post(humidityassessment, requestintent, treatmentreadiness, humidityproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_GumboX.compute_CEP_Post(humidityassessment, requestintent, treatmentreadiness, humidityproposal))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8c0867ffcf:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8c0867ffcf:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_GumboX.compute_CEP_Post(humidityassessment, requestintent, treatmentreadiness, humidityproposal))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.HumidityProposalOwner_airCareSupervisionProcess_humidityProposalOwner_Candidate_GumboX.compute_CEP_Post(humidityassessment, requestintent, treatmentreadiness, humidityproposal))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8c0867ffcf:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::humidityProposalOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-161485fe94:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_Candidate_GumboX.inititialize_IEP_Post(readinesscontext, treatmentreadiness))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_GumboX.inititialize_IEP_Post(readinesscontext, treatmentreadiness))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-161485fe94:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-161485fe94:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_GumboX.inititialize_IEP_Post(readinesscontext, treatmentreadiness))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_Candidate_GumboX.inititialize_IEP_Post(readinesscontext, treatmentreadiness))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-161485fe94:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::readinessOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-6175a23e1d:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_Candidate_GumboX.compute_CEP_Post(treatmentequipmentstatus, readinesscontext, treatmentreadiness))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_GumboX.compute_CEP_Post(treatmentequipmentstatus, readinesscontext, treatmentreadiness))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-6175a23e1d:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-6175a23e1d:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_GumboX.compute_CEP_Post(treatmentequipmentstatus, readinesscontext, treatmentreadiness))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.TreatmentReadinessQualificationOwner_airCareSupervisionProcess_readinessOwner_Candidate_GumboX.compute_CEP_Post(treatmentequipmentstatus, readinesscontext, treatmentreadiness))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-6175a23e1d:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::readinessOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-14d1d3efa5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_Candidate_GumboX.inititialize_IEP_Post(recoverymemory, recoverygate))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_GumboX.inititialize_IEP_Post(recoverymemory, recoverygate))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-14d1d3efa5:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-14d1d3efa5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_GumboX.inititialize_IEP_Post(recoverymemory, recoverygate))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_Candidate_GumboX.inititialize_IEP_Post(recoverymemory, recoverygate))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-14d1d3efa5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::recoveryOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-fc80329068:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_Candidate_GumboX.compute_CEP_Post(in_recoverymemory, recoverymemory, readinesscontext, requestintent, recoverygate))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_GumboX.compute_CEP_Post(in_recoverymemory, recoverymemory, readinesscontext, requestintent, recoverygate))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-fc80329068:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-fc80329068:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_GumboX.compute_CEP_Post(in_recoverymemory, recoverymemory, readinesscontext, requestintent, recoverygate))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.ReadinessRecoveryOwner_airCareSupervisionProcess_recoveryOwner_Candidate_GumboX.compute_CEP_Post(in_recoverymemory, recoverymemory, readinesscontext, requestintent, recoverygate))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-fc80329068:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::recoveryOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-1a6a8b3bb2:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_Candidate_GumboX.inititialize_IEP_Post(requestmemory, requestintent))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_GumboX.inititialize_IEP_Post(requestmemory, requestintent))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-1a6a8b3bb2:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-1a6a8b3bb2:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_GumboX.inititialize_IEP_Post(requestmemory, requestintent))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_Candidate_GumboX.inititialize_IEP_Post(requestmemory, requestintent))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-1a6a8b3bb2:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::requestLifecycleOwner::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8e85302770:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_Candidate_GumboX.compute_CEP_Post(in_requestmemory, requestmemory, aircareselection, requestvalidity, requestintent))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_GumboX.compute_CEP_Post(in_requestmemory, requestmemory, aircareselection, requestvalidity, requestintent))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8e85302770:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8e85302770:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_GumboX.compute_CEP_Post(in_requestmemory, requestmemory, aircareselection, requestvalidity, requestintent))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCareRequestLifecycleOwner_airCareSupervisionProcess_requestLifecycleOwner_Candidate_GumboX.compute_CEP_Post(in_requestmemory, requestmemory, aircareselection, requestvalidity, requestintent))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8e85302770:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::requestLifecycleOwner::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e1ab6ca6bc:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_Candidate_GumboX.inititialize_IEP_Post(aircaresupervisorstatus, airtreatmentcommand))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_GumboX.inititialize_IEP_Post(aircaresupervisorstatus, airtreatmentcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e1ab6ca6bc:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e1ab6ca6bc:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_GumboX.inititialize_IEP_Post(aircaresupervisorstatus, airtreatmentcommand))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_Candidate_GumboX.inititialize_IEP_Post(aircaresupervisorstatus, airtreatmentcommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-e1ab6ca6bc:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::resultArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8bfb283a73:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_Candidate_GumboX.compute_CEP_Post(airproposal, humidityproposal, recoverygate, requestintent, aircaresupervisorstatus, airtreatmentcommand))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_GumboX.compute_CEP_Post(airproposal, humidityproposal, recoverygate, requestintent, aircaresupervisorstatus, airtreatmentcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8bfb283a73:atomic:02-a----g----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8bfb283a73:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_GumboX.compute_CEP_Post(airproposal, humidityproposal, recoverygate, requestintent, aircaresupervisorstatus, airtreatmentcommand))) ___>: (equiv_shared_0.Cabin_Air_Treatment_Supervisor.AirCarePriorityResultArbiter_airCareSupervisionProcess_resultArbiter_Candidate_GumboX.compute_CEP_Post(airproposal, humidityproposal, recoverygate, requestintent, aircaresupervisorstatus, airtreatmentcommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-cabin-air-treatment-supervisor-cabinairtrea-8bfb283a73:atomic:04-a---g-----g-validity:retry-600s-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Cabin_Air_Treatment_Supervisor::CabinAirTreatmentSupervisorSystem/root-instance::CabinAirTreatmentSupervisorSystem_Instance/component::CabinAirTreatmentSupervisorSystem_Instance::airCareSupervisionProcess::resultArbiter::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

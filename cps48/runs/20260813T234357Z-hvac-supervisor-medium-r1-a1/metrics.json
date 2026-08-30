@@ -1,0 +1,117 @@
+{
+  "source": "model/HVAC_Energy_Interface_Supervisor.sysml",
+  "source_sha256": "324230a6acbba3a2a9805173a3a56f8e028ac94334de66db322b55ac8456a6b7",
+  "root_system_usages": 1,
+  "semantic_usages": 8,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 9,
+  "all_usages_including_root": 10,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 21,
+  "generated_support_routes": 9,
+  "source_port_connection_declarations": 30,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 20,
+  "scenario_families": 8,
+  "gumbo_inspected_data_fields": 8,
+  "gumbo_inspected_fields_declared_as_attributes": 8,
+  "architecture_repairs": 0,
+  "contract_repairs": 0,
+  "analyzer_repairs": 1,
+  "campaign_complexity": {
+    "tier": "medium",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 8,
+    "semantic_interactions": 21,
+    "nontrivial_contract_cases": 20,
+    "scenario_families": 8,
+    "ownership_audit": [
+      {
+        "usage": "comfortDemandQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["climateRequest", "thermalRelation"],
+        "owner_local_facts": ["comfortDemand"],
+        "contract_cases": ["QUAL-01"],
+        "analyzer_checks": ["comfort-owner-qualification"],
+        "passed": true
+      },
+      {
+        "usage": "visibilityDemandQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["defrostRequest", "glazingCondition"],
+        "owner_local_facts": ["visibilityDemand"],
+        "contract_cases": ["QUAL-02"],
+        "analyzer_checks": ["visibility-owner-qualification"],
+        "passed": true
+      },
+      {
+        "usage": "energyCapabilityQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["energyContext.electricalState", "energyContext.powerEnvelope", "energyContext.engineHeat"],
+        "owner_local_facts": ["energyCapability"],
+        "contract_cases": ["QUAL-03"],
+        "analyzer_checks": ["energy-owner-qualification"],
+        "passed": true
+      },
+      {
+        "usage": "recoveryAuthority",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["recoveryState", "energyCapability", "freshRequest"],
+        "owner_local_facts": ["nextRecoveryState", "recoveryDecision"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05"],
+        "analyzer_checks": ["recovery-owner-partition"],
+        "passed": true
+      },
+      {
+        "usage": "servicePriorityArbiter",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["comfortDemand", "visibilityDemand", "recoveryDecision"],
+        "owner_local_facts": ["serviceSelection.service", "serviceSelection.reason"],
+        "contract_cases": ["CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["priority-owner-partition", "defrost-over-comfort-conflict"],
+        "passed": true
+      },
+      {
+        "usage": "resourceAllocationDecision",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["serviceSelection.service", "energyCapability"],
+        "owner_local_facts": ["resourceGrant"],
+        "contract_cases": ["CASE-13", "CASE-14", "CASE-15", "CASE-16"],
+        "analyzer_checks": ["allocation-owner-partition", "reduced-capability-downgrade"],
+        "passed": true
+      },
+      {
+        "usage": "actuationCommandCoordinator",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["serviceSelection.service", "resourceGrant", "fanPreference"],
+        "owner_local_facts": ["plantCommand", "actuationDisposition"],
+        "contract_cases": ["CASE-17", "CASE-18", "CASE-19", "CASE-20"],
+        "analyzer_checks": ["command-owner-partition", "quiescent-fault-output"],
+        "passed": true
+      },
+      {
+        "usage": "supervisoryStatusComposer",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["recoveryDecision", "serviceSelection.service", "serviceSelection.reason", "resourceGrant", "actuationDisposition"],
+        "owner_local_facts": ["supervisorStatus"],
+        "contract_cases": ["STAT-01"],
+        "analyzer_checks": ["status-owner-composition"],
+        "passed": true
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "Eight responsibility-bearing Threads; the root and behavior-free support Process are excluded.",
+    "semantic_interactions": "INT-01 through INT-21; nine root/Process support routes are excluded.",
+    "nontrivial_contract_cases": "CASE-01 through CASE-20; QUAL-01 through QUAL-03, STAT-01, initialization, and publication equality are required but excluded from this count.",
+    "scenario_families": "SCN-01 through SCN-08 each have at least one concrete bounded trace; variants do not add credit.",
+    "composition": "The bounded analyzer invokes each named local owner relation through the explicit INT-01 through INT-21 map; this is bounded composition evidence, not a compositional-proof claim."
+  }
+}

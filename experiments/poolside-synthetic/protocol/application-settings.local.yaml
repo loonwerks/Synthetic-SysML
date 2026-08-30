@@ -1,0 +1,38 @@
+paths:
+  allow:
+    - path: /workspace/**
+    - path: /workspace/hamr/slang/src/main/component/**
+      write: true
+    - path: /opt/sireum/**
+    - path: /opt/sysml-aadl-libraries/**
+
+tools:
+  shell:
+    allow:
+      - /workspace/run-logika.sh *
+      - SIREUM_BIN=/opt/sireum/bin/sireum /workspace/run-logika.sh *
+      - cd /workspace && /workspace/run-logika.sh /workspace/hamr/slang /workspace/proof *
+      - cd /workspace && SIREUM_BIN=/opt/sireum/bin/sireum /workspace/run-logika.sh /workspace/hamr/slang /workspace/proof *
+      - /opt/sireum/bin/sireum *
+      - cd *
+      - which *
+      - echo *
+      - sleep *
+      - timeout *
+      - tee *
+      - rg *
+      - awk *
+      - sort *
+      - cmp *
+      - diff *
+      - realpath *
+      - pwd
+      - ls *
+      - find *
+      - grep *
+      - head *
+      - tail *
+      - sed *
+      - wc *
+      - cat *
+      - sha256sum *

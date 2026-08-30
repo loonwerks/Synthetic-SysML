@@ -1,0 +1,20 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_ecb37a284beb_Oracle_Pointwise_Realizable {
+  @pure def check(
+      authority: equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedAirPathAuthority): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Usable, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Usable)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Usable, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Reserved)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Usable, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Untrusted)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Reserved, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Usable)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Reserved, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Reserved)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Reserved, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Untrusted)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Untrusted, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Usable)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Untrusted, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Reserved)) |
+        (equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.SharedPathAuthorityAssessor_cabin_air_supervision_process_shared_path_authority_assessor_GumboX.compute_CEP_Post(authority, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Untrusted, equiv_shared_0.Cabin_Air_Quality_Humidity_Supervisor.PathDisposition.Untrusted)))))
+  }
+}

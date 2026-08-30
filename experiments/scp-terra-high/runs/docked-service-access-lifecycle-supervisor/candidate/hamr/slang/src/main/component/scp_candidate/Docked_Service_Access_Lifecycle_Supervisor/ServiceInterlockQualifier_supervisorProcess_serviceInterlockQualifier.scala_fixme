@@ -1,0 +1,32 @@
+// #Sireum
+
+package scp_candidate.Docked_Service_Access_Lifecycle_Supervisor
+
+import org.sireum._
+import scp_candidate._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ServiceInterlockQualifier_supervisorProcess_serviceInterlockQualifier {
+
+  def initialise(api: ServiceInterlockQualifier_Initialization_Api): Unit = {
+    Contract(
+      Ensures(
+        // BEGIN INITIALIZES ENSURES
+        // guarantee INTERLOCK_INITIAL_SAFE
+        api.monitorInterlock == ServiceInterlock.SERVICE_FAULT &&
+          api.gateInterlock == ServiceInterlock.SERVICE_FAULT
+        // END INITIALIZES ENSURES
+      )
+    )
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_monitorInterlock(Docked_Service_Access_Lifecycle_Supervisor.ServiceInterlock.QUIESCENT)
+    api.put_gateInterlock(Docked_Service_Access_Lifecycle_Supervisor.ServiceInterlock.QUIESCENT)
+  }
+
+  def finalise(api: ServiceInterlockQualifier_Operational_Api): Unit = { }
+}

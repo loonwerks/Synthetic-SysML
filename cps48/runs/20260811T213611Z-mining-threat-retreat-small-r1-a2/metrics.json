@@ -1,0 +1,95 @@
+{
+  "source_sha256": "6312123075cfed13af009e2bab34490f60559dbd2b7fa5ce5e3e914bad573c27",
+  "root_definition": "Mining_Threat_Retreat_Supervisor::Mining_Threat_Retreat_System",
+  "root_usage": "mining_threat_retreat_supervisor",
+  "explicit_root_usages": 1,
+  "architecture_nodes": {
+    "generated_support": ["supervisor_process"],
+    "semantic": [
+      "supervisor_process.threat_qualification",
+      "supervisor_process.resource_qualification",
+      "supervisor_process.request_availability_qualification",
+      "supervisor_process.principal_decision_owner",
+      "supervisor_process.mining_command_delivery",
+      "supervisor_process.defense_command_delivery",
+      "supervisor_process.movement_service_command_delivery"
+    ],
+    "semantic_count": 7,
+    "principal_decision_owners": 1
+  },
+  "semantic_domain_graph": {
+    "nodes": 7,
+    "end_to_end_directed_interactions": 13,
+    "semantic_usage_to_usage_connections": 10,
+    "unique_ordered_semantic_usage_pairs": 6,
+    "average_total_degree_with_parallel_internal_interactions": 2.857143,
+    "weakly_connected_regions": 1
+  },
+  "connections": {
+    "semantic_interactions": 13,
+    "process_thread_support_routes": 13,
+    "root_process_support_routes": 13,
+    "support_routes_total": 26,
+    "declarations_total": 36
+  },
+  "containment_depth_beneath_root": 2,
+  "ports": {
+    "root_boundary": 13,
+    "process_boundary": 13,
+    "semantic_thread_ports": 33,
+    "total": 59
+  },
+  "contracts": {
+    "explicit_state_initializations": 1,
+    "nontrivial_policy_cases": 11,
+    "qualification_and_delivery_preservation_guarantees": 6,
+    "data_invariants": 0,
+    "principal_case_owner": "PART-01"
+  },
+  "bounded_analysis": {
+    "raw_domain_snapshots": 4976640,
+    "admissible_snapshots": 2322432,
+    "partition_counts": {
+      "CASE-01": 205740,
+      "CASE-02": 2107620,
+      "CASE-03": 1380,
+      "CASE-04": 1380,
+      "CASE-05": 1296,
+      "CASE-06": 1944,
+      "CASE-07": 1296,
+      "CASE-08": 1296,
+      "CASE-09": 96,
+      "CASE-10": 24,
+      "CASE-11": 360
+    },
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "next_state_mismatches": 0,
+    "invariant_and_preservation_violations": 0,
+    "scenario_families": 5,
+    "concrete_traces": 74,
+    "concrete_trace_steps": 91,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 2},
+    "final": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0}
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 7,
+    "semantic_interactions": 13,
+    "nontrivial_contract_cases": 11,
+    "scenario_families": 5,
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-07 only, excluding the root and behavior-free Process. Semantic interactions count INT-01 through INT-13 once each, excluding generated support hops. Nontrivial cases count only CASE-01 through CASE-11, which each restrict all five outputs and next state for a distinct partition. Scenario families count SCN-01 through SCN-05 only. Feature composition means executable bounded relation composition, not compositional proof."
+}

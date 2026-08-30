@@ -1,0 +1,474 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T234357Z-eit-acquisition-medium-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/EIT_Acquisition_Session_Coordinator.sysml",
+  "source_sha256": "6d8d844e0170631c0cdaf6a477034cb8a870b3675428cf72fde6906c5877e510",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 9,
+    "edgeCount": 17,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 179,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12",
+      "CASE-13",
+      "CASE-14",
+      "CASE-15",
+      "CASE-16",
+      "CASE-17",
+      "CASE-18",
+      "CASE-19",
+      "CASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "MON-05",
+      "MON-06",
+      "OWNER-05",
+      "OWNER-06",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "SCOPE-IN-01",
+      "TYPE-01A",
+      "TYPE-10",
+      "TYPE-11",
+      "TYPE-12",
+      "TYPE-13"
+    ],
+    "relativePath": "cps48/runs/20260813T234357Z-eit-acquisition-medium-r1-a1/system-abstract.md",
+    "taggedElementCount": 104,
+    "traceAssociationCount": 104,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a finite preparation-qualified EIT monitoring and impedance-acquisition coordinator with an audited 8/21/20/7 medium-tier design.",
+      "questions_for_model": [
+        "Can the eight semantic owners and their pre-state feedback be realized in the permitted SysML-AADL subset without a combinational ownership cycle, and what exact generated containment support is required if not?",
+        "Can EligibilityEnvelope and MonitoringDecisionSnapshot be modeled as finite typed data whose owner-local contracts exclude illegal field combinations without weakening end-to-end guarantees through assumptions?",
+        "Can the preparation and monitoring transition partitions preserve sole state ownership and explicit branch priority while remaining analyzable over all 10,368 raw input/pre-state combinations?",
+        "If containment delegation adds raw usages or connection declarations, what exact raw metrics result while the frozen semantic counts remain 8 usages and 21 interactions?"
+      ],
+      "repair_actions": [],
+      "diversity": {}
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Realizable after making PART-01 nonidentity and fixing local containment, record, and trace mappings.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "PART-01 maps the three BeltObservation values bijectively to BELT_UNAVAILABLE, BELT_ABSENT, and BELT_PRESENT; each output is only the corresponding input category under a new label, so the claimed many-to-one qualification is an identity wrapper under M-17.",
+          "requested_change": "Change PART-01 to output a BeltAssessment record whose reason/category preserves the three distinctions and whose owner-local qualified Boolean is false for invalid/not-applied and true only for applied; change INT-07 and INT-08 to carry that record, make PART-02 and PART-03 consume the Boolean without recomputation, and preserve the semantic 8/21/20/7 tuple and all domain behavior."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Trusted System-to-Process-to-Thread syntax and current well-formed stateful models support one behavior-free Process containing the eight Threads. Six root inputs plus three root outputs require nine support routes; with 21 Process-local semantic connections this yields 9 non-root usages, depth 2, and 30 raw PortConnection declarations.",
+          "requested_change": "Select one uncredited generated-support Process and nine tagged support routes; record raw counts of 9 reachable non-root usages and 30 source connections while retaining exactly 8 semantic usages and 21 semantic interactions."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "The trusted/current subset supports Data attributes, local state, In(state), and field-wise record guarantees, but current GUMBO repair evidence reports feature-redeclaration failures when enum classifiers are reused across inspected Data attributes; TYPE-10 through TYPE-14 repeatedly project PreparationState, MonitoringState, EffectiveIntent, RequestDisposition, and SessionNotice.",
+          "requested_change": "Use attribute members and field-specific enum classifiers for every repeated record projection, with extensionally identical literals and explicit zero owner/semantic/case credit; retain canonical governor state types and preserve all relations."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Q-MODEL-02 says EligibilityEnvelope is carried on INT-12, INT-14, and INT-16, but the authoritative interaction inventory assigns EligibilityEnvelope only to INT-12 and INT-16 and assigns PreparationDecisionSnapshot to INT-14.",
+          "requested_change": "Correct Q-MODEL-02 to name INT-12 and INT-16 for EligibilityEnvelope and INT-14 for PreparationDecisionSnapshot; do not change the 21-interaction topology."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-02 through PART-08 each have a substantive many-to-one, multi-input, priority, state-dependent, or admission relation; copied state/status fields and one-to-one frame labels are explicitly uncredited. State feedback, structured records, cases 17/18, and exhaustive analysis of 10,368 valuations are supported by retained current patterns and the checker watchdog.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved after owner-integrity, realization-mapping, trace-mapping, and canonical CASE-anchor corrections.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Approved paired CASE anchors, unchanged canonical SysML, both retained type gates, exhaustive bounded analysis, and exact trace-association audit passed.",
+      "canonical_source": "model/EIT_Acquisition_Session_Coordinator.sysml",
+      "architecture_repairs": 0,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Validated 17-edge overview passed geometry, native review, and complete traceability audit.",
+      "correction_cycles": 7,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-06",
+        "CASE-07",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12",
+        "CASE-13",
+        "CASE-14",
+        "CASE-15",
+        "CASE-16",
+        "CASE-17",
+        "CASE-18",
+        "CASE-19",
+        "CASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "MON-05",
+        "MON-06",
+        "OWNER-05",
+        "OWNER-06",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "SCOPE-IN-01",
+        "TYPE-01A",
+        "TYPE-10",
+        "TYPE-11",
+        "TYPE-12",
+        "TYPE-13"
+      ],
+      "reviewed_tagged_element_count": 104,
+      "reviewed_trace_association_count": 104,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, traceability, and rendered overview passed without silent drift.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 8,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 7
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "beltQualificationOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "beltQualificationOwner.beltObservation"
+          ],
+          "owner_local_facts": [
+            "many-to-one belt qualified Boolean with retained unavailable-versus-absent reason"
+          ],
+          "contract_cases": [
+            "CASE-01",
+            "CASE-02",
+            "CASE-03"
+          ],
+          "analyzer_checks": [
+            "belt assessment three-input total relation"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "calibrationQualificationOwner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "calibrationQualificationOwner.beltAssessment.qualified",
+            "calibrationQualificationOwner.calibrationObservation"
+          ],
+          "owner_local_facts": [
+            "belt-dependent calibration blocking and passed-observation qualification"
+          ],
+          "contract_cases": [
+            "CASE-04",
+            "CASE-05",
+            "CASE-06"
+          ],
+          "analyzer_checks": [
+            "calibration qualification twelve-pair reachable relation"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "acquisitionEligibilityOwner",
+          "claimed_roles": [
+            "decision",
+            "proposal"
+          ],
+          "assigned_inputs": [
+            "acquisitionEligibilityOwner.beltAssessment",
+            "acquisitionEligibilityOwner.calibrationQualification",
+            "acquisitionEligibilityOwner.acquisitionObservation",
+            "acquisitionEligibilityOwner.preparationState",
+            "acquisitionEligibilityOwner.monitoringState"
+          ],
+          "owner_local_facts": [
+            "five-way eligibility condition",
+            "reset-before-hold recovery proposal"
+          ],
+          "contract_cases": [
+            "CASE-08",
+            "CASE-09",
+            "CASE-10",
+            "CASE-11",
+            "CASE-12"
+          ],
+          "analyzer_checks": [
+            "eligibility 162-tuple producer-reachable partition",
+            "eligibility field legality and recovery precedence"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "requestArbiter",
+          "claimed_roles": [
+            "decision",
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "requestArbiter.doctorRequest",
+            "requestArbiter.technicianRequest",
+            "requestArbiter.eligibilityEnvelope"
+          ],
+          "owner_local_facts": [
+            "stop-over-recovery-over-technician-over-start priority",
+            "request applicability and preemption disposition"
+          ],
+          "contract_cases": [
+            "CASE-13",
+            "CASE-14",
+            "CASE-15",
+            "CASE-16"
+          ],
+          "analyzer_checks": [
+            "arbiter four-case priority partition",
+            "fresh-request conflict and applicability checks"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "preparationStateGovernor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "preparationStateGovernor.arbitrationDecision",
+            "preparationStateGovernor.In(committedPreparationState)"
+          ],
+          "owner_local_facts": [
+            "sole next preparation state"
+          ],
+          "contract_cases": [
+            "CASE-07",
+            "CASE-17"
+          ],
+          "analyzer_checks": [
+            "preparation two-case transition partition",
+            "preparation sole-writer check"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "monitoringStateGovernor",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "monitoringStateGovernor.preparationDecision",
+            "monitoringStateGovernor.arbitrationDecision",
+            "monitoringStateGovernor.eligibilityEnvelope",
+            "monitoringStateGovernor.In(committedMonitoringState)"
+          ],
+          "owner_local_facts": [
+            "sole next monitoring state",
+            "transition disposition and monitoring notice"
+          ],
+          "contract_cases": [
+            "CASE-18"
+          ],
+          "analyzer_checks": [
+            "monitoring transition total relation",
+            "fresh-start and recovery notice checks"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "acquisitionCommandPolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "acquisitionCommandPolicy.monitoringDecision"
+          ],
+          "owner_local_facts": [
+            "active-versus-nonactive collection classification"
+          ],
+          "contract_cases": [
+            "CASE-19"
+          ],
+          "analyzer_checks": [
+            "collection command total relation through INT-17"
+          ],
+          "passed": true
+        },
+        {
+          "usage": "sessionPublicationPolicy",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "sessionPublicationPolicy.monitoringDecision",
+            "sessionPublicationPolicy.impedanceFrame"
+          ],
+          "owner_local_facts": [
+            "active valid-frame admission",
+            "monitoring-before-frame notice precedence"
+          ],
+          "contract_cases": [
+            "CASE-20"
+          ],
+          "analyzer_checks": [
+            "publication twelve-class frame relation",
+            "session notice precedence check"
+          ],
+          "passed": true
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, traceability, and rendered overview passed without silent drift.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

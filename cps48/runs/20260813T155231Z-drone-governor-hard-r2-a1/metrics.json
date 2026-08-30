@@ -1,0 +1,148 @@
+{
+  "source": "model/Drone_Battery_Charge_Qualification_Supervisor.sysml",
+  "source_sha256": "f2991da238a3534209f305de0e8646c39376108517b40682a1978be1ef9ee3e2",
+  "root_system_usages": 1,
+  "semantic_usages": 13,
+  "generated_support_usages": 1,
+  "all_usages_including_root": 15,
+  "containment_depth_beneath_root": 2,
+  "semantic_interactions": 35,
+  "generated_support_routes": 9,
+  "source_port_connection_declarations": 44,
+  "weakly_connected_semantic_regions": 1,
+  "nontrivial_contract_cases": 23,
+  "specified_scenario_families": 10,
+  "scenario_families": 10,
+  "state_owners": 3,
+  "architecture_repairs": 1,
+  "contract_diagnostic_cycles": 13,
+  "analyzer_repairs": 2,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 13,
+    "semantic_interactions": 35,
+    "nontrivial_contract_cases": 23,
+    "scenario_families": 10,
+    "ownership_audit": [
+      {
+        "usage": "currentRequestResultDecisionOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["currentRequestResultDecisionOwner.requestIn", "currentRequestResultDecisionOwner.attentionClearedIn", "currentRequestResultDecisionOwner.advisoryIn", "currentRequestResultDecisionOwner.sessionIn"],
+        "owner_local_facts": ["current request result"],
+        "contract_cases": ["REQUEST_NONE", "ASSESS_DEFERRED", "ASSESS_ACCEPTED", "BEGIN_ACCEPTED", "BEGIN_DEFERRED", "BEGIN_NO_EFFECT", "BEGIN_REJECTED", "END_ACCEPTED", "END_NO_EFFECT", "ACKNOWLEDGEMENT_ACCEPTED", "ACKNOWLEDGEMENT_NO_EFFECT"],
+        "analyzer_checks": ["request result truth table"]
+      },
+      {
+        "usage": "batteryEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["batteryEvidenceQualifier.reportIn"],
+        "owner_local_facts": ["valid battery evidence and qualified band"],
+        "contract_cases": ["INVALID_BATTERY_REPORT", "VALID_FULL_REPORT", "VALID_NOMINAL_REPORT", "VALID_LOW_REPORT", "VALID_CRITICAL_REPORT"],
+        "analyzer_checks": ["battery report qualification"]
+      },
+      {
+        "usage": "chargerEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["chargerEvidenceQualifier.reportIn"],
+        "owner_local_facts": ["charger usability connection and fault classification"],
+        "contract_cases": ["CHARGER_DISCONNECTED", "CHARGER_READY", "CHARGER_FAULTED", "CHARGER_UNKNOWN"],
+        "analyzer_checks": ["charger evidence classification"]
+      },
+      {
+        "usage": "chargingInterfaceEvidenceQualifier",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["chargingInterfaceEvidenceQualifier.reportIn"],
+        "owner_local_facts": ["interface health activity and fault classification"],
+        "contract_cases": ["INTERFACE_IDLE", "INTERFACE_ACTIVE", "INTERFACE_FAULTED", "INTERFACE_UNKNOWN"],
+        "analyzer_checks": ["interface evidence classification"]
+      },
+      {
+        "usage": "lifecycleContextApplicabilityOwner",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["lifecycleContextApplicabilityOwner.reportIn"],
+        "owner_local_facts": ["charging context airborne context and context fault applicability"],
+        "contract_cases": ["LIFECYCLE_VALIDITY", "CHARGING_CONTEXT_APPLICABILITY", "AIRBORNE_CONTEXT_APPLICABILITY"],
+        "analyzer_checks": ["lifecycle context applicability"]
+      },
+      {
+        "usage": "batteryConfidenceStateOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["batteryConfidenceStateOwner.qualificationIn", "batteryConfidenceStateOwner.priorConfidence"],
+        "owner_local_facts": ["next confidence battery usability charge need and battery fault"],
+        "contract_cases": ["CASE-CONF-01", "CASE-CONF-02", "CASE-CONF-03", "CASE-CONF-04"],
+        "analyzer_checks": ["confidence partition", "two valid report recovery"]
+      },
+      {
+        "usage": "chargeEligibilityDecisionOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["chargeEligibilityDecisionOwner.chargerIn", "chargeEligibilityDecisionOwner.interfaceIn", "chargeEligibilityDecisionOwner.lifecycleIn", "chargeEligibilityDecisionOwner.batteryIn"],
+        "owner_local_facts": ["current charge eligibility"],
+        "contract_cases": ["ELIGIBILITY_BLOCKED", "ELIGIBILITY_NOT_NEEDED", "ELIGIBILITY_PERMITTED"],
+        "analyzer_checks": ["eligibility partition"]
+      },
+      {
+        "usage": "attentionLatchStateOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["attentionLatchStateOwner.requestIn", "attentionLatchStateOwner.batteryIn", "attentionLatchStateOwner.priorAttention"],
+        "owner_local_facts": ["next attention cause and current clearing fact"],
+        "contract_cases": ["CASE-ATTN-01", "CASE-ATTN-02", "CASE-ATTN-03", "CASE-ATTN-04", "CASE-ATTN-05", "CASE-ATTN-06"],
+        "analyzer_checks": ["attention partition", "fresh acknowledgement recovery"]
+      },
+      {
+        "usage": "batteryAdvisoryDecisionOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["batteryAdvisoryDecisionOwner.lifecycleIn", "batteryAdvisoryDecisionOwner.batteryIn", "batteryAdvisoryDecisionOwner.eligibilityIn"],
+        "owner_local_facts": ["battery advisory classification"],
+        "contract_cases": ["ADVISORY_UNKNOWN", "ADVISORY_AIRBORNE_ATTENTION", "ADVISORY_BATTERY_READY", "ADVISORY_CHARGE_QUALIFIED", "ADVISORY_CHARGE_BLOCKED"],
+        "analyzer_checks": ["advisory partition"]
+      },
+      {
+        "usage": "faultAggregationOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["faultAggregationOwner.batteryFaultIn", "faultAggregationOwner.chargerFaultIn", "faultAggregationOwner.interfaceFaultIn", "faultAggregationOwner.contextFaultIn", "faultAggregationOwner.sessionConflictIn"],
+        "owner_local_facts": ["exact five bit fault vector and aggregate OR"],
+        "contract_cases": ["EXACT_FAULT_VECTOR", "EXACT_FAULT_DISJUNCTION"],
+        "analyzer_checks": ["fault vector preservation", "all 32 direct aggregation vectors"]
+      },
+      {
+        "usage": "chargeSessionPriorityStateOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["chargeSessionPriorityStateOwner.requestIn", "chargeSessionPriorityStateOwner.interfaceIn", "chargeSessionPriorityStateOwner.eligibilityIn", "chargeSessionPriorityStateOwner.priorSession"],
+        "owner_local_facts": ["next charge session current conflict and winning priority case"],
+        "contract_cases": ["CASE-SESS-01", "CASE-SESS-02", "CASE-SESS-03", "CASE-SESS-04", "CASE-SESS-05", "CASE-SESS-06", "CASE-SESS-07", "CASE-SESS-08", "CASE-SESS-09", "CASE-SESS-10", "CASE-SESS-11", "CASE-SESS-12", "CASE-SESS-13"],
+        "analyzer_checks": ["session priority partition", "fresh begin recovery"]
+      },
+      {
+        "usage": "notificationCompositionOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["notificationCompositionOwner.attentionIn", "notificationCompositionOwner.faultsIn", "notificationCompositionOwner.sessionIn"],
+        "owner_local_facts": ["audience specific pilot and flight control notices"],
+        "contract_cases": ["PILOT_EVIDENCE_UNTRUSTED", "PILOT_CRITICAL", "PILOT_LOW", "PILOT_CHARGE_ATTENTION", "PILOT_RECOVERY_PENDING", "PILOT_CLEAR", "FLIGHT_EVIDENCE_UNTRUSTED", "FLIGHT_CRITICAL", "FLIGHT_LOW", "FLIGHT_RECOVERY_PENDING", "FLIGHT_CLEAR"],
+        "analyzer_checks": ["notice priority composition"]
+      },
+      {
+        "usage": "authorizationStatusCompositionOwner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["authorizationStatusCompositionOwner.publicFactsIn", "authorizationStatusCompositionOwner.faultsIn"],
+        "owner_local_facts": ["charge authorization and atomic pilot status"],
+        "contract_cases": ["AUTHORIZATION_PERMITTED", "AUTHORIZATION_DENIED", "STATUS_PRESERVES_OWNER_FACTS"],
+        "analyzer_checks": ["authorization equation", "status composition"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "counting_notes": {
+    "semantic_usages": "The 13 PART-01..13 Thread usages each derive a nonidentity owner-local fact; the root and behavior-free Process are excluded.",
+    "semantic_interactions": "INT-01..35 only; nine root/Process delegations are excluded.",
+    "nontrivial_contract_cases": "CASE-CONF-01..04, CASE-ATTN-01..06, and CASE-SESS-01..13 only.",
+    "scenario_families": "SCN-01..10 each have passing distinct concrete traces; SCN-10 uses the two approved root-reachable concurrent-fault variants and one-at-a-time source clearing.",
+    "claim_boundary": "Counts describe source structure and bounded finite behavior only; they do not claim proof, execution, physical performance, safety, or certification."
+  }
+}

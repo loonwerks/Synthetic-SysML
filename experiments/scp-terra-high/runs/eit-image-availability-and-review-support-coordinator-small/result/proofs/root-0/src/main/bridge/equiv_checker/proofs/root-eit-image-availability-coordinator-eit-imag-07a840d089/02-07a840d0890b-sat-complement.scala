@@ -1,0 +1,12 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_07a840d0890b_2_Complement {
+  @pure def check(
+      generation_result_sample: equiv_shared_0.EIT_Image_Availability_Coordinator.Generation_Result_Sample,
+      qualified_generation_result: equiv_shared_0.EIT_Image_Availability_Coordinator.Qualified_Generation_Result.Type): Unit = {
+    Contract(Requires(!((((T) & (T)) ___>: (equiv_shared_0.EIT_Image_Availability_Coordinator.Generation_Result_Qualification_image_availability_process_generation_result_qualification_GumboX.compute_CEP_Post(generation_result_sample, qualified_generation_result))) & T)))
+  }
+}

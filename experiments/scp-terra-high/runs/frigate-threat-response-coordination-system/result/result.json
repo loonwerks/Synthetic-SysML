@@ -1,0 +1,302 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/frigate-threat-response-coordination-system/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/frigate-threat-response-coordination-system/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/frigate-threat-response-coordination-system/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/frigate-threat-response-coordination-system/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/frigate-threat-response-coordination-system/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-c656d5c4a3:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.DefenseReadinessAssessor_threatResponseProcess_defenseReadinessAssessor_Candidate_GumboX.compute_CEP_Post(defenseevidence, defensecondition))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.DefenseReadinessAssessor_threatResponseProcess_defenseReadinessAssessor_GumboX.compute_CEP_Post(defenseevidence, defensecondition))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-c656d5c4a3:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-c656d5c4a3:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.DefenseReadinessAssessor_threatResponseProcess_defenseReadinessAssessor_GumboX.compute_CEP_Post(defenseevidence, defensecondition))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.DefenseReadinessAssessor_threatResponseProcess_defenseReadinessAssessor_Candidate_GumboX.compute_CEP_Post(defenseevidence, defensecondition))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-c656d5c4a3:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Response_Coordinator::FrigateThreatResponseCoordinator/root-instance::FrigateThreatResponseCoordinator_Instance/component::FrigateThreatResponseCoordinator_Instance::threatResponseProcess::defenseReadinessAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ea1c958dde:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_Candidate_GumboX.inititialize_IEP_Post(responsecommitment, retreatrequestarmed, defenseactivation, responserecord, retreatnavigationcommand))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_GumboX.inititialize_IEP_Post(responsecommitment, retreatrequestarmed, defenseactivation, responserecord, retreatnavigationcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ea1c958dde:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ea1c958dde:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_GumboX.inititialize_IEP_Post(responsecommitment, retreatrequestarmed, defenseactivation, responserecord, retreatnavigationcommand))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_Candidate_GumboX.inititialize_IEP_Post(responsecommitment, retreatrequestarmed, defenseactivation, responserecord, retreatnavigationcommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ea1c958dde:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Response_Coordinator::FrigateThreatResponseCoordinator/root-instance::FrigateThreatResponseCoordinator_Instance/component::FrigateThreatResponseCoordinator_Instance::threatResponseProcess::principalResponseCoordinator::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-7655934ecb:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_Candidate_GumboX.compute_CEP_Post(in_responsecommitment, in_retreatrequestarmed, responsecommitment, retreatrequestarmed, defensecondition, qualifiedthreat, responserequest, retreatcondition, defenseactivation, responserecord, retreatnavigationcommand))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_GumboX.compute_CEP_Post(in_responsecommitment, in_retreatrequestarmed, responsecommitment, retreatrequestarmed, defensecondition, qualifiedthreat, responserequest, retreatcondition, defenseactivation, responserecord, retreatnavigationcommand))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-7655934ecb:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-7655934ecb:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_GumboX.compute_CEP_Post(in_responsecommitment, in_retreatrequestarmed, responsecommitment, retreatrequestarmed, defensecondition, qualifiedthreat, responserequest, retreatcondition, defenseactivation, responserecord, retreatnavigationcommand))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.PrincipalResponseCoordinator_threatResponseProcess_principalResponseCoordinator_Candidate_GumboX.compute_CEP_Post(in_responsecommitment, in_retreatrequestarmed, responsecommitment, retreatrequestarmed, defensecondition, qualifiedthreat, responserequest, retreatcondition, defenseactivation, responserecord, retreatnavigationcommand))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-7655934ecb:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Response_Coordinator::FrigateThreatResponseCoordinator/root-instance::FrigateThreatResponseCoordinator_Instance/component::FrigateThreatResponseCoordinator_Instance::threatResponseProcess::principalResponseCoordinator::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ee02723040:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.RetreatReadinessAssessor_threatResponseProcess_retreatReadinessAssessor_Candidate_GumboX.compute_CEP_Post(retreatnavigationevidence, retreatcondition))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.RetreatReadinessAssessor_threatResponseProcess_retreatReadinessAssessor_GumboX.compute_CEP_Post(retreatnavigationevidence, retreatcondition))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ee02723040:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ee02723040:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.RetreatReadinessAssessor_threatResponseProcess_retreatReadinessAssessor_GumboX.compute_CEP_Post(retreatnavigationevidence, retreatcondition))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.RetreatReadinessAssessor_threatResponseProcess_retreatReadinessAssessor_Candidate_GumboX.compute_CEP_Post(retreatnavigationevidence, retreatcondition))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-ee02723040:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Response_Coordinator::FrigateThreatResponseCoordinator/root-instance::FrigateThreatResponseCoordinator_Instance/component::FrigateThreatResponseCoordinator_Instance::threatResponseProcess::retreatReadinessAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-6c3f7b8c42:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatEvidenceInterpreter_threatResponseProcess_threatEvidenceInterpreter_Candidate_GumboX.compute_CEP_Post(contactevidence, identificationevidence, qualifiedthreat))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatEvidenceInterpreter_threatResponseProcess_threatEvidenceInterpreter_GumboX.compute_CEP_Post(contactevidence, identificationevidence, qualifiedthreat))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-6c3f7b8c42:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-6c3f7b8c42:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatEvidenceInterpreter_threatResponseProcess_threatEvidenceInterpreter_GumboX.compute_CEP_Post(contactevidence, identificationevidence, qualifiedthreat))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatEvidenceInterpreter_threatResponseProcess_threatEvidenceInterpreter_Candidate_GumboX.compute_CEP_Post(contactevidence, identificationevidence, qualifiedthreat))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-6c3f7b8c42:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Response_Coordinator::FrigateThreatResponseCoordinator/root-instance::FrigateThreatResponseCoordinator_Instance/component::FrigateThreatResponseCoordinator_Instance::threatResponseProcess::threatEvidenceInterpreter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-9b743126fe:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatReportComposer_threatResponseProcess_threatReportComposer_Candidate_GumboX.compute_CEP_Post(reportacknowledgment, responserecord, threatreport))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatReportComposer_threatResponseProcess_threatReportComposer_GumboX.compute_CEP_Post(reportacknowledgment, responserecord, threatreport))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-9b743126fe:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-9b743126fe:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatReportComposer_threatResponseProcess_threatReportComposer_GumboX.compute_CEP_Post(reportacknowledgment, responserecord, threatreport))) ___>: (equiv_shared_0.Frigate_Threat_Response_Coordinator.ThreatReportComposer_threatResponseProcess_threatReportComposer_Candidate_GumboX.compute_CEP_Post(reportacknowledgment, responserecord, threatreport))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-frigate-threat-response-coordinator-frigate-9b743126fe:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Frigate_Threat_Response_Coordinator::FrigateThreatResponseCoordinator/root-instance::FrigateThreatResponseCoordinator_Instance/component::FrigateThreatResponseCoordinator_Instance::threatResponseProcess::threatReportComposer::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

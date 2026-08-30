@@ -1,0 +1,187 @@
+{
+  "schema_version": 1,
+  "run_id": "20260813T234356Z-mining-cargo-docking-small-r1-a1",
+  "recorded_at": "2026-08-14T02:46:25Z",
+  "scope": "Usage reported by the run's stateless Codex stage invocations.",
+  "cache_semantics": "Cache attribution applies to input only; reasoning output is a subset of output.",
+  "agents": [
+    {
+      "role": "designer",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "designer-initial",
+        "designer-resolution",
+        "designer-resolution@retry-1",
+        "designer-final"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 3402496,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 307165,
+          "output": 53978
+        },
+        "totals": {
+          "input": 3709661,
+          "output": 53978,
+          "overall": 3763639
+        }
+      },
+      "reasoning_output_tokens": 16515,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 1276.773
+    },
+    {
+      "role": "model",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "model-review",
+        "model-generate",
+        "model-generate@retry-1",
+        "model-generate@retry-2",
+        "model-generate@retry-3"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 13542912,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 677233,
+          "output": 106557
+        },
+        "totals": {
+          "input": 14220145,
+          "output": 106557,
+          "overall": 14326702
+        }
+      },
+      "reasoning_output_tokens": 27799,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 3066.952
+    },
+    {
+      "role": "visualization",
+      "model": "gpt-5.6-sol",
+      "stages": [
+        "visualize",
+        "visualize@retry-1"
+      ],
+      "token_matrix": {
+        "cached": {
+          "input": 16974720,
+          "output": 0
+        },
+        "non_cached": {
+          "input": 405725,
+          "output": 60971
+        },
+        "totals": {
+          "input": 17380445,
+          "output": 60971,
+          "overall": 17441416
+        }
+      },
+      "reasoning_output_tokens": 20269,
+      "cache_write_input_tokens": 0,
+      "wall_clock_seconds": 2081.644
+    }
+  ],
+  "aggregate": {
+    "agent_count": 3,
+    "token_matrix": {
+      "cached": {
+        "input": 33920128,
+        "output": 0
+      },
+      "non_cached": {
+        "input": 1390123,
+        "output": 221506
+      },
+      "totals": {
+        "input": 35310251,
+        "output": 221506,
+        "overall": 35531757
+      }
+    },
+    "reasoning_output_tokens": 64583,
+    "cache_write_input_tokens": 0
+  },
+  "timing": {
+    "started_at": "2026-08-13T23:43:56Z",
+    "completed_at": "2026-08-14T02:46:25Z",
+    "run_elapsed_seconds": 10949.0,
+    "summed_agent_stage_seconds": 6425.369,
+    "stages": [
+      {
+        "stage": "designer-initial",
+        "role": "designer",
+        "completed_at": "2026-08-13T23:53:15Z",
+        "duration_seconds": 558.552
+      },
+      {
+        "stage": "model-review",
+        "role": "model",
+        "completed_at": "2026-08-13T23:59:00Z",
+        "duration_seconds": 344.727
+      },
+      {
+        "stage": "designer-resolution",
+        "role": "designer",
+        "completed_at": "2026-08-14T00:02:36Z",
+        "duration_seconds": 216.396
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-14T01:38:47Z",
+        "duration_seconds": 1648.275
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-14T01:45:08Z",
+        "duration_seconds": 230.685
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-14T01:51:58Z",
+        "duration_seconds": 290.924
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-14T02:19:49Z",
+        "duration_seconds": 1638.315
+      },
+      {
+        "stage": "designer-resolution",
+        "role": "designer",
+        "completed_at": "2026-08-14T02:24:44Z",
+        "duration_seconds": 214.858
+      },
+      {
+        "stage": "model-generate",
+        "role": "model",
+        "completed_at": "2026-08-14T02:33:56Z",
+        "duration_seconds": 552.341
+      },
+      {
+        "stage": "visualize",
+        "role": "visualization",
+        "completed_at": "2026-08-14T02:41:38Z",
+        "duration_seconds": 443.329
+      },
+      {
+        "stage": "designer-final",
+        "role": "designer",
+        "completed_at": "2026-08-14T02:46:25Z",
+        "duration_seconds": 286.967
+      }
+    ],
+    "semantics": "run_elapsed_seconds is real elapsed time from run creation through acceptance; summed_agent_stage_seconds excludes harness-only checks and inter-stage gaps."
+  }
+}

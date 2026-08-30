@@ -1,0 +1,18 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_e481f4234784_Candidate_Pointwise_Realizable {
+  @pure def check(
+      batteryin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryStateFacts,
+      eligibilityin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ChargeEligibility.Type,
+      lifecyclein: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.LifecycleFacts): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_Candidate_GumboX.compute_CEP_Post(batteryin, eligibilityin, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts(advisoryValue = equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.PilotAdvisory.ADVISORY_UNKNOWN))) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_Candidate_GumboX.compute_CEP_Post(batteryin, eligibilityin, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts(advisoryValue = equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.PilotAdvisory.BATTERY_READY))) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_Candidate_GumboX.compute_CEP_Post(batteryin, eligibilityin, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts(advisoryValue = equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.PilotAdvisory.CHARGE_QUALIFIED))) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_Candidate_GumboX.compute_CEP_Post(batteryin, eligibilityin, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts(advisoryValue = equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.PilotAdvisory.CHARGE_BLOCKED))) |
+        (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.BatteryAdvisoryDecisionOwner_chargeQualificationProcess_batteryAdvisoryDecisionOwner_Candidate_GumboX.compute_CEP_Post(batteryin, eligibilityin, lifecyclein, equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts(advisoryValue = equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.PilotAdvisory.AIRBORNE_ATTENTION))))))
+  }
+}

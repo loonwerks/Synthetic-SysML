@@ -1,0 +1,16 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object VC_9d6d2f6d44ef_2_Valid {
+  @pure def check(
+      advisoryin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.AdvisoryFacts,
+      attentionclearedin: B,
+      publicfactsout: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.PublicDecisionFacts,
+      requestin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.ServiceRequest.Type,
+      sessionin: equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.SessionResolution): Unit = {
+    Contract(Requires(T),
+      Ensures((((T) & (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_Candidate_GumboX.inititialize_IEP_Post(publicfactsout))) ___>: (equiv_shared_0.Drone_Battery_Charge_Qualification_Supervisor.CurrentRequestResultDecisionOwner_chargeQualificationProcess_currentRequestResultDecisionOwner_GumboX.inititialize_IEP_Post(publicfactsout))) & T))
+  }
+}

@@ -1,0 +1,1422 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "cb0615bda26e1dcc432ad8459bc0338c416267374c0257e1b08ca838f1059b3d",
+  "claim_boundary": "Exhaustive only over the abstract finite root-input and pre-state domains with deterministic same-evaluation composition; no execution, timing, physical-performance, safety, or certification claim.",
+  "semantic_connection_map": [
+    {
+      "id": "INT-01",
+      "source": "root.airCareSelection",
+      "destination": "requestLifecycleOwner.airCareSelection"
+    },
+    {
+      "id": "INT-02",
+      "source": "root.requestValidity",
+      "destination": "requestLifecycleOwner.requestValidity"
+    },
+    {
+      "id": "INT-03",
+      "source": "root.cabinAirQuality",
+      "destination": "airQualityOwner.cabinAirQuality"
+    },
+    {
+      "id": "INT-04",
+      "source": "root.airQualityValidity",
+      "destination": "airQualityOwner.airQualityValidity"
+    },
+    {
+      "id": "INT-05",
+      "source": "root.cabinHumidity",
+      "destination": "humidityOwner.cabinHumidity"
+    },
+    {
+      "id": "INT-06",
+      "source": "root.humidityValidity",
+      "destination": "humidityOwner.humidityValidity"
+    },
+    {
+      "id": "INT-07",
+      "source": "root.treatmentEquipmentStatus",
+      "destination": "readinessOwner.treatmentEquipmentStatus"
+    },
+    {
+      "id": "INT-08",
+      "source": "requestLifecycleOwner.requestIntent",
+      "destination": "filtrationProposalOwner.requestIntent"
+    },
+    {
+      "id": "INT-09",
+      "source": "requestLifecycleOwner.requestIntent",
+      "destination": "humidityProposalOwner.requestIntent"
+    },
+    {
+      "id": "INT-10",
+      "source": "requestLifecycleOwner.requestIntent",
+      "destination": "recoveryOwner.requestIntent"
+    },
+    {
+      "id": "INT-11",
+      "source": "requestLifecycleOwner.requestIntent",
+      "destination": "resultArbiter.requestIntent"
+    },
+    {
+      "id": "INT-12",
+      "source": "airQualityOwner.airAssessment",
+      "destination": "filtrationProposalOwner.airAssessment"
+    },
+    {
+      "id": "INT-13",
+      "source": "humidityOwner.humidityAssessment",
+      "destination": "humidityProposalOwner.humidityAssessment"
+    },
+    {
+      "id": "INT-14",
+      "source": "readinessOwner.treatmentReadiness",
+      "destination": "filtrationProposalOwner.treatmentReadiness"
+    },
+    {
+      "id": "INT-15",
+      "source": "readinessOwner.treatmentReadiness",
+      "destination": "humidityProposalOwner.treatmentReadiness"
+    },
+    {
+      "id": "INT-16",
+      "source": "readinessOwner.readinessContext",
+      "destination": "recoveryOwner.readinessContext"
+    },
+    {
+      "id": "INT-17",
+      "source": "filtrationProposalOwner.airProposal",
+      "destination": "resultArbiter.airProposal"
+    },
+    {
+      "id": "INT-18",
+      "source": "humidityProposalOwner.humidityProposal",
+      "destination": "resultArbiter.humidityProposal"
+    },
+    {
+      "id": "INT-19",
+      "source": "recoveryOwner.recoveryGate",
+      "destination": "resultArbiter.recoveryGate"
+    },
+    {
+      "id": "INT-20",
+      "source": "resultArbiter.command",
+      "destination": "root.airTreatmentCommand"
+    },
+    {
+      "id": "INT-21",
+      "source": "resultArbiter.status",
+      "destination": "root.airCareSupervisorStatus"
+    }
+  ],
+  "partition_counts": {
+    "owner_local_products": {
+      "requestLifecycleOwner": 18,
+      "airQualityOwner": 6,
+      "humidityOwner": 6,
+      "readinessOwner": 8,
+      "filtrationProposalOwner": 140,
+      "humidityProposalOwner": 105,
+      "recoveryOwner": 42,
+      "resultArbiter": 420
+    },
+    "root_input_snapshots": 1728,
+    "pre_state_combinations": 9,
+    "composed_valuations": 15552,
+    "case_hits": {
+      "CASE-RQ-01": 9,
+      "CASE-RQ-02": 3,
+      "CASE-RQ-03": 2,
+      "CASE-RQ-04": 2,
+      "CASE-RQ-05": 2,
+      "CASE-AIR-01": 6,
+      "CASE-HUM-01": 6,
+      "CASE-EQP-01": 4,
+      "CASE-EQP-02": 4,
+      "CASE-AIR-02": 140,
+      "CASE-HUM-02": 105,
+      "CASE-REC-01": 21,
+      "CASE-REC-02": 7,
+      "CASE-REC-03": 2,
+      "CASE-REC-04": 5,
+      "CASE-REC-05": 7,
+      "CASE-ARB-01": 280,
+      "CASE-ARB-02": 60,
+      "CASE-ARB-03": 32,
+      "CASE-ARB-04": 48
+    },
+    "scenario_families": 7
+  },
+  "observations": {
+    "partition_gaps": 0,
+    "partition_overlaps": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "source_hash_mismatches": 0
+  },
+  "invariant_checks": {
+    "recovery_inhibits_active_command": true,
+    "active_commands_have_active_status": true,
+    "filtration_defeats_drying_with_air_priority": true
+  },
+  "checks": {
+    "source_hash_bound": true,
+    "exact_semantic_connection_map": true,
+    "all_twenty_cases_executed": true,
+    "all_seven_scenarios_executed": true,
+    "all_eight_owner_audits_passed": true,
+    "complete_root_and_state_product": true,
+    "filtration_priority_checked": true,
+    "six_step_recovery_checked": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "requestLifecycleOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "airCareSelection",
+        "requestValidity",
+        "In(requestMemory)"
+      ],
+      "owner_local_facts": [
+        "requestIntent",
+        "nextRequestMemory"
+      ],
+      "contract_cases": [
+        "CASE-RQ-01",
+        "CASE-RQ-02",
+        "CASE-RQ-03",
+        "CASE-RQ-04",
+        "CASE-RQ-05"
+      ],
+      "analyzer_checks": [
+        "request lifecycle totality and freshness"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "airQualityOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "cabinAirQuality",
+        "airQualityValidity"
+      ],
+      "owner_local_facts": [
+        "airAssessment"
+      ],
+      "contract_cases": [
+        "CASE-AIR-01"
+      ],
+      "analyzer_checks": [
+        "air qualification validity dominance"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "humidityOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "cabinHumidity",
+        "humidityValidity"
+      ],
+      "owner_local_facts": [
+        "humidityAssessment"
+      ],
+      "contract_cases": [
+        "CASE-HUM-01"
+      ],
+      "analyzer_checks": [
+        "humidity qualification collapse"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "readinessOwner",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "treatmentEquipmentStatus.statusValidity",
+        "treatmentEquipmentStatus.filtrationChannel",
+        "treatmentEquipmentStatus.dryingChannel"
+      ],
+      "owner_local_facts": [
+        "treatmentReadiness",
+        "readinessContext"
+      ],
+      "contract_cases": [
+        "CASE-EQP-01",
+        "CASE-EQP-02"
+      ],
+      "analyzer_checks": [
+        "readiness cross-product and invalid dominance"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "filtrationProposalOwner",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "requestIntent",
+        "airAssessment",
+        "treatmentReadiness"
+      ],
+      "owner_local_facts": [
+        "airProposal"
+      ],
+      "contract_cases": [
+        "CASE-AIR-02"
+      ],
+      "analyzer_checks": [
+        "filtration applicability totality"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "humidityProposalOwner",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "requestIntent",
+        "humidityAssessment",
+        "treatmentReadiness"
+      ],
+      "owner_local_facts": [
+        "humidityProposal"
+      ],
+      "contract_cases": [
+        "CASE-HUM-02"
+      ],
+      "analyzer_checks": [
+        "drying applicability totality"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "recoveryOwner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "readinessContext",
+        "requestIntent",
+        "In(recoveryMemory)"
+      ],
+      "owner_local_facts": [
+        "recoveryGate",
+        "nextRecoveryMemory"
+      ],
+      "contract_cases": [
+        "CASE-REC-01",
+        "CASE-REC-02",
+        "CASE-REC-03",
+        "CASE-REC-04",
+        "CASE-REC-05"
+      ],
+      "analyzer_checks": [
+        "fault hold and fresh reauthorization"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "resultArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "requestIntent",
+        "airProposal",
+        "humidityProposal",
+        "recoveryGate"
+      ],
+      "owner_local_facts": [
+        "airTreatmentCommand",
+        "airCareSupervisorStatus"
+      ],
+      "contract_cases": [
+        "CASE-ARB-01",
+        "CASE-ARB-02",
+        "CASE-ARB-03",
+        "CASE-ARB-04"
+      ],
+      "analyzer_checks": [
+        "priority and diagnostic precedence"
+      ],
+      "passed": true
+    }
+  ],
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-NOM-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": "fresh-no-need",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Clean",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-04",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-04"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshAuto",
+            "airAssessment": "Clear",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "None",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "Off",
+            "status": {
+              "mode": "Active",
+              "reason": "NoTreatmentNeeded"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "held-no-need",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Clean",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-RQ-04",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-04"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "Clear",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "None",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "Off",
+            "status": {
+              "mode": "Active",
+              "reason": "NoTreatmentNeeded"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-FIL-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": "elevated",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-03",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshAuto",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterNormal",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterNormal",
+            "status": {
+              "mode": "Active",
+              "reason": "Filtering"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "poor",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Poor",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-03",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterIntensiveNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterIntensive",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterIntensive",
+            "status": {
+              "mode": "Active",
+              "reason": "Filtering"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-PUR-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": "fresh-purge",
+          "input": {
+            "selection": "Purge",
+            "requestValidity": "Valid",
+            "air": "Clean",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-RQ-03",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshPurge",
+            "airAssessment": "Clear",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterIntensive",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterIntensive",
+            "status": {
+              "mode": "Active",
+              "reason": "Filtering"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "held-purge",
+          "input": {
+            "selection": "Purge",
+            "requestValidity": "Valid",
+            "air": "Clean",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-RQ-04",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldPurge",
+            "airAssessment": "Clear",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterIntensive",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterIntensive",
+            "status": {
+              "mode": "Active",
+              "reason": "Filtering"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-DRY-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": "both-paths-ready",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Clean",
+            "airValidity": "Valid",
+            "humidity": "Damp",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-04",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-04"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshAuto",
+            "airAssessment": "Clear",
+            "humidityAssessment": "DryingNeeded",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "None",
+            "humidityProposal": "Dry",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "Dry",
+            "status": {
+              "mode": "Active",
+              "reason": "Drying"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "unused-filter-unavailable",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Clean",
+            "airValidity": "Valid",
+            "humidity": "Damp",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Unavailable",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-04",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-04"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "Clear",
+            "humidityAssessment": "DryingNeeded",
+            "treatmentReadiness": "DryerOnly",
+            "readinessContext": "Clear",
+            "airProposal": "None",
+            "humidityProposal": "Dry",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "Dry",
+            "status": {
+              "mode": "Active",
+              "reason": "Drying"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-PRI-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": "normal-filter-conflict",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Damp",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-03",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshAuto",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "DryingNeeded",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterNormal",
+            "humidityProposal": "Dry",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterNormal",
+            "status": {
+              "mode": "Active",
+              "reason": "AirPriority"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "intensive-filter-conflict",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Poor",
+            "airValidity": "Valid",
+            "humidity": "Damp",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-03",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterIntensiveNeeded",
+            "humidityAssessment": "DryingNeeded",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterIntensive",
+            "humidityProposal": "Dry",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterIntensive",
+            "status": {
+              "mode": "Active",
+              "reason": "AirPriority"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-DEG-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": "invalid-air-drying-continues",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Clean",
+            "airValidity": "Invalid",
+            "humidity": "Damp",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-04",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-04"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshAuto",
+            "airAssessment": "Unknown",
+            "humidityAssessment": "DryingNeeded",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "InvalidAirObservation",
+            "humidityProposal": "Dry",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "Dry",
+            "status": {
+              "mode": "Active",
+              "reason": "AirObservationInvalid"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "invalid-humidity-filtering-continues",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Poor",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Invalid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-03",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterIntensiveNeeded",
+            "humidityAssessment": "Unknown",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterIntensive",
+            "humidityProposal": "InvalidHumidityObservation",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterIntensive",
+            "status": {
+              "mode": "Active",
+              "reason": "HumidityObservationInvalid"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "filter-unavailable-drying-continues",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Poor",
+            "airValidity": "Valid",
+            "humidity": "Damp",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Unavailable",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-04",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-04"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterIntensiveNeeded",
+            "humidityAssessment": "DryingNeeded",
+            "treatmentReadiness": "DryerOnly",
+            "readinessContext": "Clear",
+            "airProposal": "FilterUnavailable",
+            "humidityProposal": "Dry",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "Dry",
+            "status": {
+              "mode": "Active",
+              "reason": "FilterUnavailable"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "dryer-unavailable-filtering-continues",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Poor",
+            "airValidity": "Valid",
+            "humidity": "Damp",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Unavailable"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-03",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterIntensiveNeeded",
+            "humidityAssessment": "DryingNeeded",
+            "treatmentReadiness": "FilterOnly",
+            "readinessContext": "Clear",
+            "airProposal": "FilterIntensive",
+            "humidityProposal": "DryerUnavailable",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterIntensive",
+            "status": {
+              "mode": "Active",
+              "reason": "DryerUnavailable"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-REC-01",
+      "passed": true,
+      "trace": [
+        {
+          "step": "active-filtering",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-ARB-03",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-05",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshAuto",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterNormal",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterNormal",
+            "status": {
+              "mode": "Active",
+              "reason": "Filtering"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        },
+        {
+          "step": "readiness-invalid",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Invalid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "expected_named_branch": "CASE-REC-01",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-01",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-01",
+            "CASE-ARB-01"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "Unknown",
+            "readinessContext": "CriticalUnknown",
+            "airProposal": "FilterUnavailable",
+            "humidityProposal": "None",
+            "recoveryGate": "FaultHeld"
+          },
+          "observed_outputs": {
+            "command": "Off",
+            "status": {
+              "mode": "Recovery",
+              "reason": "ReadinessInvalid"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "FaultHeld"
+          },
+          "passed": true
+        },
+        {
+          "step": "readiness-restored-held",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "FaultHeld"
+          },
+          "expected_named_branch": "CASE-REC-02",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-02",
+            "CASE-ARB-01"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterNormal",
+            "humidityProposal": "None",
+            "recoveryGate": "AwaitFresh"
+          },
+          "observed_outputs": {
+            "command": "Off",
+            "status": {
+              "mode": "Recovery",
+              "reason": "AwaitFresh"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "AwaitFresh"
+          },
+          "passed": true
+        },
+        {
+          "step": "held-again",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "AwaitFresh"
+          },
+          "expected_named_branch": "CASE-REC-04",
+          "observed_owner_cases": [
+            "CASE-RQ-04",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-04",
+            "CASE-ARB-01"
+          ],
+          "observed_facts": {
+            "requestIntent": "HeldAuto",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterNormal",
+            "humidityProposal": "None",
+            "recoveryGate": "AwaitFresh"
+          },
+          "observed_outputs": {
+            "command": "Off",
+            "status": {
+              "mode": "Recovery",
+              "reason": "AwaitFresh"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "AwaitFresh"
+          },
+          "passed": true
+        },
+        {
+          "step": "valid-off-release",
+          "input": {
+            "selection": "Off",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "AwaitFresh"
+          },
+          "expected_named_branch": "CASE-RQ-02",
+          "observed_owner_cases": [
+            "CASE-RQ-02",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-04",
+            "CASE-ARB-01"
+          ],
+          "observed_facts": {
+            "requestIntent": "None",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "None",
+            "humidityProposal": "None",
+            "recoveryGate": "AwaitFresh"
+          },
+          "observed_outputs": {
+            "command": "Off",
+            "status": {
+              "mode": "Recovery",
+              "reason": "AwaitFresh"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "AwaitFresh"
+          },
+          "passed": true
+        },
+        {
+          "step": "fresh-auto-reauthorized",
+          "input": {
+            "selection": "Auto",
+            "requestValidity": "Valid",
+            "air": "Elevated",
+            "airValidity": "Valid",
+            "humidity": "Comfortable",
+            "humidityValidity": "Valid",
+            "statusValidity": "Valid",
+            "filtrationChannel": "Ready",
+            "dryingChannel": "Ready"
+          },
+          "pre_state": {
+            "requestMemory": "Released",
+            "recoveryMemory": "AwaitFresh"
+          },
+          "expected_named_branch": "CASE-REC-03",
+          "observed_owner_cases": [
+            "CASE-RQ-03",
+            "CASE-AIR-01",
+            "CASE-HUM-01",
+            "CASE-EQP-02",
+            "CASE-AIR-02",
+            "CASE-HUM-02",
+            "CASE-REC-03",
+            "CASE-ARB-03"
+          ],
+          "observed_facts": {
+            "requestIntent": "FreshAuto",
+            "airAssessment": "FilterNormalNeeded",
+            "humidityAssessment": "NoExcessHumidity",
+            "treatmentReadiness": "BothReady",
+            "readinessContext": "Clear",
+            "airProposal": "FilterNormal",
+            "humidityProposal": "None",
+            "recoveryGate": "Ready"
+          },
+          "observed_outputs": {
+            "command": "FilterNormal",
+            "status": {
+              "mode": "Active",
+              "reason": "Filtering"
+            }
+          },
+          "observed_next_state": {
+            "requestMemory": "AcceptedActive",
+            "recoveryMemory": "Ready"
+          },
+          "passed": true
+        }
+      ]
+    }
+  ]
+}

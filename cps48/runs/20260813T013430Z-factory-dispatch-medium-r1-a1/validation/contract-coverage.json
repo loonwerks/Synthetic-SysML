@@ -1,0 +1,3942 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "51b6e31e3dbad8e6f5baf352dc8c68631e79837efda1275e09e2c6a3aee1816d",
+  "claim_boundary": "Exact finite checking of the canonical owner-local relations, the 21-interaction semantic connection map, all finite root inputs, and named bounded state traces only; no compositional proof, solver certification, generated-code correctness, execution, quantitative timing, physical performance, safety, or certification claim.",
+  "semantic_connection_map": [
+    [
+      "INT-01",
+      "root.request",
+      "request_qualifier.request"
+    ],
+    [
+      "INT-02",
+      "root.inventorySnapshot",
+      "inventory_qualifier.inventory_snapshot"
+    ],
+    [
+      "INT-03",
+      "root.dockSnapshot",
+      "dock_qualifier.dock_snapshot"
+    ],
+    [
+      "INT-04",
+      "root.executionOutcome",
+      "outcome_recovery_classifier.execution_outcome"
+    ],
+    [
+      "INT-05",
+      "request_qualifier.inventory_request_fact",
+      "inventory_qualifier.request_fact"
+    ],
+    [
+      "INT-06",
+      "request_qualifier.priority_admission",
+      "dispatch_priority_resolver.admission"
+    ],
+    [
+      "INT-07",
+      "request_qualifier.arbiter_request_fact",
+      "release_arbiter.request_fact"
+    ],
+    [
+      "INT-08",
+      "inventory_qualifier.candidate_readiness",
+      "release_arbiter.candidate_readiness"
+    ],
+    [
+      "INT-09",
+      "dock_qualifier.assessment",
+      "release_arbiter.dock_assessment"
+    ],
+    [
+      "INT-10",
+      "commitment_tracker.execution_context",
+      "outcome_recovery_classifier.execution_context"
+    ],
+    [
+      "INT-11",
+      "outcome_recovery_classifier.recovery_plan",
+      "dispatch_priority_resolver.recovery_plan"
+    ],
+    [
+      "INT-12",
+      "outcome_recovery_classifier.transition_plan",
+      "commitment_tracker.outcome_plan"
+    ],
+    [
+      "INT-13",
+      "dispatch_priority_resolver.selected_intent",
+      "release_arbiter.selected_intent"
+    ],
+    [
+      "INT-14",
+      "commitment_tracker.recovery_context",
+      "inventory_qualifier.recovery_context"
+    ],
+    [
+      "INT-15",
+      "release_arbiter.dispatch_decision",
+      "commitment_tracker.dispatch_decision"
+    ],
+    [
+      "INT-16",
+      "commitment_tracker.shipment_instruction",
+      "root.shipmentInstruction"
+    ],
+    [
+      "INT-17",
+      "outcome_recovery_classifier.confirmation_context",
+      "confirmation_determiner.confirmation_context"
+    ],
+    [
+      "INT-18",
+      "confirmation_determiner.shipping_confirmation",
+      "root.shippingConfirmation"
+    ],
+    [
+      "INT-19",
+      "release_arbiter.decision_reason",
+      "status_determiner.decision_reason"
+    ],
+    [
+      "INT-20",
+      "commitment_tracker.lifecycle_snapshot",
+      "status_determiner.lifecycle_snapshot"
+    ],
+    [
+      "INT-21",
+      "status_determiner.dispatch_status",
+      "root.dispatchStatus"
+    ]
+  ],
+  "exhaustive_domain": {
+    "root_input_valuations": 9720000,
+    "request_valuations": 450,
+    "fresh_inventory_pairs": 6400,
+    "recovery_inventory_pairs": 6400,
+    "dock_valuations": 6,
+    "outcome_context_pairs": 7776,
+    "priority_pairs": 16,
+    "terminal_prestate_products": 29160000
+  },
+  "partition_counts": {
+    "request": {
+      "NoRequest": 2,
+      "Malformed": 192,
+      "AdmissibleFresh": 128,
+      "Repeated": 128
+    },
+    "fresh_inventory": {
+      "Unknown": 5760,
+      "Insufficient": 320,
+      "Sufficient": 320
+    },
+    "recovery_inventory": {
+      "Unknown": 5760,
+      "Insufficient": 320,
+      "Sufficient": 320
+    },
+    "dock": {
+      "Ready": 1,
+      "Blocked": 2,
+      "Unknown": 3
+    },
+    "outcome": {
+      "Preserve": 6416,
+      "Completed": 32,
+      "RetryEligible": 1312,
+      "Abort": 16
+    },
+    "priority": {
+      "None": 9,
+      "RecoveryIntent": 4,
+      "FreshIntent": 3
+    },
+    "arbiter": {
+      "None": 43200,
+      "Reject": 6912000,
+      "WaitInventory": 2626560,
+      "ReleaseFresh": 23040,
+      "WaitDock": 115200,
+      "ResetIdle": 29160000
+    },
+    "root_decision": {
+      "None": 43200,
+      "Reject": 6912000,
+      "WaitInventory": 2626560,
+      "ReleaseFresh": 23040,
+      "WaitDock": 115200
+    }
+  },
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "oracle_mismatches": 0,
+  "invariant_checks": {
+    "exact_root_input_domain_exhausted": true,
+    "request_domain_exhausted": true,
+    "fresh_inventory_product_exhausted": true,
+    "recovery_inventory_product_exhausted": true,
+    "dock_domain_exhausted": true,
+    "outcome_context_product_exhausted": true,
+    "priority_product_exhausted": true,
+    "terminal_prestate_product_exhausted": true,
+    "all_20_case_witnesses": true,
+    "all_8_scenario_families_have_concrete_traces": true,
+    "semantic_connection_map_exact": true,
+    "recovery_outprioritizes_fresh": true,
+    "no_same_evaluation_retry": true,
+    "retry_without_presented_request_uses_stored_payload": true,
+    "retry_with_different_competitor_uses_stored_payload": true,
+    "competitor_only_readiness_cannot_authorize_retry": true,
+    "protected_active_identity_preserved": true,
+    "fresh_and_retry_completion_covered": true,
+    "stale_progress_mismatch_preserve_retry_state": true,
+    "retry_failure_has_no_second_retry": true,
+    "completed_and_failed_terminal_reset_to_idle": true
+  },
+  "ownership_audit": [
+    {
+      "usage": "request_qualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "request"
+      ],
+      "owner_local_facts": [
+        "four-way admission classification"
+      ],
+      "contract_cases": [
+        "CCASE-01",
+        "CCASE-02",
+        "CCASE-03",
+        "CCASE-20"
+      ],
+      "analyzer_checks": [
+        "request-owner-450-valuations"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "inventory_qualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "inventory_snapshot",
+        "request_fact",
+        "recovery_context"
+      ],
+      "owner_local_facts": [
+        "candidate-specific fresh inventory assessment",
+        "candidate-specific stored recovery inventory assessment"
+      ],
+      "contract_cases": [
+        "CCASE-04",
+        "CCASE-05",
+        "CCASE-06"
+      ],
+      "analyzer_checks": [
+        "fresh-inventory-owner-6400-pairs",
+        "recovery-inventory-owner-6400-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "dock_qualifier",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "dock_snapshot"
+      ],
+      "owner_local_facts": [
+        "validity-disposition dock assessment"
+      ],
+      "contract_cases": [
+        "CCASE-07",
+        "CCASE-08",
+        "CCASE-09"
+      ],
+      "analyzer_checks": [
+        "dock-owner-6-valuations"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "outcome_recovery_classifier",
+      "claimed_roles": [
+        "applicability",
+        "decision"
+      ],
+      "assigned_inputs": [
+        "execution_outcome",
+        "execution_context"
+      ],
+      "owner_local_facts": [
+        "correlated state-dependent outcome plan"
+      ],
+      "contract_cases": [
+        "CCASE-14",
+        "CCASE-15",
+        "CCASE-16",
+        "CCASE-18",
+        "CCASE-19"
+      ],
+      "analyzer_checks": [
+        "outcome-owner-7776-context-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "dispatch_priority_resolver",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "admission",
+        "recovery_plan"
+      ],
+      "owner_local_facts": [
+        "recovery-over-fresh priority selection"
+      ],
+      "contract_cases": [
+        "CCASE-14"
+      ],
+      "analyzer_checks": [
+        "priority-owner-16-pairs"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "release_arbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "request_fact",
+        "candidate_readiness",
+        "dock_assessment",
+        "selected_intent"
+      ],
+      "owner_local_facts": [
+        "matching-source release/wait/reject/busy decision",
+        "terminal-pre-state reset decision"
+      ],
+      "contract_cases": [
+        "CCASE-01",
+        "CCASE-02",
+        "CCASE-10",
+        "CCASE-11",
+        "CCASE-12",
+        "CCASE-13",
+        "CCASE-15",
+        "CCASE-17",
+        "CCASE-18",
+        "CCASE-19",
+        "CCASE-20"
+      ],
+      "analyzer_checks": [
+        "arbiter-owner-partition-check",
+        "terminal-reset-29160000-products"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "commitment_tracker",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "outcome_plan",
+        "dispatch_decision",
+        "In(lifecycle,payload,attempt)"
+      ],
+      "owner_local_facts": [
+        "state-dependent commitment transition and instruction",
+        "terminal reset clears commitment"
+      ],
+      "contract_cases": [
+        "CCASE-10",
+        "CCASE-11",
+        "CCASE-12",
+        "CCASE-15",
+        "CCASE-16",
+        "CCASE-17",
+        "CCASE-18",
+        "CCASE-19",
+        "CCASE-20"
+      ],
+      "analyzer_checks": [
+        "tracker-transition-oracle-check"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "confirmation_determiner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "confirmation_context"
+      ],
+      "owner_local_facts": [
+        "two-class confirmation suppression and terminal distinction"
+      ],
+      "contract_cases": [
+        "CCASE-15",
+        "CCASE-16",
+        "CCASE-18",
+        "CCASE-19"
+      ],
+      "analyzer_checks": [
+        "confirmation-owner-four-classes"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "status_determiner",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "decision_reason",
+        "lifecycle_snapshot"
+      ],
+      "owner_local_facts": [
+        "terminal/recovery/busy/wait/reset status precedence"
+      ],
+      "contract_cases": [
+        "CCASE-01",
+        "CCASE-10",
+        "CCASE-11",
+        "CCASE-12",
+        "CCASE-13",
+        "CCASE-15",
+        "CCASE-16",
+        "CCASE-18",
+        "CCASE-20"
+      ],
+      "analyzer_checks": [
+        "status-owner-42-precedence-pairs"
+      ],
+      "passed": true
+    }
+  ],
+  "case_witnesses": {
+    "CCASE-01": {
+      "input_state": {
+        "lifecycle": "Idle",
+        "requestId": "None",
+        "productId": "None",
+        "amount": 0,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "None",
+          "productId": "P1",
+          "amount": 2,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-01",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "None",
+        "decision": {
+          "kind": "Reject",
+          "reason": "Rejected",
+          "payload": {
+            "requestId": "None",
+            "productId": "None",
+            "amount": 0
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Rejected",
+        "next_state": {
+          "lifecycle": "Idle",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-02": {
+      "input_state": {
+        "lifecycle": "Idle",
+        "requestId": "None",
+        "productId": "None",
+        "amount": 0,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "R2",
+          "productId": "P2",
+          "amount": 1,
+          "freshness": "Repeated"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P2",
+          "amount": 1
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-02",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "None",
+        "decision": {
+          "kind": "Reject",
+          "reason": "Rejected",
+          "payload": {
+            "requestId": "None",
+            "productId": "None",
+            "amount": 0
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Rejected",
+        "next_state": {
+          "lifecycle": "Idle",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-03": {
+      "request": {
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "freshness": "Fresh"
+      },
+      "admission": "AdmissibleFresh"
+    },
+    "CCASE-04": {
+      "candidate": {
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "freshness": "Fresh"
+      },
+      "snapshot": {
+        "validity": "Valid",
+        "productId": "P1",
+        "amount": 2
+      },
+      "fresh": "Sufficient",
+      "recovery": "Sufficient"
+    },
+    "CCASE-05": {
+      "candidate": {
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "freshness": "Fresh"
+      },
+      "snapshot": {
+        "validity": "Valid",
+        "productId": "P1",
+        "amount": 1
+      },
+      "fresh": "Insufficient",
+      "recovery": "Insufficient"
+    },
+    "CCASE-06": {
+      "invalid": "Unknown",
+      "absent": "NotApplicable"
+    },
+    "CCASE-07": {
+      "snapshot": {
+        "validity": "Valid",
+        "disposition": "Ready"
+      },
+      "assessment": "Ready"
+    },
+    "CCASE-08": {
+      "snapshot": {
+        "validity": "Valid",
+        "disposition": "Occupied"
+      },
+      "assessment": "Blocked"
+    },
+    "CCASE-09": {
+      "snapshot": {
+        "validity": "Invalid",
+        "disposition": "Ready"
+      },
+      "assessment": "Unknown"
+    },
+    "CCASE-10": {
+      "input_state": {
+        "lifecycle": "Idle",
+        "requestId": "None",
+        "productId": "None",
+        "amount": 0,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-10",
+      "observed": {
+        "freshInventory": "Sufficient",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "FreshIntent",
+        "decision": {
+          "kind": "ReleaseFresh",
+          "reason": "Released",
+          "payload": {
+            "requestId": "R1",
+            "productId": "P1",
+            "amount": 2
+          }
+        },
+        "instruction": {
+          "kind": "ReleaseFresh",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Released",
+        "next_state": {
+          "lifecycle": "ActiveFresh",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-11": {
+      "input_state": {
+        "lifecycle": "Idle",
+        "requestId": "None",
+        "productId": "None",
+        "amount": 0,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 1
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Occupied"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-11",
+      "observed": {
+        "freshInventory": "Insufficient",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "FreshIntent",
+        "decision": {
+          "kind": "WaitInventory",
+          "reason": "WaitingInventory",
+          "payload": {
+            "requestId": "R1",
+            "productId": "P1",
+            "amount": 2
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "WaitingInventory",
+        "next_state": {
+          "lifecycle": "Idle",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-12": {
+      "input_state": {
+        "lifecycle": "Idle",
+        "requestId": "None",
+        "productId": "None",
+        "amount": 0,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 3
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Occupied"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-12",
+      "observed": {
+        "freshInventory": "Sufficient",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "FreshIntent",
+        "decision": {
+          "kind": "WaitDock",
+          "reason": "WaitingDock",
+          "payload": {
+            "requestId": "R1",
+            "productId": "P1",
+            "amount": 2
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "WaitingDock",
+        "next_state": {
+          "lifecycle": "Idle",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-13": {
+      "input_state": {
+        "lifecycle": "ActiveFresh",
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "R2",
+          "productId": "P2",
+          "amount": 1,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P2",
+          "amount": 1
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-13",
+      "observed": {
+        "freshInventory": "Sufficient",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "FreshIntent",
+        "decision": {
+          "kind": "Busy",
+          "reason": "Busy",
+          "payload": {
+            "requestId": "R1",
+            "productId": "P1",
+            "amount": 2
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Busy",
+        "next_state": {
+          "lifecycle": "ActiveFresh",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-14": {
+      "input_state": {
+        "lifecycle": "RecoveryPending",
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "R2",
+          "productId": "P2",
+          "amount": 1,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-14/CCASE-17",
+      "observed": {
+        "freshInventory": "Unknown",
+        "recoveryInventory": "Sufficient",
+        "selectedIntent": "RecoveryIntent",
+        "decision": {
+          "kind": "ReleaseRetry",
+          "reason": "Released",
+          "payload": {
+            "requestId": "R1",
+            "productId": "P1",
+            "amount": 2
+          }
+        },
+        "instruction": {
+          "kind": "ReleaseRetry",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Released",
+        "next_state": {
+          "lifecycle": "ActiveRetry",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "RetryAttempt"
+        }
+      }
+    },
+    "CCASE-15": {
+      "input_state": {
+        "lifecycle": "ActiveFresh",
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "R1",
+          "attempt": "FreshAttempt",
+          "result": "Completed"
+        }
+      },
+      "expected_case": "CCASE-15",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "None",
+        "decision": {
+          "kind": "None",
+          "reason": "Released",
+          "payload": {
+            "requestId": "None",
+            "productId": "None",
+            "amount": 0
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "Shipped",
+          "requestId": "R1"
+        },
+        "status": "Completed",
+        "next_state": {
+          "lifecycle": "TerminalCompleted",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-16": {
+      "input_state": {
+        "lifecycle": "ActiveFresh",
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "R1",
+          "attempt": "FreshAttempt",
+          "result": "Failed"
+        }
+      },
+      "expected_case": "CCASE-16",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "RecoveryIntent",
+        "decision": {
+          "kind": "None",
+          "reason": "Released",
+          "payload": {
+            "requestId": "None",
+            "productId": "None",
+            "amount": 0
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Recovering",
+        "next_state": {
+          "lifecycle": "RecoveryPending",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "FreshAttempt"
+        }
+      }
+    },
+    "CCASE-17": {
+      "input_state": {
+        "lifecycle": "RecoveryPending",
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-17",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "Sufficient",
+        "selectedIntent": "RecoveryIntent",
+        "decision": {
+          "kind": "ReleaseRetry",
+          "reason": "Released",
+          "payload": {
+            "requestId": "R1",
+            "productId": "P1",
+            "amount": 2
+          }
+        },
+        "instruction": {
+          "kind": "ReleaseRetry",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Released",
+        "next_state": {
+          "lifecycle": "ActiveRetry",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "RetryAttempt"
+        }
+      }
+    },
+    "CCASE-18": {
+      "input_state": {
+        "lifecycle": "ActiveRetry",
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "attempt": "RetryAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "R1",
+          "attempt": "RetryAttempt",
+          "result": "Failed"
+        }
+      },
+      "expected_case": "CCASE-18",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "None",
+        "decision": {
+          "kind": "None",
+          "reason": "Released",
+          "payload": {
+            "requestId": "None",
+            "productId": "None",
+            "amount": 0
+          }
+        },
+        "instruction": {
+          "kind": "Cancel",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2
+        },
+        "confirmation": {
+          "kind": "DispatchFailed",
+          "requestId": "R1"
+        },
+        "status": "Failed",
+        "next_state": {
+          "lifecycle": "TerminalFailed",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "RetryAttempt"
+        }
+      }
+    },
+    "CCASE-19": {
+      "input_state": {
+        "lifecycle": "ActiveRetry",
+        "requestId": "R1",
+        "productId": "P1",
+        "amount": 2,
+        "attempt": "RetryAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "R1",
+          "attempt": "RetryAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-19",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "None",
+        "decision": {
+          "kind": "None",
+          "reason": "Released",
+          "payload": {
+            "requestId": "None",
+            "productId": "None",
+            "amount": 0
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Released",
+        "next_state": {
+          "lifecycle": "ActiveRetry",
+          "requestId": "R1",
+          "productId": "P1",
+          "amount": 2,
+          "attempt": "RetryAttempt"
+        }
+      }
+    },
+    "CCASE-20": {
+      "input_state": {
+        "lifecycle": "Idle",
+        "requestId": "None",
+        "productId": "None",
+        "amount": 0,
+        "attempt": "FreshAttempt"
+      },
+      "inputs": {
+        "request": {
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "freshness": "Fresh"
+        },
+        "inventorySnapshot": {
+          "validity": "Valid",
+          "productId": "P1",
+          "amount": 2
+        },
+        "dockSnapshot": {
+          "validity": "Valid",
+          "disposition": "Ready"
+        },
+        "executionOutcome": {
+          "requestId": "None",
+          "attempt": "FreshAttempt",
+          "result": "NoReport"
+        }
+      },
+      "expected_case": "CCASE-20",
+      "observed": {
+        "freshInventory": "NotApplicable",
+        "recoveryInventory": "NotApplicable",
+        "selectedIntent": "None",
+        "decision": {
+          "kind": "None",
+          "reason": "Idle",
+          "payload": {
+            "requestId": "None",
+            "productId": "None",
+            "amount": 0
+          }
+        },
+        "instruction": {
+          "kind": "NoInstruction",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0
+        },
+        "confirmation": {
+          "kind": "None",
+          "requestId": "None"
+        },
+        "status": "Idle",
+        "next_state": {
+          "lifecycle": "Idle",
+          "requestId": "None",
+          "productId": "None",
+          "amount": 0,
+          "attempt": "FreshAttempt"
+        }
+      }
+    }
+  },
+  "scenario_traces": [
+    {
+      "id": "SCN-01",
+      "family": "fresh-eligible-release",
+      "traces": [
+        {
+          "name": "fresh-release",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-02",
+      "family": "request-rejection",
+      "traces": [
+        {
+          "name": "malformed-rejection",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-01",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "Reject",
+                  "reason": "Rejected",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Rejected",
+                "next_state": {
+                  "lifecycle": "Idle",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "repeated-rejection",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R2",
+                  "productId": "P2",
+                  "amount": 1,
+                  "freshness": "Repeated"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P2",
+                  "amount": 1
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-02",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "Reject",
+                  "reason": "Rejected",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Rejected",
+                "next_state": {
+                  "lifecycle": "Idle",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-03",
+      "family": "candidate-specific-inventory-wait-and-precedence",
+      "traces": [
+        {
+          "name": "fresh-inventory-wait-precedes-dock",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 1
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Occupied"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-11",
+              "observed": {
+                "freshInventory": "Insufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "WaitInventory",
+                  "reason": "WaitingInventory",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "WaitingInventory",
+                "next_state": {
+                  "lifecycle": "Idle",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "recovery-uses-stored-readiness",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-16",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "RecoveryPending",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R2",
+                  "productId": "P2",
+                  "amount": 1,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P2",
+                  "amount": 1
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-11",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "Unknown",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "WaitInventory",
+                  "reason": "WaitingInventory",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-04",
+      "family": "dock-wait",
+      "traces": [
+        {
+          "name": "fresh-dock-wait",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 3
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Occupied"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-12",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "WaitDock",
+                  "reason": "WaitingDock",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "WaitingDock",
+                "next_state": {
+                  "lifecycle": "Idle",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "recovery-dock-wait",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-16",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "RecoveryPending",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Occupied"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-12",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "Sufficient",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "WaitDock",
+                  "reason": "WaitingDock",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-05",
+      "family": "protected-work-conflict",
+      "traces": [
+        {
+          "name": "active-fresh-preserves-identity",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R2",
+                  "productId": "P2",
+                  "amount": 1,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P2",
+                  "amount": 1
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-13",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "Busy",
+                  "reason": "Busy",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Busy",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-06",
+      "family": "successful-completion-and-reset",
+      "traces": [
+        {
+          "name": "fresh-completion-reset",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Completed"
+                }
+              },
+              "expected_case": "CCASE-15",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "Shipped",
+                  "requestId": "R1"
+                },
+                "status": "Completed",
+                "next_state": {
+                  "lifecycle": "TerminalCompleted",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "TerminalCompleted",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R3",
+                  "productId": "P3",
+                  "amount": 4,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P3",
+                  "amount": 4
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-15-terminal-reset",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ResetIdle",
+                  "reason": "TerminalReset",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Idle",
+                "next_state": {
+                  "lifecycle": "Idle",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "retry-completion-reset",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-16",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "RecoveryPending",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-17",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "Sufficient",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "ReleaseRetry",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveRetry",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "RetryAttempt",
+                  "result": "Completed"
+                }
+              },
+              "expected_case": "CCASE-15",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "Shipped",
+                  "requestId": "R1"
+                },
+                "status": "Completed",
+                "next_state": {
+                  "lifecycle": "TerminalCompleted",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "TerminalCompleted",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-15-terminal-reset",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "ResetIdle",
+                  "reason": "TerminalReset",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Idle",
+                "next_state": {
+                  "lifecycle": "Idle",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-07",
+      "family": "recoverable-failure-and-stored-payload-retry",
+      "traces": [
+        {
+          "name": "retry-with-no-presented-request",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-16",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "RecoveryPending",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-17",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "Sufficient",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "ReleaseRetry",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "retry-outranks-different-competitor",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-16",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "RecoveryPending",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R2",
+                  "productId": "P2",
+                  "amount": 1,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-14/CCASE-17",
+              "observed": {
+                "freshInventory": "Unknown",
+                "recoveryInventory": "Sufficient",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "ReleaseRetry",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "name": "competitor-only-readiness-cannot-authorize-retry",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-16",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "RecoveryPending",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R2",
+                  "productId": "P2",
+                  "amount": 1,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P2",
+                  "amount": 1
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-11",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "Unknown",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "WaitInventory",
+                  "reason": "WaitingInventory",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "SCN-08",
+      "family": "stale-feedback-retry-termination-and-reset",
+      "traces": [
+        {
+          "name": "preserve-then-abort-reset",
+          "steps": [
+            {
+              "input_state": {
+                "lifecycle": "Idle",
+                "requestId": "None",
+                "productId": "None",
+                "amount": 0,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-10",
+              "observed": {
+                "freshInventory": "Sufficient",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "FreshIntent",
+                "decision": {
+                  "kind": "ReleaseFresh",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveFresh",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveFresh",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-16",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Recovering",
+                "next_state": {
+                  "lifecycle": "RecoveryPending",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "RecoveryPending",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "FreshAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-17",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "Sufficient",
+                "selectedIntent": "RecoveryIntent",
+                "decision": {
+                  "kind": "ReleaseRetry",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "R1",
+                    "productId": "P1",
+                    "amount": 2
+                  }
+                },
+                "instruction": {
+                  "kind": "ReleaseRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveRetry",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "RetryAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-19",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveRetry",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "RetryAttempt",
+                  "result": "InProgress"
+                }
+              },
+              "expected_case": "CCASE-19",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveRetry",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R8",
+                  "attempt": "RetryAttempt",
+                  "result": "Completed"
+                }
+              },
+              "expected_case": "CCASE-19",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveRetry",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "FreshAttempt",
+                  "result": "Completed"
+                }
+              },
+              "expected_case": "CCASE-19",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Released",
+                "next_state": {
+                  "lifecycle": "ActiveRetry",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "ActiveRetry",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "R1",
+                  "attempt": "RetryAttempt",
+                  "result": "Failed"
+                }
+              },
+              "expected_case": "CCASE-18",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "None",
+                  "reason": "Released",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "Cancel",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "confirmation": {
+                  "kind": "DispatchFailed",
+                  "requestId": "R1"
+                },
+                "status": "Failed",
+                "next_state": {
+                  "lifecycle": "TerminalFailed",
+                  "requestId": "R1",
+                  "productId": "P1",
+                  "amount": 2,
+                  "attempt": "RetryAttempt"
+                }
+              }
+            },
+            {
+              "input_state": {
+                "lifecycle": "TerminalFailed",
+                "requestId": "R1",
+                "productId": "P1",
+                "amount": 2,
+                "attempt": "RetryAttempt"
+              },
+              "inputs": {
+                "request": {
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "freshness": "Fresh"
+                },
+                "inventorySnapshot": {
+                  "validity": "Valid",
+                  "productId": "P1",
+                  "amount": 2
+                },
+                "dockSnapshot": {
+                  "validity": "Valid",
+                  "disposition": "Ready"
+                },
+                "executionOutcome": {
+                  "requestId": "None",
+                  "attempt": "FreshAttempt",
+                  "result": "NoReport"
+                }
+              },
+              "expected_case": "CCASE-18-terminal-reset",
+              "observed": {
+                "freshInventory": "NotApplicable",
+                "recoveryInventory": "NotApplicable",
+                "selectedIntent": "None",
+                "decision": {
+                  "kind": "ResetIdle",
+                  "reason": "TerminalReset",
+                  "payload": {
+                    "requestId": "None",
+                    "productId": "None",
+                    "amount": 0
+                  }
+                },
+                "instruction": {
+                  "kind": "NoInstruction",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0
+                },
+                "confirmation": {
+                  "kind": "None",
+                  "requestId": "None"
+                },
+                "status": "Idle",
+                "next_state": {
+                  "lifecycle": "Idle",
+                  "requestId": "None",
+                  "productId": "None",
+                  "amount": 0,
+                  "attempt": "FreshAttempt"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

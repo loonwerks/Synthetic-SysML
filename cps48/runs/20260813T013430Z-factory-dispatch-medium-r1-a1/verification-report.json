@@ -1,0 +1,505 @@
+{
+  "schema_version": 2,
+  "run_id": "20260813T013430Z-factory-dispatch-medium-r1-a1",
+  "terminal_status": "accepted",
+  "source": "model/Factory_Dispatch_Coordinator.sysml",
+  "source_sha256": "51b6e31e3dbad8e6f5baf352dc8c68631e79837efda1275e09e2c6a3aee1816d",
+  "checks": {
+    "architecture_tipe": "passed",
+    "final_tipe": "passed",
+    "bounded_analysis": "passed",
+    "traceability": "passed",
+    "visualization": "accepted",
+    "designer_validation": "accepted",
+    "hamr_codegen": "not-run",
+    "application": "not-run",
+    "proyek_logika": "not-run",
+    "public_scenarios": "not-run",
+    "heldout_scenarios": "not-run"
+  },
+  "diagram_health_summary": {
+    "nodeCount": 10,
+    "edgeCount": 24,
+    "unresolvedEndpointCount": 0,
+    "overlapCount": 0,
+    "crossingCount": 0,
+    "routeObjectCollisionCount": 0,
+    "truncatedTextCount": 0,
+    "outOfBoundsCount": 0
+  },
+  "traceability_audit": {
+    "anchorCount": 154,
+    "available": true,
+    "duplicateAnchorIds": [],
+    "referencedTraceIds": [
+      "BOUND-01",
+      "CCASE-01",
+      "CCASE-02",
+      "CCASE-03",
+      "CCASE-04",
+      "CCASE-05",
+      "CCASE-06",
+      "CCASE-07",
+      "CCASE-08",
+      "CCASE-09",
+      "CCASE-10",
+      "CCASE-11",
+      "CCASE-12",
+      "CCASE-13",
+      "CCASE-14",
+      "CCASE-15",
+      "CCASE-16",
+      "CCASE-17",
+      "CCASE-18",
+      "CCASE-19",
+      "CCASE-20",
+      "CTRL-01",
+      "CTRL-02",
+      "CTRL-03",
+      "GOAL-02",
+      "INT-01",
+      "INT-02",
+      "INT-03",
+      "INT-04",
+      "INT-05",
+      "INT-06",
+      "INT-07",
+      "INT-08",
+      "INT-09",
+      "INT-10",
+      "INT-11",
+      "INT-12",
+      "INT-13",
+      "INT-14",
+      "INT-15",
+      "INT-16",
+      "INT-17",
+      "INT-18",
+      "INT-19",
+      "INT-20",
+      "INT-21",
+      "LOCAL-01",
+      "MON-01",
+      "MON-02",
+      "MON-03",
+      "MON-04",
+      "OWN-01",
+      "OWN-02",
+      "OWN-04",
+      "PART-01",
+      "PART-02",
+      "PART-03",
+      "PART-04",
+      "PART-05",
+      "PART-06",
+      "PART-07",
+      "PART-08",
+      "PART-09",
+      "POL-04",
+      "POL-05",
+      "POL-07",
+      "POL-09"
+    ],
+    "relativePath": "cps48/runs/20260813T013430Z-factory-dispatch-medium-r1-a1/system-abstract.md",
+    "taggedElementCount": 194,
+    "traceAssociationCount": 194,
+    "unresolvedTraceIds": []
+  },
+  "agent_decisions": {
+    "designer-initial": {
+      "status": "passed",
+      "summary": "Selected a finite medium finished-product dispatch coordinator with 9 semantic owners, 21 interactions, 20 complete contract cases, 8 scenario families, and explicit recovery-over-fresh priority.",
+      "questions_for_model": [
+        "Can the supported SysML-AADL/GUMBO subset represent the Commitment Tracker's bounded active payload, pre-state attempt correlation, one-retry lifecycle, and terminal-to-idle behavior without weakening CCASE-15 through CCASE-19?",
+        "Can the exact 9-usage and 21-connection architecture preserve owner-local request, inventory, dock, recovery, priority, arbitration, confirmation, and status derivations without central recomputation?",
+        "Which supported finite-type representation preserves the exact None/identifier/enumeration and 0..4 partitions needed to exhaustively analyze CCASE-01 through CCASE-20?"
+      ],
+      "repair_actions": []
+    },
+    "model-review": {
+      "disposition": "revision-recommended",
+      "summary": "Revise legal containment and two identity-owner boundaries while preserving the 9/21/20/8 semantic design.",
+      "findings": [
+        {
+          "classification": "revision-recommended",
+          "evidence": "The selected depth-1 behavioral allocation conflicts with retained checker evidence and trusted/current accepted System-to-Process-to-Thread forms. A fresh current Sireum check returned exit 0 and Well-formed for that form; contract-bearing Threads require a support Process beneath the root System.",
+          "requested_change": "Add one behavior-free uncredited DispatchCoordinatorProcess, place PART-01..09 in it at depth 2, change node_count to [10,10] and containment_depth to [2,2], and preserve one root and one semantic weak region."
+        },
+        {
+          "classification": "localized-mapping",
+          "evidence": "Four root inputs and three root outputs require seven System/Process delegation declarations in addition to the 21 semantic connections.",
+          "requested_change": "Keep edge_count and semantic_interaction_count at 21 as semantic metrics; record seven generated-support delegation routes separately and report 28 total PortConnection declarations."
+        },
+        {
+          "classification": "revision-recommended",
+          "evidence": "Initial PART-04 maps already-correlated FreshAttempt and RetryAttempt failures one-for-one to RetryEligible and Abort, while initial PART-08 maps already-terminal Completed and Failed one-for-one to Shipped and DispatchFailed and copies the identifier. Neither relation adds classification, combination, state dependence, or a policy distinction.",
+          "requested_change": "Move raw MON-04 correlation to revised PART-04 using PART-07 pre-state context and derive Preserve|Completed|RetryEligible|Abort; let PART-08 suppress Preserve and RetryEligible while publishing only Completed or Abort. Revise INT-04, INT-10, INT-11, INT-12, and INT-17 exactly as specified in 01-model-review.md; narrow PART-07 accordingly and preserve all CCASE behavior."
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "PART-01, PART-02, PART-03, PART-05, PART-06, PART-07's state transition relation, and PART-09 each classify, combine, prioritize, or make state-dependent choices over multiple assigned inputs. Their copied payload/context subfields are not owner evidence.",
+          "requested_change": ""
+        },
+        {
+          "classification": "no-concern",
+          "evidence": "Current accepted sources and the trusted library support enum and flat-attribute record ports, Thread-local finite state, initialization, compute cases, and In(state). Closed enums, including a five-value amount encoding, preserve the finite domains; owner-factored exhaustive analysis avoids the naive 9,720,000-boundary-value product, and the harness provides a 180-second watchdog while requiring matching ownership records and zero failed checks.",
+          "requested_change": ""
+        }
+      ]
+    },
+    "designer-resolution": {
+      "disposition": "approved",
+      "summary": "Approved the retained baseline with stored-payload recovery qualification and deterministic terminal reset.",
+      "revision_used": true,
+      "generation_authorized": true,
+      "repair_actions": []
+    },
+    "model-generation": {
+      "disposition": "passed",
+      "summary": "Approved R2 dataflow, candidate-specific recovery qualification, deterministic terminal reset, both retained SysML gates, exact ownership analyzer, and 9/21/20/8 evidence all pass.",
+      "canonical_source": "model/Factory_Dispatch_Coordinator.sysml",
+      "architecture_repairs": 3,
+      "contract_repairs": 0,
+      "repair_actions": []
+    },
+    "visualization": {
+      "disposition": "accepted",
+      "summary": "Current source revision validated; the 24-route overview, native render, sidecar, and all 194 trace associations pass.",
+      "correction_cycles": 5,
+      "native_review": "passed",
+      "traceability_review": "passed",
+      "reviewed_trace_ids": [
+        "BOUND-01",
+        "CCASE-01",
+        "CCASE-02",
+        "CCASE-03",
+        "CCASE-04",
+        "CCASE-05",
+        "CCASE-06",
+        "CCASE-07",
+        "CCASE-08",
+        "CCASE-09",
+        "CCASE-10",
+        "CCASE-11",
+        "CCASE-12",
+        "CCASE-13",
+        "CCASE-14",
+        "CCASE-15",
+        "CCASE-16",
+        "CCASE-17",
+        "CCASE-18",
+        "CCASE-19",
+        "CCASE-20",
+        "CTRL-01",
+        "CTRL-02",
+        "CTRL-03",
+        "GOAL-02",
+        "INT-01",
+        "INT-02",
+        "INT-03",
+        "INT-04",
+        "INT-05",
+        "INT-06",
+        "INT-07",
+        "INT-08",
+        "INT-09",
+        "INT-10",
+        "INT-11",
+        "INT-12",
+        "INT-13",
+        "INT-14",
+        "INT-15",
+        "INT-16",
+        "INT-17",
+        "INT-18",
+        "INT-19",
+        "INT-20",
+        "INT-21",
+        "LOCAL-01",
+        "MON-01",
+        "MON-02",
+        "MON-03",
+        "MON-04",
+        "OWN-01",
+        "OWN-02",
+        "OWN-04",
+        "PART-01",
+        "PART-02",
+        "PART-03",
+        "PART-04",
+        "PART-05",
+        "PART-06",
+        "PART-07",
+        "PART-08",
+        "PART-09",
+        "POL-04",
+        "POL-05",
+        "POL-07",
+        "POL-09"
+      ],
+      "reviewed_tagged_element_count": 194,
+      "reviewed_trace_association_count": 194,
+      "unresolved_trace_ids": [],
+      "duplicate_anchor_ids": [],
+      "irrelevant_trace_associations": []
+    },
+    "designer-final": {
+      "disposition": "accepted",
+      "summary": "Source, bounded semantics, ownership, resolution conformance, and visualization pass; executable evidence is not required.",
+      "source_fitness": "passed",
+      "visualization_fitness": "passed",
+      "executable_fitness": "not-run",
+      "repair_owner": "none",
+      "repair_actions": []
+    }
+  },
+  "evaluations": {
+    "complexity-validation": {
+      "schema_version": 1,
+      "status": "passed",
+      "declared_tier": "medium",
+      "observed": {
+        "semantic_usages": 9,
+        "semantic_interactions": 21,
+        "nontrivial_contract_cases": 20,
+        "scenario_families": 8
+      },
+      "features": {
+        "multiple_decision_owners": true,
+        "priority_conflict": true,
+        "fault_propagation": true,
+        "recovery": true,
+        "composition": true
+      },
+      "ownership_audit": [
+        {
+          "usage": "request_qualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "request"
+          ],
+          "owner_local_facts": [
+            "four-way admission classification"
+          ],
+          "contract_cases": [
+            "CCASE-01",
+            "CCASE-02",
+            "CCASE-03",
+            "CCASE-20"
+          ],
+          "analyzer_checks": [
+            "request-owner-450-valuations"
+          ]
+        },
+        {
+          "usage": "inventory_qualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "inventory_snapshot",
+            "request_fact",
+            "recovery_context"
+          ],
+          "owner_local_facts": [
+            "candidate-specific fresh inventory assessment",
+            "candidate-specific stored recovery inventory assessment"
+          ],
+          "contract_cases": [
+            "CCASE-04",
+            "CCASE-05",
+            "CCASE-06"
+          ],
+          "analyzer_checks": [
+            "fresh-inventory-owner-6400-pairs",
+            "recovery-inventory-owner-6400-pairs"
+          ]
+        },
+        {
+          "usage": "dock_qualifier",
+          "claimed_roles": [
+            "applicability"
+          ],
+          "assigned_inputs": [
+            "dock_snapshot"
+          ],
+          "owner_local_facts": [
+            "validity-disposition dock assessment"
+          ],
+          "contract_cases": [
+            "CCASE-07",
+            "CCASE-08",
+            "CCASE-09"
+          ],
+          "analyzer_checks": [
+            "dock-owner-6-valuations"
+          ]
+        },
+        {
+          "usage": "outcome_recovery_classifier",
+          "claimed_roles": [
+            "applicability",
+            "decision"
+          ],
+          "assigned_inputs": [
+            "execution_outcome",
+            "execution_context"
+          ],
+          "owner_local_facts": [
+            "correlated state-dependent outcome plan"
+          ],
+          "contract_cases": [
+            "CCASE-14",
+            "CCASE-15",
+            "CCASE-16",
+            "CCASE-18",
+            "CCASE-19"
+          ],
+          "analyzer_checks": [
+            "outcome-owner-7776-context-pairs"
+          ]
+        },
+        {
+          "usage": "dispatch_priority_resolver",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "admission",
+            "recovery_plan"
+          ],
+          "owner_local_facts": [
+            "recovery-over-fresh priority selection"
+          ],
+          "contract_cases": [
+            "CCASE-14"
+          ],
+          "analyzer_checks": [
+            "priority-owner-16-pairs"
+          ]
+        },
+        {
+          "usage": "release_arbiter",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "request_fact",
+            "candidate_readiness",
+            "dock_assessment",
+            "selected_intent"
+          ],
+          "owner_local_facts": [
+            "matching-source release/wait/reject/busy decision",
+            "terminal-pre-state reset decision"
+          ],
+          "contract_cases": [
+            "CCASE-01",
+            "CCASE-02",
+            "CCASE-10",
+            "CCASE-11",
+            "CCASE-12",
+            "CCASE-13",
+            "CCASE-15",
+            "CCASE-17",
+            "CCASE-18",
+            "CCASE-19",
+            "CCASE-20"
+          ],
+          "analyzer_checks": [
+            "arbiter-owner-partition-check",
+            "terminal-reset-29160000-products"
+          ]
+        },
+        {
+          "usage": "commitment_tracker",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "outcome_plan",
+            "dispatch_decision",
+            "In(lifecycle,payload,attempt)"
+          ],
+          "owner_local_facts": [
+            "state-dependent commitment transition and instruction",
+            "terminal reset clears commitment"
+          ],
+          "contract_cases": [
+            "CCASE-10",
+            "CCASE-11",
+            "CCASE-12",
+            "CCASE-15",
+            "CCASE-16",
+            "CCASE-17",
+            "CCASE-18",
+            "CCASE-19",
+            "CCASE-20"
+          ],
+          "analyzer_checks": [
+            "tracker-transition-oracle-check"
+          ]
+        },
+        {
+          "usage": "confirmation_determiner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "confirmation_context"
+          ],
+          "owner_local_facts": [
+            "two-class confirmation suppression and terminal distinction"
+          ],
+          "contract_cases": [
+            "CCASE-15",
+            "CCASE-16",
+            "CCASE-18",
+            "CCASE-19"
+          ],
+          "analyzer_checks": [
+            "confirmation-owner-four-classes"
+          ]
+        },
+        {
+          "usage": "status_determiner",
+          "claimed_roles": [
+            "decision"
+          ],
+          "assigned_inputs": [
+            "decision_reason",
+            "lifecycle_snapshot"
+          ],
+          "owner_local_facts": [
+            "terminal/recovery/busy/wait/reset status precedence"
+          ],
+          "contract_cases": [
+            "CCASE-01",
+            "CCASE-10",
+            "CCASE-11",
+            "CCASE-12",
+            "CCASE-13",
+            "CCASE-15",
+            "CCASE-16",
+            "CCASE-18",
+            "CCASE-20"
+          ],
+          "analyzer_checks": [
+            "status-owner-42-precedence-pairs"
+          ]
+        }
+      ],
+      "counting_rules": "campaign-v1"
+    }
+  },
+  "reason": "Source, bounded semantics, ownership, resolution conformance, and visualization pass; executable evidence is not required.",
+  "retention": {
+    "profile": "accepted-run-minimal-v1",
+    "decisions_consolidated_here": true,
+    "evaluation_results_consolidated_here": true,
+    "raw_prompts_responses_events_retained": false
+  },
+  "claim_boundary": "Acceptance is limited to retained source/tool, bounded finite-analysis, trace, rendered-review, and Designer evidence. Deferred claims remain deferred."
+}

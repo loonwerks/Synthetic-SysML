@@ -1,0 +1,537 @@
+{
+  "affected_units": [],
+  "breakdown_complete": true,
+  "candidate_health": "UNKNOWN",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/evaluator/dataset/oracle.sysml",
+      "--candidate",
+      "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml",
+      "--output-dir",
+      "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/result",
+      "--timeout",
+      "180.0"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "EQUIVALENT",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/candidate/M-star.sysml",
+    "oracle": "experiments/scp-terra-high/runs/battery-status-assessment-service-for-drone-control/evaluator/dataset/oracle.sysml"
+  },
+  "oracle_health": "UNKNOWN",
+  "result": "EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_Candidate_GumboX.inititialize_IEP_Post(decision_assessment))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_GumboX.inititialize_IEP_Post(decision_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_GumboX.inititialize_IEP_Post(decision_assessment))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_Candidate_GumboX.inititialize_IEP_Post(decision_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:health:03-candidate-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:health:01-oracle-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-2c1806b959:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::assessment_decision::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-5213340e96:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_Candidate_GumboX.compute_CEP_Post(assessment_context, qualified_evidence, decision_assessment))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_GumboX.compute_CEP_Post(assessment_context, qualified_evidence, decision_assessment))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-5213340e96:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-5213340e96:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_GumboX.compute_CEP_Post(assessment_context, qualified_evidence, decision_assessment))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.AssessmentDecision_battery_assessment_process_assessment_decision_Candidate_GumboX.compute_CEP_Post(assessment_context, qualified_evidence, decision_assessment))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-5213340e96:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-5213340e96:health:03-candidate-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-5213340e96:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-5213340e96:health:01-oracle-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-5213340e96:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::assessment_decision::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-088192b5a3:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_Candidate_GumboX.inititialize_IEP_Post(lastadmittedtoken, lifecyclestate, acquisition_directive, assessment_context, check_status, publication_directive))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_GumboX.inititialize_IEP_Post(lastadmittedtoken, lifecyclestate, acquisition_directive, assessment_context, check_status, publication_directive))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-088192b5a3:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-088192b5a3:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_GumboX.inititialize_IEP_Post(lastadmittedtoken, lifecyclestate, acquisition_directive, assessment_context, check_status, publication_directive))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_Candidate_GumboX.inititialize_IEP_Post(lastadmittedtoken, lifecyclestate, acquisition_directive, assessment_context, check_status, publication_directive))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-088192b5a3:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "UNKNOWN",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-088192b5a3:health:03-candidate-assumption-satisfiable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "UNKNOWN",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-088192b5a3:health:01-oracle-assumption-satisfiable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::check_lifecycle::initialize",
+      "warnings": [
+        "cannot establish pointwise realizability: finite output domain has 7920 combinations (limit 256)"
+      ]
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-d222668acc:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_Candidate_GumboX.compute_CEP_Post(in_lastadmittedtoken, in_lifecyclestate, lastadmittedtoken, lifecyclestate, acquisition_outcome, check_request, publication_outcome, acquisition_directive, assessment_context, check_status, publication_directive))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_GumboX.compute_CEP_Post(in_lastadmittedtoken, in_lifecyclestate, lastadmittedtoken, lifecyclestate, acquisition_outcome, check_request, publication_outcome, acquisition_directive, assessment_context, check_status, publication_directive))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-d222668acc:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-d222668acc:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_GumboX.compute_CEP_Post(in_lastadmittedtoken, in_lifecyclestate, lastadmittedtoken, lifecyclestate, acquisition_outcome, check_request, publication_outcome, acquisition_directive, assessment_context, check_status, publication_directive))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.CheckLifecycle_battery_assessment_process_check_lifecycle_Candidate_GumboX.compute_CEP_Post(in_lastadmittedtoken, in_lifecyclestate, lastadmittedtoken, lifecyclestate, acquisition_outcome, check_request, publication_outcome, acquisition_directive, assessment_context, check_status, publication_directive))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-d222668acc:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "UNKNOWN",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-d222668acc:health:03-candidate-assumption-satisfiable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "UNKNOWN",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-d222668acc:health:01-oracle-assumption-satisfiable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::check_lifecycle::compute",
+      "warnings": [
+        "cannot establish pointwise realizability: finite output domain has 7920 combinations (limit 256)"
+      ]
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-633ceb6525:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_Candidate_GumboX.inititialize_IEP_Post(acquisitionstate, committedacquisitionoutcome, acquisition_outcome, captured_report, status_read_request))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_GumboX.inititialize_IEP_Post(acquisitionstate, committedacquisitionoutcome, acquisition_outcome, captured_report, status_read_request))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-633ceb6525:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-633ceb6525:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_GumboX.inititialize_IEP_Post(acquisitionstate, committedacquisitionoutcome, acquisition_outcome, captured_report, status_read_request))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_Candidate_GumboX.inititialize_IEP_Post(acquisitionstate, committedacquisitionoutcome, acquisition_outcome, captured_report, status_read_request))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-633ceb6525:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "UNKNOWN",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-633ceb6525:health:03-candidate-assumption-satisfiable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "UNKNOWN",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-633ceb6525:health:01-oracle-assumption-satisfiable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::report_acquisition::initialize",
+      "warnings": [
+        "cannot establish pointwise realizability: finite output domain has 27000 combinations (limit 256)"
+      ]
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-dec81ded96:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_Candidate_GumboX.compute_CEP_Post(in_acquisitionstate, in_committedacquisitionoutcome, acquisitionstate, committedacquisitionoutcome, acquisition_directive, battery_report, acquisition_outcome, captured_report, status_read_request))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_GumboX.compute_CEP_Post(in_acquisitionstate, in_committedacquisitionoutcome, acquisitionstate, committedacquisitionoutcome, acquisition_directive, battery_report, acquisition_outcome, captured_report, status_read_request))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-dec81ded96:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-dec81ded96:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_GumboX.compute_CEP_Post(in_acquisitionstate, in_committedacquisitionoutcome, acquisitionstate, committedacquisitionoutcome, acquisition_directive, battery_report, acquisition_outcome, captured_report, status_read_request))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportAcquisition_battery_assessment_process_report_acquisition_Candidate_GumboX.compute_CEP_Post(in_acquisitionstate, in_committedacquisitionoutcome, acquisitionstate, committedacquisitionoutcome, acquisition_directive, battery_report, acquisition_outcome, captured_report, status_read_request))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-dec81ded96:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "UNKNOWN",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-dec81ded96:health:03-candidate-assumption-satisfiable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "UNKNOWN",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-dec81ded96:health:01-oracle-assumption-satisfiable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::report_acquisition::compute",
+      "warnings": [
+        "cannot establish pointwise realizability: finite output domain has 27000 combinations (limit 256)"
+      ]
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_Candidate_GumboX.inititialize_IEP_Post(qualified_evidence))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_GumboX.inititialize_IEP_Post(qualified_evidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_GumboX.inititialize_IEP_Post(qualified_evidence))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_Candidate_GumboX.inititialize_IEP_Post(qualified_evidence))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:health:03-candidate-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:health:01-oracle-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-1aaffa60d8:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::report_qualification::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-6089e51336:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_Candidate_GumboX.compute_CEP_Post(captured_report, qualified_evidence))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_GumboX.compute_CEP_Post(captured_report, qualified_evidence))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-6089e51336:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-6089e51336:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_GumboX.compute_CEP_Post(captured_report, qualified_evidence))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ReportQualification_battery_assessment_process_report_qualification_Candidate_GumboX.compute_CEP_Post(captured_report, qualified_evidence))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-6089e51336:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "VERIFIED",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-6089e51336:health:03-candidate-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-6089e51336:health:04-candidate-pointwise-realizable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "VERIFIED",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-6089e51336:health:01-oracle-assumption-satisfiable",
+        "root-0:root-battery-status-assessment-service-batteryst-6089e51336:health:02-oracle-pointwise-realizable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::report_qualification::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-ceb6589811:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_Candidate_GumboX.inititialize_IEP_Post(committedpublicationoutcome, publicationstate, retainedassessment, battery_assessment, publication_outcome))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_GumboX.inititialize_IEP_Post(committedpublicationoutcome, publicationstate, retainedassessment, battery_assessment, publication_outcome))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-ceb6589811:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-ceb6589811:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_GumboX.inititialize_IEP_Post(committedpublicationoutcome, publicationstate, retainedassessment, battery_assessment, publication_outcome))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_Candidate_GumboX.inititialize_IEP_Post(committedpublicationoutcome, publicationstate, retainedassessment, battery_assessment, publication_outcome))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-ceb6589811:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "UNKNOWN",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-ceb6589811:health:03-candidate-assumption-satisfiable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "UNKNOWN",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-ceb6589811:health:01-oracle-assumption-satisfiable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::result_custody::initialize",
+      "warnings": [
+        "cannot establish pointwise realizability: finite output domain has 14700 combinations (limit 256)"
+      ]
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-3d4d05f07e:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_Candidate_GumboX.compute_CEP_Post(in_committedpublicationoutcome, in_publicationstate, in_retainedassessment, committedpublicationoutcome, publicationstate, retainedassessment, control_use_feedback, decision_assessment, publication_directive, battery_assessment, publication_outcome))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_GumboX.compute_CEP_Post(in_committedpublicationoutcome, in_publicationstate, in_retainedassessment, committedpublicationoutcome, publicationstate, retainedassessment, control_use_feedback, decision_assessment, publication_directive, battery_assessment, publication_outcome))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-3d4d05f07e:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-3d4d05f07e:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_GumboX.compute_CEP_Post(in_committedpublicationoutcome, in_publicationstate, in_retainedassessment, committedpublicationoutcome, publicationstate, retainedassessment, control_use_feedback, decision_assessment, publication_directive, battery_assessment, publication_outcome))) ___>: (equiv_shared_0.Battery_Status_Assessment_Service.ResultCustody_battery_assessment_process_result_custody_Candidate_GumboX.compute_CEP_Post(in_committedpublicationoutcome, in_publicationstate, in_retainedassessment, committedpublicationoutcome, publicationstate, retainedassessment, control_use_feedback, decision_assessment, publication_directive, battery_assessment, publication_outcome))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-battery-status-assessment-service-batteryst-3d4d05f07e:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "UNKNOWN",
+      "candidate_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-3d4d05f07e:health:03-candidate-assumption-satisfiable"
+      ],
+      "classification": "EQUIVALENT",
+      "oracle_health": "UNKNOWN",
+      "oracle_health_evidence": [
+        "root-0:root-battery-status-assessment-service-batteryst-3d4d05f07e:health:01-oracle-assumption-satisfiable"
+      ],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Battery_Status_Assessment_Service::BatteryStatusAssessmentServiceSystem/root-instance::BatteryStatusAssessmentServiceSystem_Instance/component::BatteryStatusAssessmentServiceSystem_Instance::battery_assessment_process::result_custody::compute",
+      "warnings": [
+        "cannot establish pointwise realizability: finite output domain has 14700 combinations (limit 256)"
+      ]
+    }
+  ],
+  "verification": "verification.json"
+}

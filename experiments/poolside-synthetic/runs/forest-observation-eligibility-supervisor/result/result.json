@@ -1,0 +1,612 @@
+{
+  "affected_units": [
+    {
+      "candidate_clause_ids": [
+        "ARBITER_WITHDRAW",
+        "ARBITER_POWER_INSUFFICIENT",
+        "ARBITER_POWER_UNTRUSTED",
+        "ARBITER_SUPPORT_UNAVAILABLE",
+        "ARBITER_SUPPORT_UNTRUSTED",
+        "ARBITER_PERMIT",
+        "ARBITER_INACTIVE_OR_MISMATCH"
+      ],
+      "candidate_locations": [
+        {
+          "column": 10,
+          "line": 523,
+          "offset": 39560,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 527,
+          "offset": 39781,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 531,
+          "offset": 40444,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 535,
+          "offset": 41098,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 539,
+          "offset": 41750,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 543,
+          "offset": 42396,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/candidate.sysml"
+        },
+        {
+          "column": 10,
+          "line": 547,
+          "offset": 43018,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/candidate.sysml"
+        }
+      ],
+      "candidate_trace_ids": [],
+      "classification": "CANDIDATE_WEAKER",
+      "classifier": "Forest_Observation_Eligibility_Supervisor::EligibilityArbiter",
+      "evidence_paths": [
+        "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:01-a-----a-validity",
+        "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:02-a----g----g-validity",
+        "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:02-a----g----g-complement",
+        "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:03-a----a-validity",
+        "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:04-a---g-----g-validity"
+      ],
+      "failed_atomic_vcs": [
+        "A* & G -> G*"
+      ],
+      "oracle_clause_ids": [
+        "ARBITER_WITHDRAW",
+        "ARBITER_POWER_INSUFFICIENT",
+        "ARBITER_POWER_UNTRUSTED",
+        "ARBITER_SUPPORT_UNAVAILABLE",
+        "ARBITER_SUPPORT_UNTRUSTED",
+        "ARBITER_PERMIT",
+        "ARBITER_INACTIVE_OR_MISMATCH"
+      ],
+      "oracle_locations": [
+        {
+          "column": 10,
+          "line": 444,
+          "offset": 24102,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 449,
+          "offset": 24367,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 459,
+          "offset": 25128,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 469,
+          "offset": 25880,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 479,
+          "offset": 26624,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 489,
+          "offset": 27362,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/oracle.sysml"
+        },
+        {
+          "column": 10,
+          "line": 499,
+          "offset": 28072,
+          "uri": "/tmp/equiv-result-staging-jv1bf388/bundle/inputs/oracle.sysml"
+        }
+      ],
+      "oracle_trace_ids": [
+        "CASE-08",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-01",
+        "FAULT-01"
+      ],
+      "owner_instance": "ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::eligibilityArbiter",
+      "phase": "compute",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::eligibilityArbiter::compute"
+    }
+  ],
+  "breakdown_complete": true,
+  "candidate_health": "NOT_CHECKED",
+  "command": {
+    "argv": [
+      "python3",
+      "-m",
+      "src.equiv_checker",
+      "compare",
+      "--oracle",
+      "datasets/forest-observation-eligibility-supervisor/evaluator/oracle.sysml",
+      "--candidate",
+      "experiments/poolside-synthetic/runs/forest-observation-eligibility-supervisor/agent/M-star.sysml",
+      "--output-dir",
+      "experiments/poolside-synthetic/runs/forest-observation-eligibility-supervisor/result",
+      "--timeout",
+      "300.0",
+      "--defer-health"
+    ],
+    "cwd": "."
+  },
+  "comparison_breakdown": "comparison-breakdown.json",
+  "comparison_verdict": "CANDIDATE_WEAKER",
+  "diagnostics": [],
+  "inputs": {
+    "candidate": "experiments/poolside-synthetic/runs/forest-observation-eligibility-supervisor/agent/M-star.sysml",
+    "oracle": "datasets/forest-observation-eligibility-supervisor/evaluator/oracle.sysml"
+  },
+  "oracle_health": "NOT_CHECKED",
+  "result": "NOT_EQUIVALENT",
+  "run_status": "COMPLETED",
+  "schema_version": "2.0.0",
+  "timings": "timings.json",
+  "unit_results": [
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-d4cc6b66fa:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_Candidate_GumboX.inititialize_IEP_Post(gatephase, gateoutcome, observationauthorization))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_GumboX.inititialize_IEP_Post(gatephase, gateoutcome, observationauthorization))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-d4cc6b66fa:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-d4cc6b66fa:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_GumboX.inititialize_IEP_Post(gatephase, gateoutcome, observationauthorization))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_Candidate_GumboX.inititialize_IEP_Post(gatephase, gateoutcome, observationauthorization))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-d4cc6b66fa:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::authorizationGate::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-022b22ca6c:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_Candidate_GumboX.compute_CEP_Post(in_gatephase, gatephase, eligibilitydecision, observationprogress, gateoutcome, observationauthorization))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_GumboX.compute_CEP_Post(in_gatephase, gatephase, eligibilitydecision, observationprogress, gateoutcome, observationauthorization))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-022b22ca6c:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-022b22ca6c:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_GumboX.compute_CEP_Post(in_gatephase, gatephase, eligibilitydecision, observationprogress, gateoutcome, observationauthorization))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.AuthorizationGate_eligibilitySupervisionProcess_authorizationGate_Candidate_GumboX.compute_CEP_Post(in_gatephase, gatephase, eligibilitydecision, observationprogress, gateoutcome, observationauthorization))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-022b22ca6c:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::authorizationGate::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-f371243fe7:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_Candidate_GumboX.inititialize_IEP_Post(eligibilitydecision))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_GumboX.inititialize_IEP_Post(eligibilitydecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-f371243fe7:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-f371243fe7:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_GumboX.inititialize_IEP_Post(eligibilitydecision))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_Candidate_GumboX.inititialize_IEP_Post(eligibilitydecision))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-f371243fe7:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::eligibilityArbiter::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_Candidate_GumboX.compute_CEP_Post(energyverdictin, requestcontext, supportverdictin, eligibilitydecision))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_GumboX.compute_CEP_Post(energyverdictin, requestcontext, supportverdictin, eligibilitydecision))) & T",
+          "name": "A* & G -> G*",
+          "status": "COUNTEREXAMPLE",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:02-a----g----g-validity",
+          "witness_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:02-a----g----g-complement"
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_GumboX.compute_CEP_Post(energyverdictin, requestcontext, supportverdictin, eligibilitydecision))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EligibilityArbiter_eligibilitySupervisionProcess_eligibilityArbiter_Candidate_GumboX.compute_CEP_Post(energyverdictin, requestcontext, supportverdictin, eligibilitydecision))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-36fb3cae4b:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "CANDIDATE_WEAKER",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::eligibilityArbiter::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-38494bcb71:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_Candidate_GumboX.inititialize_IEP_Post(energyverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_GumboX.inititialize_IEP_Post(energyverdictout))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-38494bcb71:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-38494bcb71:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_GumboX.inititialize_IEP_Post(energyverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_Candidate_GumboX.inititialize_IEP_Post(energyverdictout))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-38494bcb71:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::energyAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-b11bdb21f9:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_Candidate_GumboX.compute_CEP_Post(energyevidence, evaluationticket, energyverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_GumboX.compute_CEP_Post(energyevidence, evaluationticket, energyverdictout))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-b11bdb21f9:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-b11bdb21f9:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_GumboX.compute_CEP_Post(energyevidence, evaluationticket, energyverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.EnergyAssessor_eligibilitySupervisionProcess_energyAssessor_Candidate_GumboX.compute_CEP_Post(energyevidence, evaluationticket, energyverdictout))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-b11bdb21f9:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::energyAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-ed35b9ac27:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_Candidate_GumboX.inititialize_IEP_Post(supportverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_GumboX.inititialize_IEP_Post(supportverdictout))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-ed35b9ac27:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-ed35b9ac27:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_GumboX.inititialize_IEP_Post(supportverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_Candidate_GumboX.inititialize_IEP_Post(supportverdictout))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-ed35b9ac27:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::observationSupportAssessor::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-916fd1010f:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_Candidate_GumboX.compute_CEP_Post(cameraevidence, evaluationticket, radioevidence, supportverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_GumboX.compute_CEP_Post(cameraevidence, evaluationticket, radioevidence, supportverdictout))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-916fd1010f:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-916fd1010f:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_GumboX.compute_CEP_Post(cameraevidence, evaluationticket, radioevidence, supportverdictout))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.ObservationSupportAssessor_eligibilitySupervisionProcess_observationSupportAssessor_Candidate_GumboX.compute_CEP_Post(cameraevidence, evaluationticket, radioevidence, supportverdictout))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-916fd1010f:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::observationSupportAssessor::compute",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-e689f683b5:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_Candidate_GumboX.inititialize_IEP_Post(lastacceptedtoken, requeststate, eligibilitystatus, energyticket, requestcontext, supportticket))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_GumboX.inititialize_IEP_Post(lastacceptedtoken, requeststate, eligibilitystatus, energyticket, requestcontext, supportticket))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-e689f683b5:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-e689f683b5:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_GumboX.inititialize_IEP_Post(lastacceptedtoken, requeststate, eligibilitystatus, energyticket, requestcontext, supportticket))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_Candidate_GumboX.inititialize_IEP_Post(lastacceptedtoken, requeststate, eligibilitystatus, energyticket, requestcontext, supportticket))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-e689f683b5:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::requestLifecycle::initialize",
+      "warnings": []
+    },
+    {
+      "atomic_vcs": [
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A* -> A",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-caecc05856:atomic:01-a-----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_Candidate_GumboX.compute_CEP_Post(in_lastacceptedtoken, in_requeststate, lastacceptedtoken, requeststate, gateoutcome, requestinput, eligibilitystatus, energyticket, requestcontext, supportticket))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_GumboX.compute_CEP_Post(in_lastacceptedtoken, in_requeststate, lastacceptedtoken, requeststate, gateoutcome, requestinput, eligibilitystatus, energyticket, requestcontext, supportticket))) & T",
+          "name": "A* & G -> G*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-caecc05856:atomic:02-a----g----g-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(T) ___>: (T)",
+          "name": "A -> A*",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-caecc05856:atomic:03-a----a-validity",
+          "witness_evidence": null
+        },
+        {
+          "detail": null,
+          "formula": "(((T) & (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_GumboX.compute_CEP_Post(in_lastacceptedtoken, in_requeststate, lastacceptedtoken, requeststate, gateoutcome, requestinput, eligibilitystatus, energyticket, requestcontext, supportticket))) ___>: (equiv_shared_0.Forest_Observation_Eligibility_Supervisor.RequestLifecycle_eligibilitySupervisionProcess_requestLifecycle_Candidate_GumboX.compute_CEP_Post(in_lastacceptedtoken, in_requeststate, lastacceptedtoken, requeststate, gateoutcome, requestinput, eligibilitystatus, energyticket, requestcontext, supportticket))) & T",
+          "name": "A & G* -> G",
+          "status": "VERIFIED",
+          "validity_evidence": "root-0:root-forest-observation-eligibility-supervisor-f-caecc05856:atomic:04-a---g-----g-validity",
+          "witness_evidence": null
+        }
+      ],
+      "candidate_health": "NOT_RUN",
+      "candidate_health_evidence": [],
+      "classification": "EQUIVALENT",
+      "oracle_health": "NOT_RUN",
+      "oracle_health_evidence": [],
+      "schema_version": "3.0.0",
+      "unit_key": "root::Forest_Observation_Eligibility_Supervisor::ForestObservationEligibilitySupervisor/root-instance::ForestObservationEligibilitySupervisor_Instance/component::ForestObservationEligibilitySupervisor_Instance::eligibilitySupervisionProcess::requestLifecycle::compute",
+      "warnings": []
+    }
+  ],
+  "verification": "verification.json"
+}

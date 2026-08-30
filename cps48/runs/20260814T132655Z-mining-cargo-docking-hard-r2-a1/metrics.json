@@ -1,0 +1,363 @@
+{
+  "source": "model/Docking_Access_Supervisor.sysml",
+  "source_sha256": "40dedb7eb24da921442e95118238d83ae41e6002fb60cfa6a1ac5dc56c0b87ae",
+  "root_system_usages": 1,
+  "semantic_usages": 15,
+  "generated_support_usages": 1,
+  "non_root_architecture_nodes": 16,
+  "all_usages_including_root": 17,
+  "semantic_interactions": 35,
+  "generated_support_routes": 6,
+  "source_port_connection_declarations": 41,
+  "weakly_connected_semantic_regions": 1,
+  "containment_depth_beneath_root": 2,
+  "nontrivial_contract_cases": 29,
+  "scenario_families": 11,
+  "state_owners": [
+    "request_admission",
+    "docking_lifecycle",
+    "berth_commitment",
+    "service_access_gate",
+    "recovery_supervisor"
+  ],
+  "principal_decision_owners": [
+    "access_coherence",
+    "docking_action_arbitration",
+    "result_composition"
+  ],
+  "gumbo_inspected_data_fields": 77,
+  "gumbo_inspected_fields_declared_as_attributes": 77,
+  "architecture_repairs": 4,
+  "contract_repairs": 4,
+  "analyzer_repairs": 2,
+  "trace_annotation_repairs": 0,
+  "campaign_complexity": {
+    "tier": "hard",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 15,
+    "semantic_interactions": 35,
+    "nontrivial_contract_cases": 29,
+    "scenario_families": 11,
+    "ownership_audit": [
+      {
+        "usage": "request_classification",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "request_classification.access_request"
+        ],
+        "owner_local_facts": [
+          "request presence, operation, token, and authorization-start classification"
+        ],
+        "contract_cases": [
+          "CASE-01",
+          "CASE-02",
+          "CASE-03"
+        ],
+        "analyzer_checks": [
+          "request classification partition"
+        ]
+      },
+      {
+        "usage": "vessel_status_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "vessel_status_assessment.vessel_status"
+        ],
+        "owner_local_facts": [
+          "vessel usability, lifecycle class, readiness, and token"
+        ],
+        "contract_cases": [
+          "CASE-04",
+          "CASE-05",
+          "CASE-06"
+        ],
+        "analyzer_checks": [
+          "vessel classification partition"
+        ]
+      },
+      {
+        "usage": "station_report_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "station_report_assessment.station_report"
+        ],
+        "owner_local_facts": [
+          "station availability, progress class, denial, and token"
+        ],
+        "contract_cases": [
+          "CASE-07",
+          "CASE-08",
+          "CASE-09",
+          "CASE-10"
+        ],
+        "analyzer_checks": [
+          "station classification partition"
+        ]
+      },
+      {
+        "usage": "service_activity_assessment",
+        "claimed_roles": [
+          "applicability"
+        ],
+        "assigned_inputs": [
+          "service_activity_assessment.service_activity"
+        ],
+        "owner_local_facts": [
+          "service usability, quiescence, activity, and request permission"
+        ],
+        "contract_cases": [
+          "CASE-11",
+          "CASE-12",
+          "CASE-13"
+        ],
+        "analyzer_checks": [
+          "service applicability partition"
+        ]
+      },
+      {
+        "usage": "request_admission",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "request_admission.request_facts",
+          "request_admission.vessel_readiness",
+          "request_admission.service_readiness",
+          "request_admission.admission_guard",
+          "request_admission.In(requestLedger)"
+        ],
+        "owner_local_facts": [
+          "request disposition, admitted operation, freshness, and next request ledger"
+        ],
+        "contract_cases": [
+          "CASE-14",
+          "CASE-15",
+          "CASE-16",
+          "CASE-17",
+          "CASE-18",
+          "CASE-19",
+          "CASE-20",
+          "CASE-21"
+        ],
+        "analyzer_checks": [
+          "admission partition and ledger transition"
+        ]
+      },
+      {
+        "usage": "access_coherence",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "access_coherence.control_event",
+          "access_coherence.vessel_facts",
+          "access_coherence.station_facts",
+          "access_coherence.service_facts",
+          "access_coherence.prior_lifecycle_view",
+          "access_coherence.prior_berth_state",
+          "access_coherence.prior_gate_state",
+          "access_coherence.prior_recovery_state"
+        ],
+        "owner_local_facts": [
+          "fault trigger, recovery intent, qualified progress, admission guard, and dominant directive"
+        ],
+        "contract_cases": [
+          "CASE-22",
+          "CASE-23",
+          "CASE-24"
+        ],
+        "analyzer_checks": [
+          "coherence, fault, and recovery partition"
+        ]
+      },
+      {
+        "usage": "docking_lifecycle",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "docking_lifecycle.lifecycle_frame",
+          "docking_lifecycle.admission_decision",
+          "docking_lifecycle.In(lifecycleState)"
+        ],
+        "owner_local_facts": [
+          "next lifecycle and prior active-session view"
+        ],
+        "contract_cases": [
+          "CASE-25"
+        ],
+        "analyzer_checks": [
+          "lifecycle owner transition"
+        ]
+      },
+      {
+        "usage": "berth_commitment",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "berth_commitment.berth_transition_evidence",
+          "berth_commitment.In(berthState)"
+        ],
+        "owner_local_facts": [
+          "prior-state-dependent berth transition"
+        ],
+        "contract_cases": [
+          "CASE-25"
+        ],
+        "analyzer_checks": [
+          "berth owner transition"
+        ]
+      },
+      {
+        "usage": "service_access_gate",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "service_access_gate.gate_safety_frame",
+          "service_access_gate.admission_decision",
+          "service_access_gate.In(gateState)"
+        ],
+        "owner_local_facts": [
+          "gate open, ordered close, forced close, or retention"
+        ],
+        "contract_cases": [
+          "CASE-25"
+        ],
+        "analyzer_checks": [
+          "gate owner transition"
+        ]
+      },
+      {
+        "usage": "recovery_supervisor",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "recovery_supervisor.recovery_transition",
+          "recovery_supervisor.In(recoveryState)"
+        ],
+        "owner_local_facts": [
+          "recovery latch, reconcile, verified reopen, or retention"
+        ],
+        "contract_cases": [
+          "CASE-25"
+        ],
+        "analyzer_checks": [
+          "recovery owner transition"
+        ]
+      },
+      {
+        "usage": "docking_action_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "docking_action_eligibility.admission_decision",
+          "docking_action_eligibility.docking_frame"
+        ],
+        "owner_local_facts": [
+          "dock-clearance or approach proposal"
+        ],
+        "contract_cases": [
+          "CASE-26"
+        ],
+        "analyzer_checks": [
+          "docking proposal partition"
+        ]
+      },
+      {
+        "usage": "access_action_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "access_action_eligibility.admission_decision",
+          "access_action_eligibility.access_frame"
+        ],
+        "owner_local_facts": [
+          "access-open or ordered access-close proposal"
+        ],
+        "contract_cases": [
+          "CASE-27"
+        ],
+        "analyzer_checks": [
+          "access proposal partition"
+        ]
+      },
+      {
+        "usage": "undocking_action_eligibility",
+        "claimed_roles": [
+          "proposal"
+        ],
+        "assigned_inputs": [
+          "undocking_action_eligibility.admission_decision",
+          "undocking_action_eligibility.undocking_frame"
+        ],
+        "owner_local_facts": [
+          "release-request or departure-authorization proposal"
+        ],
+        "contract_cases": [
+          "CASE-27"
+        ],
+        "analyzer_checks": [
+          "undocking proposal partition"
+        ]
+      },
+      {
+        "usage": "docking_action_arbitration",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "docking_action_arbitration.priority_directive",
+          "docking_action_arbitration.docking_proposal",
+          "docking_action_arbitration.access_proposal",
+          "docking_action_arbitration.undocking_proposal"
+        ],
+        "owner_local_facts": [
+          "strict-priority docking decision"
+        ],
+        "contract_cases": [
+          "CASE-28"
+        ],
+        "analyzer_checks": [
+          "strict priority selection"
+        ]
+      },
+      {
+        "usage": "result_composition",
+        "claimed_roles": [
+          "decision"
+        ],
+        "assigned_inputs": [
+          "result_composition.docking_decision",
+          "result_composition.request_disposition"
+        ],
+        "owner_local_facts": [
+          "atomic public action, cause, mode, correlation, disposition, status, and outcome"
+        ],
+        "contract_cases": [
+          "CASE-29"
+        ],
+        "analyzer_checks": [
+          "public composition mapping"
+        ]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": true,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  }
+}

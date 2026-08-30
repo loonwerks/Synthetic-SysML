@@ -1,0 +1,1 @@
+../../../sysml-aadl-libraries/hamr.aadl.library/HAMR.sysml

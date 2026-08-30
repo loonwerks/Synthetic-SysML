@@ -1,0 +1,863 @@
+{
+  "status": "passed",
+  "passed": true,
+  "source_sha256": "b82ea4965527d7d5f3119e27cfd3a69128353f1cf6cd127d96a986dc3dc9e510",
+  "campaign_complexity": "small",
+  "semantic_connection_map": {
+    "INT-06": "requestLifecycle.energyTicket -> energyAssessor.evaluationTicket",
+    "INT-07": "requestLifecycle.supportTicket -> observationSupportAssessor.evaluationTicket",
+    "INT-08": "requestLifecycle.requestContext -> eligibilityArbiter.requestContext",
+    "INT-09": "energyAssessor.energyVerdictOut -> eligibilityArbiter.energyVerdictIn",
+    "INT-10": "observationSupportAssessor.supportVerdictOut -> eligibilityArbiter.supportVerdictIn",
+    "INT-11": "eligibilityArbiter.eligibilityDecision -> authorizationGate.eligibilityDecision",
+    "INT-12": "authorizationGate.gateOutcome -> requestLifecycle.gateOutcome (committed feedback)"
+  },
+  "partition_counts": {
+    "request_lifecycle_products": 648,
+    "energy_qualification_products": 15,
+    "support_qualification_products": 75,
+    "arbiter_tagged_context_products": 576,
+    "gate_phase_decision_progress_products": 80,
+    "committed_request_state_gate_phase_pairs": 16,
+    "explicitly_rejected_non_admissible_pairs": 11,
+    "composed_root_input_state_snapshots": 36000,
+    "scenario_families": 5,
+    "local_branch_counts": {
+      "lifecycle": {
+        "LIFECYCLE_NO_COMMAND": 24,
+        "LIFECYCLE_FRESH_TokenA": 2,
+        "LIFECYCLE_FRESH_TokenB": 2,
+        "LIFECYCLE_CANCEL_NOOP": 12,
+        "LIFECYCLE_DENIED_POWER": 72,
+        "LIFECYCLE_DENIED_SUPPORT": 72,
+        "LIFECYCLE_AUTHORIZED": 72,
+        "LIFECYCLE_ACTIVE": 72,
+        "LIFECYCLE_CANCELLED": 72,
+        "LIFECYCLE_COMPLETED": 72,
+        "LIFECYCLE_FAILED_FEEDBACK": 72,
+        "LIFECYCLE_RECOVERED_FEEDBACK": 72,
+        "LIFECYCLE_REPLAY_TokenA": 4,
+        "LIFECYCLE_REPLAY_TokenB": 4,
+        "LIFECYCLE_BUSY_TokenB": 3,
+        "LIFECYCLE_CANCEL_OUTSTANDING": 12,
+        "LIFECYCLE_BUSY_TokenA": 3,
+        "LIFECYCLE_BEGIN_DURING_RECOVERY": 6
+      },
+      "energy": {
+        "ENERGY_INACTIVE": 5,
+        "ENERGY_READY": 2,
+        "ENERGY_INSUFFICIENT": 2,
+        "ENERGY_UNTRUSTED": 6
+      },
+      "support": {
+        "SUPPORT_INACTIVE": 25,
+        "SUPPORT_READY": 2,
+        "SUPPORT_UNAVAILABLE": 6,
+        "SUPPORT_UNTRUSTED": 42
+      },
+      "arbiter": {
+        "ARBITER_INACTIVE_OR_MISMATCH": 414,
+        "ARBITER_PERMIT": 2,
+        "ARBITER_SUPPORT_UNAVAILABLE": 2,
+        "ARBITER_SUPPORT_UNTRUSTED": 2,
+        "ARBITER_POWER_INSUFFICIENT": 6,
+        "ARBITER_POWER_UNTRUSTED": 6,
+        "ARBITER_WITHDRAW": 144
+      },
+      "gate": {
+        "GATE_CLOSED_QUIESCENT": 3,
+        "GATE_ACTIVE_WHILE_CLOSED": 5,
+        "GATE_REPORTED_FAILURE": 15,
+        "GATE_PERMIT_FROM_CLOSED": 1,
+        "GATE_DENIED_POWER": 5,
+        "GATE_DENIED_SUPPORT": 5,
+        "GATE_WITHDRAWAL": 7,
+        "GATE_AUTHORIZED_IDLE": 2,
+        "GATE_PROGRESS_ACTIVE": 4,
+        "GATE_COMPLETION": 8,
+        "GATE_ACTIVE_TO_IDLE_REGRESSION": 5,
+        "GATE_RECOVERED": 5,
+        "GATE_RECOVERY_RETAINED": 15
+      }
+    }
+  },
+  "gaps": [],
+  "overlaps": [],
+  "required_output_mismatches": 0,
+  "mismatch_details": [],
+  "invariant_checks": {
+    "admissible_committed_pairs": [
+      "Idle/Closed",
+      "Pending/Closed",
+      "Engaged/Authorized",
+      "Engaged/Active",
+      "RecoveryHold/FailureHold"
+    ],
+    "checked_snapshots": 36000,
+    "checked_request_state_gate_phase_pairs": 16,
+    "explicitly_rejected_non_admissible_pairs": 11,
+    "violations": []
+  },
+  "ownership_audit": [
+    {
+      "usage": "requestLifecycle",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "requestLifecycle.requestInput",
+        "requestLifecycle.gateOutcome",
+        "requestLifecycle.requestState",
+        "requestLifecycle.lastAcceptedToken"
+      ],
+      "owner_local_facts": [
+        "requestAdmissionAndFreshness"
+      ],
+      "contract_cases": [
+        "CASE-06",
+        "CASE-07",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "request-lifecycle-totality"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "energyAssessor",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "energyAssessor.energyEvidence",
+        "energyAssessor.evaluationTicket"
+      ],
+      "owner_local_facts": [
+        "ticketScopedEnergyVerdict"
+      ],
+      "contract_cases": [
+        "CASE-02",
+        "CASE-03"
+      ],
+      "analyzer_checks": [
+        "energy-qualification-fibers"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "observationSupportAssessor",
+      "claimed_roles": [
+        "proposal"
+      ],
+      "assigned_inputs": [
+        "observationSupportAssessor.cameraEvidence",
+        "observationSupportAssessor.radioEvidence",
+        "observationSupportAssessor.evaluationTicket"
+      ],
+      "owner_local_facts": [
+        "jointTicketScopedSupportVerdict"
+      ],
+      "contract_cases": [
+        "CASE-04",
+        "CASE-05"
+      ],
+      "analyzer_checks": [
+        "support-qualification-fibers"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "eligibilityArbiter",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "eligibilityArbiter.requestContext",
+        "eligibilityArbiter.energyVerdictIn",
+        "eligibilityArbiter.supportVerdictIn"
+      ],
+      "owner_local_facts": [
+        "matchedEligibilityDecision"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-02",
+        "CASE-03",
+        "CASE-04",
+        "CASE-05",
+        "CASE-08"
+      ],
+      "analyzer_checks": [
+        "arbiter-ticket-priority"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "authorizationGate",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "authorizationGate.eligibilityDecision",
+        "authorizationGate.observationProgress",
+        "authorizationGate.gatePhase"
+      ],
+      "owner_local_facts": [
+        "failClosedAuthorizationApplication"
+      ],
+      "contract_cases": [
+        "CASE-01",
+        "CASE-08",
+        "CASE-09",
+        "CASE-10",
+        "CASE-11",
+        "CASE-12"
+      ],
+      "analyzer_checks": [
+        "gate-priority-and-recovery"
+      ],
+      "passed": true
+    }
+  ],
+  "canonical_guard_crosscheck": {
+    "status": "passed",
+    "checked_contract_cases": [
+      "CASE-01",
+      "CASE-02",
+      "CASE-03",
+      "CASE-04",
+      "CASE-05",
+      "CASE-06",
+      "CASE-07",
+      "CASE-08",
+      "CASE-09",
+      "CASE-10",
+      "CASE-11",
+      "CASE-12"
+    ],
+    "guard_source": "embedded unordered exact mirror of canonical AuthorizationGate raw compute-case guards and TaggedTicket/EvaluationTicket literal mapping",
+    "raw_gate_compute_cases": [
+      "GATE_RECOVERED",
+      "GATE_RECOVERY_RETAINED",
+      "GATE_REPORTED_FAILURE",
+      "GATE_ACTIVE_WHILE_CLOSED",
+      "GATE_ACTIVE_TO_IDLE_REGRESSION",
+      "GATE_WITHDRAWAL",
+      "GATE_COMPLETION",
+      "GATE_DENIED_POWER",
+      "GATE_DENIED_SUPPORT",
+      "GATE_PERMIT_FROM_CLOSED",
+      "GATE_PROGRESS_ACTIVE",
+      "GATE_AUTHORIZED_IDLE",
+      "GATE_CLOSED_QUIESCENT"
+    ],
+    "raw_gate_valuations_checked": 80,
+    "completion_priority_over_denial_valuations": 4,
+    "raw_guard_gaps": 0,
+    "raw_guard_overlaps": 0,
+    "conflicting_guarantees": 0
+  },
+  "scenario_traces": [
+    {
+      "scenario_id": "SCN-01",
+      "family": "nominal",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "command": "Begin",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-01",
+          "observed_outputs": {
+            "authorization": "Permit",
+            "status": "Authorized",
+            "decision": "Permit",
+            "gateOutcome": "Authorized"
+          },
+          "observed_next_state": {
+            "requestState": "Engaged",
+            "gatePhase": "Authorized",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenA",
+            "ENERGY_READY",
+            "SUPPORT_READY",
+            "ARBITER_PERMIT",
+            "GATE_PERMIT_FROM_CLOSED"
+          ]
+        },
+        {
+          "step": 2,
+          "input": {
+            "command": "NoCommand",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Active"
+          },
+          "expected_named_branch_or_case": "TRANS-02",
+          "observed_outputs": {
+            "authorization": "Permit",
+            "status": "Active",
+            "decision": "NoDecision",
+            "gateOutcome": "Active"
+          },
+          "observed_next_state": {
+            "requestState": "Engaged",
+            "gatePhase": "Active",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_NO_COMMAND",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_PROGRESS_ACTIVE"
+          ]
+        },
+        {
+          "step": 3,
+          "input": {
+            "command": "NoCommand",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Completed"
+          },
+          "expected_named_branch_or_case": "CASE-09",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "Completed",
+            "decision": "NoDecision",
+            "gateOutcome": "Completed"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_NO_COMMAND",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_COMPLETION"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "family": "replay-and-busy-boundary",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "command": "Begin",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-06",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "DuplicateIgnored",
+            "decision": "NoDecision",
+            "gateOutcome": "None"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_REPLAY_TokenA",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_CLOSED_QUIESCENT"
+          ]
+        },
+        {
+          "step": 2,
+          "input": {
+            "command": "Begin",
+            "token": "TokenB",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-01",
+          "observed_outputs": {
+            "authorization": "Permit",
+            "status": "Authorized",
+            "decision": "Permit",
+            "gateOutcome": "Authorized"
+          },
+          "observed_next_state": {
+            "requestState": "Engaged",
+            "gatePhase": "Authorized",
+            "lastToken": "TokenB"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenB",
+            "ENERGY_READY",
+            "SUPPORT_READY",
+            "ARBITER_PERMIT",
+            "GATE_PERMIT_FROM_CLOSED"
+          ]
+        },
+        {
+          "step": 3,
+          "input": {
+            "command": "Begin",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-07",
+          "observed_outputs": {
+            "authorization": "Permit",
+            "status": "Busy",
+            "decision": "NoDecision",
+            "gateOutcome": "Authorized"
+          },
+          "observed_next_state": {
+            "requestState": "Engaged",
+            "gatePhase": "Authorized",
+            "lastToken": "TokenB"
+          },
+          "branches": [
+            "LIFECYCLE_BUSY_TokenA",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_AUTHORIZED_IDLE"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "family": "qualification-boundary-and-invalid",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "command": "Begin",
+            "token": "TokenA",
+            "energy": "LowCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-02",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "DeniedPower",
+            "decision": "DenyPower",
+            "gateOutcome": "DeniedPower"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenA",
+            "ENERGY_INSUFFICIENT",
+            "SUPPORT_READY",
+            "ARBITER_POWER_INSUFFICIENT",
+            "GATE_DENIED_POWER"
+          ]
+        },
+        {
+          "step": 2,
+          "input": {
+            "command": "Begin",
+            "token": "TokenB",
+            "energy": "AdequateCurrent",
+            "camera": "UnavailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-04",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "DeniedSupport",
+            "decision": "DenySupport",
+            "gateOutcome": "DeniedSupport"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenB"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenB",
+            "ENERGY_READY",
+            "SUPPORT_UNAVAILABLE",
+            "ARBITER_SUPPORT_UNAVAILABLE",
+            "GATE_DENIED_SUPPORT"
+          ]
+        },
+        {
+          "step": 3,
+          "input": {
+            "command": "Begin",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "Stale",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-05",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "DeniedSupport",
+            "decision": "DenySupport",
+            "gateOutcome": "DeniedSupport"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenA",
+            "ENERGY_READY",
+            "SUPPORT_UNTRUSTED",
+            "ARBITER_SUPPORT_UNTRUSTED",
+            "GATE_DENIED_SUPPORT"
+          ]
+        },
+        {
+          "step": 4,
+          "input": {
+            "command": "Begin",
+            "token": "TokenB",
+            "energy": "Invalid",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-03",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "DeniedPower",
+            "decision": "DenyPower",
+            "gateOutcome": "DeniedPower"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenB"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenB",
+            "ENERGY_UNTRUSTED",
+            "SUPPORT_READY",
+            "ARBITER_POWER_UNTRUSTED",
+            "GATE_DENIED_POWER"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "family": "service-fault",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "command": "Begin",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-01",
+          "observed_outputs": {
+            "authorization": "Permit",
+            "status": "Authorized",
+            "decision": "Permit",
+            "gateOutcome": "Authorized"
+          },
+          "observed_next_state": {
+            "requestState": "Engaged",
+            "gatePhase": "Authorized",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenA",
+            "ENERGY_READY",
+            "SUPPORT_READY",
+            "ARBITER_PERMIT",
+            "GATE_PERMIT_FROM_CLOSED"
+          ]
+        },
+        {
+          "step": 2,
+          "input": {
+            "command": "NoCommand",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Active"
+          },
+          "expected_named_branch_or_case": "TRANS-02",
+          "observed_outputs": {
+            "authorization": "Permit",
+            "status": "Active",
+            "decision": "NoDecision",
+            "gateOutcome": "Active"
+          },
+          "observed_next_state": {
+            "requestState": "Engaged",
+            "gatePhase": "Active",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_NO_COMMAND",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_PROGRESS_ACTIVE"
+          ]
+        },
+        {
+          "step": 3,
+          "input": {
+            "command": "NoCommand",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Failed"
+          },
+          "expected_named_branch_or_case": "CASE-10",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "ServiceFailed",
+            "decision": "NoDecision",
+            "gateOutcome": "Failed"
+          },
+          "observed_next_state": {
+            "requestState": "RecoveryHold",
+            "gatePhase": "FailureHold",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_NO_COMMAND",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_REPORTED_FAILURE"
+          ]
+        },
+        {
+          "step": 1,
+          "input": {
+            "command": "NoCommand",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Active"
+          },
+          "expected_named_branch_or_case": "CASE-11",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "ServiceFailed",
+            "decision": "NoDecision",
+            "gateOutcome": "Failed"
+          },
+          "observed_next_state": {
+            "requestState": "RecoveryHold",
+            "gatePhase": "FailureHold",
+            "lastToken": "None"
+          },
+          "branches": [
+            "LIFECYCLE_NO_COMMAND",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_ACTIVE_WHILE_CLOSED"
+          ]
+        },
+        {
+          "step": 1,
+          "input": {
+            "command": "NoCommand",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-11",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "ServiceFailed",
+            "decision": "NoDecision",
+            "gateOutcome": "Failed"
+          },
+          "observed_next_state": {
+            "requestState": "RecoveryHold",
+            "gatePhase": "FailureHold",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_NO_COMMAND",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_ACTIVE_TO_IDLE_REGRESSION"
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "family": "recovery-and-cancellation",
+      "trace": [
+        {
+          "step": 1,
+          "input": {
+            "command": "Begin",
+            "token": "TokenB",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Active"
+          },
+          "expected_named_branch_or_case": "CASE-12",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "AwaitingRecovery",
+            "decision": "NoDecision",
+            "gateOutcome": "None"
+          },
+          "observed_next_state": {
+            "requestState": "RecoveryHold",
+            "gatePhase": "FailureHold",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_BEGIN_DURING_RECOVERY",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_RECOVERY_RETAINED"
+          ]
+        },
+        {
+          "step": 2,
+          "input": {
+            "command": "NoCommand",
+            "token": "TokenA",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-12",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "Idle",
+            "decision": "NoDecision",
+            "gateOutcome": "Recovered"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenA"
+          },
+          "branches": [
+            "LIFECYCLE_NO_COMMAND",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_INACTIVE_OR_MISMATCH",
+            "GATE_RECOVERED"
+          ]
+        },
+        {
+          "step": 3,
+          "input": {
+            "command": "Begin",
+            "token": "TokenB",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-01",
+          "observed_outputs": {
+            "authorization": "Permit",
+            "status": "Authorized",
+            "decision": "Permit",
+            "gateOutcome": "Authorized"
+          },
+          "observed_next_state": {
+            "requestState": "Engaged",
+            "gatePhase": "Authorized",
+            "lastToken": "TokenB"
+          },
+          "branches": [
+            "LIFECYCLE_FRESH_TokenB",
+            "ENERGY_READY",
+            "SUPPORT_READY",
+            "ARBITER_PERMIT",
+            "GATE_PERMIT_FROM_CLOSED"
+          ]
+        },
+        {
+          "step": 4,
+          "input": {
+            "command": "Cancel",
+            "token": "TokenB",
+            "energy": "AdequateCurrent",
+            "camera": "AvailableCurrent",
+            "radio": "AvailableCurrent",
+            "progress": "Idle"
+          },
+          "expected_named_branch_or_case": "CASE-08",
+          "observed_outputs": {
+            "authorization": "Withhold",
+            "status": "Cancelled",
+            "decision": "Withdraw",
+            "gateOutcome": "Cancelled"
+          },
+          "observed_next_state": {
+            "requestState": "Idle",
+            "gatePhase": "Closed",
+            "lastToken": "TokenB"
+          },
+          "branches": [
+            "LIFECYCLE_CANCEL_OUTSTANDING",
+            "ENERGY_INACTIVE",
+            "SUPPORT_INACTIVE",
+            "ARBITER_WITHDRAW",
+            "GATE_WITHDRAWAL"
+          ]
+        }
+      ]
+    }
+  ],
+  "bounded_analysis_claim_boundary": "Exhaustive only over the finite logical enums, five admissible committed state-pair families, owner-local relations, explicit INT-06..INT-12 composition, and named scenarios in SA-FOS-01. This is not compositional proof, solver certification, generated-code correctness, execution evidence, physical-performance evidence, or safety certification."
+}

@@ -1,0 +1,895 @@
+{
+  "status": "passed",
+  "source": {
+    "canonical_path": "model/Cabin_Air_Care_Supervisor.sysml",
+    "sha256": "9204d58f7d5658dbb797c8506a2b3278a503e909c93d15825e29605422e92149"
+  },
+  "finite_domain": {
+    "root_input_snapshots": 96,
+    "confidence_pre_states": 2,
+    "composed_root_state_valuations": 192
+  },
+  "local_partitions": [
+    {
+      "name": "preference applicability partition 4",
+      "valuations": 4,
+      "case_counts": {
+        "CC-01": 2,
+        "CC-02": 2
+      },
+      "gaps": 0,
+      "overlaps": 0
+    },
+    {
+      "name": "air assessment partition 4",
+      "valuations": 4,
+      "case_counts": {
+        "CC-03": 4
+      },
+      "gaps": 0,
+      "overlaps": 0
+    },
+    {
+      "name": "humidity assessment partition 6",
+      "valuations": 6,
+      "case_counts": {
+        "CC-04": 6
+      },
+      "gaps": 0,
+      "overlaps": 0
+    },
+    {
+      "name": "confidence transition partition 24",
+      "valuations": 24,
+      "case_counts": {
+        "CC-05": 12,
+        "CC-06": 6,
+        "CC-07": 6
+      },
+      "gaps": 0,
+      "overlaps": 0
+    },
+    {
+      "name": "principal policy partition 108",
+      "valuations": 108,
+      "case_counts": {
+        "CC-08": 36,
+        "CC-09": 36,
+        "CC-10": 24,
+        "CC-11": 6,
+        "CC-12": 6
+      },
+      "gaps": 0,
+      "overlaps": 0
+    }
+  ],
+  "semantic_connection_map": {
+    "INT-07": [
+      "preferenceInterpreter.airCareIntent",
+      "airCarePolicySupervisor.airCareIntent"
+    ],
+    "INT-08": [
+      "airQualityAssessor.airAssessment",
+      "observationConfidenceGuardian.airAssessment"
+    ],
+    "INT-09": [
+      "airQualityAssessor.airAssessment",
+      "airCarePolicySupervisor.airAssessment"
+    ],
+    "INT-10": [
+      "humidityAssessor.humidityAssessment",
+      "observationConfidenceGuardian.humidityAssessment"
+    ],
+    "INT-11": [
+      "humidityAssessor.humidityAssessment",
+      "airCarePolicySupervisor.humidityAssessment"
+    ],
+    "INT-12": [
+      "observationConfidenceGuardian.measurementConfidence",
+      "airCarePolicySupervisor.measurementConfidence"
+    ]
+  },
+  "semantic_connection_use_counts": {
+    "INT-07": 205,
+    "INT-08": 205,
+    "INT-09": 205,
+    "INT-10": 205,
+    "INT-11": 205,
+    "INT-12": 205
+  },
+  "ownership_audit": [
+    {
+      "usage": "preferenceInterpreter",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "preferenceInterpreter.airCarePreference",
+        "preferenceInterpreter.preferenceValidity"
+      ],
+      "owner_local_facts": [
+        "airCareIntent"
+      ],
+      "contract_cases": [
+        "CC-01",
+        "CC-02"
+      ],
+      "analyzer_checks": [
+        "preference applicability partition 4"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "airQualityAssessor",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "airQualityAssessor.cabinAirQuality",
+        "airQualityAssessor.airQualityValidity"
+      ],
+      "owner_local_facts": [
+        "airAssessment"
+      ],
+      "contract_cases": [
+        "CC-03"
+      ],
+      "analyzer_checks": [
+        "air assessment partition 4"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "humidityAssessor",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "humidityAssessor.cabinHumidityBand",
+        "humidityAssessor.humidityValidity"
+      ],
+      "owner_local_facts": [
+        "humidityAssessment"
+      ],
+      "contract_cases": [
+        "CC-04"
+      ],
+      "analyzer_checks": [
+        "humidity assessment partition 6"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "observationConfidenceGuardian",
+      "claimed_roles": [
+        "applicability"
+      ],
+      "assigned_inputs": [
+        "observationConfidenceGuardian.airAssessment",
+        "observationConfidenceGuardian.humidityAssessment",
+        "observationConfidenceGuardian.confidenceMode.pre"
+      ],
+      "owner_local_facts": [
+        "measurementConfidence",
+        "confidenceMode.next"
+      ],
+      "contract_cases": [
+        "CC-05",
+        "CC-06",
+        "CC-07"
+      ],
+      "analyzer_checks": [
+        "confidence transition partition 24"
+      ],
+      "passed": true
+    },
+    {
+      "usage": "airCarePolicySupervisor",
+      "claimed_roles": [
+        "decision"
+      ],
+      "assigned_inputs": [
+        "airCarePolicySupervisor.airCareIntent",
+        "airCarePolicySupervisor.airAssessment",
+        "airCarePolicySupervisor.humidityAssessment",
+        "airCarePolicySupervisor.measurementConfidence"
+      ],
+      "owner_local_facts": [
+        "airTreatmentDirective",
+        "airCareStatus"
+      ],
+      "contract_cases": [
+        "CC-08",
+        "CC-09",
+        "CC-10",
+        "CC-11",
+        "CC-12"
+      ],
+      "analyzer_checks": [
+        "principal policy partition 108"
+      ],
+      "passed": true
+    }
+  ],
+  "gaps": 0,
+  "overlaps": 0,
+  "required_output_mismatches": 0,
+  "scenario_mismatches": 0,
+  "invariant_checks": [
+    {
+      "name": "invalid environmental observation resets confidence",
+      "status": "passed",
+      "failures": 0
+    },
+    {
+      "name": "first complete known observation confirms without treatment",
+      "status": "passed",
+      "failures": 0
+    },
+    {
+      "name": "trusted known observation retains service eligibility",
+      "status": "passed",
+      "failures": 0
+    },
+    {
+      "name": "disabled and invalid preferences mask treatment",
+      "status": "passed",
+      "failures": 0
+    },
+    {
+      "name": "low and high humidity outrank air assessment",
+      "status": "passed",
+      "failures": 0
+    },
+    {
+      "name": "target humidity delegates only to air assessment",
+      "status": "passed",
+      "failures": 0
+    },
+    {
+      "name": "confidence evolution is independent of preference",
+      "status": "passed",
+      "failures": 0
+    }
+  ],
+  "initialization_checks": [
+    {
+      "name": "guardian safe initialization",
+      "expected": {
+        "confidenceMode": "ConfirmationNeeded",
+        "measurementConfidence": "Confirming"
+      },
+      "status": "passed"
+    },
+    {
+      "name": "policy safe initialization",
+      "expected": {
+        "airTreatmentDirective": "Standby",
+        "airCareStatus": "Recovering"
+      },
+      "status": "passed"
+    }
+  ],
+  "scenario_families": [
+    {
+      "scenario_id": "SCN-01",
+      "oracle_partition": "nominal polluted-air filtration",
+      "traces": [
+        {
+          "initial_state": "Trusted",
+          "steps": [
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-12"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "FilterNeeded"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Filter",
+                  "airCareStatus": "Filtering"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Filter",
+                "airCareStatus": "Filtering"
+              },
+              "observed_next_state": "Trusted"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-02",
+      "oracle_partition": "low-humidity priority over both air assessments",
+      "traces": [
+        {
+          "initial_state": "Trusted",
+          "steps": [
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Acceptable",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Low",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-12"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "Acceptable"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AddMoisture"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "HumidifyWithFilter",
+                  "airCareStatus": "Humidifying"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "HumidifyWithFilter",
+                "airCareStatus": "Humidifying"
+              },
+              "observed_next_state": "Trusted"
+            },
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Low",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-12"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "FilterNeeded"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AddMoisture"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "HumidifyWithFilter",
+                  "airCareStatus": "Humidifying"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "HumidifyWithFilter",
+                "airCareStatus": "Humidifying"
+              },
+              "observed_next_state": "Trusted"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-03",
+      "oracle_partition": "high-humidity priority over both air assessments",
+      "traces": [
+        {
+          "initial_state": "Trusted",
+          "steps": [
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "High",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-12"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "FilterNeeded"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "RemoveMoisture"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "DehumidifyWithFilter",
+                  "airCareStatus": "Dehumidifying"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "DehumidifyWithFilter",
+                "airCareStatus": "Dehumidifying"
+              },
+              "observed_next_state": "Trusted"
+            },
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Acceptable",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "High",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-12"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "Acceptable"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "RemoveMoisture"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "DehumidifyWithFilter",
+                  "airCareStatus": "Dehumidifying"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "DehumidifyWithFilter",
+                "airCareStatus": "Dehumidifying"
+              },
+              "observed_next_state": "Trusted"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-04",
+      "oracle_partition": "target-band and preference boundaries",
+      "traces": [
+        {
+          "initial_state": "Trusted",
+          "steps": [
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Acceptable",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-12"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "Acceptable"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Standby",
+                  "airCareStatus": "Standby"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Standby",
+                "airCareStatus": "Standby"
+              },
+              "observed_next_state": "Trusted"
+            },
+            {
+              "input": {
+                "airCarePreference": "Off",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Acceptable",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-08"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Disabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "Acceptable"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Standby",
+                  "airCareStatus": "Off"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Standby",
+                "airCareStatus": "Off"
+              },
+              "observed_next_state": "Trusted"
+            },
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Invalid",
+                "cabinAirQuality": "Acceptable",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-01",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-09"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Invalid"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "Acceptable"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Standby",
+                  "airCareStatus": "PreferenceFault"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Standby",
+                "airCareStatus": "PreferenceFault"
+              },
+              "observed_next_state": "Trusted"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-05",
+      "oracle_partition": "dual-invalid environmental masking",
+      "traces": [
+        {
+          "initial_state": "Trusted",
+          "steps": [
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Invalid",
+                "cabinHumidityBand": "High",
+                "humidityValidity": "Invalid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-05",
+                "CC-10"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "Unknown"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "Unknown"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "BlockedInvalid",
+                  "nextConfidenceMode": "ConfirmationNeeded"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Standby",
+                  "airCareStatus": "InputFault"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Standby",
+                "airCareStatus": "InputFault"
+              },
+              "observed_next_state": "ConfirmationNeeded"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "scenario_id": "SCN-06",
+      "oracle_partition": "confirmation recovery and invalid interruption",
+      "traces": [
+        {
+          "initial_state": "ConfirmationNeeded",
+          "steps": [
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "ConfirmationNeeded",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-06",
+                "CC-10"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "FilterNeeded"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Confirming",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Standby",
+                  "airCareStatus": "Recovering"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Standby",
+                "airCareStatus": "Recovering"
+              },
+              "observed_next_state": "Trusted"
+            },
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-07",
+                "CC-12"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "FilterNeeded"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Trusted",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Filter",
+                  "airCareStatus": "Filtering"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Filter",
+                "airCareStatus": "Filtering"
+              },
+              "observed_next_state": "Trusted"
+            }
+          ]
+        },
+        {
+          "initial_state": "ConfirmationNeeded",
+          "steps": [
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Valid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "ConfirmationNeeded",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-06",
+                "CC-10"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "FilterNeeded"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "Confirming",
+                  "nextConfidenceMode": "Trusted"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Standby",
+                  "airCareStatus": "Recovering"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Standby",
+                "airCareStatus": "Recovering"
+              },
+              "observed_next_state": "Trusted"
+            },
+            {
+              "input": {
+                "airCarePreference": "Auto",
+                "preferenceValidity": "Valid",
+                "cabinAirQuality": "Polluted",
+                "airQualityValidity": "Invalid",
+                "cabinHumidityBand": "Target",
+                "humidityValidity": "Valid"
+              },
+              "pre_state": "Trusted",
+              "expected_named_branch": [
+                "CC-02",
+                "CC-03",
+                "CC-04",
+                "CC-05",
+                "CC-10"
+              ],
+              "observed_owner_outputs": {
+                "preferenceInterpreter": {
+                  "airCareIntent": "Enabled"
+                },
+                "airQualityAssessor": {
+                  "airAssessment": "Unknown"
+                },
+                "humidityAssessor": {
+                  "humidityAssessment": "AtTarget"
+                },
+                "observationConfidenceGuardian": {
+                  "measurementConfidence": "BlockedInvalid",
+                  "nextConfidenceMode": "ConfirmationNeeded"
+                },
+                "airCarePolicySupervisor": {
+                  "airTreatmentDirective": "Standby",
+                  "airCareStatus": "InputFault"
+                }
+              },
+              "observed_outputs": {
+                "airTreatmentDirective": "Standby",
+                "airCareStatus": "InputFault"
+              },
+              "observed_next_state": "ConfirmationNeeded"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "bounded_analysis_claim_boundary": "Exhaustive only over the declared finite logical input and confidence-state domains. This is contract-composition evidence, not solver certification, generated-code correctness, application execution, physical-performance evidence, or safety certification.",
+  "passed": true,
+  "source_sha256": "9204d58f7d5658dbb797c8506a2b3278a503e909c93d15825e29605422e92149"
+}

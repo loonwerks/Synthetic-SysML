@@ -1,0 +1,1 @@
+../../../sysml-aadl-libraries/aadl.library/Programming_Properties.sysml

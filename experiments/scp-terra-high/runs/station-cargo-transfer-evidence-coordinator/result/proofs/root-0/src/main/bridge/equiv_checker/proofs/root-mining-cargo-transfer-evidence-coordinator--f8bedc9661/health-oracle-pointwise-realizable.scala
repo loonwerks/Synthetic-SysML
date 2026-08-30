@@ -1,0 +1,20 @@
+// #Sireum #Logika
+package equiv_checker.proofs
+
+import org.sireum._
+
+object Health_f8bedc966165_Oracle_Pointwise_Realizable {
+  @pure def check(
+      recovery_transition: equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryTransition): Unit = {
+    Contract(Requires(T),
+      Ensures((T) ___>: ((equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.HEALTHY, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.LATCHED, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING)) |
+        (equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoverySupervisor_cargo_coordination_process_recovery_supervisor_GumboX.inititialize_IEP_Post(equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING, equiv_shared_0.Mining_Cargo_Transfer_Evidence_Coordinator.RecoveryState.RECOVERING)))))
+  }
+}

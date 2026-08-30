@@ -1,0 +1,155 @@
+{
+  "schema_version": 2,
+  "source_sha256": "284194129f5244e49b6259c4236f18b707873c3d265762c50b0ea82ea292e522",
+  "root_definition": "Drone_Battery_Charge_Supervisor::Drone_Battery_Charge_Supervisor_System",
+  "root_usage": "drone_battery_charge_supervisor",
+  "explicit_root_usages": 1,
+  "architecture_nodes": {
+    "generated_support": ["charge_supervision_process"],
+    "semantic": [
+      "charge_supervision_process.battery_evidence_qualification",
+      "charge_supervision_process.charge_context_qualification",
+      "charge_supervision_process.charge_intent_qualification",
+      "charge_supervision_process.charge_qualification_owner",
+      "charge_supervision_process.pilot_attention_derivation",
+      "charge_supervision_process.readiness_evidence_derivation"
+    ],
+    "semantic_count": 6,
+    "principal_decision_owners": 1
+  },
+  "semantic_domain_graph": {
+    "nodes": 6,
+    "end_to_end_directed_interactions": 14,
+    "semantic_usage_to_usage_connections": 7,
+    "unique_ordered_semantic_usage_pairs": 7,
+    "average_total_degree_internal": 2.333333,
+    "weakly_connected_regions": 1
+  },
+  "connections": {
+    "semantic_interactions": 14,
+    "boundary_semantic_interactions": 7,
+    "internal_semantic_connections": 7,
+    "process_thread_support_routes": 7,
+    "root_process_support_routes": 7,
+    "support_routes_total": 14,
+    "declarations_total": 21
+  },
+  "containment_depth_beneath_root": 2,
+  "ports": {
+    "root_boundary": 7,
+    "process_boundary": 7,
+    "semantic_thread_ports": 21,
+    "total": 35
+  },
+  "contracts": {
+    "owner_state_variables": 2,
+    "explicit_safe_initialization_guarantees": 6,
+    "qualification_cases": 11,
+    "nontrivial_owner_policy_cases": 12,
+    "attention_derivation_cases": 4,
+    "readiness_derivation_cases": 3,
+    "post_state_invariants": 1,
+    "publication_preservation_guarantees": 1,
+    "identity_delivery_guarantees": 0,
+    "principal_case_owner": "charge_qualification_owner"
+  },
+  "bounded_analysis": {
+    "qualified_owner_snapshots": 288,
+    "raw_root_input_tuples": 384,
+    "raw_root_and_owner_state_snapshots": 2304,
+    "partition_counts": {
+      "CASE-01": 180,
+      "CASE-02": 24,
+      "CASE-03": 12,
+      "CASE-04": 12,
+      "CASE-05": 12,
+      "CASE-06": 2,
+      "CASE-07": 10,
+      "CASE-08": 12,
+      "CASE-09": 2,
+      "CASE-10": 10,
+      "CASE-11": 1,
+      "CASE-12": 11
+    },
+    "partition_gaps": 0,
+    "raw_guard_overlaps": 0,
+    "effective_selection_overlaps": 0,
+    "next_state_mismatches": 0,
+    "decision_mismatches": 0,
+    "required_output_mismatches": 0,
+    "invariant_violations": 0,
+    "interaction_resolution_violations": 0,
+    "scenario_families": 5,
+    "status": "passed"
+  },
+  "source_gates": {
+    "architecture": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0},
+    "final": {"exit_status": 0, "errors": 0, "well_formed_marker": true, "repairs": 0}
+  },
+  "campaign_complexity": {
+    "tier": "small",
+    "counting_rules": "campaign-v1",
+    "semantic_usages": 6,
+    "semantic_interactions": 14,
+    "nontrivial_contract_cases": 12,
+    "scenario_families": 5,
+    "ownership_audit": [
+      {
+        "usage": "battery_evidence_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["battery_evidence_qualification.battery_sample"],
+        "owner_local_facts": ["validity-aware 4-to-3 battery evidence classification"],
+        "contract_cases": ["BATTERY_INVALID", "BATTERY_LOW", "BATTERY_ADEQUATE"],
+        "analyzer_checks": ["battery qualification total 4-to-3 relation", "battery invalid-status collapse"]
+      },
+      {
+        "usage": "charge_context_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["charge_context_qualification.charger_sample", "charge_context_qualification.flight_sample"],
+        "owner_local_facts": ["joint validity-activity-availability charge context classification"],
+        "contract_cases": ["CONTEXT_INVALID", "CONTEXT_FLIGHT_ACTIVE", "CONTEXT_AVAILABLE_INACTIVE", "CONTEXT_UNAVAILABLE_INACTIVE"],
+        "analyzer_checks": ["charge context total 16-to-4 relation", "charge context 12-2-1-1 fibers"]
+      },
+      {
+        "usage": "charge_intent_qualification",
+        "claimed_roles": ["applicability"],
+        "assigned_inputs": ["charge_intent_qualification.intent_sample"],
+        "owner_local_facts": ["validity-aware 6-to-4 qualified intent classification"],
+        "contract_cases": ["INTENT_INVALID", "INTENT_NEUTRAL", "INTENT_BEGIN", "INTENT_END"],
+        "analyzer_checks": ["intent qualification total 6-to-4 relation", "intent invalid-status collapse"]
+      },
+      {
+        "usage": "charge_qualification_owner",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["charge_qualification_owner.battery_evidence", "charge_qualification_owner.charge_context", "charge_qualification_owner.qualified_intent", "charge_qualification_owner.authorizationState", "charge_qualification_owner.recoveryPhase"],
+        "owner_local_facts": ["ordered charge decision", "next authorization state", "next recovery phase"],
+        "contract_cases": ["CASE-01", "CASE-02", "CASE-03", "CASE-04", "CASE-05", "CASE-06", "CASE-07", "CASE-08", "CASE-09", "CASE-10", "CASE-11", "CASE-12"],
+        "analyzer_checks": ["owner twelve-case partition over 288 snapshots", "owner complete next-state and decision publications"]
+      },
+      {
+        "usage": "pilot_attention_derivation",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["pilot_attention_derivation.charge_decision", "pilot_attention_derivation.battery_evidence"],
+        "owner_local_facts": ["priority-ordered fault-recovery-low pilot attention classification"],
+        "contract_cases": ["ATTENTION_INPUT_FAULT", "ATTENTION_RECOVERY_PENDING", "ATTENTION_LOW_BATTERY", "ATTENTION_NONE"],
+        "analyzer_checks": ["pilot attention total producer-composed relation"]
+      },
+      {
+        "usage": "readiness_evidence_derivation",
+        "claimed_roles": ["decision"],
+        "assigned_inputs": ["readiness_evidence_derivation.charge_decision", "readiness_evidence_derivation.battery_evidence"],
+        "owner_local_facts": ["producer-admissible fault-recovery-low-adequate readiness classification"],
+        "contract_cases": ["READINESS_UNAVAILABLE", "READINESS_LOW", "READINESS_ADEQUATE"],
+        "analyzer_checks": ["readiness producer-admissible partition", "invalid-battery nonfault combination unreachable"]
+      }
+    ],
+    "features": {
+      "multiple_decision_owners": false,
+      "priority_conflict": true,
+      "fault_propagation": true,
+      "recovery": true,
+      "composition": true
+    }
+  },
+  "metric_boundary": "Semantic usages count PART-01 through PART-06 only and exclude the root and behavior-free Process. Semantic interactions count INT-01 through INT-14 once each and exclude fourteen delegation routes. Nontrivial cases count only PART-04 CASE-01 through CASE-12; initialization, qualification, invariant, output-derivation, and scenario clauses are excluded. Scenario families count SCN-01 through SCN-05. Composition means deterministic finite local-relation and explicit connection-map composition only, not compositional proof."
+}
