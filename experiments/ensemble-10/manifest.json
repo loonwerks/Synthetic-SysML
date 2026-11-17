@@ -1,0 +1,288 @@
+{
+  "acquisition": {
+    "batch_sizes": [
+      5,
+      5
+    ],
+    "extension_condition": "Second batch authorized only after at least four of the preceding five outputs qualified, before consulting reference labels.",
+    "isolation": "Fresh agent sessions; requirements, contract-free architecture, syntax guide and library only; no reference or other candidate access.",
+    "selection": "All ten ordinary outputs retained in each set, including inconclusive self-checks; no filtering by reference verdict."
+  },
+  "cases": {
+    "battery": {
+      "comparisons": [
+        {
+          "left": "oracle",
+          "path": "battery/evidence/oracle/s01",
+          "right": "s01"
+        },
+        {
+          "left": "oracle",
+          "path": "battery/evidence/oracle/s02",
+          "right": "s02"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s03",
+          "right": "s03"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s04",
+          "right": "s04"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s05",
+          "right": "s05"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s06",
+          "right": "s06"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s07",
+          "right": "s07"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s08",
+          "right": "s08"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s09",
+          "right": "s09"
+        },
+        {
+          "left": "s02",
+          "path": "battery/evidence/pairs/s02-s10",
+          "right": "s10"
+        }
+      ],
+      "dataset": "battery-evidence-and-charge-qualification-supervisor",
+      "expected_equivalent": 9,
+      "expected_weaker": 1,
+      "reference_version": "canonical"
+    },
+    "hvac": {
+      "comparisons": [
+        {
+          "left": "oracle",
+          "path": "hvac/evidence/oracle/s01",
+          "right": "s01"
+        },
+        {
+          "left": "oracle",
+          "path": "hvac/evidence/oracle/s04",
+          "right": "s04"
+        },
+        {
+          "left": "oracle",
+          "path": "hvac/evidence/oracle/s09",
+          "right": "s09"
+        },
+        {
+          "left": "oracle",
+          "path": "hvac/evidence/oracle/s10",
+          "right": "s10"
+        },
+        {
+          "left": "s01",
+          "path": "hvac/evidence/pairs/s01-s02",
+          "right": "s02"
+        },
+        {
+          "left": "s01",
+          "path": "hvac/evidence/pairs/s01-s03",
+          "right": "s03"
+        },
+        {
+          "left": "s04",
+          "path": "hvac/evidence/pairs/s04-s05",
+          "right": "s05"
+        },
+        {
+          "left": "s03",
+          "path": "hvac/evidence/pairs/s03-s06",
+          "right": "s06"
+        },
+        {
+          "left": "s02",
+          "path": "hvac/evidence/pairs/s02-s08",
+          "right": "s08"
+        },
+        {
+          "left": "s07",
+          "path": "hvac/evidence/pairs/s07-s08",
+          "right": "s08"
+        }
+      ],
+      "dataset": "energy-and-interface-aware-cabin-climate-supervisor",
+      "expected_equivalent": 8,
+      "expected_weaker": 2,
+      "reference_version": "repaired-v1"
+    }
+  },
+  "checker_commit": "b119cc8ed4314f8334425a5d2dc42c604d570cd0",
+  "checker_source_hashes": {
+    "src/equiv_checker/__init__.py": "f9283f8900459478d4791678b61c06ab90b22793f9ebabb9d7be2297f26e1fc4",
+    "src/equiv_checker/__main__.py": "2455eee3db2f486a5335178c7d62b6b4c2ab0e4656b22e7cdfe075483c639bfe",
+    "src/equiv_checker/adapters/GumboInventory.scala": "28ee56be6df8beb6224cb54c03a0f31f945fc6d885b67cc9ad6cd5614c5442f9",
+    "src/equiv_checker/adapters/GumboSemanticExport.scala": "e99ecbb5ad4f9a363b776186a7731053bbf2ed4c6b5333db3f7ae99f52c71d09",
+    "src/equiv_checker/adapters/LogikaWorker.scala": "d1dd69dfac0d9aaee94fe1e6217c7d2bc73d1fb741c8bd46f0b7e8125179437b",
+    "src/equiv_checker/backend.py": "32d39642ee3db57434257290922cc7e39b8c26af83ade72825e74cb960fc19b9",
+    "src/equiv_checker/cli.py": "f8a7a302ab69d538dffaa033a89b529c5b630e5a39a77b44d26503b7f84f251b",
+    "src/equiv_checker/codegen.py": "dd96870514a4d10a3bdcff9ed7d8ab6765748968aaad8d75764d1539a73c6bbd",
+    "src/equiv_checker/compact.py": "fc526e6db8a1487ee19df1297f382412ada24ab538ac0eb5b8e440b52b265c0b",
+    "src/equiv_checker/evidence.py": "7f73ecf013818e83e7e93728ef9e574597d367a5b8708ba61a41a0ed5f846a93",
+    "src/equiv_checker/gumbox.py": "ee7db6c8876c64232eed03059caea243339e9553bcea3fd03f8ce948e1e41ec6",
+    "src/equiv_checker/inventory.py": "f41496dbdbb31c3ef8aec26952ef9e06857cec5d599d0ac4d579954968baa088",
+    "src/equiv_checker/model_gate.py": "6f267031ec385430f9265f707fa2cca6433d5fc9ffadc101bb4edd481b8c3ddc",
+    "src/equiv_checker/proof.py": "0e4e0e85d728f0dff6e2865861c4b51fd585601773ddcde6c1d76907bfdd3146",
+    "src/equiv_checker/reporting.py": "aa7c618d7044974e53f4ab36c427737dc8bba16b9f7af84b3654518fc19cdb0e",
+    "src/equiv_checker/schema.py": "c77ec5c80abb343d68fdafc70b8842ce2a06f573c74538e3eb5394ebabf57c8e",
+    "src/equiv_checker/slang_proof.py": "2161113578f602786ce19ea8ade56371bfd174258671cca3c84623abdfdfd750",
+    "src/equiv_checker/timing.py": "37c54870b8ecf924e26e2a1e6de45f310a8a48de040124c7e27f5d56124c89c3",
+    "src/equiv_checker/type_alignment.py": "faab5e04d42c963ba59ea1f6c6518f5413d2f557dd13cf0a1ad1eef37fd94af9",
+    "src/sysml_tools/__init__.py": "c6d20954cf35116d477195ae791e133a75c14404aa1b36ced0c842d0d5bd7d0e",
+    "src/sysml_tools/gumbo.py": "b96b5cc8406cefa730cf93c60051dc1fb295bd4bdd46bf41f50e846a2a533991"
+  },
+  "comparison_seconds": 3600,
+  "files": {
+    ".gitattributes": "ee964bee25f12f8d4a7169bac982a986c14691149ef7a01f0c99736b6e922bd4",
+    "GUMBO_SYNTAX.md": "e48ccc5fc9e5ea26c0b6d3d3c1c2dbd44ea6c856ea6edeaf1a5c81b94e2cf5b8",
+    "README.md": "8e17159c61701ebc5fca39f4db316cfdf29dbf07c4c5663ebd203838796f5af4",
+    "battery/M-star.sysml": "a7f5a7acf45505648ec7df7ac8fb54bde0ba8d955538c05068077937bccabfe3",
+    "battery/N.md": "9e87b17dab989c437d35e955277df876cc88e81a985ef9025c2bbf6615747ef4",
+    "battery/candidates/s01.sysml": "38b8c613890d658bbd5768e9dd01586a9ee9166727bfe498dca039c0b09ecc5c",
+    "battery/candidates/s02.sysml": "2eb689cc59c4ea8b129279f1e3a1f1d0bfd892077f25ffaf6cb11da40e0619a3",
+    "battery/candidates/s03.sysml": "ee927b4568ccebd8c6a0854e1b5ac9622c0926611fd12496a96609082a251672",
+    "battery/candidates/s04.sysml": "f8d58eae2e62b22ea0193c159caee28c5bedf51d1bf12383c962c89902c5aae6",
+    "battery/candidates/s05.sysml": "5b8008f3e4d9268c826aaac23899dfc8c269d4bd2d556a16f4fcb2d713022b47",
+    "battery/candidates/s06.sysml": "7dc0b9f4eec361e5c91eaee9947e7c113e559a3a5da6c7d64ae70a76803b65e7",
+    "battery/candidates/s07.sysml": "4c49a8a81f2a786f7e8c5a20e221ff199d33ef765dd2e3afbd2b79aeec9d4a07",
+    "battery/candidates/s08.sysml": "edc6adfd2f430cd4fbf703d8e4997fa3812d180db3bcfd73fe12114bd9bcc86e",
+    "battery/candidates/s09.sysml": "8c6529d6be248351f889aca70b62ceaa75d3e22d3c34da93f82e68af97e3220a",
+    "battery/candidates/s10.sysml": "91ecd5d50f597b7cea99d275a0d8d99a03a52de8fe41868362c5d7898291391c",
+    "battery/evidence/oracle/s01/receipt.json": "ee6b36ed8df8d0cc448dcbe6f7d39e3f974c7c339383077f4d3735037e1b415d",
+    "battery/evidence/oracle/s01/result.json": "7d47562aa3201252f4b71d8fbebd92945a1a4bb13c9168b93a9378cfc1c603c2",
+    "battery/evidence/oracle/s01/verification.json": "32cf39c8940dee6fe6cb316b64feac6847d94f7fa1de5bdfcd6b908091dceb76",
+    "battery/evidence/oracle/s02/receipt.json": "af39a10a38277a021d399fb569d3d5cb51af70851f7f895186b60d47ffdd0667",
+    "battery/evidence/oracle/s02/result.json": "0dc3d80913d167a94df4117a951d0984d2ef4c5aa0ea23e418cc9f2835f145f5",
+    "battery/evidence/oracle/s02/verification.json": "17d54936beeaa5ea2b37e9bef0519702aa32cc319044d40c809558926c8a8758",
+    "battery/evidence/pairs/s02-s03/receipt.json": "70ab6a98820641e7a86c40dc6ff26c5516afab282527b1d34d9a80d9cbfe786e",
+    "battery/evidence/pairs/s02-s03/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s03/verification.json": "9a274ad75b1070606e653ffa02188c708f4ae067b1c8caaed2f4bf8101ac7448",
+    "battery/evidence/pairs/s02-s04/receipt.json": "861a263cb15eebe6c813a97fb2f14693d87a1bc6ea22a4568369012744334850",
+    "battery/evidence/pairs/s02-s04/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s04/verification.json": "097cf0a74bd65af1875f5b407502939d06cc58251fa1e7284e494040084dc600",
+    "battery/evidence/pairs/s02-s05/receipt.json": "84fd20e052a37a20baf42ad6d0eb81b600b030108fc03c3a78f12be3a9026057",
+    "battery/evidence/pairs/s02-s05/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s05/verification.json": "e380c66e48d2dd9e99b2781f1e4c9d0fd6698dbcb1c29e0fb660d6a281d31320",
+    "battery/evidence/pairs/s02-s06/receipt.json": "7e3634e1a7fcc4e105975659cc5da544442494f4bb0e5e52ac3ed478bd1419cb",
+    "battery/evidence/pairs/s02-s06/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s06/verification.json": "dbbc06645791244ecd5fcdbf933e63095e12ba74e84500556a2d94a3555c514b",
+    "battery/evidence/pairs/s02-s07/receipt.json": "f2624a47b02bc740996d22aa6650e7f2462a8325c805ad1692bff2fc1d1b9956",
+    "battery/evidence/pairs/s02-s07/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s07/verification.json": "c6144dd5c8d1b0b1880b909648a62dd79a474b37c41a729955264aaf82f0e0c4",
+    "battery/evidence/pairs/s02-s08/receipt.json": "9f9ece40079a88fb94813f2f8173a25258e85974ab31b56a91b25369743ccbbe",
+    "battery/evidence/pairs/s02-s08/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s08/verification.json": "05c60d290a28b097575fbe47b25fafaef1d9efa301180ffa8864a5ab599b6687",
+    "battery/evidence/pairs/s02-s09/receipt.json": "789ee5e852170954ee939173e509afba9e810627fe770311f398676590309415",
+    "battery/evidence/pairs/s02-s09/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s09/verification.json": "03e2f58f03d9979c2e07c7b7ed44c07b583f5ca439006fe7991c1d7fbdab6839",
+    "battery/evidence/pairs/s02-s10/receipt.json": "2a08186e919aef436f1631bd2b3a8587b67d3ffa136c57a0d1c9adee8090b397",
+    "battery/evidence/pairs/s02-s10/result.json": "5be4dfb97a8a44020e1c541e76ef602de009a6e618aba23266fb08d5247673d0",
+    "battery/evidence/pairs/s02-s10/verification.json": "e6d1fcd3f552c4bfc5379b60fac1004aebb7f898f492064cbcbcac87dd7152a0",
+    "battery/generation/s01.json": "8b5bca3cac4f5046c1377b1ee861c7559045d44ce30e3baddb31ebfaf1a59bea",
+    "battery/generation/s02.json": "d0c78297a293c3693a738409e84cb1de40cbf792c113b66448411bb7729c76da",
+    "battery/generation/s03.json": "532b84965a6324d105d44b8a44bbc1527624f5930a69f66594d1b7566c3fd6e7",
+    "battery/generation/s04.json": "3fe9749e139a7de9ca138e1ca45ea18428437123be0679c39e16f8198dd20c18",
+    "battery/generation/s05.json": "bf4491cc3fdc1649969b9c7d6fd22e3a04331e6db6631a7038136640accef638",
+    "battery/generation/s06.json": "9ffb2809837f6fe033ad170c2acaa8564bb582456a87220ef6a3b7c3738bc3b4",
+    "battery/generation/s07.json": "7e21d4b5956ede3d36150cad40659dfbb20fbcb1f1a8488fc0f5abd796d635d2",
+    "battery/generation/s08.json": "a9f312be055f0d53c6e1090fc02611c29eba75478a9cfb3615fc7cb4eda229cb",
+    "battery/generation/s09.json": "ca6234e86438b42d1f75053de35870a33e4141105cb6c1746b529f21ea5950db",
+    "battery/generation/s10.json": "a0a263face36431a16fb14f24c2a7237b9f79eee4e2325535dd8b4d707b22602",
+    "battery/oracle.sysml": "07723356d02d38bb1427b17b8c2a228f92e1f9fd3010976449925dc089ceb87f",
+    "hvac/M-star.sysml": "fbe9d31ccba5c8bb0f9123c63b54c5b8eb91d4020b9d72634ecdcb51a0dc5ab9",
+    "hvac/N.md": "68bc7a15a3f7573f4ce6f35ef3b3e43aca15c5f8c3453e7e43dcccfb238d474e",
+    "hvac/candidates/s01.sysml": "b7b929b21b0c803a7a56357dba138775ef02afa02e936aca8e424fa5c9bc1443",
+    "hvac/candidates/s02.sysml": "ab852e86acfc27813dc65bbc1bed29b06ffa232ccea610834e3e35fe5444d10e",
+    "hvac/candidates/s03.sysml": "f7cba86d9b997b9e3b83c574f7f2435b3c82abbd42e991cd96e31e09674927d8",
+    "hvac/candidates/s04.sysml": "a83327fe6a9af51a9c3c66602d099488b5a41cfbc5bac574e05fc5f46de9684d",
+    "hvac/candidates/s05.sysml": "afc9293d29f44d491e0a9dd767f0f3361e70c9b000b4b5f9ae8b230143eedab4",
+    "hvac/candidates/s06.sysml": "35b17b1e7d9b035f7d1b007632c179298e5a604d86b2709f9467e957f4e88988",
+    "hvac/candidates/s07.sysml": "eed77eeef0af9c03d28eca87ec0c74458ebeb5c3de64c672e8346ff535d06172",
+    "hvac/candidates/s08.sysml": "2eb32388ca8b1fd5922630f6ff6cd827f3c3f87a470482d1056a58211719c108",
+    "hvac/candidates/s09.sysml": "84ae9ac53ee0d0da7e5777347f231c515741db5293c055fdea462676022d973d",
+    "hvac/candidates/s10.sysml": "d83dcf87ee100a25bd6fd19407ff309ae6fd0699c4b0d9f3a0df8bac520e28e6",
+    "hvac/evidence/oracle/s01/receipt.json": "9ac9a0ccea6a2fd515685da71be94d514441520b54a81a857ab51ad10d023199",
+    "hvac/evidence/oracle/s01/result.json": "88975aa69bf20e3827f58c22d7efe397c4e2e3e924727689ded29ea6853d33c5",
+    "hvac/evidence/oracle/s01/verification.json": "7feb89bb187e71b3fe39986fdae1bc3a015718a31b2cab9fe16f45e70202bb2e",
+    "hvac/evidence/oracle/s04/receipt.json": "1793b52e46921856b1670ef000381766e55cba5bc17eb7d699534e2824a802ca",
+    "hvac/evidence/oracle/s04/result.json": "714345ea5e4cf797975f89878027b307cecd7769c3898da461010e1694385177",
+    "hvac/evidence/oracle/s04/verification.json": "5c9bf65c1074f00d0d3cfc472469fd394a84fae273063726fb4cc846e01c6498",
+    "hvac/evidence/oracle/s09/receipt.json": "f406aa5e7f47eb5e06dc21abe0e7dfe392e32c573862a6abac0a440c69598eae",
+    "hvac/evidence/oracle/s09/result.json": "88975aa69bf20e3827f58c22d7efe397c4e2e3e924727689ded29ea6853d33c5",
+    "hvac/evidence/oracle/s09/verification.json": "1f849035804b18ec09e657c696ed0f8bba4d1f1c61207be3fa0af3acc78724fb",
+    "hvac/evidence/oracle/s10/receipt.json": "c87dcc26a53c22749fd189ffbdbff6743fb4a8b45980d8a2e437f1cf0d006769",
+    "hvac/evidence/oracle/s10/result.json": "88975aa69bf20e3827f58c22d7efe397c4e2e3e924727689ded29ea6853d33c5",
+    "hvac/evidence/oracle/s10/verification.json": "b9f969f9a74eb2e0454c80f741e88ca0c799bd3e5e1021f6334f99db5687c230",
+    "hvac/evidence/pairs/s01-s02/receipt.json": "bb81e8d93ab32a83d097661773b1a795049ba173d1188a5494e87b526861cc28",
+    "hvac/evidence/pairs/s01-s02/result.json": "1494c4d9fdd74672da3f463fd453cec561e189aba6570971de9044573baec6e5",
+    "hvac/evidence/pairs/s01-s02/verification.json": "564bf757d3be2d3404f29e437b1ef0f3fd80d483aac5c2786e79126e72ac5abb",
+    "hvac/evidence/pairs/s01-s03/receipt.json": "64657c799337f0e2c48234ffc554a0af5a8737095ae93fc1212c83934bca641f",
+    "hvac/evidence/pairs/s01-s03/result.json": "1494c4d9fdd74672da3f463fd453cec561e189aba6570971de9044573baec6e5",
+    "hvac/evidence/pairs/s01-s03/verification.json": "f07f5ca3c7c3021ce692acc87298caa17b235403d949f397e80aff0fd4db6461",
+    "hvac/evidence/pairs/s02-s08/receipt.json": "e673c5bd64cbd6b43e7b306bc09d66e8e5511520bb4af5ae0785515c0a0b9f0c",
+    "hvac/evidence/pairs/s02-s08/result.json": "1494c4d9fdd74672da3f463fd453cec561e189aba6570971de9044573baec6e5",
+    "hvac/evidence/pairs/s02-s08/verification.json": "094685ba41619b119aa3b2d78c480e184e0d7a46c7ff36f7f3312afa65da6154",
+    "hvac/evidence/pairs/s03-s06/receipt.json": "0678d89c56668130840290a03bb6418687456af7c8aed67b5c62ba1da16ee997",
+    "hvac/evidence/pairs/s03-s06/result.json": "1494c4d9fdd74672da3f463fd453cec561e189aba6570971de9044573baec6e5",
+    "hvac/evidence/pairs/s03-s06/verification.json": "ae3225d31dd190d799ce16375f3786250c94acbb29c34e97cebd24194b904734",
+    "hvac/evidence/pairs/s04-s05/receipt.json": "c3f395e899880cc421c8f8311fdfea93ecedae79234e91d387b9789cb4ac3654",
+    "hvac/evidence/pairs/s04-s05/result.json": "1494c4d9fdd74672da3f463fd453cec561e189aba6570971de9044573baec6e5",
+    "hvac/evidence/pairs/s04-s05/verification.json": "b940f659497e9eb999411131bfe02aa0bf4e0a4af710423a87fec386351a9e56",
+    "hvac/evidence/pairs/s07-s08/receipt.json": "216cff3eec8a06b9051ea229fd52d8c5f345e10111e51dc7f37763db99a56094",
+    "hvac/evidence/pairs/s07-s08/result.json": "1494c4d9fdd74672da3f463fd453cec561e189aba6570971de9044573baec6e5",
+    "hvac/evidence/pairs/s07-s08/verification.json": "b1bfb2b8892c414a36c2b10c54ea4912992dcc18a83f560fba6b1c645e0bffbc",
+    "hvac/generation/s01.json": "b4d338669315d9ec4696b2f14f9ee32215fe312985234cba29bbb39df7924353",
+    "hvac/generation/s02.json": "a8365dd3c4ac3aba516ff2ac51b4e39b5d688275aebaede9ca7fbf7d8ece769e",
+    "hvac/generation/s03.json": "458cb2f7bd365b12c967935764a105b527928be825726891b7b3451cfabc438c",
+    "hvac/generation/s04.json": "196969b6fa71f3394f9ec1c1d8248b8d1593f1cb8c1dc8b4b3f079dac253da86",
+    "hvac/generation/s05.json": "fc19f513375e52b74c2e2a60fbade9157fe1fccd79a1176b9e3ae3b3f4c78d91",
+    "hvac/generation/s06.json": "693f6d7b6aaea6d9c44424ed7bc74151319e3a3d7044d423e3b4746152bfe46a",
+    "hvac/generation/s07.json": "1dcd8ad1e52431a3ca878fdc268577ca1225e286f483e7c12d4dc87977f70c90",
+    "hvac/generation/s08.json": "d194159e27d7c0dee5ec03c76dbed27f3e211b8b3cfaca830c0e9ef330645bd0",
+    "hvac/generation/s09.json": "49c39cc77f96d6e65c19696b01ceddbfb98b0aa29efdd68ebbcb7ca96b1d6ee0",
+    "hvac/generation/s10.json": "9a3a5bd93e22117bc29cf73d4e4eadf305cd5eb1939f0c1dd01180de981991d9",
+    "hvac/oracle.sysml": "6e96cd95c3e1c46a869b8b7d7777302462db2b2265d96224061d76848150d31c",
+    "prompt.md": "3dfb75a03ce99093192c58e739b7125c8695e88b9c18fd6d22147e23dc2d2a10",
+    "results.csv": "717a9d9c75dbf86b1b6a1c9228d18a04a1cfda31804100ae009be3ba5e6e284f",
+    "test_verify.py": "eea6c705521e34c7115edab484888acd96ce6621da1db46742db7ce2b9733b65",
+    "verify.py": "1c3451e97b7524bd02154786fea795d089ffad9546c2297a576c7d115f8fadfa"
+  },
+  "generation_seconds": 600,
+  "runtime": {
+    "codex_sha256": "b8a11fedf24b2dfb59a70c9e52b030f9a508dcd49cd2dd0d41956f4c785156b8",
+    "codex_version": "codex-cli 0.166.0",
+    "library_revision": "9016cbcceefa92f0068e1811923704dd261d15f1",
+    "model": "gpt-5.6-terra",
+    "model_catalog_sha256": "7ca700d653bcbff6e8f44027d5f245be0416388d825daedfa780837d735132bd",
+    "reasoning_effort": "high",
+    "sireum_launcher_sha256": "29054e657216ba190d51c2beb29a77125886bd48a7a525200cdbf6e4bf1ff6b4",
+    "tool_mode": "direct"
+  },
+  "schema": 1,
+  "scope": "Per-output reference fidelity for two ten-output sets; not a voting-performance estimate.",
+  "toolchain": {
+    "library_path": "external/sysml-aadl-libraries",
+    "parser_version": "4.20260626.332fb27",
+    "sireum_version": "4.20260630.386eac9f"
+  },
+  "vc_seconds": 180
+}

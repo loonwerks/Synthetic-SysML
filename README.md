@@ -4,6 +4,17 @@ This repository details an approach to synthetically generate SysML V2 models fo
 It brings together tools for generating SysML/GUMBO ground truth, deterministically translating it into English, evaluating AI-generated contract reconstruction, and checking the result for semantic equivalence.
 ``sysml-viz``, a custom SysML visualization, is a tool developed as a part of this work to aide in manually inspecting the generated synthetic models.
 
+## Ten-output reconstruction results
+
+| Example | Reference-equivalent outputs | Weaker outputs |
+| --- | ---: | ---: |
+| Battery supervisor | **9/10** | 1/10 |
+| Repaired HVAC supervisor | **8/10** | 2/10 |
+
+Each row covers ten independent reconstructions with GPT-5.6-Terra/high.
+These counts measure fidelity to the supplied reference contracts.
+[Exact inputs, all 20 outputs, checker evidence and verification command](experiments/ensemble-10/README.md).
+
 The figure below is the central map of the workflow.
 Start with the component that matches the part of the pipeline you want to understand or change.
 
