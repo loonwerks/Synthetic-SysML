@@ -1,0 +1,86 @@
+// #Sireum
+
+package battery_evidence_charge_qualification_supervisor.Battery_Evidence_Charge_Qualification_Supervisor
+
+import org.sireum._
+import battery_evidence_charge_qualification_supervisor._
+
+// This file will not be overwritten if HAMR codegen is rerun
+object ChargeIntentArbiter_supervisorProcess_chargeIntentArbiter {
+
+  def initialise(api: ChargeIntentArbiter_Initialization_Api): Unit = {
+    Contract(Modifies(api))
+    // example api usage
+
+    api.logInfo("Example info logging")
+    api.logDebug("Example debug logging")
+    api.logError("Example error logging")
+
+    api.put_chargeDecision(Battery_Evidence_Charge_Qualification_Supervisor.ChargeDecision.NO_CHANGE)
+  }
+
+  def timeTriggered(api: ChargeIntentArbiter_Operational_Api): Unit = {
+    Contract(
+      Modifies(api),
+      Ensures(
+        // BEGIN COMPUTE ENSURES timeTriggered
+        // case CASE_14_CANCEL_PRIORITY
+        (api.chargeRequest == ChargeRequest.CANCEL_CHARGE) ___>: (api.chargeDecision == ChargeDecision.TERMINATE),
+        // case CASE_15_RECOVERY_PRIORITY
+        (api.chargeRequest != ChargeRequest.CANCEL_CHARGE &
+          (api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.RECOVER_EVIDENCE |
+            api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.RECOVER_CHARGER |
+            api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.RECOVER_CONTEXT)) ___>: ((api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.RECOVER_EVIDENCE ___>:
+          api.chargeDecision == ChargeDecision.RECOVER_EVIDENCE) &
+          (api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.RECOVER_CHARGER ___>:
+            api.chargeDecision == ChargeDecision.RECOVER_CHARGER) &
+          (api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.RECOVER_CONTEXT ___>:
+            api.chargeDecision == ChargeDecision.RECOVER_CONTEXT)),
+        // case CASE_16_REQUEST_OR_HOLD
+        (api.chargeRequest != ChargeRequest.CANCEL_CHARGE &
+          api.chargeEligibilityEnvelope != ChargeEligibilityEnvelope.RECOVER_EVIDENCE &
+          api.chargeEligibilityEnvelope != ChargeEligibilityEnvelope.RECOVER_CHARGER &
+          api.chargeEligibilityEnvelope != ChargeEligibilityEnvelope.RECOVER_CONTEXT) ___>: ((api.chargeRequest == ChargeRequest.REQUEST_CHARGE &
+          api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.ELIGIBLE ___>:
+          api.chargeDecision == ChargeDecision.AUTHORIZE) &
+          (api.chargeRequest == ChargeRequest.REQUEST_CHARGE &
+            api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.BLOCKED_EVIDENCE ___>:
+            api.chargeDecision == ChargeDecision.REJECT_EVIDENCE) &
+          (api.chargeRequest == ChargeRequest.REQUEST_CHARGE &
+            api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.BLOCKED_CHARGER ___>:
+            api.chargeDecision == ChargeDecision.REJECT_CHARGER) &
+          (api.chargeRequest == ChargeRequest.REQUEST_CHARGE &
+            api.chargeEligibilityEnvelope == ChargeEligibilityEnvelope.BLOCKED_CONTEXT ___>:
+            api.chargeDecision == ChargeDecision.REJECT_CONTEXT) &
+          (api.chargeRequest == ChargeRequest.NO_REQUEST ___>:
+            api.chargeDecision == ChargeDecision.NO_CHANGE))
+        // END COMPUTE ENSURES timeTriggered
+      )
+    )
+    val request = api.get_chargeRequest().get
+    val eligibility = api.get_chargeEligibilityEnvelope().get
+    if (request == ChargeRequest.CANCEL_CHARGE) {
+      api.put_chargeDecision(ChargeDecision.TERMINATE)
+    } else if (eligibility == ChargeEligibilityEnvelope.RECOVER_EVIDENCE) {
+      api.put_chargeDecision(ChargeDecision.RECOVER_EVIDENCE)
+    } else if (eligibility == ChargeEligibilityEnvelope.RECOVER_CHARGER) {
+      api.put_chargeDecision(ChargeDecision.RECOVER_CHARGER)
+    } else if (eligibility == ChargeEligibilityEnvelope.RECOVER_CONTEXT) {
+      api.put_chargeDecision(ChargeDecision.RECOVER_CONTEXT)
+    } else if (request == ChargeRequest.REQUEST_CHARGE) {
+      if (eligibility == ChargeEligibilityEnvelope.ELIGIBLE) {
+        api.put_chargeDecision(ChargeDecision.AUTHORIZE)
+      } else if (eligibility == ChargeEligibilityEnvelope.BLOCKED_EVIDENCE) {
+        api.put_chargeDecision(ChargeDecision.REJECT_EVIDENCE)
+      } else if (eligibility == ChargeEligibilityEnvelope.BLOCKED_CHARGER) {
+        api.put_chargeDecision(ChargeDecision.REJECT_CHARGER)
+      } else {
+        api.put_chargeDecision(ChargeDecision.REJECT_CONTEXT)
+      }
+    } else {
+      api.put_chargeDecision(ChargeDecision.NO_CHANGE)
+    }
+  }
+
+  def finalise(api: ChargeIntentArbiter_Operational_Api): Unit = { }
+}

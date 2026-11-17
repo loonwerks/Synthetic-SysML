@@ -1,0 +1,311 @@
+{
+  "checkpoints": [
+    {
+      "content_sha256": "c7e1bc37782929cd777dd1f3ed8ed310d244d317b2b1f8b9ab977712adc9d3c8",
+      "id": "M0",
+      "metadata_sha256": "0e258366f6a61f72bd509a6fda8cd566548f76493d9c4db3d21b44f0f321fea3",
+      "parent": null,
+      "path": "checkpoints/M0.md",
+      "training_dataset": null
+    },
+    {
+      "content_sha256": "c407683f486e7c39be2e9ddc9e1b8a80e034a25bcf32e2d3ef19f67db6a1e50f",
+      "id": "M-E",
+      "metadata_sha256": "956ccf49afef5a11a25c2492c82e5e04d497baf08db30e40bc298ef8c0512246",
+      "parent": "M0",
+      "path": "checkpoints/M-E.md",
+      "training_dataset": "windshield-defrost-request-supervisor"
+    },
+    {
+      "content_sha256": "3f7f7f841e9c3f560f614cb134aedb6ab69db9c8201f46d369342efb1a0471d1",
+      "id": "M-EM",
+      "metadata_sha256": "6e1e9746f3731299b8080ce1cf36f3294773085446c4c239921cf99769f01257",
+      "parent": "M-E",
+      "path": "checkpoints/M-EM.md",
+      "training_dataset": "energy-and-interface-aware-cabin-climate-supervisor"
+    },
+    {
+      "content_sha256": "a44a921effa8ba44ca300a1d7a51138524fc7269c7107a59d69cbaad962a8938",
+      "id": "M-EMH",
+      "metadata_sha256": "d7c34b0fcef76ef22d1070946eed230acd932aa2d90273f5cfe65cea9a34a43d",
+      "parent": "M-EM",
+      "path": "checkpoints/M-EMH.md",
+      "training_dataset": "visibility-priority-whole-cabin-hvac-supervisor"
+    }
+  ],
+  "datasets": [
+    {
+      "difficulty": "easy",
+      "domain": "hvac",
+      "family": "hvac-r1",
+      "id": "windshield-defrost-request-supervisor",
+      "replicate": 1,
+      "role": "train",
+      "sha256": {
+        "model": "f893a3b73d0e5519a20e028ddd30b534cb0ca52b87494b8ceedf82a0158517a9",
+        "oracle": "627919ff5c7c8e431bb07c9a14fb08aa72edcf76e3035da444ae113bcfe38a40",
+        "requirements": "25a3411b8917c427e17025519f84221e82051a144ea2138bb9389a9f120db7c7"
+      }
+    },
+    {
+      "difficulty": "medium",
+      "domain": "hvac",
+      "family": "hvac-r1",
+      "id": "energy-and-interface-aware-cabin-climate-supervisor",
+      "replicate": 1,
+      "role": "train",
+      "sha256": {
+        "model": "7aaa22fb5aceca4de4c9a4915ea52cf8e2f342d28c89df3d65afd6265efa7591",
+        "oracle": "324230a6acbba3a2a9805173a3a56f8e028ac94334de66db322b55ac8456a6b7",
+        "requirements": "e6ffc76a13920e2ec0787924d2a33ba643a3febba5b39a8a926b9d8d2d5b5300"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "domain": "hvac",
+      "family": "hvac-r1",
+      "id": "visibility-priority-whole-cabin-hvac-supervisor",
+      "replicate": 1,
+      "role": "train",
+      "sha256": {
+        "model": "3519433ccb5141a9e42c0ed05861fc7506f7d4b42a34b2b363e58380ec5b3c9d",
+        "oracle": "9b5f6232373b02d747440a994c6fbf03aa376cf3530699f519fbd6d26e89f50e",
+        "requirements": "4b44453307438f9ffdc73ef3a3075aee0c35c7f30c907c0de5264d851e3a1c88"
+      }
+    },
+    {
+      "difficulty": "easy",
+      "domain": "hvac",
+      "family": "hvac-r2",
+      "id": "cabin-air-quality-and-humidity-supervisor-small",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "4e67e52c3d05b0935700be5356f79c35de651f04fc395b89f63e01f370cd16e9",
+        "oracle": "9204d58f7d5658dbb797c8506a2b3278a503e909c93d15825e29605422e92149",
+        "requirements": "ce961baf34280edbc2e2f5f79edb2ce9d1cc4bfb9dfeca8eac1570e11d82b0a0"
+      }
+    },
+    {
+      "difficulty": "medium",
+      "domain": "hvac",
+      "family": "hvac-r2",
+      "id": "cabin-air-care-preference-and-condition-supervisor",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "1dab89306829ba4e27d780764c8c5115cb46f0dfec5dadd1a4f34a8a2422d635",
+        "oracle": "cb0615bda26e1dcc432ad8459bc0338c416267374c0257e1b08ca838f1059b3d",
+        "requirements": "27bf64cc2853155e87c09472b0ba0c1d52f0961fe37a6b3ee73858f4d55ab750"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "domain": "hvac",
+      "family": "hvac-r2",
+      "id": "cabin-air-quality-and-humidity-supervisor-hard",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "d195dcecde659e17d22dc34bf8b3710859575ead5c2642f3fda69c7454d2d3f9",
+        "oracle": "75dc9066af8a1e82e9bd8897e51befcbf6cddb430c0e2eb1e47d2326e945ba5b",
+        "requirements": "0ac87b15752d866223c0e85cf3bb3c9d3fc741619fc388e3082fe7efea379503"
+      }
+    },
+    {
+      "difficulty": "easy",
+      "domain": "drone",
+      "family": "drone-lifecycle-r1",
+      "id": "small-drone-lifecycle-governor",
+      "replicate": 1,
+      "role": "test",
+      "sha256": {
+        "model": "f79901900ce08c499afedcb5532739b375ec9e46d663718813913af8e9c30434",
+        "oracle": "a61a14aae9f46abc046d9caf39a54596be651abab11fc215fa10f5e21fa8bc24",
+        "requirements": "811504fc1a7dcc303e34639d80df033ecfe4ea5be46a5723d85438e1c95daa1e"
+      }
+    },
+    {
+      "difficulty": "medium",
+      "domain": "drone",
+      "family": "drone-lifecycle-r1",
+      "id": "drone-lifecycle-governor",
+      "replicate": 1,
+      "role": "test",
+      "sha256": {
+        "model": "0f57001a2d83b6007022a916949db5bb036fa34f6f06c5358685cda2b8337a91",
+        "oracle": "361b07a781b30345e58c494eeabc8153669914ca72a014a3627b4b1e5e482a19",
+        "requirements": "da21a7a15b7b6ee2f749ebc06aa72ba9eb9dc18231732dc8f81f9400b53cfb57"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "domain": "drone",
+      "family": "drone-lifecycle-r1",
+      "id": "logical-drone-lifecycle-and-energy-governor",
+      "replicate": 1,
+      "role": "test",
+      "sha256": {
+        "model": "15689c1d5e46fbb8606c2d4349e7489b3c3e2c8ea67c574e0e7b98a48183b220",
+        "oracle": "8edeec3db2159e274d34896167ee7793432c46c738fcc08e56f1d3b87e36067a",
+        "requirements": "3b140c1cb60c75eb2113f5b5e890b0f4682a36748efea87337048f26e00558d8"
+      }
+    },
+    {
+      "difficulty": "easy",
+      "domain": "drone",
+      "family": "drone-lifecycle-r2",
+      "id": "small-drone-battery-charge-qualification-supervisor",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "82203a00da22bf8360f35fb33ad4832a993a2013ae5540cc2a24a925f6d707cc",
+        "oracle": "284194129f5244e49b6259c4236f18b707873c3d265762c50b0ea82ea292e522",
+        "requirements": "6cacd65197c218800a0c31cf3cc79384d43816d33a3d9894cee5e64e84152dd6"
+      }
+    },
+    {
+      "difficulty": "medium",
+      "domain": "drone",
+      "family": "drone-lifecycle-r2",
+      "id": "battery-evidence-and-charge-qualification-supervisor",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "a7f5a7acf45505648ec7df7ac8fb54bde0ba8d955538c05068077937bccabfe3",
+        "oracle": "07723356d02d38bb1427b17b8c2a228f92e1f9fd3010976449925dc089ceb87f",
+        "requirements": "9e87b17dab989c437d35e955277df876cc88e81a985ef9025c2bbf6615747ef4"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "domain": "drone",
+      "family": "drone-lifecycle-r2",
+      "id": "battery-evidence-and-charging-qualification-supervisor",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "c7dd0bb73d708ffe517d8db4ea1fe7680d0d1058794d8318395003af0ffd52ad",
+        "oracle": "f2991da238a3534209f305de0e8646c39376108517b40682a1978be1ef9ee3e2",
+        "requirements": "e0dee6e407dc549fcfb72a44fc338f9b2d62f6769fa53b478146ac56f58eaa6c"
+      }
+    },
+    {
+      "difficulty": "easy",
+      "domain": "drone",
+      "family": "fire-observation-r1",
+      "id": "forest-observation-eligibility-supervisor",
+      "replicate": 1,
+      "role": "test",
+      "sha256": {
+        "model": "ce4b527d7ac5ac956f0228b2f24b28c90808a21dd68d21830c6a036301e9b2ef",
+        "oracle": "b82ea4965527d7d5f3119e27cfd3a69128353f1cf6cd127d96a986dc3dc9e510",
+        "requirements": "67dafacb2fa4f84e6ba1f065aaba93f3bbcddc99b97808de12dd418d578d1a18"
+      }
+    },
+    {
+      "difficulty": "medium",
+      "domain": "drone",
+      "family": "fire-observation-r1",
+      "id": "observation-acquisition-and-radio-delivery-coordinator",
+      "replicate": 1,
+      "role": "test",
+      "sha256": {
+        "model": "548e4ead418b823c5dc50695a4673a739130723cb660cab13f80dbb5c6b2ec6b",
+        "oracle": "b8571ac04301cacfd65c4fe66d61545a53a92f20025031ed6987fed27a04db90",
+        "requirements": "c9ef01616dc9e2efeb09fa6ca8e41eaa7c163281c873d7b443e6be796b6975c9"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "domain": "drone",
+      "family": "fire-observation-r1",
+      "id": "observation-sortie-eligibility-supervisor",
+      "replicate": 1,
+      "role": "test",
+      "sha256": {
+        "model": "9a6aab0d295d572df2fc30e6ff8f212e57e9495cccfcf624a6aab51cd839327f",
+        "oracle": "1880bb061208d72c11647c5b0be9bbfa45b99bccc25e9a8625111e8abf29bcbf",
+        "requirements": "72eff1cc5c83fd2cbcbe187b097043ac34caf7e2557c969ff0b1c5520381511d"
+      }
+    },
+    {
+      "difficulty": "easy",
+      "domain": "drone",
+      "family": "fire-observation-r2",
+      "id": "battery-status-assessment-service-for-drone-control",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "b118c433316c7458256f99860994587d8eec6045c7f81e78fe34209f41d43f36",
+        "oracle": "d162d7c6c0fa280297054760631e52729960bc0b350a6b5245a506a263a78ec4",
+        "requirements": "e06e34978cb59d150423e332098be9e5d6357c5bae21360ee81320deed8dd285"
+      }
+    },
+    {
+      "difficulty": "medium",
+      "domain": "drone",
+      "family": "fire-observation-r2",
+      "id": "navigation-and-obstacle-awareness-use-supervisor",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "c1c46bd657aed26c467ddc2a1a43fc2b193f090efda8b7981dab15c2a104a5ee",
+        "oracle": "0378021a553d8861748f3ca3dae1b52fde0fcba8b6caaee8d06fd29ed7100601",
+        "requirements": "1d6de6bf9efedd16cecbbf04572533dd4c180fabbcf547460122913799d75b5f"
+      }
+    },
+    {
+      "difficulty": "hard",
+      "domain": "drone",
+      "family": "fire-observation-r2",
+      "id": "power-and-propulsion-availability-supervisor",
+      "replicate": 2,
+      "role": "test",
+      "sha256": {
+        "model": "f34f5a303e1a50801f31a7c9f71b282f48eaf69a3d042b585a5279704d5b272e",
+        "oracle": "8472c1e85c443cbb1c53485c8c4c089823f3f9400a377a0d0c4161afc9dbe568",
+        "requirements": "3367cd0f8aa07078006438fbd0605d6e931dce55098fad9091264d79c829df55"
+      }
+    }
+  ],
+  "embedding": {
+    "allow_proxy_fallback": false,
+    "applicability_max_cosine_distance": 0.1,
+    "dimensions": 1536,
+    "model": "text-embedding-3-small",
+    "relative_improvement": 0.001
+  },
+  "execution": {
+    "initial_parallelism": 1,
+    "maximum_parallelism": 8,
+    "memory_reserve_fraction": 0.1,
+    "memory_sample_seconds": 5,
+    "ramp_observation_seconds": 60,
+    "ramp_step": 1,
+    "uncalibrated_minimum_available_fraction": 0.25
+  },
+  "experiment_id": "metarule-transfer",
+  "model": {
+    "codex_model": "gpt-5.6-terra",
+    "equivalence_timeout_seconds": 300,
+    "reasoning_effort": "high",
+    "service_tier": "default",
+    "session_active_timeout_seconds": 3600
+  },
+  "protocol_revision": "paper-informed-v2",
+  "schema_version": "metarule-transfer-2.0.0",
+  "sealed_at": "2026-08-31T04:22:20.364689Z",
+  "sealed_definition_sha256": "2887cbcead04f1f9d8705490da472fd7ffc00ff0b93919fdaae79c54ebfcbadc",
+  "selection_count": 60,
+  "selection_set_sha256": "901799dad88574634600f43f64c0f7452e02fbfc7f90a9a45f61d149602bf1a9",
+  "state": "sealed",
+  "upstream": {
+    "gumbo_plan": "../../external/inspecta-scp/scp_demo_artifacts/isolette_io/Gumbo_FSE_agent_Plan.txt",
+    "gumbo_plan_sha256": "0ceb7a015659319c852a0ce1e667686a189dd281253d7ae4e397340d4cffb4af",
+    "methodology_paper": "../../external/inspecta-scp/SCP_IEEE_Documentation/revision_round22_June_2026/dacs-26-cam-ready-v0_revised_round21June_fixed.pdf",
+    "methodology_paper_sha256": "5f0f5ad54b1e70e2d7b889c773371125b585967444bba31bfd607cfd3bf0217f",
+    "verification_plan": "../../external/inspecta-scp/scp_demo_artifacts/isolette_io/sireum_verification_plan.txt",
+    "verification_plan_sha256": "a7a6a2444ff615e0ac7bc373ad3bfe0f747184923ead389397841e3cca60c6a9"
+  }
+}

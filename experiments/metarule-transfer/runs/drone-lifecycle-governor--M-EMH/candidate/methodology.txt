@@ -1,0 +1,714 @@
+      Bridging Natural Language to Verified
+Implementation: A Neuro-Symbolic High-Assurance
+          MBSE Pipeline in SysML v2
+      Amer Tahat, David Hardin, Isaac Amundson, Junaid Babar, Timothy A. Barclay, Janet Liu, Karl Hoech,
+                                            and Darren Cofer
+                                              Collins Aerospace, an RTX Business
+                {amer.tahat, david.hardin, isaac.amundson, junaid.babar, timothy.a.barclay, janet.liu, karl.hoech,
+                                                  darren.cofer}@collins.com
+
+
+
+   Abstract—The development of high-confidence avionics sys-           certification demands strong evidence that implementation
+tems demands rigorous allocation and end-to-end traceability           faithfully realizes requirements and architectural intent. In
+from requirements to implementation, yet current Model-Based           practice, maintaining end-to-end traceability from natural-
+Systems Engineering (MBSE) environments provide little support
+for automated, mathematically verified allocation and traceabil-       language requirements to architectural models to executable
+ity. While Generative AI (GenAI) offers a potential automation         code remains costly and fragile. In many Model-Based Sys-
+boon, its deployment in safety-critical workflows is severely          tems Engineering (MBSE) workflows, requirements allocation
+constrained by hallucinations, prohibitive token costs, scarcity of    and refinement still involve manual, tool-fragmented steps that
+open-source domain data, and restrictions on fine-tuning state-        weaken (or sever) the link between model-level assurance and
+of-the-art proprietary models such as GPT-5.
+   To address these barriers, we introduce a neuro-symbolic            the software implementation correctness. The resulting drift is
+Spec–Code–Proof (SCP) copilot that integrates Codex-class              often detected late—during integration, verification/validation,
+agents into the INSPECTA formal methods pipeline, developed on         or penetration testing—driving rework, schedule risk, and
+the DARPA PROVERS program. The pipeline translates natural-            certification friction [1].
+language requirements into SysML v2 models containing formal              Large Language Models (LLMs) appear well-suited to assist
+GUMBO contracts, generates HAMR infrastructure code, and
+discharges Logika proofs, ensuring properties are mathematically       with this decomposition by translating requirements into struc-
+preserved in the implementation. To enable specialization without      tured specifications, contracts, and implementation scaffold-
+fine-tuning, we introduce a Meta-Rule learning methodology             ing [2]. However, directly deploying LLMs in safety-critical
+that functions as a verifiable surrogate for weight adaptation.        workflows faces structural barriers. Beyond hallucinations and
+Core to SCP is supervised self-healing and self-adaptation:            token-heavy prompting, aerospace environments face the fine-
+successful in-context interactions are crystallized into persistent,
+expert-curated abstraction patterns, and Meta-Rules then drive a       tuning bottleneck: domain-representative data is often scarce or
+generate–verify–repair loop until the selected verification targets    proprietary, and fine-tuning frontier proprietary models (e.g.,
+are satisfied within a given budget.                                   GPT-5-class systems [3]) are typically restricted by vendor
+   We evaluate our methodology on the Isolette infant-                 policy and/or cost [2], [4].
+incubator system, a multi-subsystem HAMR/INSPECTA bench-                  In this setting, the key challenge therefore is not merely
+mark sourced from the FAA Requirements Engineering Man-
+agement Handbook. Within the defined Isolette/HAMR target
+                                                                       to generate plausible formal text, but rather to produce a
+scope, our copilot achieved 100% code-level verification and an        verified artifact within bounded time, token, and human-review
+18× adjusted increase in development task throughput compared          budgets. Recent theory on AI agents in verifiable settings
+to a prompt-only baseline that, lacking Meta-Rules, failed to          provides a useful lens for this problem: past experience matters
+produce verifiable artifacts. This demonstrates a practical path       to the extent that it captures reusable algorithmic structure
+to certification-facing automation under strict data and model
+governance constraints, while scoping the claim to HAMR-
+                                                                       that reduces the time needed to solve new tasks [5]. Viewed
+centric, toolchain-aware GUMBO repair; broader cross-system            through this lens, the important quantity is not raw fluency
+validation and additional rule books remain ongoing work.              alone, but cost per verified task. This framing is particularly
+   Index Terms—SWE agents, Neuro-symbolic AI, Formal Meth-             natural in MBSE pipelines where a formal checker is available
+ods, SysML v2, MBSE, Supervised Self-Healing, Supervised               and all candidate artifacts are filtered through hard accep-
+Meta-Rule Adaptation.
+                                                                       tance gates. These restrictions leave three highly desirable
+   DISTRIBUTION STATEMENT A. Approved for public                       capabilities unmet: (i) reducing token-heavy, brittle prompting;
+distribution unlimited.                                                (ii) filtering or rejecting hallucinated behaviors with machine-
+                                                                       checkable acceptance gates; and (iii) working from natural lan-
+                       I. I NTRODUCTION                                guage specifications to produce reusable, auditable evidence
+   High-assurance avionics software development faces a per-           that persists across runs.
+sistent tension: system complexity continues to increase, while           To address these barriers, we introduce a neuro-symbolic
+Spec–Code–Proof (SCP) copilot—a generate–verify–repair               edits) into a reusable rule library. In the evaluated FSE rule
+pipeline that turns natural-language requirements into trace-        book, a rule binds four kinds of reusable knowledge: linguistic
+able formal artifacts and verified implementations. SCP targets      triggers in requirements, semantic formalization choices, struc-
+the three gaps above by (i) shifting effort from repeated token-     tural placement in SysML v2/GUMBO, and repair actions in-
+heavy prompting into reusable intermediate artifacts; (ii) using     duced by HAMR/Slang/Logika feedback. Meta-Rules serve as
+formal verification as the primary acceptance gate to catch          a verifiable surrogate for black-box weight adaptation: instead
+hallucinated or underspecified behavior; and (iii) providing         of modifying parameters, the system externalizes adaptation
+a low-entry natural language interface while accumulating            into version-controlled artifacts that are (i) inspectable by
+governed, version-controlled specialization knowledge. Our           humans, (ii) exercised by the toolchain, and (iii) constrained by
+approach integrates Codex-class software engineering agents          formal verification. In developer mode, the system iteratively
+into the Industrial-Scale Proof Engineering for Critical Trust-      proposes and refines Meta-Rules using semantic similarity
+worthy Applications (INSPECTA) toolchain [1], developed on           metrics and INSPECTA tool (e.g., HAMR, Logika) feed-
+the DARPA Pipelined Reasoning of Verifiers Enabling Robust           back; only candidates that satisfy quantitative improvement
+Systems (PROVERS) program. INSPECTA provides the for-                criteria, pass verification, and receive human approval are
+mal backbone: SysML v2 [6], [7] captures the system architec-        retained. In user mode, the copilot injects this curated library
+ture, GUMBO [8], [9] expresses behavioral assume/guarantee           into the context, effectively triggering the underlying implicit
+contracts, HAMR [10], [11] generates executable memory-              fine-tuning mechanism [16] to behave as a domain-adapted
+safe infrastructure code, and Logika [11] discharges proof           agent. This allows us to bypass the aforementioned fine-
+obligations using SMT solvers (e.g., Z3 [12] and CVC5 [13]).         tuning restrictions while achieving comparable specialization,
+   This setting is challenging because a HAMR application is         driving a generate–verify–repair loop until model integration
+a layered assurance object, not a single text-to-code artifact.      and code-level verification succeed. In addition to consistently
+Requirements, SysML v2 architecture, GUMBO contracts,                producing practical formally verifiable output at low cost (see
+HAMR-generated Slang/Scala code, Logika/SMT obligations,             Section V-C), and thus effectively lowering the entry barrier
+build artifacts, diagnostics, and repair traces must remain          for users, this method systematically accumulates a dataset of
+mutually consistent; with seL4/Microkit targets, the model,          verified repair trajectories, alleviating current data scarcity and
+generated implementation, platform glue, and proof-facing ar-        paving the way for future fine-tuning as model accessibility
+tifacts can span tens of thousands of lines across languages and     improves.
+verification layers [10], [14], [15]. In a naive agentic workflow,      By anchoring the development workflow in these governed,
+upstream stochastic edits can trigger downstream failures and        externalized artifacts rather than opaque model behaviors, our
+repeated replay of models, code, logs, and counterexamples.          approach aligns with the industry’s emerging Specification-
+The research question is therefore how to combine stochas-           Driven Development (SDD) practices. Frameworks such as
+tic generation with symbolic feedback so high-assurance AI           AWS Kiro [17] aim to curb “vibe coding” by structur-
+assistance remains bounded, auditable, and repairable.               ing AI-assisted development around natural-language spec-
+   A major goal of INSPECTA is to create an auditable work-          ifications and acceptance criteria rather than unconstrained
+flow where the toolchain mechanically preserves properties           prompt-driven generation. We extend this paradigm to Formal
+established at the model level in the generated code. However,       Specification-Driven Development (FSDD) by making formal
+while this infrastructure ensures correctness after specification,   verification the primary acceptance gate. In our workflow,
+the initial creation of formal models and contracts remains a        specifications are refined into SysML v2 models and formal
+manual, expertise-heavy exercise. Ideally, an agentic copilot        GUMBO contracts, then discharged through HAMR/Logika
+would assist engineers in synthesizing these rigorous specifi-       verification. This yields machine-checkable evidence alongside
+cations from natural language directly; however, realizing this      generated code, enabling a workflow aligned with certification
+capability faces the critical barrier of effectively specializing    demands for traceability, repeatability, as well as auditable
+an LLM to such a complex, verification-centric toolchain             assurance artifacts.
+under base-model fine-tuning restrictions.                              In summary, the main contributions of this paper are:
+   Recent mechanistic interpretability results suggest that In-         1) Trustworthy English-to-Implementation Pipeline: A
+Context Learning (ICL) can act like an “implicit fine-tuning”               multi-agent SCP generate–verify–repair loop workflow
+process during inference [16], but the effect is transient: once            integrated with INSPECTA (SysML v2 + GUMBO +
+the context window is cleared, the learned behavior is lost.                HAMR/Logika) that generates verified contracts and
+In high-assurance settings, this ephemerality is a significant              code from requirements.
+obstacle: it forces repeated token-heavy prompting and makes            2) Supervised Meta-Rules Self-Adaptation Algorithm:
+it difficult to govern, audit, or reuse what the model has                  A HAMR/INSPECTA-scoped adaptation method that
+“learned” across runs.                                                      externalizes successful in-context learning into persis-
+   To stabilize this transient learning into a permanent asset,             tent, verifier-gated Meta-Rules. Within the evaluated
+we introduce Meta-Rules: persistent, human-readable formal-                 GUMBO–HAMR–Slang benchmark, semantic screen-
+ization abstractions that crystallize successful ICL interactions           ing, HAMR/Logika feedback, and human approval guide
+(derived from golden examples, tool feedback, and expert                    a governed generate–verify–repair loop toward the de-
+      fined verification targets.                                        model, mapping GUMBO assumptions and guarantees to
+   3) System-Level HAMR Benchmark Evaluation: An                         Verus requires and ensures blocks, respectively. In this
+      evaluation on the Isolette infant-incubator system [18],           paper, our SCP copilot supports the default behavior.
+      a realistic multi-subsystem HAMR/INSPECTA bench-                Figure 1 merges the INSPECTA assurance stack with the
+      mark spanning requirements, SysML v2 models,                 SCP agentic repair loop used in this paper. The specification
+      GUMBO contracts, HAMR-generated Slang/Scala obli-            agent proposes or updates SysML v2/GUMBO contracts under
+      gations, and Logika proof discharge. Within the scoped       guidance from persistent Meta-Rules. The verifier stack then
+      GUMBO FSE Rule book evaluation, Meta-Rules learned           acts as a hard gate: successful checks emit proof artifacts,
+      from a small solved file/subsystem example were reused       while failed checks return diagnostics and counterexamples to
+      on the remaining target files, converting a prompt-only      the repair agent. The repair agent converts those diagnostics
+      failure into a fully verified target-scope run.              into a suggested repair and modified plan, which is fed back
+   The remainder of this paper is structured as follows. Af-       to the specification agent for a bounded retry. In this sense,
+ter establishing the SysML v2 GUMBO and HAMR/Logika                Meta-Rules and verifiers act together as guided generation:
+background in Section II-A, Sections III and IV introduce          they constrain the search space before expensive multilayer
+the SCP architecture, the Meta-Rules framework, and the            verification is attempted and prevent unbounded token-heavy
+supervised self-adaptation algorithm. Section IV-D compares        trial-and-error.
+Meta-Rules to fine-tuning and transient prompting. Section V       language "GUMBO" /* { state lastCmd: On_Off;
+then defines the Isolette/HAMR benchmark and reports the             initialize
+                                                                       guarantee initLastCmd: lastCmd == Off;
+evaluation metrics and traces. Sections VI–VIII discuss related      compute
+work, limitations, and conclusions.                                    assume lowerLEUpper: lower <= upper;
+   To foster community collaboration and accelerate future             guarantee lastCmdTracksOutput: lastCmd ==
+                                                                           heat_control;
+research, all toolchain source code, along with our curated          compute_cases
+dataset of successful repair trajectories, is released as open         case REQ_1:
+source [19].                                                             assume mode == INIT;
+                                                                         guarantee heat_control == Off;
+                                                                       case REQ_2:
+                      II. BACKGROUND                                     assume mode == NORMAL && temp < lower;
+                                                                         guarantee heat_control == On;} */
+A. INSPECTA High-Assurance System Development and Ver-
+ification                                                          Listing 1. Illustrative example of a GUMBO contract on a SysML v2
+                                                                   component.
+   The development of safety-critical systems, including dig-         A typical GUMBO block includes optional state vari-
+ital avionics systems, requires rigorous evidence that imple-      ables, initialization guarantees, assumptions constraining in-
+mentations faithfully realize their requirements. The DARPA        puts, global guarantees, and compute_case clauses that
+PROVERS INSPECTA toolchain provides this verifiable set-           align conditional requirements with case-specific guarantees.
+ting by automatically integrating architectural design, code       Listing 1 provides an illustrative example.
+generation, and formal verification capabilities. Specifically,
+                                                                      III. N EURO -S YMBOLIC C ONTRACT G ENERATION WITH
+   • SysML v2 and GUMBO: Architecture models are cap-
+                                                                                     M ETA -RULES : A N OVERVIEW
+      tured in SysML v2, which natively supports a textual rep-
+      resentation amenable to LLM processing. These models         A. Meta-Rules: Persistent, Auditable Formalization Abstrac-
+      are annotated with GUMBO contracts. GUMBO allows             tions
+      engineers to attach formal specifications in the form            Meta-Rules are persistent, human-readable abstractions that
+      of assumptions and guarantees directly to components         constrain how the copilot translates natural-language require-
+      (parts) in the architecture model.                           ments and architectural context into INSPECTA-compatible
+   • HAMR and Logika: The HAMR framework analyzes                  artifacts. In this paper’s quantitative evaluation, we instantiate
+      these models to generate memory-safe executable in-          the mechanism with a single Formal Specification Engineer
+      frastructure code in languages like Slang/Scala (default     rule book, the GUMBO FSE Rule book. The book is GUMBO-
+      and target of this paper), C, or Rust; mapping GUMBO         centered because its primary rules concern state, initialization,
+      assumptions and guarantees to formal verifiable requires     assumptions, guarantees, and compute_case construction;
+      and ensures clauses, respectively. Subsequently, in the      however, it is not GUMBO-isolated because successful con-
+      case of Scala/Slang, the Logika formal verification frame-   tracts must also attach to the correct SysML v2 artifact, pre-
+      work uses SMT solvers (e.g., Z3, CVC5) to discharge          serve names used by generated Slang/Scala code, and respond
+      proof obligations, ensuring the component application        to HAMR/Logika diagnostics. In contrast to transient prompt-
+      code (developed manually or via LLM assistance) sat-         only conditioning, the rule book is a local, version-controlled
+      isfies its GUMBO contracts across the entire state space.    artifact that can be reviewed, curated, replayed, and audited.
+   • Finally, Rust and Verus: For Rust targets, HAMR gener-        Conceptually, solved requirement-to-GUMBO episodes serve
+      ates Verus verification annotations. Verus allows develop-   as worked cases: the extracted Meta-Rule is a reusable lemma-
+      ers to specify and prove properties using Rust’s ownership   like hypothesis, semantic screening estimates where it is likely
+                                                                        System Architecture Model
+              Agentic Spec-Code-Proof (SCP) Copilot
+                         bounded generate–verify–repair
+                                                                                                                                                   Green dashed lines: proofs when Q.E.D.
+                                                                            GUMBO Contract                            GUMBO Contract
+                             English Requirements
+                              architecture context
+                                                                                     Component                               Component                                                       Compositional
+                                                                                                                                                                                              Correctness
+                                                                                                                                                                                                Proofs
+
+                               Specification Agent
+
+                                 propose / modify                       HAMR                                                        Verified Synthesis
+                               SysML v2 + GUMBO
+                                                                                                                                                                                            Verified Code Gen
+                                                                                                                                                                                                   Proofs
+
+
+                                                                        Infrastructure
+                               Meta-Rules library                                                                                                        seL4
+                                                                        Code (Slang/Scala)
+                                   verified patterns +     retry plan                                                                                                                        Secure Kernel
+                                    semantic gates                                                                                                                                              Proofs
+                                                                                 Component Stub               API         Component Stub
+                                   guide generation,
+                                     bound retries                                  Logika/Verus                              Logika/Verus
+                                                                                 checkable contracts                       checkable contracts
+
+                                                                                   Rust/C/Slang                              Rust/C/Slang                                                     Component
+                                    Repair Agent                                                                                                                                              Correctness
+                                                                                                                                                                                                Proofs
+                                   suggested repair +
+                                     modified plan
+
+
+                  failure signal
+                                                                        (Verified) Compiler
+
+                               Verifier Diagnostics                                                                                                                                         Correspondence
+                                                                                                                                                                                                 Proofs
+                        error messages / counterexamples
+                                                                        Binary
+
+
+                                                                                                       Failure diagnostics returned to repair agent
+
+
+Fig. 1. Agentic SCP/INSPECTA workflow integrating the high-assurance development layers with a Meta-Rule-guided generate–verify–repair loop. Green
+dashed arrows denote successful proof artifacts; the red dashed arrow denotes verifier-failure diagnostics returned to the repair agent for a bounded retry.
+
+
+to apply, and the HAMR/Logika verifier stack plus human                                                    pings, Rust/Verus repair, and other systems are treated as
+review decide whether the hypothesis is worth retaining within                                             future work rather than quantitative evidence in this paper.
+the available budget.                                                                                         1) Geometric Intuition: Practically Verified Semantic Cone:
+                                                                                                           Figure 2 provides intuition for why Meta-Rules act as a
+B. Operational Modes of Use: User Mode vs. Developer Mode                                                  verifiable surrogate for fine-tuning in SCP. After injecting a
+                                                                                                           curated Meta-Rule candidate R, verification-aligned perfor-
+   Operationally, we distinguish two modes:
+                                                                                                           mance forms a local maximum over the base-model man-
+   • User Mode (application). End users trigger the copi-                                                  ifold M, centered around a golden example direction g.
+     lot with a low entry-point prompt that applies an ex-                                                 For the GUMBO-focused setting, an applicability screen can
+     isting, curated Meta-Rule library to translate require-                                               be instantiated as a cosine-distance gate dcos (r, m) = 1 −
+     ments into candidate GUMBO contracts. The workflow                                                      e(r)·cm
+                                                                                                           ke(r)kkcm k , where e(r) embeds the new requirement and cm
+     then executes HAMR/Logika verification; failures trigger                                              is the centroid of the rule’s solved examples; normalized
+     bounded, tool-guided repair until integration-level and                                               token-difference checks can be used as a syntax-sensitive
+     code-level verification succeed.                                                                      alternative. Candidate applications with d ≤  are attempted,
+   • Developer Mode (supervised self-adaptation learning).                                                 and HAMR/Logika verification plus human review decide
+     Developers iteratively refine the Meta-Rule library itself.                                           whether the resulting contract is retained.
+     Adaptation is supervised and gated: candidate Meta-Rule                                                  2) Toy Example Meta-Rule: Listing 2 shows a compact
+     modifications are treated as hypotheses and retained only                                             excerpt from the GUMBO FSE Rule book. The rule directs
+     if they improve measurable criteria, pass verification, and                                           the agent to introduce explicit GUMBO state when the English
+     receive explicit human approval. This yields cumulative                                               requirement implies memory, a failure mode observed in the
+     improvement without explicit base-model fine-tuning.                                                  prompt-only baseline.
+Scoped GUMBO FSE rule book. The evaluated library is                                                       Rule: introduce explicit GUMBO state for memory.
+deliberately scoped to the GUMBO FSE Rule book. Its quan-                                                  Trigger: hysteresis, "hold previous", "shall not
+titative role is GUMBO formalization, but its repair knowl-                                                    change".
+                                                                                                           Semantic choice: model memory as state +
+edge is toolchain-facing: it records where contracts attach in                                                 initialization.
+SysML v2, how requirement and port names must remain                                                       Structural target: attach compute_cases to owning
+consistent, which GUMBO constructs translate to generated                                                      SysML thread.
+                                                                                                           Repair gate: keep only if HAMR/Slang/Logika checks
+Slang/Scala obligations, and how HAMR/Logika diagnostics                                                       succeed.
+should guide bounded repair. Broader rule books for process
+                                                                                                           Listing 2. Compact FSE rule excerpt linking linguistic, semantic, structural,
+synthesis, port/connection construction, seL4/Microkit map-                                                and repair patterns.
+                          Meta-Rules Book
+                                                                                                       with feedback f b. While R EPAIR B UDGET R EMAINING(B)
+                           Refine Meta-Rule candidate R to optimize ε
+                                                                                                       holds, R EPAIR(ĝ, f b, B) revises the candidate using verifier
+                                                 Range of Effect (±εmax )                              feedback. The counter okCount records how many sampled
+                                                                                                       requirements are successfully verified for the candidate rule
+                                            g (Golden Example)                                         m, and τ is the minimum acceptance threshold required to
+                                                                                    Specialize (ε ↓)
+                                                                                                       retain m in M . If performance is unsatisfactory, D ISCAR -
+                                                                                                       D O R R EFINE W ITH H UMAN (m) permits human refinement of
+                                                   0
+                                                  v1                  v1                               the rule, of , or both, and the developer-mode loop repeats.
+ Performance P(v)
+
+
+
+
+                                             0
+                                            v2
+                                                                                                          Phase II: held-out validation and rule-guided formal-
+                                                                             v2
+                                                                                  Generalize (ε ↑)     ization with bounded repair. After Phase I, the retained pair
+                                                                 ε2
+                                                                           εmax                        (M, ) is evaluated beyond the sampled training subset. In
+                                            ACCEPT                                                     developer mode, the Phase II loop is instantiated on require-
+                                                            ε1
+                            0
+                                       verified V (R)
+                                        within budget                                        vlimit
+                                                                                                       ments not used in S AMPLE(R), testing whether the learned
+                           vlimit
+                                                                                                       Meta-Rules and calibrated threshold  generalize to unseen
+                                                                           REJECT
+                                                                       unverified V (R)                requirements while remaining repairable within budget B. In
+                                                                       within budget limit
+                                                                                                       user mode, the same rule-guided synthesis procedure is applied
+                                                                       Base Model Manifold M           to the full deployment set R. For each requirement r, S YN -
+                                                                                                       THESIZE W ITH RULES(r, M ) produces a candidate contract ĝ,
+Fig. 2. Practically verified semantic cone for supervised Meta-Rule refine-                            which is checked again by V (ĝ, B) and, if needed, revised
+ment. A golden example direction g anchors the accepted region. A candidate                            by R EPAIR(ĝ, f b, B) while budget remains. If verification
+direction vi is screened by a distance such as dcos = 1 − cos(∠(vi , g)) and
+is applied only when dcos ≤ ; it is retained only if the resulting GUMBO                              succeeds, the pair (r, ĝ) is added to C; otherwise the tuple
+contract verifies within the budget. The accepted region therefore represents                          (r, ĝ, f b) is added to F . Operationally, the developer-mode
+budget-verifiable generalization, while the rejected region corresponds to                             loop (Phase I and Phase II) repeats until a satisfactory  is
+semantic, budget, or toolchain mismatch.
+                                                                                                       found, namely one for which the retained Meta-Rule library
+                    IV. S UPERVISED M ETA -RULE S ELF -A DAPTATION                                     remains reusable on unseen requirements within the available
+                        (L EARNING ) AND ACCEPTANCE C RITERIA                                          repair budget.
+A. The Algorithm
+                                                                                                       B. Scoped GUMBO Rule Book and Function Templates
+   Algorithm 1 introduces a dual-phase neuro-symbolic pro-                                                The evaluated Meta-Rule artifact is the single GUMBO-
+cess. Let R denote the target set of natural-language require-                                         centered Formal Specification Engineer rule book, referred to
+ments, and let S AMPLE(R) ⊂ R denote the sampled training                                              here as the GUMBO FSE Rule book. We use it as the retained
+subset used in developer mode during Phase I—in our setting,                                           library M in Algorithm 1; broader rule books are excluded
+its size was 1/6 of R. Let G = {(rg , gg )} denote the set of                                          from the quantitative evaluation and left to future work.
+golden examples, where rg is a golden requirement and gg is                                            Although the book mainly targets GUMBO formalization, it is
+its verified formalized GUMBO contract. Let M denote the                                               toolchain-aware: retained rules record SysML v2 attachment,
+retained Meta-Rule library, C the set of verified contracts, and                                       naming consistency, generated Slang/Scala compatibility, and
+F the set of flagged failures.                                                                         HAMR/Logika repair cues. The book was extracted/refined
+   Phase I: Meta-Rule extraction, sample-based training,                                               from a small solved GUMBO file/subsystem example and then
+and predictive -learning. For each golden pair (rg , gg ) ∈ G,                                        applied to the remaining Monitor/Regulate target files.
+E XTRACT RULE derives a candidate Meta-Rule m. For each
+                                                                                                       ExtractRule(req, golden, log):
+sampled requirement r ∈ S AMPLE(R), A PPLY RULE uses m                                                   record trigger, formal pattern, target construct
+to produce a candidate formalized contract ĝ. The quantity                                              attach SysML/GUMBO placement, naming, Slang,
+                                                                                                           verifier expectations, repair_hints, confidence
+D ISTANCE(ĝ, gg ) denotes a semantic distance between the                                               return auditable Meta-Rule record
+generated formalized contract and the golden formalized con-
+                                                                                                       ApplyRule(rule_book, req, active_model):
+tract, rather than a literal textual comparison. The threshold                                          load frozen GUMBO FSE rules and active context only
+therefore controls the admissible degree of abstraction away                                             if semantic_distance(req, rule) > epsilon: flag
+                                                                                                         emit GUMBO state/init/compute_cases on owner thread
+from the golden exemplar. The objective is not to drive                                                  report rule ids, ambiguities, checks; run HAMR/Logika
+ toward zero: if  is too small, the rule becomes over-
+                                                                                                       Repair(candidate, feedback, budget):
+specialized and loses reusability; if  is too large, the rule                                           classify syntax/attachment/name/type/Slang/Logika error
+admits overly broad generations that require excessive repair                                            minimally edit SysML/GUMBO; do not weaken contracts
+                                                                                                         rerun verifier while budget remains; return ok/failure
+or fail to verify within budget B. Accordingly, in developer
+mode  is tuned across repeated calibration attempts to find a                                         Listing 3. Compact ExtractRule, ApplyRule, and Repair templates from the
+                                                                                                       goal files.
+satisfactory intermediate value that best balances rule reuse
+and bounded repair. Verification is performed by V (ĝ, B),                                              The complete rule book, extraction/application/repair tem-
+where B is the repair budget in time and tokens for full                                               plates, evaluation logs, and run videos are linked in the
+repair cycles; the verifier returns a Boolean result ok together                                       supplementary artifact package [19].
+ Algorithm 1: SCP Meta-Rules Learning, Application,                                          TABLE I
+ and Verification-Guided Repair                                     Q UALITATIVE COMPARISON OF ADAPTATION MECHANISMS FOR
+                                                                                   HIGH - ASSURANCE PIPELINES .
+  Input: Requirements set R; golden examples G
+                                                                                              Fine-tuning   Prompting/ICL    Meta-Rules
+          (English + formalized GUMBO); verifier V                 Persistent across runs         Yes            No         Yes (external)
+          (HAMR/Logika); budgets B (time/tokens/repair             Model weights tuning         Explicit       Implicit       Implicit
+          cycles); similarity threshold ; acceptance              Cost                          High           Med          Low–Med
+                                                                   Auditability / review         Low          Low–Med           High
+          threshold τ .                                            Governance / rollback         Low            Low             High
+  Output: Verified contracts C; retained Meta-Rules                Runtime context overhead      Low            High         Low–Med
+                                                                   Data / IP constraints         High         Low–Med           Low
+            library M ; flagged failures F .                       FV acceptance gates           N/A             N/A          Primary
+  Initialization:                                                  HAMR toolchain reuse          N/A           Ad hoc         Primary
+
+  M ←∅                // persistent rule memory
+  C ← ∅; F ← ∅                                                  in Algorithm 1: extract an auditable rule, apply the frozen
+                                                                book to active project context, and repair only the smallest
+  Phase I: Meta-Rule extraction and validation                  contract/model fragment when verifier feedback requires it.
+  foreach (rg , gg ) ∈ G do
+      m ← E XTRACT RULE(rg , gg )                               C. Practical Considerations and Human Governance
+      okCount ← 0                                                  Meta-Rules are stored as local, version-controlled artifacts
+      foreach r ∈ S AMPLE(R) do                                 and supplied to the agent at execution time together with the
+          ĝ ← A PPLY RULE(m, r)                                verification plan. This design keeps adaptation auditable and
+          if D ISTANCE(ĝ, gg ) >  then                        allows changes to be reviewed, reproduced, and rolled back.
+              continue                                          While extraction and validation are highly automated, human
+         (ok, f b) ← V (ĝ, B)                                  oversight remains essential to prevent drift and to decide
+         while not ok and                                       whether a candidate rule is worth retaining. The threshold  is
+          R EPAIR B UDGET R EMAINING(B) do                      therefore calibrated as a satisficing engineering operating point
+             ĝ ← R EPAIR(ĝ, f b, B)                           rather than as a theoretical maximum: it is accepted once the
+             (ok, f b) ← V (ĝ, B)                              learned pair (M, ) achieves the user-required verification per-
+                                                                formance on unseen requirements within the available budget.
+         if ok then                                             Human review remains part of this calibration loop because
+             okCount ← okCount + 1                              the final choice of  reflects trade-offs among generality,
+      if okCount ≥ τ then                                       verification success, repair effort, and cost.
+          M ← M ∪ {m} // retain only if it                      D. Comparison to Fine-Tuning and Transient Prompting
+            verifies and generalizes                               This subsection situates Supervised Meta-Rules Adaptation
+      else                                                      relative to parameter fine-tuning and transient prompting/ICL.
+           D ISCARD O R R EFINE W ITH H UMAN(m)                 Fine-tuning modifies model weights and can yield strong
+                                                                performance, but it requires suitable data, training autho-
+  Phase II: Rule-guided formalization with bounded
+                                                                rization, compute, and checkpoint governance that are often
+   repair
+                                                                difficult in aerospace settings. Prompt-only ICL avoids weight
+  foreach r ∈ R do
+                                                                updates, and can behave like “implicit fine-tuning” during
+      ĝ ← S YNTHESIZE W ITH RULES(r, M )
+                                                                inference [16], but its effects are ephemeral: when the context
+      (ok, f b) ← V (ĝ, B)
+                                                                is reset, the learned behavior is lost, encouraging repeated
+      while not ok and R EPAIR B UDGET R EMAINING(B)
+                                                                long-context prompting.
+        do
+                                                                   Meta-Rules externalize successful ICL behavior into persis-
+          ĝ ← R EPAIR(ĝ, f b, B)
+                                                                tent, version-controlled, verifier-gated artifacts. The surrogate-
+          (ok, f b) ← V (ĝ, B)
+                                                                for-fine-tuning claim is therefore operational rather than uni-
+      if ok then                                                versal: Meta-Rules retain task specialization without modify-
+          C ← C ∪ {(r, ĝ)}                                     ing base-model parameters, while preserving inspectability,
+      else                                                      rollback, and formal verification-gated acceptance. Table I
+          F ← F ∪ {(r, ĝ, f b)}                                summarizes the comparison.
+                                                                   The next section defines the Isolette/HAMR benchmark and
+  Quality assessment and logging:                               reports the two evaluation traces used to measure verification
+  Log timestamps, token usage, latency, and repair              coverage, token cost, and HAMR-scoped reuse.
+   count; store M for reuse.
+                                                                V. E XPERIMENTAL E VALUATION : T HE I SOLETTE GUMBO
+                                                                                         B ENCHMARK
+  Listing 3 gives compact templates adapted from the learning
+and user-mode goal files. They show the three roles used          We use the Isolette infant-incubator system as a system-level
+                                                                HAMR/INSPECTA benchmark rather than an isolated text-
+to-contract example [18]. Isolette contains interacting moni-      Baseline: Parser rejected memory idioms:
+                                                                     "rejects every variant of the state ... syntax"
+tor and regulator subsystems, operator-interface behavior, de-       "@pre as an unsupported classification test"
+vice/sensor/actuator interactions, and multiple SysML v2 spec-     Result: could not encode hysteresis/no-change cases.
+ification/library files. It exercises the HAMR assurance path:     Tokens: input=981,770 (+18,673,920 cached),
+                                                                           output=85,833.
+requirements become SysML v2/GUMBO artifacts, HAMR
+generates Slang/Scala proof obligations, and Logika/SMT di-        Listing 4. Condensed baseline failure excerpt: parser rejection and high token
+                                                                   usage.
+agnostics drive repair. The quantitative evaluation focuses on
+one rule book, the GUMBO FSE Rule book; claims are limited
+to GUMBO-centered, HAMR-toolchain-aware formalization              can propagate into generated implementation artifacts and
+and repair.                                                        proof obligations, increasing both the number of repair paths
+                                                                   and the amount of context that must be reprocessed. The
+A. Experimental Design and Scope
+                                                                   token, throughput, and adjusted-cost metrics therefore capture
+   Inputs. The experiment uses (i) natural-language require-       whether the copilot reaches verifier-accepted artifacts without
+ments from a realistic FAA-style source containing text, tables,   allowing stochastic repair to expand beyond the available
+and figures, and (ii) SysML v2 models/shared libraries for         budget.
+the Isolette architecture, including Monitor.sysml and                For a run r, we report wall-clock time Twall (r), uncached
+Regulate.sysml [20]. These artifacts include terminology,          input tokens Nin (r), cached input tokens Ncache (r), and
+cross-references, and memory-bearing requirements such as          output-side tokens Nout (r). We do not separately tabulate
+hysteresis that must be encoded in tool-accepted GUMBO.            reasoning tokens in the main results because the pricing model
+Naive repair can replay requirements, model fragments, gen-        used here distinguishes input, cached input, and output-side
+erated Slang/Scala code, build logs, proof obligations, and        tokens; any separately logged reasoning count is therefore
+counterexamples, producing long-context blow-up across the         treated as part of the output-side cost discussion rather than as
+stack.                                                             a separate priced class. We define the context-processed total
+   Scope of evaluation. The target set contains 42 proof-
+bearing units: GUMBO contract-bearing blocks, generated                       Nctx (r) = Nin (r) + Ncache (r) + Nout (r).                    (1)
+or modified compute_cases, and corresponding HAMR-                 This distinction matters because current provider pricing dif-
+generated methods checked by Logika for the Monitor/Reg-           ferentiates uncached input, cached input, and output tokens.1
+ulate target. This scope is explicitly bounded, but remains        Let pm = (pin , pcache , pout ) denote the selected pricing
+system-level and multi-layered because a GUMBO decision            model. The illustrative dollar cost of a logged run is
+must survive SysML v2 placement, HAMR generation, gen-
+                                                                                   pin Nin (r) + pcache Ncache (r) + pout Nout (r)
+erated Slang/Scala obligations, and Logika proof discharge.         C(r; pm) =                                                     .
+   Runs and training split. We compare a prompt-only                                                     106
+                                                                                                                                  (2)
+baseline with a Meta-Rule run using the GUMBO FSE Rule             Because the illustrative pricing model sets pcache = 0, cached
+book at  = 0.1. Developer mode extracts/refines the rule book     tokens affect context-size and burn-rate metrics but not the
+from a small solved GUMBO file/subsystem example, then             dollar estimates in Table II.
+applies the retained knowledge to the remaining target files.      Adjusted cost. The adjusted trace in Table II is a complete
+This tests intra-system, cross-subsystem reuse under HAM-          logged run that already includes the one-time developer-mode
+R/INSPECTA; the reported adjusted trace already includes           extraction/refinement effort for the GUMBO FSE Rule book
+extraction/refinement and successful verification.                 and the successful verification run. Therefore, for that trace
+B. Observed Failure and Self-Healing Behavior                      we do not add a separate user-mode run again. We define
+   The baseline repeatedly attempted incompatible pre-state             Nadj (r) = Nctx (r),             Cadj (r; pm) = C(r; pm),            (3)
+idioms for memory-bearing requirements and did not con-
+                                                                   and report the adjusted per-verified-unit quantities
+verge on tool-accepted GUMBO state syntax. The Meta-
+Rule-guided run uses the GUMBO FSE Rule book to in-                                   Nadj (r)                    Cadj (r; pm)
+                                                                     Kadj (r) =                      ,       K$adj (r) =          .
+troduce explicit state, initialization guarantees, and struc-                       |Uverif ied (r)|             |Uverif ied (r)|
+tured compute_cases; it also uses toolchain-facing repair                                                                        (4)
+cues for SysML attachment, naming consistency, generated           When developer-mode and later user-mode logs are measured
+Slang/Scala obligations, and HAMR/Logika diagnostics. List-        separately, the amortized form for H future reuse opportunities
+ing 4 gives the condensed baseline log; the verified Meta-Rule-    is
+                                                                               (H)                           Cdev (pm)
+guided result and adjusted cost are reported in Table II and                 Cadj (r; pm) = Cuse (r; pm) +              .        (5)
+                                                                                                                 H
+Fig. 3 to avoid duplicating the same cost trace in a separate
+                                                                     1 Pricing reference used for the model-cost discussion: https://developers.
+listing.
+                                                                   openai.com/api/docs/pricing. At the time of writing, the illustrative standard
+C. Metrics, Pricing Model, and Results                             Codex price tags used in Table II are pin = $60/M long-context input tokens,
+                                                                   pcache = $0/M cached tokens, and pout = $270/M output-side tokens.
+  The evaluation measures more than final correctness. In          Prices and thresholds change over time, so the paper reports token classes
+a multi-layer HAMR workflow, early formalization errors            and symbolic prices rather than treating dollar amounts as invariant.
+This paper reports the more conservative complete adjusted           construction of seL4 and avionics-style systems [1]. Thus,
+trace for the scoped GUMBO experiment.                               SCP targets the upstream bottleneck for such high-assurance
+   Let Uverif ied (r) ⊆ U denote the verified subset of the 42       builds: learning HAMR-centric memories of linguistic trig-
+targeted units. We define                                            gers, GUMBO choices, structural placement decisions, and
+                           |Uverif ied (r)|                          verifier-guided repairs.
+                     ρ(r) =                 ,                 (6)
+                                |U |                                             VII. L IMITATIONS AND F UTURE W ORK
+                           |Uverif ied (r)|                             Our evaluation uses the Isolette infant-incubator sys-
+                    Θ(r) =                  ,                 (7)
+                             Twall (r)                               tem [18], a realistic HAMR/INSPECTA benchmark spanning
+                              Nctx (r)                               natural-language requirements, SysML v2 modeling, GUMBO
+                    K(r) =                  .                 (8)    contract synthesis, HAMR-generated Slang/Scala proof obli-
+                           |Uverif ied (r)|
+                                                                     gations, and Logika discharge. Within this scope, SCP shows
+For runs with Twall (r) > 0 and |Uverif ied (r)| > 0, the            that reusable formalization and repair knowledge can be
+context-token burn rate is Γctx (r) = Nctx (r)/Twall (r) =           learned from a small set of solved file- and subsystem-
+K(r)Θ(r). For partial verification, comparisons are defined          level examples and reused to verify remaining target files. In
+only over the common target subset, not merely by the number         particular, it converts a prompt-only failure into an end-to-end
+of verified units. Table II reports the adjusted values and Fig. 3   fully verified target-scope run while substantially reducing cost
+visualizes the same scoped comparison.                               and time, despite the restriction that the base model was not
+Interpretation. Table II reports the adjusted cost for the
+                                                                     fine-tuned.
+evaluated Meta-Rule condition, and Fig. 3 restores the visual           The current evaluation is currently limited to toolchain-
+comparison for the same scoped traces. The adjusted  = 0.1          aware SysML v2/GUMBO formalization and repair for the
+trace includes the one-time extraction/refinement effort for the     Isolette/HAMR target; broader validation remains future work.
+GUMBO FSE Rule book and the successful verification run              Planned extensions include additional HAMR rule books for
+in the same logged trace. Even without amortizing that one-          SysML synthesis, Rust/Verus repair, and other high-assurance
+time investment across future uses, the Meta-Rule-guided trace       systems, including seL4-based firewall architectures [31], as
+reduces cost per verified unit from ≈ 9.87M to ≈ 329K                well as repair heuristics inspired by V ERI S TRUCT [32], cloud-
+context tokens and from $41.04 to $0.92 in the illustrative          scale verification, multimodal specification, and compositional
+pricing model. The later user-mode run, after the rule book          reasoning for GUMBO/AGREE [29], [33]. Because rule-book
+exists, gives the usage-phase throughput reference Θ = 1.68          bloat may occur as Meta-Rules scale across systems and
+units/min; the adjusted complete run gives the more conserva-        HAMR artifact families, ongoing work studies budget-aware
+tive Θ = 1.08 units/min after including the one-time effort.         rule selection, where the SCP orchestrator classifies the input
+                     VI. R ELATED W ORK                              or verifier diagnostic and loads only the relevant rule book;
+   LLMs have increasingly been used for formal reasoning,            early artifacts already explore this direction [19].
+including theorem proving, autoformalization, proof repair,                                VIII. C ONCLUSION
+symbolic reasoning, and code verification. GPT-f explored               In this paper we introduced our SCP copilot which operates
+generative theorem proving in Metamath [21], while Baldur            at the MBSE-to-generated-system boundary: its GUMBO FSE
+and CoqDog-style systems study proof generation, repair, and         Rule Book learns HAMR-centric formalization and repair
+diagnosis in Isabelle/HOL and Coq [22], [23]. Other neuro-           knowledge that connects linguistic requirement triggers to
+symbolic and verification-oriented workflows integrate LLMs          SysML v2 contract placement, HAMR-generated Slang/Scala
+with SMT-backed checks, symbolic benchmarks, or code veri-           obligations, and Logika discharge largely autoamtically. Al-
+fication tasks [24]–[26]. These works are conceptually related,      though our evaluation uses HAMR’s JVM/Slang path rather
+but they typically operate at the level of proof scripts, theorem    than the seL4 Microkit path, HAMR also supports Linux
+libraries, agent-world models, or standalone code analysis           and seL4 targets and has been used for model-driven seL4
+rather than at the MBSE-to-generated-system boundary.                and avionics-style systems [1]. Thus, that learned Meta-Rules
+   Formal methods are also entering MBSE standards and               can reduce an upstream bottleneck in high-assurance HAMR
+tools: SysML v2 was designed with formal semantics in                workflows by lowering the cost of the formal context, and
+mind [27], Imandra has demonstrated model-level SysML v2             repair effort needed to synthesize verifier-checked GUMBO
+verification [28], and AGREE-Dog supports AADL/AGREE                 contracts, turning a prompt-only failure into a fully verified
+model-level explanation and repair [29], [30]. SCP differs           target-scope run. The present results remain scoped to Isolet-
+in its evaluated boundary and learned artifact: its GUMBO            te/HAMR; broader cross-system validation, additional HAMR
+FSE Rule book helps produce contracts placed in SysML v2,            artifact families, and budget-aware rule selection to control
+preserved through HAMR generation, reflected in generated            rule-book growth remain future work.
+Slang/Scala obligations, and discharged by Logika. Although
+our evaluated build uses HAMR’s JVM/Slang execution path                                ACKNOWLEDGMENT
+rather than the seL4 Microkit path, HAMR supports JVM,                 This work was funded by DARPA contract FA8750-24-9-
+Linux, and seL4 targets and has been used for model-driven           1000. The views, opinions, and/or findings expressed are those
+                                                                TABLE II
+ R EPRESENTATIVE ADJUSTED RUN METRICS FOR THE SCOPED GUMBO EVALUATION . T HE ADJUSTED COLUMN IS A COMPLETE LOGGED RUN , SO THE
+    ONE - TIME EXTRACTION / REFINEMENT EFFORT IS ALREADY INCLUDED . D OLLAR COSTS USE THE CURRENT PRICING MODEL IN THE FOOTNOTE ;
+                                           CACHED - TOKEN PRICE IS SET TO ZERO IN THAT MODEL .
+
+      Metric                                                             Baseline: no Meta-Rules                                                     Adjusted  = 0.1: the GUMBO FSE Rule book
+      Rule-book scope                                                    None                                                                        GUMBO-centered FSE rules with toolchain-aware re-
+                                                                                                                                                     pair
+      Phase reported                                                     Prompt-only user run                                                        Adjusted complete run
+      Training / reuse source                                            None                                                                        One solved/golden GUMBO file/subsystem; evaluated
+                                                                                                                                                     on remaining target files
+      Toolchain layers exercised                                         SysML/GUMBO attempted; verification fails                                   SysML v2 placement, GUMBO, generated Slang/Scala
+                                                                                                                                                     obligations, Logika repair
+      Price tags (per M tokens)                                          input $60; cached $0; output $270                                           same
+      Twall (min)                                                        33                                                                          39
+      Nin                                                                981,770                                                                     381,624
+      Ncache                                                             18,673,920                                                                  13,391,360
+      Nout                                                               85,833                                                                      57,821
+      Logged priced tokens Nin + Nout                                    1,067,603                                                                   439,445
+      Illustrative C / Cadj (pcache = 0)                                 $82.08                                                                      $38.51
+      Nctx                                                               19,741,523                                                                  13,830,805
+      Γctx (tokens/min)                                                  ≈598K                                                                       ≈355K
+      |U | targeted units                                                42                                                                          42
+      |Uverif ied |                                                      2                                                                           42
+      ρ                                                                  4.76%                                                                       100%
+      Θ (units/min)                                                      0.06                                                                        1.08
+      K / Kadj (context tokens/verified unit)                            ≈9.87M                                                                      ≈329K
+      K$ / K$adj (dollars/verified unit)                                 $41.04                                                                      $0.92
+      S (end-to-end success)                                             0                                                                           1
+
+
+
+                                        Non-Cached Token Cost                                                                                 Verified Throughput Rate Θ
+                                       0.98M
+                                                                                                                                                                                            1.68
+                                       $58.91
+                               1M
+                                                  0.38M
+                                                                                                                             1.5
+           Tokens (log)
+
+
+
+
+                              500K                $22.90
+                                                                                                           Units/min
+
+
+
+
+                                                                                                                                                                 1.08
+
+                                                                                                                               1
+
+                                                               85.8K
+                              100K                             $23.17
+                                                                           57.8K                                             0.5
+                                                                           $15.61
+                                                                                                                                       0.06
+                              50K
+                                                                                                                               0
+                                       Input      Input        Output      Output                                                       No Rules              Adj. FSE                User FSE
+                                      No Rules   Adj. FSE     No Rules    Adj. FSE
+
+
+                                          Verification Coverage                                                                                     K and $/Verified Unit
+                                                            100%                                                                                   9.87M
+                                                                                                                                                   $41.04
+                              100
+                                                                                                Context tokens/unit (log)
+
+
+
+
+                                                                                                                             107
+
+                               75
+                    Percent
+
+
+
+
+                               50                                                                                            106                                329K
+                                                                                                                                                                $0.92
+                               25                                                                                                                                             111K
+                                                      4.76%                                                                                                                   $0.79
+                                                                                                                               5
+                                0                                                                                            10
+                                                     Coverage                                                                                  No Rules       Adj. FSE     User FSE
+
+
+Fig. 3. Adjusted quantitative comparison for the scoped Isolette/GUMBO FSE evaluation. The chart uses the same baseline and adjusted  = 0.1 trace as
+Table II. The first panel shows only the non-cached priced token classes, input and output, with the same style of dollar tags used in the cost panel; cached
+tokens are still reported in Table II because they affect context size but have zero cost in the illustrative pricing model. The throughput panel reports Θ for
+baseline, adjusted complete run, and the later user-mode run after the rule book exists; the cost panel reports K and dollar cost per verified unit.
+
+
+of the authors and should not be interpreted as representing                                                                    tems Conference (DASC), 2025, author version / preprint (uploaded as
+the official views or policies of DARPA, the U.S. Department                                                                    hardin2025dasc.pdf).
+                                                                                                                            [2] OpenAI, “GPT-5.2 Codex System Card,” https://openai.com/index/
+of Defense, or the U.S. Government.                                                                                             gpt-5-2-codex-system-card/, 2025, accessed: 2026-02-12.
+                                                                                                                            [3] S. Bubeck, C. Coester, R. Eldan, T. Gowers, Y. T. Lee, A. Lupsasca,
+                                     R EFERENCES                                                                                M. Sawhney, R. Scherrer, M. Sellke, B. K. Spears, D. Unutmaz, K. Weil,
+                                                                                                                                S. Yin, and N. Zhivotovskiy, “Early science acceleration experiments
+ [1] D. Hardin, I. Amundson, J. Babar, D. Cofer, S. Hasan, K. Hoech,                                                            with GPT-5,” 2025. [Online]. Available: https://arxiv.org/abs/2511.16072
+     J. Belt, J. Hatcliff, Robby, and S. Hallerstede, “Automated SysML v2                                                   [4] OpenAI,     “GPT-5     System      Card,”       https://openai.com/index/
+     system model to memory-safe language code generation for avionics                                                          gpt-5-system-card/, 2025, accessed: 2026-02-12.
+     applications,” in Proceedings of the IEEE/AIAA Digital Avionics Sys-                                                   [5] A. Achille and S. Soatto, “AI agents as universal task solvers,”
+     Entropy, vol. 28, no. 3, 2026. [Online]. Available: https://www.mdpi.         [20] D. L. Lempia and S. P. Miller, Requirements Engineering Management
+     com/1099-4300/28/3/332                                                             Handbook.        Federal Aviation Administration, 2009, DOT/FAA/AR-
+ [6] Object Management Group (OMG), “SysML v2 model formalism                           08/32.
+     working group,” https://www.omgwiki.org/OMGSysML/doku.php?id=                 [21] S. Polu and I. Sutskever, “Generative language modeling for automated
+     sysml-roadmap:sysml v2 model formalism working group, accessed:                    theorem proving,” arXiv preprint arXiv:2009.03393, 2020.
+     2026-02-10.                                                                   [22] E. First, M. N. Rabe, T. Ringer, and Y. Brun, “Baldur: Whole-proof
+ [7] Object Management Group, “OMG system modeling language (SysML)                     generation and repair with large language models,” arXiv preprint
+     v2 specification,” 2025. [Online]. Available: https://www.omg.org/spec/            arXiv:2303.04910, 2023.
+     SYSML                                                                         [23] A. Tahat, D. Hardin, A. Petz, and P. Alexander, “Proof repair utilizing
+ [8] J. Hatcliff, D. Stewart, J. Belt, Robby, and A. Schwerdfeger, “An                  large language models: A case study on the copland remote attestation
+     AADL contract language supporting integrated model- and code-level                 proofbase,” in Proceedings of International Symposium On Leveraging
+     verification,” Ada Letters, vol. 42, no. 2, p. 45–54, April 2023. [Online].        Applications of Formal Methods Verification and Validation (AISolA),
+     Available: https://doi.org/10.1145/3591335.3591339                                 2024.
+ [9] Galois, “Gumbo: Grand unified modeling of behavioral operators,”              [24] N. Swamy, C. Hritcu, C. Keller, A. Rastogi, A. Delignat-Lavaud,
+     2024. [Online]. Available: https://www.galois.com/project/gumbo                    S. Forest, K. Bhargavan, C. Fournet, P. Strub, M. Kohlweiss, J. K.
+[10] J. Hatcliff, J. Belt, Robby, and T. Carpenter, “HAMR: An AADL multi-               Zinzindohoue, and S. Z. Béguelin, “Dependent types and multi-monadic
+     platform code generation toolset,” in 10th International Symposium on              effects in F,” in Proceedings of the 43rd Annual ACM SIGPLAN-
+     Leveraging Applications of Formal Methods, Verification and Validation             SIGACT Symposium on Principles of Programming Languages, POPL
+     (ISoLA), ser. LNCS, vol. 13036, 2021, pp. 274–295.                                 2016, St. Petersburg, FL, USA, January 20 - 22, 2016, R. Bodı́k and
+[11] Sireum HAMR: High Assurance Modeling and Rapid Engineering for                     R. Majumdar, Eds. ACM, 2016, pp. 256–270. [Online]. Available:
+     Embedded Systems, Kansas State University, 2025. [Online]. Available:              https://doi.org/10.1145/2837614.2837655
+     http://hamr.sireum.org/                                                       [25] Amazon Web Services, “Automated reasoning checks in amazon bedrock
+[12] L. De Moura and N. Bjørner, “Z3: An Efficient SMT Solver,” in                      guardrails,” 2025. [Online]. Available: https://docs.aws.amazon.com/
+     Proceedings of the Theory and practice of software, 14th international             bedrock/latest/userguide/guardrails-automated-reasoning-checks.html
+     conference on Tools and algorithms for the construction and analysis          [26] S. I. Mirzadeh, K. Alizadeh, H. Shahrokhi, O. Tuzel, S. Bengio,
+     of systems, ser. TACAS’08/ETAPS’08, 2008, pp. 337–340.                             and M. Farajtabar, “GSM-symbolic: Understanding the limitations of
+[13] C. Barrett, C. L. Conway, M. Deters, L. Hadarean, D. Jovanović, T. King,          mathematical reasoning in large language models,” in The Thirteenth
+     A. Reynolds, and C. Tinelli, “CVC4,” in Proceedings of the 23rd                    International Conference on Learning Representations, 2025. [Online].
+     international conference on Computer aided verification, ser. CAV’11,              Available: https://openreview.net/forum?id=AjXkRZIvjB
+     2011, pp. 171–177.                                                            [27] Object Management Group (OMG), “Systems modeling language
+[14] J. Belt, J. Hatcliff, Robby, J. Shackleton, J. Carciofini, T. Carpenter,           (SysML) v2 specification,” , 2024, accessed: 2025-05-19.
+     E. Mercer, I. Amundson, J. Babar, D. Cofer, D. Hardin, K. Hoech,              [28] Imandra, “Imandra SysML: Formal verification for SysML v2 models,”
+     K. Slind, I. Kuz, and K. Mcleod, “Model-driven development for the                 2024. [Online]. Available: https://www.imandra.ai/sysml
+     seL4 microkernel using the HAMR framework,” Journal of Systems                [29] A. Tahat, I. Amundson, D. Hardin, and D. Cofer, “AGREE-
+     Architecture, vol. 134, no. C, February 2023.                                      Dog copilot: A neuro-symbolic approach to enhanced model-based
+[15] G. Klein, K. Elphinstone, G. Heiser, J. Andronick, D. Cock, P. Derrin,             systems engineering,” in Bridging the Gap Between AI and
+     D. Elkaduwe, K. Engelhardt, R. Kolanski, M. Norrish, T. Sewell,                    Reality (AISoLA 2025), Selected Papers, 2025. [Online]. Available:
+     H. Tuch, and S. Winwood, “sel4: Formal verification of an os                       https://link.springer.com/chapter/10.1007/978-3-032-07132-3 8
+     kernel,” in Proceedings of the 22nd ACM SIGOPS Symposium on                   [30] P. H. Feiler and D. P. Gluch, Model-Based Engineering with AADL:
+     Operating Systems Principles (SOSP), 2009. [Online]. Available:                    An Introduction to the SAE Architecture Analysis & Design Language,
+     https://doi.org/10.1145/1629575.1629596                                            1st ed. Addison-Wesley Professional, 2012.
+[16] J. von Oswald, E. Niklasson, E. Randazzo, J. Sacramento, A. Mord-             [31] J. Hatcliff, “Model-based development for seL4 Microkit/Rust with
+     vintsev, A. Zhmoginov, and M. Vladymyrov, “Transformers learn in-                  integrated formal methods using HAMR,” Presentation at the seL4
+     context by gradient descent,” in Proceedings of the 40th International             Summit 2025, 2025, accessed: 2025-05-19. [Online]. Available:
+     Conference on Machine Learning. PMLR, 2023, pp. 35 151–35 174.                     https://sel4summit2025.sched.com/event/26GD3
+[17] AWS News Blog, “Prevent factual errors from llm hallucinations with           [32] C. Sun, Y. Sun, D. Amrollahi, E. Zhang, S. Lahiri, S. Lu,
+     mathematically sound automated reasoning checks (preview),” AWS                    D. Dill, and C. Barrett, “VeriStruct: AI-assisted automated verification
+     Blog Post, 2024, accessed: 2025-05-11.                                             of data-structure modules in verus,” 2025. [Online]. Available:
+[18] J. Hatcliff et al., “The Isolette system: Illustrating end-to-end artifacts        https://arxiv.org/abs/2510.25015
+     for rigorous model-based engineering,” in International Symposium On          [33] D. Cofer, A. Gacek, S. Miller, M. W. Whalen, B. LaValley, and L. Sha,
+     Leveraging Applications of Formal Methods, Verification and Validation             “Compositional verification of architectural models,” in NASA Formal
+     (ISoLA), 2024, author version (uploaded as Hatcliff-etal-ISOLA2024-                Methods, A. E. Goodloe and S. Person, Eds. Springer, 2012, pp. 126–
+     Isolette-Overview.pdf).                                                            140.
+[19] Loonwerks, “INSPECTA Spec-Code-Proof Copilot,” GitHub
+     repository, 2026, accessed: 2026-05-06. [Online]. Available:
+     https://github.com/loonwerks/INSPECTA-Spec-Code-Proof-Copilot/
+     tree/main?tab=readme-ov-file
+
