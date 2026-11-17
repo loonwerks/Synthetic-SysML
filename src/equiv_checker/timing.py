@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from dataclasses import dataclass
+import json
+from pathlib import Path
 import threading
 import time
 from typing import Any, Iterator, Mapping
@@ -26,10 +28,16 @@ class TimingEvent:
 class TimingRecorder:
     """Collect timing events without changing checker control flow."""
 
-    def __init__(self) -> None:
+    def __init__(self, *, progress_path: Path | None = None) -> None:
         self._started = time.perf_counter()
         self._events: list[TimingEvent] = []
         self._lock = threading.Lock()
+        self._progress_path = progress_path
+        if progress_path is not None:
+            # Never overwrite another run's diagnostic trail. This file is
+            # progress only; completed, sealed evidence establishes verdicts.
+            with progress_path.open("x", encoding="utf-8"):
+                pass
 
     def record(
         self, stage: str, elapsed_seconds: float, **detail: Any
@@ -39,6 +47,9 @@ class TimingRecorder:
         event = TimingEvent(stage, elapsed_seconds, detail)
         with self._lock:
             self._events.append(event)
+            if self._progress_path is not None:
+                with self._progress_path.open("a", encoding="utf-8") as stream:
+                    stream.write(json.dumps(event.to_json(), sort_keys=True) + "\n")
         return event
 
     @contextmanager

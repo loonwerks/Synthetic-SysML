@@ -610,7 +610,6 @@ def _run_compare(
             message = f"{label} input is not a regular file: {path}"
             return 2, RunStatus.INCONCLUSIVE.value, (message,)
 
-    timings = TimingRecorder()
     try:
         if args.output_dir.is_symlink():
             raise InvalidOutputDirectoryError(
@@ -630,6 +629,7 @@ def _run_compare(
             args.output_dir.mkdir()
         staging_context = tempfile.TemporaryDirectory(prefix="equiv-result-staging-")
         bundle = EvidenceBundle(Path(staging_context.name) / "bundle")
+        timings = TimingRecorder(progress_path=args.output_dir / "progress.jsonl")
     except InvalidOutputDirectoryError as exc:
         return 2, RunStatus.INCONCLUSIVE.value, (str(exc),)
     except EvidenceError as exc:

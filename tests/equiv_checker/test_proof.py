@@ -64,6 +64,87 @@ class _Backend:
 
 
 class ProofTest(unittest.TestCase):
+    def test_timeout_in_attested_source_path_is_not_a_timeout(self):
+        source = Path("/tmp/timeout-case/Proof.scala")
+        output = (
+            f"* Cache hit on parsed input {source}\n"
+            f"Verifying files:\n* {source}\n\n"
+            "Wrote /tmp/timeout-case/query.smt2\n"
+            "Logika verified! Verification time: 0.1s\n"
+        )
+        self.assertEqual(interpret_logika(mode="valid", exit_code=0, output=output,
+                                         requested_sources=(source,)), ToolOutcome.VERIFIED)
+        self.assertEqual(interpret_logika(mode="valid", exit_code=0,
+                                         output=output + "Solver timeout\n",
+                                         requested_sources=(source,)), ToolOutcome.TIMEOUT)
+
+    def test_under_approximation_cannot_be_accepted_as_verified(self):
+        source = Path("/tmp/Proof.scala")
+        output = (
+            "Under-approximation due to recursive call capped with bound 3\n"
+            f"Verifying files:\n* {source}\n\nLogika verified!\n"
+        )
+        self.assertEqual(interpret_logika(mode="valid", exit_code=0, output=output,
+                                         requested_sources=(source,)), ToolOutcome.TOOL_ERROR)
+
+    def test_bounded_worker_reuse_keeps_each_request_attested(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            project = Path(temporary)
+            source = project / "src/main/Proof.scala"
+            source.parent.mkdir(parents=True)
+            source.write_text("// proof\n", encoding="utf-8")
+            backend = ResidentLogikaBackend(Path("/bin/true"), max_requests_per_worker=2)
+            starts = []
+
+            def start(project, timeout):
+                if backend._process is None:
+                    starts.append(project)
+                    backend._process = SimpleNamespace(stdin=mock.Mock())
+
+            def stop():
+                backend._process = None
+                backend._requests_in_worker = 0
+
+            def response(_timeout):
+                digest = hashlib.sha256(source.read_bytes()).hexdigest()
+                return f"GUMBO_LOGIKA_RESULT\tproof-{backend._counter:04d}\t0\t1\t1\t0\t0\t{digest}"
+
+            with (
+                mock.patch.object(backend, "_start", side_effect=start),
+                mock.patch.object(backend, "_stop", side_effect=stop) as stopped,
+                mock.patch.object(backend, "_next_line", side_effect=response),
+            ):
+                runs = [backend.run(project=project, source=source, mode="valid", timeout=1)
+                        for _ in range(3)]
+                backend._process = None
+                self.assertEqual(len(starts), 2)
+                self.assertEqual(stopped.call_count, 1)
+                # A success token without exact-source attestation still fails,
+                # even on a reused worker.
+                self.assertTrue(all(run.outcome not in (ToolOutcome.VERIFIED, ToolOutcome.SAT) for run in runs))
+                self.assertEqual(len({run.request[1] for run in runs}), 3)
+            backend._process = None
+
+    def test_worker_recycles_before_ram_floor_between_requests(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            project = Path(temporary)
+            source = project / "src/main/Proof.scala"
+            source.parent.mkdir(parents=True)
+            source.write_text("// proof\n", encoding="utf-8")
+            backend = ResidentLogikaBackend(Path("/bin/true"), minimum_available_memory_fraction=0.25)
+            backend._process = SimpleNamespace(stdin=mock.Mock())
+            digest = hashlib.sha256(source.read_bytes()).hexdigest()
+            with (
+                mock.patch("equiv_checker.proof._available_memory_fraction", return_value=0.30),
+                mock.patch.object(backend, "_start"),
+                mock.patch.object(backend, "_stop") as stop,
+                mock.patch.object(backend, "_next_line", return_value=
+                    f"GUMBO_LOGIKA_RESULT\tproof-0001\t0\t1\t1\t0\t0\t{digest}"),
+            ):
+                backend.run(project=project, source=source, mode="valid", timeout=1)
+            stop.assert_called_once_with()
+            backend._process = None
+
     def test_resident_backend_stops_worker_before_ram_floor(self):
         backend = ResidentLogikaBackend(
             Path("/bin/true"), minimum_available_memory_fraction=0.25

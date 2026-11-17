@@ -940,7 +940,10 @@ class GeneralizedComparisonBackend:
         logika = ResidentLogikaBackend(
             sireum,
             timings=request.timings,
-            restart_after_run=True,
+            # Reuse parsed/type-hierarchy caches across a bounded set of
+            # singleton proofs. Each request still has a fresh reporter and
+            # SMT/transition cache; no proof batching or verdict reuse.
+            max_requests_per_worker=8,
             minimum_available_memory_fraction=0.25,
         )
 

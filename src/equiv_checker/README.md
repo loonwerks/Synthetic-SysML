@@ -78,6 +78,34 @@ guarantee realizability. Health never silently changes the comparison verdict.
 A failed validity VC is classified as a semantic counterexample only after its
 SAT complement is also verified.
 
+## Proof-worker performance and memory
+
+Proofs run one source at a time with exact-source attestation. The native worker
+uses fresh reporters and fresh SMT/transition caches for each request; only
+parsed-input and type-hierarchy caches are reused. Multi-source proof batching
+is intentionally disabled because retained regressions exposed false batch
+successes.
+
+Pure-function derivation uses merged conditional states (`dontSplitPfq = T`)
+rather than forced path splitting. This retains both branches and the same
+refinement/health obligations, while avoiding the combinatorial exploration
+caused by long short-circuit Boolean contracts. Six formerly timed-out
+self-refinement VCs verified unchanged in native testing; separate controls
+rejected a false implication and verified its SAT complement. Native
+under-approximation warnings fail closed, including a run with a success token.
+
+The generalized backend recycles a worker after at most eight requests or on a
+project change. It also recycles early between requests when available RAM falls
+within ten percentage points of its 25% hard floor. The hard floor still stops
+an active request, reporting an unresolved/tool outcome rather than a proof.
+This bounds cache lifetime while avoiding a full JVM/Scala/project reload for
+every obligation. Process groups are removed during recycling as before.
+
+Each comparison now writes `progress.jsonl` in its output directory as timing
+events complete, including worker starts and individual proof outcomes. This
+unsealed diagnostic survives a whole-comparison timeout; final `result.json`
+and verification evidence remain the authority for semantic verdicts.
+
 ## Requirements
 
 Run commands from the repository root. The checker expects:

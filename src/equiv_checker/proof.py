@@ -141,7 +141,16 @@ def interpret_logika(
     """
 
     lower = output.lower()
-    if "timed out" in lower or "timeout" in lower:
+    # Verbose source/cache listings contain user-chosen paths. A filename such
+    # as /tmp/timeout-case/Proof.scala is not a solver timeout diagnostic.
+    diagnostic_text = "\n".join(
+        line for line in output.splitlines()
+        if not re.match(
+            r"^\s*(?:\*\s+(?:Cache hit on parsed input\s+)?|Wrote\s+)(?:/|file:/|[A-Za-z]:[\\/])",
+            line,
+        )
+    ).lower()
+    if re.search(r"\b(?:timed out|timeout)\b", diagnostic_text):
         return ToolOutcome.TIMEOUT
     if exit_code is None:
         return ToolOutcome.TOOL_ERROR
@@ -155,6 +164,8 @@ def interpret_logika(
             "token recognition error",
             "internal error",
             "exception",
+            "under-approximation due to",
+            "under approximation due to",
         )
     ):
         return ToolOutcome.TOOL_ERROR
@@ -242,6 +253,7 @@ class ResidentLogikaBackend:
         worker: Path | None = None,
         timings: TimingRecorder | None = None,
         restart_after_run: bool = False,
+        max_requests_per_worker: int | None = None,
         minimum_available_memory_fraction: float | None = None,
     ) -> None:
         self.sireum = sireum.resolve()
@@ -250,6 +262,10 @@ class ResidentLogikaBackend:
         ).resolve()
         self.timings = timings
         self.restart_after_run = restart_after_run
+        if max_requests_per_worker is not None and max_requests_per_worker < 1:
+            raise ValueError("max_requests_per_worker must be positive")
+        self.max_requests_per_worker = max_requests_per_worker
+        self._requests_in_worker = 0
         self.minimum_available_memory_fraction = minimum_available_memory_fraction
         self._project: Path | None = None
         self._process: subprocess.Popen[str] | None = None
@@ -355,6 +371,7 @@ class ResidentLogikaBackend:
         process = self._process
         self._process = None
         self._project = None
+        self._requests_in_worker = 0
         if process is None:
             return
         try:
@@ -433,6 +450,16 @@ class ResidentLogikaBackend:
         )
         output_lines: list[str] = []
         try:
+            # Reclaim retained analysis state before another request when RAM
+            # approaches the hard floor. The in-request floor remains enforced
+            # by _next_line; recycling never changes a proof's interpretation.
+            minimum = self.minimum_available_memory_fraction
+            available = _available_memory_fraction() if minimum is not None else None
+            if (
+                self._process is not None and available is not None
+                and available < min(1.0, minimum + 0.10)
+            ):
+                self._stop()
             self._start(project, timeout)
             # Startup has its own timing event.  Per-request evidence measures
             # only the singleton Analysis.run round trip so the two costs are
@@ -474,6 +501,7 @@ class ResidentLogikaBackend:
                 output=output,
                 requested_sources=(source,),
             )
+            self._requests_in_worker += 1
         except TimeoutError as error:
             self._stop()
             output = "\n".join((*output_lines, str(error))) + "\n"
@@ -500,10 +528,13 @@ class ResidentLogikaBackend:
                 worker_elapsed_seconds=worker_elapsed,
                 request_id=request_id,
             )
-        if self.restart_after_run:
+        if self.restart_after_run or (
+            self.max_requests_per_worker is not None
+            and self._requests_in_worker >= self.max_requests_per_worker
+        ):
             # Logika retains substantial analysis state in a long-lived worker.
-            # Releasing it after each singleton proof keeps campaign memory bounded
-            # without changing the source, mode, timeout, or result interpretation.
+            # Periodic recycling bounds its lifetime without changing the source,
+            # mode, timeout, singleton analysis, or result interpretation.
             self._stop()
         return LogikaRun(
             command,

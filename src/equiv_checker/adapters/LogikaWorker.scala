@@ -47,7 +47,10 @@ object LogikaWorker extends App {
       logRawPc = F,
       logVc = F,
       logVcDirOpt = None(),
-      dontSplitPfq = F,
+      // Merge conditional states when deriving strictpure proof functions.
+      // Forcing path splits here makes long Boolean contracts explode even
+      // though ordinary splitIf is disabled. All branches remain represented.
+      dontSplitPfq = T,
       splitAll = F,
       splitIf = F,
       splitMatch = F,
